@@ -7,6 +7,7 @@
 mkdir -p /root/.gnupg/
 touch /root/.gnupg/dirmngr_ldapservers.conf
 
+pacman-key -r 962DDE58
 pacman-key -f 962DDE58
 pacman-key --lsign 962DDE58
 
