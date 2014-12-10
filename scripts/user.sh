@@ -24,7 +24,7 @@ makepkg -i --noconfirm
 cd ..
 rm -f *.tar.gz
 
-pacaur -S ttf-opensans
+pacaur -S --noconfirm ttf-opensans
 
 # Get our window manager code
 cd $HOME/code/repos
