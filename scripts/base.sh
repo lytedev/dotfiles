@@ -3,10 +3,14 @@
 # This script is for setting up a base arch machine
 # It assumes a "base base-devel" pacstrap. 
 
+# This fixes a weird gnupg/dirmngr bug.
+mkdir -p /root/.gnupg/
+touch /root/.gnupg/dirmngr_ldapservers.conf
+
 pacman-key -f 962DDE58
 pacman-key --lsign 962DDE58
 
-sudo echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch\n\n[infinality-bundle-fonts]\nServer = http://bohoomil.com/repo/fonts\n" >> /etc/pacman.conf
+echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch\n\n[infinality-bundle-fonts]\nServer = http://bohoomil.com/repo/fonts\n" >> /etc/pacman.conf
 
 pacman -Syyu --noconfirm
 
