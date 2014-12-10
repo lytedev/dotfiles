@@ -24,6 +24,8 @@ makepkg -i --noconfirm
 cd ..
 rm -f *.tar.gz
 
+pacaur -S ttf-opensans
+
 # Get our window manager code
 git clone https://github.com/baskerville/bspwm.git
 git clone https://github.com/baskerville/sxhkd.git
