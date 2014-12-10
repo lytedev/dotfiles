@@ -4,10 +4,9 @@
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 
 # Create necessary config directories
-mkdir $HOME
-mkdir $HOME/.config
-mkdir $HOME/.config/bspwm
-mkdir $HOME/.config/sxhkd
+mkdir -p $HOME/.config
+mkdir -p $HOME/.config/bspwm
+mkdir -p $HOME/.config/sxhkd
 
 # Link files
 ln -s $DIR/luakit $HOME/.config/luakit

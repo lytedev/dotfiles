@@ -35,5 +35,6 @@ make
 sudo make install
 
 cd ../sxhkd
-make sudo make install
+make
+sudo make install
 
