@@ -1,0 +1,34 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+unsetopt beep
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/daniel/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Aliases 
+alias ls='ls -h --color'
+alias lx='ls -lXB' 
+alias lk='ls -lSr'
+alias lt='ls -ltr'
+alias lc='ls -ltcr'
+alias lu='ls -ltur'
+
+alias ll='ls -lv --group-directories-first'
+alias lm='ll | more'
+alias lr='ll -R'
+alias la='ll -A'
+alias tree='tree -Csuh'
+
+# PS1
+PS1="%n@%m %~ "
+
+# Keybinds
+bindkey "^P" up-line-or-search

@@ -1,0 +1,21 @@
+[ -z "$PS1" ] && return 
+
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# Aliases 
+alias ls='ls -h --color'
+alias lx='ls -lXB' 
+alias lk='ls -lSr'
+alias lt='ls -ltr'
+alias lc='ls -ltcr'
+alias lu='ls -ltur'
+alias ll='ls -lv --group-directories-first'
+alias lm='ll | more'
+alias lr='ll -R'
+alias la='ll -A'
+alias tree='tree -Csuh'
+
+# PS1
+PS1="\u@\h \w \$ "

@@ -1,0 +1,23 @@
+syntax on
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab 
+
+set background=dark
+let base16colorspace=16
+
+nnoremap <C-Tab> :tabnext<CR>
+nnoremap <C-S-Tab> :tabprevious<CR>
+nnoremap <C-t> :tabnew<CR>
+
+noremap <C-1> 1gt
+noremap <C-2> 2gt
+noremap <C-3> 3gt
+noremap <C-4> 4gt
+noremap <C-5> 5gt
+noremap <C-6> 6gt
+noremap <C-7> 7gt
+noremap <C-8> 8gt
+noremap <C-9> 9gt
+noremap <C-0> 10gt
