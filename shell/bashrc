@@ -18,4 +18,4 @@ alias la='ll -A'
 alias tree='tree -Csuh'
 
 # PS1
-PS1="\u@\h \w \$ "
+PS1="\u@\h \w "
