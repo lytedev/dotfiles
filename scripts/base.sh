@@ -4,7 +4,7 @@
 # It assumes a "base base-devel" pacstrap. 
 
 pacman-key -f 962DDE58
-pacman-key --lsign 952DDE58
+pacman-key --lsign 962DDE58
 
 sudo echo "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch\n\n[infinality-bundle-fonts]\nServer = http://bohoomil.com/repo/fonts\n" >> /etc/pacman.conf
 
