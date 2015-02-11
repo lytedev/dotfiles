@@ -8,4 +8,5 @@ ln -s $DIR/luakit $HOME/.config/luakit
 ln -s $DIR/shell/zshrc $HOME/.zshrc
 ln -s $DIR/shell/bashrc $HOME/.bashrc
 ln -s $DIR/vim/vimrc $HOME/.vimrc
+ln -s $DIR/shell/tmux.conf $HOME/.tmux.conf
 
