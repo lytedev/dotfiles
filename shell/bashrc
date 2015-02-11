@@ -19,8 +19,10 @@ alias lm='ll | more'
 alias lr='ll -R'
 alias la='ll -A'
 alias tree='tree -Csuh'
-# This fixes some OSX printf issues
-alias printf='env printf'
+if [ $(uname) = "Darwin" ]; then
+  # This fixes some OSX printf issues
+  alias printf='env printf'
+fi
 
 # Reset
 Color_Off='\e[0m'       # Text Reset
