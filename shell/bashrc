@@ -1,3 +1,5 @@
+#!/usr/bin/env bash 
+
 [ -z "$PS1" ] && return 
 
 if [ -f /etc/bashrc ]; then
@@ -17,6 +19,8 @@ alias lm='ll | more'
 alias lr='ll -R'
 alias la='ll -A'
 alias tree='tree -Csuh'
+# This fixes some OSX printf issues
+alias printf='env printf'
 
 # Reset
 Color_Off='\e[0m'       # Text Reset
@@ -93,16 +97,22 @@ On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White  
  
 function line() {
-  SEGMENT="$(printf "\u2500")"
+  if [ $(uname) = "Darwin" ]; then 
+    return 
+  fi
+  SEGMENT="$(printf "%b" "\u2500")"
   eval printf '%0.1s' "-"{1..$COLUMNS} | sed -r "s/\-/$SEGMENT/g" && printf "\r"
 }
 
 export PROMPT_COMMAND='RET=$?; \
-  LINE="$(line)\r"
+  LINE="$(line)"; \
   if [ $RET -eq 0 ]; then \
     STATUS_COLOR=$BGreen; \
   else \
     STATUS_COLOR=$BRed; \
   fi; \
-PS1="$LINE┌ $STATUS_COLOR\u@\h$Color_Off \w \n└ ";'
+  PS1="┌ $STATUS_COLOR\u@\h$Color_Off \w \n└ "; \
+  if [ $(uname) != "Darwin" ]; then \
+    PS1="$LINE\r$PS1"; \
+  fi'
 
