@@ -5,7 +5,6 @@ set shiftwidth=2
 set expandtab 
 
 set background=dark
-let base16colorspace=16
 
 nnoremap <C-Tab> :tabnext<CR>
 nnoremap <C-S-Tab> :tabprevious<CR>
