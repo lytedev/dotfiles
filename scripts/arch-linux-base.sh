@@ -23,8 +23,8 @@ mkdir -p $HOME/.config/bspwm
 mkdir -p $HOME/.config/sxhkd
 
 # Xorg and WM Configs
-ln -s $DIR/xorg/xinitrc $HOME/.xinitrc
-ln -s $DIR/xorg/Xresources $HOME/.Xresources
+ln -s $DIR/wm/xorg/xinitrc $HOME/.xinitrc
+ln -s $DIR/wm/xorg/Xresources $HOME/.Xresources
 ln -s $DIR/wm/bspwmrc $HOME/.config/bspwm/bspwmrc
 ln -s $DIR/wm/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 
