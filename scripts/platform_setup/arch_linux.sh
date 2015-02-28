@@ -3,6 +3,8 @@
 # This script is for setting up a base arch machine
 # It assumes a "base base-devel" pacstrap. 
 
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../.." && pwd)
+
 # This fixes a weird gnupg/dirmngr bug.
 sudo mkdir -p /root/.gnupg/
 sudo touch /root/.gnupg/dirmngr_ldapservers.conf
@@ -15,7 +17,10 @@ sudo echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch\n\n[
 
 sudo pacman -Syyu --noconfirm
 
-sudo pacman -S --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac infinality-bundle
+sudo pacman -S --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac
+
+# Requires some manual work
+sudo pacman -S infinality-bundle
 
 # Create necessary config directories
 mkdir -p $HOME/.config
@@ -23,6 +28,10 @@ mkdir -p $HOME/.config/bspwm
 mkdir -p $HOME/.config/sxhkd
 
 # Xorg and WM Configs
+rm -f $HOME/.xinitrc
+rm -f $HOME/.Xresources
+rm -f $HOME/.config/bspwm/bspwmrc
+rm -f $HOME/.config/sxhkd/sxhkdrc
 ln -s $DIR/wm/xorg/xinitrc $HOME/.xinitrc
 ln -s $DIR/wm/xorg/Xresources $HOME/.Xresources
 ln -s $DIR/wm/bspwmrc $HOME/.config/bspwm/bspwmrc

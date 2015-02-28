@@ -3,7 +3,7 @@
 [ -z "$PS1" ] && return 
 
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 
 # Aliases 
@@ -22,6 +22,11 @@ alias tree='tree -Csuh'
 if [ $(uname) = "Darwin" ]; then
   # This fixes some OSX printf issues
   alias printf='env printf'
+fi
+
+# If we have neovim installed, let's use that instead!
+if [ -f "$(which nvim)" ]; then
+  alias vim="nvim"
 fi
 
 # Reset
@@ -99,11 +104,7 @@ On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White  
  
 function line() {
-  if [ $(uname) = "Darwin" ]; then 
-    return 
-  fi
-  SEGMENT="$(printf "%b" "\u2500")"
-  eval printf '%0.1s' "-"{1..$COLUMNS} | sed -r "s/\-/$SEGMENT/g" && printf "\r"
+  return
 }
 
 export PROMPT_COMMAND='RET=$?; \

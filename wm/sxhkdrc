@@ -2,7 +2,7 @@
 # bspwm hotkeys
 #
 
-super + Escape
+super + shift + Escape
 	bspc quit
 
 super + c
