@@ -1,13 +1,15 @@
-#! /bin/sh
+#!/usr/bin/env sh
 
-bspc config border_width        0
-bspc config window_gap          0
+bspc monitor -d config border_width  0
+bspc monitor -d config window_gap    5
 
 bspc config split_ratio         0.50
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 
-bspc monitor VBOX0 -d 1 2 3 4 5
-bspc monitor VBOX1 -d q w e r t
+# bspc monitor VBOX0 -d 1 2 3 4 5
+# bspc monitor VBOX1 -d q w e r t
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 

@@ -10,6 +10,7 @@ set background=dark
 nnoremap <C-Tab> :tabnext<CR>
 nnoremap <C-S-Tab> :tabprevious<CR>
 nnoremap <C-t> :tabnew<CR>
+inoremap jj <Esc>
 
 noremap <C-1> 1gt
 noremap <C-2> 2gt

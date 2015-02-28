@@ -17,7 +17,7 @@ VBoxClient-all
 sleep 1
 
 # Place monitors
-xrandr --output VBOX1 --left-of VBOX0 &
+# xrandr --output VBOX1 --left-of VBOX0 &
 
 # Window Manager
 sxhkd &

@@ -119,3 +119,5 @@ export PROMPT_COMMAND='RET=$?; \
     PS1="$LINE\r$PS1"; \
   fi'
 
+export GOPATH=~/code/go
+export PATH="$GOPATH/bin:$PATH"
