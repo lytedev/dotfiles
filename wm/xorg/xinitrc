@@ -19,6 +19,12 @@ sleep 1
 # Place monitors
 # xrandr --output VBOX1 --left-of VBOX0 &
 
+# Set wallpaper
+if [ -f $HOME/.fehbg ]; then
+  eval $(cat $HOME/.fehbg)
+fi
+
 # Window Manager
+unclutter &
 sxhkd &
 exec bspwm

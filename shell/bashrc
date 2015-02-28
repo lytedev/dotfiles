@@ -121,3 +121,10 @@ export PROMPT_COMMAND='RET=$?; \
 
 export GOPATH=~/code/go
 export PATH="$GOPATH/bin:$PATH"
+ 
+export BAR_HEIGHT="20"
+export BAR_FIFO="$HOME/.bar_fifo"
+export BAR_FONT_FAMILY="-*-inconsolata-medium-r-normal-*-12-*-*-*-*-*-*-*"
+export BSPWM_WINDOW_SPACING="5"
+export BSPWM_BAR_HEIGHT="20"
+
