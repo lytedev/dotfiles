@@ -19,6 +19,7 @@ alias lm='ll | more'
 alias lr='ll -R'
 alias la='ll -A'
 alias tree='tree -Csuh'
+alias tmux='TERM=screen-256color-bce tmux' # For syntax higlighting for vim in tmux
 if [ $(uname) = "Darwin" ]; then
   # This fixes some OSX printf issues
   alias printf='env printf'
