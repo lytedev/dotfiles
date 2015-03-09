@@ -25,9 +25,12 @@ if [ $(uname) = "Darwin" ]; then
   alias printf='env printf'
 fi
 
+export EDITOR="vim"
+
 # If we have neovim installed, let's use that instead!
 if [ -f "$(which nvim)" ]; then
   alias vim="nvim"
+  export EDITOR="nvim"
 fi
 
 # Reset
