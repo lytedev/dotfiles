@@ -1,10 +1,20 @@
-" .nvimrc 
+" .vimrc 
 " author: daniel@lytedev.io 
 " w/ <3
 " =========================
 
-" Automatic config file reloading on save for neovim
-autocmd! bufwritepost .nvimrc source %
+" Automatic config file reloading on save 
+autocmd! bufwritepost .vimrc source %
+
+" Tab names only show filename
+set guitablabel=%t\ %M
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Code folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
 
 " Mapleader
 let mapleader = ","

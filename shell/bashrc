@@ -29,6 +29,7 @@ export EDITOR="vim"
 
 # If we have neovim installed, let's use that instead!
 if [ -f "$(which nvim)" ]; then
+  alias _vim="vim"
   alias vim="nvim"
   export EDITOR="nvim"
 fi
@@ -125,3 +126,6 @@ export PROMPT_COMMAND='RET=$?; \
 
 export GOPATH=~/code/go
 export PATH="$GOPATH/bin:$PATH"
+
+export DOTFILES_PATH="$HOME/dotfiles"
+
