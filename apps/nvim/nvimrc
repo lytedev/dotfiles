@@ -4,7 +4,7 @@
 " =========================
 
 " Automatic config file reloading on save 
-autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost $HOME/.vimrc source %
 
 " Hide splash screen
 :set shortmess+=I
@@ -35,8 +35,8 @@ set clipboard=unnamed
 set bs=2
 
 " Tab switching
-nnoremap <C-j> :tabprev<CR>
-nnoremap <C-k> :tabnext<CR>
+nnoremap <C-j> :bp<CR>
+nnoremap <C-k> :bn<CR>
 
 " Indentation
 " vnoremap <c-[> <gv
@@ -59,6 +59,7 @@ autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 " Line numbers, columns, wrapping
 set number
+highlight LineNr ctermbg=darkgrey ctermfg=black
 set tw=79
 set nowrap
 set fo-=t
