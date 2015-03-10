@@ -3,7 +3,7 @@
 " w/ <3
 " =========================
 
-" Automatic config file reloading on save
+" Automatic config file reloading on save for neovim
 autocmd! bufwritepost .nvimrc source %
 
 " Mapleader
@@ -76,24 +76,34 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'SirVer/ultisnips'
-Plugin 'edsono/vim-matchit'
-Plugin 'elzr/vim-json'
-Plugin 'honza/vim-snippets'
-Plugin 'justinmk/vim-sneak'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
+Plugin 'ervandew/supertab'        " Better tab usage
+Plugin 'Valloric/YouCompleteMe'   " Autocompletion
+Plugin 'bling/vim-airline'        " Status bar
+Plugin 'scrooloose/syntastic'     " File syntax detection
+Plugin 'SirVer/ultisnips'         " Snippets
+Plugin 'edsono/vim-matchit'       " % matching? included with vim?
+Plugin 'elzr/vim-json'            " Better JSON viewing/editing
+Plugin 'honza/vim-snippets'       " Snippets for syntastic
+Plugin 'justinmk/vim-sneak'       " Two-char super-fast find/goto
+Plugin 'kien/ctrlp.vim'           " Arbitrary file opening
+Plugin 'majutsushi/tagbar'        " Show file tags
+Plugin 'godlygeek/tabular'        " Aligning and table-ing text
+Plugin 'plasticboy/vim-markdown'  " Better Markdown viewing/editing
+Plugin 'scrooloose/nerdcommenter' " Better comment handling and editing
+Plugin 'sjl/gundo.vim'            " Undo tree viewer
+Plugin 'tpope/vim-fugitive'       " Git helper
+Plugin 'tpope/vim-surround'       " Handy surrounding selectors
+Plugin 'scrooloose/nerdtree'      " File tree viewer
 
-let g:ctrlp_working_path_mode = 'a'
+let g:SuperTabDefaultCompletionType = '<C-p>'
+
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<Tab>"
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -101,6 +111,8 @@ let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = '|'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+
+let g:ctrlp_working_path_mode = 'a'
 
 call vundle#end()
 filetype plugin indent on
