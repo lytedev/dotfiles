@@ -6,6 +6,9 @@
 " Automatic config file reloading on save 
 autocmd! bufwritepost .vimrc source %
 
+" Hide splash screen
+:set shortmess+=I
+
 " Tab names only show filename
 set guitablabel=%t\ %M
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -38,12 +41,15 @@ filetype off
 syntax on
 set background=dark
 
-" Tab configuration
+" Tab configuration (python defaults I believe?)
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab 
+
+" Tab config for PHP
+autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 " Line numbers, columns, wrapping
 set number
