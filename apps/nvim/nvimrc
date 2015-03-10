@@ -9,6 +9,12 @@ autocmd! bufwritepost .vimrc source %
 " Hide splash screen
 :set shortmess+=I
 
+" Highlight current line
+set cursorline
+set cursorcolumn
+highlight cursorline cterm=bold ctermbg=black
+highlight cursorcolumn cterm=bold ctermbg=black
+
 " Tab names only show filename
 set guitablabel=%t\ %M
 let g:airline#extensions#tabline#fnamemod = ':t'
