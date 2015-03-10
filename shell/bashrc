@@ -21,13 +21,19 @@ alias lr='ll -R' # Please don't.
 alias la='ll -A' # Show. Everything.
 alias tree='tree -Csuh'
 alias tmux='TERM=screen-256color-bce tmux' # For syntax higlighting for vim in tmux
+
+## Git aliases
+alias gs="git status"
+alias gl="git log"
+
+# OSX Fix for certain things
 if [ $(uname) = "Darwin" ]; then
   # This fixes some OSX printf issues
   alias printf='env printf'
 fi
 
+# Set editor
 export EDITOR="vim"
-
 # If we have neovim installed, let's use that instead!
 if [ -f "$(which nvim)" ]; then
   alias _vim="vim"
