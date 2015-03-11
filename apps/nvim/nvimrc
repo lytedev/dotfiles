@@ -99,24 +99,27 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-Plugin 'ervandew/supertab'        " Better tab usage
-Plugin 'Valloric/YouCompleteMe'   " Autocompletion
-Plugin 'bling/vim-airline'        " Status bar
-Plugin 'scrooloose/syntastic'     " File syntax detection
-Plugin 'SirVer/ultisnips'         " Snippets
-Plugin 'edsono/vim-matchit'       " % matching? included with vim?
-Plugin 'elzr/vim-json'            " Better JSON viewing/editing
-Plugin 'honza/vim-snippets'       " Snippets for syntastic
-Plugin 'justinmk/vim-sneak'       " Two-char super-fast find/goto
-Plugin 'kien/ctrlp.vim'           " Arbitrary file opening
-Plugin 'majutsushi/tagbar'        " Show file tags
-Plugin 'godlygeek/tabular'        " Aligning and table-ing text
-Plugin 'plasticboy/vim-markdown'  " Better Markdown viewing/editing
-Plugin 'scrooloose/nerdcommenter' " Better comment handling and editing
-Plugin 'sjl/gundo.vim'            " Undo tree viewer
-Plugin 'tpope/vim-fugitive'       " Git helper
-Plugin 'tpope/vim-surround'       " Handy surrounding selectors
-Plugin 'scrooloose/nerdtree'      " File tree viewer
+Plugin 'ervandew/supertab'           " Better tab usage
+Plugin 'Valloric/YouCompleteMe'      " Autocompletion
+Plugin 'bling/vim-airline'           " Status bar
+Plugin 'scrooloose/syntastic'        " File syntax detection
+Plugin 'SirVer/ultisnips'            " Snippets
+Plugin 'edsono/vim-matchit'          " % matching? included with vim?
+Plugin 'elzr/vim-json'               " Better JSON viewing/editing
+Plugin 'honza/vim-snippets'          " Snippets for syntastic
+Plugin 'justinmk/vim-sneak'          " Two-char super-fast find/goto
+Plugin 'kien/ctrlp.vim'              " Arbitrary file opening
+Plugin 'majutsushi/tagbar'           " Show file tags
+Plugin 'godlygeek/tabular'           " Aligning and table-ing text
+Plugin 'plasticboy/vim-markdown'     " Better Markdown viewing/editing
+Plugin 'scrooloose/nerdcommenter'    " Better comment handling and editing
+Plugin 'sjl/gundo.vim'               " Undo tree viewer
+Plugin 'tpope/vim-fugitive'          " Git helper
+Plugin 'tpope/vim-surround'          " Handy surrounding selectors
+Plugin 'scrooloose/nerdtree'         " File tree viewer
+Plugin 'Shougo/vimproc.vim'          " Async functionality
+Plugin 'Shougo/unite.vim'            " ???
+Plugin 'm2mdas/phpcomplete-extended' " PHP Magic
 
 let g:SuperTabDefaultCompletionType = '<C-p>'
 
