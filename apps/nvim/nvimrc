@@ -14,6 +14,8 @@ set cursorline
 set cursorcolumn
 highlight cursorline cterm=bold ctermbg=black
 highlight cursorcolumn cterm=bold ctermbg=black
+hi Search ctermfg=white ctermbg=magenta
+hi Cursor ctermfg=red 
 
 " Tab names only show filename
 set guitablabel=%t\ %M
@@ -117,9 +119,6 @@ Plugin 'sjl/gundo.vim'               " Undo tree viewer
 Plugin 'tpope/vim-fugitive'          " Git helper
 Plugin 'tpope/vim-surround'          " Handy surrounding selectors
 Plugin 'scrooloose/nerdtree'         " File tree viewer
-Plugin 'Shougo/vimproc.vim'          " Async functionality
-Plugin 'Shougo/unite.vim'            " ???
-Plugin 'm2mdas/phpcomplete-extended' " PHP Magic
 
 let g:SuperTabDefaultCompletionType = '<C-p>'
 
@@ -139,6 +138,8 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 let g:ctrlp_working_path_mode = 'a'
+
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#YouCompleteMe
 
 call vundle#end()
 filetype plugin indent on
