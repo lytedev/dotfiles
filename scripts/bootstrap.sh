@@ -1,21 +1,19 @@
 #!/usr/bin/env bash
 
-# You'll want to have neovim (nvim) installed first!
-
 # Get source directory
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 
 # We need to do some super quick setup for neovim plugins
-echo "Setting up neovim plugins"
-mkdir -p $HOME/.nvim
-if [ -d "$HOME/.nvim/bundle/Vundle.vim" ]; then
+echo "Setting up vim plugins"
+mkdir -p $HOME/.vim
+if [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
     echo "Vundle already setup"
 else
     git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
 fi
 
 echo "Installing vim plugins"
-nvim +PluginInstall +qall
+vim +PluginInstall +qall
 
 echo "Creating symlinks"
 
