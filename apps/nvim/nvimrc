@@ -1,10 +1,27 @@
-" .nvimrc 
+" .vimrc 
 " author: daniel@lytedev.io 
 " w/ <3
 " =========================
 
-" Automatic config file reloading on save for neovim
-autocmd! bufwritepost .nvimrc source %
+" Automatic config file reloading on save 
+autocmd! bufwritepost $HOME/.vimrc source %
+
+" Hide splash screen
+:set shortmess+=I
+
+" Highlight current line
+set cursorline
+set cursorcolumn
+highlight cursorline cterm=bold ctermbg=black
+highlight cursorcolumn cterm=bold ctermbg=black
+hi Search ctermfg=white ctermbg=magenta
+hi Cursor ctermfg=red 
+
+" Code folding
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
 
 " Mapleader
 let mapleader = ","
@@ -16,8 +33,15 @@ set clipboard=unnamed
 set bs=2
 
 " Tab switching
-nnoremap <C-j> :tabprev<CR>
-nnoremap <C-k> :tabnext<CR>
+" nnoremap <C-j> :tabprev<CR>
+" nnoremap <C-k> :tabnext<CR>
+
+" Buffer switching
+nnoremap <C-j> :bp<CR>
+nnoremap <C-k> :bn<CR>
+
+" Open tag reference in new tab
+" nnoremap <C-]> <C-w><C-]><C-w>T
 
 " Indentation
 " vnoremap <c-[> <gv
@@ -28,15 +52,19 @@ filetype off
 syntax on
 set background=dark
 
-" Tab configuration
+" Tab configuration (python defaults I believe?)
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab 
 
+" Tab config for PHP
+autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
+
 " Line numbers, columns, wrapping
 set number
+highlight LineNr ctermbg=darkgrey ctermfg=black
 set tw=79
 set nowrap
 set fo-=t
@@ -67,6 +95,9 @@ inoremap jj <Esc>
 
 set laststatus=2
 
+" Tags file should be '.tags' 
+set tags=./.tags;.tags;
+
 " Plugin Management
 " =================
 set rtp+=~/.nvim/bundle/Vundle.vim
@@ -76,43 +107,54 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-Plugin 'ervandew/supertab'        " Better tab usage
-Plugin 'Valloric/YouCompleteMe'   " Autocompletion
-Plugin 'bling/vim-airline'        " Status bar
-Plugin 'scrooloose/syntastic'     " File syntax detection
-Plugin 'SirVer/ultisnips'         " Snippets
-Plugin 'edsono/vim-matchit'       " % matching? included with vim?
-Plugin 'elzr/vim-json'            " Better JSON viewing/editing
-Plugin 'honza/vim-snippets'       " Snippets for syntastic
-Plugin 'justinmk/vim-sneak'       " Two-char super-fast find/goto
-Plugin 'kien/ctrlp.vim'           " Arbitrary file opening
-Plugin 'majutsushi/tagbar'        " Show file tags
-Plugin 'godlygeek/tabular'        " Aligning and table-ing text
-Plugin 'plasticboy/vim-markdown'  " Better Markdown viewing/editing
-Plugin 'scrooloose/nerdcommenter' " Better comment handling and editing
-Plugin 'sjl/gundo.vim'            " Undo tree viewer
-Plugin 'tpope/vim-fugitive'       " Git helper
-Plugin 'tpope/vim-surround'       " Handy surrounding selectors
-Plugin 'scrooloose/nerdtree'      " File tree viewer
+" Plugin 'ervandew/supertab'           " Better tab usage
+Plugin 'bling/vim-airline'           " Status bar
+Plugin 'scrooloose/syntastic'        " File syntax detection
+Plugin 'edsono/vim-matchit'          " % matching? included with vim?
+Plugin 'SirVer/ultisnips'            " Snippets
+Plugin 'honza/vim-snippets'          " Snippets for ultisnips
+Plugin 'Valloric/YouCompleteMe'      " Autocompletion
+Plugin 'elzr/vim-json'               " Better JSON viewing/editing
+Plugin 'justinmk/vim-sneak'          " Two-char super-fast find/goto
+Plugin 'kien/ctrlp.vim'              " Arbitrary file opening
+Plugin 'majutsushi/tagbar'           " Show file tags
+Plugin 'godlygeek/tabular'           " Aligning and table-ing text
+Plugin 'plasticboy/vim-markdown'     " Better Markdown viewing/editing
+Plugin 'scrooloose/nerdcommenter'    " Better comment handling and editing
+Plugin 'sjl/gundo.vim'               " Undo tree viewer
+Plugin 'tpope/vim-fugitive'          " Git helper
+Plugin 'tpope/vim-surround'          " Handy surrounding selectors
+Plugin 'scrooloose/nerdtree'         " File tree viewer
+" Plugin 'shawncplus/phpcomplete.vim'  " PHP Completion
 
-let g:SuperTabDefaultCompletionType = '<C-p>'
+" let g:SuperTabDefaultCompletionType = '<C-p>'
 
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>', 'Tab']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<Tab>"
+" let g:UltiSnipsExpandTrigger = "<Tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<Tab>"
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline#extensions#tabline#right_alt_sep = ''
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#formatter = ':t'
 
 let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_cmd = 'CtrlPMRUFiles'
+" Make ctrlp open in new tab by default
+" let g:ctrlp_prompt_mappings = {
+"   \ 'AcceptSelection("e")': ['<C-t>'],
+"   \ 'AcceptSelection("t")': ['<CR>', '<2-LeftMouse>'],
+"   \ }
+
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#YouCompleteMe
 
 call vundle#end()
 filetype plugin indent on

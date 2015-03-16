@@ -7,28 +7,36 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Aliases 
-alias lx='ls -lXB' 
-alias lk='ls -lSr'
-alias lt='ls -ltr'
-alias lc='ls -ltcr'
-alias lu='ls -ltur'
-alias ls='ls -h --color --group-directories-first'
-alias l='ls -h --color --group-directories-first'
-alias ll='ls -lv --group-directories-first'
+## Directory listing aliases
+alias lx='ls -lXB' # order by filetype
+alias lk='ls -lSr' # order by filesize reversed
+alias lt='ls -ltr' # order by file modified time
+alias lc='ls -ltcr' # order by filectime
+alias lu='ls -ltur' # order by file access time
+alias ls='ls -h --color --group-directories-first' # flat view w/ directories first
+alias l='ls -h --color --group-directories-first' # same as above
+alias ll='ls -lv --group-directories-first' # non-flat view
 alias lm='ll | more'
-alias lr='ll -R'
-alias la='ll -A'
+alias lr='ll -R' # Please don't.
+alias la='ll -A' # Show. Everything.
 alias tree='tree -Csuh'
 alias tmux='TERM=screen-256color-bce tmux' # For syntax higlighting for vim in tmux
+
+## Git aliases
+alias gs="git status"
+alias gl="git log"
+
+# OSX Fix for certain things
 if [ $(uname) = "Darwin" ]; then
   # This fixes some OSX printf issues
   alias printf='env printf'
 fi
 
+# Set editor
 export EDITOR="vim"
-
 # If we have neovim installed, let's use that instead!
 if [ -f "$(which nvim)" ]; then
+  alias _vim="vim"
   alias vim="nvim"
   export EDITOR="nvim"
 fi
@@ -131,4 +139,8 @@ export BAR_FIFO="$HOME/.bar_fifo"
 export BAR_FONT_FAMILY="-*-inconsolata-medium-r-normal-*-12-*-*-*-*-*-*-*"
 export BSPWM_WINDOW_SPACING="5"
 export BSPWM_BAR_HEIGHT="20"
+
+export DOTFILES_PATH="$HOME/dotfiles"
+
+source "$DOTFILES_PATH/shell/git-completion.bash"
 

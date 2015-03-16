@@ -1,2 +1,8 @@
 *.swp
 *.swo
+*logs*
+*.log
+*~
+*.pyc
+*.sublime-workspace
+apps/weechat/sec.conf
