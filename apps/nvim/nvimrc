@@ -1,10 +1,12 @@
-" .vimrc 
-" author: daniel@lytedev.io 
+" .vimrc
+" author: daniel@lytedev.io
 " w/ <3
 " =========================
 
-" Automatic config file reloading on save 
-autocmd! bufwritepost $HOME/.vimrc source %
+" Automatic config file reloading on save
+" TODO: Find a more dynamic solution? Editing in the dotfiles repo often causes
+" vim to not catch this.
+autocmd! bufwritepost .vimrc source %
 
 " Hide splash screen
 :set shortmess+=I
@@ -15,7 +17,7 @@ set cursorcolumn
 highlight cursorline cterm=bold ctermbg=black
 highlight cursorcolumn cterm=bold ctermbg=black
 hi Search ctermfg=white ctermbg=magenta
-hi Cursor ctermfg=red 
+hi Cursor ctermfg=red
 
 " Code folding
 set foldmethod=indent
@@ -57,7 +59,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
-set expandtab 
+set expandtab
 
 " Tab config for PHP
 autocmd FileType php setlocal shiftwidth=2 softtabstop=2 tabstop=2
@@ -83,7 +85,7 @@ set nocp " Unnecessary in nvim
 set hlsearch
 set incsearch
 set ignorecase
-set smartcase 
+set smartcase
 
 " Disable swap and backup files
 set nobackup
@@ -95,8 +97,11 @@ inoremap jj <Esc>
 
 set laststatus=2
 
-" Tags file should be '.tags' 
+" Tags file should be '.tags'
 set tags=./.tags;.tags;
+
+" Handy commands
+command! RemoveAllTrailingWhitespace :%s/\s\+$//g | let @/ = ""
 
 " Plugin Management
 " =================

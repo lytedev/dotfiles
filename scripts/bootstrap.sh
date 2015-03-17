@@ -44,7 +44,6 @@ rm -rf $HOME/.tmux.conf
 rm -rf $HOME/.weechat
 rm -rf $HOME/.muttrc
 rm -rf $HOME/.nvimrc
-rm -rf $HOME/.canto
 rm -rf $HOME/.config/bar
 rm -rf $HOME/.gitconfig
 ln -s $DIR/apps/luakit $HOME/.config/luakit
@@ -53,7 +52,6 @@ ln -s $DIR/apps/nvim/nvimrc $HOME/.vimrc
 ln -s $DIR/apps/nvim/nvimrc $HOME/.nvimrc
 ln -s $DIR/shell/tmux.conf $HOME/.tmux.conf
 # ln -s $DIR/apps/irssi $HOME/.irssi
-ln -s $DIR/apps/canto $HOME/.canto
 ln -s $DIR/apps/weechat $HOME/.weechat
 ln -s $DIR/apps/mutt/muttrc $HOME/.muttrc
 ln -s $DIR/wm/bar $HOME/.config/bar
