@@ -41,6 +41,7 @@ rm -rf $HOME/.bashrc
 rm -rf $HOME/.vimrc
 rm -rf $HOME/.tmux.conf
 # rm -rf $HOME/.irssi
+rm -rf $HOME/.newsbeuter
 rm -rf $HOME/.weechat
 rm -rf $HOME/.muttrc
 rm -rf $HOME/.nvimrc
@@ -52,6 +53,7 @@ ln -s $DIR/apps/nvim/nvimrc $HOME/.vimrc
 ln -s $DIR/apps/nvim/nvimrc $HOME/.nvimrc
 ln -s $DIR/shell/tmux.conf $HOME/.tmux.conf
 # ln -s $DIR/apps/irssi $HOME/.irssi
+ln -s $DIR/apps/newsbeuter $HOME/.newsbeuter
 ln -s $DIR/apps/weechat $HOME/.weechat
 ln -s $DIR/apps/mutt/muttrc $HOME/.muttrc
 ln -s $DIR/wm/bar $HOME/.config/bar
