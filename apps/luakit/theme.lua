@@ -5,7 +5,7 @@
 local theme = {}
 
 -- Default settings
-theme.font = "inconsolata normal 12"
+theme.font = "Open Sans normal 10"
 theme.fg   = "#fff"
 theme.bg   = "#111"
 
@@ -26,7 +26,7 @@ theme.notif_bg = "#111111"
 -- Menu colours
 theme.menu_fg                   = "#f8f8f8"
 theme.menu_bg                   = "#111111"
-theme.menu_selected_fg          = "#f8f8f8"
+theme.menu_selected_fg          = "#111111"
 theme.menu_selected_bg          = "#f4bf75"
 theme.menu_title_bg             = "#111111"
 theme.menu_primary_title_fg     = "#f92672"

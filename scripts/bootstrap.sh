@@ -26,6 +26,7 @@ rm -r $HOME/.tmux.conf
 rm -r $HOME/.weechat
 rm -r $HOME/.muttrc
 rm -r $HOME/.nvimrc
+rm -r $HOME/.config/bar
 rm -r $HOME/.gitconfig
 ln -s $DIR/apps/luakit $HOME/.config/luakit
 ln -s $DIR/shell/bashrc $HOME/.bashrc
@@ -35,6 +36,7 @@ ln -s $DIR/shell/tmux.conf $HOME/.tmux.conf
 # ln -s $DIR/apps/irssi $HOME/.irssi
 ln -s $DIR/apps/weechat $HOME/.weechat
 ln -s $DIR/apps/mutt/muttrc $HOME/.muttrc
+ln -s $DIR/wm/bar $HOME/.config/bar
 ln -s $DIR/shell/gitconfig $HOME/.gitconfig
 
 echo "Adding DOTFILES_PATH to .bashrc"
