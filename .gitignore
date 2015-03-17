@@ -3,6 +3,7 @@
 *logs*
 *.log
 *~
+*.lock
 *.pyc
 *.sublime-workspace
 apps/weechat/sec.conf
