@@ -3,6 +3,10 @@
 " w/ <3
 " =========================
 
+" Compatibility stuff
+filetype off
+set nocompatible
+
 " Automatic config file reloading on save
 " TODO: Find a more dynamic solution? Editing in the dotfiles repo often causes
 " vim to not catch this.
@@ -48,11 +52,6 @@ nnoremap <C-k> :bn<CR>
 " Indentation
 " vnoremap <c-[> <gv
 " vnoremap <c-]> >gv
-
-" Syntax highlighting
-filetype off
-syntax on
-set background=dark
 
 " Tab configuration (python defaults I believe?)
 set tabstop=4
@@ -113,6 +112,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 " Plugin 'ervandew/supertab'           " Better tab usage
+Plugin 'wting/rust.vim'              " Rust support for vim
+Plugin 'cespare/vim-toml'            " TOML support for vim
 Plugin 'bling/vim-airline'           " Status bar
 Plugin 'scrooloose/syntastic'        " File syntax detection
 Plugin 'edsono/vim-matchit'          " % matching? included with vim?
@@ -130,7 +131,6 @@ Plugin 'sjl/gundo.vim'               " Undo tree viewer
 Plugin 'tpope/vim-fugitive'          " Git helper
 Plugin 'tpope/vim-surround'          " Handy surrounding selectors
 Plugin 'scrooloose/nerdtree'         " File tree viewer
-Plugin 'wting/rust.vim'
 " Plugin 'shawncplus/phpcomplete.vim'  " PHP Completion
 
 " let g:SuperTabDefaultCompletionType = '<C-p>'
@@ -163,5 +163,9 @@ let g:ctrlp_cmd = 'CtrlPMRUFiles'
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#YouCompleteMe
 
 call vundle#end()
+
+" Syntax highlighting
 filetype plugin indent on
+syntax on
+set background=dark
 

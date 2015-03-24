@@ -59,6 +59,17 @@ ln -s $DIR/apps/mutt/muttrc $HOME/.muttrc
 ln -s $DIR/wm/bar $HOME/.config/bar
 ln -s $DIR/shell/gitconfig $HOME/.gitconfig
 
+# Sublime config location varies by OS
+if [ "Darwin" = "$(uname -s)" ]; then
+    # Assume OSX
+    rm -rf "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+    ln -s "$DIR/apps/sublime_text/user_package" "$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+else
+    # Assume Linux
+    rm -rf "$HOME/.config/sublime-text-3/Packages/User"
+    ln -s "$DIR/apps/sublime_text/user_package" "$HOME/.config/sublime-text-3/Packages/User"
+fi 
+
 echo "Adding DOTFILES_PATH to .bashrc"
 sed -i "/export DOTFILES_PATH/c export DOTFILES_PATH=\"$DIR\"" "$HOME/.bashrc"
 
