@@ -130,6 +130,7 @@ Plugin 'sjl/gundo.vim'               " Undo tree viewer
 Plugin 'tpope/vim-fugitive'          " Git helper
 Plugin 'tpope/vim-surround'          " Handy surrounding selectors
 Plugin 'scrooloose/nerdtree'         " File tree viewer
+Plugin 'wting/rust.vim'
 " Plugin 'shawncplus/phpcomplete.vim'  " PHP Completion
 
 " let g:SuperTabDefaultCompletionType = '<C-p>'
