@@ -63,7 +63,6 @@ fi
 
 # We need to do some super quick setup for neovim plugins
 echo "Setting up vim plugins"
-mkdir -p $HOME/.vim
 if [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
     echo "Vundle already setup"
 else
@@ -77,7 +76,7 @@ if [ -f "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.sh"
     echo "YouCompleteMe is installed."
 else
     echo "Installing YouCompleteMe..."
-    $CUR_PWD = "$(pwd)"
+    $CUR_PWD="$(pwd)"
     cd "$HOME/.vim/bundle/YouCompleteMe"
     "./install.sh"
     cd "$CUR_PWD"
