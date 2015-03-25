@@ -17,7 +17,7 @@ sudo echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch\n\n[
 
 sudo pacman -Syyu --noconfirm
 
-sudo pacman -S --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel unclutter
+sudo pacman -S --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel unclutter xautolock slock
 
 # Requires some manual work
 sudo pacman -S infinality-bundle
