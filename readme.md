@@ -14,7 +14,8 @@ TODO: Add per-platform details (Windows, OSX, Arch, NixOS?)
 
 ## Installation
 
-Various pre-setup scripts exist for different platforms in the `scripts` directory.
+Various pre-setup scripts exist for different platforms in the `scripts`
+directory. I'll outline their intended use here.
 
 Once you're all set, go ahead and run the `bootstrap.sh` script. This will symlink all the necessary files.
 

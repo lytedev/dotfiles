@@ -9,9 +9,6 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../.." && pwd)
 sudo mkdir -p /root/.gnupg/
 sudo touch /root/.gnupg/dirmngr_ldapservers.conf
 
-# Allow auto-signing of GPG keys
-sed -i "s/#keyserver-options auto-key-retrieve/keyserver-options auto-key-retrieve/" "$HOME/.gnupg/gpg.conf"
-
 # Sign infinality keys
 sudo pacman-key -r 962DDE58
 sudo pacman-key -f 962DDE58
@@ -19,6 +16,9 @@ sudo pacman-key --lsign 962DDE58
 
 # Sign cower keys
 gpg --recv-key 1EB2638FF56C0C53
+
+# Allow auto-signing of GPG keys
+sed -i "s/#keyserver-options auto-key-retrieve/keyserver-options auto-key-retrieve/" "$HOME/.gnupg/gpg.conf"
 
 # Add infinality repos
 sudo sh -c 'sed -i -e "/\[infinality-bundle\]/,+6d" /etc/pacman.conf'
