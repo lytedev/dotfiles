@@ -2,7 +2,7 @@
 # bspwm hotkeys
 #
 
-super + l
+super + ctrl + shift + l
     slock
 
 super + ctrl + Escape
