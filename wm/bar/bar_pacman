@@ -3,7 +3,7 @@
 echo -e "P0" > "$BAR_FIFO"
 
 NumPackagesWithUpdates() {
-    NUM_PACKAGES=$(sudo pacman -Syq > /dev/null && pacman -Qqu | wc -l)
+    NUM_PACKAGES=$(pacaur -Syq > /dev/null && pacaur -Qqu | wc -l)
     echo -n "$NUM_PACKAGES"
 }
 
