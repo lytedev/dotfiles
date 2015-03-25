@@ -1,6 +1,8 @@
 #! /bin/sh
 
-if [ $(pgrep -cx $HOME/.config/bar/bar_init) -gt 1 ] ; then
+# If, for some reason, you have a binary called "bar_init" that happens to run
+# all the time, you're going to have some issues with this one.
+if [ $(pgrep -cx bar_init) -gt 1 ] ; then
 	printf "%s\n" "The bar is already running." >&2
 	exit 1
 fi

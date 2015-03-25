@@ -57,7 +57,7 @@ makepkg -i --noconfirm
 cd ..
 rm -f *.tar.gz
 
-pacaur -S --noconfirm ttf-opensans
+pacaur -S --noconfirm ttf-opensans kpcli perl-clipboard dmenu-xft-height
 
 # Get our window manager code
 cd $HOME/code/repos

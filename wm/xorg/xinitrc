@@ -25,6 +25,7 @@ if [ -f $HOME/.fehbg ]; then
 fi
 
 # Window Manager
+"$DOTFILES_PATH/wm/bar/bar_init" &
 unclutter &
 sxhkd &
 exec bspwm
