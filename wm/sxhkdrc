@@ -2,6 +2,9 @@
 # bspwm hotkeys
 #
 
+super + l
+    slock
+
 super + ctrl + Escape
 	bspc quit
 
