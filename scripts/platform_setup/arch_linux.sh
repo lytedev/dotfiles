@@ -57,24 +57,19 @@ makepkg -i --noconfirm
 cd ..
 rm -f *.tar.gz
 
-pacaur -S --noconfirm ttf-opensans kpcli perl-clipboard dmenu-xft-height
+pacaur -S --noconfirm ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git
 
 # Get our window manager code
 cd $HOME/code/repos
 
 git clone https://github.com/baskerville/bspwm.git
 git clone https://github.com/baskerville/sxhkd.git
-git clone https://github.com/LemonBoy/bar.git
 
 cd bspwm
 make
 sudo make install
 
 cd ../sxhkd
-make
-sudo make install
-
-cd ../bar
 make
 sudo make install
 

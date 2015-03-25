@@ -84,7 +84,7 @@ super + Return
 	urxvt
 
 super + space
-	dmenu_custom
+	dmenu_run -fn "Inconsolata-12" -i -nb "#111111" -sb "#a1e22e" -sf "#111111" -nf "#f8f8f8" -h 24
 
 # make sxhkd reload its configuration files:
 super + Escape

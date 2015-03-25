@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo -e "P0" > "$BAR_FIFO"
+
+NumPackagesWithUpdates() {
+    NUM_PACKAGES=$(sudo pacman -Syq > /dev/null && pacman -Qqu | wc -l)
+    echo -n "$NUM_PACKAGES"
+}
+
+while true; do
+    echo -e "P$(NumPackagesWithUpdates)" > "$BAR_FIFO"
+    sleep 300;
+done
+

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+Battery() {
+    BATTERY=$(acpi -b | sed -r 's/Battery [0-9]+: (Dis|Cha)[a-zA-Z,]+\s*([0-9]+)\%.*/\1\2/' | sed -r 's/Dis/-/ ; s/Cha/+/')
+    echo -n "$BATTERY"
+}
+
+echo -e "B---" > "$BAR_FIFO"
+while true; do
+    echo -e "B$(Battery)" > "$BAR_FIFO"
+    sleep 30;
+done
+
+
