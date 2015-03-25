@@ -72,7 +72,7 @@ fi
 echo "Installing vim plugins"
 vim +PluginInstall +qall
 
-if [ -f "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.sh" ]; then 
+if [ -f "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ]; then 
     echo "YouCompleteMe is installed."
 else
     echo "Installing YouCompleteMe..."

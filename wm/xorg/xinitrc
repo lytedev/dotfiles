@@ -28,5 +28,5 @@ fi
 "$DOTFILES_PATH/wm/bar/bar_init" &
 unclutter &
 sxhkd &
-xautolock -time 1 -locker slock &
+# xautolock -time 10 -locker slock &
 exec bspwm
