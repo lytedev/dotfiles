@@ -20,6 +20,9 @@ gpg --recv-key 1EB2638FF56C0C53
 # Allow auto-signing of GPG keys
 sed -i "s/#keyserver-options auto-key-retrieve/keyserver-options auto-key-retrieve/" "$HOME/.gnupg/gpg.conf"
 
+# Sign cower keys again to refresh
+gpg --recv-key 1EB2638FF56C0C53
+
 # Add infinality repos
 sudo sh -c 'sed -i -e "/\[infinality-bundle\]/,+6d" /etc/pacman.conf'
 sudo sh -c 'echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$arch\n\n[infinality-bundle-fonts]\nServer = http://bohoomil.com/repo/fonts\n" >> /etc/pacman.conf'
@@ -28,7 +31,11 @@ sudo sh -c 'echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$ar
 sudo pacman -Syyu --noconfirm
 
 # Add our packages
-sudo pacman -Sf --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel unclutter xautolock slock infinality-bundle htop tree  
+sudo pacman -S --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel unclutter xautolock slock htop tree  
+
+# Some manual work required here
+# TODO: Flag that lets you force existing package override
+sudo pacman -S infinality-bundle
 
 # Create necessary config directories
 mkdir -p "$HOME/.config"
