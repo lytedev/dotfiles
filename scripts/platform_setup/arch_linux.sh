@@ -31,7 +31,11 @@ sudo sh -c 'echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$ar
 sudo pacman -Syyu --noconfirm
 
 # Add our packages
-sudo pacman -S --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel unclutter xautolock slock htop tree  
+sudo pacman -S --noconfirm git zsh python luakit xorg-server \
+    xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo \
+    python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util \
+    xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel \
+    unclutter xautolock slock htop tree python-pip python2-pip
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override
@@ -90,3 +94,12 @@ cd ../sxhkd
 make
 sudo make install
 
+# Install Neovim python modules
+sudo pip2 install neovim
+sudo pip3 install neovim
+
+# TODO: Any other python modules?
+
+# Much to my distaste, Neovim seems to need the python2 binary as the default
+sudo rm /usr/bin/python
+sudo ln -s /usr/bin/python2 /usr/bin/python
