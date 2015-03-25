@@ -28,7 +28,7 @@ sudo sh -c 'echo -e "[infinality-bundle]\nServer = http://bohoomil.com/repo/\$ar
 sudo pacman -Syyu --noconfirm
 
 # Add our packages
-sudo pacman -Sf --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel unclutter xautolock slock infinality-bundle htop
+sudo pacman -Sf --noconfirm git zsh python luakit xorg-server xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel unclutter xautolock slock infinality-bundle htop tree
 
 # Create necessary config directories
 mkdir -p "$HOME/.config"
