@@ -35,7 +35,7 @@ sudo pacman -S --noconfirm git zsh python luakit xorg-server \
     xorg-server-utils xorg-xinit xorg-xrandr vim curl openssh openssl sudo \
     python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util \
     xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel \
-    unclutter xautolock slock htop tree python-pip python2-pip
+    unclutter xautolock slock htop tree python-pip python2-pip acpi
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override
