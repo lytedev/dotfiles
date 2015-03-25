@@ -58,6 +58,7 @@ if [ "Darwin" = "$(uname -s)" ]; then
 else
     # Assume Linux
     rm -rf "$HOME/.config/sublime-text-3/Packages/User"
+    mkdir -p "$HOME/.config/sublime-text-3/Packages"
     ln -s "$DIR/apps/sublime_text/user_package" "$HOME/.config/sublime-text-3/Packages/User"
 fi 
 
@@ -85,3 +86,4 @@ fi
 echo "Adding DOTFILES_PATH to .bashrc"
 sed -i "/export DOTFILES_PATH/c export DOTFILES_PATH=\"$DIR\"" "$HOME/.bashrc"
 
+echo "You should now resource your .bashrc, logout, or reboot."

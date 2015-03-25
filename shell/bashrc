@@ -2,8 +2,14 @@
 
 [ -z "$PS1" ] && return 
 
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
+if [ $TERM = "linux" ]; then
+    _GET_COLOR_DEFINITIONS_CMD='s/\*\.color([0-9]+):\s*(.+)\s*/\1 \2/p'
+    sed -nr "$_GET_COLOR_DEFINITIONS_CMD" | while read line; do
+        index=$(echo $line | cut -f1 -d" ")
+        definition=$(echo $line | cut -f2 -d" ")
+        color=$(echo $line | sed -nr 's/\s*#define $definition (.*)/\1/p')
+        echo -e "$index -> $definition -> $color"
+    done
 fi
 
 # Aliases 
