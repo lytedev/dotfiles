@@ -27,11 +27,21 @@ mkdir -p $HOME/.vim
 if [ -d "$HOME/.vim/bundle/Vundle.vim" ]; then
     echo "Vundle already setup"
 else
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim
+    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 echo "Installing vim plugins"
 vim +PluginInstall +qall
+
+if [ -f "$HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.sh" ]; then 
+    echo "YouCompleteMe is installed."
+else
+    echo "Installing YouCompleteMe..."
+    $CUR_PWD = "$(pwd)"
+    cd "$HOME/.vim/bundle/YouCompleteMe"
+    "./install.sh"
+    cd "$CUR_PWD"
+fi
 
 echo "Creating symlinks"
 
