@@ -12,7 +12,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
 mkfifo "$BAR_FIFO"
 
-bspc config top_padding $BAR_HEIGHT
+bspc config top_padding "$BAR_HEIGHT"
 bspc control --subscribe > "$BAR_FIFO" &
 "$DOTFILES_PATH/wm/bar/bar_time" &
 "$DOTFILES_PATH/wm/bar/bar_battery" &

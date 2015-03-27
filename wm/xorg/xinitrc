@@ -24,6 +24,10 @@ if [ -f $HOME/.fehbg ]; then
   eval $(cat $HOME/.fehbg)
 fi
 
+xset -dpms &
+xset s noblank &
+xset s off &
+
 # Window Manager
 "$DOTFILES_PATH/wm/bar/bar_init" &
 unclutter &
