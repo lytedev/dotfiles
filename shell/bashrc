@@ -3,7 +3,6 @@
 # [ -z "$PS1" ] && return 
 
 if [ $TERM = "linux" ]; then
-    echo "Generating TTY colors..."
     _GET_COLOR_DEFINITIONS_CMD='s/\*\.color([0-9]+):\s*(.+)\s*/\1 \2/p'
     sed -nr "$_GET_COLOR_DEFINITIONS_CMD" ~/.Xresources | while read -r line; do
         index=$(echo $line | cut -f1 -d" ")
