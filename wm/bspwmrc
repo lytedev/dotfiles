@@ -9,8 +9,11 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_by_distance    true
 
-# bspc monitor VBOX0 -d 1 2 3 4 5
-# bspc monitor VBOX1 -d q w e r t
+i=1
+for mon in $(bspc query -M); do
+    max=$((i + 4))
+    bspc monitor "$mon" -d $(seq $i $max)
+    i=$((max + 1))
+done
 
-bspc monitor -d trm web dev mon msc
 
