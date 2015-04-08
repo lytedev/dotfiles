@@ -1,0 +1,17 @@
+[
+	{"id": "side-bar-files-open-with",
+		"children":
+		[
+			{
+				"caption": "Browser",
+				"id": "side-bar-files-open-with-browser",
+				"command": "side_bar_files_open_with",
+				"args": {
+					"paths": [],
+					"application": "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
+					"extensions": "htm,html"
+				}
+			}
+		]
+	}
+]

@@ -1,0 +1,6 @@
+*.sublime-workspace
+*.last-run
+Package Control.cache
+*.log
+log.txt
+GoSublime/*/bin/*

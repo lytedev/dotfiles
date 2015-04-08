@@ -1,0 +1,33 @@
+{
+	"caret_style": "phase",
+	"color_scheme": "Packages/Theme - Lyte/Lyte-Dark/Lyte-Dark.tmTheme",
+	"default_line_ending": "unix",
+	"draw_minimap_border": false,
+	"enable_tab_scrolling": false,
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": true,
+	"font_face": "Monaco",
+	"font_size": 13,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"PackageResourceViewer",
+		"CSS"
+	],
+	"indent_guide_options":
+	[
+		"draw_active"
+	],
+	"overlay_scroll_bars": "enabled",
+	"rulers":
+	[
+	],
+	"shift_tab_unindent": true,
+	"show_full_path": true,
+	"show_tab_close_buttons": false,
+	"theme": "Lyte-Dark.sublime-theme",
+	"trim_trailing_white_space_on_save": true,
+	"vintage_start_in_command_mode": false,
+	"word_wrap": true
+}

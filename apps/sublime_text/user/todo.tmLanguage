@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Example Comment -->
+  <key>comment</key>
+  <string>
+    Comment
+  </string>
+
+  <!-- Auto-Highlight Data -->
+  <key>fileTypes</key>
+  <array>
+    <string>todo</string>
+  </array>
+  <key>name</key>
+  <string>Simple Todo</string>
+  <key>scopeName</key>
+  <string>source.todo</string>
+
+
+  <!-- Patterns -->
+  <key>patterns</key>
+  <array>
+
+    <!-- Comments -->
+    <dict>
+      <!-- # Comment -->
+      <key>match</key>
+      <string>^\s*#.*$</string>
+      <key>name</key>
+      <string>comment.line</string>
+    </dict>
+    <dict>
+      <!-- /* Multiline Comment */ -->
+      <key>begin</key>
+      <string>\/\*</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>comment.block</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>comment.block</string>
+        </dict>
+      </dict>
+      <key>end</key>
+      <string>\*\/</string>
+      <key>endCaptures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>comment.block</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>comment.block</string>
+        </dict>
+      </dict>
+      <key>name</key>
+      <string>comment.block</string>
+    </dict>
+    <dict>
+      <key>match</key>
+      <string>^\s*\/\/.*$</string>
+      <key>name</key>
+      <string>comment.line</string>
+    </dict>
+
+    <!-- Sections -->
+    <dict>
+      <!-- Section: Description -->
+      <key>match</key>
+      <string>^(.*:)(.*)$</string>
+      <key>captures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>variable.parameter</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>comment</string>
+        </dict>
+      </dict>
+    </dict>
+
+    <!-- Lists -->
+    <dict>
+      <!-- Key -> Value -->
+      <key>match</key>
+      <string>(.*)(\->)(.*)</string>
+      <key>captures</key>
+      <dict>
+        <key>1</key>
+        <dict>
+          <key>name</key>
+          <string>entity.name.tag</string>
+        </dict>
+        <key>2</key>
+        <dict>
+          <key>name</key>
+          <string>comment</string>
+        </dict>
+        <key>3</key>
+        <dict>
+          <key>name</key>
+          <string>constant.language</string>
+        </dict>
+      </dict>
+    </dict>
+
+    <!-- List Items -->
+    <!-- Todo -->
+    <dict>
+      <!-- * Item -->
+      <key>match</key>
+      <string>^\s*\*.*$</string>
+      <key>name</key>
+      <string>text</string>
+    </dict>
+    <!-- Bad -->
+    <dict>
+      <!-- - Item -->
+      <!-- – Item (Big Dash) -->
+      <!-- — Item (Big Dash) -->
+      <key>match</key>
+      <string>^\s*[\-–—].*$</string>
+      <key>name</key>
+      <string>string</string>
+    </dict>
+    <!-- Question -->
+    <dict>
+      <!-- ? Item -->
+      <key>match</key>
+      <string>^\s*\?.*$</string>
+      <key>name</key>
+      <string>constant.language</string>
+    </dict>
+    <!-- Add -->
+    <dict>
+      <!-- + Item -->
+      <key>match</key>
+      <string>^\s*\+.*$</string>
+      <key>name</key>
+      <string>support.class</string>
+    </dict>
+    <!-- Current -->
+    <dict>
+      <!-- > Item -->
+      <!-- = Item -->
+      <key>match</key>
+      <string>^\s*[=\>].*$</string>
+      <key>name</key>
+      <string>entity.other.attribute-name</string>
+    </dict>
+
+    <!-- Box Characters -->
+    <dict>
+      <key>match</key>
+      <string>[─-╿]</string>
+      <key>name</key>
+      <string>comment</string>
+    </dict>
+  </array>
+</dict>
+</plist>

@@ -1,0 +1,25 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Base16 Color Schemes",
+		"CSS3",
+		"DocBlockr",
+		"Laravel Blade Highlighter",
+		"Markdown Preview",
+		"Package Control",
+		"PackageResourceViewer",
+		"Rust",
+		"SCSS",
+		"SideBarEnhancements",
+		"SublimeCodeIntel"
+	],
+	"repositories":
+	[
+		"https://github.com/dz0ny/LiveReload-sublimetext2/tree/devel",
+		"https://github.com/lytedev/lyte-theme",
+		"https://github.com/lytedev/lyte-theme"
+	]
+}
