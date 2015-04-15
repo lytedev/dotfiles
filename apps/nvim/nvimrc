@@ -58,6 +58,7 @@ Plug 'chriskempson/base16-vim'						" base16 color themes
 
 Plug 'bling/vim-airline'							" status/tabline (NEEDS powerline font)
 	let g:airline_powerline_fonts = 1 						" automatically populate the g:airline_symbols dictionary with the powerline symbols
+	let g:airline#extensions#tabline#fnamemod = ':t'		" simpler buffer/tab titles
 	set laststatus=2 										" always show statusline
 	set noshowmode 											" hide the default mode text (e.g. -- INSERT -- below the statusline)
 	let g:airline#extensions#tabline#enabled = 1			" automatically displays all buffers when there's only one tab open
@@ -222,6 +223,15 @@ let c_comment_strings = 0		" dont highlight strings inside C comments
 let python_space_errors = 1
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
+" JavaScript language
+autocmd FileType javascript setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
+
+" PHP language
+autocmd FileType php setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
+
+" Lua language
+autocmd FileType lua setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
+
 " Java language
 let java_space_errors = 1
 
@@ -248,7 +258,7 @@ set listchars=tab:>·,trail:·,eol:¬	" show tabs, eol and trailing whitespace w
 set wrap							" soft wrap long lines, visually, instead of changing the file
 set linebreak						" wrap long lines at characters in 'breakat' rather than at the last character that fits
 set breakindent						" wrapped lines are visually indented
-let &colorcolumn=join(range(81,400),",") " colors columns past 80
+"let &colorcolumn=join(range(81,400),",") " colors columns past 80
 set textwidth=80
 set formatoptions=tcrql1j			" t autowrap to textwidth
 									" c autowrap comments to textwidth
@@ -393,12 +403,20 @@ let mapleader = "\<Space>"
 nnoremap <leader><Tab>   :bnext<CR>
 nnoremap <leader><S-Tab> :bprevious<CR>
 
+" quick paragraph formatting
+vmap Q gq
+nmap Q gqap
+
 " use ctrl j and k to switch buffers as well
-nnoremap <C-j> :bprevious<CR>
 nnoremap <C-k> :bnext<CR>
+nnoremap <C-j> :bprevious<CR>
+
+" clear search higlight 
+nnoremap <leader>/ :let @/ = ""<CR>
 
 " remap jk to escape in insert mode:  You'll never type jk anyway, so it's great!
 inoremap jk <Esc>
+inoremap jj <Esc>
 
 " use hjkl-movement between rows when soft wrapping:
 nnoremap j gj
