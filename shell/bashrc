@@ -149,5 +149,8 @@ export BAR_FONT_FAMILY="Inconsolata-12"
 
 export DOTFILES_PATH="$HOME/dotfiles"
 
+BASE16_SHELL="$DOTFILES_PATH/colors/base16-monokai-lyte.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
 source "$DOTFILES_PATH/shell/git-completion.bash"
 

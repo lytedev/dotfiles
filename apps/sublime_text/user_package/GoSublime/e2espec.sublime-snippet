@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+var ${1:SpecName}Spec = function(test) {
+  e2e.defaultPageSpec(this, test);
+
+  ${2:// Spec}
+};
+
+module.exports = ${1:SpecName}Spec;
+]]></content>
+    <tabTrigger>e2espec</tabTrigger> -->
+</snippet>

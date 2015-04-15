@@ -1,0 +1,20 @@
+<snippet>
+    <content><![CDATA[
+var ${1:spec}Spec = require('./${2:spec_file}.page_spec');
+
+test.describe('${3:Test title}', function() {
+  var ${1:spec} = new ${1:spec}Spec(this);
+
+  e2e.getBrowserBefore(this);
+
+  test.it('${4:test element}', function() {
+    ${1:spec}.get();
+
+    ${5:// Test procedure}
+  });
+
+  e2e.closeBrowserAfter(this); // Close browser
+});
+]]></content>
+    <tabTrigger>e2etest</tabTrigger> -->
+</snippet>
