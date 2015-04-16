@@ -11,7 +11,7 @@ bspc config focus_by_distance    true
 
 i=1
 for mon in $(bspc query -M); do
-    max=$((i + 4))
+    max=$((i + 9))
     bspc monitor "$mon" -d $(seq $i $max)
     i=$((max + 1))
 done

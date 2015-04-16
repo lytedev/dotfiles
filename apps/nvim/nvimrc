@@ -224,13 +224,13 @@ let python_space_errors = 1
 autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
 
 " JavaScript language
-autocmd FileType javascript setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
+autocmd FileType javascript setl tabstop=8 expandtab shiftwidth=2 softtabstop=2 
 
 " PHP language
-autocmd FileType php setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
+autocmd FileType php setl tabstop=8 expandtab shiftwidth=2 softtabstop=2 
 
 " Lua language
-autocmd FileType lua setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
+autocmd FileType lua setl tabstop=8 expandtab shiftwidth=2 softtabstop=2 
 
 " Java language
 let java_space_errors = 1

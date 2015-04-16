@@ -1,12 +1,16 @@
-#define terminus -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*
-#define terminusLetterspace 0
+/* #define terminus -*-terminess-medium-r-*-*-18-*-*-*-*-*-*-* */
+/* #define terminusLetterspace 0 */
 
-#define inconsolata xft:Inconsolata-12
+#define terminess xft:Terminess Powerline-18
+#define terminessLetterspace 0 
+
+#define inconsolata xft:Inconsolata\\-dz for Powerline-11
 #define inconsolataLetterspace -1
 
-*.font: inconsolata 
-*.boldFont: inconsolata
-*.letterSpace: inconsolataLetterspace
+*.font: terminess 
+*.faceName: terminess
+*.boldFont: terminess
+*.letterSpace: terminessLetterspace
 *.scrollBar: false
 *.cursorUnderline: true
 *.cursorBlink: true
