@@ -36,6 +36,9 @@ alias gs="git status"
 alias gl="git log"
 alias ga="git add -A"
 alias gc="git commit -m"
+alias gac="git add -A && git commit -m"
+alias gp="git push"
+alias gpl="git pull" # not the license
 
 # OSX Fix for certain things
 if [ $(uname) = "Darwin" ]; then
