@@ -34,6 +34,8 @@ alias tmux='TERM=screen-256color-bce tmux' # For syntax higlighting for vim in t
 ## Git aliases
 alias gs="git status"
 alias gl="git log"
+alias ga="git add -A"
+alias gc="git commit -m"
 
 # OSX Fix for certain things
 if [ $(uname) = "Darwin" ]; then
