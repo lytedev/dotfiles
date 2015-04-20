@@ -47,7 +47,8 @@ call plug#begin('~/.vim/bundle')
 " For Windows users
 " call plug#begin('~/vimfiles/bundle')
 
-" ADD YOUR PLUGINS HERE:
+Plug 'kchmck/vim-coffee-script'
+Plug 'wavded/vim-stylus'
 
 " LOOKS:
 "Plug 'ScrollColors'								" scroll themes with :SCROLLCOLOR
@@ -221,16 +222,16 @@ let c_comment_strings = 0		" dont highlight strings inside C comments
 
 " Python language
 let python_space_errors = 1
-autocmd FileType python setl tabstop=8 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " JavaScript language
-autocmd FileType javascript setl tabstop=8 expandtab shiftwidth=2 softtabstop=2 
+autocmd FileType javascript setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
 
 " PHP language
-autocmd FileType php setl tabstop=8 expandtab shiftwidth=2 softtabstop=2 
+autocmd FileType php setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
 
 " Lua language
-autocmd FileType lua setl tabstop=8 expandtab shiftwidth=2 softtabstop=2 
+autocmd FileType lua setl tabstop=2 expandtab shiftwidth=2 softtabstop=2 
 
 " Java language
 let java_space_errors = 1
@@ -245,9 +246,14 @@ autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
 autocmd FileType mail setl nonumber spell textwidth=0 wrapmargin=0
 " }}}
 
+autocmd BufRead,BufNewFile *.hamlc set ft=haml
+
 " Spaces & Tabs {{{
-set tabstop=4						" number of visual spaces per TAB
-"set autoindent smartindent			" copy indent from current line when starting a new line, and smart indent automatically inserts one level of indentation in some cases.
+set tabstop=2						" number of visual spaces per TAB
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent smartindent			" copy indent from current line when starting a new line, and smart indent automatically inserts one level of indentation in some cases.
 set listchars=tab:>·,trail:·,eol:¬	" show tabs, eol and trailing whitespace when showing separators
 "set listchars=tab:\ \ ,trail:·		" only show trailing whitespace when showing separators. the tab is 2 spaces
 "set list							" show listchars
