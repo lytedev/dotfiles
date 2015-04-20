@@ -49,7 +49,7 @@ fi
 # Set editor
 export EDITOR="vim"
 # If we have neovim installed, let's use that instead!
-if [ -f "/usr/bin/nvim" ]; then
+if [ -f "/usr/local/bin/nvim" ]; then
   alias _vim="vim"
   alias vim="nvim"
   export EDITOR="nvim"
