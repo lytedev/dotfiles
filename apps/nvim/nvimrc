@@ -3,11 +3,11 @@
 
 " Lang {{{
 " language messages en_US.utf8
-set langmenu=en_US.utf8
-let $LANG = 'en_US.utf8'
+" set langmenu=en_US.utf8
+" let $LANG = 'en_US.utf8'
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-set spelllang=en,es
+" set spelllang=en,es
 " }}}
 
 " Vim-Plug Config {{{
@@ -49,6 +49,7 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'kchmck/vim-coffee-script'
 Plug 'wavded/vim-stylus'
+Plug 'rust-lang/rust.vim'
 
 " LOOKS:
 "Plug 'ScrollColors'								" scroll themes with :SCROLLCOLOR
@@ -237,13 +238,13 @@ autocmd FileType lua setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 let java_space_errors = 1
 
 " Markdown instead of modula2
-autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wrapmargin=0
+" autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wrapmargin=0
 
 " TXT files
-autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
+" autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
 
 " Mail files from mutt
-autocmd FileType mail setl nonumber spell textwidth=0 wrapmargin=0
+" autocmd FileType mail setl nonumber spell textwidth=0 wrapmargin=0
 " }}}
 
 autocmd BufRead,BufNewFile *.hamlc set ft=haml
