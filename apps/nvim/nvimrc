@@ -312,7 +312,7 @@ map <left>  <nop>
 map <right> <nop>
 
 " force yourself to use jj or jk
-map <Esc>   <nop>
+inoremap <Esc> <nop>
 
 " move between tabs:
 nmap <leader>1 <Plug>AirlineSelectTab1
