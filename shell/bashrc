@@ -40,6 +40,17 @@ alias gac="git add -A && git commit -m"
 alias gp="git push"
 alias gpl="git pull" # not the license
 
+vman() {
+  vim -c "SuperMan $*"
+
+  if [ "$?" != "0" ]; then
+    echo "No manual entry for $*"
+  fi
+}
+
+alias _man="man"
+alias man="vman"
+
 # OSX Fix for certain things
 if [ $(uname) = "Darwin" ]; then
   # This fixes some OSX printf issues
@@ -152,7 +163,7 @@ export BAR_HEIGHT="24"
 export BAR_FIFO="$HOME/.bar_fifo"
 export BAR_FONT_FAMILY="Inconsolata-12"
 
-export DOTFILES_PATH="$HOME/dotfiles"
+export DOTFILES_PATH="/Users/dflanagan/dotfiles"
 
 BASE16_SHELL="$DOTFILES_PATH/colors/base16-monokai-lyte.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
