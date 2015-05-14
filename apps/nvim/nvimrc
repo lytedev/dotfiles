@@ -28,7 +28,7 @@ Plug 'bling/vim-airline'
 	"let g:airline#extensions#tabline#left_alt_sep = '|'
 
 	"let g:airline#extensions#tabline#buffer_idx_mode = 1	" display numbers in the tab line, and use mappings <leader>1 to <leader>9
- 
+
 " Plugins that make text-wizarding much more fun
 "Plug 'majutsushi/tagbar' " shows a list of tags (requires ctags)
 Plug 'tpope/vim-surround'
@@ -93,11 +93,11 @@ Plug 'honza/vim-snippets'
 	inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Filetype handling
-Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
-Plug 'wavded/vim-stylus', {'for': 'styl'}
-Plug 'rust-lang/rust.vim', {'for': 'rs'}
+Plug 'kchmck/vim-coffee-script'
+Plug 'wavded/vim-stylus'
+Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown', {'for': 'md'}
+Plug 'plasticboy/vim-markdown'
 Plug 'justinmk/vim-syntax-extra', {'for': 'c'}
 Plug 'freitass/todo.txt-vim', {'for': 'todo'}
 Plug 'vivien/vim-addon-linux-coding-style', {'for': 'c'}
