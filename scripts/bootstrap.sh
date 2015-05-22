@@ -37,6 +37,7 @@ rm -rf $HOME/.config/bar
 rm -rf $HOME/.gitconfig
 rm -rf $HOME/.nvim
 rm -rf $HOME/.vim
+rm -rf $HOME/.gnupg/gpg.conf
 ln -s $DIR/apps/luakit $HOME/.config/luakit
 ln -s $DIR/shell/bashrc $HOME/.bashrc
 ln -s $DIR/apps/nvim/nvimrc $HOME/.vimrc
@@ -50,6 +51,7 @@ ln -s $DIR/wm/bar $HOME/.config/bar
 ln -s $DIR/shell/gitconfig $HOME/.gitconfig
 ln -s $DIR/apps/nvim/nvim $HOME/.vim
 ln -s $DIR/apps/nvim/nvim $HOME/.nvim
+ln -s $DIR/gpg/gpg.conf $HOME/.gnupg/gpg.conf
 
 # Sublime config location varies by OS
 if [ "Darwin" = "$(uname -s)" ]; then
