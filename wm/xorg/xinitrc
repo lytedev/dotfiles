@@ -33,5 +33,5 @@ xset s off &
 unclutter & # Hide that mouse cursor
 # xautolock -time 10 -locker slock &
 sxhkd &
-# "$DOTFILES_PATH/wm/bar/bar_init" &
+"$DOTFILES_PATH/wm/bar/bar_init" &
 exec bspwm

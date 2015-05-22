@@ -81,8 +81,8 @@ else
     cd "$CUR_PWD"
 fi
 
-echo "Adding DOTFILES_PATH to .bash_profile"
-sed -i "/export DOTFILES_PATH/c export DOTFILES_PATH=\"$DIR\"" "$HOME/.bash_profile"
+echo "Adding DOTFILES_PATH to .bashrc"
+sed -i "/export DOTFILES_PATH/c export DOTFILES_PATH=\"$DIR\"" "$HOME/.bashrc"
 
-echo "You should now re-source your .bash_profile, logout, or reboot."
+echo "You should now re-source your .bashrc, logout, or reboot."
 
