@@ -1,21 +1,6 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
-# [ -z "$PS1" ] && return 
-
-if [ $TERM = "linux" ]; then
-    _GET_COLOR_DEFINITIONS_CMD='s/\*\.color([0-9]+):\s*(.+)\s*/\1 \2/p'
-    sed -nr "$_GET_COLOR_DEFINITIONS_CMD" ~/.Xresources | while read -r line; do
-        index=$(echo $line | cut -f1 -d" ")
-        definition=$(echo $line | cut -f2 -d" ")
-        _get_color_def_val_cmd="s/\s*#define $definition #(.*)/\1/p"
-        color=$(sed -nr "$_get_color_def_val_cmd" ~/.Xresources)
-        if [ $index -lt 16 ]; then
-            printf "\\e]P%X%s" $index $color
-        fi
-    done
-fi
-
-# Aliases 
+# Aliases
 ## Directory listing aliases
 alias lx='ls -lXB' # order by filetype
 alias lk='ls -lSr' # order by filesize reversed
@@ -138,8 +123,8 @@ On_IYellow='\e[0;103m'  # Yellow
 On_IBlue='\e[0;104m'    # Blue
 On_IPurple='\e[0;105m'  # Purple
 On_ICyan='\e[0;106m'    # Cyan
-On_IWhite='\e[0;107m'   # White  
- 
+On_IWhite='\e[0;107m'   # White
+
 function line() {
   return
 }
@@ -158,10 +143,10 @@ export PROMPT_COMMAND='RET=$?; \
 
 export GOPATH=~/code/go
 export PATH="$GOPATH/bin:$PATH"
- 
+
 export BAR_HEIGHT="24"
 export BAR_FIFO="$HOME/.bar_fifo"
-export BAR_FONT_FAMILY="Inconsolata-12"
+export BAR_FONT_FAMILY="Terminess Powerline-16"
 
 export DOTFILES_PATH="/Users/dflanagan/dotfiles"
 
@@ -169,4 +154,5 @@ BASE16_SHELL="$DOTFILES_PATH/colors/base16-monokai-lyte.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 source "$DOTFILES_PATH/shell/git-completion.bash"
+
 

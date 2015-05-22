@@ -26,6 +26,7 @@ echo "Creating symlinks"
 # Link files
 rm -rf $HOME/.config/luakit
 rm -rf $HOME/.bashrc
+rm -rf $HOME/.bash_profile
 rm -rf $HOME/.vimrc
 rm -rf $HOME/.tmux.conf
 # rm -rf $HOME/.irssi
@@ -40,6 +41,7 @@ rm -rf $HOME/.vim
 rm -rf $HOME/.gnupg/gpg.conf
 ln -s $DIR/apps/luakit $HOME/.config/luakit
 ln -s $DIR/shell/bashrc $HOME/.bashrc
+ln -s $DIR/shell/bash_profile $HOME/.bash_profile
 ln -s $DIR/apps/nvim/nvimrc $HOME/.vimrc
 ln -s $DIR/apps/nvim/nvimrc $HOME/.nvimrc
 ln -s $DIR/shell/tmux.conf $HOME/.tmux.conf
@@ -79,8 +81,8 @@ else
     cd "$CUR_PWD"
 fi
 
-echo "Adding DOTFILES_PATH to .bashrc"
-sed -i "/export DOTFILES_PATH/c export DOTFILES_PATH=\"$DIR\"" "$HOME/.bashrc"
+echo "Adding DOTFILES_PATH to .bash_profile"
+sed -i "/export DOTFILES_PATH/c export DOTFILES_PATH=\"$DIR\"" "$HOME/.bash_profile"
 
-echo "You should now re-source your .bashrc, logout, or reboot."
+echo "You should now re-source your .bash_profile, logout, or reboot."
 

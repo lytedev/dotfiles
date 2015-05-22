@@ -1,13 +1,13 @@
 /* #define terminus -*-terminess-medium-r-*-*-18-*-*-*-*-*-*-* */
 /* #define terminusLetterspace 0 */
 
-#define terminess xft:Terminess Powerline-18
+#define terminess xft:Terminess Powerline-16
 #define terminessLetterspace 0 
 
 #define inconsolata xft:Inconsolata\\-dz for Powerline-11
 #define inconsolataLetterspace -1
 
-*.font: terminess 
+*.font: terminess
 *.faceName: terminess
 *.boldFont: terminess
 *.letterSpace: terminessLetterspace
