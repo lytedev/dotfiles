@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+Volume() {
+  VOLUME=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer -c 1 sget Master))
+  echo -n "$VOLUME"
+}
+
+echo -e "V----" > "$BAR_FIFO"
+while true; do
+  echo -e "V$(Volume)" > "$BAR_FIFO"
+  sleep 15;
+done
+

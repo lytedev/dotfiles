@@ -12,9 +12,9 @@ fi
 xrdb ~/.Xresources
 
 # VirtualBox client service
-killall VBoxClient
-VBoxClient-all
-sleep 1
+# killall VBoxClient
+# VBoxClient-all
+# sleep 1
 
 # Place monitors
 # xrandr --output VBOX1 --left-of VBOX0 &
@@ -28,6 +28,8 @@ xset -dpms &
 xset s noblank &
 xset s off &
 
+feh --bg-fill .config/wallpaper
+
 # Window Manager
 # redshift &
 unclutter & # Hide that mouse cursor
@@ -35,3 +37,4 @@ unclutter & # Hide that mouse cursor
 sxhkd &
 "$DOTFILES_PATH/wm/bar/bar_init" &
 exec bspwm
+

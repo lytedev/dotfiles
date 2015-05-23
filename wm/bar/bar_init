@@ -17,6 +17,7 @@ bspc control --subscribe > "$BAR_FIFO" &
 "$DOTFILES_PATH/wm/bar/bar_time" &
 "$DOTFILES_PATH/wm/bar/bar_battery" &
 "$DOTFILES_PATH/wm/bar/bar_pacman" &
+"$DOTFILES_PATH/wm/bar/bar_volume" &
 
 . $HOME/.config/bar/bar_colors
 

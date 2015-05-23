@@ -8,14 +8,18 @@ num_mon=$(bspc query -M | wc -l)
 
 while read -r line ; do
 	case $line in
-        P*)
-            # packages
-            pkg_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
-            ;;
-        B*)
-            # packages
-            bat_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
-            ;;
+    P*)
+      # packages
+      pkg_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
+      ;;
+    B*)
+      # battery
+      bat_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
+      ;;
+    V*)
+      # volume
+      vol_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
+      ;;
 		S*)
 			# clock output
 			sys_infos="%{F$COLOR_FREE_FG}%{B$COLOR_STATUS_BG}${line#?}%{B-}%{F-} "
@@ -80,5 +84,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${title}%{c}${wm_infos}%{r} ${sys_infos}"
+	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${title}%{c}${wm_infos}%{r} ${sys_infos}"
 done
