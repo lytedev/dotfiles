@@ -31,26 +31,17 @@ super + {o,i}
 	bspc window {older,newer} -f; \
 	bspc control --record-history on
 
-super + y
-	bspc window -w last.manual
-
 super + m
 	bspc window -s biggest
 
 super + {_,shift + }{h,j,k,l}
 	bspc window -{f,s} {left,down,up,right}
 
-super + {_,shift + }c
-	bspc window -f {next,prev}
-
 super + {comma,period}
 	bspc desktop -C {backward,forward}
 
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
-
-# super + {j,k}
-# 	bspc desktop -f {prev,next}
 
 super + {p,n}
 	bspc desktop -f {prev,next}
@@ -82,21 +73,14 @@ super + {_,shift + }{1-9,0}
 super + button{1-3}
 	bspc pointer -g {move,resize_side,resize_corner}
 
+shift + super + button1
+  bspc pointer -g resize_corner
+
 super + !button{1-3}
 	bspc pointer -t %i %i
 
 super + @button{1-3}
 	bspc pointer -u
-
-# {_,shift + }XF86AudioLowerVolume
-#   amixer -c 1 sset Speaker {10,1}%-; \
-#   amixer -c 1 sset Headphone {10,1}%-; \
-#   amixer -c 1 sset Master {10,1}%-
-
-# {_,shift + }XF86AudioRaiseVolume
-#   amixer -c 1 sset Speaker {10,1}%+; \
-#   amixer -c 1 sset Headphone {10,1}%+; \
-#   amixer -c 1 sset Master {10,1}%+
 
 {_,shift + }XF86AudioLowerVolume
   ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%- && amixer -c 1 sset Headphone $ADJ%- && amixer -c 1 sset Master $ADJ%-
@@ -112,9 +96,6 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
   sub_brightness_percent 0.1
-
-# super + shift + {minus,plus}
-#   bspc monitor -d config window_gap +
 
 #
 # wm independent hotkeys8

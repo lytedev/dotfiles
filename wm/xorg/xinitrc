@@ -28,10 +28,10 @@ xset -dpms &
 xset s noblank &
 xset s off &
 
-feh --bg-fill .config/wallpaper
+~/.fehbg &
 
 # Window Manager
-# redshift &
+redshift &
 unclutter & # Hide that mouse cursor
 # xautolock -time 10 -locker slock &
 sxhkd &

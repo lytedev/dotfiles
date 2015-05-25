@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-bspc monitor -d config border_width   1
-bspc monitor -d config window_gap     $WINDOW_SPACING
-
 bspc config normal_border_color  "#111111"
 bspc config split_ratio          0.50
 bspc config borderless_monocle   true
@@ -13,6 +10,8 @@ i=1
 for mon in $(bspc query -M); do
     max=$((i + 9))
     bspc monitor "$mon" -d $(seq $i $max)
+    bspc config -m "$mon" window_gap "$WINDOW_GAP"
+    bspc config -m "$mon" border_width 1
     i=$((max + 1))
 done
 
