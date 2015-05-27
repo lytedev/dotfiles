@@ -101,6 +101,6 @@ sudo pip3 install neovim
 
 # TODO: Any other python modules?
 
-# Much to my distaste, Neovim seems to need the python2 binary as the default
-sudo rm /usr/bin/python
-sudo ln -s /usr/bin/python2 /usr/bin/python
+# Setup custom keymaps
+sudo mkdir -p /usr/local/share/kbd/keymaps
+

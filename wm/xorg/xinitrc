@@ -28,6 +28,10 @@ xset -dpms &
 xset s noblank &
 xset s off &
 
+xset r rate 200 50
+
+setxkbmap -options caps:escape
+
 ~/.fehbg &
 
 # Window Manager
