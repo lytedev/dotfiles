@@ -6,8 +6,6 @@ if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
 
-[ ~ -s ~/.config/mpd/pid ] && mpd
-
 if [ $TERM = "linux" ]; then
     _GET_COLOR_DEFINITIONS_CMD='s/\*\.color([0-9]+):\s*(.+)\s*/\1 \2/p'
     sed -nr "$_GET_COLOR_DEFINITIONS_CMD" ~/.Xresources | while read -r line; do
