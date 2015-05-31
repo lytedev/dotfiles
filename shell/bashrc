@@ -15,6 +15,8 @@ alias lr='ll -R' # Please don't.
 alias la='ll -A' # Show. Everything.
 alias tree='tree -Csuh'
 alias tmux='TERM=screen-256color-bce tmux' # For syntax higlighting for vim in tmux
+alias playgplaylist='gmusic-mpd --play 0 -d ~/.config/mpd/playlists -r'
+alias initgmusic='killall mpd 2> /dev/null || true && killall GMusicProxy 2> /dev/null || true && mpd && GMusicProxy'
 
 ## Git aliases
 alias gs="git status"
@@ -148,7 +150,7 @@ export BAR_HEIGHT="24"
 export BAR_FIFO="$HOME/.bar_fifo"
 export BAR_FONT_FAMILY="Terminess Powerline-16"
 
-export DOTFILES_PATH="/Users/dflanagan/dotfiles"
+export DOTFILES_PATH="$HOME/dotfiles"
 
 BASE16_SHELL="$DOTFILES_PATH/colors/base16-monokai-lyte.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
