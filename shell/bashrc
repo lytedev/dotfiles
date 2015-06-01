@@ -15,8 +15,10 @@ alias lr='ll -R' # Please don't.
 alias la='ll -A' # Show. Everything.
 alias tree='tree -Csuh'
 alias tmux='TERM=screen-256color-bce tmux' # For syntax higlighting for vim in tmux
-alias playgplaylist='gmusic-mpd --play 0 -d ~/.config/mpd/playlists -r'
+alias playgplaylist='gmusic-mpd --tracks 100000 --play 0 -d ~/.config/mpd/playlists -r'
 alias initgmusic='killall mpd 2> /dev/null || true && killall GMusicProxy 2> /dev/null || true && mpd && GMusicProxy'
+alias svim='sudo -E vim'
+alias cd..='cd ..'
 
 ## Git aliases
 alias gs="git status"
@@ -34,6 +36,13 @@ vman() {
     echo "No manual entry for $*"
   fi
 }
+
+if hash GMusicProxy 2>/dev/null; then
+  ifl() {
+    initgmusic
+    gmusic-mpd --tracks 20 --play 0 -d ~/.config/mpd/playlists -r --ifl
+  }
+fi
 
 alias _man="man"
 alias man="vman"
