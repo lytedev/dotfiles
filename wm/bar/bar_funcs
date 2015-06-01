@@ -49,3 +49,15 @@ update_bar_MasterVolume() {
 }
 export -f update_bar_MasterVolume
 
+bar_DisplayBrightness() {
+  DISPLAY_BRIGHTNESS_PERCENT=$(get_brightness_percent)
+  DISPLAY_BRIGHTNESS=$(float_mul_int $DISPLAY_BRIGHTNESS_PERCENT 100)
+  echo -n "$DISPLAY_BRIGHTNESS"
+}
+export -f bar_DisplayBrightness
+
+update_bar_DisplayBrightness() {
+  echo -e "DB$(bar_DisplayBrightness)" > "$BAR_FIFO"
+}
+export -f update_bar_DisplayBrightness
+

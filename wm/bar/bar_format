@@ -22,7 +22,7 @@ while read -r line ; do
       ;;
     DB*)
       # display brightness
-      display_brightness_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
+      display_brightness_infos="%{F$COLOR_FREE_FG}${line#??}%{B-}%{F-}"
       ;;
 		S*)
 			# clock output
@@ -88,5 +88,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${title}%{c}${wm_infos}%{r} ${sys_infos}"
+	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${display_brightness_infos} ${title}%{c}${wm_infos}%{r} ${sys_infos}"
 done
