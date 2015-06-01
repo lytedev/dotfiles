@@ -20,6 +20,11 @@ alias initgmusic='killall mpd 2> /dev/null || true && killall GMusicProxy 2> /de
 alias svim='sudo -E vim'
 alias cd..='cd ..'
 
+## TMUX Aliases
+alias tmls="tmux ls"
+alias tmnew="tmux new -s"
+alias tmatt="tmux attach -t"
+
 ## Git aliases
 alias gs="git status"
 alias gl="git log"

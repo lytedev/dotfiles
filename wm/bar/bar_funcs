@@ -4,39 +4,48 @@ bar_Battery() {
   BATTERY=$(acpi -b | sed -r 's/Battery [0-9]+: (Dis|Cha|Full)[a-zA-Z,]+\s*([0-9]+)\%.*/\1\2/' | sed -r 's/Dis/-/ ; s/(Cha|Full)/+/')
   echo -n "$BATTERY"
 }
+export -f bar_Battery
 
 update_bar_Battery() {
   echo -e "B$(bar_Battery)" > "$BAR_FIFO"
 }
+export -f update_bar_Battery
 
 bar_NumPackagesWithUpdates() {
   NUM_PACKAGES=$(pacaur -Syq > /dev/null && pacaur -Qqu | wc -l)
   echo -n "$NUM_PACKAGES"
 }
+export -f bar_NumPackagesWithUpdates
 
 update_bar_NumPackagesWithUpdates() {
   echo -e "P$(bar_NumPackagesWithUpdates)" > "$BAR_FIFO"
 }
+export -f update_bar_NumPackagesWithUpdates
 
 bar_Update() {
   pacaur -Syyu
 }
+export -f bar_Update
 
 bar_Clock() {
   DATE=$(date "+%T %a %b %d")
   echo -n "$DATE"
 }
+export -f bar_Clock
 
 update_bar_Clock() {
   echo -e "S$(bar_Clock)" > "$BAR_FIFO"
 }
+export -f update_bar_Clock
 
 bar_MasterVolume() {
   VOLUME=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer -c 1 sget Master))
   echo -n "$VOLUME"
 }
+export -f bar_MasterVolume
 
 update_bar_MasterVolume() {
   echo -e "V$(bar_MasterVolume)" > "$BAR_FIFO"
 }
+export -f update_bar_MasterVolume
 

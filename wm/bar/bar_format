@@ -20,6 +20,10 @@ while read -r line ; do
       # volume
       vol_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
       ;;
+    DB*)
+      # display brightness
+      display_brightness_infos="%{F$COLOR_FREE_FG}${line#?}%{B-}%{F-}"
+      ;;
 		S*)
 			# clock output
 			sys_infos="%{F$COLOR_FREE_FG}%{B$COLOR_STATUS_BG}${line#?}%{B-}%{F-} "

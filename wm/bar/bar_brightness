@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-echo -e "B..." > "$BAR_FIFO"
 while true; do
-  update_bar_Battery
+  update_bar_DisplayBrightness
   sleep 30;
 done
 
