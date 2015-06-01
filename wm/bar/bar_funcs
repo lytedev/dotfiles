@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+bar_Battery() {
+  BATTERY=$(acpi -b | sed -r 's/Battery [0-9]+: (Dis|Cha|Full)[a-zA-Z,]+\s*([0-9]+)\%.*/\1\2/' | sed -r 's/Dis/-/ ; s/(Cha|Full)/+/')
+  echo -n "$BATTERY"
+}
+
+update_bar_Battery() {
+  echo -e "B$(bar_Battery)" > "$BAR_FIFO"
+}
+
+bar_NumPackagesWithUpdates() {
+  NUM_PACKAGES=$(pacaur -Syq > /dev/null && pacaur -Qqu | wc -l)
+  echo -n "$NUM_PACKAGES"
+}
+
+update_bar_NumPackagesWithUpdates() {
+  echo -e "P$(bar_NumPackagesWithUpdates)" > "$BAR_FIFO"
+}
+
+bar_Update() {
+  pacaur -Syyu
+}
+
+bar_Clock() {
+  DATE=$(date "+%T %a %b %d")
+  echo -n "$DATE"
+}
+
+update_bar_Clock() {
+  echo -e "S$(bar_Clock)" > "$BAR_FIFO"
+}
+
+bar_MasterVolume() {
+  VOLUME=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer -c 1 sget Master))
+  echo -n "$VOLUME"
+}
+
+update_bar_MasterVolume() {
+  echo -e "V$(bar_MasterVolume)" > "$BAR_FIFO"
+}
+

@@ -2,13 +2,8 @@
 
 echo -e "P0" > "$BAR_FIFO"
 
-NumPackagesWithUpdates() {
-    NUM_PACKAGES=$(pacaur -Syq > /dev/null && pacaur -Qqu | wc -l)
-    echo -n "$NUM_PACKAGES"
-}
-
 while true; do
-    echo -e "P$(NumPackagesWithUpdates)" > "$BAR_FIFO"
-    sleep 300;
+  update_bar_NumPackagesWithUpdates
+  sleep 300;
 done
 

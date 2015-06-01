@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 
-Clock() {
-    DATE=$(date "+%T %a %b %d")
-    echo -n "$DATE"
-}
-
 while true; do
-    echo -e "S$(Clock)" > "$BAR_FIFO"
-    sleep 1;
+  update_bar_Clock
+  sleep 1;
 done
 
