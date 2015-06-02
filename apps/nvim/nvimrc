@@ -350,6 +350,9 @@ map  <silent> <F7>    <Esc>:cprevious<CR>
 " next c error (c.vim plugin)
 map  <silent> <F8>    <Esc>:cnext<CR>
 
+" keep that dumb window from popping up
+map q: :q
+
 " compile & link c code (alt+<F9> write + compile, ctrl+<F9> compile + run) (c.vim plugin)
 "<F9>
 " }}}

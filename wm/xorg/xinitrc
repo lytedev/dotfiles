@@ -37,7 +37,8 @@ fi
 redshift & # Makes the screen nice to look at in low light
 unclutter & # Hide that mouse cursor
 
-sxhkd &
 "$DOTFILES_PATH/wm/bar/bar_init" &
+# xcompmgr -c -C -t-9 -l-9 -r5 -o1 &
+sxhkd &
 exec bspwm
 

@@ -111,7 +111,7 @@ XF86AudioPrev
 #
 
 super + Return
-	urxvt
+	urxvtc
 
 super + space
 	dmenu_run -fn "Terminess Powerline-16" -i -nb "#111111" -sb "#111111" -sf "#a1e22e" -nf "#888888" -h 24
