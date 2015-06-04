@@ -1,0 +1,40 @@
+# This should unbind a lot of my normal binds in order to use hotkey-heavy
+# applications without navigating around on accident (i.e games)
+
+super + ctrl + shift + l
+  slock
+
+super + ctrl + Escape
+	bspc quit
+
+{_,shift + }XF86AudioLowerVolume
+  ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%- && amixer -c 1 sset Headphone $ADJ%- && amixer -c 1 sset Master $ADJ%- && update_bar_MasterVolume
+
+{_,shift + }XF86AudioRaiseVolume
+  ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%+ && amixer -c 1 sset Headphone $ADJ%+ && amixer -c 1 sset Master $ADJ%+ && update_bar_MasterVolume
+
+XF86AudioMute
+  amixer -c 1 sset Master toggle && update_bar_MasterVolume
+
+{_,shift + }XF86MonBrightnessUp
+  add_percent_brightness {0.1,0.01} && update_bar_DisplayBrightness
+
+{_,shift + }XF86MonBrightnessDown
+  sub_percent_brightness {0.1,0.01} && update_bar_DisplayBrightness
+
+XF86AudioPlay
+  mpc toggle
+  
+XF86AudioNext
+  mpc next
+
+XF86AudioPrev
+  mpc prev
+
+# swap back to original sxhkdrc
+super + shift + alt + ctrl + r
+  if [ -e ~/.config/sxhkd/origsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/altsxhkdrc && mv ~/.config/sxhkd/origsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
+	
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd

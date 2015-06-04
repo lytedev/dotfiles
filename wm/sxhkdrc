@@ -110,6 +110,9 @@ XF86AudioPrev
 # wm independent hotkeys8
 #
 
+super + shift + alt + ctrl + r
+  if [ -e ~/.config/sxhkd/altsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/origsxhkdrc && mv ~/.config/sxhkd/altsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
+	
 super + Return
 	urxvtc
 
