@@ -44,7 +44,6 @@ vman() {
 
 if hash GMusicProxy 2>/dev/null; then
   ifl() {
-    initgmusic
     gmusic-mpd --tracks 20 --play 0 -d ~/.config/mpd/playlists -r --ifl
   }
 fi
