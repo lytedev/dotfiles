@@ -66,6 +66,10 @@ if [ -f "/usr/local/bin/nvim" ]; then
   export EDITOR="nvim"
 fi
 
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 # Reset
 Color_Off='\e[0m'       # Text Reset
 
