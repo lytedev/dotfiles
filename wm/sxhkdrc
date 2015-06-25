@@ -99,12 +99,24 @@ XF86AudioMute
 
 XF86AudioPlay
   mpc toggle
-  
+
 XF86AudioNext
   mpc next
 
 XF86AudioPrev
   mpc prev
+
+super + plus
+    bspc config -d focused window_gap $((`bspc config -d focused window_gap` + 5 ))
+
+super + equal
+    bspc config top_padding $BAR_HEIGHT; bspc config -d focused window_gap $WINDOW_GAP
+
+super + minus
+    bspc config -d focused window_gap $((`bspc config -d focused window_gap` - 5 ))
+
+super + alt + r
+    bspc config top_padding $BAR_HEIGHT; bspc config -d focused window_gap 0
 
 #
 # wm independent hotkeys8
@@ -112,12 +124,12 @@ XF86AudioPrev
 
 super + shift + alt + ctrl + r
   if [ -e ~/.config/sxhkd/altsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/origsxhkdrc && mv ~/.config/sxhkd/altsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
-	
+
 super + Return
 	urxvtc
 
 super + space
-	dmenu_run -fn "Terminess Powerline-16" -i -nb "#111111" -sb "#111111" -sf "#a1e22e" -nf "#888888" -h 24
+	dmenu_run -fn "Meslo LG S DZ for Powerline-12" -i -nb "#111111" -sb "#111111" -sf "#a1e22e" -nf "#888888" -h 30
 
 # make sxhkd reload its configuration files:
 super + Escape

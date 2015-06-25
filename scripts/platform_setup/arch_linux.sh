@@ -80,7 +80,7 @@ cd ..
 rm -f *.tar.gz
 
 # AUR packages
-pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git terminus-powerline-font mpc
+pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git
 
 # Get our window manager code and build
 mkdir -p "$HOME/code/repos"

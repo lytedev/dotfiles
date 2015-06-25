@@ -20,6 +20,8 @@ alias initgmusic='killall mpd 2> /dev/null || true && killall GMusicProxy 2> /de
 alias svim='sudo -E vim'
 alias cd..='cd ..'
 
+alias arch-update="pacaur -Syyu"
+
 ## TMUX Aliases
 alias tmls="tmux ls"
 alias tmnew="tmux new -s"
@@ -163,11 +165,12 @@ export PROMPT_COMMAND='RET=$?; \
 export GOPATH=~/code/go
 export PATH="$GOPATH/bin:$PATH"
 
-export BAR_HEIGHT="24"
+export BAR_HEIGHT="30"
 export BAR_FIFO="$HOME/.bar_fifo"
-export BAR_FONT_FAMILY="Terminess Powerline-16"
+export BAR_FONT_FAMILY="Meslo LG S DZ for Powerline-12"
 
 export DOTFILES_PATH="$HOME/dotfiles"
+export WINDOW_GAP="50"
 
 BASE16_SHELL="$DOTFILES_PATH/colors/base16-monokai-lyte.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

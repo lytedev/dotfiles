@@ -1,16 +1,22 @@
 /* #define terminus -*-terminess-medium-r-*-*-18-*-*-*-*-*-*-* */
 /* #define terminusLetterspace 0 */
 
-#define terminess xft:Terminess Powerline-16
+#define terminess xft:Terminess Powerline-12
 #define terminessLetterspace 0 
 
-#define inconsolata xft:Inconsolata\\-dz for Powerline-11
-#define inconsolataLetterspace -1
+/* #define nice xft:Inconsola-16 */
+/* #define niceLetterspace 0 */
 
-*.font: terminess
-*.faceName: terminess
-*.boldFont: terminess
-*.letterSpace: terminessLetterspace
+/* #define nice xft:Inconsolata\\-dz for Powerline-11 */
+/* #define nice xft:Sauce Code Powerline-11 */
+/* #define nice xft:Monaco-12 */
+#define nice xft:Meslo LG S DZ for Powerline:size=12
+#define niceLetterspace -1
+
+*.font: nice
+*.faceName: nice
+*.boldFont: nice
+*.letterSpace: niceLetterspace
 *.scrollBar: false
 *.cursorUnderline: true
 *.cursorBlink: true
