@@ -226,7 +226,7 @@ else
 	set t_Co=256
 	let base16colorspace=256
 	set background=dark
-	colorscheme base16-monokai-lyte
+	colorscheme current
 	highlight ColorColumn ctermbg=235 guibg=#262626
 endif
 

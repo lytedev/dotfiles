@@ -6,18 +6,18 @@ if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
 
-if [ $TERM = "linux" ]; then
-    _GET_COLOR_DEFINITIONS_CMD='s/\*\.color([0-9]+):\s*(.+)\s*/\1 \2/p'
-    sed -nr "$_GET_COLOR_DEFINITIONS_CMD" ~/.Xresources | while read -r line; do
-        index=$(echo $line | cut -f1 -d" ")
-        definition=$(echo $line | cut -f2 -d" ")
-        _get_color_def_val_cmd="s/\s*#define $definition #(.*)/\1/p"
-        color=$(sed -nr "$_get_color_def_val_cmd" ~/.Xresources)
-        if [ $index -lt 16 ]; then
-            printf "\\e]P%X%s" $index $color
-        fi
-    done
-fi
+# if [ $TERM = "linux" ]; then
+#     _GET_COLOR_DEFINITIONS_CMD='s/\*\.color([0-9]+):\s*(.+)\s*/\1 \2/p'
+#     sed -nr "$_GET_COLOR_DEFINITIONS_CMD" ~/.Xresources | while read -r line; do
+#         index=$(echo $line | cut -f1 -d" ")
+#         definition=$(echo $line | cut -f2 -d" ")
+#         _get_color_def_val_cmd="s/\s*#define $definition #(.*)/\1/p"
+#         color=$(sed -nr "$_get_color_def_val_cmd" ~/.Xresources)
+#         if [ $index -lt 16 ]; then
+#             printf "\\e]P%X%s" $index $color
+#         fi
+#     done
+# fi
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+# [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 

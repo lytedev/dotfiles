@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-bspc config normal_border_color  "#ffffff"
-bspc config focused_border_color "#a1e22e"
-bspc config active_border_color  "#a1e22e"
-bspc config border_width         2
+bspc config normal_border_color  "#$(get_color 05)"
+bspc config focused_border_color "#$(get_color 0C)"
+bspc config active_border_color  "#$(get_color 0C)"
+bspc config border_width         "$BORDER_WIDTH"
 bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
@@ -15,7 +15,6 @@ i=1
 for mon in $(bspc query -M); do
     max=$((i + 9))
     bspc monitor "$mon" -d $(seq $i $max)
-    bspc config -m "$mon" border_width 1
     i=$((max + 1))
 done
 

@@ -129,7 +129,7 @@ super + Return
 	urxvtc
 
 super + space
-	dmenu_run -fn "Meslo LG S DZ for Powerline-12" -i -nb "#111111" -sb "#111111" -sf "#a1e22e" -nf "#888888" -h 30
+	dmenu_run -fn "$PRIMARY_FONT_FAMILY_WITH_SIZE" -i -nb "#$(get_color 00)" -sb "#$(get_color 00)" -sf "#$(get_color 0A)" -nf "#$(get_color 04)" -h 30
 
 # make sxhkd reload its configuration files:
 super + Escape
