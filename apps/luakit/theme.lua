@@ -2,6 +2,8 @@
 -- Default luakit theme --
 --------------------------
 
+-- NOTE: These are almost certainly overridden by data pulled from
+-- .Xresources
 local theme = {}
 
 -- Default settings
@@ -64,6 +66,18 @@ theme.loading_bg        = "#111111"
 -- Trusted/untrusted ssl colours
 theme.trust_fg          = "#a6e22e"
 theme.notrust_fg        = "#f92672"
+
+function trim(s)
+  return s:gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+local match = "#define secondaryfont xft:"
+for l in io.lines(os.getenv("HOME") .. "/.Xresources") do
+  if l:match('^' .. match .. '.*$') then
+    local s, _ = trim(string.gsub(l, match .. '(.*)\\-', '%1'))
+    theme.font = s
+  end
+end
 
 return theme
 -- vim: et:sw=4:ts=8:sts=4:tw=80

@@ -40,6 +40,7 @@ alias gpl="git pull" # not the license
 alias svim='sudo -E vim'
 alias arch-update="pacaur -Syyu"
 alias p='ping 8.8.8.8'
+alias wine32steam='WINEPREFIX=~/.wine32 WINEARCH=win32 wine ~/.wine32/drive_c/Program\ Files/Steam/Steam.exe'
 
 # typo aliases
 alias cd..='cd ..'
@@ -98,12 +99,23 @@ PRIMARY_FONT_XRESOURCES=$(grep "#define primaryfont xft:" ~/.Xresources | grep -
 export PRIMARY_FONT_FAMILY=${PRIMARY_FONT_XRESOURCES:24:-3}
 export PRIMARY_FONT_FAMILY_WITH_SIZE=${PRIMARY_FONT_XRESOURCES:24}
 
+SECONDARY_FONT_XRESOURCES=$(grep "#define secondaryfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
+export SECONDARY_FONT_FAMILY=${SECONDARY_FONT_XRESOURCES:26:-3}
+export SECONDARY_FONT_FAMILY_WITH_SIZE=${SECONDARY_FONT_XRESOURCES:26}
+
+ICON_FONT_XRESOURCES=$(grep "#define iconfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
+export ICON_FONT_FAMILY=${ICON_FONT_XRESOURCES:21:-3}
+export ICON_FONT_FAMILY_WITH_SIZE=${ICON_FONT_XRESOURCES:21}
+
 export BAR_HEIGHT="30"
 export BAR_FIFO="$HOME/.bar_fifo"
 export BAR_FONT_FAMILY="$PRIMARY_FONT_FAMILY_WITH_SIZE"
 
 export WINDOW_GAP="50"
 export BORDER_WIDTH="2"
+
+# miscellaneous environment variables
+export EMAIL="daniel@lytedev.io"
 
 # load shell colors
 BASE16_SHELL="$DOTFILES_PATH/colors/current.dark.sh"

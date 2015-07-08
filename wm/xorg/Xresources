@@ -7,6 +7,10 @@
 #define primaryfont xft:Meslo LG S DZ for Powerline-12
 #define primaryletterspace -1
 
+#define secondaryfont xft:Meslo LG S DZ for Powerline-12
+
+#define iconfont xft:Meslo LG S DZ for Powerline-12
+
 *.font: primaryfont
 *.faceName: primaryfont
 *.boldFont: primaryfont

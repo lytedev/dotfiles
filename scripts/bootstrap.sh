@@ -43,6 +43,7 @@ rm -rf $HOME/.config/mpd
 rm -rf $HOME/.ncmpcpp
 rm -rf $HOME/.Xresources
 rm -rf $HOME/.Xresources.colors
+rm -rf $HOME/.config/twmn
 ln -s $DIR/apps/luakit $HOME/.config/luakit
 ln -s $DIR/shell/bashrc $HOME/.bashrc
 ln -s $DIR/shell/bash_profile $HOME/.bash_profile
@@ -62,6 +63,7 @@ ln -s $DIR/apps/mpd $HOME/.config/mpd
 ln -s $DIR/apps/ncmpcpp $HOME/.ncmpcpp
 ln -s $DIR/wm/xorg/Xresources $HOME/.Xresources
 ln -s $DIR/colors/current.dark.xresources $HOME/.Xresources.colors
+ln -s $DIR/apps/twmn $HOME/.config/twmn
 
 # Sublime config location varies by OS
 if [ "Darwin" = "$(uname -s)" ]; then

@@ -1,0 +1,20 @@
+set from = wraithx2@gmail.com
+set realname = "Daniel Flanagan"
+
+set imap_user = "wraithx2@gmail.com"
+set imap_pass = `cat "$DOTFILES_PATH/apps/gmusic/creds" | grep "^password=.*" | sed "s/password=//"`
+
+set folder = 'imaps://imap.gmail.com:993'
+set spoolfile = '+INBOX'
+set postponed ='+[Google Mail]/Drafts'
+
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+set smtp_url = 'smtp://wraithx2@smtp.gmail.com:587/'
+set smtp_pass = `cat "$DOTFILES_PATH/apps/gmusic/creds" | grep "^password=.*" | sed "s/password=//"`
+
+set move = no
+set imap_keepalive = 900
+

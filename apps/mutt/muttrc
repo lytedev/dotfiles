@@ -1,0 +1,7 @@
+set editor=`echo \$EDITOR`
+
+folder-hook 'gmail' "source \$DOTFILES_PATH/apps/mutt/gmail.muttrc"
+folder-hook 'lytedev' "source \$DOTFILES_PATH/apps/mutt/lytedev.muttrc"
+
+source $DOTFILES_PATH/apps/mutt/gmail.muttrc
+

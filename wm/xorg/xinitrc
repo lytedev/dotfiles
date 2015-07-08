@@ -40,5 +40,6 @@ unclutter & # Hide that mouse cursor
 "$DOTFILES_PATH/wm/bar/bar_init" &
 # xcompmgr -c -C -t-9 -l-9 -r5 -o1 &
 sxhkd &
+twmnd &
 exec bspwm
 
