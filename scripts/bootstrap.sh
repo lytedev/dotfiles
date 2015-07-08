@@ -94,5 +94,9 @@ fi
 echo "Adding DOTFILES_PATH to .bashrc"
 sed -i "/export DOTFILES_PATH/c export DOTFILES_PATH=\"$DIR\"" "$HOME/.bashrc"
 
+cd $DIR/apps/twmn
+$DIR/apps/twmn/twmn-gen.py
+cd -
+
 echo "You should now re-source your .bashrc, logout, or reboot."
 

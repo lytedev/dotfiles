@@ -37,10 +37,11 @@ alias gp="git push"
 alias gpl="git pull" # not the license
 
 # misc aliases
-alias svim='sudo -E vim'
-alias arch-update="pacaur -Syyu"
-alias p='ping 8.8.8.8'
+alias svim='sudo -E vim' # run vim as root with my config
+alias arch-update="pacaur -Syyu" # update all packages
+alias p='ping 8.8.8.8' # ping google's DNS server
 alias wine32steam='WINEPREFIX=~/.wine32 WINEARCH=win32 wine ~/.wine32/drive_c/Program\ Files/Steam/Steam.exe'
+alias htop='htop -d 2' # faster refresh rate
 
 # typo aliases
 alias cd..='cd ..'
@@ -98,14 +99,17 @@ export PROMPT_COMMAND="prompt_command_func"
 PRIMARY_FONT_XRESOURCES=$(grep "#define primaryfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
 export PRIMARY_FONT_FAMILY=${PRIMARY_FONT_XRESOURCES:24:-3}
 export PRIMARY_FONT_FAMILY_WITH_SIZE=${PRIMARY_FONT_XRESOURCES:24}
+export PRIMARY_FONT_SIZE=$(echo $PRIMARY_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
 
 SECONDARY_FONT_XRESOURCES=$(grep "#define secondaryfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
 export SECONDARY_FONT_FAMILY=${SECONDARY_FONT_XRESOURCES:26:-3}
 export SECONDARY_FONT_FAMILY_WITH_SIZE=${SECONDARY_FONT_XRESOURCES:26}
+export SECONDARY_FONT_SIZE=$(echo $SECONDARY_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
 
 ICON_FONT_XRESOURCES=$(grep "#define iconfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
 export ICON_FONT_FAMILY=${ICON_FONT_XRESOURCES:21:-3}
 export ICON_FONT_FAMILY_WITH_SIZE=${ICON_FONT_XRESOURCES:21}
+export ICON_FONT_SIZE=$(echo $ICON_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
 
 export BAR_HEIGHT="30"
 export BAR_FIFO="$HOME/.bar_fifo"
