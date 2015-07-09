@@ -22,6 +22,6 @@ bspc control --subscribe > "$BAR_FIFO" &
 
 . $HOME/.config/bar/bar_colors
 
-cat "$BAR_FIFO" | $HOME/.config/bar/bar_format | lemonbar -u 1 -g x"$BAR_HEIGHT" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+cat "$BAR_FIFO" | $HOME/.config/bar/bar_format | lemonbar -d -u 2 -g x"$BAR_HEIGHT" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
 
 wait

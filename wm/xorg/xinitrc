@@ -34,9 +34,10 @@ fi
 ~/.fehbg &
 
 # Lower priority stuff
-redshift & # Makes the screen nice to look at in low light
+# redshift & # Makes the screen nice to look at in low light
 unclutter & # Hide that mouse cursor
 
+compton -c -f --inactive-dim 0.2 -r4 -l-6 -t-6 -o1 -D 5 &
 "$DOTFILES_PATH/wm/bar/bar_init" &
 # xcompmgr -c -C -t-9 -l-9 -r5 -o1 &
 sxhkd &
