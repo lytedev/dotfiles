@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo -e "R0" > "$BAR_FIFO"
+while true; do
+  update_bar_RAM
+  sleep 10;
+done
+

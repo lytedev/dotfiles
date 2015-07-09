@@ -14,6 +14,22 @@ while read -r line ; do
       # packages
       pkg_infos="%{F$COLOR_PKG_ICON_FG}%{T2}$(echo -e '\uE00F')%{T1} %{F$COLOR_PKG_FG}${line#?}%{B-}%{F-} "
       ;;
+    NA*)
+      # network access
+      ram_infos="%{F$COLOR_NETA_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETA_FG}${line#?}%{B-}%{F-} "
+      ;;
+    NU*)
+      # network usage
+      ram_infos="%{F$COLOR_NETU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETU_FG}${line#?}%{B-}%{F-} "
+      ;;
+    R*)
+      # RAM
+      ram_infos="%{F$COLOR_RAM_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_RAM_FG}${line#?}%{B-}%{F-} "
+      ;;
+    C*)
+      # CPU
+      cpu_infos="%{F$COLOR_CPU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_CPU_FG}${line#?}%{B-}%{F-} "
+      ;;
     B*)
       # battery
       if  [[ ${line:1:1} == "+" ]]; then
@@ -99,5 +115,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${display_brightness_infos} ${title}%{c}${wm_infos}%{r} ${time_infos} ${date_infos}"
+	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${display_brightness_infos} ${ram_infos} ${cpu_infos} ${title}%{c}${wm_infos}%{r} ${time_infos} ${date_infos}"
 done

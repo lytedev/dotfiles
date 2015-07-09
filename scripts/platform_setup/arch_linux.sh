@@ -36,7 +36,7 @@ sudo pacman -S --noconfirm git zsh python luakit xorg-server \
     python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util \
     xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel \
     unclutter xautolock slock htop tree python-pip python2-pip acpi redshift \
-    cmake the_silver_searcher inotify-tools
+    cmake the_silver_searcher inotify-tools sysstat
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override

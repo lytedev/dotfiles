@@ -72,4 +72,29 @@ update_bar_DisplayBrightness() {
 }
 export -f update_bar_DisplayBrightness
 
+bar_CPU() {
+  CPU=$(top -bn2 -p 1 | grep Cpu | tail -n4 | sed 's/^.* \([0-9]*\)\[.*$/\1/' | tr "\\n" "/" | sed 's/\/$//')
+  echo -n $CPU
+}
+export -f bar_CPU
+
+update_bar_CPU() {
+  echo -e "C$(bar_CPU)" > "$BAR_FIFO"
+}
+export -f update_bar_CPU
+
+bar_RAM() {
+  float_mul_int 100 $(float_div $(free -m | grep ^Mem | tr -s " " | cut -d " " -f 3) $(free -m | grep ^Mem | tr -s " " | cut -d " " -f 2))
+  echo -n $RAM
+}
+export -f bar_RAM
+
+update_bar_RAM() {
+  echo -e "R$(bar_RAM)" > "$BAR_FIFO"
+}
+export -f update_bar_RAM
+
 # TODO: processor usage, memory usage, network usage
+
+# TODO: processor usage, memory usage, network usage
+

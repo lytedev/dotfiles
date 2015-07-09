@@ -27,8 +27,16 @@ COLOR_STATUS_FG="#ff$(get_color 05)"
 COLOR_STATUS_BG="#ff$(get_color 00)"
 
 COLOR_PKG_ICON_FG="#ff$(get_color 03)"
-COLOR_PKG_FG="#ff$(get_color 0C)"
+COLOR_PKG_FG="#ff$(get_color 0D)"
 COLOR_PKG_BG="#ff$(get_color 00)"
+
+COLOR_RAM_ICON_FG="#ff$(get_color 03)"
+COLOR_RAM_FG="#ff$(get_color 0D)"
+COLOR_RAM_BG="#ff$(get_color 00)"
+
+COLOR_CPU_ICON_FG="#ff$(get_color 03)"
+COLOR_CPU_FG="#ff$(get_color 0A)"
+COLOR_CPU_BG="#ff$(get_color 00)"
 
 COLOR_BAT_ICON_FG="#ff$(get_color 03)"
 COLOR_BATN_FG="#ff$(get_color 08)"
@@ -40,14 +48,14 @@ COLOR_VOL_FG="#ff$(get_color 0E)"
 COLOR_VOL_BG="#ff$(get_color 00)"
 
 COLOR_BRIGHT_ICON_FG="#ff$(get_color 03)"
-COLOR_BRIGHT_FG="#ff$(get_color 0F)"
+COLOR_BRIGHT_FG="#ff$(get_color 0C)"
 COLOR_BRIGHT_BG="#ff$(get_color 00)"
 
 COLOR_TIME_ICON_FG="#ff$(get_color 03)"
-COLOR_TIME_FG="#ff$(get_color 08)"
+COLOR_TIME_FG="#ff$(get_color 0D)"
 COLOR_TIME_BG="#ff$(get_color 00)"
 
 COLOR_DATE_ICON_FG="#ff$(get_color 03)"
-COLOR_DATE_FG="#ff$(get_color 09)"
+COLOR_DATE_FG="#ff$(get_color 0E)"
 COLOR_DATE_BG="#ff$(get_color 00)"
 

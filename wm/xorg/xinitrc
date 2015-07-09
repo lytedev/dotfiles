@@ -21,6 +21,8 @@ xset r rate 300 80 &
 
 # Supposed to rebind caps lock to escape...
 # setxkbmap -options caps:escape
+xmodmap -e 'clear Lock'
+xmodmap -e 'keycode 0x42=Escape'
 
 # Setup google music
 if hash GMusicProxy 2>/dev/null; then
@@ -38,7 +40,7 @@ redshift & # Makes the screen nice to look at in low light
 unclutter & # Hide that mouse cursor
 
 compton -c -f --inactive-dim 0.2 -r4 -l-6 -t-6 -o1 -D 5 &
-# "$DOTFILES_PATH/wm/bar/bar_init" &
+"$DOTFILES_PATH/wm/bar/bar_watcher" &
 sxhkd &
 twmnd &
 urxvtd &
