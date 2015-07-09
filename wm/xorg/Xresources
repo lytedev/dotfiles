@@ -4,12 +4,16 @@
 
 /* parsed by other dotfiles to unify font */
 /* #define primaryfont xft:Inconsolata-20 */
-#define primaryfont xft:Meslo LG S DZ for Powerline-12
-#define primaryletterspace -1
 
-#define secondaryfont xft:Meslo LG S DZ for Powerline-12
+#define primaryletterspace 0
 
-#define iconfont xft:Meslo LG S DZ for Powerline-12
+#define primaryfont xft:Terminess Powerline-14
+#define secondaryfont xft:Terminess Powerline-14
+#define iconfont xft:stlarch-14
+
+/* #define primaryfont xft:Meslo LG S DZ for Powerline-12 */
+/* #define secondaryfont xft:Meslo LG S DZ for Powerline-12 */
+/* #define iconfont xft:Meslo LG S DZ for Powerline-12 */
 
 *.font: primaryfont
 *.faceName: primaryfont

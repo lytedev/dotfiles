@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 while true; do
-  update_bar_Time
+  update_bar_Date
   sleep 1;
 done
 

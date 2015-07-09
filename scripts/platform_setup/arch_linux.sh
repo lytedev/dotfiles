@@ -36,7 +36,7 @@ sudo pacman -S --noconfirm git zsh python luakit xorg-server \
     python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util \
     xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel \
     unclutter xautolock slock htop tree python-pip python2-pip acpi redshift \
-    cmake the_silver_searcher
+    cmake the_silver_searcher inotify-tools
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override
@@ -80,7 +80,7 @@ cd ..
 rm -f *.tar.gz
 
 # AUR packages
-pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git twmn-git
+pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git twmn-git terminusmod compton
 
 # Get our window manager code and build
 mkdir -p "$HOME/code/repos"

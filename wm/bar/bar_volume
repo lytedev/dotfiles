@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "V..." > "$BAR_FIFO"
+echo -e "V...%" > "$BAR_FIFO"
 while true; do
   update_bar_MasterVolume
   sleep 15;

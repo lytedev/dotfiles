@@ -98,5 +98,7 @@ cd $DIR/apps/twmn
 $DIR/apps/twmn/twmn-gen.py
 cd -
 
+xrdb ~/.Xresources
+
 echo "You should now re-source your .bashrc, logout, or reboot."
 

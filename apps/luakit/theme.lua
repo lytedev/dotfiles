@@ -74,8 +74,9 @@ end
 local match = "#define secondaryfont xft:"
 for l in io.lines(os.getenv("HOME") .. "/.Xresources") do
   if l:match('^' .. match .. '.*$') then
-    local s, _ = trim(string.gsub(l, match .. '(.*)\\-', '%1'))
-    theme.font = s
+    local s, _ = trim(string.gsub(l, match .. '(.*)-.*', '%1'))
+    local sz, _ = trim(string.gsub(l, match .. '.*-(.*)', '%1'))
+    theme.font = s .. " normal " .. sz
   end
 end
 

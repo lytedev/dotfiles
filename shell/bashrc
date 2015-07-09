@@ -111,12 +111,13 @@ export ICON_FONT_FAMILY=${ICON_FONT_XRESOURCES:21:-3}
 export ICON_FONT_FAMILY_WITH_SIZE=${ICON_FONT_XRESOURCES:21}
 export ICON_FONT_SIZE=$(echo $ICON_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
 
-export BAR_HEIGHT="30"
+export BAR_HEIGHT="36"
 export BAR_FIFO="$HOME/.bar_fifo"
 export BAR_FONT_FAMILY="$PRIMARY_FONT_FAMILY_WITH_SIZE"
+export BAR_ICON_FONT_FAMILY="$ICON_FONT_FAMILY_WITH_SIZE"
 
 export WINDOW_GAP="50"
-export BORDER_WIDTH="2"
+export BORDER_WIDTH="1"
 
 # miscellaneous environment variables
 export EMAIL="daniel@lytedev.io"

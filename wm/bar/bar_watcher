@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+killall bar_init
+
+echo "PID: $$"
+DIRECTORY_TO_OBSERVE="$DOTFILES_PATH/wm/bar"
+
+function block_for_change {
+  inotifywait -r -e create,modify,delete,move $DIRECTORY_TO_OBSERVE
+}
+
+function start_bar {
+  echo "Starting bar..."
+  "$DOTFILES_PATH/wm/bar/bar_init" &
+  echo "Bar process: $!"
+}
+
+function restart_bar {
+  killall lemonbar
+  killall bar_format
+  kill -9 $! &
+  start_bar
+}
+
+start_bar
+
+while block_for_change; do
+  restart_bar
+done
+
+killall bar_init
