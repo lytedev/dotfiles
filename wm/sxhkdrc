@@ -23,6 +23,15 @@ super + {s,f}
 super + {grave,Tab}
 	bspc {window,desktop} -f last
 
+super + alt + t
+  urxvtc && compton-trans -c -o 0
+
+super + t
+  compton-trans -c -o 0
+
+super + shift + t
+  compton-trans -c -o 100
+
 super + apostrophe
 	bspc window -s last
 
@@ -118,6 +127,13 @@ super + minus
 super + alt + r
     bspc config top_padding $BAR_HEIGHT; bspc config -d focused window_gap 0
 
+super + alt + plus
+    bspwm_padding +5
+
+super + alt + minus
+    bspwm_padding -5
+
+
 #
 # wm independent hotkeys8
 #
@@ -129,7 +145,7 @@ super + Return
 	urxvtc
 
 super + space
-	dmenu_run -fn "$PRIMARY_FONT_FAMILY_WITH_SIZE" -i -nb "#$(get_color 00)" -sb "#$(get_color 00)" -sf "#$(get_color 0A)" -nf "#$(get_color 04)" -h 30
+	dmenu_run -fn "$PRIMARY_FONT_FAMILY_WITH_SIZE" -i -nb "#$(get_color 00)" -sb "#$(get_color 00)" -sf "#$(get_color 0A)" -nf "#$(get_color 04)" -h "$BAR_HEIGHT"
 
 # make sxhkd reload its configuration files:
 super + Escape

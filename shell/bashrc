@@ -95,6 +95,21 @@ prompt_command_func()
 }
 export PROMPT_COMMAND="prompt_command_func"
 
+bspwm_padding() {
+  NEW_PADDING="$1"
+  if [[ ${1:0:1} = "+" ]]; then
+    NEW_PADDING=$((`bspc config -d focused top_padding` + ${1:1} ))
+  fi
+  if [[ ${1:0:1} = "-" ]]; then
+    NEW_PADDING=$((`bspc config -d focused top_padding` - ${1:1} ))
+  fi
+  bspc config -d focused top_padding $NEW_PADDING
+  bspc config -d focused left_padding $NEW_PADDING
+  bspc config -d focused right_padding $NEW_PADDING
+  bspc config -d focused bottom_padding $NEW_PADDING
+}
+export -f bspwm_padding
+
 # interface environment variables
 PRIMARY_FONT_XRESOURCES=$(grep "#define primaryfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
 export PRIMARY_FONT_FAMILY=${PRIMARY_FONT_XRESOURCES:24:-3}

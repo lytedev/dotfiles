@@ -115,5 +115,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${display_brightness_infos} ${ram_infos} ${cpu_infos} ${title}%{c}${wm_infos}%{r} ${time_infos} ${date_infos}"
+	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${display_brightness_infos} ${ram_infos} ${cpu_infos} ${title}%{c}${wm_infos}%{r} ${date_infos} ${time_infos}"
 done
