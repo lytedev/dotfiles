@@ -133,6 +133,8 @@ super + alt + plus
 super + alt + minus
     bspwm_padding -5
 
+super + e
+    thunar
 
 #
 # wm independent hotkeys8

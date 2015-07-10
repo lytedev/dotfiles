@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This script is for setting up a base arch machine
-# It assumes a "base base-devel" pacstrap. 
+# It assumes a "base base-devel" pacstrap.
 
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../.." && pwd)
 
@@ -36,7 +36,7 @@ sudo pacman -S --noconfirm git zsh python luakit xorg-server \
     python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util \
     xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel \
     unclutter xautolock slock htop tree python-pip python2-pip acpi redshift \
-    cmake the_silver_searcher inotify-tools sysstat
+    cmake the_silver_searcher inotify-tools sysstat thunar
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override
@@ -63,7 +63,7 @@ ln -s "$DIR/wm/altsxhkdrc" "$HOME/.config/sxhkd/altsxhkdrc"
 mkdir -p "$HOME/code/aur"
 cd "$HOME/code/aur"
 
-# Get pacaur for managing AUR packages
+# Get pacaur (and dependencies) for managing AUR packages
 curl -O https://aur.archlinux.org/packages/co/cower/cower.tar.gz
 curl -O https://aur.archlinux.org/packages/pa/pacaur/pacaur.tar.gz
 
@@ -74,7 +74,7 @@ cd cower
 makepkg -i --noconfirm
 
 cd ../pacaur
-makepkg -i --noconfirm 
+makepkg -i --noconfirm
 
 cd ..
 rm -f *.tar.gz

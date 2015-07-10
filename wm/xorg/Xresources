@@ -8,7 +8,7 @@
 #define primaryletterspace 0
 
 #define primaryfont xft:Terminess Powerline-14
-#define secondaryfont xft:Terminess Powerline-14
+#define secondaryfont xft:Open Sans-10
 #define iconfont xft:stlarch-14
 
 /* #define primaryfont xft:Meslo LG S DZ for Powerline-12 */

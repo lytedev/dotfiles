@@ -106,9 +106,9 @@ window.luakit_follow = (function (window, document) {
             h_left = scroll_x + left;
             h_top = scroll_y + top;
 
-            // hint label position offset by -10x -10y
-            if ((l_left = h_left - 10) < 0) l_left = scroll_x;
-            if ((l_top  = h_top  - 10) < 0) l_top  = scroll_y;
+            // hint label position offset by -21x 0y
+            if ((l_left = h_left - 21) < 0) l_left = scroll_x;
+            if ((l_top  = h_top) < 0) l_top  = scroll_y;
 
             h.html = "<span class='hint_overlay hint_overlay_"
                 + tag + "' style='left:" + h_left + "px; top:" + h_top
@@ -314,30 +314,29 @@ stylesheet = [===[
 #luakit_follow_overlay .hint_overlay {
     display: block;
     position: absolute;
-    background-color: #ffff99;
-    border: 1px dotted #000;
-    opacity: 0.3;
+    background-color: rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 127, 0.5);
     z-index: 10001;
 }
 
 #luakit_follow_overlay .hint_label {
     display: block;
     position: absolute;
-    background-color: #000088;
-    border: 1px dashed #000;
-    color: #fff;
-    font-size: 12px;
+    background-color: #ffdd22;
+    border: 1px solid #000;
+    color: #000;
+    opacity: 0.7;
+    font-size: 16px;
     font-family: monospace, courier, sans-serif;
-    opacity: 0.4;
     z-index: 10002;
 }
 
 #luakit_follow_overlay .hint_overlay_body {
-    background-color: #ff0000;
+    background-color: rgba(255, 0, 0, 0.3);
 }
 
 #luakit_follow_overlay .hint_selected {
-    background-color: #00ff00 !important;
+    background-color: rgba(0, 255, 0, 0.3) !important;
 }
 ]===]
 
