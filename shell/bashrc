@@ -38,7 +38,7 @@ alias gpl="git pull" # not the license
 
 # misc aliases
 alias svim='sudo -E vim' # run vim as root with my config
-alias arch-update="pacaur -Syyu" # update all packages
+alias arch-update="tmux -c 'pacaur --noconfirm --noedit -Syyu'" # update all packages
 alias p='ping 8.8.8.8' # ping google's DNS server
 alias wine32steam='WINEPREFIX=~/.wine32 WINEARCH=win32 wine ~/.wine32/drive_c/Program\ Files/Steam/Steam.exe'
 alias htop='htop -d 2' # faster refresh rate
