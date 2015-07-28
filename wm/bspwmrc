@@ -11,10 +11,15 @@ bspc config focus_by_distance    true
 
 bspc config window_gap "$WINDOW_GAP"
 
+MONITOR_COUNT=$(bspc query -M | wc -l | awk '{ printf $1 }')
+PER_MONITOR=$((10 / MONITOR_COUNT))
 i=1
 for mon in $(bspc query -M); do
-    max=$((i + 9))
-    bspc monitor "$mon" -d $(seq $i $max)
-    i=$((max + 1))
+  echo $mon
+  echo $i
+  max=$((i + PER_MONITOR - 1))
+  echo $max
+  bspc monitor "$mon" -d $(seq $i $max)
+  i=$((max + 1))
 done
 
