@@ -110,6 +110,11 @@ bspwm_padding() {
 }
 export -f bspwm_padding
 
+XRES_FILE="$HOME/.Xresources"
+if [ -a "$HOME/.Xresources.env" ]; then
+  XRES_FILE="$HOME/.Xresouces.env"
+fi
+
 # interface environment variables
 PRIMARY_FONT_XRESOURCES=$(grep "#define primaryfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
 export PRIMARY_FONT_FAMILY=${PRIMARY_FONT_XRESOURCES:24:-3}
