@@ -42,6 +42,7 @@ alias arch-update="tmux -c 'pacaur --noconfirm --noedit -Syyu'" # update all pac
 alias p='ping 8.8.8.8' # ping google's DNS server
 alias wine32steam='WINEPREFIX=~/.wine32 WINEARCH=win32 wine ~/.wine32/drive_c/Program\ Files/Steam/Steam.exe'
 alias htop='htop -d 2' # faster refresh rate
+alias wp='feh --bg-fill'
 
 # typo aliases
 alias cd..='cd ..'
@@ -83,7 +84,7 @@ fi
 COLOR_RESET='\e[0m'
 PROMPT_SUCCESS_COLOR='\e[0;32m'
 PROMPT_FAILURE_COLOR='\e[0;31m'
-prompt_command_func() 
+prompt_command_func()
 {
   RET=$?
   if [ $RET -eq 0 ]; then
@@ -112,21 +113,21 @@ export -f bspwm_padding
 
 XRES_FILE="$HOME/.Xresources"
 if [ -a "$HOME/.Xresources.env" ]; then
-  XRES_FILE="$HOME/.Xresouces.env"
+  XRES_FILE="$HOME/.Xresources.env"
 fi
 
 # interface environment variables
-PRIMARY_FONT_XRESOURCES=$(grep "#define primaryfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
+PRIMARY_FONT_XRESOURCES=$(grep "#define primaryfont xft:" "$XRES_FILE" | grep -v "/\*" | head -n 1)
 export PRIMARY_FONT_FAMILY=${PRIMARY_FONT_XRESOURCES:24:-3}
 export PRIMARY_FONT_FAMILY_WITH_SIZE=${PRIMARY_FONT_XRESOURCES:24}
 export PRIMARY_FONT_SIZE=$(echo $PRIMARY_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
 
-SECONDARY_FONT_XRESOURCES=$(grep "#define secondaryfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
+SECONDARY_FONT_XRESOURCES=$(grep "#define secondaryfont xft:" "$XRES_FILE" | grep -v "/\*" | head -n 1)
 export SECONDARY_FONT_FAMILY=${SECONDARY_FONT_XRESOURCES:26:-3}
 export SECONDARY_FONT_FAMILY_WITH_SIZE=${SECONDARY_FONT_XRESOURCES:26}
 export SECONDARY_FONT_SIZE=$(echo $SECONDARY_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
 
-ICON_FONT_XRESOURCES=$(grep "#define iconfont xft:" ~/.Xresources | grep -v "/\*" | head -n 1)
+ICON_FONT_XRESOURCES=$(grep "#define iconfont xft:" "$XRES_FILE" | grep -v "/\*" | head -n 1)
 export ICON_FONT_FAMILY=${ICON_FONT_XRESOURCES:21:-3}
 export ICON_FONT_FAMILY_WITH_SIZE=${ICON_FONT_XRESOURCES:21}
 export ICON_FONT_SIZE=$(echo $ICON_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
