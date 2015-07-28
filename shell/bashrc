@@ -165,6 +165,6 @@ export -f get_color
 
 # allow a per-device script that is pulled in
 if [ -a "$HOME/.bashrc_env" ]; then
-  "$HOME/.bashrc_env"
+  source "$HOME/.bashrc_env"
 fi
 

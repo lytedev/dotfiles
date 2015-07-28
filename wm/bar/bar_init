@@ -23,7 +23,7 @@ bspc control --subscribe > "$BAR_FIFO" &
 if [ -z "$IS_PORTABLE" ]; then
   :
 else
-  "$DOTFILES_PATH/wm/bar/bar_volume" &
+  # "$DOTFILES_PATH/wm/bar/bar_volume" &
   "$DOTFILES_PATH/wm/bar/bar_brightness" &
   "$DOTFILES_PATH/wm/bar/bar_battery" &
 fi
