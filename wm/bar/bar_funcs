@@ -50,7 +50,7 @@ update_bar_Date() {
 export -f update_bar_Date
 
 bar_MasterVolume() {
-  VOLUME=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer -D default sget Master))
+  VOLUME=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer -c 1 sget Master))
   echo -n "$VOLUME"
 }
 export -f bar_MasterVolume
