@@ -2,7 +2,7 @@
 
 echo -e "V...%" > "$BAR_FIFO"
 while true; do
+  sleep 2;
   update_bar_MasterVolume
-  sleep 15;
 done
 

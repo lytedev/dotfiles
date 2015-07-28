@@ -36,7 +36,7 @@ sudo pacman -S --noconfirm git zsh python luakit xorg-server \
     python2 tmux terminus-font ttf-inconsolata unzip libxcb xcb-util \
     xcb-util-keysyms xcb-util-wm gcc make rxvt-unicode yajl expac xsel \
     unclutter xautolock slock htop tree python-pip python2-pip acpi redshift \
-    cmake the_silver_searcher inotify-tools sysstat thunar
+    cmake the_silver_searcher inotify-tools sysstat thunar alsa-utils
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override
@@ -60,8 +60,8 @@ ln -s "$DIR/wm/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
 ln -s "$DIR/wm/altsxhkdrc" "$HOME/.config/sxhkd/altsxhkdrc"
 
 # Make AUR repo folder
-mkdir -p "$HOME/code/aur"
-cd "$HOME/code/aur"
+mkdir -p "$HOME/Documents/Code/aur"
+cd "$HOME/Documents/Code/aur"
 
 # Get pacaur (and dependencies) for managing AUR packages
 curl -O https://aur.archlinux.org/packages/co/cower/cower.tar.gz
@@ -80,11 +80,11 @@ cd ..
 rm -f *.tar.gz
 
 # AUR packages
-pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git twmn-git terminusmod compton
+pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git twmn-git terminusmod compton stlarch-font-ibx
 
 # Get our window manager code and build
-mkdir -p "$HOME/code/repos"
-cd "$HOME/code/repos"
+mkdir -p "$HOME/Documents/Code/repos"
+cd "$HOME/Documents/Code/repos"
 
 git clone https://github.com/baskerville/bspwm.git
 git clone https://github.com/baskerville/sxhkd.git

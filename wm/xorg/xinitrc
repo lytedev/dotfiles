@@ -10,6 +10,9 @@ fi
 
 # Use .Xresources
 xrdb ~/.Xresources
+if [ -a "$HOME/.Xresources.env" ]; then
+  xrdb -merge ~/.Xresources.env
+fi
 
 # Screen noblanking
 xset -dpms &

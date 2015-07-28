@@ -12,23 +12,23 @@ while read -r line ; do
 	case $line in
     P*)
       # packages
-      pkg_infos="%{F$COLOR_PKG_ICON_FG}%{T2}$(echo -e '\uE00F')%{T1} %{F$COLOR_PKG_FG}${line#?}%{B-}%{F-} "
+      pkg_infos=" %{F$COLOR_PKG_ICON_FG}%{T2}$(echo -e '\uE00F')%{T1} %{F$COLOR_PKG_FG}${line#?}%{B-}%{F-} "
       ;;
     NA*)
       # network access
-      ram_infos="%{F$COLOR_NETA_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETA_FG}${line#?}%{B-}%{F-} "
+      ram_infos=" %{F$COLOR_NETA_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETA_FG}${line#?}%{B-}%{F-} "
       ;;
     NU*)
       # network usage
-      ram_infos="%{F$COLOR_NETU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETU_FG}${line#?}%{B-}%{F-} "
+      ram_infos=" %{F$COLOR_NETU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETU_FG}${line#?}%{B-}%{F-} "
       ;;
     R*)
       # RAM
-      ram_infos="%{F$COLOR_RAM_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_RAM_FG}${line#?}%{B-}%{F-} "
+      ram_infos=" %{F$COLOR_RAM_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_RAM_FG}${line#?}%{B-}%{F-} "
       ;;
     C*)
       # CPU
-      cpu_infos="%{F$COLOR_CPU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_CPU_FG}${line#?}%{B-}%{F-} "
+      cpu_infos=" %{F$COLOR_CPU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_CPU_FG}${line#?}%{B-}%{F-} "
       ;;
     B*)
       # battery
@@ -37,23 +37,23 @@ while read -r line ; do
       else
         new_line="%{F$COLOR_BAT_ICON_FG}%{T2}$(echo -e '\uE03F')%{T1} %{F$COLOR_BATN_FG}${line:2}"
       fi
-      bat_infos="${new_line}%{B-}%{F-} "
+      bat_infos=" ${new_line}%{B-}%{F-} "
       ;;
     V*)
       # volume
-      vol_infos="%{F$COLOR_VOL_ICON_FG}%{T2}$(echo -e '\uE05D')%{T1} %{F$COLOR_VOL_FG}${line:1:-1}%{B-}%{F-} "
+      vol_infos=" %{F$COLOR_VOL_ICON_FG}%{T2}$(echo -e '\uE05D')%{T1} %{F$COLOR_VOL_FG}${line:1:-1}%{B-}%{F-} "
       ;;
     DB*)
       # display brightness e0a9
-      display_brightness_infos="%{F$COLOR_BRIGHT_ICON_FG}%{T2}$(echo -e '\uE0a9')%{T1} %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
+      display_brightness_infos=" %{F$COLOR_BRIGHT_ICON_FG}%{T2}$(echo -e '\uE0a9')%{T1} %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
       ;;
 		D*)
 			# date output
-			date_infos="%{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE00F')%{F-} %{T1}%{F$COLOR_DATE_FG}%{B$COLOR_DATE_BG}${line#?}%{B-}%{F-} "
+			date_infos=" %{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE00F')%{F-} %{T1}%{F$COLOR_DATE_FG}%{B$COLOR_DATE_BG}${line#?}%{B-}%{F-} "
 			;;
 		S*)
 			# time output
-			time_infos="%{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE016')%{F-} %{T1}%{F$COLOR_TIME_FG}%{B$COLOR_TIME_BG}${line#?}%{B-}%{F-} "
+			time_infos=" %{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE016')%{F-} %{T1}%{F$COLOR_TIME_FG}%{B$COLOR_TIME_BG}${line#?}%{B-}%{F-} "
 			;;
 		T*)
 			# xtitle output
@@ -72,14 +72,14 @@ while read -r line ; do
 					M*)
 						# active monitor
 						if [ $num_mon -gt 1 ] ; then
-                            ::
+                            :
 							# wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}${cloaked_name}%{B-}%{F-}  "
 						fi
 						;;
 					m*)
 						# inactive monitor
 						if [ $num_mon -gt 1 ] ; then
-                            ::
+                            :
 							# wm_infos="$wm_infos %{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG}${cloaked_name}%{B-}%{F-}  "
 						fi
 						;;
@@ -115,5 +115,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l} ${pkg_infos} ${bat_infos} ${vol_infos} ${display_brightness_infos} ${ram_infos} ${cpu_infos} ${title}%{c}${wm_infos}%{r} ${date_infos} ${time_infos}"
+	printf "%s\n" "%{l}${pkg_infos}${bat_infos}${vol_infos}${display_brightness_infos}${ram_infos}${cpu_infos}${title}%{c}${wm_infos}%{r}${date_infos}${time_infos}"
 done
