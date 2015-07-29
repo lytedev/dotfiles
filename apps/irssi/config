@@ -6,12 +6,22 @@ servers = (
     port = "6697";
     use_ssl = "yes";
   },
-  { address = "irc.sllabs.com"; chatnet = "sllabs"; port = "6697"; use_ssl = "yes"; },
-  { address = "irc.unixporn.net"; chatnet = "unixporn"; port = "6697"; use_ssl = "yes"; }
+  {
+    address = "irc.sllabs.com";
+    chatnet = "sllabs";
+    port = "6697";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.unixporn.net";
+    chatnet = "unixporn";
+    port = "6697";
+    use_ssl = "yes";
+  }
 );
 
 chatnets = {
-  esper = {
+  esper = { 
     type = "IRC";
     max_kicks = "1";
     max_msgs = "4";
@@ -204,8 +214,8 @@ statusbar = {
     topicbarstart = "{topicsbstart}";
     topicbarend = "{topicsbend}";
 
-    time = "{sb $Z}";
-    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}} ";
+    time = "";
+    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}}";
 
     window = "{sb $winref $tag $itemname}";
     window_empty = "{sb $winref{sbservertag $tag}}";
@@ -233,7 +243,6 @@ statusbar = {
 
       items = {
         barstart = { priority = "100"; };
-        user = { };
         window = { };
         window_empty = { };
         lag = { priority = "-1"; };
@@ -303,5 +312,6 @@ settings = {
     beep_when_away = "yes";
     beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
     bell_beeps = "yes";
+    timestamps = "no";
   };
 };

@@ -95,6 +95,9 @@ abstracts = {
   # mode change is printed ([+o nick])
   mode = "{comment $*}";
 
+  join_ind = "%G$*%n";
+  quit_ind = "%R$*%n";
+
   ##
   ## channel specific messages
   ##
@@ -118,7 +121,7 @@ abstracts = {
   ##
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  msgnick = "%b$0$1-%K │ %n %|";
+  msgnick = "%K$0$1-%K │ %n%|";
 
   # message from you is printed. "msgownnick" specifies the styling of the
   # nick ($0 part in msgnick) and "ownmsgnick" specifies the styling of the
@@ -263,10 +266,10 @@ abstracts = {
 
   # text at the beginning of statusbars. sb-item already puts
   # space there,so we don't use anything by default.
-  sbstart = "";
+  sbstart = ""; # %K─┴─%n
   # text at the end of statusbars. Use space so that it's never
   # used for anything.
-  sbend = " ";
+  sbend = "";
 
   topicsbstart = "{sbstart $*}";
   topicsbend = "{sbend $*}";
@@ -274,9 +277,9 @@ abstracts = {
   prompt = "$* ";
 
   sb = "%K$*";
-  sbmode = "($*)";
+  sbmode = "";
   sbaway = " (%GzZzZ%n)";
-  sbservertag = " $0";
+  sbservertag = "";
   sbnickmode = "$0";
 
   # activity in statusbar
@@ -303,5 +306,9 @@ formats = {
     pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[-12]1{msgchannel $2}}$3";
     pubmsg = "{pubmsgnick $2 {pubnick $[-12]0}}$1";
     pubmsg_channel = "{pubmsgnick $3 {pubnick $[-12]0}{msgchannel $1}}$2";
+    join = "            {join_ind >} %K│%n {channick_hilight $0}";
+    part = "            {quit_ind <} %K│%n {channick_hilight $0}";
+    quit = "            {quit_ind <} %K│%n {channick_hilight $0}";
+    quit_once = "            {quit_ind <} %K│%n {channick_hilight $0}";
   };
 };
