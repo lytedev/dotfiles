@@ -12,48 +12,59 @@ while read -r line ; do
 	case $line in
     P*)
       # packages
-      pkg_infos=" %{F$COLOR_PKG_ICON_FG}%{T2}$(echo -e '\uE00F')%{T1} %{F$COLOR_PKG_FG}${line#?}%{B-}%{F-} "
+      # pkg_infos=" %{F$COLOR_PKG_ICON_FG}%{T2}$(echo -e '\uE00F')%{T1} %{F$COLOR_PKG_FG}${line#?}%{B-}%{F-} "
+      pkg_infos=" %{F$COLOR_PKG_ICON_FG}pac %{F$COLOR_PKG_FG}${line#?}%{B-}%{F-} "
       ;;
     NA*)
       # network access
-      ram_infos=" %{F$COLOR_NETA_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETA_FG}${line#?}%{B-}%{F-} "
+      # ram_infos=" %{F$COLOR_NETA_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETA_FG}${line#?}%{B-}%{F-} "
+      wan_infos=" %{F$COLOR_NETA_ICON_FG}wan %{F$COLOR_NETA_FG}${line#?}%{B-}%{F-} "
       ;;
     NU*)
       # network usage
-      ram_infos=" %{F$COLOR_NETU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETU_FG}${line#?}%{B-}%{F-} "
+      # ram_infos=" %{F$COLOR_NETU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_NETU_FG}${line#?}%{B-}%{F-} "
+      bandwidth_infos=" %{F$COLOR_NETU_ICON_FG}bnd %{F$COLOR_NETU_FG}${line#?}%{B-}%{F-} "
       ;;
     R*)
       # RAM
-      ram_infos=" %{F$COLOR_RAM_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_RAM_FG}${line#?}%{B-}%{F-} "
+      # ram_infos=" %{F$COLOR_RAM_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_RAM_FG}${line#?}%{B-}%{F-} "
+      ram_infos=" %{F$COLOR_RAM_ICON_FG}ram %{F$COLOR_RAM_FG}${line#?}%{B-}%{F-} "
       ;;
     C*)
       # CPU
-      cpu_infos=" %{F$COLOR_CPU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_CPU_FG}${line#?}%{B-}%{F-} "
+      # cpu_infos=" %{F$COLOR_CPU_ICON_FG}%{T2}$(echo -e '\uE020')%{T1} %{F$COLOR_CPU_FG}${line#?}%{B-}%{F-} "
+      cpu_infos=" %{F$COLOR_CPU_ICON_FG}cpu %{F$COLOR_CPU_FG}${line#?}%{B-}%{F-} "
       ;;
     B*)
       # battery
       if  [[ ${line:1:1} == "+" ]]; then
-        new_line="%{F$COLOR_BAT_ICON_FG}%{T2}$(echo -e '\uE042')%{T1} %{F$COLOR_BAT_FG}${line:2}"
+        # new_line="%{F$COLOR_BAT_ICON_FG}%{T2}$(echo -e '\uE042')%{T1} %{F$COLOR_BAT_FG}${line:2}"
+        new_line="%{F$COLOR_BAT_ICON_FG}bat %{F$COLOR_BAT_FG}${line:2}"
       else
-        new_line="%{F$COLOR_BAT_ICON_FG}%{T2}$(echo -e '\uE03F')%{T1} %{F$COLOR_BATN_FG}${line:2}"
+        # new_line="%{F$COLOR_BAT_ICON_FG}%{T2}$(echo -e '\uE03F')%{T1} %{F$COLOR_BATN_FG}${line:2}"
+        new_line="%{F$COLOR_BAT_ICON_FG}bat %{F$COLOR_BATN_FG}${line:2}"
       fi
       bat_infos=" ${new_line}%{B-}%{F-} "
       ;;
     V*)
       # volume
-      vol_infos=" %{F$COLOR_VOL_ICON_FG}%{T2}$(echo -e '\uE05D')%{T1} %{F$COLOR_VOL_FG}${line:1:-1}%{B-}%{F-} "
+      # vol_infos=" %{F$COLOR_VOL_ICON_FG}%{T2}$(echo -e '\uE05D')%{T1} %{F$COLOR_VOL_FG}${line:1:-1}%{B-}%{F-} "
+      vol_infos=" %{F$COLOR_VOL_ICON_FG}vol %{F$COLOR_VOL_FG}${line:1:-1}%{B-}%{F-} "
       ;;
     DB*)
       # display brightness e0a9
-      display_brightness_infos=" %{F$COLOR_BRIGHT_ICON_FG}%{T2}$(echo -e '\uE0a9')%{T1} %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
+      # display_brightness_infos=" %{F$COLOR_BRIGHT_ICON_FG}%{T2}$(echo -e '\uE0a9')%{T1} %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
+      display_brightness_infos=" %{F$COLOR_BRIGHT_ICON_FG}bht %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
       ;;
 		D*)
 			# date output
-			date_infos=" %{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE00F')%{F-} %{T1}%{F$COLOR_DATE_FG}%{B$COLOR_DATE_BG}${line#?}%{B-}%{F-} "
+			# date_infos=" %{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE00F')%{F-} %{T1}%{F$COLOR_DATE_FG}%{B$COLOR_DATE_BG}${line#?}%{B-}%{F-} "
+			date_infos="%{F$COLOR_DATE_ICON_FG}%{T1}%{F$COLOR_DATE_FG}%{B$COLOR_DATE_BG}${line#?}%{B-}%{F-} "
 			;;
 		S*)
 			# time output
-			time_infos=" %{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE016')%{F-} %{T1}%{F$COLOR_TIME_FG}%{B$COLOR_TIME_BG}${line#?}%{B-}%{F-} "
+			# time_infos=" %{F$COLOR_DATE_ICON_FG}%{T2}$(echo -e '\uE016')%{F-} %{T1}%{F$COLOR_TIME_FG}%{B$COLOR_TIME_BG}${line#?}%{B-}%{F-} "
+			time_infos="%{F$COLOR_DATE_ICON_FG}%{T1}%{F$COLOR_TIME_FG}%{B$COLOR_TIME_BG}${line#?}%{B-}%{F-} "
 			;;
 		T*)
 			# xtitle output
@@ -61,13 +72,13 @@ while read -r line ; do
 			;;
 		W*)
 			# bspwm internal state
-			wm_infos=""
+			wm_infos="%{F$COLOR_FREE_FG}"
 			IFS=':'
 			set -- ${line#?}
 			while [ $# -gt 0 ] ; do
 				item=$1
 				name=${item#?}
-                cloaked_name="•"
+        cloaked_name="$name"
 				case $item in
 					M*)
 						# active monitor
