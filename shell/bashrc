@@ -107,6 +107,7 @@ if hash GMusicProxy 2>/dev/null; then
   gmusic-song-radio() {
     if [ -z "$1" ]; then echo "No song title provided." && return; fi
     curl -G --data-urlencode "type=matches" --data-urlencode "title=$1" --data-urlencode "num_tracks=20" 127.0.0.1:9999/get_new_station_by_search > "$HOME/.config/mpd/playlists/search.m3u"
+    gmusic-playlist "search"
   }
   export -f gmusic-song
 
