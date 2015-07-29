@@ -305,4 +305,3 @@ settings = {
     bell_beeps = "yes";
   };
 };
-ignores = ( { mask = "JOINS"; level = "PARTS QUITS"; } );

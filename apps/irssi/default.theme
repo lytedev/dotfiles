@@ -63,7 +63,7 @@ abstracts = {
   ##
 
   # text to insert at the beginning of each non-message line
-  line_start = "%B!%K ";
+  line_start = "";
 
   # timestamp styling, nothing by default
   timestamp = "%K$*%N";
