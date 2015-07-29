@@ -28,5 +28,7 @@
 
 *.depth: 32
 
+URxvt.internalBorder: 10
+
 #include ".Xresources.colors"
 
