@@ -109,3 +109,7 @@ sudo pip3 install neovim
 # Setup custom keymaps
 sudo mkdir -p /usr/local/share/kbd/keymaps
 
+echo "Manual Steps:"
+echo "  1. irssi SASL authentication"
+echo ""
+

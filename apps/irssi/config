@@ -1,11 +1,16 @@
 servers = (
   { address = "irc.esper.net"; chatnet = "esper"; port = "6667"; },
-  { address = "chat.freenode.net"; chatnet = "freenode"; port = "6667"; },
-  { address = "irc.sllabs.com"; chatnet = "sllabs"; port = "6667"; },
+  { 
+    address = "chat.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_ssl = "yes";
+  },
+  { address = "irc.sllabs.com"; chatnet = "sllabs"; port = "6697"; use_ssl = "yes"; }
 );
 
 chatnets = {
-  esper = {
+  esper = { 
     type = "IRC";
     max_kicks = "1";
     max_msgs = "4";
@@ -17,16 +22,11 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
   };
-  sllabs = {
-    type = "IRC";
-    max_msgs = "4";
-    max_kicks = "1";
-    max_whois = "1";
-  };
+  sllabs = { type = "IRC"; };
 };
 
-channels = (
-  { name = "#sllabs"; chatnet = "sllabs"; autojoin = "yes"; },
+channels = ( 
+  { name = "#sllabs"; chatnet = "sllabs"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -202,7 +202,7 @@ statusbar = {
     topicbarend = "{topicsbend}";
 
     time = "{sb $Z}";
-    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
+    user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}} ";
 
     window = "{sb $winref $tag $itemname}";
     window_empty = "{sb $winref{sbservertag $tag}}";

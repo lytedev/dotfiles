@@ -274,7 +274,7 @@ abstracts = {
   prompt = "$* ";
 
   sb = "%K$*";
-  sbmode = "($*) ";
+  sbmode = "($*)";
   sbaway = " (%GzZzZ%n)";
   sbservertag = " $0";
   sbnickmode = "$0";
