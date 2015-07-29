@@ -31,4 +31,5 @@ as well as a basic TODO list for exploring the world of unix in my dream utopia 
 
 * email client (mutt?)
 * cli messager (sms, hangouts, etc)
+* feed the bar via conky (I have a bad feeling my little scripts are rather large performance hits)
 
