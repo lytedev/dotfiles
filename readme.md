@@ -30,5 +30,5 @@ This list is a pseudo-comprehensive list of stuff I want to achieve or have do-a
 as well as a basic TODO list for exploring the world of unix in my dream utopia of command-line heaven.
 
 * email client (mutt?)
-* use or create a highly-usable CLI client for KeePass database management
+* cli messager (sms, hangouts, etc)
 

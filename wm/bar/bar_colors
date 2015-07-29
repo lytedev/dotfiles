@@ -31,7 +31,7 @@ COLOR_PKG_FG="#ff$(get_color 0D)"
 COLOR_PKG_BG="#ff$(get_color 00)"
 
 COLOR_RAM_ICON_FG="#ff$(get_color 03)"
-COLOR_RAM_FG="#ff$(get_color 0D)"
+COLOR_RAM_FG="#ff$(get_color 0B)"
 COLOR_RAM_BG="#ff$(get_color 00)"
 
 COLOR_CPU_ICON_FG="#ff$(get_color 03)"
