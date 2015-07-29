@@ -119,13 +119,13 @@ super + plus
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` + 5 ))
 
 super + equal
-    bspc config top_padding $BAR_HEIGHT; bspc config -d focused window_gap $WINDOW_GAP
+    bspc config -m $(bspc query -M | head -n 1) top_padding $BAR_HEIGHT; bspc config -d focused window_gap $WINDOW_GAP
 
 super + minus
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` - 5 ))
 
 super + alt + r
-    bspc config top_padding $BAR_HEIGHT; bspc config -d focused window_gap 0
+    bspc config -m $(bspc query -M | head -n 1) top_padding $BAR_HEIGHT; bspc config -d focused window_gap 0
 
 super + alt + plus
     bspwm_padding +5

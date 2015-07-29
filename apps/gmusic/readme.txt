@@ -1,3 +1,5 @@
+0. You will need npm, mpd, and ncmpcpp.
+
 1. Create a file in the following format named "creds" in this directory:
 
   email=REPLACEWITHyouremail@google.com
