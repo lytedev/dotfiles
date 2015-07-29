@@ -1,6 +1,6 @@
 servers = (
   { address = "irc.esper.net"; chatnet = "esper"; port = "6667"; },
-  { 
+  {
     address = "chat.freenode.net";
     chatnet = "freenode";
     port = "6697";
@@ -10,7 +10,7 @@ servers = (
 );
 
 chatnets = {
-  esper = { 
+  esper = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "4";
@@ -25,7 +25,7 @@ chatnets = {
   sllabs = { type = "IRC"; };
 };
 
-channels = ( 
+channels = (
   { name = "#sllabs"; chatnet = "sllabs"; autojoin = "yes"; }
 );
 
