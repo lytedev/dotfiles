@@ -25,7 +25,7 @@ Plug 'bling/vim-airline'
 
   " If you don't have powerline fonts, use the following
 	let g:airline#extensions#tabline#left_sep = '' " straight separators
-	let g:airline#extensions#tabline#left_alt_sep = '|'
+	let g:airline#extensions#tabline#left_alt_sep = ''
 
   let g:airline_right_alt_sep = ''
   let g:airline_right_sep = ''
@@ -295,8 +295,8 @@ vmap Q gq
 nmap Q gqap
 
 " use ctrl j and k to switch buffers as well
-nnoremap <C-K> :bnext<CR>
-nnoremap <C-J> :bprevious<CR>
+nnoremap <leader>k :bnext<CR>
+nnoremap <leader>j :bprevious<CR>
 
 " clear search higlight
 nnoremap <leader>/ :let @/ = ""<CR>
@@ -335,8 +335,8 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 " write file without confirmation:
 map <silent> <F2> :write<CR>
 
-" remove trailing whitespaces:
-map <F3> :%s/\s\+$//<CR>
+" remove trailing whitespace:
+map <F3> :%s/\s\+$//<CR>:let @/ = ""<CR>
 
 " close buffer:
 nnoremap <silent> <leader>w <Esc>:bd<CR>
