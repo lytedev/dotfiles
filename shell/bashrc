@@ -67,12 +67,78 @@ vman() {
 alias _man="man"
 alias man="vman"
 
-# google music "I'm Feeling Lucky" radio `ifl` shortcut
+# google music aliases
 if hash GMusicProxy 2>/dev/null; then
+  # google music "I'm Feeling Lucky" radio `ifl` shortcut
   ifl() {
+    rm -f ~/.config/mpd/playlists/lucky.m3u
     gmusic-mpd --tracks 20 --play 0 -d ~/.config/mpd/playlists -r --ifl
   }
   export -f ifl
+
+  gmusic-get-playlist() {
+    playlist_url=$(curl 127.0.0.1:9999/get_all_playlists | grep "$1" -A 1 | tail -n 1)
+    curl "$playlist_url" > "$HOME/.config/mpd/playlists/$1.m3u"
+  }
+  export -f gmusic-get-playlist
+
+  gmusic-playlist() {
+    if [ -a "$HOME/.config/mpd/playlists/$1.m3u" ]; then
+      :
+    else
+      gmusic-get-playlist "$1"
+    fi
+    gmusic-mpd -d ~/.config/mpd/playlists/ -r "$1"
+  }
+  export -f gmusic-playlist
+
+  gmusic-download-song() {
+    if [ -z "$1" ]; then echo "No song title provided." && return; fi
+  }
+  export -f gmusic-download-song
+
+  gmusic-song() {
+    if [ -z "$1" ]; then echo "No song title provided." && return; fi
+    curl -G --data-urlencode "type=matches" --data-urlencode "title=$1" --data-urlencode "num_tracks=1000" 127.0.0.1:9999/get_by_search > "$HOME/.config/mpd/playlists/search.m3u"
+    gmusic-playlist "search"
+  }
+  export -f gmusic-song
+
+  gmusic-song-radio() {
+    if [ -z "$1" ]; then echo "No song title provided." && return; fi
+    curl -G --data-urlencode "type=matches" --data-urlencode "title=$1" --data-urlencode "num_tracks=20" 127.0.0.1:9999/get_new_station_by_search > "$HOME/.config/mpd/playlists/search.m3u"
+  }
+  export -f gmusic-song
+
+  gmusic-artist() {
+    if [ -z "$1" ]; then echo "No artist name provided." && return; fi
+    curl -G --data-urlencode "type=artist" --data-urlencode "artist=$1" --data-urlencode "num_tracks=1000" 127.0.0.1:9999/get_by_search > "$HOME/.config/mpd/playlists/search.m3u"
+    gmusic-playlist "search"
+  }
+  export -f gmusic-artist
+
+  gmusic-artist-radio() {
+    if [ -z "$1" ]; then echo "No artist name provided." && return; fi
+    curl -G --data-urlencode "type=artist" --data-urlencode "artist=$1" --data-urlencode "num_tracks=20" 127.0.0.1:9999/get_new_station_by_search > "$HOME/.config/mpd/playlists/search.m3u"
+    gmusic-playlist "search"
+  }
+  export -f gmusic-artist-radio
+
+  gmusic-artist-song() {
+    if [ -z "$1" ]; then echo "No artist name provided." && return; fi
+    if [ -z "$2" ]; then echo "No song title provided." && return; fi
+    curl -G --data-urlencode "type=matches" --data-urlencode "artist=$1" --data-urlencode "title=$2" --data-urlencode "num_tracks=5" 127.0.0.1:9999/get_by_search > "$HOME/.config/mpd/playlists/search.m3u"
+    gmusic-playlist "search"
+  }
+  export -f gmusic-artist-song
+
+  gmusic-artist-song-radio() {
+    if [ -z "$1" ]; then echo "No artist name provided." && return; fi
+    if [ -z "$2" ]; then echo "No song title provided." && return; fi
+    curl -G --data-urlencode "type=matches" --data-urlencode "artist=$1" --data-urlencode "title=$2" --data-urlencode "num_tracks=20" 127.0.0.1:9999/get_new_station_by_search > "$HOME/.config/mpd/playlists/search.m3u"
+    gmusic-playlist "search"
+  }
+  export -f gmusic-artist-song-radio
 fi
 
 # ruby gems to path

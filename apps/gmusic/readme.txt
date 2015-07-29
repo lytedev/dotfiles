@@ -25,6 +25,3 @@
 
   Note: You should make this an alias!
 
-TODO: Create an alias that fires up a default pre-config'd playlist by init'ing
-everything and BOOM!
-
