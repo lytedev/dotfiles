@@ -6,7 +6,8 @@ servers = (
     port = "6697";
     use_ssl = "yes";
   },
-  { address = "irc.sllabs.com"; chatnet = "sllabs"; port = "6697"; use_ssl = "yes"; }
+  { address = "irc.sllabs.com"; chatnet = "sllabs"; port = "6697"; use_ssl = "yes"; },
+  { address = "irc.unixporn.net"; chatnet = "unixporn"; port = "6697"; use_ssl = "yes"; }
 );
 
 chatnets = {
@@ -23,10 +24,12 @@ chatnets = {
     max_whois = "1";
   };
   sllabs = { type = "IRC"; };
+  unixporn = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#sllabs"; chatnet = "sllabs"; autojoin = "yes"; }
+  { name = "#sllabs"; chatnet = "sllabs"; autojoin = "yes"; },
+  { name = "#unixporn"; chatnet = "unixporn"; autojoin = "yes"; }
 );
 
 aliases = {
