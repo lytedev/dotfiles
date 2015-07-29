@@ -43,6 +43,11 @@ alias p='ping 8.8.8.8' # ping google's DNS server
 alias wine32steam='WINEPREFIX=~/.wine32 WINEARCH=win32 wine ~/.wine32/drive_c/Program\ Files/Steam/Steam.exe'
 alias htop='htop -d 2' # faster refresh rate
 alias wp='feh --bg-fill'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias pls='sudo $(history -p \!\!)'
 
 # typo aliases
 alias cd..='cd ..'
@@ -233,6 +238,6 @@ export -f get_color
 
 # allow a per-device script that is pulled in
 if [ -a "$HOME/.bashrc_env" ]; then
-  source "$HOME/.bashrc_env"
+  . "$HOME/.bashrc_env"
 fi
 

@@ -39,7 +39,7 @@ sudo pacman -S --noconfirm git zsh python luakit xorg-server \
     cmake the_silver_searcher inotify-tools sysstat thunar alsa-utils feh \
     imagemagick xf86-video-intel mesa-libgl libva libva-intel-driver mpd \
     ncmpcpp nodejs npm pulseaudio pulseaudio-alsa lib32-libpulse \
-    lib32-alsa-plugins
+    lib32-alsa-plugins irssi
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override
@@ -83,7 +83,7 @@ cd ..
 rm -f *.tar.gz
 
 # AUR packages
-pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git twmn-git terminusmod compton stlarch-font-ibx gohufont
+pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git twmn-git terminusmod compton stlarch-font-ibx gohufont irssi-script-sasl
 
 # Get our window manager code and build
 mkdir -p "$HOME/Documents/Code/repos"
