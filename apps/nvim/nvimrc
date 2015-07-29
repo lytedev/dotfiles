@@ -17,15 +17,20 @@ call plug#begin('~/.vim/bundle')
 
 " Pretty status line
 Plug 'bling/vim-airline'
-	let g:airline_powerline_fonts = 1
+	let g:airline_powerline_fonts = 0
 	let g:airline#extensions#tabline#fnamemod = ':t'
 	set laststatus=2 " Always show statusline
 	set noshowmode " Hides default mode
 	let g:airline#extensions#tabline#enabled = 1 " Automatically displays all buffers when there's only one tab open
 
   " If you don't have powerline fonts, use the following
-	"let g:airline#extensions#tabline#left_sep = ' ' " straight separators
-	"let g:airline#extensions#tabline#left_alt_sep = '|'
+	let g:airline#extensions#tabline#left_sep = '' " straight separators
+	let g:airline#extensions#tabline#left_alt_sep = '|'
+
+  let g:airline_right_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_left_alt_sep= ''
+  let g:airline_left_sep = ''
 
 	"let g:airline#extensions#tabline#buffer_idx_mode = 1	" display numbers in the tab line, and use mappings <leader>1 to <leader>9
 
