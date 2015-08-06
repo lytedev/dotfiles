@@ -40,7 +40,7 @@ sudo pacman -S --noconfirm git zsh python luakit xorg-server \
     imagemagick xf86-video-intel mesa-libgl libva libva-intel-driver mpd \
     ncmpcpp nodejs npm pulseaudio pulseaudio-alsa lib32-libpulse \
     lib32-alsa-plugins irssi xorg-xprop xorg-wininfo bash-completion \
-    thunar-volman
+    thunar-volman gvfs gvfs-afc
 
 # Some manual work required here
 # TODO: Flag that lets you force existing package override
