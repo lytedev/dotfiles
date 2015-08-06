@@ -85,6 +85,9 @@ rm -f *.tar.gz
 # AUR packages
 pacaur -S ttf-opensans kpcli perl-clipboard dmenu-xft-height lemonbar-xft-git neovim-git mpc powerline-fonts-git twmn-git terminusmod compton stlarch-font-ibx gohufont irssi-script-sasl
 
+# Packages for yubikey
+pacaur -S yubikey-personalization-git pcsc-tools pcsclite libusb-compat ccid
+
 # Get our window manager code and build
 mkdir -p "$HOME/Documents/Code/repos"
 cd "$HOME/Documents/Code/repos"
