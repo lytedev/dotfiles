@@ -1,19 +1,10 @@
 /* a safe fallback if things go awry */
-/* #define terminus -*-terminess-medium-r-*-*-18-*-*-*-*-*-*-* */
-/* #define terminusLetterspace 0 */
-
-/* parsed by other dotfiles to unify font */
-/* #define primaryfont xft:Inconsolata-20 */
 
 #define primaryletterspace 0
 
 #define primaryfont xft:GohuFont-11
 #define secondaryfont xft:Open Sans-9
 #define iconfont xft:stlarch-12
-
-/* #define primaryfont xft:Meslo LG S DZ for Powerline-12 */
-/* #define secondaryfont xft:Meslo LG S DZ for Powerline-12 */
-/* #define iconfont xft:Meslo LG S DZ for Powerline-12 */
 
 *.font: primaryfont
 *.faceName: primaryfont
@@ -29,6 +20,7 @@
 *.depth: 32
 
 URxvt.internalBorder: 10
+URxvt.font: primaryfont
 
 #include ".Xresources.colors"
 
