@@ -24,6 +24,11 @@ Once you're all set, go ahead and run the `bootstrap.sh` script. This will symli
 
 That should be it!
 
+```bash
+git clone https://github.com/lytedev/dotfiles "$HOME/.dotfiles"
+$HOME/.dotfiles/scripts/bootstrap.sh
+```
+
 ## TODO:
 
 This list is a pseudo-comprehensive list of stuff I want to achieve or have do-able through these dotfiles
