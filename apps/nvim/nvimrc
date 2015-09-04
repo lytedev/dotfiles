@@ -290,6 +290,9 @@ let mapleader = "\<Space>"
 nnoremap <leader><Tab>   :bnext<CR>
 nnoremap <leader><S-Tab> :bprevious<CR>
 
+" don't kill vim
+nnoremap <leader>K <Nop>
+
 " quick paragraph formatting
 vmap Q gq
 nmap Q gqap
