@@ -54,7 +54,7 @@ while read -r line ; do
     DB*)
       # display brightness e0a9
       # display_brightness_infos=" %{F$COLOR_BRIGHT_ICON_FG}%{T2}$(echo -e '\uE0a9')%{T1} %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
-      display_brightness_infos=" %{F$COLOR_BRIGHT_ICON_FG}bht %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
+      display_brightness_infos=" %{F$COLOR_BRIGHT_ICON_FG}brt %{F$COLOR_BRIGHT_FG}${line:2}%{B-}%{F-} "
       ;;
 		D*)
 			# date output

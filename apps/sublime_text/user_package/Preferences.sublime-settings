@@ -4,21 +4,21 @@
 	"draw_minimap_border": false,
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": true,
-	"line_numbers": false,
 	"fade_fold_buttons": true,
 	"font_face": "DejaVu Sans Mono",
-	"font_size": 48,
+	"font_size": 8,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"CSS",
-		"PackageResourceViewer"
+		"PackageResourceViewer",
+		"CSS"
 	],
 	"indent_guide_options":
 	[
 		"draw_active"
 	],
+	"line_numbers": false,
 	"overlay_scroll_bars": "enabled",
 	"rulers":
 	[
