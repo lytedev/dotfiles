@@ -290,6 +290,9 @@ let mapleader = "\<Space>"
 nnoremap <leader><Tab>   :bnext<CR>
 nnoremap <leader><S-Tab> :bprevious<CR>
 
+" don't kill vim
+nnoremap <leader>K <Nop>
+
 " quick paragraph formatting
 vmap Q gq
 nmap Q gqap
@@ -302,6 +305,7 @@ nnoremap <leader>j :bprevious<CR>
 nnoremap <leader>/ :let @/ = ""<CR>
 
 " remap jk to escape in insert mode:  You'll never type jk anyway, so it's great!
+inoremap kj <Esc>
 inoremap jk <Esc>
 inoremap jj <Esc>
 
