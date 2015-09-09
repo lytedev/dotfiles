@@ -45,7 +45,7 @@ unclutter & # Hide that mouse cursor
 # if [ -z "$IS_PORTABLE"]; then
 #   :
 # else
-compton -c -f --inactive-dim 0.2 -r4 -l-6 -t-6 -o1 -D 5 &
+# compton -c -f --inactive-dim 0.2 -r4 -l-6 -t-6 -o1 -D 5 &
 # fi
 "$DOTFILES_PATH/wm/bar/bar_watcher" &
 sxhkd &
