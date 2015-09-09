@@ -301,11 +301,17 @@ nmap Q gqap
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader>j :bprevious<CR>
 
+" fast word change
+nnoremap <leader>c ciw
+
+" bash-like deletion
+inoremap <C-BS> <C-w>
+inoremap <A-BS> <C-w>
+
 " clear search higlight
 nnoremap <leader>/ :let @/ = ""<CR>
 
 " remap jk to escape in insert mode:  You'll never type jk anyway, so it's great!
-inoremap kj <Esc>
 inoremap jk <Esc>
 inoremap jj <Esc>
 

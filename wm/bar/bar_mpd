@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+while true; do
+  update_bar_MPD
+  sleep 4;
+done
+

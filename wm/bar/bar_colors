@@ -43,6 +43,10 @@ COLOR_BATN_FG="#ff$(get_color 08)"
 COLOR_BAT_FG="#ff$(get_color 0B)"
 COLOR_BAT_BG="#ff$(get_color 00)"
 
+COLOR_MPD_ICON_FG="#ff$(get_color 03)"
+COLOR_MPD_FG="#ff$(get_color 0B)"
+COLOR_MPD_BG="#ff$(get_color 00)"
+
 COLOR_VOL_ICON_FG="#ff$(get_color 03)"
 COLOR_VOL_FG="#ff$(get_color 0E)"
 COLOR_VOL_BG="#ff$(get_color 00)"

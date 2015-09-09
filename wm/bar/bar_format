@@ -6,8 +6,6 @@
 
 num_mon=$(bspc query -M | wc -l)
 
-# E020ish are good RAM/CPU icons
-
 while read -r line ; do
 	case $line in
     P*)
@@ -45,6 +43,10 @@ while read -r line ; do
         new_line="%{F$COLOR_BAT_ICON_FG}bat %{F$COLOR_BATN_FG}${line:2}"
       fi
       bat_infos=" ${new_line}%{B-}%{F-} "
+      ;;
+    Z*)
+      # mpd
+      mpd_infos=" %{F$COLOR_MPD_ICON_FG}%{F$COLOR_MPD_FG}${line:1}%{B-}%{F-} "
       ;;
     V*)
       # volume
@@ -126,5 +128,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${pkg_infos}${bat_infos}${vol_infos}${display_brightness_infos}${ram_infos}${cpu_infos}${title}%{c}${wm_infos}%{r}${date_infos}${time_infos}"
+	printf "%s\n" "%{l}${pkg_infos}${bat_infos}${vol_infos}${display_brightness_infos}${ram_infos}${cpu_infos}${title}%{c}${wm_infos}%{r}${mpd_infos}${date_infos}${time_infos}"
 done
