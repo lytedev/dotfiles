@@ -48,6 +48,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias pls='sudo $(history -p \!\!)'
+alias wifi='sudo wifi-menu'
 
 # typo aliases
 alias cd..='cd ..'
