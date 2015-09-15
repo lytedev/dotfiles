@@ -129,7 +129,7 @@ let c_comment_strings = 0		" dont highlight strings inside C comments
 
 " Python language
 let python_space_errors = 1
-autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " HamlC
 autocmd BufRead,BufNewFile *.hamlc set ft=haml
@@ -210,8 +210,6 @@ set ttimeoutlen=200
 if has("gui_running")
 	set guiheadroom=0
 	set background=dark
-
-	colorscheme badwolf
 
 	set guioptions-=T
 	set guioptions+=c
