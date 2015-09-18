@@ -33,8 +33,8 @@ fi
 . $HOME/.config/bar/bar_colors
 
 #getting the width of the first monitor
-WIDTH=`echo xrandr -q | grep " connected " | awk '{ split($3, s, "x"); print s[1] }' | head -n 1`
+WIDTH=`xrandr -q | egrep '(^| )connected( |$)' | tr 'x' '\n' | head -n 1 | awk '{print $NF}'`
 
-cat "$BAR_FIFO" | $HOME/.config/bar/bar_format | lemonbar -d -u "$BORDER_WIDTH" -g $(WIDTH)x"$BAR_HEIGHT"+0+0 -f "$BAR_FONT_FAMILY" -f "$BAR_ICON_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
+cat "$BAR_FIFO" | $HOME/.config/bar/bar_format | lemonbar -d -u "$BORDER_WIDTH" -g "$WIDTH"x"$BAR_HEIGHT"+0+0 -f "$BAR_FONT_FAMILY" -f "$BAR_ICON_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" &
 
 wait
