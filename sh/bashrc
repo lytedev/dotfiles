@@ -4,9 +4,18 @@ BASE16_SHELL="$DOTFILES_PATH/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 
 # filesystem aliases
-alias l="ls --color=auto"
-alias ll="ls -l --color=auto"
-alias la="ls -la --color=auto"
+alias lx='ls -lXB' # order by filetype
+alias lk='ls -lSr' # order by filesize reversed
+alias lt='ls -ltr' # order by file modified time
+alias lc='ls -ltcr' # order by filectime
+alias lu='ls -ltur' # order by file access time
+alias ls='ls -h --color --group-directories-first' # flat view w/ directories first
+alias l='ls -h --color --group-directories-first' # same as above
+alias ll='ls -lv --group-directories-first' # non-flat view
+alias lm='ll | more'
+alias lr='ll -R' # please don't
+alias la='ll -A' # show all
+alias tree='tree -Csuh'
 
 # navigation aliases
 alias cd..="cd .."
