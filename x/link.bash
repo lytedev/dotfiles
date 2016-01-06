@@ -8,13 +8,13 @@ rm "$HOME/.Xresources"
 ln -s "$HOME/.dotfiles/x/xinitrc" "$HOME/.xinitrc"
 ln -s "$HOME/.dotfiles/x/xresources" "$HOME/.Xresources"
 
-xrdb "$HOME/.Xresources"
+xrdb "$HOME/.Xresources" >/dev/null 2>&1
 
 if [ -f "$HOME/.Xresources.colors" ]; then
-  xrdb -merge "$HOME/.Xresources.colors"
+  xrdb -merge "$HOME/.Xresources.colors" >/dev/null 2>&1
 fi
 
 if [ -f "$HOME/.Xresources.env" ]; then
-  xrdb -merge "$HOME/.Xresources.env"
+  xrdb -merge "$HOME/.Xresources.env" >/dev/null 2>&1
 fi
 

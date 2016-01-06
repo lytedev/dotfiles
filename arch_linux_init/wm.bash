@@ -3,7 +3,7 @@
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 source "$DIR/variables.bash"
 
-sudo pacman -S xcb-util xcb-util-keysyms xcb-util-wm --noconfirm
+sudo pacman -S xcb-util xcb-util-keysyms xcb-util-wm feh --noconfirm
 
 mkdir -p "$REPOSITORY_PATH"
 
