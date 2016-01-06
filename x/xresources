@@ -1,0 +1,20 @@
+#define primaryfont xft:Monaco-9
+#define secondaryfont xft:Open Sans-9
+#define iconfont xft:stlarch-9
+#define primaryletterspace -2
+
+*font: primaryfont
+*faceName: primaryfont
+*boldFont: primaryfont
+*letterSpace: primaryletterspace
+*scrollBar: false
+*cursorUnderline: true
+*cursorBlink: true
+*termName: rxvt-unicode
+*intensityStyles: true
+*utf8: 2
+
+*depth: 32
+
+URxvt.internalBorder: 10
+

@@ -1,0 +1,58 @@
+export DOTFILES_PATH=$HOME/.dotfiles
+
+BASE16_SHELL="$DOTFILES_PATH/colors/shell"
+[[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
+
+# filesystem aliases
+alias l="ls --color=auto"
+alias ll="ls -l --color=auto"
+alias la="ls -la --color=auto"
+
+# navigation aliases
+alias cd..="cd .."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+# tmux aliases
+alias tmnew="tmux new -s"
+alias tmls="tmux list-sessions"
+alias tmatt="tmux attach -t"
+
+# git aliases
+alias gs="git status"
+alias gpl="git pull"
+alias gp="git push"
+alias gac="git add -A && git commit -m"
+
+# networking aliases
+alias p="ping 8.8.8.8"
+
+if command -v nvim >/dev/null 2>&1; then
+  alias vim="nvim"
+  alias ovim="\vim"
+fi
+
+# prompt
+COLOR_RESET='\e[0m'
+PROMPT_SUCCESS_COLOR='\e[0;34m'
+PROMPT_FAILURE_COLOR='\e[0;31m'
+prompt_command_func()
+{
+  RET=$?
+  if [ $RET -eq 0 ]; then
+    STATUS_COLOR=$PROMPT_SUCCESS_COLOR
+  else
+    STATUS_COLOR=$PROMPT_FAILURE_COLOR
+  fi;
+  PS1="┌ $STATUS_COLOR\u@\h$COLOR_RESET \w \n└ "
+}
+export PROMPT_COMMAND="prompt_command_func"
+
+# allow a per-device script that is pulled in
+if [ -a "$HOME/.bashrc_env" ]; then
+  . "$HOME/.bashrc_env"
+fi
+
