@@ -2,7 +2,7 @@
 
 source "$DOTFILES_PATH/variables.bash"
 
-source "$DOTFILES_PATH/de/bspwm_config"
+source "$DOTFILES_PATH/wm/bspwm_config"
 
 sxhkd &
 urxvtd &
