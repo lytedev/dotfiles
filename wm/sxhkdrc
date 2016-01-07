@@ -4,18 +4,23 @@
 super + ctrl + Escape
 	bspc quit
 
-# kill the current application
+# close the current application
 super + c
 	bspc node -c
 
-# balance node surface area on current desktop
-super + b
-	bspc node -B
+# kill the current application
+super + shift + c
+  bspc node -k
 
-# toggle floating/fullscreen modes for current node
+# focus the node for the given path jump
+super + {p,b,comma,period}
+  bspc node -f @{parent,brother,first,second}
+
+# set modes to tiled/floating for current node
 super + {s,f}
 	bspc node -t {tiled,floating}
 
+# set modes to pseudo_tiled/fullscreen for current node
 super + shift + {s,f}
   bspc node -t {pseudo_tiled,fullscreen}
 
@@ -39,13 +44,6 @@ super + {_,shift + }{h,j,k,l}
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
-super + {p,n}
-	bspc desktop -f {prev,next}
-
-# rotate node placement on current desktop
-super + r
-  bspc node -R 90
-
 # preselect the splitting area for the current node
 super + ctrl + {h,j,k,l}
 	bspc node -p {west,south,north,east}
@@ -56,15 +54,23 @@ super + ctrl + {_,shift + }space
 
 # expand the current node
 super + alt + {h,j,k,l}
-	bspc node -e {left -10,down +10,up -10,right +10}
+  bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
 
 # shrink the current node
 super + alt + shift + {h,j,k,l}
-	bspc node -e {right -10,up +10,down -10,left +10}
+  bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
 
 # set node split ratio
 super + ctrl + {1-9,0}
 	bspc node -r 0.{1-9,10}
+
+# move a floating window very slowly
+super + shift + {Left,Down,Up,Right}
+  xdo move {-x -1,-y +1,-y -1,-x +1}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+  xdo move {-x -20,-y +20,-y -20,-x +20}
 
 # focus/move node to the selected desktop
 super + {_,shift + }{1-9,0}
@@ -114,6 +120,14 @@ super + alt + minus
 # spawn a transparent node
 super + alt + t
   urxvtc && compton-trans -c -o 0
+
+# rotate the current node
+super + r
+  bspc node -R 90
+
+# balance the current node
+super + shift + b
+  bspc node -B
 
 # make current node transparent
 super + t
