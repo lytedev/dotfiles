@@ -18,7 +18,10 @@ super + b
 
 # toggle floating/fullscreen modes for current node
 super + {s,f}
-	bspc node -t {floating,fullscreen}
+	bspc node -t {tiled,floating}
+
+super + shift + {s,f}
+  bspc node -t {pseudo_tiled,fullscreen}
 
 # focus the last node/desktop
 super + {grave,Tab}
@@ -134,7 +137,8 @@ super + Return
 
 # spawn the app launcher
 super + space
-	dmenu_run -fn "$PRIMARY_FONT_FAMILY_WITH_SIZE" -i -nb "#$(get_color 00)" -sb "#$(get_color 00)" -sf "#$(get_color 0A)" -nf "#$(get_color 04)" -h "$BAR_HEIGHT"
+  rofi -show run -font "Monaco 9" -fuzzy -bw $BORDER_WIDTH -bg "#$(get_color 00)" -fg "#$(get_color 0A)" -hlfg "#$(get_color 0D)" -hlbg "#$(get_color 01)"
+	# dmenu_run -fn "$PRIMARY_FONT_FAMILY_WITH_SIZE" -i -nb "#$(get_color 00)" -sb "#$(get_color 00)" -sf "#$(get_color 0A)" -nf "#$(get_color 04)" -h "$BAR_HEIGHT"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -146,7 +150,7 @@ super + ctrl + shift + l
 
 # spawn gui file explorer
 super + e
-    thunar
+  thunar
 
 # volumes controls and media navigation for media keys
 {_,shift + }XF86AudioLowerVolume

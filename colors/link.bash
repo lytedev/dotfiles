@@ -8,5 +8,5 @@ rm -f "$DOTFILES_PATH/vim/config/colors/current.vim"
 ln -s "$DOTFILES_PATH/colors/xresources" "$HOME/.Xresources.colors"
 ln -s "$DOTFILES_PATH/colors/vim" "$DOTFILES_PATH/vim/config/colors/current.vim"
 
-xrdb ~/.Xresources
+source "$DOTFILES_PATH/x/xloadresources"
 
