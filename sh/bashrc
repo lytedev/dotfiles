@@ -61,6 +61,17 @@ prompt_command_func()
 }
 export PROMPT_COMMAND="prompt_command_func"
 
+# man pages with vim
+vman() {
+  vim -c "SuperMan $*"
+
+  if [ "$?" != "0" ]; then
+    echo "No manual entry for $*"
+  fi
+}
+alias _man="man"
+alias man="vman"
+
 # allow a per-device script that is pulled in
 if [ -a "$HOME/.bashrc_env" ]; then
   . "$HOME/.bashrc_env"

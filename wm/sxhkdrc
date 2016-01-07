@@ -1,20 +1,16 @@
 # node manager shortcuts
 
-# kill the node manager
+# kill the wm
 super + ctrl + Escape
 	bspc quit
 
-# kill the current node
+# kill the current application
 super + c
 	bspc node -c
 
-# swap layouts
-#super + y
-#  bspc desktop -l next
-
 # balance node surface area on current desktop
 super + b
-	bspc desktop -B
+	bspc node -B
 
 # toggle floating/fullscreen modes for current node
 super + {s,f}
@@ -48,7 +44,7 @@ super + {p,n}
 
 # rotate node placement on current desktop
 super + r
-  bspc desktop -R 90
+  bspc node -R 90
 
 # preselect the splitting area for the current node
 super + ctrl + {h,j,k,l}
