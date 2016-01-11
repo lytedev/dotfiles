@@ -327,6 +327,18 @@ map  <silent> <F8>    <Esc>:cnext<CR>
 " keep that dumb window from popping up
 map q: :q
 
+" sane n/N behavior
+nnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
+
+" better command history navigation
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+
+" keep selection after indenting visual
+xnoremap < <gv
+xnoremap > >gv
+
 command! UseFoldMarkers set foldmethod=marker
 
 " compile & link c code (alt+<F9> write + compile, ctrl+<F9> compile + run) (c.vim plugin)

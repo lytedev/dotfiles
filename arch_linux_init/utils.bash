@@ -9,6 +9,7 @@ sudo pacman -S \
   the_silver_searcher \
   thunar \
   luakit \
+  alsa-utils \
   --noconfirm
 
 pacaur -S \
