@@ -25,43 +25,28 @@ bar_module_bspwm() {
     name=${item#?}
     cname="$name"
     case $item in
-      M*)
-        :
-        ;;
-      m*)
-        :
-        ;;
-      O*)
-        # focused occupied desktop
+      O*) # focused occupied desktop
         content="${content} %{F$COLOR_HIGHLIGHT}%{U$COLOR_HIGHLIGHT}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}"
         ;;
-      F*)
-        # focused free desktop
+      F*) # focused free desktop
         content="${content} %{F$COLOR_DARK}%{U$COLOR_DARK}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}"
         ;;
-      U*)
-        # focused occupied desktop
+      U*) # focused occupied desktop
         content="${content} %{F$COLOR_URGENT}%{U$COLOR_URGENT}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}"
         ;;
-      o*)
-        # occupied desktop
+      o*) # occupied desktop
         content="${content} %{F$COLOR_FOREGROUND}${cname}%{F-}"
         ;;
-      f*)
-        # free desktop
+      f*) # free desktop
         content="${content} %{F$COLOR_DARK}${cname}%{F-}"
         ;;
-      u*)
-        # urgent desktop
+      u*) # urgent desktop
         content="${content} %{F$COLOR_URGENT}${cname}%{F-}"
-        ;;
-      L*)
-        # layout
         ;;
     esac
     shift
   done
-  echo -e "$content%{F-}"
+  echo -e "$content"
 }
 export -f bar_module_bspwm
 register_bar_module "$PRIORITY" "$MATCH" "bar_module_bspwm"
