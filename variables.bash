@@ -3,11 +3,15 @@
 # This script will seriously nuke your home directory. You should really read
 # each of the scripts that will be executed in those process.
 
-DOTFILES_PATH=$HOME/.dotfiles
-REPOSITORY_PATH=$HOME/Documents/Repositories
+DOTFILES_PATH="$HOME/.dotfiles"
+REPOSITORY_PATH="$HOME/Documents/Repositories"
 WINDOW_GAP=20
 BORDER_WIDTH=2
 
+source "$DOTFILES_PATH/scripts/get_x_fonts.sh"
+source "$DOTFILES_PATH/scripts/get_color.sh"
+
+BAR_ON_XINIT=0
 BAR_FIFO="$DOTFILES_PATH/wm_bar_fifo.lock"
 BAR_TOP=0
 BAR_MARGIN=$WINDOW_GAP

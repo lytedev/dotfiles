@@ -6,13 +6,6 @@ source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
 export BAR_LOG="$PWD/bar.log"
 echo -e "BEGIN BAR LOG\n" > "$BAR_LOG"
 
-ul="u"
-if [ $BAR_UNDERLINE -eq 1 ]; then
-  :
-else
-  ul="o"
-fi
-
 export MODULE_MATCH=()
 export MODULE_CALLBACK=()
 export MODULE_DATA=()
