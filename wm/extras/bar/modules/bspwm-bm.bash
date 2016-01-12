@@ -3,7 +3,7 @@
 source "$DOTFILES_PATH/variables.bash"
 source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
 
-PRIORITY=2500
+PRIORITY=25000
 
 MATCH_PREFIX="W"
 MATCH="$MATCH_PREFIX*"

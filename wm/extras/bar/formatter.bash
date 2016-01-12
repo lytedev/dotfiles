@@ -34,13 +34,21 @@ while read -r line; do
     fi
   done
 
-  content=""
+  l_content=""
+  c_content=""
+  r_content=""
   for i in ${!MODULE_CONTENT[@]}; do
     echo -e "Processing Module $i Content..." >> "$BAR_LOG"
-    content="$content ${MODULE_CONTENT[$i]}"
+    if [ $i -ge 30000 ]; then
+      r_content="$content ${MODULE_CONTENT[$i]}"
+    elif [ $i -ge 20000 ]; then
+      c_content="$content ${MODULE_CONTENT[$i]}"
+    else
+      l_content="$content ${MODULE_CONTENT[$i]}"
+    fi
   done
 
-  printf " %s \n" "$content"
+  printf " %s \n" "%{l}$l_content %{c}$c_content %{r}$r_content"
 done
 
 echo -e "\nEND BAR LOG" >> "$BAR_LOG"
