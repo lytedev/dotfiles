@@ -3,6 +3,9 @@ export DOTFILES_PATH=$HOME/.dotfiles
 BASE16_SHELL="$DOTFILES_PATH/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 
+# disable ctrl-s terminal freeze
+stty -ixon
+
 # filesystem aliases
 alias lx='ls -lXB' # order by filetype
 alias lk='ls -lSr' # order by filesize reversed
