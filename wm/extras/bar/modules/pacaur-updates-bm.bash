@@ -3,23 +3,25 @@
 source "$DOTFILES_PATH/variables.bash"
 source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
 
-PRIORITY=38000
+PRIORITY=12000
 
-MATCH_PREFIX="BM_CLOCK"
+MATCH_PREFIX="BM_PACAUR"
 MATCH="$MATCH_PREFIX*"
 
-bar_module_clock() {
-  echo -e "%{T-}%{F$COLOR_S1}${1:8}%{F-}"
+bar_module_pacaur() {
+  echo -e "%{T-}%{F$COLOR_DARK}pac %{F$COLOR_S1}${1:9}%{F-}"
 }
 
-export -f bar_module_clock
-register_bar_module "$PRIORITY" "$MATCH" "bar_module_clock"
+export -f bar_module_pacaur
+register_bar_module "$PRIORITY" "$MATCH" "bar_module_pacaur"
 
-bar_module_clock_updater() {
+bar_module_pacaur_updater() {
   while true; do
-    echo -e "$MATCH_PREFIX""$(date +%H.%M.%S)" > $BAR_FIFO
-    sleep 1
+    NUM_PACKAGES=$(pacaur -Syq > /dev/null && pacaur -Qqu | wc -l)
+    echo -e "$MATCH_PREFIX""$NUM_PACKAGES" > "$BAR_FIFO"
+    sleep 300
   done
 }
-bar_module_clock_updater &
+bar_module_pacaur_updater &
 
+echo -e "$MATCH_PREFIX"?? > "$BAR_FIFO"

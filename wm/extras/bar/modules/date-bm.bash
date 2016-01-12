@@ -9,8 +9,7 @@ MATCH_PREFIX="BM_DATE"
 MATCH="$MATCH_PREFIX*"
 
 bar_module_date() {
-  echo -e "$1 "
-  # echo -e "%{T-}%{r}%{F$COLOR_S2}${1:7}%{F-}"
+  echo -e "%{T-}%{r}%{F$COLOR_S2}${1:7}%{F-}"
 }
 
 export -f bar_module_date
@@ -19,7 +18,7 @@ register_bar_module "$PRIORITY" "$MATCH" "bar_module_date"
 bar_module_date_updater() {
   while true; do
     echo -e "$MATCH_PREFIX""$(date +'%a %b %d')" > $BAR_FIFO
-    sleep 1
+    sleep 60
   done
 }
 bar_module_date_updater &
