@@ -36,6 +36,6 @@ fi
 
 source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
 
-cat "$BAR_FIFO" | "$DOTFILES_PATH/wm/extras/bar/formatter.bash" | lemonbar $BAR_B -d -g "$WIDTH"x"$BAR_HEIGHT"+"$BAR_MARGIN"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND"
+cat "$BAR_FIFO" | "$DOTFILES_PATH/wm/extras/bar/formatter.bash" | lemonbar $BAR_B -g "$WIDTH"x"$BAR_HEIGHT"+"$BAR_MARGIN"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND"
 
 killbar
