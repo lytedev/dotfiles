@@ -3,6 +3,8 @@
 #define iconfont xft:stlarch-9
 #define primaryletterspace -2
 
+#define emacspfont Monaco 9
+
 *font: primaryfont
 *faceName: primaryfont
 *boldFont: primaryfont
@@ -13,6 +15,8 @@
 *termName: rxvt-unicode
 *intensityStyles: true
 *utf8: 2
+
+emacs.font: emacspfont
 
 *depth: 32
 

@@ -4,7 +4,7 @@ BASE16_SHELL="$DOTFILES_PATH/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 
 # disable ctrl-s terminal freeze
-stty -ixon
+[[ $- == *i* ]] && stty -ixon
 
 # filesystem aliases
 alias lx='ls -lXB' # order by filetype
@@ -42,6 +42,9 @@ alias gac="git add -A && git commit -m"
 
 # networking aliases
 alias p="ping 8.8.8.8"
+
+# emacs aliases
+alias emacs="emacs -nw"
 
 if command -v nvim >/dev/null 2>&1; then
   alias vim="nvim"
