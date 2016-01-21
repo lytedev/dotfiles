@@ -64,7 +64,7 @@ prompt_command_func()
   else
     STATUS_COLOR=$PROMPT_FAILURE_COLOR
   fi;
-  PS1="$STATUS_COLOR\u@\h$COLOR_RESET $DIR_COLOR\w$COLOR_RESET > "
+  PS1="$STATUS_COLOR\u@\h$COLOR_RESET $DIR_COLOR\w$COLOR_RESET "
 }
 export PROMPT_COMMAND="prompt_command_func"
 
