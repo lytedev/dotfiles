@@ -36,6 +36,7 @@ alias tmatt="tmux attach -t"
 
 # git aliases
 alias gs="git status"
+alias gl="git log"
 alias gpl="git pull"
 alias gp="git push"
 alias gac="git add -A && git commit -m"
