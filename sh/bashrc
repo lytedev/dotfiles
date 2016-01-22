@@ -53,10 +53,10 @@ if command -v nvim >/dev/null 2>&1; then
 fi
 
 # prompt
-COLOR_RESET='\e[0m'
-PROMPT_SUCCESS_COLOR='\e[0;34m'
-PROMPT_FAILURE_COLOR='\e[0;31m'
-DIR_COLOR='\e[0;33m'
+COLOR_RESET='\[\e[0m\]'
+PROMPT_SUCCESS_COLOR='\[\e[0;34m\]'
+PROMPT_FAILURE_COLOR='\[\e[0;31m\]'
+DIR_COLOR='\[\e[0;33m\]'
 prompt_command_func()
 {
   RET=$?
