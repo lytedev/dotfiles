@@ -7,7 +7,7 @@ sudo pacman -S \
   rofi \
   slock \
   the_silver_searcher \
-  thunar \
+  thunar thunar-volman \
   luakit \
   alsa-utils \
   --noconfirm
