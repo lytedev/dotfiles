@@ -47,9 +47,11 @@ alias p="ping 8.8.8.8"
 # emacs aliases
 alias emacs="emacs -nw"
 
+export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1; then
   alias vim="nvim"
-  alias ovim="\vim"
+  alias ovim="\\vim"
+  export EDITOR="nvim"
 fi
 
 # prompt
