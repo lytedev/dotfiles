@@ -1,93 +1,62 @@
-" Based on dotfiles from @viccuad on GitHub - <3
-
-" Plugins {{{
-" Get plugin manager if it doesn't exist
+" initial plugin manager
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-		silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		autocmd VimEnter * PlugInstall
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
+
+" tell vim to reload the init.vim file when it saves it
+autocmd! BufWritePost init.vim source %
 
 " Initialize plugin manager
-if has("unix")
-  call plug#begin('~/.config/nvim/bundle')
-endif
+call plug#begin('~/.config/nvim/bundle')
 
-" Pretty status line and tabs/buffers
-Plug 'bling/vim-airline'
-	let g:airline_powerline_fonts = 0
-	let g:airline#extensions#tabline#fnamemod = ':t'
-	set laststatus=2 " Always show statusline
-	set noshowmode " Hides default mode
-	let g:airline#extensions#tabline#enabled = 1 " Automatically displays all buffers when there's only one tab open
+" let plugin manager manage itself
+Plug 'junegunn/vim-plug'
 
-	let g:airline#extensions#tabline#left_sep = ''
-	let g:airline#extensions#tabline#left_alt_sep = ''
+" plugins
 
+Plug 'bling/vim-airline' " statusline
+  let g:airline_powerline_fonts = 0
+  let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
+  let g:airline#extensions#tabline#fnamemod = ':t'
+  set laststatus=2 " always show statusline
+  set noshowmode " hides default mode
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
   let g:airline_right_alt_sep = ''
   let g:airline_right_sep = ''
   let g:airline_left_alt_sep= ''
   let g:airline_left_sep = ''
 
-" Plugins that make text-wizarding much more fun
-Plug 'majutsushi/tagbar' " shows a list of tags (requires ctags)
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-speeddating'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-" Plug 'kien/ctrlp.vim'
-"   " The \| escapes the regex OR operator and is the delimiter
-"   let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTree']}
-	let g:NERDSpaceDelims = 1
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'scrooloose/syntastic'
-Plug 'LargeFile'
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/vim-easy-align'
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'tasklist.vim' " <leader>, t will show TODOs and FIXMEs
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'godlygeek/tabular'
-Plug 'jez/vim-superman'
-	noremap K :SuperMan <cword><CR>
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTree']} " nice sidebar for files
+  let g:NERDTreeDirArrowExpandable = ' '
+  let g:NERDTreeDirArrowCollapsible = ' '
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if last buffer is a NERD buffer
 
-" Plugins for code completion and snippets
-Plug 'Shougo/deoplete.nvim'
+" Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem to work with my colorscheme)
+"   let g:indent_guides_start_level = 0
+"   let g:indent_guides_auto_color = 1
+"   highlight IndentGuidesOdd ctermbg=1
+"   highlight IndentGuidesEven ctermbg=236
+
+Plug 'Shougo/deoplete.nvim' " autocomplete
   let g:deoplete#enable_at_startup = 1
-" Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}		" (NEEDS to be compiled, read the docs!)
-" 	let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
-" TODO: Setup snippets? I honestly never use them...
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-" 	let g:UltiSnipsSnippetDirectories=["snippets_UltiSnips"]
-" 	function! g:UltiSnips_Complete()
-" 		call UltiSnips#ExpandSnippet()
-" 		if g:ulti_expand_res == 0
-" 			if pumvisible()
-" 				return "\<C-n>"
-" 			else
-" 				call UltiSnips#JumpForwards()
-" 				if g:ulti_jump_forwards_res == 0
-" 					return "\<TAB>"
-" 				endif
-" 			endif
-" 		endif
-" 		return ""
-" 	endfunction
-" 	au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-" 	let g:UltiSnipsJumpForwardTrigger="<tab>"
-" 	let g:UltiSnipsListSnippets="<c-e>"
+Plug 'scrooloose/syntastic' " syntax checker
+Plug 'LargeFile' " gracefully handle very large files
+Plug 'tpope/vim-commentary' " toggle comments in code easily
+Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
+Plug 'christoomey/vim-tmux-navigator' " allow transitions within tmux
+Plug 'tasklist.vim' " show tasks with leader,t
+Plug 'godlygeek/tabular' " align text lines together
+Plug 'jez/vim-superman' " view man pages with vim
+Plug 'tpope/vim-surround' " quickly modify text surrounding objects
+Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
+Plug 'junegunn/fzf.vim' " helpers for using fzf in vim
 
-" 	" this maps Enter key to <C-y> to chose the current highlight item
-" 	" and close the selection list, same as other IDEs:
-" 	" CONFLICTS with some plugins like tpope/Endwise
-" 	inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Filetype handling
+" plugins for specific file types
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
@@ -98,72 +67,62 @@ Plug 'digitaltoad/vim-jade', {'for': ['jade', 'vue']}
 Plug 'freitass/todo.txt-vim', {'for': ['todo']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
 
-Plug 'c.vim', {'for': 'c'}
-	let g:C_LocalTemplateFile = $HOME.'/.vim/snippets_Cvim/c-support/templates/Templates' " this allows for the templates to be versioned on .dotfiles
-
-Plug 'hdima/python-syntax', {'for': 'python'}
-	let python_highlight_all = 1
-	" you can change between py v2 and v3 with :Python2Syntax and :Python3Syntax
-
 call plug#end()
-" }}}
 
-" Filetype & languages {{{
 filetype on
 filetype indent on
 filetype plugin on
 
-" C language
+" language specific configuration
+
+" C
 let c_space_errors = 1
 let c_comment_strings = 0		" dont highlight strings inside C comments
 
-" Python language
+" Python
 let python_space_errors = 1
 autocmd FileType python setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
-" HamlC
+" HAMLC
 autocmd BufRead,BufNewFile *.hamlc set ft=haml
 
-" Markdown instead of modula2
+" Markdown
 autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wrapmargin=0
 
-" TXT files
+" Text
 autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
-" }}}
 
-" Spaces and tabs {{{
+" whitespace
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set autoindent smartindent
-set listchars=tab:\ \ ,trail:·
+set listchars=tab:»·,trail:· " the end dot character here is literally present
 set list
-" }}}
 
-" Line wrap {{{
-" let &colorcolumn=join(range(81,400),",") " colors columns past 80
+" look and feel
+
 set wrap
 set linebreak
 set breakindent
 set textwidth=80
-set formatoptions=tcrql1j
+set formatoptions=crql1j
   " t autowrap to textwidth
   " c autowrap comments to textwidth
   " r autoinsert comment leader with <enter>
   " q allow formatting of comments with gq
-  " l	Long lines are not broken in insert mode: When a line was longer than 'textwidth' when the insert command started, Vim does not automatically format it.
-  " 1	Don't break a line after a one-letter word. It's broken before it instead (if possible).
-  " j	Where it makes sense, remove a comment leader when joining lines
-" }}}
+  " l	lines longer than 'textwidth' on insert do not get formatted
+  " 1	don't break a line after a one-letter word - break it before
+  " j	where it makes sense, remove a comment leader when joining lines
 
-" Look and feel {{{
-set title
+set title " handle window title
 set synmaxcol=2048
-set number
-"set relativenumber
-set cursorline
-"set cursorcolumn
+set number " line numbers
+" set relativenumber
+set cursorline " highlight the current line
+" set cursorcolumn " highlight the current column
+" let &colorcolumn=join(range(81,400),",") " colors columns past 80
 set showcmd
 set nowildmenu
 set wildmode=longest,list,full
@@ -180,79 +139,97 @@ set splitright
 set splitbelow
 set noerrorbells
 set visualbell
-set vb t_vb=
 set nobackup
 set nowritebackup
 set noswapfile
-if has('autocmd')
-	autocmd GUIEnter * set visualbell t_vb=
-endif
 set timeout
 set ttimeoutlen=200
+set isfname+=32
 
-set t_Co=256
+set vb t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
 let base16colorspace=256
 set background=dark
 colorscheme current
-highlight ColorColumn ctermbg=235 guibg=#262626
 
-highlight clear SignColumn
-
-if &term == 'xterm-256color' || &term == 'screen-256color'
-	let &t_SI = "\<Esc>[5 q"
-	let &t_EI = "\<Esc>[1 q"
-endif
-
-if &term == 'rxvt-unicode-256color'
-	let &t_SI = "\<Esc>[3 q"
-	let &t_EI = "\<Esc>[1 q"
-endif
-" }}}
-
-" Persistence {{{
-
-" No empty buffer on startup
-autocmd VimEnter * nested if  bufname('')==''  &&  line('$') == 1 &&  col('$')==1 &&  !&modified | bd % | endif
-
-set hidden
+set hidden " hides abandoned buffers or something
 set shortmess=I
 set history=1000
 set undofile
 set undodir=$HOME/.config/nvim/undo
 set undolevels=1000
 set undoreload=10000
-" }}}
 
-" Backup, Swap, Spell files {{{
 set backupdir=$HOME/.config/nvim/backup
 set directory=$HOME/.config/nvim/backup
 set spellfile=$HOME/.config/nvim/spell/en.utf-8.add
-" }}}
 
-" Searching {{{
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
 set wrapscan
-" }}}
 
-" Mappings {{{
-" make these commonly mistyped commands still work:
+set foldmethod=syntax
+set foldlevel=99
+set foldnestmax=10
+set nofoldenable
+set foldlevelstart=1
+
+if has('vim_starting')
+  set encoding=utf8
+endif
+set autowrite
+set autochdir
+set autoread
+set nomodeline
+
+" allows for manual and syntax folding... supposedly
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
+
+" jump to last opened position in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" no empty buffer on startup
+autocmd VimEnter * nested if bufname('')=='' && line('$') == 1 && col('$')==1 && !&modified | bd % | endif
+
+" bindings
+
+" common typo fixes
 command! WQ wq
 command! Wq wq
 command! Wqa wqa
 command! W w
 command! Q q
 
+" best leader
 let mapleader = "\<Space>"
 
-" use tab key to cycle through the buffers:
+" change buffers with leader,tab
 nnoremap <leader><Tab>   :bnext<CR>
 nnoremap <leader><S-Tab> :bprevious<CR>
 
 " don't kill vim
 nnoremap <leader>K <Nop>
+nnoremap <S-K> <NOP>
+
+" nerdtree
+nnoremap <C-n> :NERDTree<CR>
+
+" run macro across visually selected lines
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 
 " quick paragraph formatting
 vmap Q gq
@@ -261,9 +238,11 @@ nmap Q gqap
 " launch fzf for the current git repo
 nnoremap <C-P> :GitFiles<CR>
 
-" use ctrl j and k to switch buffers as well
+" use leader j and k to switch buffers as well
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader>j :bprevious<CR>
+nnoremap <C-k> :bnext<CR>
+nnoremap <C-j> :bprevious<CR>
 
 " fast word change
 nnoremap <leader>c ciw
@@ -276,9 +255,19 @@ inoremap <A-BS> <C-w>
 " clear search higlight
 nnoremap <leader>/ :let @/ = ""<CR>
 
-" remap jk to escape in insert mode
-inoremap jk <Esc>
+" remap jk and kj to escape in insert mode
 inoremap jj <Esc>
+inoremap Jj <Esc>
+inoremap Jj <Esc>
+inoremap JJ <Esc>
+inoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap jK <Esc>
+inoremap JK <Esc>
+inoremap kj <Esc>
+inoremap Kj <Esc>
+inoremap kJ <Esc>
+inoremap KJ <Esc>
 
 " use hjkl-movement between rows when soft wrapping:
 nnoremap j gj
@@ -286,46 +275,22 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" workaround for an issue where nvim reads C-H as <BS> in normal mode
-if has('nvim')
-  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
-endif
-
-" move between tabs:
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-
 " remove trailing whitespace:
-map <F3> :%s/\s\+$//<CR>:let @/ = ""<CR>
-
-nnoremap <S-K> <NOP>
+map <F3> mw:%s/\s\+$//<CR>:let @/ = ""<CR>'w
 
 " close buffer:
-nnoremap <silent> <leader>w <Esc>:bd<CR>
-map <silent> <F4> <Esc>:bd<CR>
+nnoremap <silent> <C-w>     :bd<CR>
+nnoremap <silent> <leader>w :bd<CR>
 
 " toggle spell checking:
 map <F5> :setlocal spell!<CR>
 
 " open urls, files, etc. example: http://google.com:
 noremap <leader>o :!xdg-open <cfile><CR><CR>
-set isfname+=32
-
-" previous c error (c.vim plugin):
-map  <silent> <F7>    <Esc>:cprevious<CR>
-
-" next c error (c.vim plugin)
-map  <silent> <F8>    <Esc>:cnext<CR>
 
 " keep that dumb window from popping up
 map q: :q
+noremap qqq: q:
 
 " sane n/N behavior
 nnoremap <expr> n 'Nn'[v:searchforward]
@@ -335,34 +300,7 @@ nnoremap <expr> N 'nN'[v:searchforward]
 cnoremap <c-n> <down>
 cnoremap <c-p> <up>
 
-" keep selection after indenting visual
+" keep selection after indenting visual selection
 xnoremap < <gv
 xnoremap > >gv
 
-command! UseFoldMarkers set foldmethod=marker
-
-" compile & link c code (alt+<F9> write + compile, ctrl+<F9> compile + run) (c.vim plugin)
-"<F9>
-" }}}
-
-" Folding {{{
-set foldmethod=syntax
-set foldlevel=99
-set foldnestmax=10
-set nofoldenable
-set foldlevelstart=1
-" }}}
-
-" Launch {{{
-set encoding=utf8
-set autowrite
-set autochdir
-"autocmd BufEnter * silent! lcd %:p:h		" automatically cd into the dir of the file. this breaks less
-set autoread
-set nomodeline
-
-" jump to the last position when reopening a file:
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-" }}}
