@@ -44,6 +44,7 @@ Plug 'Shougo/deoplete.nvim' " autocomplete
   let g:deoplete#enable_at_startup = 1
 
 Plug 'scrooloose/syntastic' " syntax checker
+Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
 Plug 'LargeFile' " gracefully handle very large files
 Plug 'tpope/vim-commentary' " toggle comments in code easily
 Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
@@ -274,6 +275,28 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+" camel case movements
+map <silent> ,w <Plug>CamelCaseMotion_w
+map <silent> ,b <Plug>CamelCaseMotion_b
+map <silent> ,e <Plug>CamelCaseMotion_e
+map <silent> ,ge <Plug>CamelCaseMotion_ge
+
+" inner _ objects
+omap <silent> iw <Plug>CamelCaseMotion_iw
+xmap <silent> iw <Plug>CamelCaseMotion_iw
+omap <silent> ib <Plug>CamelCaseMotion_ib
+xmap <silent> ib <Plug>CamelCaseMotion_ib
+omap <silent> ie <Plug>CamelCaseMotion_ie
+xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+" a _ objects
+omap <silent> aw <Plug>CamelCaseMotion_aw
+xmap <silent> aw <Plug>CamelCaseMotion_aw
+omap <silent> ab <Plug>CamelCaseMotion_ab
+xmap <silent> ab <Plug>CamelCaseMotion_ab
+omap <silent> ae <Plug>CamelCaseMotion_ae
+xmap <silent> ae <Plug>CamelCaseMotion_ae
 
 " remove trailing whitespace:
 map <F3> mw:%s/\s\+$//<CR>:let @/ = ""<CR>'w
