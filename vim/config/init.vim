@@ -16,18 +16,19 @@ Plug 'junegunn/vim-plug'
 
 " plugins
 
-Plug 'bling/vim-airline' " statusline
-  let g:airline_powerline_fonts = 0
+Plug 'vim-airline/vim-airline' " statusline
+  " let g:airline_powerline_fonts = 0
   let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
   let g:airline#extensions#tabline#fnamemod = ':t'
-  set laststatus=2 " always show statusline
-  set noshowmode " hides default mode
+  " set laststatus=2 " always show statusline
+  " set noshowmode " hides default mode
   let g:airline#extensions#tabline#left_sep = ''
   let g:airline#extensions#tabline#left_alt_sep = ''
   let g:airline_right_alt_sep = ''
   let g:airline_right_sep = ''
   let g:airline_left_alt_sep= ''
   let g:airline_left_sep = ''
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTree']} " nice sidebar for files
   let g:NERDTreeDirArrowExpandable = ' '
@@ -188,6 +189,9 @@ set autowrite
 set autochdir
 set autoread
 set nomodeline
+
+" yank to OS clipboard
+set clipboard+=unnamed
 
 " allows for manual and syntax folding... supposedly
 augroup vimrc

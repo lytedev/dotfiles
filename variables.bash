@@ -13,7 +13,7 @@ source "$DOTFILES_PATH/scripts/get_color.sh"
 
 export BAR_ON_XINIT=0
 export BAR_FIFO="$DOTFILES_PATH/wm_bar_fifo.lock"
-export BAR_TOP=0
+export BAR_TOP=1
 export BAR_MARGIN=$WINDOW_GAP
 export BAR_HEIGHT=28
 export BAR_BORDER_WIDTH=2
