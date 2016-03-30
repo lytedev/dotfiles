@@ -56,7 +56,8 @@ Plug 'tpope/vim-surround' " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
 Plug 'junegunn/fzf.vim' " helpers for using fzf in vim
-Plug 'michaeljsmith/vim-indent-object' " adds an indentation lebel text object
+Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
+Plug 'wellle/targets.vim' " adds some more handy text objects
 
 " plugins for specific file types
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
