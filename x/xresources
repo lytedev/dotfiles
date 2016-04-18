@@ -1,7 +1,7 @@
-#define primaryfont xft:Monaco-9
+#define primaryfont xft:Terminess Powerline-8
 #define secondaryfont xft:Open Sans-9
 #define iconfont xft:stlarch-9
-#define primaryletterspace -2
+#define primaryletterspace 0
 
 #define emacspfont Monaco 9
 
