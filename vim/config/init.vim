@@ -70,7 +70,7 @@ Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
 Plug 'digitaltoad/vim-jade', {'for': ['jade', 'vue']}
 Plug 'freitass/todo.txt-vim', {'for': ['todo']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
-Plug 'evidens/vim-twig', {'for': ['twig']}
+Plug 'evidens/vim-twig'
 
 call plug#end()
 
