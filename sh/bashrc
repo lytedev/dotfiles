@@ -47,6 +47,9 @@ alias p="ping 8.8.8.8"
 # emacs aliases
 alias emacs="emacs -nw"
 
+# arch aliases
+alias archupdate="pacaur -Syyu --noconfirm --noedit"
+
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1; then
   alias vim="nvim"
@@ -89,6 +92,9 @@ vman() {
 }
 alias _man="man"
 alias man="vman"
+
+complete -cf sudo
+complete -cf man
 
 # allow a per-device script that is pulled in
 if [ -a "$HOME/.bashrc_env" ]; then

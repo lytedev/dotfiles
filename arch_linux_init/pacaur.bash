@@ -21,3 +21,5 @@ cd "$REPOSITORY_PATH/pacaur"
 makepkg -i --noconfirm
 cd -
 
+pacuar -S cower pacaur
+
