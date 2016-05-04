@@ -10,6 +10,8 @@ sudo pacman -S \
   thunar thunar-volman \
   luakit \
   alsa-utils \
+  wpa_actiond \
+  ifplugd \
   --noconfirm
 
 pacaur -S \
