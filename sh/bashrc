@@ -50,6 +50,9 @@ alias emacs="emacs -nw"
 # arch aliases
 alias archupdate="pacaur -Syyu --noconfirm --noedit"
 
+# wm aliases
+alias startbar="source $DOTFILES_PATH/wm/extras/bar/start.bash"
+
 export EDITOR="vim"
 if command -v nvim >/dev/null 2>&1; then
   alias vim="nvim"

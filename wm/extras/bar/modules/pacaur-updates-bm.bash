@@ -17,9 +17,13 @@ register_bar_module "$PRIORITY" "$MATCH" "bar_module_pacaur"
 
 bar_module_pacaur_updater() {
   while true; do
-    NUM_PACKAGES=$(pacaur -Syq > /dev/null && pacaur -Qqu | wc -l)
-    echo -e "$MATCH_PREFIX""$NUM_PACKAGES" > "$BAR_FIFO"
-    sleep 300
+    if [ -e "/var/lib/pacman/db.lck" ]; then
+      sleep 10
+    else
+      NUM_PACKAGES=$(pacaur -Syq --silent >/dev/null 2>/dev/null && pacaur -Qqu | wc -l)
+      echo -e "$MATCH_PREFIX""$NUM_PACKAGES" > "$BAR_FIFO"
+      sleep 300
+    fi
   done
 }
 bar_module_pacaur_updater &

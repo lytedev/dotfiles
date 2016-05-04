@@ -22,7 +22,7 @@ super + {s,f}
 
 # set modes to pseudo_tiled/fullscreen for current node
 super + shift + {s,f}
-  bspc node -t {pseudo_tiled,fullscreen}
+  bspc node -t {pseudo_tiled,fullscreen -l above}
 
 # focus the last node/desktop
 super + {grave,Tab}

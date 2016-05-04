@@ -2,3 +2,4 @@ colors/gen/vendor
 colors/gen/tmp
 *.lock
 *.log
+*.pid
