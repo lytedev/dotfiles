@@ -4,22 +4,24 @@ DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 source $DIR/variables.bash
 
 sudo pacman -S \
+  tree \
   rofi \
   slock \
   the_silver_searcher \
-  thunar thunar-volman \
+  thunar thunar-volman gvfs \
+  audacity \
   luakit \
+  gimp \
   alsa-utils \
   wpa_actiond \
   ifplugd \
+  htop \
   --noconfirm
 
 pacaur -S \
   gtk-theme-arc \
-  firefox-developer \
   google-chrome-dev \
   --noconfirm --noedit
 
-sudo ln -s /usr/bin/firefox-developer /usr/bin/firefox
 sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
 

@@ -21,5 +21,6 @@ if [ "$BAR_ON_XINIT" -eq 1 ]; then
 fi
 
 # fire up wm
+sxhkd &
 exec bspwm
 

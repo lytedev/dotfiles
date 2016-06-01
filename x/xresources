@@ -1,4 +1,4 @@
-#define primaryfont xft:Terminess Powerline-8
+#define primaryfont xft:Terminus-8
 #define secondaryfont xft:Open Sans-9
 #define iconfont xft:stlarch-9
 #define primaryletterspace 0
