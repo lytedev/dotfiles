@@ -4,7 +4,7 @@
 # each of the scripts that will be executed in those process.
 
 export DOTFILES_PATH="$HOME/.dotfiles"
-export REPOSITORY_PATH="$HOME/Documents/Repositories"
+export REPOSITORY_PATH="$HOME/Documents/open-source"
 export WINDOW_GAP=0
 export BORDER_WIDTH=0
 
