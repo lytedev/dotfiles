@@ -78,7 +78,7 @@ super + {_,shift + }{1-9,0}
 
 # focus clicked node
 ~button1
-	bspc pointer -g focus
+	bspc node -f pointed
 
 # mouse controls for node movement and resizing
 super + button{1-3}
