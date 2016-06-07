@@ -81,11 +81,11 @@ filetype plugin on
 
 " C
 let c_space_errors = 1
-let c_comment_strings = 0		" dont highlight strings inside C comments
+let c_comment_strings = 0 " dont highlight strings inside C comments
 
 " Python
 let python_space_errors = 1
-autocmd FileType python setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType python setl tabstop=2 noexpandtab shiftwidth=2 softtabstop=2
 
 " HAMLC
 autocmd BufRead,BufNewFile *.hamlc set ft=haml
@@ -97,13 +97,13 @@ autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wra
 autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
 
 " whitespace
-set tabstop=2
+set tabstop=8
 set shiftwidth=2
 set softtabstop=2
-set expandtab
+set noexpandtab
 set autoindent smartindent
-set listchars=tab:»·,trail:· " the end dot character here is literally present
-set list
+" set listchars=tab:  ,trail:  " the end dot character here is literally present
+" set list
 
 " look and feel
 
