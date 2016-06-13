@@ -97,7 +97,7 @@ autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wra
 autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
 
 " whitespace
-set tabstop=8
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set noexpandtab
