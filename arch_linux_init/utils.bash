@@ -16,6 +16,9 @@ sudo pacman -S \
   wpa_actiond \
   ifplugd \
   htop \
+	weechat \
+	ruby \
+	tcl \
   --noconfirm
 
 pacaur -S \

@@ -102,7 +102,7 @@ set shiftwidth=2
 set softtabstop=2
 set noexpandtab
 set autoindent smartindent
-" set listchars=tab:  ,trail:  " the end dot character here is literally present
+set listchars=trail:·,tab:»·
 " set list
 
 " look and feel
