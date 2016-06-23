@@ -1,7 +1,7 @@
 " initial plugin manager
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
 endif
 
 " tell vim to reload the init.vim file when it saves it
@@ -16,32 +16,30 @@ Plug 'junegunn/vim-plug'
 " plugins
 
 Plug 'vim-airline/vim-airline' " statusline
-  " let g:airline_powerline_fonts = 0
-  let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
-  let g:airline#extensions#tabline#fnamemod = ':t'
-  " set laststatus=2 " always show statusline
-  " set noshowmode " hides default mode
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_left_alt_sep= ''
-  let g:airline_left_sep = ''
+" let g:airline_powerline_fonts = 0
+let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
+let g:airline#extensions#tabline#fnamemod = ':t'
+" set laststatus=2 " always show statusline
+" set noshowmode " hides default mode
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTree']} " nice sidebar for files
-  let g:NERDTreeDirArrowExpandable = ' '
-  let g:NERDTreeDirArrowCollapsible = ' '
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if last buffer is a NERD buffer
+let g:NERDTreeDirArrowExpandable = ' '
+let g:NERDTreeDirArrowCollapsible = ' '
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if last buffer is a NERD buffer
 
-" Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem to work with my colorscheme)
-"   let g:indent_guides_start_level = 0
-"   let g:indent_guides_auto_color = 1
-"   highlight IndentGuidesOdd ctermbg=1
-"   highlight IndentGuidesEven ctermbg=236
+Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem to work with my colorscheme)
+let g:indent_guides_start_level = 0
+let g:indent_guides_auto_color = 1
 
 Plug 'Shougo/deoplete.nvim' " autocomplete
-  let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 Plug 'scrooloose/syntastic' " syntax checker
 Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
@@ -102,8 +100,8 @@ set shiftwidth=2
 set softtabstop=2
 set noexpandtab
 set autoindent smartindent
-set listchars=trail:·,tab:»·
-" set list
+set list
+set listchars=trail:·,tab:\ \ 
 
 " look and feel
 
@@ -112,13 +110,13 @@ set linebreak
 set breakindent
 set textwidth=80
 set formatoptions=crql1j
-  " t autowrap to textwidth
-  " c autowrap comments to textwidth
-  " r autoinsert comment leader with <enter>
-  " q allow formatting of comments with gq
-  " l	lines longer than 'textwidth' on insert do not get formatted
-  " 1	don't break a line after a one-letter word - break it before
-  " j	where it makes sense, remove a comment leader when joining lines
+" t autowrap to textwidth
+" c autowrap comments to textwidth
+" r autoinsert comment leader with <enter>
+" q allow formatting of comments with gq
+" l lines longer than 'textwidth' on insert do not get formatted
+" 1 don't break a line after a one-letter word - break it before
+" j where it makes sense, remove a comment leader when joining lines
 
 set title " handle window title
 set synmaxcol=2048
@@ -152,12 +150,15 @@ set isfname+=32
 
 set vb t_vb=
 if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
+	autocmd GUIEnter * set visualbell t_vb=
 endif
 
 let base16colorspace=256
 set background=dark
 colorscheme current
+
+hi WhiteSpaces ctermfg=black ctermbg=8
+match WhiteSpaces /^ \+/
 
 set hidden " hides abandoned buffers or something
 set shortmess=I
@@ -184,7 +185,7 @@ set nofoldenable
 set foldlevelstart=1
 
 if has('vim_starting')
-  set encoding=utf8
+	set encoding=utf8
 endif
 set autowrite
 set autochdir
@@ -196,13 +197,13 @@ set clipboard+=unnamed
 
 " allows for manual and syntax folding... supposedly
 augroup vimrc
-  au BufReadPre * setlocal foldmethod=indent
-  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+	au BufReadPre * setlocal foldmethod=indent
+	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 augroup END
 
 " jump to last opened position in file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " no empty buffer on startup
@@ -234,8 +235,8 @@ nnoremap <C-n> :NERDTree<CR>
 " run macro across visually selected lines
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
+	echo "@".getcmdline()
+	execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
 " quick paragraph formatting
