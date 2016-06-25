@@ -157,8 +157,12 @@ let base16colorspace=256
 set background=dark
 colorscheme current
 
-hi WhiteSpaces ctermfg=black ctermbg=8
-match WhiteSpaces /^ \+/
+fun! ShowSpaceIndentation()
+	hi WhiteSpaces ctermfg=black ctermbg=8
+	match WhiteSpaces /^ \+/
+endfunction
+
+:command! SpaceIndents call ShowSpaceIndentation()
 
 set hidden " hides abandoned buffers or something
 set shortmess=I
