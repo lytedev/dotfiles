@@ -29,6 +29,7 @@ pacaur -S \
 	gvfs-mtp \
 	pass \
 	bash-completion \
+	avr-libc avr-gcc dfu-programmer dfu-util \
 	--noconfirm --noedit
 
 sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

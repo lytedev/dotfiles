@@ -83,7 +83,7 @@ let c_comment_strings = 0 " dont highlight strings inside C comments
 
 " Python
 let python_space_errors = 1
-autocmd FileType python setl tabstop=2 noexpandtab shiftwidth=2 softtabstop=2
+autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " HAMLC
 autocmd BufRead,BufNewFile *.hamlc set ft=haml
