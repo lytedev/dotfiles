@@ -30,6 +30,7 @@ pacaur -S \
 	pass \
 	bash-completion \
 	avr-libc avr-gcc dfu-programmer dfu-util \
+	reptyr \
 	--noconfirm --noedit
 
 sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

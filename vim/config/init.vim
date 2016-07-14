@@ -64,7 +64,7 @@ Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
 Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
-Plug 'digitaltoad/vim-jade', {'for': ['jade', 'vue']}
+Plug 'digitaltoad/vim-jade', {'for': ['pug', 'jade', 'vue']}
 Plug 'freitass/todo.txt-vim', {'for': ['todo']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
 Plug 'evidens/vim-twig'

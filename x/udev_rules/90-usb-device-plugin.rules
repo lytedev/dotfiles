@@ -1,0 +1,1 @@
+TTRS{idVendor}=="152d", ATTRS{idProduct}=="2329", RUN+="xset r rate 300 80"

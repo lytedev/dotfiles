@@ -24,3 +24,6 @@ URxvt.internalBorder: 5
 
 Xcursor.theme: human
 
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
