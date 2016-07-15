@@ -2,9 +2,11 @@
 
 source "$DOTFILES_PATH/variables.bash"
 source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
+source "$DOTFILES_PATH/wm/extras/bar/modules/module.bash"
 
 PRIORITY=25000
 
+PID_PREFIX="bspwm"
 MATCH_PREFIX="W"
 MATCH="$MATCH_PREFIX*"
 

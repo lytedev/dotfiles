@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
 
-export BAR_PID_FILE="$DOTFILES_PATH/wm_bar.pid"
+source "$DOTFILES_PATH/variables.bash"
 
 "$DOTFILES_PATH/wm/extras/bar/run_bar.bash" &
+export BAR_PID=$!
 
-echo "$!" > "$BAR_PID_FILE"
-echo "Starting bar with PID $!"
-
-export BAR_PID="$!"
-
-stopbar() {
-  kill -SIGINT $(cat "$BAR_PID_FILE")
-  rm -f "$BAR_PID_FILE"
-}
-export -f stopbar
+echo "$BAR_PID" > "$BAR_PID_FILE"
+echo "Starting bar with PID $BAR_PID"
 
 xdo lower -a wmpanel
 

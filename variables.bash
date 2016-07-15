@@ -7,6 +7,7 @@ export DOTFILES_PATH="$HOME/.dotfiles"
 export REPOSITORY_PATH="$HOME/Documents/open-source"
 export WINDOW_GAP=5
 export BORDER_WIDTH=1
+export BAR_PID_FILE="$DOTFILES_PATH/wm_bar.pid"
 
 source "$DOTFILES_PATH/scripts/get_x_fonts.sh"
 source "$DOTFILES_PATH/scripts/get_color.sh"

@@ -4,6 +4,8 @@ BASE16_SHELL="$DOTFILES_PATH/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 
 if [ -t 0 ]; then
+	source "$DOTFILES_PATH/variables.bash"
+
 	# disable ctrl-s terminal freeze
 	[[ $- == *i* ]] && stty -ixon
 
@@ -53,6 +55,16 @@ if [ -t 0 ]; then
 
 	# wm aliases
 	alias startbar="source $DOTFILES_PATH/wm/extras/bar/start.bash"
+	stopbar() {
+		if [[ -f "$BAR_PID_FILE" ]]; then
+			kill -SIGINT $(cat "$BAR_PID_FILE")
+			rm -f "$BAR_PID_FILE"
+			killall lemonbar
+		else
+			echo "Bar is not running."
+		fi
+	}
+	export -f stopbar
 
 	# misc aliases
 	alias keyrepeat="xset r rate 250 80"
