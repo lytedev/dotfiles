@@ -122,7 +122,7 @@ if [ -t 0 ]; then
 		echo "$PWD" > "$DOTFILES_PATH/cwd$addon.tmp"
 	}
 	export -f scwd
-	bind '"\C-s"':"@\"scwd\C-m\""
+	bind '"\C-s"':"\"scwd\C-m\""
 	
 	# go to the saved current directory
 	gcwd() {
