@@ -1,4 +1,4 @@
-#define primaryfont xft:Terminus-8
+#define primaryfont xft:Terminus-16
 #define secondaryfont xft:Open Sans-9
 #define iconfont xft:stlarch-9
 #define primaryletterspace 0
@@ -20,10 +20,11 @@ emacs.font: emacspfont
 
 *depth: 32
 
-URxvt.internalBorder: 5
+URxvt.internalBorder: 8
 
 Xcursor.theme: human
 
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
