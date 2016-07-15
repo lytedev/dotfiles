@@ -28,4 +28,3 @@ source "$DOTFILES_PATH/vim/link.bash"
 source "$DOTFILES_PATH/sh/link.bash"
 source "$DOTFILES_PATH/x/link.bash"
 source "$DOTFILES_PATH/wm/link.bash"
-

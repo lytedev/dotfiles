@@ -54,6 +54,9 @@ if [ -t 0 ]; then
 	# wm aliases
 	alias startbar="source $DOTFILES_PATH/wm/extras/bar/start.bash"
 
+	# misc aliases
+	alias keyrepeat="xset r rate 250 80"
+
 	export EDITOR="vim"
 	if command -v nvim >/dev/null 2>&1; then
 		alias vim="nvim"
@@ -66,6 +69,7 @@ if [ -t 0 ]; then
 	PROMPT_SUCCESS_COLOR='\[\e[0;34m\]'
 	PROMPT_FAILURE_COLOR='\[\e[0;31m\]'
 	DIR_COLOR='\[\e[0;33m\]'
+	# prompt rendering functions
 	sps() {
 		name="$PWD"
 		[[ "$name" =~ ^"$HOME"(/|$) ]] && name="~${name#$HOME}"
@@ -96,6 +100,28 @@ if [ -t 0 ]; then
 	}
 	alias _man="man"
 	alias man="vman"
+
+	# save the current directory for later retrieval
+	scwd() {
+		addon=""
+		if [[ -n $1 ]]; then
+			addon="-$1"
+		fi
+		echo "$PWD" > "$DOTFILES_PATH/cwd$addon.tmp"
+	}
+	export -f scwd
+	bind '"\C-s"':"@\"scwd\C-m\""
+	
+	# go to the saved current directory
+	gcwd() {
+		addon=""
+		if [[ -n $1 ]]; then
+			addon="-$1"
+		fi
+		cd $(cat $DOTFILES_PATH/cwd$addon.tmp)
+	}
+	export -f gcwd
+	bind '"\C-g"':"\"gcwd\C-m\""
 
 	complete -cf sudo
 	complete -cf man

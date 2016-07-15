@@ -3,3 +3,4 @@ colors/gen/tmp
 *.lock
 *.log
 *.pid
+*.tmp
