@@ -105,7 +105,6 @@ if [ -t 0 ]; then
 	# man pages with vim
 	vman() {
 		if command -v nvim >/dev/null 2>&1; then
-			echo "NVIM MANUAL"
 			nvim -c "SuperMan $*"
 		else
 			vim -c "SuperMan $*"
