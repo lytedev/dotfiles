@@ -49,7 +49,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
 Plug 'christoomey/vim-tmux-navigator' " allow transitions within tmux
 Plug 'tasklist.vim' " show tasks with leader,t
 Plug 'godlygeek/tabular' " align text lines together
-Plug 'jez/vim-superman' " view man pages with vim
+Plug 'lytedev/vim-superman' " view man pages with vim
 Plug 'tpope/vim-surround' " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
@@ -120,7 +120,11 @@ set formatoptions=crql1j
 
 set title " handle window title
 set synmaxcol=2048
-set number " line numbers
+if exists('asmanviewer')
+	set nonumber " no line numbers when viewing a man page
+else
+	set number " line numbers
+endif
 " set relativenumber
 set cursorline " highlight the current line
 " set cursorcolumn " highlight the current column
@@ -213,6 +217,12 @@ endif
 " no empty buffer on startup
 autocmd VimEnter * nested if bufname('')=='' && line('$') == 1 && col('$')==1 && !&modified | bd % | endif
 
+function! TerminalSplit()
+	vsplit
+	vertical resize 80
+	terminal
+endfunction
+
 " bindings
 
 " common typo fixes
@@ -224,6 +234,22 @@ command! Q q
 
 " best leader
 let mapleader = "\<Space>"
+
+" terminal mappings
+" open a terminal split at 80 columns
+nnoremap <C-t> :call TerminalSplit()<CR>
+
+" close the terminal
+tnoremap <C-w> <C-\><C-n>:q!<CR>
+
+" moving between terminal splits
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+
+" enter insert mode when entering a terminal buffer
+autocmd BufWinEnter,WinEnter term://* startinsert
 
 " change buffers with leader,tab
 nnoremap <leader><Tab>   :bnext<CR>
@@ -313,7 +339,6 @@ xmap <silent> ae <Plug>CamelCaseMotion_ae
 map <F3> mw:%s/\s\+$//<CR>:let @/ = ""<CR>'w
 
 " close buffer:
-nnoremap <silent> <C-w>     :bd<CR>
 nnoremap <silent> <leader>w :bd<CR>
 
 " toggle spell checking:

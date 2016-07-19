@@ -104,13 +104,18 @@ if [ -t 0 ]; then
 
 	# man pages with vim
 	vman() {
-		vim -c "SuperMan $*"
+		if command -v nvim >/dev/null 2>&1; then
+			echo "NVIM MANUAL"
+			nvim -c "SuperMan $*"
+		else
+			vim -c "SuperMan $*"
+		fi
 
 		if [ "$?" != "0" ]; then
 			echo "No manual entry for $*"
 		fi
 	}
-	alias _man="man"
+	alias _man="\\man"
 	alias man="vman"
 
 	# save the current directory for later retrieval
