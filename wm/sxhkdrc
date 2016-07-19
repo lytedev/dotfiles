@@ -28,6 +28,10 @@ super + shift + {s,f}
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
+# focus the next floating node
+super + ctrl + f
+	bspc node -f next.floating
+
 # swap positions with the previous node
 super + apostrophe
 	bspc node -s last
