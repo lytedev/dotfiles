@@ -101,6 +101,7 @@ set softtabstop=2
 set noexpandtab
 set autoindent smartindent
 set list
+set nostartofline
 set listchars=trail:·,tab:\ \ 
 
 " look and feel
@@ -218,9 +219,16 @@ endif
 autocmd VimEnter * nested if bufname('')=='' && line('$') == 1 && col('$')==1 && !&modified | bd % | endif
 
 function! TerminalSplit()
-	vsplit
-	vertical resize 80
-	terminal
+	let current_file = @%
+	echo current_file
+	if match(current_file, "term://*") != -1
+		split
+		terminal
+	else
+		vsplit
+		vertical resize 80
+		terminal
+	endif
 endfunction
 
 " bindings
@@ -238,6 +246,7 @@ let mapleader = "\<Space>"
 " terminal mappings
 " open a terminal split at 80 columns
 nnoremap <C-t> :call TerminalSplit()<CR>
+tnoremap <C-t> <C-\><C-n>:call TerminalSplit()<CR>
 
 " close the terminal
 tnoremap <C-w> <C-\><C-n>:q!<CR>
