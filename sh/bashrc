@@ -53,18 +53,28 @@ if [ -t 0 ]; then
 	# arch aliases
 	alias archupdate="pacaur -Syyu --noconfirm --noedit"
 
-	# wm aliases
-	alias startbar="source $DOTFILES_PATH/wm/extras/bar/start.bash"
 	stopbar() {
 		if [[ -f "$BAR_PID_FILE" ]]; then
+			echo 
 			kill -SIGINT $(cat "$BAR_PID_FILE")
 			rm -f "$BAR_PID_FILE"
-			killall lemonbar
 		else
 			echo "Bar is not running."
 		fi
 	}
 	export -f stopbar
+
+	# wm aliases
+	startbar() {
+		if [[ -f "$BAR_PID_FILE" ]]; then
+			stopbar
+		fi
+		"$DOTFILES_PATH/wm/extras/bar/start.bash"
+		echo $! > "$BAR_PID_FILE"
+		bg
+		disown
+	}
+	export -f startbar
 
 	# misc aliases
 	alias keyrepeat="xset r rate 250 80"

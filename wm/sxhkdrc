@@ -102,22 +102,42 @@ super + @button{1-3}
 
 # change node gap and desktop padding
 super + plus
-    bspc config -d focused node_gap $((`bspc config -d focused node_gap` + 5 ))
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` + 5 ))
 
 super + equal
-    bspc config -m $(bspc query -M | head -n 1) top_padding $BAR_HEIGHT; bspc config -d focused node_gap $node_GAP
+	bspc config -m $(bspc query -M | head -n 1) top_padding $TOP_BAR_PADDING; bspc config -m $(bspc query -M | head -n 1) bottom_padding $BOTTOM_BAR_PADDING; bspc config -d focused window_gap $WINDOW_GAP
 
 super + minus
-    bspc config -d focused node_gap $((`bspc config -d focused node_gap` - 5 ))
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` - 5 ))
 
 super + alt + r
-    bspc config -m $(bspc query -M | head -n 1) top_padding $BAR_HEIGHT; bspc config -d focused node_gap 0
+	bspc config -m $(bspc query -M | head -n 1) bottom_padding $BOTTOM_BAR_PADDING; bspc config -m $(bspc query -M | head -n 1) top_padding $TOP_BAR_PADDING; bspc config -d focused window_gap $WINDOW_GAP
+
+super + alt + equal
+	bspc config -d focused bottom_padding 0; bspc config -d focused top_padding 0; bspc config -d focused left_padding 0; bspc config -d focused right_padding 0
 
 super + alt + plus
-    bspwm_padding +5
+	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5); bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
+
+	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5); bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
+
+super + ctrl + alt + k
+	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) - 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) - 5)
+
+super + ctrl + alt + j
+	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5)
+
+super + ctrl + alt + h
+	bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) - 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) - 5)
+
+super + ctrl + alt + l
+	bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
+
+super + alt + plus
+	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5); bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
 
 super + alt + minus
-    bspwm_padding -5
+	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) - 5)
 
 # wm-independant shortcuts
 

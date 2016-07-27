@@ -51,7 +51,12 @@ bar_module_bspwm() {
   echo -e "$content"
 }
 export -f bar_module_bspwm
-register_bar_module "$PRIORITY" "$MATCH" "bar_module_bspwm"
 
-bspc subscribe all > "$BAR_FIFO" &
+bar_module_bspwm_updater()
+{
+	bspc subscribe all > "$BAR_FIFO"
+}
+export -f bar_module_bspwm_updater
+
+register_bar_module "$PRIORITY" "$MATCH" "bar_module_bspwm" "bar_module_bspwm_updater"
 

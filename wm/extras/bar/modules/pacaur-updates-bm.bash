@@ -11,9 +11,7 @@ MATCH="$MATCH_PREFIX*"
 bar_module_pacaur() {
   echo -e "%{T-}%{F$COLOR_DARK}pac %{F$COLOR_S1}${1:9}%{F-}"
 }
-
 export -f bar_module_pacaur
-register_bar_module "$PRIORITY" "$MATCH" "bar_module_pacaur"
 
 bar_module_pacaur_updater() {
   while true; do
@@ -26,6 +24,8 @@ bar_module_pacaur_updater() {
     fi
   done
 }
-bar_module_pacaur_updater &
+export -f bar_module_pacaur_updater
+
+register_bar_module "$PRIORITY" "$MATCH" "bar_module_pacaur" "bar_module_pacaur_updater"
 
 echo -e "$MATCH_PREFIX"?? > "$BAR_FIFO"

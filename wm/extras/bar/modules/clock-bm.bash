@@ -13,7 +13,6 @@ bar_module_clock() {
 }
 
 export -f bar_module_clock
-register_bar_module "$PRIORITY" "$MATCH" "bar_module_clock"
 
 bar_module_clock_updater() {
   while true; do
@@ -21,5 +20,6 @@ bar_module_clock_updater() {
     sleep 1
   done
 }
-bar_module_clock_updater &
+export -f bar_module_clock_updater
 
+register_bar_module "$PRIORITY" "$MATCH" "bar_module_clock" "bar_module_clock_updater"

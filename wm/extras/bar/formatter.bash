@@ -16,13 +16,19 @@ export MODULE_MATCH=()
 export MODULE_CALLBACK=()
 export MODULE_DATA=()
 export MODULE_CONTENT=()
+export MODULE_INIT=()
+export MODULE_PIDS=""
 
 register_bar_module() {
   MODULE_MATCH[$1]=$2
   MODULE_CALLBACK[$1]=$3
   MODULE_DATA[$1]=
   MODULE_CONTENT[$1]=
-  # echo -e "Registered Bar Module: $1 $2 $3" >> "$BAR_LOG"
+  MODULE_INIT[$1]=$4
+	${MODULE_INIT[$1]} &
+	PID=$!
+	echo $PID > "$DOTFILES_PATH/wm/extras/bar/modules/$3.pid"
+  # echo -e "Registered Bar Module: $1 $2 $3 $4 with PID $PID" >> "$BAR_LOG"
 }
 export -f register_bar_module
 
