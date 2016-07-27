@@ -311,10 +311,6 @@ inoremap jk <Esc>
 inoremap Jk <Esc>
 inoremap jK <Esc>
 inoremap JK <Esc>
-inoremap kj <Esc>
-inoremap Kj <Esc>
-inoremap kJ <Esc>
-inoremap KJ <Esc>
 
 " use hjkl-movement between rows when soft wrapping:
 nnoremap j gj
@@ -329,8 +325,6 @@ map <silent> ,e <Plug>CamelCaseMotion_e
 map <silent> ,ge <Plug>CamelCaseMotion_ge
 
 " inner _ objects
-omap <silent> iw <Plug>CamelCaseMotion_iw
-xmap <silent> iw <Plug>CamelCaseMotion_iw
 omap <silent> ib <Plug>CamelCaseMotion_ib
 xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
