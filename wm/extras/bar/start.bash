@@ -44,18 +44,5 @@ fi
 
 source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
 
-echo $COLOR_FOREGROUND
-echo $COLOR_DARK
-echo $COLOR_BACKGROUND
-echo $COLOR_HIGHLIGHT
-echo $COLOR_URGENT
-
-echo $COLOR_S1
-echo $COLOR_S2
-echo $COLOR_S3
-echo $COLOR_S4
-echo $COLOR_S5
-
-
 cat "$BAR_FIFO" | "$DOTFILES_PATH/wm/extras/bar/formatter.bash" | \
 	lemonbar $BAR_B -g "$WIDTH"x"$BAR_HEIGHT"+"$BAR_MARGIN"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B"$COLOR_BACKGROUND" -n "$BAR_WID"
