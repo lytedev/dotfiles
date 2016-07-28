@@ -20,7 +20,6 @@ sudo pacman -S \
 
 pacaur -S \
 	gtk-theme-arc \
-	google-chrome-dev \
 	weechat \
 	ruby \
 	tcl \
@@ -28,11 +27,12 @@ pacaur -S \
 	libmtp \
 	gvfs-mtp \
 	pass \
+	qutebrowser \
 	bash-completion \
 	avr-libc avr-gcc dfu-programmer dfu-util \
 	reptyr \
 	urxvt-perls-git \
 	--noconfirm --noedit
 
-sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
+# sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
 
