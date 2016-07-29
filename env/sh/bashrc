@@ -133,7 +133,7 @@ if [ -t 0 ]; then
 		if [[ -n $1 ]]; then
 			addon="-$1"
 		fi
-		echo "$PWD" > "$DOTFILES_PATH/cwd$addon.tmp"
+		echo "$PWD" > "$DOTFILES_PATH/env/sh/cwd$addon.tmp"
 	}
 	export -f scwd
 	bind '"\C-s"':"\"scwd\C-m\""
