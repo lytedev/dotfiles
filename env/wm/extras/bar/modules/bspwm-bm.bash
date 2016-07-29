@@ -2,7 +2,6 @@
 
 source "$DOTFILES_PATH/variables.bash"
 source "$BAR_PATH/colors.bash"
-source "$BAR_PATH/modules/module.bash"
 
 PRIORITY=25000
 
