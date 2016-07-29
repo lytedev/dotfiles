@@ -24,7 +24,9 @@ else
     fi
 fi
 
+source "$DOTFILES_PATH/browser/qutebrowser/link.bash"
 source "$DOTFILES_PATH/colors/link.bash"
+source "$DOTFILES_PATH/misc/irc/link.bash"
 source "$DOTFILES_PATH/misc/git/link.bash"
 source "$DOTFILES_PATH/editor/nvim/link.bash"
 source "$DOTFILES_PATH/env/sh/link.bash"
