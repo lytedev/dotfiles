@@ -40,3 +40,5 @@ if [ -a "$HOME/.bashrc_env" ]; then
   . "$HOME/.bashrc_env"
 fi
 
+# various paths that are used in the dotfiles
+
