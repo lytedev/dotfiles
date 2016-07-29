@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source "$DOTFILES_PATH/variables.bash"
-source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
+source "$BAR_PATH/colors.bash"
 
 PRIORITY=12000
 

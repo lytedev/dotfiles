@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 source "$DOTFILES_PATH/variables.bash"
-source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
-source "$DOTFILES_PATH/wm/extras/bar/modules/module.bash"
+source "$BAR_PATH/colors.bash"
+source "$BAR_PATH/modules/module.bash"
 
 PRIORITY=25000
 

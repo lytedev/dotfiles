@@ -41,4 +41,5 @@ if [ -a "$HOME/.bashrc_env" ]; then
 fi
 
 # various paths that are used in the dotfiles
+BAR_PATH="$DOTFILES_PATH/env/wm/extras/bar"
 

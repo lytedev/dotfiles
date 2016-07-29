@@ -17,7 +17,7 @@ xset s off &
 
 # start the bar if we want it
 if [ "$BAR_ON_XINIT" -eq 1 ]; then
-  "$DOTFILES_PATH/wm/extras/bar/start.bash" &
+  "$BAR_PATH/start.bash" &
 fi
 
 # fire up wm

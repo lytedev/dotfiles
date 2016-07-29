@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
 source "$DOTFILES_PATH/variables.bash"
-source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
 
 # export BAR_LOG="$PWD/bar.log"
 # echo -e "BEGIN BAR LOG\n" > "$BAR_LOG"
 
 reload_colors() {
-	source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
+	source "$BAR_PATH/colors.bash"
 }
 
 # trap reload_colors SIGUSR1
@@ -27,12 +26,12 @@ register_bar_module() {
   MODULE_INIT[$1]=$4
 	${MODULE_INIT[$1]} &
 	PID=$!
-	echo $PID > "$DOTFILES_PATH/wm/extras/bar/modules/$3.pid"
+	echo $PID > "$BAR_PATH/modules/$3.pid"
   # echo -e "Registered Bar Module: $1 $2 $3 $4 with PID $PID" >> "$BAR_LOG"
 }
 export -f register_bar_module
 
-for f in "$DOTFILES_PATH/wm/extras/bar/modules/"*-bm.bash; do
+for f in "$BAR_PATH/modules/"*-bm.bash; do
   source "$f"
 done
 

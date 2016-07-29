@@ -10,7 +10,7 @@ function killbar() {
   else
     bspc config -m $(bspc query -M | head -n 1) bottom_padding "0"
   fi
-	for f in $(ls "$DOTFILES_PATH"/wm/extras/bar/modules/*.pid 2>/dev/null); do
+	for f in $(ls "$BAR_PATH"/modules/*.pid 2>/dev/null); do
 		# echo "KILLING MODULE PROCESS $f WITH PID $(cat "$f")"
 		# kill -SIGTERM $(cat "$f")
 		rm "$f"
@@ -42,7 +42,7 @@ else
   BAR_B="-b"
 fi
 
-source "$DOTFILES_PATH/wm/extras/bar/colors.bash"
+source "$BAR_PATH/colors.bash"
 
-cat "$BAR_FIFO" | "$DOTFILES_PATH/wm/extras/bar/formatter.bash" | \
+cat "$BAR_FIFO" | "$BAR_PATH/formatter.bash" | \
 	lemonbar $BAR_B -g "$WIDTH"x"$BAR_HEIGHT"+"$BAR_MARGIN"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B"$COLOR_BACKGROUND" -n "$BAR_WID"
