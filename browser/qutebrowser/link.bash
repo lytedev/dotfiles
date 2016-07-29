@@ -6,5 +6,5 @@ source "$DIR/variables.bash"
 mkdir -p "$HOME/.config/qutebrowser"
 
 rm -rf "$HOME/.config/qutebrowser"
-ln -s "$DOTFILES_PATH/browser" "$HOME/.config/qutebrowser"
+ln -s "$DOTFILES_PATH/browser/qutebrowser" "$HOME/.config/qutebrowser"
 
