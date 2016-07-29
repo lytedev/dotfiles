@@ -32,6 +32,7 @@ pacaur -S \
 	avr-libc avr-gcc dfu-programmer dfu-util \
 	reptyr \
 	urxvt-perls-git \
+	mutt procmail msmtp \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
