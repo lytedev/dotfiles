@@ -33,6 +33,7 @@ pacaur -S \
 	reptyr \
 	urxvt-perls-git \
 	mutt procmail msmtp \
+	ncmpcpp mpd \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

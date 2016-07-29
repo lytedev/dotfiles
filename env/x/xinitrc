@@ -4,7 +4,7 @@ if [ -f ~/.fehbg ]; then
   ~/.fehbg &
 fi
 
-source "$DOTFILES_PATH/x/xloadresources"
+source "$DOTFILES_PATH/env/x/xloadresources"
 source "$DOTFILES_PATH/variables.bash"
 
 # keyrepeat settings
@@ -23,5 +23,6 @@ fi
 # fire up wm
 unclutter &
 sxhkd &
+urxvtd &
 exec bspwm
 

@@ -44,8 +44,12 @@ if [ -t 0 ]; then
 	alias gp="git push"
 	alias gac="git add -A && git commit -m"
 
+	# browser aliases
+	alias qutebrowser="qutebrowser --backend webengine"
+
 	# networking aliases
 	alias p="ping 8.8.8.8"
+	alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
 
 	# emacs aliases
 	alias emacs="emacs -nw"
@@ -69,7 +73,7 @@ if [ -t 0 ]; then
 		if [[ -f "$BAR_PID_FILE" ]]; then
 			stopbar
 		fi
-		"$DOTFILES_PATH/wm/extras/bar/start.bash"
+		"$BAR_PATH/start.bash"
 		echo $! > "$BAR_PID_FILE"
 		bg
 		disown
@@ -144,7 +148,7 @@ if [ -t 0 ]; then
 		if [[ -n $1 ]]; then
 			addon="-$1"
 		fi
-		cd $(cat $DOTFILES_PATH/cwd$addon.tmp)
+		cd $(cat "$DOTFILES_PATH/env/sh/cwd$addon.tmp")
 	}
 	export -f gcwd
 	bind '"\C-g"':"\"gcwd\C-m\""
