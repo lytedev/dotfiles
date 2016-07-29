@@ -119,8 +119,6 @@ super + alt + equal
 super + alt + plus
 	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5); bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
 
-	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5); bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
-
 super + ctrl + alt + k
 	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) - 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) - 5)
 
@@ -135,6 +133,11 @@ super + ctrl + alt + l
 
 super + alt + plus
 	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5); bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
+
+super + ctrl + alt + space
+	bspc config -d focused bottom_padding 200; bspc config -d focused top_padding 200; bspc config -d focused left_padding 400; bspc config -d focused right_padding 400
+
+
 
 super + alt + minus
 	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) - 5)
