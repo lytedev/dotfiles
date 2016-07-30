@@ -31,6 +31,7 @@ pacaur -S \
 	bash-completion \
 	avr-libc avr-gcc dfu-programmer dfu-util \
 	reptyr \
+	fzf \
 	urxvt-perls-git \
 	--noconfirm --noedit
 
