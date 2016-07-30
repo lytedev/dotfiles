@@ -2,7 +2,7 @@
 
 source "$DOTFILES_PATH/variables.bash"
 
-source "$DOTFILES_PATH/wm/bspwm_config"
+source "$DOTFILES_PATH/env/wm/bspwm_config"
 source "$DOTFILES_PATH/scripts/get_color.sh"
 source "$DOTFILES_PATH/scripts/get_x_fonts.sh"
 
