@@ -1,0 +1,7 @@
+my_hdr X-Homepage: https://lytedev.io
+my_hdr X-PGP-Key: http://pgp.mit.edu/pks/lookup?op=get&search=0x5B2020A0F9921EF4
+
+set from="daniel@lytedev.io"
+set realname="Daniel Flanagan"
+set signature="$DOTFILES_PATH/email/mutt/signature"
+

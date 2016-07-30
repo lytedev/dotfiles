@@ -3,10 +3,12 @@
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
 source "$DIR/variables.bash"
 
+ALERT_AGREEMENT_FILE="$DIR/scripts/agree_to_bootstrap.lock"
+
 # Let user know that this script will delete their current configuration and
 # that they should read this script before running. We'll use a lock file so
 # the user only needs to agree once.
-if [ -f "$DIR/agree_to_bootstrap.lock" ]; then
+if [ -f "$ALERT_AGREEMENT_FILE" ]; then
     # User agreed already - do nothing
     echo "Linking..."
 else
@@ -16,15 +18,17 @@ else
     read -r -p "Are you sure you want to continue? [y/N] " response
     response=${response,,} # to_lower
     if [[ $response =~ ^(yes|y)$ ]]; then
-        touch "$DIR/agree_to_bootstrap.lock"
+        echo "agreed" > "$ALERT_AGREEMENT_FILE"
     else
         exit 1
     fi
 fi
 
+source "$DOTFILES_PATH/browser/qutebrowser/link.bash"
 source "$DOTFILES_PATH/colors/link.bash"
-source "$DOTFILES_PATH/git/link.bash"
-source "$DOTFILES_PATH/vim/link.bash"
-source "$DOTFILES_PATH/sh/link.bash"
-source "$DOTFILES_PATH/x/link.bash"
-source "$DOTFILES_PATH/wm/link.bash"
+source "$DOTFILES_PATH/misc/irc/link.bash"
+source "$DOTFILES_PATH/misc/git/link.bash"
+source "$DOTFILES_PATH/editor/nvim/link.bash"
+source "$DOTFILES_PATH/env/sh/link.bash"
+source "$DOTFILES_PATH/env/x/link.bash"
+source "$DOTFILES_PATH/env/wm/link.bash"
