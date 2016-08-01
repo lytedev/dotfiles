@@ -2,6 +2,10 @@
 
 source "$DOTFILES_PATH/variables.bash"
 
+if [ -f "$HOME/.bashrc_env" ]; then
+	source "$HOME/.bashrc_env"
+fi
+
 export BAR_RUNNING=1
 function killbar() {
   export BAR_RUNNING=0

@@ -57,6 +57,9 @@ if [ -t 0 ]; then
 	# arch aliases
 	alias archupdate="pacaur -Syyu --noconfirm --noedit"
 
+	# games aliases
+	# alias steam="LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
+
 	stopbar() {
 		if [[ -f "$BAR_PID_FILE" ]]; then
 			echo 
