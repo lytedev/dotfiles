@@ -28,3 +28,4 @@ URxvt.perl-ext-common: default,matcher,keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
+URxvt*iso14755: False
