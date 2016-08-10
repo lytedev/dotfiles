@@ -41,4 +41,7 @@ while read -r line; do
 	previous_colors["color${a[0]}"]="${a[1]}"
 done <<< "$values"
 
+xrdb -merge "$HOME/.Xresources"
+xrdb -merge "$HOME/.Xresources.colors"
+xrdb -merge "$HOME/.Xresources.env"
 

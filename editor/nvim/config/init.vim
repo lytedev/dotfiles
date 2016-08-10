@@ -38,7 +38,10 @@ Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem 
 let g:indent_guides_start_level = 0
 let g:indent_guides_auto_color = 1
 
-Plug 'Shougo/deoplete.nvim' " autocomplete
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } " autocomplete
 let g:deoplete#enable_at_startup = 1
 
 Plug 'scrooloose/syntastic' " syntax checker
