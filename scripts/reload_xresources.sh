@@ -40,5 +40,3 @@ while read -r line; do
 	printf '\33]4;%s;%s\007' ${a[0]} $col
 	previous_colors["color${a[0]}"]="${a[1]}"
 done <<< "$values"
-
-
