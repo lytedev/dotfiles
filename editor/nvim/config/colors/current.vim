@@ -1,1 +1,1 @@
-/home/daniel/.dotfiles/colors/vim
+/home/daniel/usr/.dotfiles/colors/vim
