@@ -166,4 +166,6 @@ if [ -t 0 ]; then
 	if [ -a "$HOME/.bashrc_env" ]; then
 		. "$HOME/.bashrc_env"
 	fi
+
+	cd "$HOME/.."
 fi
