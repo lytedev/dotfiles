@@ -24,6 +24,7 @@ if [ -t 0 ]; then
 	alias tree='tree -Csuh'
 
 	# navigation aliases
+	alias c="cd $HOME/.."
 	alias cd..="cd .."
 	alias ..="cd .."
 	alias ...="cd ../.."
