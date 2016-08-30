@@ -38,6 +38,7 @@ fi
 # get width of our main monitor
 WIDTH=`xrandr -q | egrep '(^| )connected( |$)' | tr 'x' '\n' | head -n 1 | awk '{print $NF}'`
 WIDTH=$((WIDTH-BAR_MARGIN-BAR_MARGIN))
+OFFSET=$((BAR_MARGIN+BAR_OFFSET))
 
 BAR_B=""
 if [ $BAR_TOP -eq 1 ]; then
@@ -49,4 +50,4 @@ fi
 source "$BAR_PATH/colors.bash"
 
 cat "$BAR_FIFO" | "$BAR_PATH/formatter.bash" | \
-	lemonbar $BAR_B -g "$WIDTH"x"$BAR_HEIGHT"+"$BAR_MARGIN"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B"$COLOR_BACKGROUND" -n "$BAR_WID"
+	lemonbar $BAR_B -g "$WIDTH"x"$BAR_HEIGHT"+"$OFFSET"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B"$COLOR_BACKGROUND" -n "$BAR_WID"

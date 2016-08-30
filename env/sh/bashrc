@@ -25,6 +25,7 @@ if [ -t 0 ]; then
 
 	# navigation aliases
 	alias cd..="cd .."
+	alias cdd="cd \"$DOTFILES_PATH\""
 	alias ..="cd .."
 	alias ...="cd ../.."
 	alias ....="cd ../../.."
@@ -49,6 +50,7 @@ if [ -t 0 ]; then
 
 	# networking aliases
 	alias p="ping 8.8.8.8"
+	alias wifi-menu="sudo wifi-menu"
 	alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
 
 	# emacs aliases
@@ -166,4 +168,6 @@ if [ -t 0 ]; then
 	if [ -a "$HOME/.bashrc_env" ]; then
 		. "$HOME/.bashrc_env"
 	fi
+
+	cd "$HOME/.."
 fi

@@ -32,3 +32,6 @@ for mon in $(bspc query -M); do
   i=$((max + 1))
 done
 
+if [[ -f "$HOME/.bspwm_env" ]]; then
+	source "$HOME/.bspwm_env"
+fi
