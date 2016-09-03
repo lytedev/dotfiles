@@ -3,13 +3,13 @@
 source "$DOTFILES_PATH/variables.bash"
 source "$BAR_PATH/colors.bash"
 
-PRIORITY=12000
+PRIORITY=32000
 
 MATCH_PREFIX="BM_PACAUR"
 MATCH="$MATCH_PREFIX*"
 
 bar_module_pacaur() {
-  echo -e "%{T-}%{F$COLOR_DARK}pac %{F$COLOR_S1}${1:9}%{F-}"
+  echo -e "%{T-}%{F$COLOR_DARK}pac %{F$COLOR_S4}${1:9}%{F-}"
 }
 export -f bar_module_pacaur
 

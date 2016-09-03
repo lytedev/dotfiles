@@ -27,19 +27,28 @@ register_bar_module() {
 	${MODULE_INIT[$1]} &
 	PID=$!
 	echo $PID > "$BAR_PATH/modules/$3.pid"
-  # echo -e "Registered Bar Module: $1 $2 $3 $4 with PID $PID" >> "$BAR_LOG"
+  echo -e "Registered Bar Module: $1 $2 $3 $4 with PID $PID" >> "$BAR_LOG"
 }
 export -f register_bar_module
 
 for f in "$BAR_PATH/modules/"*-bm.bash; do
-  source "$f"
+  echo -e "$f" >> "$BAR_LOG"
+	for bl in "$BLACKLISTED_BAR_MODULES"; do
+		if [[ "$f" = "$BAR_PATH/modules/"$bl-bm.bash ]]; then
+			f=""
+		fi
+	done
+	if [[ -n $f ]]; then
+		source "$f"
+	fi
 done
 
 while read -r line; do
   # echo -e "Bar Line: $line" >> "$BAR_LOG"
   for i in ${!MODULE_MATCH[@]}; do
+		echo ${!MODULE_MATCH[@]} >> $BAR_LOG
     if [[ $line == ${MODULE_MATCH[$i]} ]]; then
-      # echo -e "Bar Module Update: [$i] Matched ${MODULE_MATCH[$i]} with $line" >> "$BAR_LOG"
+      echo -e "Bar Module Update: [$i] Matched ${MODULE_MATCH[$i]} with $line" >> "$BAR_LOG"
       MODULE_CONTENT[$i]="$("${MODULE_CALLBACK[$i]}" "$line")"
       # echo -e "New Module Content: "${MODULE_CONTENT[$i]} >> "$BAR_LOG"
     fi
@@ -52,13 +61,13 @@ while read -r line; do
     if [ $i -ge 30000 ]; then
       r_content="$r_content ${MODULE_CONTENT[$i]}"
     elif [ $i -ge 20000 ]; then
-      c_content="$c_content ${MODULE_CONTENT[$i]}"
+      c_content="$c_content${MODULE_CONTENT[$i]} "
     else
-      l_content="$l_content ${MODULE_CONTENT[$i]}"
+      l_content="$l_content${MODULE_CONTENT[$i]} "
     fi
   done
 
-  printf " %s \n" "%{l}$l_content %{c}$c_content %{r}$r_content"
+  printf "%s\n" "%{l} $l_content %{c}$c_content %{r}$r_content "
 done
 
 # echo -e "\nEND BAR LOG" >> "$BAR_LOG"

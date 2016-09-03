@@ -3,11 +3,13 @@
 source "$DOTFILES_PATH/variables.bash"
 source "$BAR_PATH/colors.bash"
 
-PRIORITY=25000
+PRIORITY=15000
 
 PID_PREFIX="bspwm"
 MATCH_PREFIX="W"
 MATCH="$MATCH_PREFIX*"
+
+DESKTOP_SPACER=" "
 
 ul="u"
 if [ $BAR_UNDERLINE -eq 1 ]; then
@@ -17,7 +19,7 @@ else
 fi
 
 bar_module_bspwm() {
-  content="%{F$COLOR_FOREGROUND}%{c}"
+  content="%{F$COLOR_FOREGROUND}"
   line=$1
   IFS=':'
   set -- ${line#?}
@@ -27,22 +29,22 @@ bar_module_bspwm() {
     cname="$name"
     case $item in
       O*) # focused occupied desktop
-        content="${content} %{F$COLOR_HIGHLIGHT}%{U$COLOR_HIGHLIGHT}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}"
+        content="${content}%{F$COLOR_HIGHLIGHT}%{U$COLOR_HIGHLIGHT}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}$DESKTOP_SPACER"
         ;;
       F*) # focused free desktop
-        content="${content} %{F$COLOR_DARK}%{U$COLOR_DARK}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}"
+        content="${content}%{F$COLOR_DARK}%{U$COLOR_DARK}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}$DESKTOP_SPACER"
         ;;
       U*) # focused occupied desktop
-        content="${content} %{F$COLOR_URGENT}%{U$COLOR_URGENT}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}"
+        content="${content}%{F$COLOR_URGENT}%{U$COLOR_URGENT}%{+${ul}}${cname}%{-${ul}}%{U-}%{F-}$DESKTOP_SPACER"
         ;;
       o*) # occupied desktop
-        content="${content} %{F$COLOR_FOREGROUND}${cname}%{F-}"
+        content="${content}%{F$COLOR_FOREGROUND}${cname}%{F-}$DESKTOP_SPACER"
         ;;
       f*) # free desktop
-        content="${content} %{F$COLOR_DARK}${cname}%{F-}"
+        content="${content}%{F$COLOR_DARK}${cname}%{F-}$DESKTOP_SPACER"
         ;;
       u*) # urgent desktop
-        content="${content} %{F$COLOR_URGENT}${cname}%{F-}"
+        content="${content}%{F$COLOR_URGENT}${cname}%{F-}$DESKTOP_SPACER"
         ;;
     esac
     shift

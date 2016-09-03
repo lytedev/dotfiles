@@ -9,7 +9,7 @@ MATCH_PREFIX="BM_DATE"
 MATCH="$MATCH_PREFIX*"
 
 bar_module_date() {
-  echo -e "%{T-}%{r}%{F$COLOR_S2}${1:7}%{F-}"
+  echo -e "%{F$COLOR_DARK}| %{T-}%{F$COLOR_S2}${1:7}%{F-}"
 }
 export -f bar_module_date
 

@@ -4,6 +4,7 @@
 # each of the scripts that will be executed in those process.
 
 export DOTFILES_PATH="$HOME/.dotfiles"
+export BLACKLISTED_BAR_MODULES=""
 export REPOSITORY_PATH="$HOME/../code/open-source"
 export BORDER_WIDTH=1
 export WINDOW_GAP=5
