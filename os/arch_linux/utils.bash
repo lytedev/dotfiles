@@ -36,6 +36,9 @@ pacaur -S \
 	mutt procmail msmtp \
 	ncmpcpp mpd \
 	rsync \
+	samba \
+	thunar-shares-plugin \
+	nmap \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

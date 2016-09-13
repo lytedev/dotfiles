@@ -170,5 +170,7 @@ if [ -t 0 ]; then
 		. "$HOME/.bashrc_env"
 	fi
 
-	cd "$HOME/.."
+	if [ "$PWD" = "$HOME" ]; then
+		cd "$HOME/.."
+	fi
 fi

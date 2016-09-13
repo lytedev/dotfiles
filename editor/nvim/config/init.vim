@@ -13,8 +13,12 @@ call plug#begin('~/.config/nvim/bundle')
 " let plugin manager manage itself
 Plug 'junegunn/vim-plug'
 
+
 " plugins
 
+Plug 'tpope/vim-obsession' " session ease-of-use
+Plug 'dhruvasagar/vim-prosession' " more session ease-of-use
+let g:prosession_dir = '~/.config/nvim/session/'
 Plug 'vim-airline/vim-airline' " statusline
 " let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open

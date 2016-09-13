@@ -4,3 +4,5 @@
 	name = Daniel Flanagan
 	email = daniel@lytedev.io
 
+[core]
+	editor = nvim
