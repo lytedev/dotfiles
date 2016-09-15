@@ -56,6 +56,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
 Plug 'christoomey/vim-tmux-navigator' " allow transitions within tmux
 Plug 'tasklist.vim' " show tasks with leader,t
 Plug 'godlygeek/tabular' " align text lines together
+Plug 'dhruvasagar/vim-table-mode' " for creating and editing character tables
 Plug 'lytedev/vim-superman' " view man pages with vim
 Plug 'tpope/vim-surround' " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
