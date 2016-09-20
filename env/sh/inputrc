@@ -1,2 +1,6 @@
 "\eOd": backward-word
 "\eOc": forward-word
+
+$if editing-mode=vi
+  "\C-p": history-search-backward
+$endif
