@@ -377,3 +377,5 @@ cnoremap <c-p> <up>
 xnoremap < <gv
 xnoremap > >gv
 
+" modify higlight colors
+hi Search cterm=NONE ctermbg=blue ctermfg=black
