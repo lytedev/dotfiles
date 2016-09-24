@@ -1,7 +1,124 @@
+source "gpg -d ~/.password-store/mutt-passwords.gpg |"
+
+set editor = "vim"
+
+set from = "daniel@lytedev.io"
+set realname="Daniel Flanagan"
+set edit_headers = yes
+set signature="$DOTFILES_PATH/email/mutt/config/signature"
+
 my_hdr X-Homepage: https://lytedev.io
 my_hdr X-PGP-Key: http://pgp.mit.edu/pks/lookup?op=get&search=0x5B2020A0F9921EF4
 
-set from="daniel@lytedev.io"
-set realname="Daniel Flanagan"
-set signature="$DOTFILES_PATH/email/mutt/signature"
+set imap_user           = "wraithx2@gmail.com"
+set imap_keepalive      = 30
+set mail_check					= 5
+unset imap_passive
+unset record
+set folder              = "imaps://imap.gmail.com"
+# set spoolfile           = "+[Gmail]/All Mail"
+set spoolfile           = "+INBOX"
+set postponed           = "+[Gmail]/Drafts"
+set header_cache        = ~/.mutt/wraithx2/headers
+set message_cachedir    = ~/.mutt/wraithx2/bodies
+set certificate_file    = ~/.mutt/certificates
+set smtp_url            = "smtp://wraithx2@smtp.gmail.com:587/"
+set move                = no
+set copy								= no
 
+set quit = ask-yes
+set wait_key = no
+set mbox_type = Maildir
+set timeout = 60
+set mail_check = 60
+set delete
+unset confirmappend
+unset mark_old
+set beep_new
+set pipe_decode
+set thorough_search
+
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
+
+set date_format         = "%d-%m-%y"
+set index_format        = "[%Z]  %D  %-20.20F  %s"
+set sort                = threads
+set sort_aux            = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set fast_reply
+set include
+set forward_format      = "Fwd: %s"
+set smart_wrap
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+set sidebar_delim       = '  │'
+set sidebar_visible     = yes
+set sidebar_width       = 24
+
+set status_chars        = " *%A"
+set status_format       = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+mailboxes ='INBOX' ='[Gmail]/All Mail' ='[Gmail]/Drafts' ='[Gmail]/Sent Mail' ='work' ='0inbox' ='expenses'
+
+set pager_index_lines   = 10
+set pager_context       = 5
+set pager_stop          = yes
+set menu_scroll
+set tilde
+unset markers
+
+# Custom keybindings
+bind index,pager ! noop                                                # unbind report-spam
+bind index,pager \# noop                                               # unbind delete-thread
+bind index,pager % noop                                                # unbind toggle-write                          
+bind index,pager & noop                                                # unbind link-threads 
+
+bind index,pager b noop                                                # Unbind bounce
+bind index,pager A create-alias                                        # bind alias-creation
+bind pager <up> previous-line                                          # scroll inside the message rather than the index
+bind pager <down> next-line                                            # scroll inside the message rather than the index
+
+
+# Gmail style keybindings
+bind  editor <space> noop
+bind  index,pager c  mail                                              # compose
+bind  generic     x  tag-entry		                               # Select Conversation
+bind  index       x  tag-thread		                               # Select Conversation
+bind  pager       x  tag-message	                               # Select Conversation
+bind  index,pager s  flag-message	                               # Star a message
+
+bind  index,pager a  group-reply	                               # Reply all
+#bind  index,pager \# delete-thread	                               # Delete
+bind  index,pager l  copy-message	                               # Label
+bind  index,pager m  save-message	                               # Move to
+
+
+# Gmail macros
+macro index,pager I  <set-flag>O	"Mark as read"
+macro index,pager U  <clear-flag>O	"Mark as unread"
+macro index,pager g0 <change-folder>=0inbox<enter>		"Go to 0inbox"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>"	"Go to all mail"
+macro index,pager gs <change-folder>=[Gmail]/Starred<enter>	"Go to 'Starred'"
+macro index,pager gd <change-folder>=[Gmail]/Drafts<enter>	"Go to 'Drafts'"
+macro index,pager gl <change-folder>?				"Go to 'Label'"
+macro index,pager gi <change-folder>=INBOX<enter> 		"Go to inbox"
+macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>"	"Go to 'Sent Mail'"
+macro index,pager d "<save-message>=[Gmail]/Trash<enter>" "Trash"
+macro index,pager +  <save-message>=[Gmail]/Important<enter> "Mark as important"
+#macro index,pager !  <save-message>=[Gmail]/Spam<enter> "Report spam"
+#macro index,pager e  "<save-message>=[All]/Gmail Mail<enter><enter>" "Archive conversation"
+macro index,pager 0  "<save-message>=0inbox<enter>" "0inbox conversation"
+
+#folder-hook +INBOX 'macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive conversation"'
+folder-hook +[Gmail]/Trash macro index,pager y <save-message>=INBOX<enter> "Move to inbox"
+folder-hook +0inbox 'macro index,pager y <save-message>=INBOX<enter> "Move to inbox"'
+folder-hook +[Gmail]/Starred bind  index,pager y flag-message #"Toggle star"
+
+push <show-version>

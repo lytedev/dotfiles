@@ -4,3 +4,4 @@ colors/gen/tmp
 *.log
 *.pid
 *.tmp
+*.secret
