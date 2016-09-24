@@ -33,6 +33,7 @@ if [ -t 0 ]; then
 	alias .....="cd ../../../.."
 	alias ......="cd ../../../../.."
 	alias todo="todo.sh"
+	alias td="todo"
 
 	# tmux aliases
 	alias tmux='TERM=screen-256color-bce tmux' # syntax higlighting for vim in tmux
@@ -179,6 +180,5 @@ if [ -t 0 ]; then
 	set -o vi
 
 	# except we still want some things to work the old fashioned way
-	bind '"\C-p": history-search-backward'
-	bind '"\C-n": history-search-forward'
+	bind -f "$HOME/.inputrc"
 fi

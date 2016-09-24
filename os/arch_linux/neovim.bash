@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../.." && pwd)
 source "$DIR/variables.bash"
 
 sudo pacman -S cmake vim unzip python2 python2-pip python python-pip xsel xclip --noconfirm

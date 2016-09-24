@@ -49,6 +49,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } " autocomplete
 let g:deoplete#enable_at_startup = 1
 
 Plug 'scrooloose/syntastic' " syntax checker
+Plug 'freitass/todo.txt-vim' " syntax checker
 Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
 Plug 'LargeFile' " gracefully handle very large files
 Plug 'tpope/vim-commentary' " toggle comments in code easily
