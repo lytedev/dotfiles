@@ -112,7 +112,7 @@ macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>"	"Go to 'Sent Mai
 macro index,pager d "<save-message>=[Gmail]/Trash<enter>" "Trash"
 macro index,pager +  <save-message>=[Gmail]/Important<enter> "Mark as important"
 #macro index,pager !  <save-message>=[Gmail]/Spam<enter> "Report spam"
-#macro index,pager e  "<save-message>=[All]/Gmail Mail<enter><enter>" "Archive conversation"
+macro index,pager y  "<save-message>=[All]/Gmail Mail<enter>" "Archive conversation"
 
 #folder-hook +INBOX 'macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive conversation"'
 folder-hook +[Gmail]/Trash macro index,pager y <save-message>=INBOX<enter> "Move to inbox"
