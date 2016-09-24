@@ -32,6 +32,7 @@ if [ -t 0 ]; then
 	alias ....="cd ../../.."
 	alias .....="cd ../../../.."
 	alias ......="cd ../../../../.."
+	alias todo="todo.sh"
 
 	# tmux aliases
 	alias tmux='TERM=screen-256color-bce tmux' # syntax higlighting for vim in tmux
