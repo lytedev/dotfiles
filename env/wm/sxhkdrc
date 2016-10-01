@@ -10,11 +10,11 @@ super + c
 
 # kill the current application
 super + shift + c
-  bspc node -k
+	bspc node -k
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
-  bspc node -f @{parent,brother,first,second}
+	bspc node -f @{parent,brother,first,second}
 
 # set modes to tiled/floating for current node
 super + {s,f}
@@ -22,7 +22,7 @@ super + {s,f}
 
 # set modes to pseudo_tiled/fullscreen for current node
 super + shift + {s,f}
-  bspc node -t {pseudo_tiled,fullscreen -l above}
+	bspc node -t {pseudo_tiled,fullscreen -l above}
 
 # focus the last node/desktop
 super + {grave,Tab}
@@ -58,11 +58,11 @@ super + ctrl + {_,shift + }space
 
 # expand the current node
 super + alt + {h,j,k,l}
-  bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
 
 # shrink the current node
 super + alt + shift + {h,j,k,l}
-  bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
 
 # set node split ratio
 super + ctrl + {1-9,0}
@@ -70,11 +70,11 @@ super + ctrl + {1-9,0}
 
 # move a floating window very slowly
 super + shift + {Left,Down,Up,Right}
-  xdo move {-x -1,-y +1,-y -1,-x +1}
+	xdo move {-x -1,-y +1,-y -1,-x +1}
 
 # move a floating window
 super + {Left,Down,Up,Right}
-  xdo move {-x -20,-y +20,-y -20,-x +20}
+	xdo move {-x -20,-y +20,-y -20,-x +20}
 
 # focus/move node to the selected desktop
 super + {_,shift + }{1-9,0}
@@ -90,7 +90,7 @@ super + button{1-3}
 
 # simulate mouse2
 shift + super + button1
-  bspc pointer -g resize_corner
+	bspc pointer -g resize_corner
 
 # ???
 super + !button{1-3}
@@ -146,27 +146,27 @@ super + alt + minus
 
 # spawn a transparent node
 super + alt + t
-  urxvtc && compton-trans -c -o 0
+	urxvtc && compton-trans -c -o 0
 
 # rotate the current node
 super + r
-  bspc node -R 90
+	bspc node -R 90
 
 # balance the current node
 super + shift + b
-  bspc node -B
+	bspc node -B
 
 # make current node transparent
 super + t
-  compton-trans -c -o 0
+	compton-trans -c -o 0
 
 # make current node fully opaque
 super + shift + t
-  compton-trans -c -o 100
+	compton-trans -c -o 100
 
 # swap sxhkx config with an alternate file and reload the new one
 super + shift + alt + ctrl + r
-  if [ -e ~/.config/sxhkd/altsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/origsxhkdrc && mv ~/.config/sxhkd/altsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
+	if [ -e ~/.config/sxhkd/altsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/origsxhkdrc && mv ~/.config/sxhkd/altsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
 
 # spawn a terminal
 super + Return
@@ -174,44 +174,52 @@ super + Return
 
 # spawn the app launcher
 super + space
-  rofi -show run -font "Monaco 9" -fuzzy -bw $BORDER_WIDTH -bg "#$(get_color 00)" -fg "#$(get_color 0A)" -hlfg "#$(get_color 0D)" -hlbg "#$(get_color 01)"
+	rofi -show run -font "Monaco 9" -fuzzy -bw $BORDER_WIDTH -bg "#$(get_color 00)" -fg "#$(get_color 0A)" -hlfg "#$(get_color 0D)" -hlbg "#$(get_color 01)"
 	# dmenu_run -fn "$PRIMARY_FONT_FAMILY_WITH_SIZE" -i -nb "#$(get_color 00)" -sb "#$(get_color 00)" -sf "#$(get_color 0A)" -nf "#$(get_color 04)" -h "$BAR_HEIGHT"
+
+# lock the desktop
+super + ctrl + shift + l
+	slock
+
+# spawn gui file explorer
+super + e
+	thunar
+
+# volumes controls and media navigation for media keys
+{_,shift + }XF86AudioLowerVolume
+	amixer -D pulse sset Master 5%-
+
+	# pulseaudio-ctl lower	
+	# ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%- && amixer -c 1 sset Headphone $ADJ%- && amixer -c 1 sset Master $ADJ%- && update_bar_MasterVolume
+
+{_,shift + }XF86AudioRaiseVolume
+	amixer -D pulse sset Master 5%+
+
+	# pulseaudio-ctl raise	
+	# ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%+ && amixer -c 1 sset Headphone $ADJ%+ && amixer -c 1 sset Master $ADJ%+ && update_bar_MasterVolume
+
+XF86AudioMute
+	amixer -D pulse sset Master toggle
+
+	# pulseaudio-ctl mute
+	# amixer -c 1 sset Master toggle && update_bar_MasterVolume
+
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioNext
+	mpc next
+
+XF86AudioPrev
+	mpc prev
+
+# monitor brightness controls for monitor birghtness keys
+{_,shift + }XF86MonBrightnessUp
+	add_percent_brightness {0.1,0.01} && update_bar_DisplayBrightness
+
+{_,shift + }XF86MonBrightnessDown
+	sub_percent_brightness {0.1,0.01} && update_bar_DisplayBrightness
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-
-# lock the desktop
-super + ctrl + shift + l
-  slock
-
-# spawn gui file explorer
-super + e
-  thunar
-
-# volumes controls and media navigation for media keys
-{_,shift + }XF86AudioLowerVolume
-  ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%- && amixer -c 1 sset Headphone $ADJ%- && amixer -c 1 sset Master $ADJ%- && update_bar_MasterVolume
-
-{_,shift + }XF86AudioRaiseVolume
-  ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%+ && amixer -c 1 sset Headphone $ADJ%+ && amixer -c 1 sset Master $ADJ%+ && update_bar_MasterVolume
-
-XF86AudioMute
-  amixer -c 1 sset Master toggle && update_bar_MasterVolume
-
-XF86AudioPlay
-  mpc toggle
-
-XF86AudioNext
-  mpc next
-
-XF86AudioPrev
-  mpc prev
-
-# monitor brightness controls for monitor birghtness keys
-{_,shift + }XF86MonBrightnessUp
-  add_percent_brightness {0.1,0.01} && update_bar_DisplayBrightness
-
-{_,shift + }XF86MonBrightnessDown
-  sub_percent_brightness {0.1,0.01} && update_bar_DisplayBrightness
-

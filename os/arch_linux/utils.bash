@@ -39,6 +39,7 @@ pacaur -S \
 	samba \
 	thunar-shares-plugin \
 	nmap \
+	pulseaudio-ctl \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
