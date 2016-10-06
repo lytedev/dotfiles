@@ -68,6 +68,7 @@ Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'mikewest/vimroom'
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
 Plug 'junegunn/fzf.vim' " helpers for using fzf in vim
@@ -189,6 +190,7 @@ endfunction
 let s:distractionFreeMode = 0
 fun! DistractionFreeModeFunc()
 	AirlineToggle	
+	VimroomToggle
 	if s:distractionFreeMode == 0
 		let s:distractionFreeMode = 1
 		set laststatus=0
@@ -196,6 +198,7 @@ fun! DistractionFreeModeFunc()
 		set noruler
 		set noshowcmd
 		set nonumber
+		hi NonText ctermfg=black guifg=black
 	else
 		let s:distractionFreeMode = 0
 		set showmode
@@ -203,8 +206,11 @@ fun! DistractionFreeModeFunc()
 		set laststatus=2
 		set showcmd
 		set number
+		hi NonText ctermfg=gray guifg=gray
 	endif
 endfunction
+
+nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
 
 :command! SpaceIndents call ShowSpaceIndentation()
 :command! ShowSpaceIndents call ShowSpaceIndentation()
