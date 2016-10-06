@@ -17,8 +17,12 @@ Plug 'junegunn/vim-plug'
 " plugins
 
 Plug 'tpope/vim-obsession' " session ease-of-use
-Plug 'dhruvasagar/vim-prosession' " more session ease-of-use
-let g:prosession_dir = '~/.config/nvim/session/'
+if exists('asmanviewer')
+	let g:prosession_dir = '/dev/null'
+else
+	Plug 'dhruvasagar/vim-prosession' " more session ease-of-use
+	let g:prosession_dir = '~/.config/nvim/session/'
+endif
 Plug 'vim-airline/vim-airline' " statusline
 " let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
@@ -80,6 +84,7 @@ Plug 'digitaltoad/vim-jade', {'for': ['pug', 'jade', 'vue']}
 Plug 'freitass/todo.txt-vim', {'for': ['todo']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
 Plug 'evidens/vim-twig'
+Plug 'leafgarland/typescript-vim', {'for': ['ts', 'typescript']}
 
 call plug#end()
 
@@ -96,6 +101,8 @@ let c_comment_strings = 0 " dont highlight strings inside C comments
 " Python
 let python_space_errors = 1
 autocmd FileType python setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType js setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType vue setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 " HAMLC
 autocmd BufRead,BufNewFile *.hamlc set ft=haml
@@ -179,7 +186,29 @@ fun! ShowSpaceIndentation()
 	match WhiteSpaces /^ \+/
 endfunction
 
+let s:distractionFreeMode = 0
+fun! DistractionFreeModeFunc()
+	AirlineToggle	
+	if s:distractionFreeMode == 0
+		let s:distractionFreeMode = 1
+		set laststatus=0
+		set noshowmode
+		set noruler
+		set noshowcmd
+		set nonumber
+	else
+		let s:distractionFreeMode = 0
+		set showmode
+		set ruler
+		set laststatus=2
+		set showcmd
+		set number
+	endif
+endfunction
+
 :command! SpaceIndents call ShowSpaceIndentation()
+:command! ShowSpaceIndents call ShowSpaceIndentation()
+:command! DistractionFreeMode call DistractionFreeModeFunc()
 
 set hidden " hides abandoned buffers or something
 set shortmess=I
