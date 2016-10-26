@@ -16,6 +16,8 @@ sudo pacman -S \
 	wpa_actiond \
 	ifplugd \
 	htop \
+	openssh \
+	openssl \
 	--noconfirm
 
 pacaur -S \
@@ -40,6 +42,7 @@ pacaur -S \
 	thunar-shares-plugin \
 	nmap \
 	pulseaudio-ctl \
+	pavucontrol \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

@@ -8,7 +8,8 @@ pacaur -S \
 	--noconfirm --noedit
 
 if [ ! -f "$HOME/.todo/config" ]; then
-	cp /usr/share/todotxt/todo.cfg ~/.todo/config
+	mkdir -p "$HOME/.todo"
+	cp /usr/share/todotxt/todo.cfg "$HOME/.todo/config"
 	vim "$HOME/.todo/config"
 fi
 
