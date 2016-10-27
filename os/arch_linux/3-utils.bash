@@ -43,6 +43,7 @@ pacaur -S \
 	nmap \
 	pulseaudio-ctl \
 	pavucontrol \
+	alsa-plugins \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
