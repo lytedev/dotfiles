@@ -7,6 +7,18 @@ endif
 " tell vim to reload the init.vim file when it saves it
 autocmd! BufWritePost init.vim source %
 
+" plugin build functions
+function! BuildComposer(info)
+	if a:info.status != 'unchanged' || a:info.force
+		!cargo build --release
+		UpdateRemotePlugins
+	endif
+endfunction
+
+function! DoRemote(arg)
+	UpdateRemotePlugins
+endfunction
+
 " Initialize plugin manager
 call plug#begin('~/.config/nvim/bundle')
 
@@ -46,9 +58,6 @@ Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem 
 let g:indent_guides_start_level = 0
 let g:indent_guides_auto_color = 1
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } " autocomplete
 let g:deoplete#enable_at_startup = 1
 
@@ -69,6 +78,7 @@ Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'mikewest/vimroom'
+let g:vimroom_sidebar_height = 0
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
 Plug 'junegunn/fzf.vim' " helpers for using fzf in vim
@@ -81,6 +91,7 @@ Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
 Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer'), 'for': ['md', 'markdown'] }
 Plug 'digitaltoad/vim-jade', {'for': ['pug', 'jade', 'vue']}
 Plug 'freitass/todo.txt-vim', {'for': ['todo']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
