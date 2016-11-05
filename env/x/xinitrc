@@ -20,6 +20,10 @@ if [ "$BAR_ON_XINIT" -eq 1 ]; then
   "$BAR_PATH/start.bash" &
 fi
 
+if [ -d "/usr/lib/nvidia" ]; then
+	export LD_LIBRARY_PATH=/usr/lib/nvidia
+fi
+
 # fire up wm
 unclutter &
 sxhkd &

@@ -40,10 +40,13 @@ pacaur -S \
 	rsync \
 	samba \
 	thunar-shares-plugin \
+	elementary-icon-theme \
 	nmap \
 	pulseaudio-ctl \
 	pavucontrol \
 	alsa-plugins \
+	nvidia-beta \
+	lib32-nvidia-beta \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
