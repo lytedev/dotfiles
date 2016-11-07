@@ -176,9 +176,6 @@ if [ -t 0 ]; then
 		cd "$HOME/.."
 	fi
 
-	# vi modes in the terminal prompt
-	set -o vi
-
 	# except we still want some things to work the old fashioned way
 	bind -f "$HOME/.inputrc"
 fi
