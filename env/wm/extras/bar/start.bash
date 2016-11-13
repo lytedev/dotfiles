@@ -50,6 +50,6 @@ fi
 source "$BAR_PATH/colors.bash"
 
 cat "$BAR_FIFO" | "$BAR_PATH/formatter.bash" | \
-	lemonbar -a 12 $BAR_B -g "$WIDTH"x"$BAR_HEIGHT"+"$OFFSET"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B"$COLOR_BACKGROUND" -n "$BAR_WID" | \
+	lemonbar -a 14 $BAR_B -g "$WIDTH"x"$BAR_HEIGHT"+"$OFFSET"+"$POS_Y" -u "$BAR_BORDER_WIDTH" -f "$BAR_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B"$COLOR_BACKGROUND" -n "$BAR_WID" | \
 	"$BAR_PATH/bar_commands.bash"
 	
