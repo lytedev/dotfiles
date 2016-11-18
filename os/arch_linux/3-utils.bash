@@ -40,6 +40,7 @@ pacaur -S \
 	rsync \
 	samba \
 	thunar-shares-plugin \
+	gvfs-smb \
 	elementary-icon-theme \
 	nmap \
 	pulseaudio-ctl \
