@@ -28,5 +28,10 @@ fi
 unclutter &
 sxhkd &
 urxvtd &
+
+if [ -f "$HOME/.xinitrc.env" ]; then
+	source "$HOME/.xinitrc.env"
+fi
+
 exec bspwm
 
