@@ -176,6 +176,8 @@ if [ -t 0 ]; then
 		cd "$HOME/.."
 	fi
 
+	shopt -s histverify
+
 	# except we still want some things to work the old fashioned way
 	bind -f "$HOME/.inputrc"
 fi
