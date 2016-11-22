@@ -84,10 +84,25 @@ if [ -t 0 ]; then
 		if [[ -f "$BAR_PID_FILE" ]]; then
 			stopbar
 		fi
-		"$BAR_PATH/start.bash"
-		echo $! > "$BAR_PID_FILE"
-		bg
-		disown
+		"$BAR_PATH/start.bash" &
+		BAR_PID=$!
+		echo "$BAR_PID" > "$BAR_PID_FILE"
+		kill -CONT "$BAR_PID"
+		# bg
+		# disown
+
+		# lower the bar's layer so fullscreen windows cover it
+		wid=$(xdo id -a "$BAR_WID")
+		tries=20
+		while [ -z "$wid" -a "$tries" -gt 0 ]; do
+			sleep 0.1
+			wid=$(xdo id -a "$BAR_WID")
+			tries=$((tries - 1))
+			echo "WID $wid"
+		done
+		[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+		fg
 	}
 	export -f startbar
 

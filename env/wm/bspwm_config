@@ -23,7 +23,7 @@ bspc config window_gap "$WINDOW_GAP"
 MONITOR_COUNT=$(bspc query -M | wc -l | awk '{ printf $1 }')
 PER_MONITOR=$((10 / MONITOR_COUNT))
 i=1
-for mon in $(bspc query -M); do
+for mon in ${BSPWM_MONITORS}; do
   echo $mon
   echo $i
   max=$((i + PER_MONITOR - 1))
