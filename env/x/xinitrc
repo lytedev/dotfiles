@@ -24,16 +24,12 @@ if [ -d "/usr/lib/nvidia" ]; then
 	export LD_LIBRARY_PATH=/usr/lib/nvidia
 fi
 
-export BSPWM_MONITORS=$(bspc query -M)
-
 if [ -f "$HOME/.xinitrc.env" ]; then
 	source "$HOME/.xinitrc.env"
 fi
 
 # fire up wm
 unclutter &
-sxhkd &
-urxvtd &
 
 exec bspwm
 
