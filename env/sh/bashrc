@@ -192,6 +192,7 @@ if [ -t 0 ]; then
 	fi
 
 	shopt -s histverify
+	export _JAVA_AWT_WM_NONREPARENTING=1
 
 	# except we still want some things to work the old fashioned way
 	bind -f "$HOME/.inputrc"
