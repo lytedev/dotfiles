@@ -39,14 +39,17 @@ BSPWM_MONITORS=$(bspc query -M | tac)
 MONITOR_COUNT=$(echo "${BSPWM_MONITORS}" | wc -w | awk '{ printf $1 }')
 PER_MONITOR=$((10 / MONITOR_COUNT))
 i=1
+
+DESKTOPS=(dev web misc env play out main srv daem util)
+
 for mon in ${BSPWM_MONITORS}; do
   echo $mon
   echo $i
   max=$((i + PER_MONITOR - 1))
   echo $max
 	screens=
-	ind="•"
 	for j in $(seq $i $max); do
+		ind=${DESKTOPS[$((j - 1))]}
 		screens="$screens$ind "
 	done
   bspc monitor "$mon" -d $screens
