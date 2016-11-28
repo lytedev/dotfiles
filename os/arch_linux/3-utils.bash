@@ -48,6 +48,7 @@ pacaur -S \
 	alsa-plugins \
 	nvidia-beta \
 	lib32-nvidia-beta \
+	pmount \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

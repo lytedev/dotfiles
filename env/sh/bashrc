@@ -40,6 +40,7 @@ if [ -t 0 ]; then
 	alias tmnew="tmux new -s"
 	alias tmls="tmux list-sessions"
 	alias tmatt="tmux attach -t"
+	alias tU="tmux attach -t utils || tmux new -s utils"
 
 	# git aliases
 	alias gs="git status"
@@ -64,9 +65,14 @@ if [ -t 0 ]; then
 
 	# misc aliases
 	alias setbg="feh --bg-fill"
+	alias C="clear"
 
 	# games aliases
 	# alias steam="LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
+
+	calc() {
+		python -c "print($@)"
+	}
 
 	stopbar() {
 		if [[ -f "$BAR_PID_FILE" ]]; then

@@ -14,7 +14,7 @@ source "$DOTFILES_PATH/scripts/get_color.sh"
 
 export BAR_PATH="$DOTFILES_PATH/env/wm/extras/bar"
 export BAR_PID_FILE="$BAR_PATH/wm_bar.pid"
-export BAR_ON_XINIT=0
+export BAR_ON_XINIT=1
 export BAR_FIFO="$BAR_PATH/wm_bar_fifo.lock"
 export BAR_MONITOR=$(bspc query -M | tail -n 1)
 export BAR_LOG="$BAR_PATH/wm_bar.log"
