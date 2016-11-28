@@ -29,6 +29,11 @@ trap killbar INT TERM QUIT EXIT
 rm -f "$BAR_FIFO"
 mkfifo "$BAR_FIFO"
 
+if [ -z "$BAR_MONITOR" -o "$BAR_MONITOR" -eq 0 ]; then
+	source "$DOTFILES_PATH/scripts/monitors.sh"
+	BAR_MONITOR="$LAST_BSPWM_MONITOR"
+fi
+
 if [ $BAR_TOP -eq 1 ]; then
   bspc config -m ${BAR_MONITOR} top_padding "$BAR_HEIGHT"
 else

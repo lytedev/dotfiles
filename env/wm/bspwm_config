@@ -20,6 +20,19 @@ bspc config gapless_monocle       true
 
 bspc config window_gap "$WINDOW_GAP"
 
+if [ "$BAR_ON_XINIT" -eq 1 ]; then
+	if [ -z "$BAR_MONITOR" -o "$BAR_MONITOR" -eq 0 ]; then
+		source "$DOTFILES_PATH/scripts/monitors.sh"
+		BAR_MONITOR="$LAST_BSPWM_MONITOR"
+	fi
+
+	if [ $BAR_TOP -eq 1 ]; then
+		bspc config -m ${BAR_MONITOR} top_padding "$BAR_HEIGHT"
+	else
+		bspc config -m ${BAR_MONITOR} bottom_padding "$BAR_HEIGHT"
+	fi
+fi
+
 echo "${BSPWM_MONITORS}"
 BSPWM_MONITORS=$(bspc query -M | tac)
 

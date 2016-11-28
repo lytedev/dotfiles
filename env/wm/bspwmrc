@@ -10,4 +10,3 @@ bspc wm -o
 
 urxvtd &
 sxhkd &
-
