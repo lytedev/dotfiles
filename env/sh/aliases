@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+# this file must be sourced from bashrc in order to have to required variables
+
+# filesystem aliases
+alias lx='ls -lXB' # order by filetype
+alias lk='ls -lSr' # order by filesize reversed
+alias lt='ls -ltr' # order by file modified time
+alias lc='ls -ltcr' # order by filectime
+alias lu='ls -ltur' # order by file access time
+alias ls='ls -h --color --group-directories-first' # flat view w/ directories first
+alias l='ls -h --color --group-directories-first' # same as above
+alias ll='ls -lv --group-directories-first' # non-flat view
+alias lm='ll | more'
+alias lr='ll -R' # please don't - why is this even here...?
+alias la='ll -A' # show all
+alias tree='tree -Csuh'
+
+# navigation aliases
+alias c="cd $HOME/.."
+alias cd..="cd .."
+alias cdd="cd \"$DOTFILES_PATH\""
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .........="cd ../../../../../../../.."
+
+# trying to get into a terminal-based todo system...
+alias todo="todo.sh"
+alias td="todo"
+
+# tmux aliases
+# TODO: see if this can be worked around yet?
+alias tmux='TERM=screen-256color-bce tmux' # syntax higlighting for vim in tmux
+alias tmnew="tmux new -s"
+alias tmls="tmux list-sessions"
+alias tmatt="tmux attach -t"
+alias tU="tmux attach -t utils || tmux new -s utils"
+alias tdf="tmux attach -t df || tmux new -s utils -c \"$DOTFILES_PATH\""
+
+# git aliases
+alias gs="git status"
+alias gl="git log"
+alias gpl="git pull"
+alias gp="git push"
+alias gac="git add -A && git commit -m"
+
+# browser aliases
+alias qutebrowser="qutebrowser --backend webengine"
+
+# networking aliases
+alias p="ping 8.8.8.8"
+alias wifi-menu="sudo wifi-menu"
+# start netctl using any available profile on the first wireless network
+# interface
+alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
+
+# emacs aliases
+alias emacs="emacs -nw"
+
+# arch aliases
+alias archupdate="pacaur -Syyu --noconfirm --noedit"
+
+# misc aliases
+alias setbg="feh --bg-fill"
+alias C="clear"
+alias keyrepeat="xset r rate 250 80"
+
+# games aliases
+# alias steam="LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
+
+export EDITOR="vim"
+if command -v nvim >/dev/null 2>&1; then
+	alias vim="nvim"
+	alias ovim="\\vim"
+	export EDITOR="nvim"
+fi

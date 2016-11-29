@@ -1,190 +1,27 @@
 export DOTFILES_PATH=$HOME/.dotfiles
 
+# load our terminal colors
 BASE16_SHELL="$DOTFILES_PATH/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 
+# if we're a proper terminal?
 if [ -t 0 ]; then
+	# load variables
 	source "$DOTFILES_PATH/variables.bash"
 
 	# disable ctrl-s terminal freeze
 	[[ $- == *i* ]] && stty -ixon
 
-	# filesystem aliases
-	alias lx='ls -lXB' # order by filetype
-	alias lk='ls -lSr' # order by filesize reversed
-	alias lt='ls -ltr' # order by file modified time
-	alias lc='ls -ltcr' # order by filectime
-	alias lu='ls -ltur' # order by file access time
-	alias ls='ls -h --color --group-directories-first' # flat view w/ directories first
-	alias l='ls -h --color --group-directories-first' # same as above
-	alias ll='ls -lv --group-directories-first' # non-flat view
-	alias lm='ll | more'
-	alias lr='ll -R' # please don't
-	alias la='ll -A' # show all
-	alias tree='tree -Csuh'
+	# import our aliases
+	source "$DOTFILES_PATH/env/sh/aliases"
 
-	# navigation aliases
-	alias c="cd $HOME/.."
-	alias cd..="cd .."
-	alias cdd="cd \"$DOTFILES_PATH\""
-	alias ..="cd .."
-	alias ...="cd ../.."
-	alias ....="cd ../../.."
-	alias .....="cd ../../../.."
-	alias ......="cd ../../../../.."
-	alias todo="todo.sh"
-	alias td="todo"
+	# import out global shell functions
+	source "$DOTFILES_PATH/env/sh/shell_funcs"
 
-	# tmux aliases
-	alias tmux='TERM=screen-256color-bce tmux' # syntax higlighting for vim in tmux
-	alias tmnew="tmux new -s"
-	alias tmls="tmux list-sessions"
-	alias tmatt="tmux attach -t"
-	alias tU="tmux attach -t utils || tmux new -s utils"
+	# import our prompt
+	source "$DOTFILES_PATH/env/sh/prompt"
 
-	# git aliases
-	alias gs="git status"
-	alias gl="git log"
-	alias gpl="git pull"
-	alias gp="git push"
-	alias gac="git add -A && git commit -m"
-
-	# browser aliases
-	alias qutebrowser="qutebrowser --backend webengine"
-
-	# networking aliases
-	alias p="ping 8.8.8.8"
-	alias wifi-menu="sudo wifi-menu"
-	alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
-
-	# emacs aliases
-	alias emacs="emacs -nw"
-
-	# arch aliases
-	alias archupdate="pacaur -Syyu --noconfirm --noedit"
-
-	# misc aliases
-	alias setbg="feh --bg-fill"
-	alias C="clear"
-
-	# games aliases
-	# alias steam="LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
-
-	calc() {
-		python -c "print($@)"
-	}
-
-	stopbar() {
-		if [[ -f "$BAR_PID_FILE" ]]; then
-			echo 
-			kill -SIGINT $(cat "$BAR_PID_FILE")
-			rm -f "$BAR_PID_FILE"
-		else
-			echo "Bar is not running."
-		fi
-	}
-	export -f stopbar
-
-	# wm aliases
-	startbar() {
-		if [[ -f "$BAR_PID_FILE" ]]; then
-			stopbar
-		fi
-		"$BAR_PATH/start.bash" &
-		BAR_PID=$!
-		echo "$BAR_PID" > "$BAR_PID_FILE"
-		kill -CONT "$BAR_PID"
-		# bg
-		# disown
-
-		# lower the bar's layer so fullscreen windows cover it
-		wid=$(xdo id -a "$BAR_WID")
-		tries=20
-		while [ -z "$wid" -a "$tries" -gt 0 ]; do
-			sleep 0.1
-			wid=$(xdo id -a "$BAR_WID")
-			tries=$((tries - 1))
-			echo "WID $wid"
-		done
-		[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
-
-		fg
-	}
-	export -f startbar
-
-	# misc aliases
-	alias keyrepeat="xset r rate 250 80"
-
-	export EDITOR="vim"
-	if command -v nvim >/dev/null 2>&1; then
-		alias vim="nvim"
-		alias ovim="\\vim"
-		export EDITOR="nvim"
-	fi
-
-	# prompt
-	COLOR_RESET='\[\e[0m\]'
-	PROMPT_SUCCESS_COLOR='\[\e[0;34m\]'
-	PROMPT_FAILURE_COLOR='\[\e[0;31m\]'
-	DIR_COLOR='\[\e[0;33m\]'
-	# prompt rendering functions
-	sps() {
-		name="$PWD"
-		[[ "$name" =~ ^"$HOME"(/|$) ]] && name="~${name#$HOME}"
-		curdir=$(echo "$PWD" | sed -r 's|.*/(.+)$|\1|g')
-		name=$(echo "$name" | sed -r 's|/(..)[^/]*|/\1|g' | sed -r 's|(.*/)(.+)$|\1|g')
-		[[ "$name" == "~" ]] && curdir=""
-		echo "$name$curdir"
-	}
-	prompt_command_func()
-	{
-		RET=$?
-		if [ $RET -eq 0 ]; then
-			STATUS_COLOR=$PROMPT_SUCCESS_COLOR
-		else
-			STATUS_COLOR=$PROMPT_FAILURE_COLOR
-		fi;
-		PS1="$STATUS_COLOR\u@\h$COLOR_RESET $DIR_COLOR$(eval "sps")$COLOR_RESET "
-	}
-	export PROMPT_COMMAND="prompt_command_func"
-
-	# man pages with vim
-	vman() {
-		if command -v nvim >/dev/null 2>&1; then
-			nvim -c "SuperMan $*"
-		else
-			vim -c "SuperMan $*"
-		fi
-
-		if [ "$?" != "0" ]; then
-			echo "No manual entry for $*"
-		fi
-	}
-	alias _man="\\man"
-	alias man="vman"
-
-	# save the current directory for later retrieval
-	scwd() {
-		addon=""
-		if [[ -n $1 ]]; then
-			addon="-$1"
-		fi
-		echo "$PWD" > "$DOTFILES_PATH/env/sh/cwd$addon.tmp"
-	}
-	export -f scwd
-	bind '"\C-s"':"\"scwd\C-m\""
-	
-	# go to the saved current directory
-	gcwd() {
-		addon=""
-		if [[ -n $1 ]]; then
-			addon="-$1"
-		fi
-		cd $(cat "$DOTFILES_PATH/env/sh/cwd$addon.tmp")
-	}
-	export -f gcwd
-	bind '"\C-g"':"\"gcwd\C-m\""
-
+	# autocompletions
 	complete -cf sudo
 	complete -cf man
 
@@ -193,13 +30,21 @@ if [ -t 0 ]; then
 		. "$HOME/.bashrc_env"
 	fi
 
+	# this bashrc assumes a home directory like /home/username/usr in order to
+	# keep dotfiles from cluttering up an "actual" home directory /home/username
+	# this snippet will redirect new terminals to the "actual" home directory
 	if [ "$PWD" = "$HOME" ]; then
 		cd "$HOME/.."
 	fi
 
+	# prevents binds or commands pulling from history from insta-sending, and
+	# instead places them in the readline for editing
 	shopt -s histverify
+
+	# prevents some Java GUI apps from not working or rendering properly due to
+	# using bspwm
 	export _JAVA_AWT_WM_NONREPARENTING=1
 
-	# except we still want some things to work the old fashioned way
+	# load our binds if we've got any inputs
 	bind -f "$HOME/.inputrc"
 fi
