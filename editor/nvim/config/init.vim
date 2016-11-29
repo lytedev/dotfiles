@@ -228,7 +228,7 @@ nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
 :command! ShowSpaceIndents call ShowSpaceIndentation()
 :command! DistractionFreeMode call DistractionFreeModeFunc()
 
-set hidden " hides abandoned buffers or something
+set hidden " allows buffer switching without saving
 set shortmess=I
 set history=1000
 set undofile
@@ -343,6 +343,10 @@ nmap Q gqap
 
 " launch fzf for the current git repo
 nnoremap <C-P> :GitFiles<CR>
+
+" super fancy buffer switching
+nnoremap <leader>l :ls<CR>:b<space>
+nnoremap <leader>h :b#<CR>
 
 " use leader j and k to switch buffers as well
 nnoremap <leader>k :bnext<CR>
