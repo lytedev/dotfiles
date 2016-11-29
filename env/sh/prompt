@@ -5,13 +5,11 @@ PROMPT_SUCCESS_COLOR='\[\e[0;34m\]'
 PROMPT_FAILURE_COLOR='\[\e[0;31m\]'
 DIR_COLOR='\[\e[0;33m\]'
 
-export ACTUAL_HOME=$(realpath "$HOME/..")
-
 # prompt rendering functions
 preprocess_pwd() {
 	name="$PWD"
 	# if we're in the home directory, replace it with tilde
-	[[ "$name" =~ ^"$ACTUAL_HOME"(/|$) ]] && name="~${name#$ACTUAL_HOME}"
+	[[ "$name" =~ ^"$NICE_HOME"(/|$) ]] && name="~${name#$NICE_HOME}"
 
 	# replace all non-basename parts of the PWD with only the first two letters
 	curdir=$(echo "$PWD" | sed -r 's|.*/(.+)$|\1|g')

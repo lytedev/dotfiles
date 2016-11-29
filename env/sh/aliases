@@ -39,7 +39,7 @@ alias tmux='TERM=screen-256color-bce tmux' # syntax higlighting for vim in tmux
 alias tmnew="tmux new -s"
 alias tmls="tmux list-sessions"
 alias tmatt="tmux attach -t"
-alias tU="tmux attach -t utils || tmux new -s utils"
+alias tu="tmux attach -t utils || tmux new -s utils"
 alias tdf="tmux attach -t df || tmux new -s utils -c \"$DOTFILES_PATH\""
 
 # git aliases

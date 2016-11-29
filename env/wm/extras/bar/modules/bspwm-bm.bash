@@ -9,7 +9,7 @@ PID_PREFIX="bspwm"
 MATCH_PREFIX="W"
 MATCH="$MATCH_PREFIX*"
 
-DESKTOP_SPACER=" "
+DESKTOP_SPACER=""
 
 SWITCH_DESKTOP_COMMAND="switch_desktop"
 
@@ -29,25 +29,25 @@ bar_module_bspwm() {
     item=$1
     name=${item#?}
     cname="$name"
-		bname="%{A:$SWITCH_DESKTOP_COMMAND $cname:}${cname}%{A}"
+		bname=" %{A:$SWITCH_DESKTOP_COMMAND $cname:}${cname}%{A} "
     case $item in
       O*) # focused occupied desktop
-        content="${content}%{F$COLOR_HIGHLIGHT}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}$DESKTOP_SPACER"
+        content="${content}%{B$COLOR_HIGHLIGHT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
         ;;
       F*) # focused free desktop
-        content="${content}%{F$COLOR_DARK}%{U$COLOR_DARK}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}$DESKTOP_SPACER"
+        content="${content}%{B$COLOR_DARK}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
         ;;
-      U*) # focused occupied desktop
-        content="${content}%{F$COLOR_URGENT}%{U$COLOR_URGENT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}$DESKTOP_SPACER"
+      U*) # urgent focused desktop
+        content="${content}%{B$COLOR_URGENT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
         ;;
-      o*) # occupied desktop
+      o*) # occupied unfocused desktop
         content="${content}%{F$COLOR_FOREGROUND}${bname}%{F-}$DESKTOP_SPACER"
         ;;
       f*) # free desktop
         content="${content}%{F$COLOR_DARK}${bname}%{F-}$DESKTOP_SPACER"
         ;;
       u*) # urgent desktop
-        content="${content}%{F$COLOR_URGENT}${bname}%{F-}$DESKTOP_SPACER"
+        content="${content}%{B$COLOR_URGENT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
         ;;
     esac
     shift

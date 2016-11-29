@@ -12,6 +12,9 @@ reload_colors() {
 # trap reload_colors SIGUSR1
 
 LAUNCHER_BUTTONS="%{F$COLOR_DARK}%{A3:launcher2:}%{A:launcher:}!%{A}%{A} %{A3:close:}%{A:kill:}X%{A}%{A}%{F-}"
+if [ "$NO_LAUNCHER_BUTTONS" -eq 1 ]; then
+	LAUNCHER_BUTTONS=""
+fi
 
 export MODULE_MATCH=()
 export MODULE_CALLBACK=()
@@ -69,7 +72,7 @@ while read -r line; do
     fi
   done
 
-  printf "%s\n" "%{l} $l_content $LAUNCHER_BUTTONS %{c}$c_content %{r}$r_content "
+  printf "%s\n" "%{l}$BAR_LEFT_CHARS$l_content $LAUNCHER_BUTTONS %{c}$c_content %{r}$r_content$BAR_RIGHT_CHARS"
 done
 
 # echo -e "\nEND BAR LOG" >> "$BAR_LOG"
