@@ -31,5 +31,5 @@ fi
 # fire up wm
 unclutter &
 
-exec bspwm
+exec "$DOTFILES_PATH/env/wm/wmstart"
 

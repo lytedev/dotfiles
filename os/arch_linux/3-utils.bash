@@ -49,6 +49,7 @@ pacaur -S \
 	nvidia-beta \
 	lib32-nvidia-beta \
 	pmount \
+	qt5-webengine \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

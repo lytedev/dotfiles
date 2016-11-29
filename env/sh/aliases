@@ -50,7 +50,7 @@ alias gp="git push"
 alias gac="git add -A && git commit -m"
 
 # browser aliases
-alias qutebrowser="qutebrowser --backend webengine"
+alias qute="qutebrowser --backend webengine"
 
 # networking aliases
 alias p="ping 8.8.8.8"

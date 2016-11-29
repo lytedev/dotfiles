@@ -2,11 +2,16 @@
 
 source "$DOTFILES_PATH/variables.bash"
 
+if [ -e "$BSPWM_STATE" ] ; then
+	bspc wm -l "$BSPWM_STATE"
+	rm "$BSPWM_STATE"
+fi
+
 source "$DOTFILES_PATH/env/wm/bspwm_config"
 source "$DOTFILES_PATH/scripts/get_color.sh"
 source "$DOTFILES_PATH/scripts/get_x_fonts.sh"
 
-bspc wm -o
-
 urxvtd &
 sxhkd &
+
+bspc wm -o

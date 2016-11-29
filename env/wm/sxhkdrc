@@ -1,17 +1,5 @@
 # node manager shortcuts
 
-# kill the wm
-super + ctrl + Escape
-	bspc quit
-
-# close the current application
-super + c
-	bspc node -c
-
-# kill the current application
-super + shift + c
-	bspc node -k
-
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
@@ -218,6 +206,19 @@ XF86AudioPrev
 
 {_,shift + }XF86MonBrightnessDown
 	sub_percent_brightness {0.1,0.01} && update_bar_DisplayBrightness
+
+# close the current application
+super + c
+	bspc node -c
+
+# kill the current application
+super + shift + c
+	bspc node -k
+
+# kill the wm
+super + ctrl + {alt +,_} Escape
+	{bspc wm -d > "$BSPWM_STATE_FILE" && bspc quit, \
+		bspc quit 1}
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -38,8 +38,15 @@ source "$DOTFILES_PATH/scripts/get_color.sh"
 # load our bar variables
 source "$DOTFILES_PATH/env/wm/extras/bar/variables.bash"
 
+# when we kill bspwm we can export the state to this file
+export BSPWM_STATE_FILE="$DOTFILES_PATH/bspwm_state.json.tmp"
+
 # this lets our window gap account for the border width
-export WINDOW_GAP=$(expr $WINDOW_GAP - $BORDER_WIDTH)
+# if this is enabled, it is usually so that I can reduce border width on my
+# desktops with a single chrome window on them so that I can click that tabs at
+# the top quickly
+# I really need to migrate browsers
+# export WINDOW_GAP=$(expr $WINDOW_GAP - $BORDER_WIDTH)
 
 # load per-device bashrc_env if it exists
 if [ -a "$HOME/.bashrc_env" ]; then
