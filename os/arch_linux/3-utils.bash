@@ -48,9 +48,9 @@ pacaur -S \
 	alsa-plugins \
 	nvidia-beta \
 	lib32-nvidia-beta \
-	pmount \
 	qt5-webengine \
 	ruby \
+	xorg-xbacklight \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
