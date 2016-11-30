@@ -7,9 +7,12 @@ export -f calc
 
 stopbar() {
 	if [[ -f "$BAR_PID_FILE" ]]; then
-		echo 
-		kill -SIGINT $(cat "$BAR_PID_FILE")
+		kill -SIGTERM $(cat "$BAR_PID_FILE")
+		kill -SIGTERM $(cat "$BAR_PID_FILE"*.pid)
+		kill -SIGTERM $(cat "$BAR_PATH"/modules/*.pid)
 		rm -f "$BAR_PID_FILE"
+		rm "$BAR_PID_FILE"*.pid
+		rm "$BAR_PATH"/modules/*.pid
 	else
 		echo "Bar is not running."
 	fi

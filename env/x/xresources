@@ -5,17 +5,17 @@
 
 #define emacspfont Monaco 9
 
-# I like this font on my desktop (use in `~/.Xresources.env`!)
-##define primaryfont xft:lemon-11
-##define primaryletterspace 0
+! I like this font on my desktop (use in `~/.Xresources.env`!)
+!#define primaryfont xft:lemon-11
+!#define primaryletterspace 0
 
-# I like this font on my desktop for code streaming
-##define primaryfont xft:Monaco-9
-##define primaryletterspace -2
+! I like this font on my desktop for code streaming
+!#define primaryfont xft:Monaco-9
+!#define primaryletterspace -2
 
-# I like this font on my laptop
-#define primaryfont xft:Monaco-11
-##define primaryletterspace -1
+! I like this font on my laptop
+!#define primaryfont xft:Monaco-11
+!#define primaryletterspace -1
 
 *font: primaryfont
 *faceName: primaryfont

@@ -24,7 +24,7 @@ export BLACKLISTED_BAR_MODULES=""
 export REPOSITORY_PATH="$NICE_HOME/code/open-source"
 
 # the width of the border around the bspwm windows
-export BORDER_WIDTH=1
+export BORDER_WIDTH=0
 
 # the gap between bspwm windows
 export WINDOW_GAP=5

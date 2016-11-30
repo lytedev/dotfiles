@@ -37,7 +37,7 @@ register_bar_module() {
 export -f register_bar_module
 
 for f in "$BAR_PATH/modules/"*-bm.bash; do
-  echo -e "$f" >> "$BAR_LOG"
+  # echo -e "$f" >> "$BAR_LOG"
 	for bl in "$BLACKLISTED_BAR_MODULES"; do
 		if [[ "$f" = "$BAR_PATH/modules/"$bl-bm.bash ]]; then
 			f=""
@@ -51,9 +51,9 @@ done
 while read -r line; do
   # echo -e "Bar Line: $line" >> "$BAR_LOG"
   for i in ${!MODULE_MATCH[@]}; do
-		echo ${!MODULE_MATCH[@]} >> $BAR_LOG
+		# echo ${!MODULE_MATCH[@]} >> $BAR_LOG
     if [[ $line == ${MODULE_MATCH[$i]} ]]; then
-      echo -e "Bar Module Update: [$i] Matched ${MODULE_MATCH[$i]} with $line" >> "$BAR_LOG"
+      # echo -e "Bar Module Update: [$i] Matched ${MODULE_MATCH[$i]} with $line" >> "$BAR_LOG"
       MODULE_CONTENT[$i]="$("${MODULE_CALLBACK[$i]}" "$line")"
       # echo -e "New Module Content: "${MODULE_CONTENT[$i]} >> "$BAR_LOG"
     fi

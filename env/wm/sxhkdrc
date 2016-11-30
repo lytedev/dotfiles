@@ -160,6 +160,10 @@ super + shift + alt + ctrl + r
 super + Return
 	urxvtc
 
+super + shift + Return
+	urxvtc -geometry 80x24; \
+	bspc node -t floating
+
 # spawn the app launcher
 super + space
 	rofi -show run -font "$PRIMARY_FONT_FAMILY $PRIMARY_FONT_SIZE" -lines 16 -width 10 -padding 8 -fuzzy -bw "$BORDER_WIDTH" -color-enabled -color-window "#$(get_color 00)","#$(get_color 0D)","#$(get_color 0D)","#$(get_color 00)" -color-normal "#$(get_color 00)","#$(get_color 06)","#$(get_color 00)","#$(get_color 0D)","#$(get_color 00)" -separator-style none -hide-scrollbar

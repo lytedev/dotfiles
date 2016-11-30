@@ -1,22 +1,22 @@
-! Base16 Bright
-! Scheme: Chris Kempson (http://chriskempson.com)
+! Base16 Donokai
+! Scheme: Wimer Hazenberg (http://www.monokai.nl)
 
 #define base00 #111111
-#define base01 #303030
-#define base02 #505050
-#define base03 #b0b0b0
-#define base04 #d0d0d0
-#define base05 #e0e0e0
-#define base06 #f5f5f5
-#define base07 #ffffff
-#define base08 #fb0120
-#define base09 #fc6d24
-#define base0A #fda331
-#define base0B #a1c659
-#define base0C #76c7b7
-#define base0D #6fb3d2
-#define base0E #d381c3
-#define base0F #be643c
+#define base01 #383830
+#define base02 #49483e
+#define base03 #75715e
+#define base04 #a59f85
+#define base05 #f8f8f2
+#define base06 #f5f4f1
+#define base07 #f9f8f5
+#define base08 #f92672
+#define base09 #fd971f
+#define base0A #f4bf75
+#define base0B #a6e22e
+#define base0C #a1efe4
+#define base0D #66d9ef
+#define base0E #ae81ff
+#define base0F #cc6633
 
 *foreground:   base05
 *background:   base00
