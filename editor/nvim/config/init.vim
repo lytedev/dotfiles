@@ -349,7 +349,7 @@ nnoremap <C-p> :GitFiles<CR>
 nnoremap <C-o> :Files<CR>
 
 " launch fzf for files modified or not in git
-nnoremap <C-o> :GFiles?<CR>
+nnoremap <C-u> :GFiles?<CR>
 
 " launch fzf for open buffers (files)
 nnoremap <leader>l :Buffers<CR>
