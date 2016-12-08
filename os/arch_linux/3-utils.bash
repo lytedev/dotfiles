@@ -51,6 +51,7 @@ pacaur -S \
 	qt5-webengine \
 	ruby \
 	xorg-xbacklight \
+  i3lock-blur \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

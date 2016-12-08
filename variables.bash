@@ -22,6 +22,7 @@ export BLACKLISTED_BAR_MODULES=""
 # than a little bit ashamed
 # TODO: use /tmp ?
 export REPOSITORY_PATH="$NICE_HOME/code/open-source"
+export IMG_PATH="$NICE_HOME/img"
 
 # the width of the border around the bspwm windows
 export BORDER_WIDTH=0
