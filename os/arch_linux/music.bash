@@ -5,5 +5,5 @@ source $DIR/variables.bash
 
 pacaur -S \
 	mopidy mopidy-spotify mopidy-gmusic \
-	ncmpcpp mpd \
+	ncmpcpp mpd mpc \
 	--noconfirm --noedit

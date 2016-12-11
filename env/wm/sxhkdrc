@@ -153,8 +153,8 @@ super + shift + t
 	compton-trans -c -o 100
 
 # swap sxhkx config with an alternate file and reload the new one
-super + shift + alt + ctrl + r
-	if [ -e ~/.config/sxhkd/altsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/origsxhkdrc && mv ~/.config/sxhkd/altsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
+# super + shift + alt + ctrl + r
+# if [ -e ~/.config/sxhkd/altsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/origsxhkdrc && mv ~/.config/sxhkd/altsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
 
 # spawn a terminal
 super + Return
@@ -170,7 +170,7 @@ super + space
 
 # lock the desktop
 super + ctrl + shift + l
-	slock
+	$SHELL -c '$DOTFILES_PATH/env/x/screensaver/lock.sh'
 
 # spawn gui file explorer
 super + e

@@ -78,6 +78,7 @@ Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'mikewest/vimroom'
+Plug 'editorconfig/editorconfig-vim' " loads project-specific editor settings
 let g:vimroom_sidebar_height = 0
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
@@ -130,7 +131,7 @@ autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set noexpandtab
+set expandtab
 set autoindent smartindent
 set list
 set nostartofline
@@ -342,10 +343,18 @@ vmap Q gq
 nmap Q gqap
 
 " launch fzf for the current git repo
-nnoremap <C-P> :GitFiles<CR>
+nnoremap <C-p> :GitFiles<CR>
 
-" super fancy buffer switching
-nnoremap <leader>l :ls<CR>:b<space>
+" launch fzf for files in the current directory
+nnoremap <C-o> :Files<CR>
+
+" launch fzf for files modified or not in git
+nnoremap <C-u> :GFiles?<CR>
+
+" launch fzf for open buffers (files)
+nnoremap <leader>l :Buffers<CR>
+
+" switch to previous buffer
 nnoremap <leader>h :b#<CR>
 
 " use leader j and k to switch buffers as well
