@@ -29,6 +29,10 @@ register_bar_module() {
   MODULE_DATA[$1]=
   MODULE_CONTENT[$1]=
   MODULE_INIT[$1]=$4
+
+	TYPE_RBM="$(type -t ${MODULE_INIT[$1]})"
+	TYPE_RBM2="$(type -t ${MODULE_INIT[$3]})"
+	echo "-----> - $TYPE_RBM - $TYPE_RBM2 -" >> "$BAR_LOG"
 	${MODULE_INIT[$1]} &
 	PID=$!
 	echo $PID > "$BAR_PATH/modules/$3.pid"
@@ -37,19 +41,19 @@ register_bar_module() {
 export -f register_bar_module
 
 for f in "$BAR_PATH/modules/"*-bm.bash; do
-  # echo -e "$f" >> "$BAR_LOG"
 	for bl in "$BLACKLISTED_BAR_MODULES"; do
-		if [[ "$f" = "$BAR_PATH/modules/"$bl-bm.bash ]]; then
+		if [[ "$f" = "$BAR_PATH/modules/""${bl}"-bm.bash ]]; then
 			f=""
 		fi
 	done
 	if [[ -n $f ]]; then
+		echo -e "$f" >> "$BAR_LOG"
 		source "$f"
 	fi
 done
 
 while read -r line; do
-  # echo -e "Bar Line: $line" >> "$BAR_LOG"
+  echo -e "Bar Line: $line" >> "$BAR_LOG"
   for i in ${!MODULE_MATCH[@]}; do
 		# echo ${!MODULE_MATCH[@]} >> $BAR_LOG
     if [[ $line == ${MODULE_MATCH[$i]} ]]; then

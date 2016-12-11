@@ -41,6 +41,9 @@ source "$DOTFILES_PATH/env/wm/extras/bar/variables.bash"
 # when we kill bspwm we can export the state to this file
 export BSPWM_STATE_FILE="$DOTFILES_PATH/bspwm_state.json.tmp"
 
+# disables the clickable launcher buttons for touch or keyboardless devices if 1
+export NO_LAUNCHER_BUTTONS=0
+
 # this lets our window gap account for the border width
 # if this is enabled, it is usually so that I can reduce border width on my
 # desktops with a single chrome window on them so that I can click that tabs at
