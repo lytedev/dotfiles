@@ -98,6 +98,7 @@ Plug 'freitass/todo.txt-vim', {'for': ['todo']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
 Plug 'evidens/vim-twig'
 Plug 'leafgarland/typescript-vim', {'for': ['ts', 'typescript']}
+Plug 'jwalton512/vim-blade', {'for': ['blade', 'blade.php']}
 
 call plug#end()
 
