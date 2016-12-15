@@ -16,7 +16,7 @@ export -f bar_module_clock
 
 bar_module_clock_updater() {
   while true; do
-    echo -e "$MATCH_PREFIX""$(date +%H.%M.%S)" > $BAR_FIFO
+    echo -e "$MATCH_PREFIX""$(date +%H.%M.%S)" > "$BAR_FIFO"
     sleep 1
   done
 }

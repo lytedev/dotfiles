@@ -15,17 +15,12 @@ MATCH="$MATCH_PREFIX*"
 # should process the first argument (the line from the FIFO) and echo the
 # desired bar output.
 bar_module_example() {
-  # Write the line from the 10th character (cutting off the MATCH_PREFIX) with
-  # lemonbar's left-align delimiter.
-  echo -e "%{l}${1:10}"
+  # Write the line from the 10th character (cutting off the MATCH_PREFIX)
+  echo -e "${1:10}"
 }
 
 # Export our function so that the formatter script can call it.
-export -f bar_module_bspwm
-
-# Call this handy function for adding the various thing we declared to the
-# MODULE_ variables that the formatter script uses.
-register_bar_module "$PRIORITY" "$MATCH" "bar_module_example"
+export -f bar_module_example
 
 # Create a function that will periodically write to the FIFO with the correct
 # prefix, thereby updating the module.
@@ -35,11 +30,11 @@ bar_module_example_updater() {
     sleep 30
   done
 }
-
-# Fork that function to a background process.
-bar_module_clock_updater &
+export -f bar_module_example_updater
 
 # Optional: Initialize that module by immediately writing to the FIFO using your
 # prefix to show some default information on the bar when it loads.
 echo -e "$MATCH_PREFIX"Loading... > "$BAR_FIFO"
 
+# Register our module so that it is started once the bar is ready
+register_bar_module "$PRIORITY" "$MATCH" "bar_module_example" "bar_module_example_updater"
