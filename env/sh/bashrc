@@ -1,4 +1,5 @@
-export DOTFILES_PATH=$HOME/.dotfiles
+export DOTFILES_PATH="$HOME/.dotfiles"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # load our terminal colors
 BASE16_SHELL="$DOTFILES_PATH/colors/shell"

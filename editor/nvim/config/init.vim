@@ -119,9 +119,6 @@ let python_space_errors = 1
 " autocmd FileType vue setl tabstop=2 expandtab shiftwidth=2 softtabstop=2
 autocmd FileType php setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
-" HAMLC
-autocmd BufRead,BufNewFile *.hamlc set ft=haml
-
 " Markdown
 autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wrapmargin=0
 
