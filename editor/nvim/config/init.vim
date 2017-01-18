@@ -58,8 +58,8 @@ Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem 
 let g:indent_guides_start_level = 0
 let g:indent_guides_auto_color = 1
 
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') } " autocomplete
-let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete
+" let g:deoplete#enable_at_startup = 1
 
 Plug 'scrooloose/syntastic' " syntax checker
 Plug 'freitass/todo.txt-vim' " syntax checker
@@ -91,8 +91,8 @@ Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
-Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer'), 'for': ['md', 'markdown'] }
+" Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
+" Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer'), 'for': ['md', 'markdown'] }
 Plug 'digitaltoad/vim-jade', {'for': ['pug', 'jade', 'vue']}
 Plug 'freitass/todo.txt-vim', {'for': ['todo']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
@@ -120,7 +120,7 @@ let python_space_errors = 1
 autocmd FileType php setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " Markdown
-autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wrapmargin=0
+" autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wrapmargin=0
 
 " Text
 autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
