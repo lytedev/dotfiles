@@ -28,7 +28,7 @@ export IMG_PATH="$NICE_HOME/img"
 export BORDER_WIDTH=0
 
 # the gap between bspwm windows
-export WINDOW_GAP=5
+export WINDOW_GAP=24
 
 # load our font variables
 source "$DOTFILES_PATH/scripts/get_x_fonts.sh"

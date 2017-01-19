@@ -51,7 +51,7 @@ export BAR_WID="wmpanel"
 export BAR_TOP_PADDING=0
 
 # the amount of pixel padding space to place below the bar
-export BAR_BOTTOM_PADDING=0
+export BAR_BOTTOM_PADDING=24
 
 # the characters to always print on the left-most side of the bar
 export BAR_LEFT_CHARS=""
