@@ -20,6 +20,7 @@ alias tree='tree -Csuh'
 alias c="cd $HOME/.."
 alias cd..="cd .."
 alias cdd="cd \"$DOTFILES_PATH\""
+alias cdc="cd ~/.config"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

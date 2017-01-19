@@ -30,6 +30,7 @@ fi
 
 # fire up wm
 unclutter &
+compton &
 
 exec "$DOTFILES_PATH/env/wm/wmstart"
 

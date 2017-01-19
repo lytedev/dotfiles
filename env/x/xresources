@@ -33,7 +33,7 @@ emacs.font: emacspfont
 
 *depth: 32
 
-URxvt.internalBorder: 8
+URxvt.internalBorder: 24
 
 Xcursor.theme: human
 

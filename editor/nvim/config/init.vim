@@ -204,6 +204,7 @@ fun! DistractionFreeModeFunc()
 	VimroomToggle
 	if s:distractionFreeMode == 0
 		let s:distractionFreeMode = 1
+    set nocursorline
 		set laststatus=0
 		set noshowmode
 		set noruler
@@ -212,6 +213,7 @@ fun! DistractionFreeModeFunc()
 		hi NonText ctermfg=black guifg=black
 	else
 		let s:distractionFreeMode = 0
+    set cursorline
 		set showmode
 		set ruler
 		set laststatus=2

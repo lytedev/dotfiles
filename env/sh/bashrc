@@ -28,7 +28,7 @@ if [ -t 0 ]; then
 
 	# allow a per-device script that is pulled in
 	if [ -a "$HOME/.bashrc_env" ]; then
-		. "$HOME/.bashrc_env"
+		source "$HOME/.bashrc_env"
 	fi
 
 	# this bashrc assumes a home directory like /home/username/usr in order to
