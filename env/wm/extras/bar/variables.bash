@@ -7,7 +7,7 @@ export BAR_PATH="$DOTFILES_PATH/env/wm/extras/bar"
 export BAR_PID_FILE="$BAR_PATH/wm_bar.pid"
 
 # whether or not to start the bar when X starts
-export BAR_ON_XINIT=0
+export BAR_ON_XINIT=1
 
 # the path to the bar's FIFO
 export BAR_FIFO="$BAR_PATH/wm_bar_fifo.lock"

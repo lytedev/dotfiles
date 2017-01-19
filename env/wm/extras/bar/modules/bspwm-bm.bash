@@ -9,7 +9,8 @@ PID_PREFIX="bspwm"
 MATCH_PREFIX="W"
 MATCH="$MATCH_PREFIX*"
 
-DESKTOP_SPACER=""
+DESKTOP_SPACE_BEFORE=""
+DESKTOP_SPACE_AFTER=""
 
 SWITCH_DESKTOP_COMMAND="switch_desktop"
 
@@ -32,22 +33,22 @@ bar_module_bspwm() {
 		bname=" %{A:$SWITCH_DESKTOP_COMMAND $cname:}${cname}%{A} "
     case $item in
       O*) # focused occupied desktop
-        content="${content}%{B$COLOR_HIGHLIGHT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
+        content="$DESKTOP_SPACE_BEFORE${content}%{B$COLOR_HIGHLIGHT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACE_AFTER"
         ;;
       F*) # focused free desktop
-        content="${content}%{B$COLOR_DARK}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
+        content="$DESKTOP_SPACE_BEFORE${content}%{B$COLOR_DARK}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACE_AFTER"
         ;;
       U*) # urgent focused desktop
-        content="${content}%{B$COLOR_URGENT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
+        content="$DESKTOP_SPACE_BEFORE${content}%{B$COLOR_URGENT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACE_AFTER"
         ;;
       o*) # occupied unfocused desktop
-        content="${content}%{F$COLOR_FOREGROUND}${bname}%{F-}$DESKTOP_SPACER"
+        content="$DESKTOP_SPACE_BEFORE${content}%{F$COLOR_FOREGROUND}${bname}%{F-}$DESKTOP_SPACE_AFTER"
         ;;
       f*) # free desktop
-        content="${content}%{F$COLOR_DARK}${bname}%{F-}$DESKTOP_SPACER"
+        content="$DESKTOP_SPACE_BEFORE${content}%{F$COLOR_DARK}${bname}%{F-}$DESKTOP_SPACE_AFTER"
         ;;
       u*) # urgent desktop
-        content="${content}%{B$COLOR_URGENT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACER"
+        content="$DESKTOP_SPACE_BEFORE${content}%{B$COLOR_URGENT}%{F$COLOR_BACKGROUND}%{U$COLOR_HIGHLIGHT}%{+${ul}}${bname}%{-${ul}}%{U-}%{F-}%{B-}$DESKTOP_SPACE_AFTER"
         ;;
     esac
     shift
