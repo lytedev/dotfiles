@@ -16,7 +16,7 @@ if [ -t 0 ]; then
 	# import our aliases
 	source "$DOTFILES_PATH/env/sh/aliases"
 
-	# import out global shell functions
+	# import our global shell functions
 	source "$DOTFILES_PATH/env/sh/shell_funcs"
 
 	# import our prompt
