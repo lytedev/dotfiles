@@ -59,7 +59,7 @@ let g:indent_guides_start_level = 0
 let g:indent_guides_auto_color = 1
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 Plug 'scrooloose/syntastic' " syntax checker
 Plug 'freitass/todo.txt-vim' " syntax checker
