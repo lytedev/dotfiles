@@ -11,11 +11,13 @@ rm -f "$HOME/.Xresources"
 rm -f "$HOME/.gtkrc-2.0"
 rm -f "$HOME/.config/gtk-3.0/settings.ini"
 rm -f "$HOME/.config/compton.conf"
+rm -f "$HOME/.xprofile"
 ln -s "$MODULE_PATH/xinitrc" "$HOME/.xinitrc"
 ln -s "$MODULE_PATH/xresources" "$HOME/.Xresources"
 ln -s "$MODULE_PATH/gtk3settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
 ln -s "$MODULE_PATH/gtk2rc" "$HOME/.gtkrc-2.0"
 ln -s "$MODULE_PATH/compton.conf" "$HOME/.config/compton.conf"
+ln -s "$MODULE_PATH/xprofile" "$HOME/.xprofile"
 
 sudo mkdir -p /root/.gtk-3.0/
 sudo mkdir -p /root/.config/gtk-3.0/

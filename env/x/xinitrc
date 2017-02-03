@@ -1,31 +1,16 @@
 #!/bin/sh
 
-if [ -f ~/.fehbg ]; then
-  ~/.fehbg &
-fi
-
-source "$DOTFILES_PATH/env/x/xloadresources"
-source "$DOTFILES_PATH/variables.bash"
-
-# keyrepeat settings
-xset r rate 250 80 &
-
-# no screen blanking
-xset -dpms &
-xset s noblank &
-xset s off &
-
-# start the bar if we want it
-if [ "$BAR_ON_XINIT" -eq 1 ]; then
-  "$BAR_PATH/start.bash" &
-fi
-
-if [ -d "/usr/lib/nvidia" ]; then
-	export LD_LIBRARY_PATH=/usr/lib/nvidia
+if [ -f "$HOME/.xprofile" ]; then
+	source "$HOME/.xprofile"
 fi
 
 if [ -f "$HOME/.xinitrc.env" ]; then
 	source "$HOME/.xinitrc.env"
+fi
+
+# start the bar if we want it
+if [ "$BAR_ON_XINIT" -eq 1 ]; then
+  "$BAR_PATH/start.bash" &
 fi
 
 # fire up wm
@@ -33,4 +18,5 @@ unclutter &
 compton &
 
 exec "$DOTFILES_PATH/env/wm/wmstart"
+# exec budgie-desktop
 
