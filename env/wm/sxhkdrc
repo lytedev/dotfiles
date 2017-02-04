@@ -170,7 +170,8 @@ super + space
 
 # lock the desktop
 super + ctrl + shift + l
-	$SHELL -c '$DOTFILES_PATH/env/x/screensaver/lock.sh'
+  dm-tool lock
+	# $SHELL -c '$DOTFILES_PATH/env/x/screensaver/lock.sh'
 
 # spawn gui file explorer
 super + e

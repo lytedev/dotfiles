@@ -1,10 +1,15 @@
 #!/usr/bin/env sh
 
-source "$DOTFILES_PATH/variables.bash"
+source "$HOME/.dotfiles/variables.bash"
 
 if [ -e "$BSPWM_STATE" ] ; then
 	bspc wm -l "$BSPWM_STATE"
 	rm "$BSPWM_STATE"
+fi
+
+# start the bar if we want it
+if [ "$BAR_ON_XINIT" -eq 1 ]; then
+  "$BAR_PATH/start.bash" &
 fi
 
 source "$DOTFILES_PATH/env/wm/bspwm_config"

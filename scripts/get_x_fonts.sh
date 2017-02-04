@@ -5,8 +5,8 @@ if [ -a "$HOME/.Xresources.env" ]; then
   XRES_FILE="$HOME/.Xresources.env"
 fi
 
-PRIMARY_FONT_XRESOURCES=$(grep "^#define primaryfont xft:" "$XRES_FILE" | grep -v "/\*" | head -n 1)
-export PRIMARY_FONT_FAMILY_WITH_SIZE=${PRIMARY_FONT_XRESOURCES:24}
+PRIMARY_FONT_XRESOURCES=$(grep "^\*font: xft:" "$XRES_FILE" | grep -v "/\*" | head -n 1)
+export PRIMARY_FONT_FAMILY_WITH_SIZE=${PRIMARY_FONT_XRESOURCES:11}
 export PRIMARY_FONT_FAMILY=$(echo $PRIMARY_FONT_FAMILY_WITH_SIZE | sed 's/\-.*//')
 export PRIMARY_FONT_SIZE=$(echo $PRIMARY_FONT_FAMILY_WITH_SIZE | sed 's/.*\-//')
 

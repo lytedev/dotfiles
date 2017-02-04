@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "xstartup: XINIT" >> "$HOME/.xstartup_log"
+
 if [ -f "$HOME/.xprofile" ]; then
 	source "$HOME/.xprofile"
 fi
@@ -18,5 +20,4 @@ unclutter &
 compton &
 
 exec "$DOTFILES_PATH/env/wm/wmstart"
-# exec budgie-desktop
 

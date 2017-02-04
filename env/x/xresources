@@ -17,10 +17,10 @@
 !#define primaryfont xft:Monaco-11
 !#define primaryletterspace -1
 
-*font: primaryfont
-*faceName: primaryfont
-*boldFont: primaryfont
-*letterSpace: primaryletterspace
+*font: xft:xos4 Terminus-10
+*faceName: xft:xos4 Terminus-10
+*boldFont: xft:xos4 Terminus-10
+*letterSpace: 0
 *scrollBar: false
 *cursorUnderline: true
 *cursorBlink: true
@@ -28,8 +28,6 @@
 *intensityStyles: true
 *utf8: 2
 *scaleHeight: 1
-
-emacs.font: emacspfont
 
 *depth: 32
 
