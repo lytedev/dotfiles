@@ -25,6 +25,7 @@ out in order of priority here:
   multiple machines with specific use-cases. For example, a shared laptop should
   allow for other non-technical users ease-of-access, while my workstation
   should focus on being quick, powerful, and highly usable for me alone.
+* The only dependencies should be `git` and `bash` for the very basics.
 
 ## Applications
 

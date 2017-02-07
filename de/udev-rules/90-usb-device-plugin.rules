@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="usb_device", RUN+="xset r rate 300 80"

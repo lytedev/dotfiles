@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi
+if [[ -z "$DOTFILES_PATH" ]]; then
+  export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+fi
+
+BSPWM_STATE_FILE="$HOME/.bspwm_state"
+
+if [ -e "$BSPWM_STATE" ] ; then
+	bspc wm -l "$BSPWM_STATE"
+	rm "$BSPWM_STATE"
+fi
+
+source "$DOTFILES_PATH/de/bspwm_config"
+
+if command -v urxvtd >/dev/null 2>&1; then
+  urxvtd &
+fi
+
+if command -v sxhkd >/dev/null 2>&1; then
+  sxhkd &
+fi
+
+bspc wm -o

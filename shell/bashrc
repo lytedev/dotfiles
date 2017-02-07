@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# bashrc is executed when a bash process starts
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+export NICE_HOME="$HOME/.."
+
+# load our terminal colors
+# TODO: update with new system
+BASE16_SHELL="$DOTFILES_PATH/common/colors/shell"
+[[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
+
+# stop parsing on a non-interactive shell
+[ -z "$PS1" ] && return
+
+# disable ctrl-s terminal freeze
+[[ $- == *i* ]] && stty -ixon
+
+# import our aliases
+source "$DOTFILES_PATH/shell/aliases"
+
+# import our global shell functions
+source "$DOTFILES_PATH/shell/shell_funcs"
+
+# import our prompt
+source "$DOTFILES_PATH/shell/prompt"
+
+# import our autocompletions
+source "$DOTFILES_PATH/shell/autocompletions"
+
+# load our key binds
+bind -f "$DOTFILES_PATH/shell/inputrc"
+
+# prevents binds or commands pulling from history from insta-sending, and
+# instead places them in the readline for editing
+shopt -s histverify
+
+# prevents some Java GUI apps from not working or rendering properly due to
+# using bspwm
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# load a per-device config last so anything can be overridden
+if [ -a "$HOME/.env_bashrc" ]; then
+  source "$HOME/.env_bashrc"
+fi
+
+# we assume the user uses "$HOME" to just store their mess of dotfiles and other
+# nonsense that clutters it up and that they have a preferred starting
+# directory where they keep the stuff they actually care about
+# we only do this if the user is opening a shell at $HOME
+if [ "$PWD" = "$HOME" ]; then
+  cd "$NICE_HOME"
+fi

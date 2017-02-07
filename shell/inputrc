@@ -1,0 +1,7 @@
+"\eOd": backward-word
+"\eOc": forward-word
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+"\C-d": delete-char

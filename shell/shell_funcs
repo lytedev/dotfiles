@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+calc() {
+  tp="$@"
+	python -c "print($tp)"
+}
+export -f calc
+
+stopbar() {
+	if [[ -f "$BAR_PID_FILE" ]]; then
+		kill -SIGTERM $(cat "$BAR_PID_FILE")
+		kill -SIGTERM $(cat "$BAR_PID_FILE"*.pid)
+		kill -SIGTERM $(cat "$BAR_PATH"/modules/*.pid)
+		rm -f "$BAR_PID_FILE"
+		rm "$BAR_PID_FILE"*.pid
+		rm "$BAR_PATH"/modules/*.pid
+	else
+		echo "Bar is not running."
+	fi
+}
+export -f stopbar
+
+# wm aliases
+startbar() {
+	if [[ -f "$BAR_PID_FILE" ]]; then
+		stopbar
+	fi
+	"$BAR_PATH/start.bash" &
+	BAR_PID=$!
+	echo "$BAR_PID" > "$BAR_PID_FILE"
+	kill -CONT "$BAR_PID"
+	# bg
+	# disown
+
+	# lower the bar's layer so fullscreen windows cover it
+	wid=$(xdo id -a "$BAR_WID")
+	tries=20
+	while [ -z "$wid" -a "$tries" -gt 0 ]; do
+		sleep 0.1
+		wid=$(xdo id -a "$BAR_WID")
+		tries=$((tries - 1))
+		echo "WID $wid"
+	done
+	[ -n "$wid" ] && xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+
+	fg
+}
+export -f startbar
+
+# save the current directory for later retrieval
+scwd() {
+	addon=""
+	if [[ -n $1 ]]; then
+		addon="-$1"
+	fi
+	echo "$PWD" > "$DOTFILES_PATH/env/sh/cwd$addon.tmp"
+}
+export -f scwd
+bind '"\C-s"':"\"scwd\C-m\""
+
+# go to the saved current directory
+gcwd() {
+	addon=""
+	if [[ -n $1 ]]; then
+		addon="-$1"
+	fi
+	cd "$(cat "$DOTFILES_PATH/env/sh/cwd$addon.tmp")"
+}
+export -f gcwd
+bind '"\C-g"':"\"gcwd\C-m\""
+
+# close a terminal with Ctrl-Shift-D (in theory)
+bind '"\C-D"':"\"\C-c\C-d\""
+
