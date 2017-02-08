@@ -31,27 +31,31 @@ fi
 # TODO: make sure we have an even number, here
 links=(
      # desktop environment files
-     "$dfp/de/bspwmrc"               "$XDG_CONFIG_HOME/bspwm/bspwmrc"
-     "$dfp/de/sxhkdrc"               "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
-     "$dfp/de/xresources"            "$HOME/.Xresources"
-     "$dfp/de/xinitrc"               "$HOME/.xinitrc"
-     "$dfp/de/xprofile"              "$HOME/.xprofile"
-     "$dfp/common/colors/xresources" "$HOME/.Xresources.colors"
+     "$dfp/de/bspwmrc"                  "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+     "$dfp/de/sxhkdrc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+     "$dfp/de/xresources"               "$HOME/.Xresources"
+     "$dfp/de/xinitrc"                  "$HOME/.xinitrc"
+     "$dfp/de/xprofile"                 "$HOME/.xprofile"
+     "$dfp/common/colors/xresources"    "$HOME/.Xresources.colors"
+
+     # bar files
+     "$dfp/de/bar/polybar-config"       "$XDG_CONFIG_HOME/polybar/example"
 
      # shell files
-     "$dfp/shell/bashrc"             "$HOME/.bashrc"
-     "$dfp/shell/bash_profile"       "$HOME/.bash_profile"
-     "$dfp/shell/tmux.conf"          "$HOME/.tmux.conf"
-     "$dfp/shell/tmux-layouts"       "$HOME/.tmux/layouts"
+     "$dfp/shell/bashrc"                "$HOME/.bashrc"
+     "$dfp/shell/bash_profile"          "$HOME/.bash_profile"
+     "$dfp/shell/tmux.conf"             "$HOME/.tmux.conf"
+     "$dfp/shell/tmux-layouts"          "$HOME/.tmux/layouts"
 
      # text editor files
-     "$dfp/text-editor/neovim"       "$XDG_CONFIG_HOME/nvim"
-     "$dfp/common/colors/vim"        "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
+     "$dfp/text-editor/neovim/"         "$XDG_CONFIG_HOME/nvim"
+     "$dfp/text-editor/neovim/"         "$HOME/.vim"
+     "$dfp/text-editor/neovim/init.vim" "$HOME/.vimrc"
+     "$dfp/common/colors/vim"           "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 )
 
 source=""
 for i in "${links[@]}"; do
-  # ls -la --color=auto "$i"
   if [ -n "$source" ]; then
     if [ -L "$i" ]; then # if symlink exists, delete it
       rm -rf "$i"
@@ -59,12 +63,18 @@ for i in "${links[@]}"; do
     if [ -f "$i" ]; then # if file exists, delete it
       rm -rf "$i"
     fi
-    # NOTE: maybe warn user again?
     if [ -d "$i" ]; then # if directory exists, delete it
       rm -rf "$i"
     fi
+    # check if the directory that will contain the link exists
+    DIR_TO_LINK=$(dirname "$i")
+    if [ -d "$DIR_TO_LINK" ]; then
+      :
+    else
+      mkdir -p "$DIR_TO_LINK"
+    fi
     ln -s "$source" "$i"
-    echo "Linked $source to $i."
+    echo "Linked $(basename $source) to $i."
     source=""
   else
     source="$i"

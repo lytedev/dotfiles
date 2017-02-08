@@ -1,8 +1,15 @@
-" initial plugin manager
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall
-endif
+" initial plugin manager installation
+if has('nvim')
+	if empty(glob('~/.config/nvim/autoload/plug.vim'))
+		silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		autocmd VimEnter * PlugInstall
+	endif
+else
+	if empty(glob('~/.vim/autoload/plug.vim'))
+		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		autocmd VimEnter * PlugInstall
+	endif
+end
 
 " tell vim to reload the init.vim file when it saves it
 autocmd! BufWritePost init.vim source %
@@ -20,7 +27,12 @@ function! DoRemote(arg)
 endfunction
 
 " Initialize plugin manager
-call plug#begin('~/.config/nvim/bundle')
+if has('nvim')
+	call plug#begin('~/.config/nvim/bundle')
+else
+	call plug#begin('~/.vim/bundle')
+endif
+
 
 " let plugin manager manage itself
 Plug 'junegunn/vim-plug'
@@ -33,7 +45,7 @@ Plug 'junegunn/vim-plug'
 if exists('asmanviewer')
 	let g:prosession_dir = '/dev/null'
 else
-  Plug 'tpope/vim-obsession' " session ease-of-use
+	Plug 'tpope/vim-obsession' " session ease-of-use
 	Plug 'dhruvasagar/vim-prosession' " more session ease-of-use
 	let g:prosession_dir = '~/.config/nvim/session/'
 endif
@@ -131,11 +143,11 @@ autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
+set noexpandtab
 set autoindent smartindent
 set list
 set nostartofline
-set listchars=trail:·,tab:\ \ 
+set listchars=trail:·,tab:\__
 
 " look and feel
 
@@ -203,11 +215,11 @@ endfunction
 " a toggle-able minimalistic "distraction-free" text editing mode
 let s:distractionFreeMode = 0
 fun! DistractionFreeModeFunc()
-	AirlineToggle	
+	AirlineToggle
 	VimroomToggle
 	if s:distractionFreeMode == 0
 		let s:distractionFreeMode = 1
-    set nocursorline
+		set nocursorline
 		set laststatus=0
 		set noshowmode
 		set noruler
@@ -216,22 +228,22 @@ fun! DistractionFreeModeFunc()
 		hi NonText ctermfg=black guifg=black
 	else
 		let s:distractionFreeMode = 0
-    set cursorline
+		set cursorline
 		set showmode
 		set ruler
 		set laststatus=2
 		set showcmd
 		set number
 		hi NonText ctermfg=gray guifg=gray
-    colorscheme base16-donokai
+		colorscheme base16-donokai
 	endif
 endfunction
 
 " prevents normal window navigation and closing while in DistractionFreeMode
 fun! CheckCloseDistractionFreeMode()
-  if s:distractionFreeMode == 1
-    call DistractionFreeModeFunc()
-  endif
+	if s:distractionFreeMode == 1
+		call DistractionFreeModeFunc()
+	endif
 endfunction
 
 " run the check function every time we leave a window
@@ -245,17 +257,22 @@ nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
 :command! ShowSpaceIndents call ShowSpaceIndentation()
 :command! DistractionFreeMode call DistractionFreeModeFunc()
 
+let $vimdir = $HOME.'/.vim'
+if has('nvim')
+	let $vimdir = $HOME.'/.config/nvim'
+endif
+
 set hidden " allows buffer switching without saving
 set shortmess=I
 set history=1000
 set undofile
-set undodir=$HOME/.config/nvim/undo
+set undodir=$vimdir/undo
 set undolevels=1000
 set undoreload=10000
 
-set backupdir=$HOME/.config/nvim/backup
-set directory=$HOME/.config/nvim/backup
-set spellfile=$HOME/.config/nvim/spell/en.utf-8.add
+set backupdir=$vimdir/backup
+set directory=$vimdir/backup
+set spellfile=$vimdir/spell/en.utf-8.add
 
 set ignorecase
 set smartcase
@@ -294,18 +311,20 @@ endif
 " no empty buffer on startup
 autocmd VimEnter * nested if bufname('')=='' && line('$') == 1 && col('$')==1 && !&modified | bd % | endif
 
-function! TerminalSplit()
-	let current_file = @%
-	echo current_file
-	if match(current_file, "term://*") != -1
-		split
-		terminal
-	else
-		vsplit
-		vertical resize 80
-		terminal
-	endif
-endfunction
+if has('nvim')
+	function! TerminalSplit()
+		let current_file = @%
+		echo current_file
+		if match(current_file, "term://*") != -1
+			split
+			terminal
+		else
+			vsplit
+			vertical resize 80
+			terminal
+		endif
+	endfunction
+endif
 
 " bindings
 
@@ -319,25 +338,27 @@ command! Q q
 " best leader
 let mapleader = "\<Space>"
 
-" terminal mappings
-" open a terminal split at 80 columns
-nnoremap <C-t> :call TerminalSplit()<CR>
-tnoremap <C-t> <C-\><C-n>:call TerminalSplit()<CR>
+if has('nvim')
+	" terminal mappings
+	" open a terminal split at 80 columns
+	nnoremap <C-t> :call TerminalSplit()<CR>
+	tnoremap <C-t> <C-\><C-n>:call TerminalSplit()<CR>
 
-" close the terminal
-tnoremap <C-w> <C-\><C-n>:q!<CR>
+	" close the terminal
+	tnoremap <C-w> <C-\><C-n>:q!<CR>
 
-" moving between terminal splits
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
+	" moving between terminal splits
+	tnoremap <C-h> <C-\><C-n><C-w>h
+	tnoremap <C-j> <C-\><C-n><C-w>j
+	tnoremap <C-k> <C-\><C-n><C-w>k
+	tnoremap <C-l> <C-\><C-n><C-w>l
+endif
 
 " enter insert mode when entering a terminal buffer
 autocmd BufWinEnter,WinEnter term://* startinsert
 
 " change buffers with leader,tab
-nnoremap <leader><Tab>   :bnext<CR>
+nnoremap <leader><Tab>	 :bnext<CR>
 nnoremap <leader><S-Tab> :bprevious<CR>
 
 " don't kill vim
