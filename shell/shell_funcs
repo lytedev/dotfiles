@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
 calc() {
-  tp="$@"
+	tp="$@"
 	python -c "print($tp)"
 }
 export -f calc
 
 stopbar() {
+	:
 }
 export -f stopbar
 
 # wm aliases
 startbar() {
+	:
 }
 export -f startbar
 
@@ -36,7 +38,3 @@ gcwd() {
 }
 export -f gcwd
 bind '"\C-g"':"\"gcwd\C-m\""
-
-# close a terminal with Ctrl-Shift-D (in theory)
-bind '"\C-D"':"\"\C-c\C-d\""
-

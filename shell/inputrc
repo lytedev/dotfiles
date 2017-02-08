@@ -5,3 +5,5 @@
 "\C-a": beginning-of-line
 "\C-e": end-of-line
 "\C-d": delete-char
+"\C-D": "\C-c\C-d"
+
