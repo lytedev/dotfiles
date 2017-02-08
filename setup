@@ -39,7 +39,7 @@ links=(
      "$dfp/common/colors/xresources"    "$HOME/.Xresources.colors"
 
      # bar files
-     "$dfp/de/bar/polybar-config"       "$XDG_CONFIG_HOME/polybar/example"
+     "$dfp/de/bar/polybar-config"       "$XDG_CONFIG_HOME/polybar/config"
 
      # shell files
      "$dfp/shell/bashrc"                "$HOME/.bashrc"
