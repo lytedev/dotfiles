@@ -3,6 +3,9 @@
 # as far as I can tell, this file is only executed when you run startx from the
 # TTY
 
+echo '' > "$HOME/.xstartup_log"
+echo "xinitrc" >> "$HOME/.xstartup_log"
+
 # load our xprofile
 if [ -f "$HOME/.xprofile" ]; then
 	source "$HOME/.xprofile"
@@ -27,4 +30,4 @@ if command -v compton >/dev/null 2>&1; then
 fi
 
 # fire up wm
-exec "$DOTFILES_PATH/env/wm/wmstart"
+exec "$DOTFILES_PATH/de/wmstart"

@@ -17,6 +17,12 @@ BASE16_SHELL="$DOTFILES_PATH/common/colors/shell"
 # disable ctrl-s terminal freeze
 [[ $- == *i* ]] && stty -ixon
 
+# import the fonts we're using so we can pass them to other applications
+source "$DOTFILES_PATH/common/scripts/get-fonts.bash"
+
+# import the functions that retrieve our theme colors
+source "$DOTFILES_PATH/common/scripts/get-colors.bash"
+
 # import our aliases
 source "$DOTFILES_PATH/shell/aliases"
 

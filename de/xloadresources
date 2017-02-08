@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
+echo "xloadresources" >> "$HOME/.xstartup_log"
+
+sysresources="/etc/X11/xinit/.Xresources"
+sysmodmap="/etc/X11/xinit/.Xmodmap"
 userresources="$HOME/.Xresources"
 usercolors="$HOME/.Xresources.colors"
 userenv="$HOME/.Xresources.env"
 usermodmap="$HOME/.Xmodmap"
-sysresources="/etc/X11/xinit/.Xresources"
-sysmodmap="/etc/X11/xinit/.Xmodmap"
-
-echo "xstartup: resources $userresources $userenv" >> "$HOME/.xstartup_log"
 
 if [ -f "$sysresources" ]; then
   xrdb -merge "$sysresources" >/dev/null 2>&1

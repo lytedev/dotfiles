@@ -7,12 +7,10 @@ if [[ -z "$DOTFILES_PATH" ]]; then
   export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 fi
 
-if [ -f "$DOTFILES_PATH/env/x/xloadresources" ]; then
-  source "$DOTFILES_PATH/env/x/xloadresources"
-fi
+echo "xprofile ($DOTFILES_PATH)" >> "$HOME/.xstartup_log"
 
-if [ -f "$DOTFILES_PATH/variables.bash" ]; then
-  source "$DOTFILES_PATH/variables.bash"
+if [ -f "$DOTFILES_PATH/de/xloadresources" ]; then
+  source "$DOTFILES_PATH/de/xloadresources"
 fi
 
 # keyrepeat settings

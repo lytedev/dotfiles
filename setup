@@ -28,16 +28,25 @@ else
     fi
 fi
 
+# TODO: make sure we have an even number, here
 links=(
-  # desktop environment files
-  "$dfp/de/bspwmrc" "$XDG_CONFIG_HOME/bspwm/bspwmrc"
-  "$dfp/de/sxhkdrc" "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+     # desktop environment files
+     "$dfp/de/bspwmrc"               "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+     "$dfp/de/sxhkdrc"               "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+     "$dfp/de/xresources"            "$HOME/.Xresources"
+     "$dfp/de/xinitrc"               "$HOME/.xinitrc"
+     "$dfp/de/xprofile"              "$HOME/.xprofile"
+     "$dfp/common/colors/xresources" "$HOME/.Xresources.colors"
 
-  # shell files
-  "$dfp/shell/bashrc" "$HOME/.bashrc"
-  "$dfp/shell/bash_profile" "$HOME/.bash_profile"
-  "$dfp/shell/tmux.conf" "$HOME/.tmux.conf"
-  "$dfp/shell/tmux-layouts" "$HOME/.tmux/layouts"
+     # shell files
+     "$dfp/shell/bashrc"             "$HOME/.bashrc"
+     "$dfp/shell/bash_profile"       "$HOME/.bash_profile"
+     "$dfp/shell/tmux.conf"          "$HOME/.tmux.conf"
+     "$dfp/shell/tmux-layouts"       "$HOME/.tmux/layouts"
+
+     # text editor files
+     "$dfp/text-editor/neovim"       "$XDG_CONFIG_HOME/nvim"
+     "$dfp/common/colors/vim"        "$XDG_CONFIG_HOME/nvim/colors/current.vim"
 )
 
 source=""

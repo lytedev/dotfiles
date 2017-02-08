@@ -57,6 +57,9 @@ alias gac="git add -A && git commit -m"
 # browser aliases
 alias qute="qutebrowser --backend webengine"
 
+# TODO: use chrome-beta, then chrome, then chromium
+alias chrome="google-chrome-beta"
+
 # networking aliases
 alias p="ping 8.8.8.8"
 
