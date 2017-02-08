@@ -46,7 +46,7 @@ links=(
 
      # text editor files
      "$dfp/text-editor/neovim"       "$XDG_CONFIG_HOME/nvim"
-     "$dfp/common/colors/vim"        "$XDG_CONFIG_HOME/nvim/colors/current.vim"
+     "$dfp/common/colors/vim"        "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 )
 
 source=""

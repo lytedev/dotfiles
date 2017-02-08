@@ -193,13 +193,14 @@ endif
 
 let base16colorspace=256
 set background=dark
-colorscheme current
+colorscheme base16-donokai
 
 fun! ShowSpaceIndentation()
 	hi WhiteSpaces ctermfg=black ctermbg=8
 	match WhiteSpaces /^ \+/
 endfunction
 
+" a toggle-able minimalistic "distraction-free" text editing mode
 let s:distractionFreeMode = 0
 fun! DistractionFreeModeFunc()
 	AirlineToggle	
@@ -222,8 +223,21 @@ fun! DistractionFreeModeFunc()
 		set showcmd
 		set number
 		hi NonText ctermfg=gray guifg=gray
+    colorscheme base16-donokai
 	endif
 endfunction
+
+" prevents normal window navigation and closing while in DistractionFreeMode
+fun! CheckCloseDistractionFreeMode()
+  if s:distractionFreeMode == 1
+    call DistractionFreeModeFunc()
+  endif
+endfunction
+
+" run the check function every time we leave a window
+if has('autocmd')
+	autocmd WinLeave * call CheckCloseDistractionFreeMode()
+endif
 
 nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
 
