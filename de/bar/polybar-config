@@ -10,12 +10,11 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #111
-background-alt = #{xrdb:color5:#333}
+background-alt = ${xrdb:color2:#333}
 foreground = ${xrdb:color7:#222}
-; foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color3:#222}
 alert = #bd2c40
 
 [bar/lytedev]
@@ -242,11 +241,11 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date =
-date-alt = "%Y-%m-%d"
+date = "%Y-%m-%d"
+date-alt =
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %H:%M:%S
+time-alt = %H:%M
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
