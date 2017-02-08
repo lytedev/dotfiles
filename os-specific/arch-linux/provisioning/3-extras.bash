@@ -15,4 +15,6 @@ pacaur -S \
   audacity
 	reptyr \
   cmake python2 python2-pip \
+  lightdm \
+  polybar-git \
   --noconfirm --noedit
