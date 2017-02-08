@@ -52,6 +52,9 @@ links=(
      "$dfp/text-editor/neovim/"         "$HOME/.vim"
      "$dfp/text-editor/neovim/init.vim" "$HOME/.vimrc"
      "$dfp/common/colors/vim"           "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
+
+     # irc files
+     "$dfp/misc/irssi/"                 "$HOME/.irssi"
 )
 
 source=""

@@ -10,22 +10,23 @@ sudo pacman -S \
 	openssh \
 	openssl \
 	ruby \
-  python python-pip \
+	python python-pip \
 	pass \
 	qutebrowser \
 	bash-completion \
 	fzf \
 	rsync \
 	pavucontrol \
-  neovim \
+	neovim \
 	vim \
-  unzip \
-  xsel \
-  xclip \
-  tmux \
-  rxvt-unicode \
-  xorg-xinit xorg-server xorg-xrdb \
-  xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool feh \
+	unzip \
+	xsel \
+	xclip \
+	tmux \
+	rxvt-unicode \
+	xorg-xinit xorg-server xorg-xrdb \
+	xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool feh \
+	irssi \
 	--noconfirm
 
 pacaur -S \
@@ -33,8 +34,8 @@ pacaur -S \
 	samba \
 	pulseaudio-ctl \
 	alsa-plugins \
-  unclutter-xfixes-git gtk-theme-arc gtk-engine-murrine xorg-server-devel \
-  bspwm-git sxhkd-git xdo-git \
+	unclutter-xfixes-git gtk-theme-arc gtk-engine-murrine xorg-server-devel \
+	bspwm-git sxhkd-git xdo-git \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
