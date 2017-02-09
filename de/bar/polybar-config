@@ -8,8 +8,7 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #111
+background = ${xrdb:color0:#111}
 background-alt = ${xrdb:color2:#333}
 foreground = ${xrdb:color7:#222}
 foreground-alt = #555
@@ -18,13 +17,14 @@ secondary = ${xrdb:color3:#222}
 alert = #bd2c40
 
 [bar/lytedev]
-;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 24
-;offset-x = 1%
-;offset-y = 1%
-radius = 6.0
+monitor = ${env:BAR_MONITOR:HDMI-1}
+width = ${env:BAR_WIDTH:HDMI-1}
+height = ${env:BAR_HEIGHT:30}
+offset-x = ${env:POS_X:30}
+offset-y = ${env:POS_Y:30}
+radius = 0.0
 fixed-center = false
+bottom = ${env:BAR_BOTTOM:true}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -32,16 +32,16 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = artwiz lemon:pixelsize=10;1
+font-0 = ${env:BAR_FONT_DECLARATION}
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
@@ -69,29 +69,29 @@ tray-padding = 2
 type = internal/xwindow
 label = %title:0:30:...%
 
-" [module/xkeyboard]
-" type = internal/xkeyboard
-" blacklist-0 = num lock
-" 
-" format-prefix = ""
-" format-prefix-foreground = ${colors.foreground-alt}
-" format-prefix-underline = ${colors.secondary}
-" 
-" label-layout = %layout%
-" label-layout-underline = ${colors.secondary}
-" 
-" label-indicator-padding = 2
-" label-indicator-margin = 1
-" label-indicator-background = ${colors.secondary}
-" label-indicator-underline = ${colors.secondary}
-" 
+; [module/xkeyboard]
+; type = internal/xkeyboard
+; blacklist-0 = num lock
+;
+; format-prefix = ""
+; format-prefix-foreground = ${colors.foreground-alt}
+; format-prefix-underline = ${colors.secondary}
+;
+; label-layout = %layout%
+; label-layout-underline = ${colors.secondary}
+;
+; label-indicator-padding = 2
+; label-indicator-margin = 1
+; label-indicator-background = ${colors.secondary}
+; label-indicator-underline = ${colors.secondary}
+
 [module/filesystem]
 type = internal/fs
 interval = 25
 
 mount-0 = /home
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted = %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -99,8 +99,8 @@ label-unmounted-foreground = ${colors.foreground-alt}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-background = ${xrdb:color1}
+; label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -114,39 +114,39 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %index%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+; [module/i3]
+; type = internal/i3
+; format = <label-state> <label-mode>
+; index-sort = true
+; wrapping-scroll = false
+;
+; ; Only show workspaces on the same output as the bar
+; ;pin-workspaces = true
+;
+; label-mode-padding = 2
+; label-mode-foreground = #000
+; label-mode-background = ${colors.primary}
+;
+; ; focused = Active workspace on focused monitor
+; label-focused = %index%
+; label-focused-background = ${module/bspwm.label-focused-background}
+; label-focused-underline = ${module/bspwm.label-focused-underline}
+; label-focused-padding = ${module/bspwm.label-focused-padding}
+;
+; ; unfocused = Inactive workspace on any monitor
+; label-unfocused = %index%
+; label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+;
+; ; visible = Active workspace on unfocused monitor
+; label-visible = %index%
+; label-visible-background = ${self.label-focused-background}
+; label-visible-underline = ${self.label-focused-underline}
+; label-visible-padding = ${self.label-focused-padding}
+;
+; ; urgent = Workspace with urgency hint set
+; label-urgent = %index%
+; label-urgent-background = ${module/bspwm.label-urgent-background}
+; label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/mpd]
 type = internal/mpd
@@ -188,7 +188,7 @@ type = internal/cpu
 interval = 2
 format-prefix = "cpu "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+; format-underline = #f90000
 label = %percentage%%
 
 [module/memory]
@@ -196,7 +196,7 @@ type = internal/memory
 interval = 2
 format-prefix = "mem "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+; format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/wlan]
@@ -205,7 +205,7 @@ interface =
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+; format-connected-underline = #9f78e1
 label-connected = %essid%
 
 format-disconnected =
@@ -226,7 +226,7 @@ type = internal/network
 interface =
 interval = 3.0
 
-format-connected-underline = #55aa55
+; format-connected-underline = #55aa55
 format-connected-prefix = "net "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
@@ -249,7 +249,7 @@ time-alt = %H:%M
 
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+; format-underline = #0a6cf5
 
 label = %date% %time%
 
@@ -260,18 +260,18 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = ""
+format-muted-prefix =
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-width = 5
+bar-volume-foreground-0 = #888888
+bar-volume-foreground-1 = #888888
+bar-volume-foreground-2 = #888888
+bar-volume-foreground-3 = #888888
+bar-volume-foreground-4 = #888888
+bar-volume-foreground-5 = #888888
+bar-volume-foreground-6 = #888888
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -288,14 +288,14 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+; format-charging-underline = #ffb52a
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+; format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = "bat "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+; format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 =
 ramp-capacity-1 =
@@ -314,9 +314,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp><label>
-format-underline = #f50a4d
+; format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+; format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%
@@ -362,7 +362,5 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
-
-; vim:ft=dosini
+margin-top = 25
+margin-bottom = 25

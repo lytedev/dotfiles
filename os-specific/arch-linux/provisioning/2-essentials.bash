@@ -36,6 +36,7 @@ pacaur -S \
 	alsa-plugins \
 	unclutter-xfixes-git gtk-theme-arc gtk-engine-murrine xorg-server-devel \
 	bspwm-git sxhkd-git xdo-git \
+	siji-git terminus-font ttf-monaco gohufont artwiz-fonts phallus-fonts-git \
 	--noconfirm --noedit
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

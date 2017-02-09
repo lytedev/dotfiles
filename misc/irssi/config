@@ -1,14 +1,21 @@
 servers = (
   {
     address = "lytedev.io";
+    # password = "lytedev/nixers:${IRC_PASS}";
     chatnet = "lytedev";
     port = "6667";
     use_ssl = "yes";
     ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
-chatnets = { lytedev = { type = "IRC"; }; };
+chatnets = {
+  lytedev = {
+    type = "IRC";
+    autosendcmd = "/quote pass lytedev:${IRC_PASS}";
+  };
+};
 
 channels = ( );
 
@@ -170,10 +177,16 @@ aliases = {
 };
 
 settings = {
-  core = { 
-    real_name = "Unknown";
+  core = {
+    real_name = "daniel";
     user_name = "lytedev";
     nick = "lytedev";
+    use_proxy = "yes";
+    proxy_address = "lytedev.io";
+    proxy_port = "6667";
+    # proxy_password = "${IRC_PASS}";
+    proxy_string = "";
+    proxy_string_after = "conn %s %d";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "lytedev"; };
@@ -205,12 +218,12 @@ statusbar = {
     prompt = "{prompt $[.15]itemname}";
     prompt_empty = "{prompt $winname}";
     topic = " $topic";
-    topic_empty = " Irssi v$J - http://www.irssi.org";
+    topic_empty = " Empty Topic";
 
     # all of these treated specially, they're only displayed when needed
     lag = "{sb $0-}";
     act = "{sb $0-}";
-    more = "more... ";
+    more = "... ";
   };
 
   # there's two type of statusbars. root statusbars are either at the top

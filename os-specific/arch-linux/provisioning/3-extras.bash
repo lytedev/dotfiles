@@ -7,7 +7,6 @@ pacaur -S \
 	thunar thunar-volman gvfs \
 	thunar-shares-plugin \
 	gvfs-smb \
-	terminus-font ttf-monaco gohufont artwiz-fonts phallus-fonts-git \
 	ttf-opensans ttf-dejavu \
 	avr-libc avr-gcc dfu-programmer dfu-util \
 	xorg-xbacklight \

@@ -55,6 +55,7 @@ links=(
 
      # irc files
      "$dfp/misc/irssi/"                 "$HOME/.irssi"
+     "$dfp/misc/weechat/"                 "$HOME/.weechat"
 )
 
 source=""
