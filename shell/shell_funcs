@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+calc() {
+	tp="$@"
+	python -c "print($tp)"
+}
+export -f calc
+
+stopbar() {
+	# TODO: properly kill the polybar
+	killall -q polybar
+	while pgrep -x polybar >/dev/null; do sleep 1; done
+}
+export -f stopbar
+
+# wm aliases
+startbar() {
+	bash "$DOTFILES_PATH/de/bar/bar.bash" &
+	bg
+	disown
+}
+export -f startbar
+
+# save the current directory for later retrieval
+scwd() {
+	addon=""
+	if [[ -n $1 ]]; then
+		addon="-$1"
+	fi
+	echo "$PWD" > "$DOTFILES_PATH/.cwd$addon.tmp"
+}
+export -f scwd
+bind '"\C-s"':"\"scwd\C-m\""
+
+# go to the saved current directory
+gcwd() {
+	addon=""
+	if [[ -n $1 ]]; then
+		addon="-$1"
+	fi
+	cd "$(cat "$DOTFILES_PATH/.cwd$addon.tmp")"
+}
+export -f gcwd
+bind '"\C-g"':"\"gcwd\C-m\""

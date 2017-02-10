@@ -1,0 +1,23 @@
+*font: xft:artwiz lemon-10
+*faceName: xft:artwiz lemon-10
+*boldFont: xft:artwiz lemon-10
+*letterSpace: 0
+*scrollBar: false
+*cursorUnderline: true
+*cursorBlink: true
+*termName: rxvt-unicode
+*intensityStyles: true
+*utf8: 2
+*scaleHeight: 1
+
+*depth: 32
+
+URxvt.internalBorder: 24
+
+Xcursor.theme: human
+
+URxvt.perl-ext-common: default,matcher,keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt*iso14755: False

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# autocompletions
+complete -cf sudo
+complete -cf man

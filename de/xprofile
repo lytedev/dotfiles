@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi
+if [[ -z "$DOTFILES_PATH" ]]; then
+  export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+fi
+
+echo "xprofile ($DOTFILES_PATH)" >> "$HOME/.xstartup_log"
+
+if [ -f "$DOTFILES_PATH/de/xloadresources" ]; then
+  source "$DOTFILES_PATH/de/xloadresources"
+fi
+
+# keyrepeat settings
+xset r rate 250 80 &
+
+# no screen blanking
+# xset -dpms &
+# xset s noblank &
+# xset s off &
+
+if [ -d "/usr/lib/nvidia" ]; then
+	export LD_LIBRARY_PATH=/usr/lib/nvidia
+fi
+
+if [ -f "$HOME/.env_xprofile" ]; then
+	source "$HOME/.env_xprofile"
+fi

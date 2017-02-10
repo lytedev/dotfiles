@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+
+# set our needed variables if we don't already have them
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi
+if [[ -z "$DOTFILES_PATH" ]]; then
+  export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+fi
+
+# filesystem aliases
+alias lx='ls -lXB' # order by filetype
+alias lk='ls -lSr' # order by filesize reversed
+alias lt='ls -ltr' # order by file modified time
+alias lc='ls -ltcr' # order by filectime
+alias lu='ls -ltur' # order by file access time
+alias ls='ls -h --color --group-directories-first' # flat view w/ directories first
+alias l='ls -h --color --group-directories-first' # same as above
+alias ll='ls -lv --group-directories-first' # non-flat view
+alias lm='ll | more'
+alias lr='ll -R' # please don't - why is this even here...?
+alias la='ll -A' # show all
+alias tree='tree -Csuh'
+
+# navigation aliases
+alias c="cd $HOME/.."
+alias cd..="cd .."
+alias cdd="cd \"$DOTFILES_PATH\"" # go to dotfiles
+alias cdc="cd \"$XDG_CONFIG_HOME\"" # go to 
+
+# quick parent-directory aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+alias .......="cd ../../../../../.."
+alias ........="cd ../../../../../../.."
+alias .........="cd ../../../../../../../.."
+
+# tmux aliases
+# TODO: see if this can be worked around?
+alias tmux='TERM=screen-256color-bce tmux' # syntax higlighting for vim in tmux
+alias tmnew="tmux new -s"
+alias tmls="tmux list-sessions"
+alias tmatt="tmux attach -t"
+alias tu="tmux attach -t utils || tmux new -s utils"
+alias tdf="tmux attach -t df || tmux new -s df -c \"$DOTFILES_PATH\""
+
+# git aliases
+alias gs="git status"
+alias gl="git log"
+alias gpl="git pull"
+alias gp="git push"
+alias gac="git add -A && git commit -m"
+
+# browser aliases
+alias qute="qutebrowser --backend webengine"
+
+# TODO: use chrome-beta, then chrome, then chromium
+alias chrome="google-chrome-beta"
+
+# networking aliases
+alias p="ping 8.8.8.8"
+
+# start netctl using any available profile on the first wireless network
+# interface
+# TODO: flesh this out into a function that lets the user know what's going on.
+alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
+
+# misc aliases
+alias setbg="feh --bg-fill"
+alias C="clear"
+alias keyrepeat="xset r rate 250 80"
+
+# games aliases
+# this sometimes fixes steam dynamic library issues?
+# alias steam="LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
+
+# text editor aliases
+
+# man pages with vim
+vman() {
+  # our vim config is setup to not auto-load sessions if we set the
+  # `asmanviewer` variable, so launch vim that way when using vim as our man
+  # page viewer
+	if command -v nvim >/dev/null 2>&1; then
+		nvim --cmd "let asmanviewer=1" -c "SuperMan $*"
+	else
+		vim --cmd "let asmanviewer=1" -c "SuperMan $*"
+	fi
+
+  # proper error handling
+	if [ "$?" != "0" ]; then
+		echo "No manual entry for $*"
+	fi
+}
+# override the man commands
+alias _man="\\man"
+alias man="vman"
+
+# set our EDITOR to neovim if we've got it
+export EDITOR="vim"
+if command -v nvim >/dev/null 2>&1; then
+	alias vim="nvim"
+	alias ovim="\\vim"
+	export EDITOR="nvim"
+fi
+
+# arch aliases
+# TODO: load os-specific aliases based on running OS
+alias archupdate="pacaur -Syyu --noconfirm --noedit"
