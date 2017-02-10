@@ -166,7 +166,7 @@ super + shift + Return
 
 # spawn the app launcher
 super + space
-	rofi -show run -font "$PRIMARY_FONT_FAMILY $PRIMARY_FONT_SIZE" -lines 16 -width 10 -padding 8 -fuzzy -bw "$BORDER_WIDTH" -color-enabled -color-window "#$(get_color 00)","#$(get_color 0D)","#$(get_color 0D)","#$(get_color 00)" -color-normal "#$(get_color 00)","#$(get_color 06)","#$(get_color 00)","#$(get_color 0D)","#$(get_color 00)" -separator-style none -hide-scrollbar
+	rofi -show run -font "$LAUNCHER_FONT $LAUNCHER_FONT_SIZE" -lines 16 -width 10 -padding 8 -fuzzy -bw "$BORDER_WIDTH" -color-enabled -color-window "$BACKGROUND_COLOR","$HIGHLIGHT_COLOR","$HIGHLIGHT_COLOR","$BACKGROUND_COLOR" -color-normal "$BACKGROUND_COLOR","$FOREGROUND_COLOR","$BACKGROUND_COLOR","$HIGHLIGHT_COLOR","$FOREGROUND_COLOR" -separator-style none -hide-scrollbar
 
 # lock the desktop
 super + ctrl + shift + l

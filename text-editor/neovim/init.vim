@@ -147,7 +147,8 @@ set noexpandtab
 set autoindent smartindent
 set list
 set nostartofline
-set listchars=trail:·,tab:\__
+set listchars=trail:·,tab:\ \ ,trail:~
+" set listchars=eol:\ ,tab:>-,trail:~,extends:>,precedes:<,space:·
 
 " look and feel
 

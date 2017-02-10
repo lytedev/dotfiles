@@ -69,5 +69,5 @@ Here are some bullet points on my workflow as a Web Developer:
 
 ## To Do and Improvements
 
+* Add a file containing common variables in `common/`.
 * Add more content to the other sections?
-* Start refactoring old dotfiles and scripts.

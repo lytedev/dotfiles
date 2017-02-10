@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BORDER_WIDTH=0
+BORDER_WIDTH=0 # change in bspwmrc
 WINDOW_GAP=25
 DESKTOPS=(dev web misc env play out main srv daem util)
 

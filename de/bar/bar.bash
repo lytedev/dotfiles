@@ -8,8 +8,8 @@ export BAR_SIDE_MARGIN=200
 export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\d*' | head -n 1)
 MONITOR_WIDTH=$(xrandr | grep DVI-I-2 | grep -Po ' \d+' | head -n 1)
 export BAR_WIDTH=$((MONITOR_WIDTH - GAP - GAP - BAR_SIDE_MARGIN - BAR_SIDE_MARGIN))
-export BAR_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\(.*\)\-.*$/\1/p')
-export BAR_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p')
+export BAR_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\(.*\)\-.*$/\1/p' | head -n 1)
+export BAR_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p' | head -n 1)
 export POS_X=$((GAP + BAR_SIDE_MARGIN))
 
 export BAR_FONT_DECLARATION="${BAR_FONT}:pixelsize=${BAR_FONT_SIZE};1"

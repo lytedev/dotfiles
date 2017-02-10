@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
+BORDER_WIDTH=0 # change in bspwm_config, here for launcher
+START_BAR=1
+BAR_COMMAND="$DOTFILES_PATH/de/bar/bar.bash"
+
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
-  export XDG_CONFIG_HOME="$HOME/.config"
+	export XDG_CONFIG_HOME="$HOME/.config"
 fi
 if [[ -z "$DOTFILES_PATH" ]]; then
-  export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+	export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 fi
 
 BSPWM_STATE_FILE="$HOME/.bspwm_state"
@@ -17,11 +21,21 @@ fi
 source "$DOTFILES_PATH/de/bspwm_config"
 
 if command -v urxvtd >/dev/null 2>&1; then
-  urxvtd &
+	urxvtd &
 fi
 
 if command -v sxhkd >/dev/null 2>&1; then
-  sxhkd &
+	export LAUNCHER_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\(.*\)\-.*$/\1/p' | head -n 1)
+	export LAUNCHER_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p' | head -n 1)
+	export HIGHLIGHT_COLOR=$(xrdb -query | sed -ne 's/.*color1*:\s*\(.*\)$/\1/p' | head -n 1)
+	export BACKGROUND_COLOR=$(xrdb -query | sed -ne 's/.*background:\s*\(.*\)$/\1/p' | head -n 1)
+	export FOREGROUND_COLOR=$(xrdb -query | sed -ne 's/.*foreground:\s*\(.*\)$/\1/p' | head -n 1)
+	# export HIGHLIGHT_COLOR=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p' | head -n 1)
+	sxhkd &
+fi
+
+if [[ $START_BAR -eq 1 ]]; then
+	${BAR_COMMAND} &
 fi
 
 bspc wm -o
