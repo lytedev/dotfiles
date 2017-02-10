@@ -6,6 +6,13 @@ who may not know either how to go about organizing such files or to learn how to
 achieve certain behavior in their software and to have quick and easy access for
 myself when setting up a new machine.
 
+## Setup
+
+* Clone the repo into `~/.config/dotfiles`
+* Run `~/.config/dotfiles/setup`
+* Read the warning, obey it, backup your files, *then* agree
+* Reboot once the script finishes.
+
 ## Priorities
 
 I have specific needs and desires (as does any developer) and I will lay those

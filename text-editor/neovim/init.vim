@@ -134,7 +134,7 @@ let python_space_errors = 1
 autocmd FileType php setl tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
 " Markdown
-" autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell textwidth=0 wrapmargin=0
+autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell
 
 " Text
 autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0

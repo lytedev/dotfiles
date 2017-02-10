@@ -7,7 +7,9 @@ calc() {
 export -f calc
 
 stopbar() {
-	# TODO: properly kill the polybar
+	# TODO: get the proper monitor!
+	bspc config -m "DVI-I-2" bottom_padding "0"
+	bspc config -m "DVI-I-2" top_padding "0"
 	killall -q polybar
 	while pgrep -x polybar >/dev/null; do sleep 1; done
 }
