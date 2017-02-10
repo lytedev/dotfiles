@@ -1,7 +1,0 @@
-colorscheme base16
-hook global BufOpen .* %{editorconfig-load}
-hook global InsertChar j %{ try %{
-  exec -draft hH <a-k>jj<ret> d
-  exec <esc>
-}}
-hook global WinCreate .* %{addhl number_lines}

@@ -1,1 +1,0 @@
-/home/daniel/usr/.dotfiles/colors/vim
