@@ -34,6 +34,20 @@ if command -v sxhkd >/dev/null 2>&1; then
 	sxhkd &
 fi
 
+if [ -f "$HOME/.fehbg" ]; then
+  "$HOME/.fehbg" &
+fi
+
+# launch optional and helpful apps
+if command -v unclutter >/dev/null 2>&1; then
+  unclutter &
+fi
+
+if command -v compton >/dev/null 2>&1; then
+  compton &
+fi
+
+# launch bar
 if [[ $START_BAR -eq 1 ]]; then
 	${BAR_COMMAND} &
 fi
