@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export GOPATH="$HOME/.go"
+
+# PATH=$PATH:$APPENDED_PATH
+PATH=$PATH:${GOPATH//://bin:}/bin

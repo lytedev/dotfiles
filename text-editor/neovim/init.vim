@@ -103,6 +103,7 @@ let g:fzf_layout = { 'window': 'enew' }
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
+Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
 " Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
