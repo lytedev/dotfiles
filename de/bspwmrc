@@ -25,11 +25,6 @@ if command -v urxvtd >/dev/null 2>&1; then
 fi
 
 if command -v sxhkd >/dev/null 2>&1; then
-	export LAUNCHER_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\(.*\)\-.*$/\1/p' | head -n 1)
-	export LAUNCHER_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p' | head -n 1)
-	export HIGHLIGHT_COLOR=$(xrdb -query | sed -ne 's/.*color1*:\s*\(.*\)$/\1/p' | head -n 1)
-	export BACKGROUND_COLOR=$(xrdb -query | sed -ne 's/.*background:\s*\(.*\)$/\1/p' | head -n 1)
-	export FOREGROUND_COLOR=$(xrdb -query | sed -ne 's/.*foreground:\s*\(.*\)$/\1/p' | head -n 1)
 	# export HIGHLIGHT_COLOR=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p' | head -n 1)
 	sxhkd &
 fi

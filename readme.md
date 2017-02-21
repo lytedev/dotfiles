@@ -78,3 +78,5 @@ Here are some bullet points on my workflow as a Web Developer:
 
 * Add a file containing common variables in `common/`.
 * Add more content to the other sections?
+* GTK theme
+* Disable caps lock?

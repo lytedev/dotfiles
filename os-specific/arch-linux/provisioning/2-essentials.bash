@@ -11,6 +11,7 @@ sudo pacman -S \
 	openssl \
 	ruby \
 	python python-pip \
+	python2 python2-pip \
 	pass \
 	qutebrowser \
 	bash-completion \
@@ -38,6 +39,9 @@ pacaur -S \
 	bspwm-git sxhkd-git xdo-git \
 	siji-git terminus-font ttf-monaco gohufont artwiz-fonts phallus-fonts-git \
 	--noconfirm --noedit
+
+sudo pip3 install neovim
+sudo pip2 install neovim
 
 # sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
 
