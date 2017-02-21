@@ -31,7 +31,6 @@ else
 	bspc config -m ${BAR_MONITOR} bottom_padding "$EHEIGHT"
 fi
 
-
-bspc
+# bspc
 
 polybar lytedev
