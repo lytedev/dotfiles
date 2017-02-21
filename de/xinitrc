@@ -11,22 +11,9 @@ if [ -f "$HOME/.xprofile" ]; then
 	source "$HOME/.xprofile"
 fi
 
-if [ -f "$HOME/.fehbg" ]; then
-  "$HOME/.fehbg" &
-fi
-
 # allow a per-device config to override options
 if [ -f "$HOME/.env_xinitrc" ]; then
 	source "$HOME/.env_xinitrc"
-fi
-
-# launch optional and helpful apps
-if command -v unclutter >/dev/null 2>&1; then
-  unclutter &
-fi
-
-if command -v compton >/dev/null 2>&1; then
-  compton &
 fi
 
 # fire up wm

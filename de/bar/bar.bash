@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-export BAR_MONITOR="DVI-I-2"
+export BAR_MONITOR="$(polybar --list-monitors | tail -n 1 | sed -n 's/^\s*\(.*\):.*$/\1/p')"
 export BAR_HEIGHT=25
 export BAR_ON_TOP=0
 export BAR_SIDE_MARGIN=200
 
+echo "$BAR_MONITOR"
+
 export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\d*' | head -n 1)
-MONITOR_WIDTH=$(xrandr | grep DVI-I-2 | grep -Po ' \d+' | head -n 1)
+MONITOR_WIDTH=$(xrandr | grep "$BAR_MONITOR" | grep -Po ' \d+' | head -n 1)
 export BAR_WIDTH=$((MONITOR_WIDTH - GAP - GAP - BAR_SIDE_MARGIN - BAR_SIDE_MARGIN))
 export BAR_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\(.*\)\-.*$/\1/p' | head -n 1)
 export BAR_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p' | head -n 1)

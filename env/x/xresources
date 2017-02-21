@@ -1,0 +1,42 @@
+#define primaryfont xft:Terminus-9
+#define secondaryfont xft:Open Sans-9
+#define iconfont xft:stlarch-9
+#define primaryletterspace 0
+
+#define emacspfont Monaco 9
+
+! I like this font on my desktop (use in `~/.Xresources.env`!)
+!#define primaryfont xft:lemon-11
+!#define primaryletterspace 0
+
+! I like this font on my desktop for code streaming
+!#define primaryfont xft:Monaco-9
+!#define primaryletterspace -2
+
+! I like this font on my laptop
+!#define primaryfont xft:Monaco-11
+!#define primaryletterspace -1
+
+URxvt.font: xft:xos4 Terminus-10
+URxvt.faceName: xft:xos4 Terminus-10
+URxvt.boldFont: xft:xos4 Terminus-10
+URxvt.letterSpace: 0
+URxvt.scrollBar: false
+URxvt.cursorUnderline: true
+URxvt.cursorBlink: true
+URxvt.termName: rxvt-unicode
+URxvt.intensityStyles: true
+*utf8: 2
+URxvt.scaleHeight: 1
+
+URxvt.depth: 32
+
+URxvt.internalBorder: 24
+
+Xcursor.theme: human
+
+URxvt.perl-ext-common: default,matcher,keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.iso14755: False
