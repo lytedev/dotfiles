@@ -362,5 +362,5 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 25
-margin-bottom = 25
+margin-top = ${env:WINDOW_GAP}
+margin-bottom = ${env:WINDOW_GAP}
