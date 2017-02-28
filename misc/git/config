@@ -1,0 +1,12 @@
+[push]
+	default = matching
+
+[user]
+	name = Daniel Flanagan
+	email = daniel@lytedev.io
+
+[core]
+	editor = nvim
+
+[http "https://gopkg.in"]
+	followRedirects = true

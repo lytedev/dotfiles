@@ -59,6 +59,9 @@ links=(
 
 	# neofetch config
 	"$dfp/misc/neofetch/config"				"$HOME/.config/neofetch/config"
+
+	# git config
+	"$dfp/misc/git/config"						"$HOME/.gitconfig"
 )
 
 source=""

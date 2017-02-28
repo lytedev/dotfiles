@@ -16,5 +16,7 @@ if [ -f "$HOME/.env_xinitrc" ]; then
 	source "$HOME/.env_xinitrc"
 fi
 
+pulseaudio --start &
+
 # fire up wm
 exec "$DOTFILES_PATH/de/wmstart"
