@@ -17,19 +17,19 @@ export POS_X=$((GAP + BAR_SIDE_MARGIN))
 export BAR_FONT_DECLARATION="${BAR_FONT}:pixelsize=${BAR_FONT_SIZE};1"
 
 EHEIGHT=$((BAR_HEIGHT + GAP))
-echo $EHEIGHT
+echo "$EHEIGHT = $GAP + $BAR_HEIGHT"
 
 export BAR_BOTTOM="true"
 export POS_Y=0
 if [ $BAR_ON_TOP -eq 1 ]; then
 	export BAR_BOTTOM="false"
 	export POS_Y=$GAP
-	bspc config -m ${BAR_MONITOR} top_padding "-$GAP"
+	bspc config -m ${BAR_MONITOR} top_padding "$EHEIGHT"
 	bspc config -m ${BAR_MONITOR} bottom_padding "0"
 else
 	export POS_Y=$GAP
 	bspc config -m ${BAR_MONITOR} top_padding "0"
-	bspc config -m ${BAR_MONITOR} bottom_padding "-$GAP"
+	bspc config -m ${BAR_MONITOR} bottom_padding "$EHEIGHT"
 fi
 
 # bspc
