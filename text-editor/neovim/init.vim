@@ -515,6 +515,10 @@ map <F5> :setlocal spell!<CR>
 " open urls, files, etc. example: http://google.com:
 noremap <leader>o :!xdg-open <cfile><CR><CR>
 
+" insert newline
+noremap <S-Enter> i<Enter><Esc>
+noremap <C-S-o> i<Enter><Esc>
+
 " keep that dumb window from popping up (wild something or another)
 map q: :q
 noremap qqq: q:
