@@ -110,6 +110,7 @@ Plug 'scrooloose/syntastic' " syntax checker
 Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
 Plug 'LargeFile' " gracefully handle very large files
 Plug 'tpope/vim-commentary' " toggle comments in code easily
+Plug 'tpope/vim-repeat' " toggle comments in code easily
 Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
 Plug 'christoomey/vim-tmux-navigator' " allow transitions within tmux
 Plug 'tasklist.vim' " show tasks with leader,t
@@ -222,6 +223,10 @@ set cursorline
 
 " set cursorcolumn " highlight the current column
 " let &colorcolumn=join(range(81,400),",") " colors columns past 80
+
+" highlight the 81st character in a line where it exists
+highlight ColorColumn ctermbg=magenta ctermfg=7
+call matchadd('ColorColumn', '\%81v', 100)
 
 set showcmd
 set nowildmenu
