@@ -132,6 +132,8 @@ let g:fzf_layout = { 'window': 'enew' }
 
 " plugins for specific file types
 
+Plug 'othree/html5.vim', {'for': ['jade', 'pug', 'html', 'vue']}
+Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
