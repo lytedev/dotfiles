@@ -63,10 +63,11 @@ alias chrome="google-chrome-beta"
 # networking aliases
 alias p="ping 8.8.8.8"
 
+# DEPRECATED: we use network manager (nmtui/nmcli) now
 # start netctl using any available profile on the first wireless network
 # interface
 # TODO: flesh this out into a function that lets the user know what's going on.
-alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
+#alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
 
 # misc aliases
 alias setbg="feh --bg-fill"
