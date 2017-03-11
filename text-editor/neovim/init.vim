@@ -111,7 +111,6 @@ Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
 Plug 'LargeFile' " gracefully handle very large files
 Plug 'tpope/vim-commentary' " toggle comments in code easily
 Plug 'tpope/vim-repeat' " toggle comments in code easily
-Plug 'othree/html5.vim' " HTML5 syntax
 Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
 Plug 'christoomey/vim-tmux-navigator' " allow transitions within tmux
 Plug 'tasklist.vim' " show tasks with leader,t
