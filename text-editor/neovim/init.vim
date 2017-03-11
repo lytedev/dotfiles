@@ -133,6 +133,8 @@ let g:fzf_layout = { 'window': 'enew' }
 
 " plugins for specific file types
 
+Plug 'othree/html5.vim', {'for': ['jade', 'pug', 'html', 'vue']}
+Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
@@ -522,8 +524,9 @@ map <F5> :setlocal spell!<CR>
 noremap <leader>o :!xdg-open <cfile><CR><CR>
 
 " insert newline
+" doesn't work in terminals?
 noremap <S-Enter> i<Enter><Esc>
-noremap <C-S-o> i<Enter><Esc>
+" noremap <C-o> i<Enter><Esc>
 
 " keep that dumb window from popping up (wild something or another)
 map q: :q
@@ -545,3 +548,9 @@ xnoremap > >gv
 hi Search cterm=NONE ctermbg=blue ctermfg=black
 highlight LineNr ctermbg=none ctermfg=8
 highlight CursorLineNr ctermbg=18 ctermfg=gray
+
+fun! VueModifiedFT()
+	set ft=vue
+endfunction
+:command! VueModifiedFT call VueModifiedFT()
+autocmd BufRead,BufNewFile *.vue VueModifiedFT
