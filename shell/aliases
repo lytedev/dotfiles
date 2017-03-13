@@ -107,6 +107,8 @@ if command -v nvim >/dev/null 2>&1; then
 	export EDITOR="nvim"
 fi
 
+export BROWSER="google-chrome-beta"
+
 # arch aliases
 # TODO: load os-specific aliases based on running OS
 alias archupdate="pacaur -Syyu --noconfirm --noedit"
