@@ -133,6 +133,8 @@ let g:fzf_layout = { 'window': 'enew' }
 " plugins for specific file types
 
 Plug 'othree/html5.vim', {'for': ['jade', 'pug', 'html', 'vue']}
+Plug 'mxw/vim-jsx', {'for': ['jsx', 'javascript', 'js', 'javascript.jsx']}
+let g:jsx_ext_required = 0 " allow JSX in normal JS files
 Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
