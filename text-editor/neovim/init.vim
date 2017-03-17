@@ -364,9 +364,10 @@ augroup vimrc
 	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 augroup END
 
-" jump to last opened position in file
+" jump to last opened position in file except in git commits
+let jump_to_pos_blacklist = ['gitcommit']
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && index(blacklist, &ft) | exe "normal! g'\"" | endif
 endif
 
 " no empty buffer on startup
