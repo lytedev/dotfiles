@@ -119,6 +119,7 @@ Plug 'dhruvasagar/vim-table-mode' " for creating and editing character tables
 Plug 'lytedev/vim-superman' " view man pages with vim
 Plug 'tpope/vim-surround' " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
+Plug 'tpope/vim-fugitive' " vim git stuff
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript helpful things

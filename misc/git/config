@@ -10,3 +10,9 @@
 
 [http "https://gopkg.in"]
 	followRedirects = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
