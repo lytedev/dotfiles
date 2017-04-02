@@ -122,6 +122,7 @@ Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
 Plug 'tpope/vim-fugitive' " vim git stuff
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
+Plug 'dbakker/vim-projectroot' " adds helper functions for getting to a project's root directory
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript helpful things
 Plug 'mikewest/vimroom' " distraction-free editing
 Plug 'editorconfig/editorconfig-vim' " loads project-specific editor settings
@@ -525,6 +526,9 @@ map <F5> :setlocal spell!<CR>
 
 " open urls, files, etc. example: http://google.com:
 noremap <leader>o :!xdg-open <cfile><CR><CR>
+
+" run `make run`
+nnoremap <leader>R :ProjectRootExe !make run<cfile><CR><CR>
 
 " insert newline
 " doesn't work in terminals?
