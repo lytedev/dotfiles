@@ -21,9 +21,9 @@ xset r rate 250 80 &
 # xset s noblank &
 # xset s off &
 
-# if command -v xss-lock >/dev/null 2>&1; then
-# 	xss-lock -- dm-tool switch-to-greeter &
-# fi
+if command -v xss-lock >/dev/null 2>&1; then
+	xss-lock -- dm-tool switch-to-greeter &
+fi
 
 if [ -d "/usr/lib/nvidia" ]; then
 	export LD_LIBRARY_PATH=/usr/lib/nvidia
