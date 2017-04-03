@@ -50,13 +50,14 @@ links=(
 	"$dfp/text-editor/neovim/init.vim"	"$HOME/.vimrc"
 	"$dfp/common/colors/vim"						"$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 
+	# gtk configuration files
+	"$dfp/de/gtk2rc"										"$HOME/.gtkrc-2.0"
+	"$dfp/de/gtk2rc"										"$HOME/.gtkrc"
+	"$dfp/de/gtk3settings.ini"					"$HOME/.config/gtk-3.0/settings.ini"
+
 	# irc files
 	"$dfp/misc/irssi/"									"$HOME/.irssi"
 	"$dfp/misc/weechat/"								"$HOME/.weechat"
-
-	# gtk configuration files
-	"$dfp/de/gtk2rs"										"$HOME/.gtkrc-2.0"
-	"$dfp/de/gtk3settings.ini"					"$HOME/.config/gtk-3.0/settings.ini"
 
 	# bar files
 	"$dfp/de/bar/polybar-config"				"$XDG_CONFIG_HOME/polybar/config"
