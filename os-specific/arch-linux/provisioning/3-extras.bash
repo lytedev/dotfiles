@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 pacaur -S \
-	gtk-theme-arc \
+	gtk-theme-arc-git \
+	xorg-drivers \
 	elementary-icon-theme \
 	lemonbar-xft-git \
 	thunar thunar-volman gvfs \
-	thunar-shares-plugin \
 	gvfs-smb \
 	ttf-opensans ttf-dejavu \
 	avr-libc avr-gcc dfu-programmer dfu-util \

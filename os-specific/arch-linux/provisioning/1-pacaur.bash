@@ -16,12 +16,12 @@ git clone https://aur.archlinux.org/pacaur.git "$REPOSITORY_PATH/pacaur"
 
 # build and install cower
 cd "$REPOSITORY_PATH/cower"
-makepkg -i --noconfirm --noedit
+makepkg -i --noconfirm
 cd -
 
 # build and install pacaur
 cd "$REPOSITORY_PATH/pacaur"
-makepkg -i --noconfirm --noedit
+makepkg -i --noconfirm
 cd -
 
 # once installed, let the package manager manage itself and its dependencies
