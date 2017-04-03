@@ -16,6 +16,7 @@ pacaur -S \
 	cmake python python2-pip \
 	accountsservice \
 	xss-lock \
+	deluge \
 	lightdm lightdm-gtk-greeter \
 	polybar-git \
 	--noconfirm --noedit
