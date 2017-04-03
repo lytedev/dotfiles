@@ -13,7 +13,9 @@ pacaur -S \
 	gimp \
 	audacity \
 	reptyr \
-	cmake python2 python2-pip \
-	lightdm \
+	cmake python python2-pip \
+	accountsservice \
+	xss-lock \
+	lightdm lightdm-gtk-greeter \
 	polybar-git \
 	--noconfirm --noedit
