@@ -1,6 +1,6 @@
-*font: xft:artwiz lemon-10
-*faceName: xft:artwiz lemon-10
-*boldFont: xft:artwiz lemon-10
+*font: xft:xos4 Terminus-12
+*faceName: xft:xos4 Terminus-12
+*boldFont: xft:xos4 Terminus-12
 *letterSpace: 0
 *scrollBar: false
 *cursorUnderline: true

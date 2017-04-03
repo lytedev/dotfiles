@@ -170,7 +170,7 @@ super + space
 
 # lock the desktop
 super + ctrl + shift + l
-  dm-tool lock
+  dm-tool switch-to-greeter
 	# $SHELL -c '$DOTFILES_PATH/env/x/screensaver/lock.sh'
 
 # spawn gui file explorer
