@@ -160,9 +160,9 @@ super + shift + t
 super + Return
 	urxvtc
 
+# spawn a floating terminal
 super + shift + Return
-	urxvtc -geometry 80x24; \
-	bspc node -t floating
+	bspc rule -a '*' -o state=floating && urxvtc -geometry 80x24
 
 # spawn the app launcher
 super + space
@@ -170,7 +170,7 @@ super + space
 
 # lock the desktop
 super + ctrl + shift + l
-  dm-tool switch-to-greeter
+	dm-tool switch-to-greeter
 	# $SHELL -c '$DOTFILES_PATH/env/x/screensaver/lock.sh'
 
 # spawn gui file explorer
