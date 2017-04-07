@@ -19,4 +19,6 @@ pacaur -S \
 	deluge \
 	lightdm lightdm-gtk-greeter \
 	polybar-git \
+	php \
+	nginx \
 	--noconfirm --noedit
