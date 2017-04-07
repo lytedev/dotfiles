@@ -7,7 +7,7 @@ pacaur -S \
 	lemonbar-xft-git \
 	thunar thunar-volman gvfs \
 	gvfs-smb \
-	ttf-opensans ttf-dejavu \
+	ttf-opensans ttf-dejavu ttf-liberation \
 	avr-libc avr-gcc dfu-programmer dfu-util \
 	xorg-xbacklight \
 	gimp \
