@@ -26,7 +26,7 @@ sudo pacman -S \
 	tmux \
 	rxvt-unicode \
 	xorg-xinit xorg-server xorg-xrdb \
-	xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool feh \
+	xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool feh xorg-xprop \
 	irssi \
 	--noconfirm
 
