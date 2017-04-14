@@ -48,7 +48,7 @@ font-3 = ${env:BAR_ICON_FONT_DECLARATION}
 
 modules-left = bspwm
 modules-center =
-modules-right = filesystem xbacklight volume xkeyboard memory cpu battery temperature date powermenu
+modules-right = xbacklight volume xkeyboard filesystem memory cpu battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -94,7 +94,7 @@ mount-0 = /home
 
 format = <label-mounted>
 label-mounted = %percentage_used%%
-label-mounted-foreground = ${xrdb:color5}
+label-mounted-foreground = ${xrdb:color6}
 format-mounted-prefix = " "
 format-mounted-prefix-foreground = ${colors.foreground-alt}
 
@@ -233,18 +233,18 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = "%Y-%m-%d"
+date = "%Y-%m-%d "
 date-alt =
 
 time = %H:%M:%S
 time-alt = %H:%M
 
-label-foreground = ${xrdb:color7}
-format-prefix =
+label-foreground = ${xrdb:color1}
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #0a6cf5
 
-label = %date% %time%
+label = %date%%time%
 
 [module/volume]
 type = internal/volume

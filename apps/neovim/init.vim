@@ -80,7 +80,7 @@ else
 endif
 
 Plug 'vim-airline/vim-airline' " statusline
-" let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#fnamemod = ':t'
 " set laststatus=2 " always show statusline
