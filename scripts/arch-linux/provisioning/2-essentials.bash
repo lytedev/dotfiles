@@ -31,7 +31,10 @@ sudo pacaur -S \
 	alsa-plugins \
 	unclutter-xfixes-git gtk-engine-murrine xorg-server-devel \
 	bspwm-git sxhkd-git xdo-git \
-	siji-git terminus-font ttf-monaco gohufont artwiz-fonts phallus-fonts-git \
+	terminus-font ttf-monaco \
+	ttf-freefont \
+	otf-fontawesome \
+	curl \
 	--noconfirm --noedit
 
 sudo pip3 install neovim
@@ -39,3 +42,5 @@ sudo pip2 install neovim
 
 sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
 
+mkdir -p "$HOME/.fonts"
+curl -o "$HOME/.fonts/monaco_powerline_nerd_font.otf" https://github.com/taohex/font/raw/master/Monaco%20for%20Powerline%20Nerd%20Font%20Complete.otf 

@@ -20,6 +20,7 @@ BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
 # disable ctrl-s terminal freeze
 [[ $- == *i* ]] && stty -ixon
 
+# set our PATH
 source "$DOTFILES_PATH/shell/paths"
 
 # import our aliases

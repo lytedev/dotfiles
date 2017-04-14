@@ -1,13 +1,13 @@
-*font: xft:xos4 Terminus-12
-*faceName: xft:xos4 Terminus-12
-*boldFont: xft:xos4 Terminus-12
+*font: xft:xos4 Terminus-14,xft:FreeSans-14
+*faceName: xft:xos4 Terminus-14,xft:FreeSans-14
+*boldFont: xft:xos4 Terminus-14,xft:FreeSans-14
 *letterSpace: 0
 *scrollBar: false
 *cursorUnderline: true
 *cursorBlink: true
 *termName: rxvt-unicode
 *intensityStyles: true
-*utf8: 2
+*utf8: 1
 *scaleHeight: 1
 
 *depth: 32

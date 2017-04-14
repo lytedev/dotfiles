@@ -323,7 +323,7 @@ nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
 :command! DistractionFreeMode call DistractionFreeModeFunc()
 
 set hidden " allows buffer switching without saving
-set shortmess=I
+set shortmess=Ia
 set history=1000
 
 " undo files

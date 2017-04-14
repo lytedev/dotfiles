@@ -23,4 +23,6 @@ pacaur -S \
 	nginx \
 	urxvt-perls-git \
 	samba \
+	ttf-noto-fonts-simple ttf-noto-fonts-ib ttf-noto-fonts-emoji-ib \
+	siji-git gohufont artwiz-fonts phallus-fonts-git \
 	--noconfirm --noedit
