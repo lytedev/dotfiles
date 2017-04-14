@@ -16,6 +16,10 @@ if [ -f "$HOME/.env_xinitrc" ]; then
 	source "$HOME/.env_xinitrc"
 fi
 
+if [ -f "$HOME/.xmodmap" ]; then
+	xmodmap "$HOME/.xmodmap"
+fi
+
 pulseaudio --start &
 
 # fire up wm

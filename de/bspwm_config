@@ -40,7 +40,7 @@ for mon in ${BSPWM_MONITORS}; do
 	screens=
 	for j in $(seq $i $max); do
 		ind=${DESKTOPS[$((j - 1))]}
-		screens="${screens}a "
+		screens="${screens}${ind} "
 	done
   bspc monitor "$mon" -d $screens
   i=$((max + 1))

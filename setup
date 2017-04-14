@@ -36,6 +36,7 @@ links=(
 	"$dfp/de/xresources"               "$HOME/.Xresources"
 	"$dfp/de/xinitrc"                  "$HOME/.xinitrc"
 	"$dfp/de/xprofile"                 "$HOME/.xprofile"
+	"$dfp/de/xmodmap"                  "$HOME/.xmodmap"
 	"$dfp/scripts/colors/xresources"   "$HOME/.Xresources.colors"
 
 	# shell files
