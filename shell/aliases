@@ -57,9 +57,6 @@ alias gac="git add -A && git commit"
 # browser aliases
 alias qute="qutebrowser --backend webengine"
 
-# TODO: use chrome-beta, then chrome, then chromium
-alias chrome="google-chrome-beta"
-
 # networking aliases
 alias p="ping 8.8.8.8"
 
@@ -108,7 +105,7 @@ if command -v nvim >/dev/null 2>&1; then
 	export EDITOR="nvim"
 fi
 
-export BROWSER="google-chrome-beta"
+export BROWSER="google-chrome-unstable"
 
 # arch aliases
 # TODO: load os-specific aliases based on running OS

@@ -11,7 +11,7 @@ export NICE_HOME="$HOME/.."
 
 # load our terminal colors
 # TODO: update with new system
-BASE16_SHELL="$DOTFILES_PATH/common/colors/shell"
+BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 
 # stop parsing on a non-interactive shell

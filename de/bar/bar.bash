@@ -5,6 +5,11 @@ export BAR_HEIGHT=40
 export BAR_ON_TOP=0
 export BAR_SIDE_MARGIN=200
 
+# allow a per-device config to override options
+if [ -f "$HOME/.env_bar" ]; then
+	source "$HOME/.env_bar"
+fi
+
 export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\d*' | head -n 1)
 MONITOR_WIDTH=$(xrandr | grep "$BAR_MONITOR" | grep -Po ' \d+' | head -n 1)
 export BAR_WIDTH=$((MONITOR_WIDTH - GAP - GAP - BAR_SIDE_MARGIN - BAR_SIDE_MARGIN))
@@ -18,6 +23,7 @@ EHEIGHT=$((BAR_HEIGHT + GAP))
 
 export BAR_BOTTOM="true"
 export POS_Y=0
+
 if [ $BAR_ON_TOP -eq 1 ]; then
 	export BAR_BOTTOM="false"
 	export POS_Y=$GAP

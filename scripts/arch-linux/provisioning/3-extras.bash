@@ -21,4 +21,6 @@ pacaur -S \
 	polybar-git \
 	php \
 	nginx \
+	urxvt-perls-git \
+	samba \
 	--noconfirm --noedit

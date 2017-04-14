@@ -1,25 +1,24 @@
 #!/usr/bin/env bash
 
-sudo pacman -S \
+sudo pacaur -S \
 	tree \
 	rofi \
-	slock \
-	the_silver_searcher \
+	the_silver_searcher ripgrep \
 	alsa-utils \
 	htop \
 	openssh \
 	openssl \
 	ruby \
+	nodejs npm \
 	python python-pip \
 	python2 python2-pip \
 	pass \
-	qutebrowser \
+	google-chrome-dev \
 	bash-completion \
 	fzf \
 	rsync \
-	pavucontrol \
-	neovim \
-	vim \
+	pulseaudio pavucontrol \
+	neovim vim \
 	unzip \
 	xsel \
 	xclip \
@@ -28,11 +27,6 @@ sudo pacman -S \
 	xorg-xinit xorg-server xorg-xrdb \
 	xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool feh xorg-xprop \
 	irssi \
-	--noconfirm
-
-pacaur -S \
-	urxvt-perls-git \
-	samba \
 	pulseaudio-ctl \
 	alsa-plugins \
 	unclutter-xfixes-git gtk-engine-murrine xorg-server-devel \
@@ -43,5 +37,5 @@ pacaur -S \
 sudo pip3 install neovim
 sudo pip2 install neovim
 
-# sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
+sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
 
