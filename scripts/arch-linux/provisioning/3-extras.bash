@@ -10,7 +10,7 @@ pacaur -S \
 	ttf-opensans ttf-dejavu ttf-liberation \
 	avr-libc avr-gcc dfu-programmer dfu-util \
 	xorg-xbacklight \
-	gimp \
+	gimp inkscape krita \
 	audacity \
 	reptyr \
 	cmake python python2-pip \
