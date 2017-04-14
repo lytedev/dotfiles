@@ -159,14 +159,14 @@ label = 
 
 bar-width = 5
 bar-indicator = |
-bar-indicator-foreground = #ff
+bar-indicator-foreground = #fff
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = ${xrdb:color3}
 bar-empty = ─
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+bar-empty-foreground = ${xrdb:color3}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -258,13 +258,13 @@ format-muted-foreground = ${colors.foreground-alt}
 label-muted = muted
 
 bar-volume-width = 5
-bar-volume-foreground-0 = #888888
-bar-volume-foreground-1 = #888888
-bar-volume-foreground-2 = #888888
-bar-volume-foreground-3 = #888888
-bar-volume-foreground-4 = #888888
-bar-volume-foreground-5 = #888888
-bar-volume-foreground-6 = #888888
+bar-volume-foreground-0 = ${xrdb:color3}
+bar-volume-foreground-1 = ${xrdb:color3}
+bar-volume-foreground-2 = ${xrdb:color3}
+bar-volume-foreground-3 = ${xrdb:color3}
+bar-volume-foreground-4 = ${xrdb:color3}
+bar-volume-foreground-5 = ${xrdb:color3}
+bar-volume-foreground-6 = ${xrdb:color3}
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
