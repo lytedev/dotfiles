@@ -9,13 +9,15 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 export NICE_HOME="$HOME/.."
 
+# TODO: nice home on a per-device basis
+
+# stop parsing on a non-interactive shell
+[ -z "$PS1" ] && return
+
 # load our terminal colors
 # TODO: update with new system
 BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
-
-# stop parsing on a non-interactive shell
-[ -z "$PS1" ] && return
 
 # disable ctrl-s terminal freeze
 [[ $- == *i* ]] && stty -ixon
