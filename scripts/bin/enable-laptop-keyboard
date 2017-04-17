@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo xinput reattach 15 3

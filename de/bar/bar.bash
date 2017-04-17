@@ -16,7 +16,7 @@ export BAR_ICON_FONT_DECLARATION="${BAR_ICON_FONT}:size=${BAR_ICON_FONT_SIZE};1"
 
 export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\d*' | head -n 1)
 
-export BAR_BOTTOM="true"
+export BAR_BOTTOM="false"
 export POS_Y=0
 
 # allow a per-device config to override options

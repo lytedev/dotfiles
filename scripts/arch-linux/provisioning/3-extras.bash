@@ -21,7 +21,7 @@ pacaur -S \
 	polybar-git \
 	php \
 	nginx \
-	urxvt-perls-git \
+	urxvt-perls-git urxvt-resize-font-git \
 	samba \
 	ttf-noto-fonts-simple ttf-noto-fonts-ib ttf-noto-fonts-emoji-ib \
 	siji-git gohufont artwiz-fonts phallus-fonts-git \

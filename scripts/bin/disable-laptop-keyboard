@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo xinput float 15
