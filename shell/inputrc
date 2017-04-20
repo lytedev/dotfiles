@@ -1,3 +1,6 @@
+set editing-mode vi
+
+# bindings
 "\eOd": backward-word
 "\eOc": forward-word
 "\C-p": history-search-backward
@@ -7,3 +10,9 @@
 "\C-d": delete-char
 "\C-D": "\C-c\C-d"
 
+# vi settings
+$if mode=vi
+  set keymap vi-insert
+  "kj": vi-movement-mode
+  "jk": vi-movement-mode
+$endif
