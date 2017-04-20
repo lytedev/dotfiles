@@ -27,7 +27,12 @@ fi
 export BAR_WIDTH=$((MONITOR_WIDTH - GAP - GAP - BAR_SIDE_MARGIN - BAR_SIDE_MARGIN))
 export POS_X=$((GAP + BAR_SIDE_MARGIN))
 
-EHEIGHT=$((BAR_HEIGHT + GAP))
+export EHEIGHT=$((BAR_HEIGHT + GAP))
+
+# if we just want the variables set here, pass an argument
+if [ $# -gt 0 ]; then
+	return
+fi
 
 if [ $BAR_ON_TOP -eq 1 ]; then
 	export BAR_BOTTOM="false"

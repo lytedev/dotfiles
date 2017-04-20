@@ -144,6 +144,7 @@ Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
 Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
+Plug 'mustache/vim-mustache-handlebars', {'for': ['html.handlebars', 'handlebars', 'hbs']}
 " Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
 " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer'), 'for': ['md', 'markdown'] }
 Plug 'digitaltoad/vim-jade', {'for': ['pug', 'jade', 'vue']}

@@ -77,3 +77,4 @@ Here are some bullet points on my workflow as a Web Developer:
 ## To Do and Improvements
 
 * Unify all the common variables... somehow?
+* Dunst and notifications

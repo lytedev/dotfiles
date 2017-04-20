@@ -226,6 +226,9 @@ super + ctrl + {alt +,_} Escape
 	{bspc wm -d > "$BSPWM_STATE_FILE" && bspc quit, \
 		bspc quit 1}
 
+Print
+	scrot
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
