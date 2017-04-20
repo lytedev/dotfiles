@@ -33,7 +33,7 @@ sudo pacaur -S \
 	bspwm-git sxhkd-git xdo-git \
 	terminus-font ttf-monaco \
 	ttf-freefont \
-	otf-fontawesome \
+	ttf-font-awesome \
 	curl \
 	--noconfirm --noedit
 
