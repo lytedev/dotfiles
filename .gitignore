@@ -5,3 +5,4 @@ colors/gen/tmp
 *.pid
 *.tmp
 *.secret
+/.repositories

@@ -79,3 +79,5 @@ Here are some bullet points on my workflow as a Web Developer:
 * Unify all the common variables... somehow?
 * Dunst and notifications
 * Vimux
+* urxvt reizing
+* urxvt fontawesome
