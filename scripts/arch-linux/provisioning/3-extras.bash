@@ -24,6 +24,7 @@ pacaur -S \
 	urxvt-perls-git urxvt-resize-font-git \
 	samba \
 	neofetch \
+	cloc \
 	wine-staging lib32-libpulse \
 	ttf-noto-fonts-simple ttf-noto-fonts-ib ttf-noto-fonts-emoji-ib \
 	siji-git gohufont artwiz-fonts phallus-fonts-git \
