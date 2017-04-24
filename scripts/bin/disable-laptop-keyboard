@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-sudo xinput float 15
+KEYBOARD_SEARCH_STRING="AT Translated.*keyboard"
+BUILTIN_KEYBOARD_ID=$(xinput list | grep "$KEYBOARD_SEARCH_STRING" | sed -ne 's/^.*id\=\([0-9]*\).*/\1/p')
+sudo xinput float "$BUILTIN_KEYBOARD_ID"
