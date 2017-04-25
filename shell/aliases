@@ -68,7 +68,7 @@ alias p="ping 8.8.8.8"
 
 # misc aliases
 alias setbg="feh --bg-fill"
-alias C="clear"
+alias C="clear && clear"
 alias keyrepeat="xset r rate 250 80"
 
 # games aliases

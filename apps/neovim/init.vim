@@ -153,6 +153,8 @@ Plug 'evidens/vim-twig'
 Plug 'leafgarland/typescript-vim', {'for': ['ts', 'typescript']}
 Plug 'jwalton512/vim-blade', {'for': ['blade', 'blade.php']}
 
+Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
+
 call plug#end()
 
 filetype on
