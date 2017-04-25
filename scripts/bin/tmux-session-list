@@ -8,19 +8,17 @@ export CUR_SESSION_PREFIX="#[bg=colour1] "
 export CUR_SESSION_SUFFIX=" #[bg=default]"
 
 if [ -z "$1" ]; then
-	# debug_msg 'No current session passed'
 	export CUR_TMUX_SESSION="$(tmux display-message -p '#S')"
 else
 	export CUR_TMUX_SESSION="$1"
 fi
-# debug_msg "Current tmux session name: $CUR_TMUX_SESSION"
 
-export TMUX_SESSION_LIST="$(tmux list-sessions | sed -ne 's/^\([^:]*\).*$/ \1 /p' | tr '\n' ' ' | xargs)"
-# debug_msg "Running tmux sessions: $TMUX_SESSION_LIST"
+export TMUX_SESSION_LIST=" $(tmux list-sessions | sed -ne 's/^\([^:]*\).*$/ \1 /p' | tr '\n' ' ' | xargs)"
 
-HIGHLIGHT_CUR_SESSION="${TMUX_SESSION_LIST/$CUR_TMUX_SESSION/${CUR_SESSION_PREFIX}${CUR_TMUX_SESSION}${CUR_SESSION_SUFFIX}}"
+
+HIGHLIGHT_CUR_SESSION="${TMUX_SESSION_LIST/ $CUR_TMUX_SESSION / ${CUR_SESSION_PREFIX}${CUR_TMUX_SESSION}${CUR_SESSION_SUFFIX} }"
 
 ADD_END_SPACE_IF_NECESSARY=$(echo "$HIGHLIGHT_CUR_SESSION" | sed -e 's/\([^]]\)$/\ /p')
-# debug_msg "Transformed tmux session list: -$ADD_END_SPACE_IF_NECESSARY-"
+REMOVE_START_SPACE_IF_NECESSARY=$(echo "$ADD_END_SPACE_IF_NECESSARY" | sed 's/^ #/#/')
 
-echo "$ADD_END_SPACE_IF_NECESSARY"
+echo "$REMOVE_START_SPACE_IF_NECESSARY"
