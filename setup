@@ -64,6 +64,9 @@ links=(
 	# terminal emulator
 	"$dfp/apps/alacritty/"             "$XDG_CONFIG_HOME/alacritty"
 
+	# rofi config
+	"$dfp/apps/rofi/config"            "$XDG_CONFIG_HOME/rofi/config"
+
 	# bar files
 	"$dfp/de/bar/polybar-config"       "$XDG_CONFIG_HOME/polybar/config"
 

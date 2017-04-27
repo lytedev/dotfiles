@@ -166,7 +166,7 @@ super + shift + Return
 
 # spawn the app launcher
 super + space
-	"$DOTFILES_PATH/de/app-launcher"
+	"$DOTFILES_PATH/scripts/bin/app-launcher" -modi run -show run
 
 # lock the desktop
 super + ctrl + shift + l
@@ -211,6 +211,10 @@ XF86AudioPrev
 
 {_,shift + }XF86MonBrightnessDown
 	xbacklight - 10
+
+# open rofi as a window switcher
+super + w
+	"$DOTFILES_PATH/scripts/bin/app-launcher" -modi window,run -show window
 
 # close the current application
 super + c

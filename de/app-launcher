@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-LAUNCHER_FONT=$(xrdb -query				| sed -ne 's/.*font:\s*xft:\([^-]*\).*$/\1/p' | head -n 1)
-LAUNCHER_FONT_SIZE=$(xrdb -query	| sed -ne 's/.*font:\s*xft:.*\-\([^-]*\)$/\1/p' | head -n 1)
-HIGHLIGHT_COLOR=$(xrdb -query			| sed -ne 's/.*color1*:\s*\(.*\)$/\1/p' | head -n 1)
-BACKGROUND_COLOR=$(xrdb -query		| sed -ne 's/.*background:\s*\(.*\)$/\1/p' | head -n 1)
-FOREGROUND_COLOR=$(xrdb -query		| sed -ne 's/.*foreground:\s*\(.*\)$/\1/p' | head -n 1)
-
-rofi -show run -font "$LAUNCHER_FONT $LAUNCHER_FONT_SIZE" -lines 16 -width 25 -padding 8 -fuzzy -bw "$BORDER_WIDTH" -color-enabled -color-window "$BACKGROUND_COLOR","$HIGHLIGHT_COLOR","$HIGHLIGHT_COLOR","$BACKGROUND_COLOR" -color-normal "$BACKGROUND_COLOR","$FOREGROUND_COLOR","$BACKGROUND_COLOR","$HIGHLIGHT_COLOR","$FOREGROUND_COLOR" -separator-style none -hide-scrollbar

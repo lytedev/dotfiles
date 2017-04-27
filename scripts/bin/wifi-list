@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# wip
+
+SSID=$(nmcli device wifi | tail -n +2 | "$DOTFILES_PATH/scripts/bin/app-launcher" -i --display-mode "wifi" -p "wifi:" -dmenu -width 50 | sed -re 's/^\s*\*//' | awk '{print $1}')
+
+RESULT=$(nmcli device wifi connect "$SSID")
+if echo "$RESULT" | grep -q -E '^Error: Connection activation failed: \(7\)'; then
+	# TODO: currently, the first attempt to connect fails and then we wait for
+	# a rescan before trying again
+	sleep 10
+	PASSWORD=$(: | "$DOTFILES_PATH/scripts/bin/app-launcher" --display-mode "Password:" -dmenu -p "wifi_password:" -width 50)
+	nmcli device wifi connect "$SSID" password "$PASSWORD"
+fi
