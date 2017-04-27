@@ -122,7 +122,8 @@ type = internal/bspwm
 pin-workspaces = false
 
 label-focused = %icon%
-label-focused-background = ${xrdb:color1}
+label-focused-background = ${xrdb:color4}
+label-focused-foreground = ${colors.background}
 ; label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 

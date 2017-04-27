@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BORDER_WIDTH=0 # change in bspwmrc
+BORDER_WIDTH=5 # change in bspwmrc
 export WINDOW_GAP=25
 DESKTOPS=(dev web gfx env play out misc chat mon util)
 
@@ -8,9 +8,6 @@ BSPWM_MONITORS=$(bspc query -M | tac)
 MONITOR_COUNT=$(echo "${BSPWM_MONITORS}" | wc -w | awk '{ printf $1 }')
 NUM_DESKTOPS=${#DESKTOPS[@]}
 PER_MONITOR=$((NUM_DESKTOPS / MONITOR_COUNT))
-
-source "$DOTFILES_PATH/scripts/get_color.sh"
-source "$DOTFILES_PATH/scripts/get_x_fonts.sh"
 
 # allow a per-device config to override options
 if [ -f "$HOME/.env_bspwm" ]; then
@@ -23,10 +20,10 @@ fi
 # bspc config active_border_color   "#$(get_color 0D)"
 # bspc config presel_feedback_color "#$(get_color 0D)"
 
-bspc config normal_border_color   "#$(get_color 01)"
-bspc config focused_border_color  "#$(get_color 0D)"
-bspc config active_border_color   "#$(get_color 09)"
-bspc config presel_feedback_color "#$(get_color 04)"
+bspc config normal_border_color   "$(xrdb -query | sed -ne 's/.*background:\s*//p')"
+bspc config focused_border_color  "$(xrdb -query | sed -ne 's/.*color0\?4:\s*//p')"
+bspc config active_border_color   "$(xrdb -query | sed -ne 's/.*color0\?4:\s*//p')"
+bspc config presel_feedback_color "$(xrdb -query | sed -ne 's/.*color0\?4:\s*//p')"
 bspc config border_width          "$BORDER_WIDTH"
 bspc config split_ratio           0.50
 bspc config borderless_monocle    true

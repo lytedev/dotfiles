@@ -26,6 +26,6 @@ pacaur -S \
 	neofetch \
 	cloc \
 	wine-staging lib32-libpulse \
-	ttf-noto-fonts-simple ttf-noto-fonts-ib ttf-noto-fonts-emoji-ib \
+	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji \
 	siji-git gohufont artwiz-fonts phallus-fonts-git \
 	--noconfirm --noedit

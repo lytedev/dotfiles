@@ -38,6 +38,7 @@ links=(
 	"$dfp/de/xprofile"                 "$HOME/.xprofile"
 	"$dfp/de/xmodmap"                  "$HOME/.xmodmap"
 	"$dfp/scripts/colors/xresources"   "$HOME/.Xresources.colors"
+	"$dfp/de/compton.conf"             "$XDG_CONFIG_HOME/compton.conf"
 
 	# shell files
 	"$dfp/shell/bashrc"                "$HOME/.bashrc"
@@ -60,6 +61,9 @@ links=(
 	"$dfp/apps/irssi/"                 "$HOME/.irssi"
 	"$dfp/apps/weechat/"               "$HOME/.weechat"
 
+	# terminal emulator
+	"$dfp/apps/alacritty/"             "$XDG_CONFIG_HOME/alacritty"
+
 	# bar files
 	"$dfp/de/bar/polybar-config"       "$XDG_CONFIG_HOME/polybar/config"
 
@@ -68,6 +72,9 @@ links=(
 
 	# git config
 	"$dfp/apps/git/config"             "$HOME/.gitconfig"
+
+	# fontconfig
+	"$dfp/de/fontconfig/"              "$XDG_CONFIG_HOME/fontconfig"
 )
 
 source=""
