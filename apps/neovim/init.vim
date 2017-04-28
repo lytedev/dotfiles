@@ -93,6 +93,19 @@ let g:airline_left_alt_sep= ''
 let g:airline_left_sep = ''
 let g:airline#extensions#tabline#buffers_label = ''
 Plug 'vim-airline/vim-airline-themes'
+let g:airline_mode_map = {
+		\ '__' : '-',
+		\ 'n'  : 'N',
+		\ 'i'  : 'I',
+		\ 'R'  : 'R',
+		\ 'c'  : 'C',
+		\ 'v'  : 'V',
+		\ 'V'  : 'V',
+		\ '' : 'V',
+		\ 's'  : 'S',
+		\ 'S'  : 'S',
+		\ '' : 'S',
+		\ }
 
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTree']} " nice sidebar for files
 let g:NERDTreeDirArrowExpandable = ' '
@@ -119,7 +132,14 @@ Plug 'dhruvasagar/vim-table-mode' " for creating and editing character tables
 Plug 'lytedev/vim-superman' " view man pages with vim
 Plug 'tpope/vim-surround' " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
-Plug 'tpope/vim-fugitive' " vim git stuff
+Plug 'tpope/vim-fugitive' " vim git commands
+Plug 'airblade/vim-gitgutter' " vim git gutter information
+let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '~'
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'dbakker/vim-projectroot' " adds helper functions for getting to a project's root directory
@@ -268,6 +288,12 @@ endif
 let base16colorspace=256
 set background=dark
 colorscheme base16-donokai
+
+highlight SignColumn ctermbg=black guibg=black
+highlight GitGutterAdd ctermbg=black guibg=black
+highlight GitGutterDelete ctermbg=black guibg=black
+highlight GitGutterChange ctermbg=black guibg=black
+highlight GitGutterChangeDelete ctermbg=black guibg=black
 
 " TODO: need a way to toggle this and maybe make it on by default except in
 " files where space indentation is expected
