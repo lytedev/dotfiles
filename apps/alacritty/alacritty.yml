@@ -52,12 +52,12 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 16.0
+  size: 20.0
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: 0.0
-    y: -12.0
+    y: -17.0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
