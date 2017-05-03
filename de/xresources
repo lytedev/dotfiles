@@ -1,21 +1,35 @@
+# Some of my favorite font setups...
+# *font: xft:Monaco for Powerline-9
+# *faceName: xft:Monaco for Powerline-9
+# *boldFont: xft:Monaco for Powerline-9
+# *letterSpace: -1
+
+# *font: xft:artwiz lemon-8
+# *faceName: xft:artwiz lemon-8
+# *boldFont: xft:artwiz lemon-8
+# *letterSpace: 0
+
+# *font: xft:xos4 Terminess Powerline-8
+# *faceName: xft:xos4 Terminess Powerline-8
+# *boldFont: xft:xos4 Terminess Powerline-8
+# *letterSpace: 0
+
+# Set fonts in "$HOME/.Xresources.env"
 *font: xft:xos4 Terminus-14,xft:FreeSans-14
 *faceName: xft:xos4 Terminus-14,xft:FreeSans-14
 *boldFont: xft:xos4 Terminus-14,xft:FreeSans-14
 *letterSpace: 0
+
+# rxvt-unicode configuration
+*termName: rxvt-unicode
 *scrollBar: false
 *cursorUnderline: true
 *cursorBlink: true
-*termName: rxvt-unicode
 *intensityStyles: true
 *utf8: 1
 *scaleHeight: 1
-
 *depth: 32
-
 URxvt.internalBorder: 24
-
-Xcursor.theme: human
-
 URxvt.perl-ext-common: default,matcher,keyboard-select,resize-font
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.resize-font.smaller: C-Down
@@ -23,3 +37,7 @@ URxvt.resize-font.bigger: C-Up
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt*iso14755: False
+
+# Other Xorg configuration
+Xcursor.theme: human
+
