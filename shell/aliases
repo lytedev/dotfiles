@@ -46,6 +46,7 @@ alias tmls="tmux list-sessions"
 alias tmatt="tmux attach -t"
 alias tu="tmux attach -t utils || tmux new -s utils"
 alias tdf="tmux attach -t df || tmux new -s df -c \"$DOTFILES_PATH\""
+alias tmon="tmux attach -t mon || tmux new -s mon"
 
 # git aliases
 alias gs="git status"
