@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo pacaur -S \
+pacaur -S \
 	tree \
 	rofi \
 	the_silver_searcher ripgrep \
