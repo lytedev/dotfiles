@@ -81,3 +81,5 @@ Here are some bullet points on my workflow as a Web Developer:
 * Vimux
 * urxvt reizing
 * urxvt fontawesome
+* Alacritty as terminal?
+* Cloud IRC
