@@ -25,6 +25,7 @@ offset-y = ${env:POS_Y:30}
 radius = 0.0
 fixed-center = false
 bottom = ${env:BAR_BOTTOM:true}
+dpi = 180
 
 background = ${colors.background}
 foreground = ${colors.foreground}
