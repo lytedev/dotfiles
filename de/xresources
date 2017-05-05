@@ -41,8 +41,9 @@ URxvt*iso14755: False
 # Other Xorg configuration
 Xcursor.theme: human
 
-# Xorg DPI config
+# DPI config
 *dpi: 92
+Xft.dpi: 92
 *autohint: 0
 *lcdfilter: lcddefault
 *hintstyle: hintfull

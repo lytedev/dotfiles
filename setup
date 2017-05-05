@@ -31,53 +31,57 @@ fi
 # TODO: make sure we have an even number, here
 links=(
 	# desktop environment files
-	"$dfp/de/bspwmrc"                  "$XDG_CONFIG_HOME/bspwm/bspwmrc"
-	"$dfp/de/sxhkdrc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
-	"$dfp/de/xresources"               "$HOME/.Xresources"
-	"$dfp/de/xinitrc"                  "$HOME/.xinitrc"
-	"$dfp/de/xprofile"                 "$HOME/.xprofile"
-	"$dfp/de/xmodmap"                  "$HOME/.xmodmap"
-	"$dfp/scripts/colors/xresources"   "$HOME/.Xresources.colors"
-	"$dfp/de/compton.conf"             "$XDG_CONFIG_HOME/compton.conf"
+	"$dfp/de/bspwmrc"                        "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+	"$dfp/de/sxhkdrc"                        "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+	"$dfp/de/xresources"                     "$HOME/.Xresources"
+	"$dfp/de/xinitrc"                        "$HOME/.xinitrc"
+	"$dfp/de/xprofile"                       "$HOME/.xprofile"
+	"$dfp/de/xmodmap"                        "$HOME/.xmodmap"
+	"$dfp/scripts/colors/xresources"         "$HOME/.Xresources.colors"
+	"$dfp/de/compton.conf"                   "$XDG_CONFIG_HOME/compton.conf"
 
 	# shell files
-	"$dfp/shell/bashrc"                "$HOME/.bashrc"
-	"$dfp/shell/bash_profile"          "$HOME/.bash_profile"
-	"$dfp/shell/tmux.conf"             "$HOME/.tmux.conf"
-	"$dfp/shell/tmux-layouts"          "$HOME/.tmux/layouts"
+	"$dfp/shell/bashrc"                      "$HOME/.bashrc"
+	"$dfp/shell/bash_profile"                "$HOME/.bash_profile"
+	"$dfp/shell/tmux.conf"                   "$HOME/.tmux.conf"
+	"$dfp/shell/tmux-layouts"                "$HOME/.tmux/layouts"
 
 	# text editor files
-	"$dfp/apps/neovim/"                "$XDG_CONFIG_HOME/nvim"
-	"$dfp/apps/neovim/"                "$HOME/.vim"
-	"$dfp/apps/neovim/init.vim"        "$HOME/.vimrc"
-	"$dfp/scripts/colors/vim"          "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
+	"$dfp/apps/neovim/"                      "$XDG_CONFIG_HOME/nvim"
+	"$dfp/apps/neovim/"                      "$HOME/.vim"
+	"$dfp/apps/neovim/init.vim"              "$HOME/.vimrc"
+	"$dfp/scripts/colors/vim"                "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 
 	# gtk configuration files
-	"$dfp/de/gtk2rc"                   "$HOME/.gtkrc-2.0"
-	"$dfp/de/gtk2rc"                   "$HOME/.gtkrc"
-	"$dfp/de/gtk3settings.ini"         "$HOME/.config/gtk-3.0/settings.ini"
+	"$dfp/de/gtk2rc"                         "$HOME/.gtkrc-2.0"
+	"$dfp/de/gtk2rc"                         "$HOME/.gtkrc"
+	"$dfp/de/gtk3settings.ini"               "$HOME/.config/gtk-3.0/settings.ini"
 
 	# irc files
-	"$dfp/apps/irssi/"                 "$HOME/.irssi"
-	"$dfp/apps/weechat/"               "$HOME/.weechat"
+	"$dfp/apps/irssi/"                       "$HOME/.irssi"
+	"$dfp/apps/weechat/"                     "$HOME/.weechat"
+
+	# qutebrowser config files
+	"$dfp/apps/qutebrowser/qutebrowser.conf" "$XDG_CONFIG_HOME/qutebrowser/qutebrowser.conf"
+	"$dfp/apps/qutebrowser/keys.conf"        "$XDG_CONFIG_HOME/qutebrowser/keys.conf"
 
 	# terminal emulator
-	"$dfp/apps/alacritty/"             "$XDG_CONFIG_HOME/alacritty"
+	"$dfp/apps/alacritty/"                   "$XDG_CONFIG_HOME/alacritty"
 
 	# rofi config
-	"$dfp/apps/rofi/config"            "$XDG_CONFIG_HOME/rofi/config"
+	"$dfp/apps/rofi/config"                  "$XDG_CONFIG_HOME/rofi/config"
 
 	# bar files
-	"$dfp/de/bar/polybar-config"       "$XDG_CONFIG_HOME/polybar/config"
+	"$dfp/de/bar/polybar-config"             "$XDG_CONFIG_HOME/polybar/config"
 
 	# neofetch config
-	"$dfp/apps/neofetch/config"        "$HOME/.config/neofetch/config"
+	"$dfp/apps/neofetch/config"              "$HOME/.config/neofetch/config"
 
 	# git config
-	"$dfp/apps/git/config"             "$HOME/.gitconfig"
+	"$dfp/apps/git/config"                   "$HOME/.gitconfig"
 
 	# fontconfig
-	"$dfp/de/fontconfig/"              "$XDG_CONFIG_HOME/fontconfig"
+	"$dfp/de/fontconfig/"                    "$XDG_CONFIG_HOME/fontconfig"
 )
 
 source=""
