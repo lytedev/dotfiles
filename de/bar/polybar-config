@@ -25,7 +25,7 @@ offset-y = ${env:POS_Y:30}
 radius = 0.0
 fixed-center = false
 bottom = ${env:BAR_BOTTOM:true}
-dpi = 180
+dpi = ${xrdb:dpi:92}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -43,9 +43,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = ${env:BAR_FONT_DECLARATION}
-font-1 = xos4 Terminess Powerline:size=24:antialias=false;0
-font-2 = siji:pixelsize=24;1
-font-3 = ${env:BAR_ICON_FONT_DECLARATION}
+font-1 = ${env:BAR_ICON_FONT_DECLARATION}
 
 modules-left = bspwm
 modules-center =
@@ -112,10 +110,10 @@ ws-icon-8 = mon;
 ws-icon-9 = util;
 ws-icon-default = ♟
 
-label-focused-font = 4
-label-occupied-font = 4
-label-urgent-font = 4
-label-empty-font = 4
+label-focused-font = 2
+label-occupied-font = 2
+label-urgent-font = 2
+label-empty-font = 2
 
 ; misc icon: 
 
@@ -162,12 +160,14 @@ label = 
 bar-width = 5
 bar-indicator = |
 bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
+bar-indicator-font = 0
+# bar-fill = ─
+bar-fill = -
+bar-fill-font = 0
 bar-fill-foreground = ${xrdb:color3}
-bar-empty = ─
-bar-empty-font = 2
+# bar-empty = ─
+bar-empty = -
+bar-empty-font = 0
 bar-empty-foreground = ${xrdb:color3}
 
 [module/backlight-acpi]
@@ -269,11 +269,11 @@ bar-volume-foreground-5 = ${xrdb:color3}
 bar-volume-foreground-6 = ${xrdb:color3}
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-indicator-font = 0
+bar-volume-fill = -
+bar-volume-fill-font = 0
+bar-volume-empty = -
+bar-volume-empty-font = 0
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
