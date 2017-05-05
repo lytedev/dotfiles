@@ -28,6 +28,10 @@ if command -v xss-lock >/dev/null 2>&1; then
 	fi
 fi
 
+if command -v redshift >/dev/null 2>&1; then
+	redshift &
+fi
+
 if [ -d "/usr/lib/nvidia" ]; then
 	export LD_LIBRARY_PATH=/usr/lib/nvidia
 fi

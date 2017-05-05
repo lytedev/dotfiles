@@ -22,10 +22,6 @@ fi
 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
-if command -v redshift >/dev/null 2>&1; then
-	redshift &
-fi
-
 pulseaudio --start &
 
 # fire up wm
