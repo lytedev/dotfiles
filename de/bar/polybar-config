@@ -25,6 +25,7 @@ offset-y = ${env:POS_Y:30}
 radius = 0.0
 fixed-center = false
 bottom = ${env:BAR_BOTTOM:true}
+dpi = ${xrdb:dpi:92}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -160,10 +161,12 @@ bar-width = 5
 bar-indicator = |
 bar-indicator-foreground = #fff
 bar-indicator-font = 0
-bar-fill = ─
+# bar-fill = ─
+bar-fill = -
 bar-fill-font = 0
 bar-fill-foreground = ${xrdb:color3}
-bar-empty = ─
+# bar-empty = ─
+bar-empty = -
 bar-empty-font = 0
 bar-empty-foreground = ${xrdb:color3}
 
