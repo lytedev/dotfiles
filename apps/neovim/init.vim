@@ -200,6 +200,28 @@ autocmd BufNewFile,BufReadPost *.md setl filetype=markdown spell
 " Text
 autocmd BufNewFile,BufReadPost *.txt setl spell textwidth=0 wrapmargin=0
 
+" Make any necessary directories in the path when saving a file
+fun! <SID>AutoMakeDirectory()
+	let s:directory = expand("<afile>:p:h")
+	if !isdirectory(s:directory)
+		call mkdir(s:directory, "p")
+	endif
+endfun
+autocmd BufWritePre,FileWritePre * :call <SID>AutoMakeDirectory()
+
+if !exists("g:make_args")
+	let g:make_args="run"
+endif
+fun! RunMake()
+	split
+	if has('nvim')
+		execute 'terminal make ' . g:make_args
+		:autocmd TermClose * call feedkeys('<cr>')
+	else
+		execute '!make ' . g:make_args
+	endif
+endfun
+
 " whitespace
 " use tabs at a two-space width
 set tabstop=2
@@ -450,6 +472,9 @@ endif
 
 " enter insert mode when entering a terminal buffer
 autocmd BufWinEnter,WinEnter term://* startinsert
+
+" run make with leader,m
+nnoremap <leader>m :call RunMake()<CR>
 
 " change buffers with leader,tab
 nnoremap <leader><Tab>		:bnext<CR>
