@@ -83,3 +83,7 @@ Here are some bullet points on my workflow as a Web Developer:
 * urxvt fontawesome
 * Alacritty as terminal?
 * Cloud IRC
+* XDG Directories (see [here][xdg-user-dirs])
+
+
+[xdg-user-dirs]: https://wiki.archlinux.org/index.php/XDG_user_directories
