@@ -214,12 +214,17 @@ endif
 fun! RunMake()
 	split
 	if has('nvim')
-		execute 'terminal make ' . g:make_args
-		:autocmd TermClose * call feedkeys('<cr>')
+		" run from the root of the current git repository
+		let path = system("git rev-parse --show-toplevel | tr -d '\\n'")
+		" TODO: handle non-git situations
+		execute 'terminal cd ' . path . ' && make ' . g:make_args
 	else
 		execute '!make ' . g:make_args
 	endif
 endfun
+
+" kill the terminal buffer when the process exits
+" autocmd TermClose * call feedkeys('<cr>')
 
 " whitespace
 " use tabs at a two-space width
