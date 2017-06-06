@@ -119,11 +119,26 @@ let g:indent_guides_auto_color = 1
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete
 let g:deoplete#enable_at_startup = 1
 
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsEditSplit="vertical"
+
+Plug 'vimwiki/vimwiki'
+let	wiki1 = {}
+let wiki1.path = "~/../doc/wiki/"
+let wiki1.syntax = "markdown"
+let wiki1.ext = ".md"
+let g:vimwiki_list = [wiki1]
+
 Plug 'scrooloose/syntastic' " syntax checker
 Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
 Plug 'vim-scripts/LargeFile' " gracefully handle very large files
 Plug 'tpope/vim-commentary' " toggle comments in code easily
 Plug 'tpope/vim-repeat' " toggle comments in code easily
+Plug 'vim-scripts/SyntaxRange' " defined different syntax ranges in a file for highlighting
 Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
 Plug 'christoomey/vim-tmux-navigator' " allow transitions within tmux
 Plug 'godlygeek/tabular' " align text lines together
@@ -164,7 +179,10 @@ Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
 Plug 'mustache/vim-mustache-handlebars', {'for': ['html.handlebars', 'handlebars', 'hbs']}
-Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
+Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown', 'vimwiki']}
+Plug 'vim-scripts/utl.vim'
+let g:utl_cfg_hdl_scm_http_system = "silent !$BROWSER '%u#%f' &"
+
 " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer'), 'for': ['md', 'markdown'] }
 Plug 'digitaltoad/vim-jade', {'for': ['pug', 'jade', 'vue']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}

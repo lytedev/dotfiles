@@ -82,6 +82,9 @@ links=(
 
 	# fontconfig
 	"$dfp/de/fontconfig/"                    "$XDG_CONFIG_HOME/fontconfig"
+
+	# XDG user directories
+	"$dfp/shell/user-dirs"                   "$XDG_CONFIG_HOME/user-dirs.dirs"
 )
 
 source=""
