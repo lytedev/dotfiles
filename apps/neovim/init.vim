@@ -227,7 +227,7 @@ endfun
 autocmd BufWritePre,FileWritePre * :call <SID>AutoMakeDirectory()
 
 if !exists("g:make_args")
-	let g:make_args="run"
+	let g:make_args="default"
 endif
 fun! RunMake()
 	split
