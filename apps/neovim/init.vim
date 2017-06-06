@@ -126,7 +126,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsEditSplit="vertical"
 
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 let	wiki1 = {}
 let wiki1.path = "~/../doc/wiki/"
 let wiki1.syntax = "markdown"
