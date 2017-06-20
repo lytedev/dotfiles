@@ -76,7 +76,10 @@ Here are some bullet points on my workflow as a Web Developer:
 
 ## To Do and Improvements
 
-* Unify all the common variables... somehow?
+* Unify all the common variables... somehow? (and use templates and `envsubst`?)
+* Makefile as setup script
+* Vim `<leader>m` binding should be able to run arbitrary commands, not just
+	`make`
 * Dunst and notifications
 * Vimux
 * urxvt reizing
