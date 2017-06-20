@@ -81,12 +81,12 @@ Here are some bullet points on my workflow as a Web Developer:
 * Vim `<leader>m` binding should be able to run arbitrary commands, not just
 	`make`
 * Dunst and notifications
-* Vimux
-* urxvt reizing
-* urxvt fontawesome
+* Vimux?
+* terminal on-the-fly font resizing?
+* terminal fontawesome/icons?
 * Alacritty as terminal?
 * Cloud IRC
-* XDG Directories (see [here][xdg-user-dirs])
+* Some kind of notes wiki? (vimwiki with perfect markdown support?)
 
 
 [xdg-user-dirs]: https://wiki.archlinux.org/index.php/XDG_user_directories
