@@ -79,7 +79,7 @@ else
 	let g:prosession_dir = '~/.config/nvim/session/'
 endif
 
-Plug 'vim-airline/vim-airline' " statusline
+" Plug 'vim-airline/vim-airline' " statusline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -147,13 +147,13 @@ Plug 'lytedev/vim-superman' " view man pages with vim
 Plug 'tpope/vim-surround' " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
 Plug 'tpope/vim-fugitive' " vim git commands
-Plug 'airblade/vim-gitgutter' " vim git gutter information
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '~'
+" Plug 'airblade/vim-gitgutter' " vim git gutter information
+" let g:gitgutter_override_sign_column_highlight = 0
+" let g:gitgutter_sign_added = '+'
+" let g:gitgutter_sign_modified = '~'
+" let g:gitgutter_sign_removed = '-'
+" let g:gitgutter_sign_removed_first_line = '-'
+" let g:gitgutter_sign_modified_removed = '~'
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'dbakker/vim-projectroot' " adds helper functions for getting to a project's root directory
@@ -174,7 +174,7 @@ let g:jsx_ext_required = 0 " allow JSX in normal JS files
 Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
-Plug 'elixir-lang/vim-elixir', {'for': ['elixir']}
+Plug 'elixir-lang/vim-elixir', {'for': ['elixir', 'eelixir']}
 Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
@@ -282,17 +282,19 @@ set title
 " don't do syntax highlighting on lines longer than 2048 characters
 set synmaxcol=2048
 
-if exists('asmanviewer')
-	set nonumber " no line numbers when viewing a man page
-else
-	set number " line numbers
-endif
-
 " relative line numbers
 set relativenumber
 
+if exists('asmanviewer')
+	set nonumber " no line numbers when viewing a man page
+	set norelativenumber " no line numbers when viewing a man page
+else
+	set nonumber " line numbers
+	set norelativenumber " line numbers
+endif
+
 " highlight the current line
-set cursorline
+set nocursorline
 
 " set cursorcolumn " highlight the current column
 " let &colorcolumn=join(range(81,400),",") " colors columns past 80
@@ -301,7 +303,7 @@ set cursorline
 highlight ColorColumn ctermbg=magenta ctermfg=7
 call matchadd('ColorColumn', '\%81v', 100)
 
-set showcmd
+set noshowcmd
 set nowildmenu
 set wildmode=longest,list,full
 set cpoptions-=$
@@ -309,7 +311,7 @@ set showmatch
 set mouse=a
 set mousehide
 set backspace=indent,eol,start
-set ruler
+set noruler
 set lazyredraw
 set scrolloff=8
 set sidescrolloff=8
@@ -371,7 +373,7 @@ fun! DistractionFreeModeFunc()
 		set laststatus=2
 		set showcmd
 		set number
-		hi NonText ctermfg=gray guifg=gray
+		hi NonText ctermfg=black guifg=black
 		colorscheme base16-donokai
 	endif
 endfunction
@@ -394,6 +396,8 @@ nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
 :command! ShowSpaceIndents call ShowSpaceIndentation()
 :command! HideSpaceIndents call HideSpaceIndentation()
 :command! DistractionFreeMode call DistractionFreeModeFunc()
+
+hi NonText ctermfg=black guifg=black
 
 set hidden " allows buffer switching without saving
 set shortmess=Ia
@@ -429,6 +433,10 @@ set autowrite
 set autochdir
 set autoread
 set nomodeline
+set noshowmode
+set noshowcmd
+
+set laststatus=0
 
 " yank to OS clipboard
 set clipboard+=unnamed
