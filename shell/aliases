@@ -55,6 +55,19 @@ alias gpl="git pull"
 alias gp="git push"
 alias gac="git add -A && git commit"
 
+grb() {
+	MAIN_BRANCH="master"
+	CUR_BRANCH="$(git branch | grep \* | cut -d ' ' -f2-)"
+	if [[ ! -z ${2+x} ]]; then
+		MAIN_BRANCH="$2"
+		CUR_BRANCH="$1"
+	elif [[ ! -z ${1+x} ]]; then
+		MAIN_BRANCH="$1"
+	fi
+
+	git rebase -i $(git merge-base "$CUR_BRANCH" "$MAIN_BRANCH")
+}
+
 # browser aliases
 alias qute="qutebrowser --backend webengine"
 
