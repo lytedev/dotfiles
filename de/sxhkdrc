@@ -54,7 +54,7 @@ super + alt + shift + {h,j,k,l}
 
 # set node split ratio
 super + ctrl + {1-9,0}
-	bspc node -r 0.{1-9,10}
+	bspc node --ratio 0.{1-9,10}
 
 # move a floating window very slowly
 super + shift + {Left,Down,Up,Right}

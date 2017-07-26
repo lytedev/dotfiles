@@ -32,10 +32,6 @@ if command -v redshift >/dev/null 2>&1; then
 	redshift &
 fi
 
-if [ -d "/usr/lib/nvidia" ]; then
-	export LD_LIBRARY_PATH=/usr/lib/nvidia
-fi
-
 if [ -f "$HOME/.env_xprofile" ]; then
 	source "$HOME/.env_xprofile"
 fi
