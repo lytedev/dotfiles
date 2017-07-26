@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# NO_COMPTON=1
 BORDER_WIDTH=5 # change in bspwm_config, here for launcher
 START_BAR=1
 BAR_COMMAND="$DOTFILES_PATH/de/bar/bar.bash"
@@ -43,7 +44,9 @@ if command -v unclutter >/dev/null 2>&1; then
 fi
 
 if command -v compton >/dev/null 2>&1; then
-  compton &
+	if [[ -z $NO_COMPTON ]]; then
+		compton &
+	fi
 fi
 
 # launch bar
