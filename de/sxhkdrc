@@ -37,7 +37,7 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
 # preselect the splitting area for the current node
-super + ctrl + {h,j,k,l}
+super + ctrl + {h,j,k,l}c
 	bspc node -p {west,south,north,east}
 
 # clear the splitting area
@@ -121,6 +121,9 @@ super + ctrl + alt + l
 
 super + alt + plus
 	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) + 5); bspc config -d focused top_padding $(expr $(bspc config -d focused top_padding) + 5); bspc config -d focused left_padding $(expr $(bspc config -d focused left_padding) + 5); bspc config -d focused right_padding $(expr $(bspc config -d focused right_padding) + 5)
+
+super + ctrl + alt + shift + space
+	bspc config -d focused bottom_padding 0; bspc config -d focused top_padding 0; bspc config -d focused left_padding 0; bspc config -d focused right_padding 0
 
 super + ctrl + alt + space
 	bspc config -d focused bottom_padding 200; bspc config -d focused top_padding 200; bspc config -d focused left_padding 400; bspc config -d focused right_padding 400
