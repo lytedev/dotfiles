@@ -20,8 +20,6 @@ if [ -f "$HOME/.xmodmap" ]; then
 	xmodmap "$HOME/.xmodmap"
 fi
 
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
-
 pulseaudio --start &
 
 # fire up wm

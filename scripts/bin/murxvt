@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+urxvtc -fn "xft:Monaco:pixelsize=16" -letsp -2

@@ -22,6 +22,7 @@ bspc config border_width          "$BORDER_WIDTH"
 bspc config split_ratio           0.666666
 bspc config borderless_monocle    true
 bspc config gapless_monocle       true
+bspc config pointer_modifier			"mod4"
 
 bspc config window_gap "$WINDOW_GAP"
 
