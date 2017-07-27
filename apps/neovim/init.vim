@@ -465,8 +465,8 @@ if has('nvim')
 			split
 			terminal
 		else
-			vsplit
-			vertical resize 80
+			split
+			resize 24
 			terminal
 		endif
 	endfunction

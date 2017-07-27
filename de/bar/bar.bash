@@ -17,6 +17,7 @@ export BAR_ICON_FONT_DECLARATION="${BAR_ICON_FONT}:size=${BAR_ICON_FONT_SIZE};1"
 export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\d*' | head -n 1)
 
 export BAR_BOTTOM="false"
+export BAR_VERTICAL_MARGIN=0
 export POS_Y=0
 
 # allow a per-device config to override options
@@ -27,7 +28,7 @@ fi
 export BAR_WIDTH=$((MONITOR_WIDTH - GAP - GAP - BAR_SIDE_MARGIN - BAR_SIDE_MARGIN))
 export POS_X=$((GAP + BAR_SIDE_MARGIN))
 
-export EHEIGHT=$((BAR_HEIGHT + GAP))
+export EHEIGHT=$((BAR_HEIGHT + GAP + BAR_VERTICAL_MARGIN))
 
 # if we just want the variables set here, pass an argument
 if [ $# -gt 0 ]; then
