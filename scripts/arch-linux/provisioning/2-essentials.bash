@@ -23,7 +23,7 @@ pacaur -S \
 	xsel \
 	xclip \
 	tmux \
-	rxvt-unicode \
+	rxvt-unicode-pixbuf \
 	xorg-xinit xorg-server xorg-xrdb \
 	xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool feh xorg-xprop \
 	irssi \
@@ -35,6 +35,7 @@ pacaur -S \
 	ttf-freefont \
 	ttf-font-awesome \
 	curl \
+	w3m w3m-img \
 	--noconfirm --noedit
 
 sudo pip3 install neovim
@@ -45,3 +46,6 @@ sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
 mkdir -p "$HOME/.fonts/OTF"
 curl -L -o "$HOME/.fonts/OTF/monaco_powerline_nerd_font.otf" https://github.com/taohex/font/raw/master/Monaco%20for%20Powerline%20Nerd%20Font%20Complete.otf
 fc-cache -vf
+
+mkdir -p "$HOME/.urxvt/ext"
+curl -L -o "$HOME/.urxvt/ext/resize-font" https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font

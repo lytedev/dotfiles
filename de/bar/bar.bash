@@ -6,13 +6,10 @@ export BAR_ON_TOP=0
 export BAR_SIDE_MARGIN=200
 
 MONITOR_WIDTH=$(xrandr | grep "$BAR_MONITOR" | grep -Po ' \d+' | head -n 1)
-export BAR_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\([^-]*\)\-.*$/\1/p' | head -n 1)
+export BAR_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\([^:]*\)\:.*$/\1/p' | head -n 1)
 export BAR_ICON_FONT="FontAwesome"
-export BAR_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:[^-]*\-\([0-9]*\).*$/\1/p' | head -n 1)
+export BAR_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:[^-]*\=\([0-9]*\).*$/\1/p' | head -n 1)
 export BAR_ICON_FONT_SIZE=$((BAR_FONT_SIZE))
-
-export BAR_FONT_DECLARATION="${BAR_FONT}:size=${BAR_FONT_SIZE};1"
-export BAR_ICON_FONT_DECLARATION="${BAR_ICON_FONT}:size=${BAR_ICON_FONT_SIZE};1"
 
 export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\d*' | head -n 1)
 
@@ -24,6 +21,9 @@ export POS_Y=0
 if [ -f "$HOME/.env_bar" ]; then
 	source "$HOME/.env_bar"
 fi
+
+export BAR_FONT_DECLARATION="${BAR_FONT}:pixelsize=${BAR_FONT_SIZE};1"
+export BAR_ICON_FONT_DECLARATION="${BAR_ICON_FONT}:pixelsize=${BAR_ICON_FONT_SIZE};1"
 
 export BAR_WIDTH=$((MONITOR_WIDTH - GAP - GAP - BAR_SIDE_MARGIN - BAR_SIDE_MARGIN))
 export POS_X=$((GAP + BAR_SIDE_MARGIN))

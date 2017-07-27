@@ -2,12 +2,13 @@
 
 source "$DOTFILES_PATH/de/bar/bar.bash" --just-vars
 
-LAUNCHER_FONT=$(xrdb -query              | sed -ne 's/.*font:\s*xft:\([^-]*\).*$/\1/p' | head -n 1)
-LAUNCHER_FONT_SIZE=$(xrdb -query         | sed -ne 's/.*font:\s*xft:.*\-\([^-]*\)$/\1/p' | head -n 1)
+LAUNCHER_FONT=$(xrdb -query              | sed -ne 's/.*font:\s*xft:\([^:]*\).*$/\1/p' | head -n 1)
+LAUNCHER_FONT_SIZE=$(xrdb -query         | sed -ne 's/.*font:\s*xft:.*=\(.*\)$/\1/p' | head -n 1)
 HIGHLIGHT_COLOR=$(xrdb -query            | sed -ne 's/.*color4*:\s*\(.*\)$/\1/p' | head -n 1)
 HIGHLIGHT_FOREGROUND_COLOR=$(xrdb -query | sed -ne 's/.*background:\s*\(.*\)$/\1/p' | head -n 1)
 BACKGROUND_COLOR=$(xrdb -query           | sed -ne 's/.*background:\s*\(.*\)$/\1/p' | head -n 1)
 FOREGROUND_COLOR=$(xrdb -query           | sed -ne 's/.*foreground:\s*\(.*\)$/\1/p' | head -n 1)
+GAP=$(xrdb -query                        | sed -ne 's/.*internalBorder:\s*\(.*\)$/\1/p' | head -n 1)
 
 for i in "$@";
 do

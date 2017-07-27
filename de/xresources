@@ -15,9 +15,9 @@
 # *letterSpace: 0
 
 # Set fonts in "$HOME/.Xresources.env"
-*font: xft:xos4 Terminus-14,xft:FreeSans-14
-*faceName: xft:xos4 Terminus-14,xft:FreeSans-14
-*boldFont: xft:xos4 Terminus-14,xft:FreeSans-14
+*font: xft:xos4 Termines:pixelsize=14,xft:FreeSans:pixelsize=14
+*faceName: xft:xos4 Terminus:pixelsize=14,xft:FreeSans:pixelsize=14
+*boldFont: xft:xos4 Terminus:pixelsize=14,xft:FreeSans:pixelsize=14
 *letterSpace: 0
 
 # rxvt-unicode configuration
@@ -30,12 +30,13 @@
 *scaleHeight: 1
 *depth: 32
 URxvt.internalBorder: 24
-URxvt.perl-ext-common: default,matcher,keyboard-select,resize-font
+URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
+URxvt.depth: 0
 URxvt*iso14755: False
 
 # Other Xorg configuration

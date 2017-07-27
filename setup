@@ -55,7 +55,7 @@ links=(
 	# gtk configuration files
 	"$dfp/de/gtk2rc"                         "$HOME/.gtkrc-2.0"
 	"$dfp/de/gtk2rc"                         "$HOME/.gtkrc"
-	"$dfp/de/gtk3settings.ini"               "$HOME/.config/gtk-3.0/settings.ini"
+	"$dfp/de/gtk3settings.ini"               "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
 
 	# irc files
 	"$dfp/apps/irssi/"                       "$HOME/.irssi"
@@ -75,7 +75,10 @@ links=(
 	"$dfp/de/bar/polybar-config"             "$XDG_CONFIG_HOME/polybar/config"
 
 	# neofetch config
-	"$dfp/apps/neofetch/config"              "$HOME/.config/neofetch/config"
+	"$dfp/apps/ranger"                       "$XDG_CONFIG_HOME/ranger"
+
+	# neofetch config
+	"$dfp/apps/neofetch/config"              "$XDG_CONFIG_HOME/neofetch/config"
 
 	# git config
 	"$dfp/apps/git/config"                   "$HOME/.gitconfig"
