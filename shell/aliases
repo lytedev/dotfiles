@@ -53,6 +53,7 @@ alias gs="git status"
 alias gl="git log"
 alias gpl="git pull"
 alias gp="git push"
+alias grbpf="git push --force-with-lease"
 alias gac="git add -A && git commit"
 
 grb() {
