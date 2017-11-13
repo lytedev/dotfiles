@@ -43,6 +43,9 @@ source "$DOTFILES_PATH/shell/autocompletions"
 # load our key binds
 bind -f "$DOTFILES_PATH/shell/inputrc"
 
+# less tab size of 2 spaces
+LESS="-x2"
+
 # prevents binds or commands pulling from history from insta-sending, and
 # instead places them in the readline for editing
 shopt -s histverify

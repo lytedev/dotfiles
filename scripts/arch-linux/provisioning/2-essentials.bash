@@ -36,9 +36,10 @@ pacaur -S \
 	ttf-font-awesome \
 	curl \
 	w3m w3m-img \
+	jq \
 	--noconfirm --noedit
 
-sudo pip3 install neovim
+sudo pip3 install neovim jedi mistune psutil setproctitle
 sudo pip2 install neovim
 
 sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome

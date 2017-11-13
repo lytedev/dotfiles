@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-urxvtc -fn "xft:Monaco:pixelsize=16" -letsp -2
+font="xft:Monaco:pixelsize=16"
+
+urxvtc -fb "$font" -fi "$font" -fn "$font" -letsp "-1"

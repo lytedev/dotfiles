@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-WIN_STEAM="/storage/games/wine/Program Files (x86)/Steam/Steam.exe"
-wine "$WIN_STEAM"
+WIN_STEAM="/storage/network/public/Games/wine/Program Files (x86)/Steam/Steam.exe"
+wine "$WIN_STEAM" -no-dwrite
