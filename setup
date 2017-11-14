@@ -74,8 +74,8 @@ links=(
 	# bar files
 	"$dfp/de/bar/polybar-config"             "$XDG_CONFIG_HOME/polybar/config"
 
-	# neofetch config
-	"$dfp/apps/ranger"                       "$XDG_CONFIG_HOME/ranger"
+	# ranger config
+	"$dfp/pps/ranger/"                       "$XDG_CONFIG_HOME/ranger/"
 
 	# neofetch config
 	"$dfp/apps/neofetch/config"              "$XDG_CONFIG_HOME/neofetch/config"

@@ -1,31 +1,28 @@
 #!/usr/bin/env bash
 
 pacaur -S \
-	gtk-theme-arc-git \
-	xorg-drivers \
-	elementary-icon-theme \
-	lemonbar-xft-git \
-	thunar thunar-volman gvfs \
-	gvfs-smb \
-	ttf-opensans ttf-dejavu ttf-liberation \
-	avr-libc avr-gcc dfu-programmer dfu-util \
-	xorg-xbacklight \
-	gimp inkscape krita \
-	audacity \
-	reptyr \
-	cmake python python2-pip \
-	accountsservice \
-	xss-lock \
-	deluge \
-	lightdm lightdm-gtk-greeter \
-	polybar-git \
+	gtk-theme-arc-git `# GTK Theme` \
+	elementary-icon-theme `# GUI File Explorer Icons` \
+	thunar thunar-volman gvfs `# GUI File Explorer + Volume Management/Auto-Mount Disks)` \
+	gvfs-smb `# Auto-Detect Samba Shares` \
+	ttf-opensans ttf-dejavu ttf-liberation `# Fonts` \
+	avr-libc avr-gcc dfu-programmer dfu-util `# Keyboard Programming Utilities` \
+	xorg-xbacklight `# Xorg Backlight Control` \
+	gimp inkscape krita `# Image/Vector Editing Applications` \
+	audacity `# Audio Editing Application` \
+	cmake `# Cross-Platform Make` \
+	irssi `# IRC Client` \
+	accountsservice `# Mainly for User Avatars with LightDM` \
+	deluge `# GUI Torrent Client` \
+	lightdm lightdm-gtk-greeter `# Nice User Login` \
+	polybar-git `# Bar` \
 	php \
-	nginx \
-	urxvt-perls-git urxvt-resize-font-git \
-	samba \
-	neofetch \
-	cloc \
-	wine-staging lib32-libpulse \
-	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji \
-	siji-git gohufont artwiz-fonts phallus-fonts-git \
+	nginx `# Web Server` \
+	urxvt-perls-git urxvt-resize-font-git `# rxvt-unicode scripts` \
+	samba `# Sharing Files with other PCs` \
+	neofetch `# swag` \
+	cloc `# For counting lines of code` \
+	wine-staging lib32-libpulse `# WINE Goodies` \
+	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji `# Emoji` \
+	siji-git gohufont artwiz-fonts phallus-fonts-git `# Bitmap Fonts` \
 	--noconfirm --noedit

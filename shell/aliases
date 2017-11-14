@@ -49,12 +49,14 @@ alias tdf="tmux attach -t df || tmux new -s df -c \"$DOTFILES_PATH\""
 alias tmon="tmux attach -t mon || tmux new -s mon"
 
 # git aliases
+# TODO: make these git aliases in the gitconfig?
 alias gs="git status"
 alias gl="git log"
 alias gpl="git pull"
 alias gp="git push"
 alias grbpf="git push --force-with-lease"
 alias gac="git add -A && git commit"
+alias gsur="git submodule update --remote"
 
 grb() {
 	MAIN_BRANCH="master"
@@ -85,6 +87,7 @@ alias p="ping 8.8.8.8"
 alias setbg="feh --bg-fill"
 alias C="clear && clear"
 alias keyrepeat="xset r rate 250 80"
+alias r="ranger"
 
 # games aliases
 # this sometimes fixes steam dynamic library issues?

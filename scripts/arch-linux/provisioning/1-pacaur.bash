@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# installs pacaur on a fresh arch install
+
 # install the dependencies
 sudo pacman -S git curl openssl perl expac yajl --noconfirm
 
@@ -26,4 +28,3 @@ cd -
 
 # once installed, let the package manager manage itself and its dependencies
 pacaur -S cower pacaur --noconfirm --noedit
-

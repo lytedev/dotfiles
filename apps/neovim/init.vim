@@ -177,6 +177,7 @@ Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir', 'eelixir']}
 Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
+Plug 'quabug/vim-gdscript', {'for': ['gd', 'gdscript']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
 Plug 'mustache/vim-mustache-handlebars', {'for': ['html.handlebars', 'handlebars', 'hbs']}
 Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown', 'vimwiki']}
