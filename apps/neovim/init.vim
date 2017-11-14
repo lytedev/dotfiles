@@ -79,7 +79,7 @@ else
 	let g:prosession_dir = '~/.config/nvim/session/'
 endif
 
-" Plug 'vim-airline/vim-airline' " statusline
+Plug 'vim-airline/vim-airline' " statusline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -116,8 +116,7 @@ Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem 
 let g:indent_guides_start_level = 0
 let g:indent_guides_auto_color = 1
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete
-let g:deoplete#enable_at_startup = 1
+Plug 'roxma/nvim-completion-manager'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -157,7 +156,7 @@ Plug 'tpope/vim-fugitive' " vim git commands
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'dbakker/vim-projectroot' " adds helper functions for getting to a project's root directory
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " javascript helpful things
+Plug 'roxma/nvim-cm-tern', { 'do': 'npm install' } " javascript helpful things
 Plug 'mikewest/vimroom' " distraction-free editing
 Plug 'editorconfig/editorconfig-vim' " loads project-specific editor settings
 let g:vimroom_sidebar_height = 0
@@ -181,6 +180,7 @@ Plug 'quabug/vim-gdscript', {'for': ['gd', 'gdscript']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
 Plug 'mustache/vim-mustache-handlebars', {'for': ['html.handlebars', 'handlebars', 'hbs']}
 Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown', 'vimwiki']}
+Plug 'lifepillar/pgsql.vim', {'for': ['psql', 'sql']}
 Plug 'vim-scripts/utl.vim'
 let g:utl_cfg_hdl_scm_http_system = "silent !$BROWSER '%u#%f' &"
 
@@ -198,6 +198,8 @@ call plug#end()
 filetype on
 filetype indent on
 filetype plugin on
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 " language specific configuration
 
@@ -427,7 +429,6 @@ set wrapscan
 set foldmethod=syntax
 set foldlevel=99
 set foldnestmax=10
-set nofoldenable
 set foldlevelstart=0
 
 set autowrite
@@ -447,6 +448,9 @@ augroup vimrc
 	au BufReadPre * setlocal foldmethod=indent
 	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 augroup END
+
+set nofoldenable
+setlocal nofoldenable
 
 " jump to last opened position in file except in git commits
 let jump_to_pos_blacklist = ['gitcommit']

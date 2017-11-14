@@ -37,10 +37,11 @@ pacaur -S \
 	ttf-font-awesome `# Icon Font` \
 	curl `# HTTP Utility` \
 	w3m w3m-img `# Viewing Images in Terminals` \
+	jq `# CLI for Interacting with JSON` \
 	--noconfirm --noedit
 
-# install text editor utilities
-sudo pip3 install neovim
+# install text editor utilities and other python packages
+sudo pip3 install neovim jedi mistune psutil setproctitle
 sudo pip2 install neovim
 
 # shortcut for browser
