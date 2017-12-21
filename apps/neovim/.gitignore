@@ -1,3 +1,5 @@
 *
 !.gitignore
 !init.vim
+!settings.vim
+!bindings.vim
