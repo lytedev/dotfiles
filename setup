@@ -44,11 +44,11 @@ links=(
 	"$dfp/shell/bashrc"                      "$HOME/.bashrc"
 	"$dfp/shell/bash_profile"                "$HOME/.bash_profile"
 	"$dfp/shell/tmux.conf"                   "$HOME/.tmux.conf"
-	"$dfp/shell/tmux-layouts"                "$HOME/.tmux/layouts/"
+	"$dfp/shell/tmux-layouts"                "$HOME/.tmux/layouts"
 
 	# text editor files
-	"$dfp/apps/neovim/"                      "$XDG_CONFIG_HOME/nvim/"
-	"$dfp/apps/neovim/"                      "$HOME/.vim/"
+	"$dfp/apps/neovim/"                      "$XDG_CONFIG_HOME/nvim"
+	"$dfp/apps/neovim/"                      "$HOME/.vim"
 	"$dfp/apps/neovim/init.vim"              "$HOME/.vimrc"
 	"$dfp/scripts/colors/vim"                "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 
@@ -66,7 +66,7 @@ links=(
 	"$dfp/apps/qutebrowser/keys.conf"        "$XDG_CONFIG_HOME/qutebrowser/keys.conf"
 
 	# terminal emulator
-	"$dfp/apps/alacritty/"                   "$XDG_CONFIG_HOME/alacritty/"
+	"$dfp/apps/alacritty/"                   "$XDG_CONFIG_HOME/alacritty"
 
 	# rofi config
 	"$dfp/apps/rofi/config"                  "$XDG_CONFIG_HOME/rofi/config"
@@ -75,7 +75,7 @@ links=(
 	"$dfp/de/bar/polybar-config"             "$XDG_CONFIG_HOME/polybar/config"
 
 	# ranger config
-	"$dfp/apps/ranger/"                      "$XDG_CONFIG_HOME/ranger/"
+	"$dfp/apps/ranger/"                      "$XDG_CONFIG_HOME/ranger"
 
 	# mutt config
 	"$dfp/apps/mutt/muttrc"                  "$XDG_CONFIG_HOME/.muttrc"
@@ -88,7 +88,7 @@ links=(
 	"$dfp/apps/git/config"                   "$HOME/.gitconfig"
 
 	# fontconfig
-	"$dfp/de/fontconfig/"                    "$XDG_CONFIG_HOME/fontconfig/"
+	"$dfp/de/fontconfig/"                    "$XDG_CONFIG_HOME/fontconfig"
 
 	# XDG user directories
 	"$dfp/shell/user-dirs"                   "$XDG_CONFIG_HOME/user-dirs.dirs"
