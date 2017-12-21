@@ -75,7 +75,11 @@ links=(
 	"$dfp/de/bar/polybar-config"             "$XDG_CONFIG_HOME/polybar/config"
 
 	# ranger config
-	"$dfp/pps/ranger/"                       "$XDG_CONFIG_HOME/ranger/"
+	"$dfp/apps/ranger/"                      "$XDG_CONFIG_HOME/ranger/"
+
+	# mutt config
+	"$dfp/apps/mutt/muttrc"                  "$XDG_CONFIG_HOME/.muttrc"
+	"$dfp/apps/mutt/muttrc"                  "$HOME/.muttrc"
 
 	# neofetch config
 	"$dfp/apps/neofetch/config"              "$XDG_CONFIG_HOME/neofetch/config"

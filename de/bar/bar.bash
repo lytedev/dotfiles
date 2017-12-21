@@ -11,7 +11,11 @@ export BAR_ICON_FONT="FontAwesome"
 export BAR_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:[^-]*\=\([0-9]*\).*$/\1/p' | head -n 1)
 export BAR_ICON_FONT_SIZE=$((BAR_FONT_SIZE))
 
-export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\d*' | head -n 1)
+export GAP=$(bspc wm -d | grep -Po '(windowGap.*?,)' | grep -Po '\-?\d*' | head -n 1)
+
+if [ "$GAP" -lt 0 ]; then
+	GAP=0
+fi
 
 export BAR_BOTTOM="false"
 export BAR_VERTICAL_MARGIN=0

@@ -1,6 +1,4 @@
-set nocompatible
 
-" initial plugin manager installation
 if has('nvim')
 	if empty(glob('~/.config/nvim/autoload/plug.vim'))
 		silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -13,6 +11,7 @@ else
 	endif
 end
 
+" vim compatibility
 let $vimdir = $HOME.'/.vim'
 if has('nvim')
 	let $vimdir = $HOME.'/.config/nvim'
@@ -69,8 +68,7 @@ Plug 'junegunn/vim-plug'
 
 " plugins
 
-" if vim is being launched to view man pages, don't do our magical session
-" stuff!
+" if vim is being launched to view man pages, don't do our session stuff!
 if exists('asmanviewer')
 	let g:prosession_dir = '/dev/null'
 else
@@ -247,46 +245,8 @@ endfun
 " kill the terminal buffer when the process exits
 " autocmd TermClose * call feedkeys('<cr>')
 
-" whitespace
-" use tabs at a two-space width
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set noexpandtab
-
-" auto/smart indent
-set autoindent smartindent
-
-" show certain whitespace characters
-set list
-set nostartofline
-set listchars=trail:·,tab:\ \ ,trail:~
-" set listchars=eol:\ ,tab:>-,trail:~,extends:>,precedes:<,space:·
-
-" look and feel
-"
-" try and keep text (and code) to a width of 80 characters
-set wrap
-set linebreak
-set breakindent
-set textwidth=80
-set formatoptions=crql1j
-" t autowrap to textwidth
-" c autowrap comments to textwidth
-" r autoinsert comment leader with <enter>
-" q allow formatting of comments with gq
-" l lines longer than 'textwidth' on insert do not get formatted
-" 1 don't break a line after a one-letter word - break it before
-" j where it makes sense, remove a comment leader when joining lines
-
-" handle window title
-set title
-
-" don't do syntax highlighting on lines longer than 2048 characters
-set synmaxcol=2048
-
-" relative line numbers
-set relativenumber
+let settingsfile=$vimdir.'/settings.vim'
+exec 'source ' . settingsfile
 
 if exists('asmanviewer')
 	set nonumber " no line numbers when viewing a man page
@@ -295,64 +255,6 @@ else
 	set nonumber " line numbers
 	set norelativenumber " line numbers
 endif
-
-" highlight the current line
-set nocursorline
-
-" set cursorcolumn " highlight the current column
-" let &colorcolumn=join(range(81,400),",") " colors columns past 80
-
-" highlight the 81st character in a line where it exists
-highlight ColorColumn ctermbg=magenta ctermfg=7
-call matchadd('ColorColumn', '\%81v', 100)
-
-set noshowcmd
-set nowildmenu
-set wildmode=longest,list,full
-set cpoptions-=$
-set showmatch
-set mouse=a
-set mousehide
-set backspace=indent,eol,start
-set noruler
-set lazyredraw
-set scrolloff=8
-set sidescrolloff=8
-set splitright
-set splitbelow
-set noerrorbells
-set visualbell
-set nobackup
-set nowritebackup
-set noswapfile
-set timeout
-set ttimeoutlen=200
-set isfname+=32
-
-set vb t_vb=
-if has('autocmd')
-	autocmd GUIEnter * set visualbell t_vb=
-endif
-
-let base16colorspace=256
-set background=dark
-colorscheme base16-donokai
-
-highlight SignColumn ctermbg=black guibg=black
-highlight GitGutterAdd ctermbg=black guibg=black
-highlight GitGutterDelete ctermbg=black guibg=black
-highlight GitGutterChange ctermbg=black guibg=black
-highlight GitGutterChangeDelete ctermbg=black guibg=black
-
-" TODO: need a way to toggle this and maybe make it on by default except in
-" files where space indentation is expected
-fun! ShowSpaceIndentation()
-	hi LeadingWhiteSpaces ctermfg=black ctermbg=8
-endfunction
-fun! HideSpaceIndentation()
-	hi LeadingWhiteSpaces ctermfg=black ctermbg=black
-endfunction
-hi LeadingWhiteSpaces ctermfg=black ctermbg=black
 
 " a toggle-able minimalistic distraction-free text editing mode
 let s:distractionFreeMode = 0
@@ -395,297 +297,10 @@ endif
 
 nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
 
-:command! SpaceIndents call ShowSpaceIndentation()
-:command! ShowSpaceIndents call ShowSpaceIndentation()
-:command! HideSpaceIndents call HideSpaceIndentation()
 :command! DistractionFreeMode call DistractionFreeModeFunc()
 
-hi NonText ctermfg=black guifg=black
-
-set hidden " allows buffer switching without saving
-set shortmess=Ia
-set history=1000
-
-" undo files
-set undofile
-set undodir=$vimdir/undo
-set undolevels=1000
-set undoreload=10000
-
-" backup files
-set backupdir=$vimdir/backup
-set directory=$vimdir/backup
-
-" spell file
-set spellfile=$vimdir/spell/en.utf-8.add
-
-" smart case insensitivity by default
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-set wrapscan
-
-set foldmethod=syntax
-set foldlevel=99
-set foldnestmax=10
-set foldlevelstart=0
-
-set autowrite
-set autochdir
-set autoread
-set nomodeline
-set noshowmode
-set noshowcmd
-
-set laststatus=0
-
-" yank to OS clipboard
-set clipboard+=unnamed
-
-" allows for manual and syntax folding... supposedly
-augroup vimrc
-	au BufReadPre * setlocal foldmethod=indent
-	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
-
-set nofoldenable
-setlocal nofoldenable
-
-" jump to last opened position in file except in git commits
-let jump_to_pos_blacklist = ['gitcommit']
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && index(jump_to_pos_blacklist, &ft) | exe "normal! g'\"" | endif
-endif
-
-" no empty buffer on startup
-autocmd VimEnter * nested if bufname('')=='' && line('$') == 1 && col('$')==1 && !&modified | bd % | endif
-
-" terminal split in neovim
-if has('nvim')
-	function! TerminalSplit()
-		let current_file = @%
-		echo current_file
-		if match(current_file, "term://*") != -1
-			split
-			terminal
-		else
-			split
-			resize 24
-			terminal
-		endif
-	endfunction
-endif
-
-" bindings
-
-" common typo fixes
-command! WQ wq
-command! Wq wq
-command! Wqa wqa
-command! W w
-command! Q q
-
-" best leader
-let mapleader = "\<Space>"
-
-if has('nvim')
-	" terminal mappings
-	" open a terminal split at 80 columns
-	nnoremap <C-t> :call TerminalSplit()<CR>
-	tnoremap <C-t> <C-\><C-n>:call TerminalSplit()<CR>
-
-	" close the terminal
-	tnoremap <C-w> <C-\><C-n>:q!<CR>
-
-	" moving between terminal splits
-	tnoremap <C-h> <C-\><C-n><C-w>h
-	tnoremap <C-j> <C-\><C-n><C-w>j
-	tnoremap <C-k> <C-\><C-n><C-w>k
-	tnoremap <C-l> <C-\><C-n><C-w>l
-endif
-
-" enter insert mode when entering a terminal buffer
-autocmd BufWinEnter,WinEnter term://* startinsert
-
-" Jump to the next or previous line that has the same level or a lower
-" level of indentation than the current line.
-"
-" exclusive (bool): true: Motion is exclusive
-" false: Motion is inclusive
-" fwd (bool): true: Go to next line
-" false: Go to previous line
-" lowerlevel (bool): true: Go to line with lower indentation level
-" false: Go to line with the same indentation level
-" skipblanks (bool): true: Skip blank lines
-" false: Don't skip blank lines
-function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
-  let line = line('.')
-  let column = col('.')
-  let lastline = line('$')
-  let indent = indent(line)
-  let stepvalue = a:fwd ? 1 : -1
-  while (line > 0 && line <= lastline)
-    let line = line + stepvalue
-    if ( ! a:lowerlevel && indent(line) == indent ||
-          \ a:lowerlevel && indent(line) < indent)
-      if (! a:skipblanks || strlen(getline(line)) > 0)
-        if (a:exclusive)
-          let line = line - stepvalue
-        endif
-        exe line
-        exe "normal " column . "|"
-        return
-      endif
-    endif
-  endwhile
-endfunction
-
-" Moving back and forth between lines of same or lower indentation.
-nnoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>
-nnoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
-nnoremap <silent> [L :call NextIndent(0, 0, 1, 1)<CR>
-nnoremap <silent> ]L :call NextIndent(0, 1, 1, 1)<CR>
-vnoremap <silent> [l <Esc>:call NextIndent(0, 0, 0, 1)<CR>m'gv''
-vnoremap <silent> ]l <Esc>:call NextIndent(0, 1, 0, 1)<CR>m'gv''
-vnoremap <silent> [L <Esc>:call NextIndent(0, 0, 1, 1)<CR>m'gv''
-vnoremap <silent> ]L <Esc>:call NextIndent(0, 1, 1, 1)<CR>m'gv''
-onoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>
-onoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
-onoremap <silent> [L :call NextIndent(1, 0, 1, 1)<CR>
-onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
-
-" run make with leader,m
-nnoremap <leader>m :call RunMake()<CR>
-
-" change buffers with leader,tab
-nnoremap <leader><Tab>		:bnext<CR>
-nnoremap <leader><S-Tab>	:bprevious<CR>
-
-" don't kill vim
-nnoremap <leader>K <Nop>
-nnoremap <S-K> <NOP>
-
-" nerdtree
-nnoremap <C-n> :NERDTree<CR>
-
-" run macro across visually selected lines
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-function! ExecuteMacroOverVisualRange()
-	echo "@".getcmdline()
-	execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
-" quick paragraph formatting
-vmap Q gq
-nmap Q gqap
-
-" launch fzf for the current git repo
-nnoremap <C-p> :GitFiles<CR>
-
-" launch fzf for files in the current directory
-nnoremap <C-o> :Files<CR>
-
-" launch fzf for files modified or not in git
-nnoremap <C-u> :GFiles?<CR>
-
-" launch fzf for open buffers (files)
-nnoremap <C-b> :Buffers<CR>
-
-" launch fzf for open buffers (files)
-nnoremap <leader>l :Buffers<CR>
-
-" switch to previous buffer
-nnoremap <leader>h :b#<CR>
-
-" use leader j and k to switch buffers as well
-nnoremap <leader>k :bnext<CR>
-nnoremap <leader>j :bprevious<CR>
-nnoremap <C-k> :bnext<CR>
-nnoremap <C-j> :bprevious<CR>
-
-" fast word change
-nnoremap <leader>c ciw
-nnoremap <leader>C ciW
-
-" bash-like deletion
-inoremap <C-BS> <C-w>
-inoremap <A-BS> <C-w>
-
-" clear search higlight
-nnoremap <leader>/ :let @/ = ""<CR>
-
-" remap jk/jj and its variants to escape
-inoremap jj <Esc>
-inoremap Jj <Esc>
-inoremap Jj <Esc>
-inoremap JJ <Esc>
-inoremap jk <Esc>
-inoremap Jk <Esc>
-inoremap jK <Esc>
-inoremap JK <Esc>
-
-" use hjkl-movement between rows when soft wrapping:
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-
-" camel case movements
-map <silent> ,w <Plug>CamelCaseMotion_w
-map <silent> ,b <Plug>CamelCaseMotion_b
-map <silent> ,e <Plug>CamelCaseMotion_e
-map <silent> ,ge <Plug>CamelCaseMotion_ge
-
-" inner _ objects
-omap <silent> ib <Plug>CamelCaseMotion_ib
-xmap <silent> ib <Plug>CamelCaseMotion_ib
-omap <silent> ie <Plug>CamelCaseMotion_ie
-xmap <silent> ie <Plug>CamelCaseMotion_ie
-
-" a _ objects
-" omap <silent> aw <Plug>CamelCaseMotion_aw
-" xmap <silent> aw <Plug>CamelCaseMotion_aw
-omap <silent> ab <Plug>CamelCaseMotion_ab
-xmap <silent> ab <Plug>CamelCaseMotion_ab
-omap <silent> ae <Plug>CamelCaseMotion_ae
-xmap <silent> ae <Plug>CamelCaseMotion_ae
-
-" remove trailing whitespace
-map <F3> mw:%s/\s\+$//<CR>:let @/ = ""<CR>'w
-
-" close buffer with leader-w
-nnoremap <silent> <leader>w :bd<CR>
-
-" toggle spell checking:
-map <F5> :setlocal spell!<CR>
-
-" open urls, files, etc. example: http://google.com:
-noremap <leader>o :!xdg-open <cfile><CR><CR>
-
-" run `make run`
-nnoremap <leader>R :ProjectRootExe !make run<cfile><CR><CR>
-
-" insert newline
-" doesn't work in terminals?
-noremap <S-Enter> i<Enter><Esc>
-" noremap <C-o> i<Enter><Esc>
-
-" keep that dumb window from popping up (wild something or another)
-map q: :q
-noremap qqq: q:
-
-" sane n/N behavior
-nnoremap <expr> n 'Nn'[v:searchforward]
-nnoremap <expr> N 'nN'[v:searchforward]
-
-" better command history navigation
-cnoremap <c-n> <down>
-cnoremap <c-p> <up>
-
-" keep selection after indenting visual selection
-xnoremap < <gv
-xnoremap > >gv
+let bindingsfile=$vimdir.'/bindings.vim'
+exec 'source ' . bindingsfile
 
 " modify higlight colors
 hi Search cterm=NONE ctermbg=blue ctermfg=black
