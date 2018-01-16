@@ -15,9 +15,9 @@
 # *letterSpace: 0
 
 # Set fonts in "$HOME/.Xresources.env"
-*font: xft:xos4 Termines:pixelsize=14,xft:FreeSans:pixelsize=14
-*faceName: xft:xos4 Terminus:pixelsize=14,xft:FreeSans:pixelsize=14
-*boldFont: xft:xos4 Terminus:pixelsize=14,xft:FreeSans:pixelsize=14
+*font: xft:xos4 Termines:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+*faceName: xft:xos4 Terminus:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+*boldFont: xft:xos4 Terminus:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 *letterSpace: 0
 
 # rxvt-unicode configuration
