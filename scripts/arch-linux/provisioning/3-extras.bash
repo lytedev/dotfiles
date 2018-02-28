@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/jusr/bin/env bash
 
 pacaur -S \
 	gtk-theme-arc-git `# GTK Theme` \
@@ -22,7 +22,6 @@ pacaur -S \
 	samba `# Sharing Files with other PCs` \
 	neofetch `# swag` \
 	cloc `# For counting lines of code` \
-	wine-staging lib32-libpulse `# WINE Goodies` \
 	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji `# Emoji` \
 	siji-git gohufont artwiz-fonts phallus-fonts-git `# Bitmap Fonts` \
 	--noconfirm --noedit

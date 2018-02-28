@@ -36,7 +36,7 @@ pacaur -S \
 	ttf-freefont `# Font` \
 	ttf-font-awesome `# Icon Font` \
 	curl `# HTTP Utility` \
-	w3m w3m-img `# Viewing Images in Terminals` \
+	w3m `# Viewing Images in Terminals` \
 	jq `# CLI for Interacting with JSON` \
 	--noconfirm --noedit
 
