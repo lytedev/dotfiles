@@ -8,6 +8,7 @@ export BAR_SIDE_MARGIN=200
 MONITOR_WIDTH=$(xrandr | grep "$BAR_MONITOR" | grep -Po ' \d+' | head -n 1)
 export BAR_FONT=$(xrdb -query | sed -ne      's/.*font:\s*xft:\([^:]*\)\:.*$/\1/p' | head -n 1)
 export BAR_ICON_FONT="Font Awesome 5 Free"
+export BAR_ICON_FONT_2="Font Awesome 5 Brands"
 export BAR_FONT_SIZE=$(xrdb -query | sed -ne 's/.*font:\s*xft:[^-]*\=\([0-9]*\).*$/\1/p' | head -n 1)
 export BAR_ICON_FONT_SIZE=$((BAR_FONT_SIZE))
 
@@ -28,6 +29,7 @@ fi
 
 export BAR_FONT_DECLARATION="${BAR_FONT}:pixelsize=${BAR_FONT_SIZE};1"
 export BAR_ICON_FONT_DECLARATION="${BAR_ICON_FONT}:pixelsize=${BAR_ICON_FONT_SIZE};1"
+export BAR_ICON_FONT_2_DECLARATION="${BAR_ICON_FONT_2}:pixelsize=${BAR_ICON_FONT_SIZE};1"
 
 export BAR_WIDTH=$((MONITOR_WIDTH - GAP - GAP - BAR_SIDE_MARGIN - BAR_SIDE_MARGIN))
 export POS_X=$((GAP + BAR_SIDE_MARGIN))

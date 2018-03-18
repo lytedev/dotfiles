@@ -44,6 +44,7 @@ module-margin-right = 2
 
 font-0 = ${env:BAR_FONT_DECLARATION}
 font-1 = ${env:BAR_ICON_FONT_DECLARATION}
+font-2 = ${env:BAR_ICON_FONT_2_DECLARATION}
 
 modules-left = bspwm
 modules-center =
@@ -178,7 +179,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "- "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ; format-underline = #f90000
 label = %percentage%%

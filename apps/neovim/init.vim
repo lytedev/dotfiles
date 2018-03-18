@@ -172,6 +172,7 @@ Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir', 'eelixir']}
+Plug 'elixir-lang/', {'for': ['elixir', 'eelixir']}
 Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'quabug/vim-gdscript', {'for': ['gd', 'gdscript']}
@@ -179,6 +180,7 @@ Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
 Plug 'mustache/vim-mustache-handlebars', {'for': ['html.handlebars', 'handlebars', 'hbs']}
 Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown', 'vimwiki']}
 Plug 'lifepillar/pgsql.vim', {'for': ['psql', 'sql']}
+Plug 'cespare/vim-toml', {'for': ['toml']}
 Plug 'vim-scripts/utl.vim'
 let g:utl_cfg_hdl_scm_http_system = "silent !$BROWSER '%u#%f' &"
 
