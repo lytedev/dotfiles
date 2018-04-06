@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 calc() {
-	tp="$@"
-	python -c "print($tp)"
+	tp="$*"
+	python -c "print(${tp})"
 }
 export -f calc
 
 stopbar() {
 	# TODO: get the proper monitor!
 	BAR_MONITOR="$(polybar --list-monitors | tail -n 1 | sed -n 's/^\s*\(.*\):.*$/\1/p')"
-	bspc config -m "$BAR_MONITOR" bottom_padding "0"
-	bspc config -m "$BAR_MONITOR" top_padding "0"
+	bspc config -m "${BAR_MONITOR}" bottom_padding "0"
+	bspc config -m "${BAR_MONITOR}" top_padding "0"
 	killall -q polybar
 	while pgrep -x polybar >/dev/null; do sleep 1; done
 }
@@ -18,7 +18,7 @@ export -f stopbar
 
 # wm aliases
 startbar() {
-	bash "$DOTFILES_PATH/de/bar/bar.bash" &
+	bash "${DOTFILES_PATH}/de/bar/bar.bash" &
 	bg
 	disown
 }
@@ -28,20 +28,41 @@ export -f startbar
 scwd() {
 	addon=""
 	if [[ -n $1 ]]; then
-		addon="-$1"
+		addon="-${1}"
 	fi
-	echo "$PWD" > "$DOTFILES_PATH/.cwd$addon.tmp"
+	echo "${PWD}" > "${DOTFILES_PATH}/.cwd${addon}.tmp"
 }
 export -f scwd
-bind '"\C-s"':"\"scwd\C-m\""
+# bind '"\C-s"':"\"scwd\C-m\""
 
 # go to the saved current directory
 gcwd() {
 	addon=""
 	if [[ -n $1 ]]; then
-		addon="-$1"
+		addon="-${1}"
 	fi
-	cd "$(cat "$DOTFILES_PATH/.cwd$addon.tmp")"
+	cd "$(cat "${DOTFILES_PATH}/.cwd${addon}.tmp")" || return
 }
 export -f gcwd
-bind '"\C-g"':"\"gcwd\C-m\""
+# bind '"\C-g"':"\"gcwd\C-m\""
+
+fsw() {
+	SHELL_COMMAND="${1}"
+	shift
+	inotifywait -q -m -e close_write "${@}" | while read -r _ _; do
+		${SHELL_COMMAND}
+	done
+}
+export -f fsw
+
+# tmux session switcher with fzf from https://github.com/junegunn/fzf/issues/997
+tmuxswitcher() {
+	local -r fmt='#{session_id}:|#S|(#{session_attached} attached)'
+	{ tmux display-message -p -F "$fmt" && tmux list-sessions -F "$fmt"; } \
+		| awk '!seen[$1]++' \
+		| column -t -s'|' \
+		| fzf -q '$' --reverse --prompt 'switch session: ' -1 \
+		| cut -d':' -f1 \
+		| xargs tmux switch-client -t
+}
+export -f tmuxswitcher

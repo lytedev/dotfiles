@@ -43,7 +43,7 @@ become my primary or am very interested in using in more depth is in **bold**)
 for various tasks:
 
 * **Terminal Emulators**: *rxvt-unicode*
-* **Text Editors**: **vim/Neovim**, Sublime Text, Kakoune
+* **Text Editors**: **vim/Neovim**, Sublime Text
 * **Terminal Multiplexers**: *tmux*
 * **Web Browser**: *Google Chrome*, **qutebrowser**, luakit
 * **Music**: *Google Play Music*

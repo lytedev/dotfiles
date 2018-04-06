@@ -8,6 +8,7 @@ pacaur -S \
 	htop `# Process Management and System Resources Monitoring` \
 	openssh `# Remote Access` \
 	openssl `# Crypto` \
+	elixir `# Elixir Language` \
 	ruby `# Language` \
 	nodejs npm `# Language` \
 	python python-pip `# Python 3 Language` \
@@ -35,6 +36,7 @@ pacaur -S \
 	terminus-font ttf-monaco `# Primary Fonts` \
 	ttf-freefont `# Font` \
 	ttf-font-awesome `# Icon Font` \
+	autocutsel `# Clipboard Helper` \
 	curl `# HTTP Utility` \
 	w3m `# Viewing Images in Terminals` \
 	jq `# CLI for Interacting with JSON` \

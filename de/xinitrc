@@ -24,5 +24,8 @@ pulseaudio --start &
 
 xset s off -dpms &
 
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
 # fire up wm
 exec "$DOTFILES_PATH/de/wmstart"
