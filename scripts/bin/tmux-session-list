@@ -17,13 +17,11 @@ TMUX_SESSION_LIST="$(tmux list-sessions | awk \
 	-v assuf="${ANY_SESSION_SUFFIX}" \
 	-v cspre="${CUR_SESSION_PREFIX}" \
 	-v cssuf="${CUR_SESSION_SUFFIX}" \
-'{
-s=substr($1,0,length($1)-1);
+'{s=substr($1,0,length($1)-1);
 if(s==cursesh){
 	s=cspre" "s" "cssuf
 }else{
 	s=aspre" "s" "assuf
-}printf s
-}')"
+}printf s}')"
 
-echo "${TMUX_SESSION_LIST}"
+echo "${TMUX_SESSION_LIST//\s*$/}" | sed -e 's/\s*$//'
