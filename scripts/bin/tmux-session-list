@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+ANY_SESSION_PREFIX="#[bg=colour18]#[fg=colour7]"
 CUR_SESSION_PREFIX="#[bg=colour4]#[fg=colour0]"
-CUR_SESSION_SUFFIX="#[bg=default]#[fg=default]"
+ANY_SESSION_SUFFIX="#[bg=default]#[fg=default] "
+CUR_SESSION_SUFFIX="${ANY_SESSION_SUFFIX}"
 
 CUR_TMUX_SESSION="$1"
 if [ -z "$1" ]; then
@@ -9,14 +11,19 @@ if [ -z "$1" ]; then
 fi
 export CUR_TMUX_SESSION
 
-TMUX_SESSION_LIST="$(tmux list-sessions | sed -ne 's/^\([^:]*\).*$/ \1 /p' | tr -d '\n')"
+TMUX_SESSION_LIST="$(tmux list-sessions | awk \
+	-v cursesh="${CUR_TMUX_SESSION}" \
+	-v aspre="${ANY_SESSION_PREFIX}" \
+	-v assuf="${ANY_SESSION_SUFFIX}" \
+	-v cspre="${CUR_SESSION_PREFIX}" \
+	-v cssuf="${CUR_SESSION_SUFFIX}" \
+'{
+s=substr($1,0,length($1)-1);
+if(s==cursesh){
+	s=cspre" "s" "cssuf
+}else{
+	s=aspre" "s" "assuf
+}printf s
+}')"
 
-HIGHLIGHT_CUR_SESSION="${TMUX_SESSION_LIST/ $CUR_TMUX_SESSION /${CUR_SESSION_PREFIX} ${CUR_TMUX_SESSION} ${CUR_SESSION_SUFFIX}}"
-
-# ADD_END_SPACE_IF_NECESSARY=$(echo "$HIGHLIGHT_CUR_SESSION" | sed -e 's/\([^]]\)$/\ /p')
-# REMOVE_START_SPACE_IF_NECESSARY=$(echo "$HIGHLIGHT_CUR_SESSION" | sed 's/^ #/#/')
-REMOVE_START_SPACE_IF_NECESSARY=${HIGHLIGHT_CUR_SESSION/^ \#/\#/}
-
-# echo "cursess: $CUR_TMUX_SESSION -- sesslist: $TMUX_SESSION_LIST -- withhili: $HIGHLIGHT_CUR_SESSION -- cutspace: $REMOVE_START_SPACE_IF_NECESSARY -- argv1: $1 -- TMUX: $TMUX" >> ~/.tmux.log
-
-echo "$REMOVE_START_SPACE_IF_NECESSARY"
+echo "${TMUX_SESSION_LIST}"
