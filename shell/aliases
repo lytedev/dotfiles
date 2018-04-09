@@ -46,7 +46,7 @@ alias tmls="tmux list-sessions"
 alias tmatt="tmux attach -t"
 alias tu="tmux attach -t utils || tmux new -s utils"
 alias tdf="tmux attach -t dotfiles || tmux new -s dotfiles -c \"\$DOTFILES_PATH\""
-alias tmon="tmux attach -t monitor || tmux new -s monitor"
+alias tmon="tmux attach -t monitoring || tmux new -s monitoring"
 
 # git aliases
 # TODO: make these git aliases in the gitconfig?
