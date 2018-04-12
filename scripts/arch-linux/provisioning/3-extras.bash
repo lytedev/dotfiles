@@ -1,4 +1,4 @@
-#!/jusr/bin/env bash
+#!/usr/bin/env bash
 
 pacaur -S \
 	gtk-theme-arc-git `# GTK Theme` \
