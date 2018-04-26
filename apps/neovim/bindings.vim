@@ -134,7 +134,7 @@ inoremap <C-BS> <C-w>
 inoremap <A-BS> <C-w>
 
 " clear search higlight
-nnoremap <leader>/ :let @/ = ""<CR>
+nnoremap <leader>/ :let @/ = ""<CR>:<BACKSPACE>
 
 " remap jk/jj and its variants to escape
 inoremap jj <Esc>

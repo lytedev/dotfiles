@@ -1,4 +1,3 @@
-
 if has('nvim')
 	if empty(glob('~/.config/nvim/autoload/plug.vim'))
 		silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -171,8 +170,8 @@ let g:jsx_ext_required = 0 " allow JSX in normal JS files
 Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
-Plug 'elixir-lang/vim-elixir', {'for': ['elixir', 'eelixir']}
-Plug 'elixir-lang/', {'for': ['elixir', 'eelixir']}
+Plug 'elixir-lang/vim-elixir', {'for': ['elixir', 'ex', 'exs']}
+Plug 'slashmili/alchemist.vim', {'for': ['elixir', 'ex', 'exs']}
 Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'quabug/vim-gdscript', {'for': ['gd', 'gdscript']}
