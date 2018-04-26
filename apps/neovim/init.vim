@@ -171,6 +171,7 @@ Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir', 'ex', 'exs']}
+Plug 'vim-erlang/vim-erlang-runtime', {'for': ['erlang', 'erl']}
 Plug 'slashmili/alchemist.vim', {'for': ['elixir', 'ex', 'exs']}
 Plug 'mattn/emmet-vim', {'for': ['html']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
