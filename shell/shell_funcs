@@ -50,7 +50,7 @@ fsw() {
 	SHELL_COMMAND="${1}"
 	shift
 	inotifywait -q -m -e close_write "${@}" | while read -r _ _; do
-		${SHELL_COMMAND}
+		eval "${SHELL_COMMAND}"
 	done
 }
 export -f fsw
