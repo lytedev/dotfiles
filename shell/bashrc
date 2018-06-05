@@ -69,4 +69,7 @@ if [ "$PWD" = "$HOME" ]; then
   cd "$NICE_HOME"
 fi
 
+LS_COLORS='ow=01;36;40'
+export LS_COLORS
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
