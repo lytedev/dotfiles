@@ -3,14 +3,14 @@
 export GOPATH="$HOME/.go"
 
 # PATH=$PATH:$APPENDED_PATH
-PATH=$PATH:"$GOPATH/bin"
-PATH=$PATH:"$DOTFILES_PATH/scripts/bin"
-PATH=$PATH:"$HOME/.cargo/bin"
+export PATH=$PATH:"$GOPATH/bin"
+export PATH=$PATH:"$DOTFILES_PATH/scripts/bin"
+export PATH=$PATH:"$HOME/.cargo/bin"
 
 if [ -d "$HOME/.bin" ]; then
-	PATH=$PATH:"$HOME/.bin"
+	export PATH=$PATH:"$HOME/.bin"
 fi
 
 if command -v ruby >/dev/null 2>&1; then
-	PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+	export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi

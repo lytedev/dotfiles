@@ -109,36 +109,36 @@ let g:NERDTreeDirArrowExpandable = ' '
 let g:NERDTreeDirArrowCollapsible = ' '
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif " close vim if last buffer is a NERD buffer
 
-Plug 'nathanaelkane/vim-indent-guides' " indentation guides (NOTE: doesn't seem to work with my colorscheme)
-let g:indent_guides_start_level = 0
-let g:indent_guides_auto_color = 1
+Plug 'nathanaelkane/vim-indent-guides' " indentation guides
+let g:indent_guide_auto_colors = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
-Plug 'roxma/nvim-completion-manager'
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
-let g:UltiSnipsEditSplit="vertical"
+" Plug 'roxma/nvim-completion-manager'
 
 " Plug 'vimwiki/vimwiki'
-let	wiki1 = {}
-let wiki1.path = "~/../doc/wiki/"
-let wiki1.syntax = "markdown"
-let wiki1.ext = ".md"
-let g:vimwiki_list = [wiki1]
+" let	wiki1 = {}
+" let wiki1.path = "~/../doc/wiki/"
+" let wiki1.syntax = "markdown"
+" let wiki1.ext = ".md"
+" let g:vimwiki_list = [wiki1]
 
-Plug 'scrooloose/syntastic' " syntax checker
+" Plug 'scrooloose/syntastic' " syntax checker
+Plug 'w0rp/ale' " syntax checker
+let g:ale_fixers = {
+\	'javascript': ['prettier', 'eslint'],
+\	'elixir': ['mix_format'],
+\}
 Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
 Plug 'vim-scripts/LargeFile' " gracefully handle very large files
+Plug 'vim-scripts/utl.vim' " allow for inter-file linking (I meant to use this instead of vimwiki)
 Plug 'tpope/vim-commentary' " toggle comments in code easily
-Plug 'tpope/vim-repeat' " toggle comments in code easily
+Plug 'tpope/vim-repeat' " better vim repeating for plugin-provided actions
 Plug 'vim-scripts/SyntaxRange' " defined different syntax ranges in a file for highlighting
 Plug 'tmux-plugins/vim-tmux-focus-events' " allow transitions within tmux
 Plug 'christoomey/vim-tmux-navigator' " allow transitions within tmux
-Plug 'godlygeek/tabular' " align text lines together
-Plug 'dhruvasagar/vim-table-mode' " for creating and editing character tables
+Plug 'godlygeek/tabular' " align text
+Plug 'dhruvasagar/vim-table-mode' " for creating and editing crazy vim tables (I mostly use sc now though)
+let g:table_mode_corner='|'
 Plug 'lytedev/vim-superman' " view man pages with vim
 Plug 'tpope/vim-surround' " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating' " vim knows about date-like text objects
@@ -153,7 +153,6 @@ Plug 'tpope/vim-fugitive' " vim git commands
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'dbakker/vim-projectroot' " adds helper functions for getting to a project's root directory
-Plug 'roxma/nvim-cm-tern', { 'do': 'npm install' } " javascript helpful things
 Plug 'mikewest/vimroom' " distraction-free editing
 Plug 'editorconfig/editorconfig-vim' " loads project-specific editor settings
 let g:vimroom_sidebar_height = 0
@@ -167,14 +166,14 @@ let g:fzf_layout = { 'window': 'enew' }
 Plug 'othree/html5.vim', {'for': ['jade', 'pug', 'html', 'vue']}
 Plug 'mxw/vim-jsx', {'for': ['jsx', 'javascript', 'js', 'javascript.jsx']}
 let g:jsx_ext_required = 0 " allow JSX in normal JS files
-Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'css', 'vue']}
+Plug 'hail2u/vim-css3-syntax', {'for': ['styl', 'stylus', 'sass', 'scss', 'css', 'vue']}
 Plug 'kchmck/vim-coffee-script', {'for': ['coffee', 'coffeescript', 'vue']}
 Plug 'posva/vim-vue', {'for': ['vue']}
 Plug 'elixir-lang/vim-elixir', {'for': ['elixir', 'ex', 'exs']}
 Plug 'OrangeT/vim-csharp', {'for': ['cshtml', 'cshtml.html', 'cs', 'razor']}
 Plug 'vim-erlang/vim-erlang-runtime', {'for': ['erlang', 'erl']}
-Plug 'slashmili/alchemist.vim', {'for': ['elixir', 'ex', 'exs']}
-Plug 'mattn/emmet-vim', {'for': ['html']}
+" Plug 'slashmili/alchemist.vim', {'for': ['elixir', 'ex', 'exs']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}
 Plug 'wavded/vim-stylus', {'for': ['styl', 'stylus', 'vue']}
 Plug 'quabug/vim-gdscript', {'for': ['gd', 'gdscript']}
 Plug 'rust-lang/rust.vim', {'for': ['rs', 'rust']}
@@ -182,17 +181,12 @@ Plug 'mustache/vim-mustache-handlebars', {'for': ['html.handlebars', 'handlebars
 Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown', 'vimwiki']}
 Plug 'lifepillar/pgsql.vim', {'for': ['psql', 'sql']}
 Plug 'cespare/vim-toml', {'for': ['toml']}
-Plug 'vim-scripts/utl.vim'
 let g:utl_cfg_hdl_scm_http_system = "silent !$BROWSER '%u#%f' &"
-
-" Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer'), 'for': ['md', 'markdown'] }
-Plug 'digitaltoad/vim-jade', {'for': ['pug', 'jade', 'vue']}
+Plug 'digitaltoad/vim-pug', {'for': ['pug', 'jade', 'vue']}
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
-Plug 'evidens/vim-twig'
+Plug 'evidens/vim-twig', {'for': ['php']}
 Plug 'leafgarland/typescript-vim', {'for': ['ts', 'typescript']}
 Plug 'jwalton512/vim-blade', {'for': ['blade', 'blade.php']}
-
-Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern' }
 
 call plug#end()
 
@@ -298,7 +292,7 @@ if has('autocmd')
 	autocmd WinLeave * call CheckCloseDistractionFreeMode()
 endif
 
-nnoremap <silent> <Leader>mz :DistractionFreeMode<CR>
+nnoremap <silent> <Leader>df :DistractionFreeMode<CR>
 
 :command! DistractionFreeMode call DistractionFreeModeFunc()
 
@@ -309,6 +303,7 @@ exec 'source ' . bindingsfile
 hi Search cterm=NONE ctermbg=blue ctermfg=black
 highlight LineNr ctermbg=none ctermfg=8
 highlight CursorLineNr ctermbg=18 ctermfg=gray
+hi IndentGuidesEven ctermbg=18
 
 fun! VueModifiedFT()
 	set ft=vue
