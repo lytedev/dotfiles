@@ -76,6 +76,7 @@ Here are some bullet points on my workflow as a Web Developer:
 
 ## To Do and Improvements
 
+* Add vim in the terminal as the handler for many MIME types (xdg-open and such)
 * Unify all the common variables... somehow? (and use templates and `envsubst`?)
 * Makefile as setup script
 * Vim `<leader>m` binding should be able to run arbitrary commands, not just
