@@ -124,10 +124,10 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " Plug 'scrooloose/syntastic' " syntax checker
 Plug 'w0rp/ale' " syntax checker
-let g:ale_fixers = {
-\	'javascript': ['prettier', 'eslint'],
-\	'elixir': ['mix_format'],
-\}
+let g:ale_sign_column_always = 0
+let g:ale_set_signs = 0
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 Plug 'bkad/CamelCaseMotion' " camel case and underscore word movements
 Plug 'vim-scripts/LargeFile' " gracefully handle very large files
 Plug 'vim-scripts/utl.vim' " allow for inter-file linking (I meant to use this instead of vimwiki)
@@ -163,6 +163,7 @@ let g:fzf_layout = { 'window': 'enew' }
 
 " plugins for specific file types
 
+Plug 'junegunn/vader.vim', {'for': ['vader', 'vimscript', 'vim']}
 Plug 'othree/html5.vim', {'for': ['jade', 'pug', 'html', 'vue']}
 Plug 'mxw/vim-jsx', {'for': ['jsx', 'javascript', 'js', 'javascript.jsx']}
 let g:jsx_ext_required = 0 " allow JSX in normal JS files
