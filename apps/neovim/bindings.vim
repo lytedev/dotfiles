@@ -210,3 +210,5 @@ xnoremap > >gv
 
 nmap ga <Plug><EasyAlign>
 xmap ga <Plug><EasyAlign>
+
+nnoremap <silent> <Leader>df :DistractionFreeMode<CR>

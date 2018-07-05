@@ -153,9 +153,10 @@ Plug 'tpope/vim-fugitive' " vim git commands
 Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
 Plug 'wellle/targets.vim' " adds some more handy text objects
 Plug 'dbakker/vim-projectroot' " adds helper functions for getting to a project's root directory
-Plug 'mikewest/vimroom' " distraction-free editing
+" Plug 'mikewest/vimroom' " distraction-free editing
+" let g:vimroom_sidebar_height = 0
+Plug 'junegunn/goyo.vim' " better distraction-free editing
 Plug 'editorconfig/editorconfig-vim' " loads project-specific editor settings
-let g:vimroom_sidebar_height = 0
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
 Plug 'junegunn/fzf.vim' " helpers for using fzf in vim
@@ -258,27 +259,15 @@ endif
 " a toggle-able minimalistic distraction-free text editing mode
 let s:distractionFreeMode = 0
 fun! DistractionFreeModeFunc()
-	AirlineToggle
-	VimroomToggle
 	if s:distractionFreeMode == 0
 		let s:distractionFreeMode = 1
-		set nocursorline
-		set laststatus=0
-		set noshowmode
-		set noruler
-		set noshowcmd
-		set nonumber
-		hi NonText ctermfg=black guifg=black
+		AirlineToggle
+		Goyo
 	else
 		let s:distractionFreeMode = 0
-		set cursorline
-		set showmode
-		set ruler
-		set laststatus=2
-		set showcmd
-		set number
-		hi NonText ctermfg=black guifg=black
-		colorscheme base16-donokai
+		Goyo!
+		AirlineToggle
+		AirlineRefresh
 	endif
 endfunction
 
@@ -291,12 +280,10 @@ endfunction
 
 " run the previous checking function every time we leave a window
 if has('autocmd')
-	autocmd WinLeave * call CheckCloseDistractionFreeMode()
+	" autocmd WinLeave * call CheckCloseDistractionFreeMode()
 endif
 
-nnoremap <silent> <Leader>df :DistractionFreeMode<CR>
-
-:command! DistractionFreeMode call DistractionFreeModeFunc()
+command! DistractionFreeMode call DistractionFreeModeFunc()
 
 let bindingsfile=$vimdir.'/bindings.vim'
 exec 'source ' . bindingsfile
