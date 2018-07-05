@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "$HOME/.bashrc"
+
 # NO_COMPTON=1
 BORDER_WIDTH=5 # change in bspwm_config, here for launcher
 START_BAR=1
@@ -21,6 +23,7 @@ fi
 
 source "$DOTFILES_PATH/de/bspwm_config"
 
+# TODO: switch to alacritty
 if command -v urxvtd >/dev/null 2>&1; then
 	urxvtd &
 fi

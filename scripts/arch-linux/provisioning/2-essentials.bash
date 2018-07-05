@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: install alacritty
+
 pacaur -S \
 	tree `# Handy Filesystem Viewing Utility` \
 	rofi `# Application Launcher` \
@@ -35,7 +37,7 @@ pacaur -S \
 	bspwm-git sxhkd-git xdo-git `# Window Manager and Tools for its use` \
 	terminus-font ttf-monaco `# Primary Fonts` \
 	ttf-freefont `# Font` \
-	ttf-font-awesome `# Icon Font` \
+	ttf-font-awesome-4 ttf-font-awesome `# Icon Font` \
 	autocutsel `# Clipboard Helper` \
 	curl `# HTTP Utility` \
 	w3m `# Viewing Images in Terminals` \

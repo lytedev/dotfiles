@@ -208,3 +208,5 @@ cnoremap <c-p> <up>
 xnoremap < <gv
 xnoremap > >gv
 
+nmap ga <Plug><EasyAlign>
+xmap ga <Plug><EasyAlign>

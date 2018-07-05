@@ -26,8 +26,8 @@ dpi:
   y: 180.0
 
 padding:
-  x: 30.0
-  y: 30.0
+  x: 24.0
+  y: 24.0
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 2
@@ -56,12 +56,12 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 12.0
+  size: 10.0
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
   offset:
     x: -5.0
-    y: -6.0
+    y: 0.0
 
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
@@ -79,7 +79,7 @@ custom_cursor_colors: false
 colors:
   # Default colors
   primary:
-    background: '0x000000'
+    background: '0x111111'
     foreground: '0xeaeaea'
 
   # Colors the cursor will use if `custom_cursor_colors` is true

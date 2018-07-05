@@ -13,6 +13,24 @@ export NICE_HOME="$HOME"
 
 # TODO: nice home on a per-device basis
 
+# set our PATH
+source "$DOTFILES_PATH/shell/paths"
+
+# import our aliases
+source "$DOTFILES_PATH/shell/aliases"
+
+# import our global shell functions
+source "$DOTFILES_PATH/shell/shell_funcs"
+
+# import our autocompletions
+source "$DOTFILES_PATH/shell/autocompletions"
+
+# load our key binds
+bind -f "$DOTFILES_PATH/shell/inputrc"
+
+# less tab size of 2 spaces
+LESS="-x2"
+
 # stop parsing on a non-interactive shell
 [ -z "$PS1" ] && return
 
@@ -27,26 +45,8 @@ BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
 # allow ** recursive wildcard globbing
 shopt -s globstar
 
-# set our PATH
-source "$DOTFILES_PATH/shell/paths"
-
-# import our aliases
-source "$DOTFILES_PATH/shell/aliases"
-
-# import our global shell functions
-source "$DOTFILES_PATH/shell/shell_funcs"
-
 # import our prompt
 source "$DOTFILES_PATH/shell/prompt"
-
-# import our autocompletions
-source "$DOTFILES_PATH/shell/autocompletions"
-
-# load our key binds
-bind -f "$DOTFILES_PATH/shell/inputrc"
-
-# less tab size of 2 spaces
-LESS="-x2"
 
 # prevents binds or commands pulling from history from insta-sending, and
 # instead places them in the readline for editing
