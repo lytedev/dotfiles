@@ -1,4 +1,22 @@
-" whitespace
+scriptencoding utf8
+
+" fix neovim cursor
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+
+let g:ale_fix_on_save = 1
+
+" line number defaults
+set nonumber
+set norelativenumber
+
+" different settings if using vim as a manpage viewer
+" if exists('asmanviewer')
+" 	set nonumber " no line numbers when viewing a man page
+" 	set norelativenumber " no line numbers when viewing a man page
+" else
+" 	set nonumber " line numbers
+" 	set norelativenumber " line numbers
+" endif
 
 " use tabs at a two-space width
 set tabstop=2
@@ -15,30 +33,18 @@ set nostartofline
 set listchars=trail:·,tab:\ \ ,trail:~
 " set listchars=eol:\ ,tab:>-,trail:~,extends:>,precedes:<,space:·
 
-" look and feel
-"
 " try and keep text (and code) to a width of 80 characters
 set wrap
 set linebreak
 set breakindent
 set textwidth=80
-set formatoptions=crql1j
-" t autowrap to textwidth
-" c autowrap comments to textwidth
-" r autoinsert comment leader with <enter>
-" q allow formatting of comments with gq
-" l lines longer than 'textwidth' on insert do not get formatted
-" 1 don't break a line after a one-letter word - break it before
-" j where it makes sense, remove a comment leader when joining lines
+set formatoptions=crql1j " :h fo-table
 
 " handle window title
 set title
 
 " don't do syntax highlighting on lines longer than 2048 characters
 set synmaxcol=2048
-
-" relative line numbers
-set relativenumber
 
 " don't highlight the current line
 set nocursorline
@@ -73,34 +79,26 @@ set timeout
 set ttimeoutlen=200
 set isfname+=32
 
-set vb t_vb=
+" no freakin' bell
+set visualbell t_vb=
 if has('autocmd')
-	autocmd GUIEnter * set visualbell t_vb=
+	augroup DisableVisualVell
+		autocmd GUIEnter * set visualbell t_vb=
+	augroup END
 endif
 
+" color scheme
 let base16colorspace=256
 set background=dark
+syntax enable
 colorscheme base16-donokai
 
+" hide stuff
 highlight SignColumn ctermbg=black guibg=black
 highlight GitGutterAdd ctermbg=black guibg=black
 highlight GitGutterDelete ctermbg=black guibg=black
 highlight GitGutterChange ctermbg=black guibg=black
 highlight GitGutterChangeDelete ctermbg=black guibg=black
-
-" TODO: need a way to toggle this and maybe make it on by default except in
-" files where space indentation is expected
-fun! ShowSpaceIndentation()
-	hi LeadingWhiteSpaces ctermfg=black ctermbg=8
-endfunction
-fun! HideSpaceIndentation()
-	hi LeadingWhiteSpaces ctermfg=black ctermbg=black
-endfunction
-hi LeadingWhiteSpaces ctermfg=black ctermbg=black
-
-:command! SpaceIndents call ShowSpaceIndentation()
-:command! ShowSpaceIndents call ShowSpaceIndentation()
-:command! HideSpaceIndents call HideSpaceIndentation()
 
 hi NonText ctermfg=black guifg=black
 
@@ -145,37 +143,16 @@ set laststatus=0
 " yank to OS clipboard
 set clipboard+=unnamed
 
-" allows for manual and syntax folding... supposedly
-augroup vimrc
-	au BufReadPre * setlocal foldmethod=indent
-	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
-
 set nofoldenable
 setlocal nofoldenable
 
-" jump to last opened position in file except in git commits
-let jump_to_pos_blacklist = ['gitcommit']
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && index(jump_to_pos_blacklist, &ft) | exe "normal! g'\"" | endif
-endif
-
 " no empty buffer on startup
-autocmd VimEnter * nested if bufname('')=='' && line('$') == 1 && col('$')==1 && !&modified | bd % | endif
+augroup DisableEmptyBuffer
+	autocmd VimEnter * nested if bufname('')=='' && line('$') == 1 && col('$')==1 && !&modified | bd % | endif
+augroup END
 
-" terminal split in neovim
-if has('nvim')
-	function! TerminalSplit()
-		let current_file = @%
-		echo current_file
-		if match(current_file, "term://*") != -1
-			split
-			terminal
-		else
-			split
-			resize 24
-			terminal
-		endif
-	endfunction
-endif
-
+" modify higlight colors
+hi Search cterm=NONE ctermbg=blue ctermfg=black
+highlight LineNr ctermbg=none ctermfg=8
+highlight CursorLineNr ctermbg=18 ctermfg=gray
+hi IndentGuidesEven ctermbg=18

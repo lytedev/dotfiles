@@ -13,21 +13,24 @@ let mapleader = "\<Space>"
 if has('nvim')
 	" terminal mappings
 	" open a terminal split at 80 columns
-	nnoremap <C-t> :call TerminalSplit()<CR>
-	tnoremap <C-t> <C-\><C-n>:call TerminalSplit()<CR>
+	nnoremap <C-t> :vsplit term://bash<CR>
+	nnoremap <C-S-T> :split term://bash<CR>
+	" tnoremap <C-t> <C-\><C-n>:call TerminalSplit()<CR>
 
 	" close the terminal
 	tnoremap <C-w> <C-\><C-n>:q!<CR>
 
 	" moving between terminal splits
-	tnoremap <C-h> <C-\><C-n><C-w>h
-	tnoremap <C-j> <C-\><C-n><C-w>j
-	tnoremap <C-k> <C-\><C-n><C-w>k
-	tnoremap <C-l> <C-\><C-n><C-w>l
+	" tnoremap <C-h> <C-\><C-n><C-w>h
+	" tnoremap <C-j> <C-\><C-n><C-w>j
+	" tnoremap <C-k> <C-\><C-n><C-w>k
+	" tnoremap <C-l> <C-\><C-n><C-w>l
 endif
 
 " enter insert mode when entering a terminal buffer
-autocmd BufWinEnter,WinEnter term://* startinsert
+augroup InsertModeOnBlankTerminal
+	autocmd BufWinEnter,WinEnter term://* startinsert
+augroup END
 
 " Jump to the next or previous line that has the same level or a lower
 " level of indentation than the current line.
@@ -41,25 +44,25 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 " skipblanks (bool): true: Skip blank lines
 " false: Don't skip blank lines
 function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
-  let line = line('.')
-  let column = col('.')
-  let lastline = line('$')
-  let indent = indent(line)
-  let stepvalue = a:fwd ? 1 : -1
-  while (line > 0 && line <= lastline)
-    let line = line + stepvalue
-    if ( ! a:lowerlevel && indent(line) == indent ||
-          \ a:lowerlevel && indent(line) < indent)
-      if (! a:skipblanks || strlen(getline(line)) > 0)
-        if (a:exclusive)
-          let line = line - stepvalue
-        endif
-        exe line
-        exe "normal " column . "|"
-        return
-      endif
-    endif
-  endwhile
+	let line = line('.')
+	let column = col('.')
+	let lastline = line('$')
+	let indent = indent(line)
+	let stepvalue = a:fwd ? 1 : -1
+	while (line > 0 && line <= lastline)
+		let line = line + stepvalue
+		if ( ! a:lowerlevel && indent(line) == indent ||
+					\ a:lowerlevel && indent(line) < indent)
+			if (! a:skipblanks || strlen(getline(line)) > 0)
+				if (a:exclusive)
+					let line = line - stepvalue
+				endif
+				exe line
+				exe 'normal ' column . '|'
+				return
+			endif
+		endif
+	endwhile
 endfunction
 
 " Moving back and forth between lines of same or lower indentation.
@@ -93,7 +96,7 @@ nnoremap <C-n> :NERDTree<CR>
 " run macro across visually selected lines
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 function! ExecuteMacroOverVisualRange()
-	echo "@".getcmdline()
+	echo '@'.getcmdline()
 	execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
