@@ -65,6 +65,9 @@ links=(
 	"$dfp/apps/qutebrowser/qutebrowser.conf" "$XDG_CONFIG_HOME/qutebrowser/qutebrowser.conf"
 	"$dfp/apps/qutebrowser/keys.conf"        "$XDG_CONFIG_HOME/qutebrowser/keys.conf"
 
+	# document viewer
+	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
+
 	# terminal emulator
 	"$dfp/apps/alacritty/"                   "$XDG_CONFIG_HOME/alacritty"
 

@@ -8,11 +8,16 @@ set editing-mode vi
 "\C-a": beginning-of-line
 "\C-e": end-of-line
 "\C-d": delete-char
-"\C-D": "\C-c\C-d"
+
+"\e\C-p": "cdp\n"
 
 # vi settings
 $if mode=vi
   set keymap vi-insert
-  "kj": vi-movement-mode
   "jk": vi-movement-mode
+  "Jk": vi-movement-mode
+  "JK": vi-movement-mode
+  "jj": vi-movement-mode
+  "Jj": vi-movement-mode
+  "JJ": vi-movement-mode
 $endif

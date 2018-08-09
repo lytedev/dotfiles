@@ -24,6 +24,8 @@ pulseaudio --start &
 
 xset s off -dpms &
 
+urxvtd &
+
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 

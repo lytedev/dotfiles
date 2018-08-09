@@ -110,6 +110,9 @@ Plug 'sheerun/vim-polyglot' " vim plugin loader for many languages
 " Elixir
 Plug 'slashmili/alchemist.vim', {'for': ['elixir', 'exs', 'ex']}
 
+" MoonScript
+Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
+
 call plug#end()
 
 " call neomake#configure#automake('nrwi', 500)

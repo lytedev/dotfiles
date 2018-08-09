@@ -3,3 +3,5 @@
 # autocompletions
 complete -cf sudo
 complete -cf man
+
+complete -F _fzf_path_completion -o default -o bashdefault zathura

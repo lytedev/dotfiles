@@ -140,7 +140,7 @@ super + alt + minus
 
 # spawn a transparent node
 super + alt + t
-	alacritty && compton-trans -c -o 0
+	urxvtc && compton-trans -c -o 0
 
 # rotate the current node
 super + r
@@ -164,11 +164,11 @@ super + shift + t
 
 # spawn a terminal
 super + Return
-	alacritty
+	urxvtc
 
 # spawn a floating terminal
 super + shift + Return
-	bspc rule -a '*' -o state=floating && alacritty --dimensions 80x24
+	bspc rule -a '*' -o state=floating && urxvtc --dimensions 80x24
 
 # spawn the app launcher
 super + space
