@@ -34,8 +34,13 @@ LESS="-x2"
 # stop parsing on a non-interactive shell
 [ -z "$PS1" ] && return
 
+# load our vconsole colors
+if [ "${TERM%%-*}" = 'linux' ]; then
+	BASE16_SHELL="$DOTFILES_PATH/scripts/colors/vconsole"
+	[[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
+fi
+
 # load our terminal colors
-# TODO: update with new system
 BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 

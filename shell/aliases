@@ -96,6 +96,7 @@ alias C="clear && clear"
 alias keyrepeat="xset r rate 250 80"
 alias r="ranger"
 alias sctl="sudo systemctl"
+alias btctl="sudo bluetoothctl"
 alias pt="htop -t" # experimental htop tree-view-by-default
 alias resrc="source \$HOME/.bashrc"
 alias redshift="redshift -l 39.0997:-94.5786"

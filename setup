@@ -31,6 +31,7 @@ fi
 # TODO: make sure we have an even number, here
 links=(
 	# desktop environment files
+	"$dfp/de/sway_config"                    "$XDG_CONFIG_HOME/sway/config"
 	"$dfp/de/bspwmrc"                        "$XDG_CONFIG_HOME/bspwm/bspwmrc"
 	"$dfp/de/sxhkdrc"                        "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 	"$dfp/de/xresources"                     "$HOME/.Xresources"

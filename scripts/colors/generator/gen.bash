@@ -25,17 +25,21 @@ if [[ $? -eq 0 ]]; then
 	fi
 
 	"$DIR/vendor/base16-builder/base16" -t vim -s "$DIR/schemes/$SCHEME.yml"
+	"$DIR/vendor/base16-builder/base16" -t vconsole -s "$DIR/schemes/$SCHEME.yml"
 	"$DIR/vendor/base16-builder/base16" -t xresources -s "$DIR/schemes/$SCHEME.yml"
 	"$DIR/vendor/base16-builder/base16" -t shell -s "$DIR/schemes/$SCHEME.yml"
 
 	# replace existing color files
 	rm -f "$DIR/../shell"
+	rm -f "$DIR/../vconsole"
 	rm -f "$DIR/../vim"
 	rm -f "$DIR/../xresources"
 	cp "$COLORS_PATH/xresources/base16-$SCHEME.dark.xresources" "$DIR/../xresources"
+	cp "$COLORS_PATH/vconsole/base16-$SCHEME.dark.sh" "$DIR/../vconsole"
 	cp "$COLORS_PATH/vim/base16-$SCHEME.vim" "$DIR/../vim"
 	cp "$COLORS_PATH/shell/base16-$SCHEME.dark.sh" "$DIR/../shell"
 	chmod +x "$DIR/../shell"
+	chmod +x "$DIR/../vconsole"
 
 	echo "Colors have been regenerated. You will need to re-link them."
 else

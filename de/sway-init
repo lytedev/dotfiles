@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+killall -9 urxvtd
+urxvtd &
+
+# key repeat
+export WLC_REPEAT_DELAY=200
+export WLC_REPEAT_RATE=60
+
+# caps lock -> escape key mapping
+export XKB_DEFAULT_OPTIONS=caps:escape
+
+# enable wayland support
+export QT_QPA_PLATFORM=wayland-egl
+export CLUTTER_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+
+sway
