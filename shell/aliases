@@ -68,6 +68,7 @@ alias gp="git push --all"
 alias grbpf="git push --force-with-lease"
 alias gac="git add -A && git commit"
 alias gsur="git submodule update --remote"
+alias gl="git log --graph --pretty=oneline --abbrev-commit --decorate"
 
 grb() {
 	MAIN_BRANCH="master"
