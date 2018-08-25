@@ -100,6 +100,15 @@ alias btctl="sudo bluetoothctl"
 alias pt="htop -t" # experimental htop tree-view-by-default
 alias resrc="source \$HOME/.bashrc"
 alias redshift="redshift -l 39.0997:-94.5786"
+alias gpmdpe="electron --app=/usr/share/gpmdp/resources/app.asar"
+
+export NOTES_DIR="$NICE_HOME"
+
+n() {
+	SUBDIR="${2:-}"
+	mkdir -p "$NICE_HOME/doc/notes/$SUBDIR"
+	"$EDITOR" "$NICE_HOME/doc/notes/$SUBDIR/$(date +%Y-%m-%d)_$1.md"
+}
 
 # games aliases
 # this sometimes fixes steam dynamic library issues?

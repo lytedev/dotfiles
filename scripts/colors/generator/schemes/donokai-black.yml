@@ -1,6 +1,6 @@
-scheme: "Donokai"
+scheme: "Donokai-BLACK"
 author: "Daniel Flanagan(https://lytedev.io)"
-base00: "111111" # background, dark grey
+base00: "000000" # background, dark grey
 base01: "383830" # lighter grey
 base02: "49483e" # lighter grey
 base03: "75715e" # greyish yellow (peuce)

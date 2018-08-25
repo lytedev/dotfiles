@@ -35,8 +35,9 @@ pacaur -S \
 	unclutter-xfixes-git `# Hides cursor after no use for a time` \
 	gtk-engine-murrine xorg-server-devel `# GTK Theme Base and Headers?` \
 	bspwm-git sxhkd-git xdo-git `# Window Manager and Tools for its use` \
-	terminus-font ttf-monaco `# Primary Fonts` \
+	terminus-font ttf-iosevka-pack `# Primary Fonts` \
 	ttf-freefont `# Font` \
+	ttd-monaco `# Font` \
 	ttf-font-awesome-4 ttf-font-awesome `# Icon Font` \
 	autocutsel `# Clipboard Helper` \
 	curl `# HTTP Utility` \

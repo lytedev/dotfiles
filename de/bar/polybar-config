@@ -251,7 +251,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 label = %date%%time%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = 
@@ -326,13 +326,13 @@ label-foreground = ${xrdb:color2}
 format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${xrdb:color1}
 
 ramp-0 = " "
 ramp-1 = " "
-ramp-2 = " "
+ramp-2 = "t "
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]

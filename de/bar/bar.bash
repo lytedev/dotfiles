@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export BAR_MONITOR="$(polybar --list-monitors | tail -n 1 | sed -n 's/^\s*\(.*\):.*$/\1/p')"
+export BAR_MONITOR="$(polybar --list-monitors | tail -n 2 | head -n 1 | sed -n 's/^\s*\(.*\):.*$/\1/p')"
 export BAR_HEIGHT=40
 export BAR_ON_TOP=0
 export BAR_SIDE_MARGIN=200

@@ -1,5 +1,5 @@
-" Base16 Donokai (https://github.com/chriskempson/base16)
-" Scheme: Wimer Hazenberg (http://www.monokai.nl)
+" Base16 Donokai-BLACK (https://github.com/chriskempson/base16)
+" Scheme: Daniel Flanagan(https://lytedev.io)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -7,12 +7,12 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has('gui_running')
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-donokai.".&background.".sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-donokai-black.".&background.".sh"
   endif
 endif
 
 " GUI color definitions
-let s:gui00 = "111111"
+let s:gui00 = "000000"
 let s:gui01 = "383830"
 let s:gui02 = "49483e"
 let s:gui03 = "75715e"
@@ -59,7 +59,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-donokai"
+let g:colors_name = "base16-donokai-black"
 
 " Highlighting function
 fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
