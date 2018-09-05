@@ -20,6 +20,8 @@ if [ -f "$HOME/.xmodmap" ]; then
 	xmodmap "$HOME/.xmodmap"
 fi
 
+xcape -e 'Control_L=Escape' &
+
 pulseaudio --start &
 
 xset s off -dpms &

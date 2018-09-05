@@ -24,6 +24,33 @@ startbar() {
 }
 export -f startbar
 
+restartbar() {
+	stopbar
+	startbar
+}
+export -f restartbar
+
+screenshot() {
+	SCROT_DIR="$NICE_HOME/img/scrots/"
+	mkdir -p "$SCROT_DIR"
+	FILENAME="$NICE_HOME/img/scrots/%Y-%m-%d_%H-%M-%S_\$wx\$h.png"
+	scrot "$@" "${FILENAME}" >/dev/null && echo "Saved screenshot to: ${FILENAME}"
+}
+export -f screenshot
+
+editscrot() {
+	SCROT_DIR="$NICE_HOME/img/scrots/"
+	LATEST_SCROT="$(\ls -Art "${SCROT_DIR}" | tail -n 1)"
+	krita "${SCROT_DIR}${LATEST_SCROT}"
+}
+
+n() {
+	SUBDIR="${2:-}"
+	mkdir -p "$NICE_HOME/doc/notes/$SUBDIR"
+	"$EDITOR" "$NICE_HOME/doc/notes/$SUBDIR/$(date +%Y-%m-%d)_$1.md"
+}
+export -f n
+
 # save the current directory for later retrieval
 scwd() {
 	addon=""

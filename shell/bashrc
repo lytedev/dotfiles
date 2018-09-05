@@ -20,7 +20,7 @@ source "$DOTFILES_PATH/shell/paths"
 source "$DOTFILES_PATH/shell/aliases"
 
 # import our global shell functions
-source "$DOTFILES_PATH/shell/shell_funcs"
+source "$DOTFILES_PATH/shell/funcs"
 
 # import our autocompletions
 source "$DOTFILES_PATH/shell/autocompletions"
