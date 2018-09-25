@@ -15,9 +15,9 @@
 # *letterSpace: 0
 
 # Set fonts in "$HOME/.Xresources.env"
-URxvt*font: xft:Iosevka Nerd Font:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
-URxvt*faceName: xft:Iosevka Nerd Font:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
-URxvt*boldFont: xft:Iosevka Nerd Font:pixelsize=14:style=bold,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+URxvt*font: xft:Iosevka:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+URxvt*faceName: xft:Iosevka:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+URxvt*boldFont: xft:Iosevka:pixelsize=14:style=bold,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt*letterSpace: 0
 
 # rxvt-unicode configuration
