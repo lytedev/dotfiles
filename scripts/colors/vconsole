@@ -1,8 +1,8 @@
 #!/bin/sh
-# Base16 Donokai-BLACK - Virtual console color setup script
+# Base16 Donokai - Virtual console color setup script
 # Daniel Flanagan(https://lytedev.io)
 
-color00="000000" # Base 00 - Black
+color00="111111" # Base 00 - Black
 color01="f92672" # Base 08 - Red
 color02="a6e22e" # Base 0B - Green
 color03="f4bf75" # Base 0A - Yellow
