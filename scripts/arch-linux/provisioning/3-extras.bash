@@ -24,4 +24,5 @@ pacaur -S \
 	cloc `# For counting lines of code` \
 	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji `# Emoji` \
 	siji-git gohufont artwiz-fonts phallus-fonts-git `# Bitmap Fonts` \
+	autorandr `# Monitor Helper` \
 	--noconfirm --noedit

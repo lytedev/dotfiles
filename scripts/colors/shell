@@ -1,5 +1,5 @@
 #!/bin/sh
-# Base16 Donokai-BLACK - Shell color setup script
+# Base16 Donokai - Shell color setup script
 # Daniel Flanagan(https://lytedev.io)
 
 if [ "${TERM%%-*}" = 'linux' ]; then
@@ -7,7 +7,7 @@ if [ "${TERM%%-*}" = 'linux' ]; then
     return 2>/dev/null || exit 0
 fi
 
-color00="00/00/00" # Base 00 - Black
+color00="11/11/11" # Base 00 - Black
 color01="f9/26/72" # Base 08 - Red
 color02="a6/e2/2e" # Base 0B - Green
 color03="f4/bf/75" # Base 0A - Yellow
@@ -30,7 +30,7 @@ color19="49/48/3e" # Base 02
 color20="a5/9f/85" # Base 04
 color21="f5/f4/f1" # Base 06
 color_foreground="f8/f8/f2" # Base 05
-color_background="00/00/00" # Base 00
+color_background="11/11/11" # Base 00
 color_cursor="f8/f8/f2" # Base 05
 
 if [ -n "$TMUX" ]; then
@@ -83,12 +83,12 @@ printf $printf_template 21 $color21
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
   printf $printf_template_custom Pg f8f8f2 # forground
-  printf $printf_template_custom Ph 000000 # background
+  printf $printf_template_custom Ph 111111 # background
   printf $printf_template_custom Pi f8f8f2 # bold color
   printf $printf_template_custom Pj 49483e # selection color
   printf $printf_template_custom Pk f8f8f2 # selected text color
   printf $printf_template_custom Pl f8f8f2 # cursor
-  printf $printf_template_custom Pm 000000 # cursor text
+  printf $printf_template_custom Pm 111111 # cursor text
 else
   printf $printf_template_var 10 $color_foreground
   printf $printf_template_var 11 $color_background

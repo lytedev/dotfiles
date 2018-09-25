@@ -14,31 +14,33 @@ export LANG=C
 # Info
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
-printinfo() {
-    info "OS" distro
-    info "Kernel" kernel
-    info "Shell" shell
-    info "Resolution" resolution
+print_info() {
+    info line_break
+
+    prin "Shell" "bash"
     prin "WM" "bspwm"
-    info "Theme" theme
-    info "Icons" icons
     info "Term" term
-    prin "Font" "lemon"
+    info "Font" font
     info "CPU" cpu
     info "GPU" gpu
 
+    info line_break
+    info cols
+    info line_break
+
+    # info "OS" distro
+    # info "Kernel" kernel
+    # info "Theme" theme
+    # info "Icons" icons
+    # info "Resolution" resolution
     # info "CPU Usage" cpu_usage
     # info "Disk" disk
     # info "Battery" battery
-    # info "Font" font
     # info "Song" song
     # info "Local IP" localip
     # info "Public IP" publicip
     # info "Users" users
     # info "Birthday" birthday
-
-    info linebreak
-    info cols
 
 		wait
 }
@@ -48,6 +50,7 @@ printinfo() {
 
 # Show more kernel info
 # --kernel_shorthand on, off
+kernel="off"
 kernel_shorthand="on"
 
 
@@ -221,7 +224,9 @@ underline_char="-"
 # Color block range
 # --block_range start end
 start=0
-end=7
+end=15
+
+# block_range="0,15"
 
 # Toggle color blocks
 # --color_blocks on, off
@@ -229,11 +234,11 @@ color_blocks="on"
 
 # Color block width in spaces
 # --block_width num
-block_width=3
+block_width=5
 
 # Color block height in lines
 # --block_height num
-block_height=1
+block_height=2
 
 
 # }}}
@@ -280,10 +285,12 @@ disk_display="off"
 
 # Image Options {{{
 
+backend="w3m"
+image_backend="w3m"
 
 # Image Source
 # --image wall, ascii, /path/to/img, /path/to/dir/, off
-image="w3m"
+image="wall"
 
 # Thumbnail directory
 thumbnail_dir="$HOME/.cache/thumbnails/neofetch"
@@ -306,11 +313,11 @@ crop_offset="center"
 # Image size
 # The image is half the terminal width by default.
 # --size auto, 00px, 00%, none
-image_size="auto"
+image_size="360px"
 
 # Right gap between image and text
 # --gap num
-gap=2
+gap=4
 
 # Image offsets
 # Only works with the w3m backend.

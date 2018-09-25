@@ -1,7 +1,7 @@
-! Base16 Donokai-BLACK
+! Base16 Donokai
 ! Scheme: Daniel Flanagan(https://lytedev.io)
 
-#define base00 #000000
+#define base00 #111111
 #define base01 #383830
 #define base02 #49483e
 #define base03 #75715e

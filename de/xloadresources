@@ -2,11 +2,19 @@
 
 echo "xloadresources" >> "$HOME/.xstartup_log"
 
+ENV_TYPE="${1}"
+
+if [[ -z "$ENV_TYPE" ]]; then
+	ENV_TYPE=""
+else
+	ENV_TYPE=".${ENV_TYPE}"
+fi
+
 sysresources="/etc/X11/xinit/.Xresources"
 sysmodmap="/etc/X11/xinit/.Xmodmap"
 userresources="$HOME/.Xresources"
 usercolors="$HOME/.Xresources.colors"
-userenv="$HOME/.Xresources.env"
+userenv="$HOME/.Xresources${ENV_TYPE}.env"
 usermodmap="$HOME/.Xmodmap"
 
 if [ -f "$sysresources" ]; then
