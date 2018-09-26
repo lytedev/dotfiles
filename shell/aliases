@@ -22,6 +22,7 @@ alias lr='ll -R' # please don't - why is this even here...?
 alias la='ll -A' # show all
 alias tree='tree -Csuh'
 alias f='fzf'
+alias cp="rsync -ah --progress"
 
 # navigation aliases
 function c() {
