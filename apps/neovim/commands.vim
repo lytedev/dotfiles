@@ -59,6 +59,7 @@ fun! RunMake()
 		let path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 		" TODO: handle non-git situations
 		execute 'terminal cd ' . path . ' && make ' . g:make_args
+		startinsert
 	else
 		execute '!make ' . g:make_args
 	endif
