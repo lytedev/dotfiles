@@ -2,16 +2,16 @@
 
 # user's username
 USERNAME=daniel
-GROUPS=admin,users,wheel
+USER_GROUPS="admin,users,wheel"
 
 # add admin group
 groupadd admin 2>/dev/null
 
 # create actual home directory
-mkdir -p "/home/$USERNAME/usr"
+mkdir -p "/home/$USERNAME/.home"
 
 # add user with groups
-useradd -m -d "/home/$USERNAME/usr" -G "$GROUPS" -s "/bin/bash" "$USERNAME"
+useradd -m -d "/home/$USERNAME/.home" -G "${USER_GROUPS}" -s "/bin/bash" "$USERNAME"
 
 # give home directory ownership
 chown -R "$USERNAME:$USERNAME" "/home/$USERNAME"

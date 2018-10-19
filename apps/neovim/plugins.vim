@@ -66,7 +66,7 @@ let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 Plug 'w0rp/ale' " syntax checker
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 " let g:ale_sign_column_always = 0
 " let g:ale_set_signs = 0
 " highlight clear ALEErrorSign
