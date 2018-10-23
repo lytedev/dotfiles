@@ -2,7 +2,7 @@
 
 BORDER_WIDTH=5 # change in bspwmrc
 export WINDOW_GAP=25
-DESKTOPS=(dev web gfx env play out misc chat mon util)
+DESKTOPS=(dev web gfx env play chat misc mon out util)
 
 BSPWM_MONITORS=$(bspc query -M | tac)
 MONITOR_COUNT=$(echo "${BSPWM_MONITORS}" | wc -w | awk '{ printf $1 }')

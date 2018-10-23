@@ -49,7 +49,7 @@ dpi = ${xrdb:dpi:92}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 0
 line-color = ${colors.foreground}
 
 border-size = 0
@@ -59,7 +59,7 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = ${env:BAR_FONT_DECLARATION}
 font-1 = ${env:BAR_ICON_FONT_DECLARATION}
@@ -95,7 +95,7 @@ mount-0 = ${env:BAR_FS_VOLUME}
 format = <label-mounted>
 label-mounted = %used%
 label-mounted-foreground = ${colors.filesystem}
-format-mounted-prefix = " "
+format-mounted-prefix = " "
 format-mounted-prefix-foreground = ${colors.icon}
 
 ; ########################### ;
@@ -105,13 +105,13 @@ format-mounted-prefix-foreground = ${colors.icon}
 [module/bspwm]
 ws-icon-0 = dev;
 ws-icon-1 = web;
-ws-icon-2 = gfx;
+ws-icon-2 = gfx;
 ws-icon-3 = env;
-ws-icon-4 = play;
-ws-icon-5 = out;
-ws-icon-6 = misc;
-ws-icon-7 = chat;
-ws-icon-8 = mon;
+ws-icon-4 = play;
+ws-icon-5 = chat;
+ws-icon-6 = out;
+ws-icon-7 = mon;
+ws-icon-8 = misc;
 ws-icon-9 = util;
 ws-icon-default = ♟
 
@@ -202,7 +202,7 @@ label-foreground = ${colors.cpu}
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.icon}
 label = %gb_free%
 label-foreground = ${colors.memory}
