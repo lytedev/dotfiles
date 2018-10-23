@@ -7,10 +7,12 @@
 # making sure they're loaded!
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
-export NICE_HOME="$HOME"
+NICE_HOME="$HOME"
 
-[[ $(basename "${HOME}") = "usr" ]] && export NICE_HOME="$HOME/.."
-[[ $(basename "${HOME}") = ".home" ]] && export NICE_HOME="$HOME/.."
+[[ $(basename "${HOME}") = "usr" ]] && NICE_HOME="$(realpath "$HOME/..")"
+[[ $(basename "${HOME}") = ".home" ]] && NICE_HOME="$(realpath "$HOME/..")"
+
+export NICE_HOME
 
 # TODO: nice home on a per-device basis
 

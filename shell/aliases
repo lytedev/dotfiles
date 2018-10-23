@@ -63,6 +63,7 @@ alias tcom="tmux attach -t comms || tmux new -s comms"
 
 # git aliases
 # TODO: make these git aliases in the gitconfig?
+alias g="git"
 alias gs="git status"
 alias gpl="git pull"
 alias gp="git push --all"
@@ -104,6 +105,7 @@ alias pt="htop -t" # experimental htop tree-view-by-default
 alias resrc="source \$HOME/.bashrc"
 alias redshift="redshift -l 39.0997:-94.5786"
 alias gpmdpe="electron --app=/usr/share/gpmdp/resources/app.asar"
+alias t="task"
 
 export NOTES_DIR="$NICE_HOME"
 

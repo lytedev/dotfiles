@@ -237,7 +237,7 @@ super + ctrl + {alt +,_} Escape
 		bspc quit 1}
 
 Print
-	scrot
+	scrot "$NICE_HOME/img/scrots/%Y-%m-%d_%H-%M-%S_\$wx\$h.png"
 
 # make sxhkd reload its configuration files:
 super + Escape
