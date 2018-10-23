@@ -38,7 +38,7 @@ pacaur -S \
 	terminus-font ttf-iosevka-pack `# Primary Fonts` \
 	ttf-freefont `# Font` \
 	ttd-monaco `# Font` \
-	ttf-font-awesome-4 ttf-font-awesome `# Icon Font` \
+	ttf-font-awesome `# Icon Font` \
 	autocutsel `# Clipboard Helper` \
 	curl `# HTTP Utility` \
 	w3m `# Viewing Images in Terminals` \

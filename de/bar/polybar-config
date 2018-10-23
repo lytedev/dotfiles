@@ -104,7 +104,7 @@ format-mounted-prefix-foreground = ${colors.icon}
 
 [module/bspwm]
 ws-icon-0 = dev;
-ws-icon-1 = web;
+ws-icon-1 = web;
 ws-icon-2 = gfx;
 ws-icon-3 = env;
 ws-icon-4 = play;
