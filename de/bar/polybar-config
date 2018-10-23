@@ -6,6 +6,8 @@
 foreground = ${xrdb:color7:#222222}
 background = ${xrdb:color0:#111111}
 
+tray-bg = #222222
+
 icon = #555555
 
 good = ${xrdb:color2}
@@ -71,9 +73,7 @@ modules-right = volume xbacklight xkeyboard temperature filesystem memory cpu ba
 
 tray-position = right
 tray-padding = 0
-; tray-background = #00000000
-; tray-transparent = true
-; tray-background = ${colors.background}
+tray-background = ${colors.tray-bg}
 
 wm-restack = bspwm
 
