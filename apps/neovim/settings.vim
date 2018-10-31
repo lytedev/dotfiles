@@ -9,8 +9,6 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/local/bin/pyls'],
     \ }
 
-let g:LanguageClient_serverCommands = {}
-
 " fix neovim cursor
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
