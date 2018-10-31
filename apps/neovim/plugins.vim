@@ -32,6 +32,11 @@ else
 	let g:prosession_dir = '~/.config/nvim/session/'
 endif
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 Plug 'vim-airline/vim-airline' " status line
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open

@@ -1,5 +1,16 @@
 scriptencoding utf8
 
+" configuration for language servers
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'haskell': ['/usr/bin/hie-wrapper'],
+    \ 'python': ['/usr/local/bin/pyls'],
+    \ }
+
+let g:LanguageClient_serverCommands = {}
+
 " fix neovim cursor
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 

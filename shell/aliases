@@ -66,7 +66,8 @@ alias tcom="tmux attach -t comms || tmux new -s comms"
 alias g="git"
 alias gs="git status"
 alias gpl="git pull"
-alias gp="git push --all"
+alias gp="git push"
+alias gpa="git push --all && git push --tags"
 alias grbpf="git push --force-with-lease"
 alias gac="git add -A && git commit"
 alias gsur="git submodule update --remote"
@@ -143,7 +144,7 @@ if command -v nvim >/dev/null 2>&1; then
 	export EDITOR="nvim"
 fi
 
-export BROWSER="google-chrome-unstable"
+export BROWSER="firefox"
 
 # arch aliases
 # TODO: load os-specific aliases based on running OS
