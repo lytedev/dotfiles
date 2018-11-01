@@ -9,6 +9,17 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['/usr/local/bin/pyls'],
     \ }
 
+" call deoplete#custom#source('javacomplete2', 'max_abbr_width', 1000)
+" call deoplete#custom#source('javacomplete2', 'max_kind_width', 1000)
+" call deoplete#custom#source('javacomplete2', 'max_menu_width', 1000)
+" 
+" call deoplete#custom#source('rust', 'max_kind_width', 1000)
+" call deoplete#custom#source('rust', 'max_abbr_width', 1000)
+" call deoplete#custom#source('rust', 'max_menu_width', 1000)
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
 " fix neovim cursor
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
