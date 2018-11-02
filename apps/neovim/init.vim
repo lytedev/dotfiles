@@ -25,8 +25,20 @@ if filereadable(expand('$HOME/.env_init.vim'))
 	source "$HOME/.env_init.vim"
 endif
 
+let pluginmanagerfile=$vimdir.'/plugin-manager.vim'
+exec 'source ' . pluginmanagerfile
+
+" initialize plugin manager
+if has('nvim')
+	call plug#begin('~/.config/nvim/bundle')
+else
+	call plug#begin('~/.vim/bundle')
+endif
+
 let pluginsfile=$vimdir.'/plugins.vim'
 exec 'source ' . pluginsfile
+
+call plug#end()
 
 filetype on
 filetype indent on

@@ -132,8 +132,6 @@ nnoremap <C-j> :bprevious<CR>
 nnoremap <leader>c ciw
 nnoremap <leader>C ciW
 
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
 " bash-like deletion
 inoremap <C-BS> <C-w>
 inoremap <A-BS> <C-w>

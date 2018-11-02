@@ -1,23 +1,45 @@
 scriptencoding utf8
 
-" configuration for language servers
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'haskell': ['/usr/bin/hie-wrapper'],
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ }
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
+let g:airline#extensions#tabline#fnamemod = ':t'
+" set laststatus=2 " always show statusline
+" set noshowmode " hides default mode
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+let g:airline#extensions#tabline#buffers_label = ''
 
-" call deoplete#custom#source('javacomplete2', 'max_abbr_width', 1000)
-" call deoplete#custom#source('javacomplete2', 'max_kind_width', 1000)
-" call deoplete#custom#source('javacomplete2', 'max_menu_width', 1000)
-" 
-" call deoplete#custom#source('rust', 'max_kind_width', 1000)
-" call deoplete#custom#source('rust', 'max_abbr_width', 1000)
-" call deoplete#custom#source('rust', 'max_menu_width', 1000)
+let g:airline_mode_map = {
+		\ '__' : '-',
+		\ 'n'  : 'N',
+		\ 'i'  : 'I',
+		\ 'R'  : 'R',
+		\ 'c'  : 'C',
+		\ 'v'  : 'V',
+		\ 'V'  : 'V',
+		\ '' : 'V',
+		\ 's'  : 'S',
+		\ 'S'  : 'S',
+		\ '' : 'S',
+		\ }
 
-autocmd BufEnter * call ncm2#enable_for_buffer()
+let g:indent_guide_auto_colors = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
+let g:ale_completion_enabled = 1
+let g:ale_elixir_elixir_ls_release = '/home/daniel/code/open-source/elixir-ls/release'
+
+let g:ale_sign_column_always = 0
+let g:ale_set_signs = 0
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+let g:fzf_layout = { 'window': 'enew' }
+
 set completeopt=noinsert,menuone,noselect
 
 " fix neovim cursor

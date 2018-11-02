@@ -69,7 +69,7 @@ font-2 = ${env:BAR_ICON_FONT_2_DECLARATION}
 
 modules-left = bspwm
 modules-center = date
-modules-right = volume xbacklight xkeyboard temperature filesystem memory cpu battery
+modules-right = cpu filesystem memory volume xbacklight xkeyboard temperature battery
 
 tray-position = right
 tray-padding = 0
