@@ -29,7 +29,7 @@ if command -v xss-lock >/dev/null 2>&1; then
 fi
 
 if command -v redshift >/dev/null 2>&1; then
-	redshift &
+	redshift -r -l 39.0997:-94.5786 -t 6500K:3000K &
 fi
 
 if [ -f "$HOME/.env_xprofile" ]; then
