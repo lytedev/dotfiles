@@ -35,6 +35,9 @@ function c() {
 alias cd..="cd .."
 alias cdd="cd \"\$DOTFILES_PATH\"" # go to dotfiles
 alias cdc="cd \"\$XDG_CONFIG_HOME\"" # go to
+alias cdn="cd \"\$NOTES_PATH\""
+
+alias nsync="cd \"\$NOTES_PATH\" && git add -A && git commit -m Updates && git pull && git push && cd -"
 
 function cdp() {
 	cd "$(dirname "$(fzf)")" || return

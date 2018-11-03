@@ -25,4 +25,6 @@ pacaur -S \
 	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji `# Emoji` \
 	siji-git gohufont artwiz-fonts phallus-fonts-git `# Bitmap Fonts` \
 	autorandr `# Monitor Helper` \
+	keybase keybase-gui kbfs `# Keybase Applications` \
+	discord `# Chat Application` \
 	--noconfirm --noedit
