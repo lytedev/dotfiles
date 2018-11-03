@@ -18,3 +18,10 @@ fi
 if command -v ruby >/dev/null 2>&1; then
 	export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 fi
+
+export NOTES_PATH="$NICE_HOME/doc/notes"
+
+_make_paths() {
+	mkdir -p "${NOTES_PATH}"
+}
+export -f _make_paths

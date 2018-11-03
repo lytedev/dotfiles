@@ -26,6 +26,8 @@ pulseaudio --start &
 
 xset s off -dpms &
 
+redshift &
+
 urxvtd &
 
 autocutsel -fork &

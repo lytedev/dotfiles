@@ -77,6 +77,8 @@ if [ "$PWD" = "$HOME" ]; then
   cd "$NICE_HOME"
 fi
 
+_make_paths
+
 LS_COLORS='ow=01;36;40'
 export LS_COLORS
 

@@ -46,10 +46,15 @@ editscrot() {
 
 n() {
 	SUBDIR="${2:-}"
-	mkdir -p "$NICE_HOME/doc/notes/$SUBDIR"
-	"$EDITOR" "$NICE_HOME/doc/notes/$SUBDIR/$(date +%Y-%m-%d)_$1.md"
+	mkdir -p "$NOTES_PATH/$SUBDIR"
+	"$EDITOR" "$NOTES_PATH/$SUBDIR/$(date +%Y-%m-%d)_$1.md"
 }
 export -f n
+
+s() {
+	"$EDITOR" "$NOTES_PATH/_scratch.md"
+}
+export -f s
 
 # save the current directory for later retrieval
 scwd() {
