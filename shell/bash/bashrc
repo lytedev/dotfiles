@@ -20,11 +20,8 @@ export NOTES_DIR="$NICE_HOME/doc/notes"
 # set our PATH
 source "$DOTFILES_PATH/shell/bash/paths"
 
-# import our aliases
-source "$DOTFILES_PATH/shell/bash/aliases"
-
-# import our autocompletions
-source "$DOTFILES_PATH/shell/bash/autocompletions"
+# stop parsing on a non-interactive shell
+[ -z "$PS1" ] && return
 
 # load our key binds
 case $- in
@@ -32,11 +29,14 @@ case $- in
 	*) ;;
 esac
 
-# stop parsing on a non-interactive shell
-[ -z "$PS1" ] && return
+# import our aliases
+source "$DOTFILES_PATH/shell/bash/aliases"
+
+# import our autocompletions
+source "$DOTFILES_PATH/shell/bash/autocompletions"
 
 # load our vconsole colors
-if [ "${TERM%%-*}" = 'linux' ]; then
+if [ "${TERM%%-*}" = 'linux' ] && [[ $- == *i* ]]; then
 	BASE16_SHELL="$DOTFILES_PATH/scripts/colors/vconsole"
 	[[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 fi

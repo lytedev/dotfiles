@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-stopbar
-startbar
+stopbar && startbar &

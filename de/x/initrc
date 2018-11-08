@@ -20,6 +20,9 @@ if [ -f "$HOME/.xmodmap" ]; then
 	xmodmap "$HOME/.xmodmap"
 fi
 
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+
 xcape -e 'Control_L=Escape' &
 
 pulseaudio --start &

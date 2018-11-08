@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-bash "${DOTFILES_PATH}/de/bar/bar.bash" &
-bg
-disown
+"${DOTFILES_PATH}/de/bar/bar.bash"
