@@ -67,7 +67,6 @@ alias glf="git ls-files"
 alias gl="git log --graph --pretty=oneline --abbrev-commit --decorate"
 
 # misc aliases
-alias qute="qutebrowser --backend webengine"
 alias p="ping 8.8.8.8"
 alias C="clear && clear"
 alias keyrepeat="xset r rate 250 80"

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec qutebrowser --backend webengine

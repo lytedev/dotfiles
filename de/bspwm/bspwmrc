@@ -28,6 +28,10 @@ if command -v urxvtd >/dev/null 2>&1; then
 	urxvtd &
 fi
 
+if command -v dunst >/dev/null 2>&1; then
+	dunst &
+fi
+
 if command -v sxhkd >/dev/null 2>&1; then
 	# export HIGHLIGHT_COLOR=$(xrdb -query | sed -ne 's/.*font:\s*xft:.*\-\(.*\)$/\1/p' | head -n 1)
 	export NICE_HOME

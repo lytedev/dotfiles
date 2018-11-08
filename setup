@@ -16,6 +16,7 @@ links=(
 	"$dfp/de/x/profile"                      "$HOME/.xprofile"
 	"$dfp/de/x/modmap"                       "$HOME/.xmodmap"
 	"$dfp/de/compton/compton.conf"           "$XDG_CONFIG_HOME/compton.conf"
+	"$dfp/de/dunst/dunstrc"                  "$XDG_CONFIG_HOME/dunst/dunstrc"
 	"$dfp/scripts/colors/xresources"         "$HOME/.Xresources.colors"
 
 	# shell files
