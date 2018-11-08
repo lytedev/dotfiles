@@ -7,8 +7,9 @@ source "${dfp}/scripts/setup_helpers.bash"
 
 links=(
 	# desktop environment files
-	"$dfp/de/sway/config"                    "$XDG_CONFIG_HOME/sway/config"
 	"$dfp/de/bspwm/bspwmrc"                  "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+	"$dfp/de/bspwm/fehbg"                    "$HOME/.fehbg"
+	"$dfp/de/sway/config"                    "$XDG_CONFIG_HOME/sway/config"
 	"$dfp/de/sxhkd/sxhkdrc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 	"$dfp/de/x/resources"                    "$HOME/.Xresources"
 	"$dfp/de/x/initrc"                       "$HOME/.xinitrc"

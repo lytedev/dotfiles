@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-feh --bg-fill "$@"
+index="${2}"
+wp_file="${HOME}/.wallpaper${index}"
+rm -f "${wp_file}"
+ln -s "${1}" "${wp_file}"
+"${HOME}/.fehbg"

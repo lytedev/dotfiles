@@ -33,6 +33,7 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # swap previous/next desktops
+
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
@@ -72,6 +73,7 @@ super + {_,shift + }{1-9,0}
 ~button1
 	bspc node -f pointed
 
+# set the current node's dimensions to 1920x1080 (for streaming)
 super + shift + alt + ctrl + s
 	wres1080
 
@@ -131,16 +133,8 @@ super + ctrl + alt + shift + space
 super + ctrl + alt + space
 	bspc config -d focused bottom_padding 200; bspc config -d focused top_padding 200; bspc config -d focused left_padding 400; bspc config -d focused right_padding 400
 
-
-
 super + alt + minus
 	bspc config -d focused bottom_padding $(expr $(bspc config -d focused bottom_padding) - 5)
-
-# wm-independant shortcuts
-
-# spawn a transparent node
-super + alt + t
-	urxvtc && compton-trans -c -o 0
 
 # rotate the current node
 super + r
@@ -149,6 +143,12 @@ super + r
 # balance the current node
 super + shift + b
 	bspc node -B
+
+# wm-independant shortcuts
+
+# spawn a transparent node
+super + alt + t
+	urxvtc && compton-trans -c -o 0
 
 # make current node transparent
 super + t
@@ -168,7 +168,7 @@ super + Return
 
 # spawn a floating terminal
 super + shift + Return
-	bspc rule -a '*' -o state=floating && urxvtc --dimensions 80x24
+	bspc rule -a '*' -o state=floating && urxvtc
 
 # spawn the app launcher
 super + space
