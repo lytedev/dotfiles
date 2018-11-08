@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SCROT_DIR="$NICE_HOME/img/scrots/"
+LATEST_SCROT="$(\ls -Art "${SCROT_DIR}" | tail -n 1)"
+krita "${SCROT_DIR}${LATEST_SCROT}"

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd "${NOTES_PATH}" || exit
+git add -A
+git commit -m Updates
+git pull && git push
+cd - || exit

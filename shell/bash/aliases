@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-# set our needed variables if we don't already have them
-if [[ -z "$XDG_CONFIG_HOME" ]]; then
-	export XDG_CONFIG_HOME="$HOME/.config"
-fi
-if [[ -z "$DOTFILES_PATH" ]]; then
-	export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
-fi
-
 # filesystem aliases
 alias lx='ls -lXB' # order by filetype
 alias lk='ls -lSr' # order by filesize reversed
@@ -36,9 +28,6 @@ alias cd..="cd .."
 alias cdd="cd \"\$DOTFILES_PATH\"" # go to dotfiles
 alias cdc="cd \"\$XDG_CONFIG_HOME\"" # go to
 alias cdn="cd \"\$NOTES_PATH\""
-
-alias nsync="cd \"\$NOTES_PATH\"; git add -A; git commit -m Updates; git pull && git push; cd -"
-
 function cdp() {
 	cd "$(dirname "$(fzf)")" || return
 }
@@ -77,25 +66,6 @@ alias gsur="git submodule update --remote"
 alias glf="git ls-files"
 alias gl="git log --graph --pretty=oneline --abbrev-commit --decorate"
 
-grb() {
-	MAIN_BRANCH="master"
-	CUR_BRANCH="$(git branch | grep '\*' | cut -d ' ' -f2-)"
-	if [[ ! -z ${2+x} ]]; then
-		MAIN_BRANCH="$2"
-		CUR_BRANCH="$1"
-	elif [[ ! -z ${1+x} ]]; then
-		MAIN_BRANCH="$1"
-	fi
-
-	git rebase -i "$(git merge-base "$CUR_BRANCH" "$MAIN_BRANCH")"
-}
-
-# DEPRECATED: we use network manager (nmtui/nmcli) now
-# start netctl using any available profile on the first wireless network
-# interface
-# TODO: flesh this out into a function that lets the user know what's going on.
-#alias wifi="sudo systemctl start netctl-auto@$(for wli in /sys/class/net/wl*; do echo $(basename $wli); break; done)"
-
 # misc aliases
 alias qute="qutebrowser --backend webengine"
 alias p="ping 8.8.8.8"
@@ -111,44 +81,10 @@ alias redshift="redshift -r -l 39.0997:-94.5786 -t 6500K:2500K"
 alias gpmdpe="electron --app=/usr/share/gpmdp/resources/app.asar"
 alias t="task"
 
-export NOTES_DIR="$NICE_HOME"
-
 # games aliases
 # this sometimes fixes steam dynamic library issues?
-# alias steam="LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
+alias lsteam="LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
 
-# text editor aliases
-
-# man pages with vim
-vman() {
-	# our vim config is setup to not auto-load sessions if we set the
-	# `asmanviewer` variable, so launch vim that way when using vim as our man
-	# page viewer
-	if command -v nvim >/dev/null 2>&1; then
-		nvim --cmd "let asmanviewer=1" -c "SuperMan $*"
-	else
-		vim --cmd "let asmanviewer=1" -c "SuperMan $*"
-	fi
-
-	# proper error handling
-	if [ "$?" != "0" ]; then
-		echo "No manual entry for $*"
-	fi
-}
-# override the man commands
+# override the man commands with vim
 alias _man="\\man"
 alias man="vman"
-
-# set our EDITOR to neovim if we've got it
-export EDITOR="vim"
-if command -v nvim >/dev/null 2>&1; then
-	alias vim="nvim"
-	alias ovim="\\vim"
-	export EDITOR="nvim"
-fi
-
-export BROWSER="firefox"
-
-# arch aliases
-# TODO: load os-specific aliases based on running OS
-alias archupdate="pacaur -Syyu --noconfirm --noedit"

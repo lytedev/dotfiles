@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# TODO: get the proper monitor!
+BAR_MONITOR="$(polybar --list-monitors | tail -n 1 | sed -n 's/^\s*\(.*\):.*$/\1/p')"
+bspc config -m "${BAR_MONITOR}" bottom_padding "0"
+bspc config -m "${BAR_MONITOR}" top_padding "0"
+killall -q polybar
+while pgrep -x polybar >/dev/null; do sleep 1; done

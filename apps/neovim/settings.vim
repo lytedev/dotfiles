@@ -14,23 +14,22 @@ let g:airline_left_sep = ''
 let g:airline#extensions#tabline#buffers_label = ''
 
 let g:airline_mode_map = {
-		\ '__' : '-',
-		\ 'n'  : 'N',
-		\ 'i'  : 'I',
-		\ 'R'  : 'R',
-		\ 'c'  : 'C',
-		\ 'v'  : 'V',
-		\ 'V'  : 'V',
-		\ '' : 'V',
-		\ 's'  : 'S',
-		\ 'S'  : 'S',
-		\ '' : 'S',
-		\ }
+	\ '__' : '-',
+	\ 'n'  : 'N',
+	\ 'i'  : 'I',
+	\ 'R'  : 'R',
+	\ 'c'  : 'C',
+	\ 'v'  : 'V',
+	\ 'V'  : 'V',
+	\ '' : 'V',
+	\ 's'  : 'S',
+	\ 'S'  : 'S',
+	\ '' : 'S',
+	\ }
 
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-let g:ale_completion_enabled = 1
 let g:ale_elixir_elixir_ls_release = '/home/daniel/code/open-source/elixir-ls/release'
 
 let g:ale_sign_column_always = 0
@@ -183,7 +182,7 @@ set noshowcmd
 set laststatus=0
 
 " yank to OS clipboard
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 set nofoldenable
 setlocal nofoldenable

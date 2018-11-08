@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# our vim config is setup to not auto-load sessions if we set the
+# `asmanviewer` variable, so launch vim that way when using vim as our man
+# page viewer
+if command -v nvim >/dev/null 2>&1; then
+	nvim --cmd "let asmanviewer=1" -c "SuperMan $*"
+else
+	vim --cmd "let asmanviewer=1" -c "SuperMan $*"
+fi
+
+# proper error handling
+if [ "$?" != "0" ]; then
+	echo "No manual entry for $*"
+fi

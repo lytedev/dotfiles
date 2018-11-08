@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+"$EDITOR" "$NOTES_PATH/_scratch.md"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# TODO: migrate to alacritty
-font="xft:Monaco:pixelsize=16"
+# TODO: migrate to alacritty?
+font="xft:Iosevka:pixelsize=16"
 
 urxvtc -fb "$font" -fi "$font" -fn "$font" -letsp "-1"

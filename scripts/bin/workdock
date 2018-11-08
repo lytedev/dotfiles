@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+"$DOTFILES_PATH/de/x/loadresources" lodpi && autorandr --change && sleep 1 && restartbar

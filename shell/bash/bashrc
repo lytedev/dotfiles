@@ -13,20 +13,18 @@ NICE_HOME="$HOME"
 [[ $(basename "${HOME}") = ".home" ]] && NICE_HOME="$(realpath "$HOME/..")"
 
 export NICE_HOME
+export NOTES_DIR="$NICE_HOME/doc/notes"
 
 # TODO: nice home on a per-device basis
 
 # set our PATH
-source "$DOTFILES_PATH/shell/paths"
+source "$DOTFILES_PATH/shell/bash/paths"
 
 # import our aliases
-source "$DOTFILES_PATH/shell/aliases"
-
-# import our global shell functions
-source "$DOTFILES_PATH/shell/funcs"
+source "$DOTFILES_PATH/shell/bash/aliases"
 
 # import our autocompletions
-source "$DOTFILES_PATH/shell/autocompletions"
+source "$DOTFILES_PATH/shell/bash/autocompletions"
 
 # load our key binds
 bind -f "$DOTFILES_PATH/shell/inputrc"
@@ -54,7 +52,7 @@ BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
 shopt -s globstar
 
 # import our prompt
-source "$DOTFILES_PATH/shell/prompt"
+source "$DOTFILES_PATH/shell/bash/prompt"
 
 # prevents binds or commands pulling from history from insta-sending, and
 # instead places them in the readline for editing
@@ -81,5 +79,15 @@ _make_paths
 
 LS_COLORS='ow=01;36;40'
 export LS_COLORS
+
+# set our EDITOR to neovim if we've got it
+export EDITOR="vim"
+if command -v nvim >/dev/null 2>&1; then
+	alias vim="nvim"
+	alias ovim="\\vim"
+	export EDITOR="nvim"
+fi
+
+export BROWSER="firefox"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -5,6 +5,7 @@ export GOPATH="$HOME/.go"
 # PATH=$PATH:$APPENDED_PATH
 export PATH=$PATH:"$GOPATH/bin"
 export PATH=$PATH:"$DOTFILES_PATH/scripts/bin"
+export PATH=$PATH:"$DOTFILES_PATH/scripts/env_bin"
 export PATH=$PATH:"$HOME/.cargo/bin"
 
 if [ -d "$HOME/.local/bin" ]; then

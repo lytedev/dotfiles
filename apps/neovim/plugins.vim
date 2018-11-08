@@ -1,3 +1,20 @@
+" install plugin manager if needed
+augroup PluginManagerInstaller
+	if has('nvim')
+		if empty(glob('~/.config/nvim/autoload/plug.vim'))
+			silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			autocmd VimEnter * PlugInstall
+		endif
+	else
+		if empty(glob('~/.vim/autoload/plug.vim'))
+			silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+			autocmd VimEnter * PlugInstall
+		endif
+	end
+augroup End
+
+let g:ale_completion_enabled = 1
+
 " check if we're using vim as the manpage viewer before loading session plugins
 if exists('asmanviewer')
 	let g:prosession_dir = '/dev/null'
@@ -34,3 +51,5 @@ Plug 'junegunn/goyo.vim' " better distraction-free editing
 Plug 'editorconfig/editorconfig-vim' " loads project-specific editor settings
 Plug 'sheerun/vim-polyglot' " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
+Plug 'junegunn/vim-peekaboo'
+Plug 'tpope/vim-eunuch'

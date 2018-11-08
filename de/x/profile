@@ -9,8 +9,8 @@ fi
 
 echo "xprofile ($DOTFILES_PATH)" >> "$HOME/.xstartup_log"
 
-if [ -f "$DOTFILES_PATH/de/xloadresources" ]; then
-  source "$DOTFILES_PATH/de/xloadresources"
+if [ -f "$DOTFILES_PATH/de/x/loadresources" ]; then
+  source "$DOTFILES_PATH/de/x/loadresources"
 fi
 
 # keyrepeat settings

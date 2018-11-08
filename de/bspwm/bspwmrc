@@ -21,7 +21,7 @@ if [ -e "$BSPWM_STATE" ] ; then
 	rm "$BSPWM_STATE"
 fi
 
-source "$DOTFILES_PATH/de/bspwm_config"
+source "$DOTFILES_PATH/de/bspwm/config"
 
 # TODO: switch to alacritty
 if command -v urxvtd >/dev/null 2>&1; then

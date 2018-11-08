@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+SCROT_DIR="$NICE_HOME/img/scrots/"
+mkdir -p "$SCROT_DIR"
+FILENAME="$NICE_HOME/img/scrots/%Y-%m-%d_%H-%M-%S_\$wx\$h.png"
+scrot "$@" "${FILENAME}" >/dev/null && echo "Saved screenshot to: ${FILENAME}"

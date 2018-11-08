@@ -25,9 +25,6 @@ if filereadable(expand('$HOME/.env_init.vim'))
 	source "$HOME/.env_init.vim"
 endif
 
-let pluginmanagerfile=$vimdir.'/plugin-manager.vim'
-exec 'source ' . pluginmanagerfile
-
 " initialize plugin manager
 if has('nvim')
 	call plug#begin('~/.config/nvim/bundle')
@@ -52,3 +49,9 @@ exec 'source ' . commandsfile
 
 let bindingsfile=$vimdir.'/bindings.vim'
 exec 'source ' . bindingsfile
+
+" load a per-environment file if one exists
+if filereadable(expand('$HOME/.env_init_after.vim'))
+	source "$HOME/.env_init_after.vim"
+endif
+
