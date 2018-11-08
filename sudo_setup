@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# TODO: ascii art header
+
+if [[ $UID -ne 0 ]]; then
+	echo "Re-running with 'sudo -E'..."
+	sudo -E "$0" "$@"
+	exit
+fi
+
+dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
+source "${dfp}/scripts/setup_helpers.bash"
+
+links=(
+	# display manager configuration files
+	"$dfp/de/sway/sway-init" "/usr/bin/sway-lytedev"
+	"$dfp/de/sway/dm_entry" "/usr/share/wayland-sessions/sway-lytedev.desktop"
+)
+
+_dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-root-files.lock" "${links[@]}"
+

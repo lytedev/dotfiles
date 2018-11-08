@@ -1,34 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ -z "$XDG_CONFIG_HOME" ]]; then
-	export XDG_CONFIG_HOME="$HOME/.config"
-fi
+# TODO: ascii art header
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
+source "${dfp}/scripts/setup_helpers.bash"
 
-ALERT_AGREEMENT_FILE="$dfp/.agreed-to-erasing-files.lock"
-
-# Let user know that this script will delete their current configuration and
-# that they should read this script before running. We'll use a lock file so
-# the user only needs to agree once.
-if [ -f "$ALERT_AGREEMENT_FILE" ]; then
-	# User agreed already - do nothing
-	echo "Linking..."
-else
-	echo "Running this script may delete existing personal configuration files."
-	echo "Please view this script's source, fully understand it, and backup any"
-	echo "files before continuing."
-	echo "Seriously. Like... entire directories. Just gone."
-	read -r -p "Are you sure you want to continue? [y/N] " response
-	response=${response,,} # to lower case
-	if [[ $response =~ ^(yes|y)$ ]]; then
-		echo "agreed" > "$ALERT_AGREEMENT_FILE"
-	else
-		exit 1
-	fi
-fi
-
-# TODO: make sure we have an even number, here
 links=(
 	# desktop environment files
 	"$dfp/de/sway/config"                    "$XDG_CONFIG_HOME/sway/config"
@@ -54,9 +30,9 @@ links=(
 	"$dfp/scripts/colors/vim"                "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 
 	# gtk configuration files
-	"$dfp/de/gtk/2rc"                     "$HOME/.gtkrc-2.0"
-	"$dfp/de/gtk/2rc"                     "$HOME/.gtkrc"
-	"$dfp/de/gtk/3settings.ini"           "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
+	"$dfp/de/gtk/2rc"                        "$HOME/.gtkrc-2.0"
+	"$dfp/de/gtk/2rc"                        "$HOME/.gtkrc"
+	"$dfp/de/gtk/3settings.ini"              "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
 
 	# irc files
 	"$dfp/apps/irssi/"                       "$HOME/.irssi"
@@ -98,31 +74,17 @@ links=(
 	"$dfp/shell/user-dirs"                   "$XDG_CONFIG_HOME/user-dirs.dirs"
 )
 
-source=""
-for i in "${links[@]}"; do
-	if [ -n "$source" ]; then
-		if [ -L "$i" ]; then # if symlink exists, delete it
-			rm -rf "$i"
-		fi
-		if [ -f "$i" ]; then # if file exists, delete it
-			rm -rf "$i"
-		fi
-		if [ -d "$i" ]; then # if directory exists, delete it
-			rm -rf "$i"
-		fi
-		# check if the directory that will contain the link exists
-		DIR_TO_LINK=$(dirname "$i")
-		if [ -d "$DIR_TO_LINK" ]; then
-			:
-		else
-			mkdir -p "$DIR_TO_LINK"
-		fi
-		ln -s "$source" "$i"
-		echo "Linked $(basename $source) to $i."
-		source=""
-	else
-		source="$i"
-	fi
-done
+_dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-files.lock" "${links[@]}"
 
-echo "Done."
+echo -n -e "Do you want to run the sudo_setup script for changes to /etc"
+echo -n -e "\nand other root directories?"
+read -r -p " [y/N] " response
+response=${response,,} # to lower case
+if [[ $response =~ ^(yes|y)$ ]]; then
+	"$dfp/sudo_setup"
+else
+	::
+fi
+
+echo -e "Dotfiles Installed! Running 'exec bash'...\n"
+exec bash

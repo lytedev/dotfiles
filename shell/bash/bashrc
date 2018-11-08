@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
-# bashrc is executed when a bash process starts
-
-# these are all paths used across all the dotfiles and should be assumed to be
-# loaded and properly set by every script - this means you are responsible for
-# making sure they're loaded!
+# these are all paths used across many of the dotfiles and should be assumed to
+# be loaded and properly set by every script - this means you are responsible
+# for making sure they're loaded!
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 NICE_HOME="$HOME"
 
+# TODO: better logic for auto-detecting alternative home directories?
+# 1. check dirname(basename $HOME)) matches username
+# 2. check /home/$username
 [[ $(basename "${HOME}") = "usr" ]] && NICE_HOME="$(realpath "$HOME/..")"
 [[ $(basename "${HOME}") = ".home" ]] && NICE_HOME="$(realpath "$HOME/..")"
+# TODO: nice home explicitly definable on a per-device (env) basis
 
 export NICE_HOME
 export NOTES_DIR="$NICE_HOME/doc/notes"
-
-# TODO: nice home on a per-device basis
 
 # set our PATH
 source "$DOTFILES_PATH/shell/bash/paths"
@@ -27,10 +27,10 @@ source "$DOTFILES_PATH/shell/bash/aliases"
 source "$DOTFILES_PATH/shell/bash/autocompletions"
 
 # load our key binds
-bind -f "$DOTFILES_PATH/shell/inputrc"
-
-# less tab size of 2 spaces
-LESS="-x2"
+case $- in
+	*i*) bind -f "$DOTFILES_PATH/shell/inputrc";;
+	*) ;;
+esac
 
 # stop parsing on a non-interactive shell
 [ -z "$PS1" ] && return
@@ -59,8 +59,25 @@ source "$DOTFILES_PATH/shell/bash/prompt"
 shopt -s histverify
 
 # prevents some Java GUI apps from not working or rendering properly due to
-# using bspwm
+# using wacky window managers
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+LS_COLORS='ow=01;36;40'
+export LS_COLORS
+
+# less tab size of 2 spaces
+LESS="-x2"
+export LESS
+
+# set our EDITOR to neovim if we've got it
+export EDITOR="vim"
+if command -v nvim >/dev/null 2>&1; then
+	alias vim="nvim"
+	alias ovim="\\vim"
+	export EDITOR="nvim"
+fi
+
+export BROWSER="firefox-developer-edition"
 
 # load a per-device config last so anything can be overridden
 if [ -a "$HOME/.env_bashrc" ]; then
@@ -72,22 +89,9 @@ fi
 # directory where they keep the stuff they actually care about
 # we only do this if the user is opening a shell at $HOME
 if [ "$PWD" = "$HOME" ]; then
-  cd "$NICE_HOME"
+  cd "$NICE_HOME" || cd || return
 fi
 
 _make_paths
-
-LS_COLORS='ow=01;36;40'
-export LS_COLORS
-
-# set our EDITOR to neovim if we've got it
-export EDITOR="vim"
-if command -v nvim >/dev/null 2>&1; then
-	alias vim="nvim"
-	alias ovim="\\vim"
-	export EDITOR="nvim"
-fi
-
-export BROWSER="firefox"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
