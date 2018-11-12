@@ -42,16 +42,16 @@ if [ $# -gt 0 ]; then
 	return
 fi
 
-if [ $BAR_ON_TOP -eq 1 ]; then
+if [ "$BAR_ON_TOP" -eq 1 ]; then
 	export BAR_BOTTOM="false"
 	export POS_Y=$GAP
-	bspc config -m ${BAR_MONITOR} top_padding "$EHEIGHT"
-	bspc config -m ${BAR_MONITOR} bottom_padding "0"
+	bspc config -m "${BAR_MONITOR}" top_padding "$EHEIGHT"
+	bspc config -m "${BAR_MONITOR}" bottom_padding "0"
 else
 	export BAR_BOTTOM="true"
 	export POS_Y=$GAP
-	bspc config -m ${BAR_MONITOR} top_padding "0"
-	bspc config -m ${BAR_MONITOR} bottom_padding "$EHEIGHT"
+	bspc config -m "${BAR_MONITOR}" top_padding "0"
+	bspc config -m "${BAR_MONITOR}" bottom_padding "$EHEIGHT"
 fi
 
 # bspc

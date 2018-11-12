@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+resrc
 "${DOTFILES_PATH}/de/x/loadresources" lodpi
 autorandr --change
+"${DOTFILES_PATH}/de/bspwm/bspwmrc"
+"${DOTFILES_PATH}/de/x/loadresources" lodpi
 restartbar
 "${HOME}/.fehbg"
