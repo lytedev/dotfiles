@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+resrc
+"${DOTFILES_PATH}/de/x/loadresources"
+autorandr --change
+restartbar
+"${HOME}/.fehbg"

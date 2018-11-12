@@ -15,6 +15,7 @@ alias la='ll -A' # show all
 alias tree='tree -Csuh'
 alias f='fzf'
 alias cp="rsync -ah --progress"
+alias year="cal $(date +%Y)"
 
 # navigation aliases
 function c() {
