@@ -79,6 +79,9 @@ fi
 
 export BROWSER="firefox-developer-edition"
 
+# unlimited history
+export HISTSIZE=""
+
 # load a per-device config last so anything can be overridden
 if [ -a "$HOME/.env_bashrc" ]; then
   source "$HOME/.env_bashrc"
