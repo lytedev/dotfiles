@@ -51,5 +51,7 @@ Plug 'junegunn/goyo.vim' " better distraction-free editing
 Plug 'editorconfig/editorconfig-vim' " loads project-specific editor settings
 Plug 'sheerun/vim-polyglot' " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}
+Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}
 Plug 'junegunn/vim-peekaboo'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-eunuch'

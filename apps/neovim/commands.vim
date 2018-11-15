@@ -68,6 +68,11 @@ endfun
 " kill the terminal buffer when the process exits
 autocmd TermClose * call feedkeys('<cr>')
 
+fun! OpenProjectViewer()
+	let path = system("git rev-parse --show-toplevel | tr -d '\\n'")
+	execute 'NERDTree' path
+endfun
+
 " a toggle-able minimalistic distraction-free text editing mode
 let s:distractionFreeMode = 0
 fun! DistractionFreeModeFunc()

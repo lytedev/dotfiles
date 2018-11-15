@@ -29,9 +29,6 @@ alias cd..="cd .."
 alias cdd="cd \"\$DOTFILES_PATH\"" # go to dotfiles
 alias cdc="cd \"\$XDG_CONFIG_HOME\"" # go to
 alias cdn="cd \"\$NOTES_PATH\""
-function cdp() {
-	cd "$(dirname "$(fzf)")" || return
-}
 
 # quick parent-directory aliases
 alias ..="cd .."

@@ -82,6 +82,9 @@ onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 " run make with leader,m
 nnoremap <leader>m :call RunMake()<CR>
 
+" show project viewer with leader,n
+nnoremap <leader>n :call OpenProjectViewer()<CR>
+
 " change buffers with leader,tab
 nnoremap <leader><Tab>		:bnext<CR>
 nnoremap <leader><S-Tab>	:bprevious<CR>
