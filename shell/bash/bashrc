@@ -84,7 +84,7 @@ export HISTSIZE=""
 
 # load a per-device config last so anything can be overridden
 if [ -a "$HOME/.env_bashrc" ]; then
-  source "$HOME/.env_bashrc"
+	source "$HOME/.env_bashrc"
 fi
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
@@ -92,7 +92,7 @@ fi
 # directory where they keep the stuff they actually care about
 # we only do this if the user is opening a shell at $HOME
 if [ "$PWD" = "$HOME" ]; then
-  cd "$NICE_HOME" || cd || return
+	cd "$NICE_HOME" || cd || return
 fi
 
 _make_paths

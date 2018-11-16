@@ -13,11 +13,11 @@ set editing-mode vi
 
 # vi settings
 $if mode=vi
-  set keymap vi-insert
-  "jk": vi-movement-mode
-  "Jk": vi-movement-mode
-  "JK": vi-movement-mode
-  "jj": vi-movement-mode
-  "Jj": vi-movement-mode
-  "JJ": vi-movement-mode
+	set keymap vi-insert
+	"jk": vi-movement-mode
+	"Jk": vi-movement-mode
+	"JK": vi-movement-mode
+	"jj": vi-movement-mode
+	"Jj": vi-movement-mode
+	"JJ": vi-movement-mode
 $endif
