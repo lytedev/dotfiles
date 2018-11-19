@@ -32,6 +32,15 @@ if command -v redshift >/dev/null 2>&1; then
 	redshift -r -l 39.0997:-94.5786 -t 6500K:3000K &
 fi
 
+if [ -f "$HOME/.xmodmap" ]; then
+	xmodmap "$HOME/.xmodmap"
+fi
+
 if [ -f "$HOME/.env_xprofile" ]; then
 	source "$HOME/.env_xprofile"
 fi
+
+xcape -e 'Control_L=Escape' &
+
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &

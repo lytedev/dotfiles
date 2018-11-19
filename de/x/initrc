@@ -3,6 +3,8 @@
 # as far as I can tell, this file is only executed when you run startx from the
 # TTY
 
+# you probably want to modify xprofile
+
 echo '' > "$HOME/.xstartup_log"
 echo "xinitrc" >> "$HOME/.xstartup_log"
 
@@ -20,21 +22,24 @@ if [ -f "$HOME/.xmodmap" ]; then
 	xmodmap "$HOME/.xmodmap"
 fi
 
+echo "a" > ~/.xinitrc.log
+
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-xcape -e 'Control_L=Escape' &
+# xcape -e 'Control_L=Escape' &
 
-pulseaudio --start &
+# pulseaudio --start &
 
-xset s off -dpms &
+# xset s off -dpms &
 
-redshift &
+# redshift &
 
-urxvtd &
+# urxvtd &
 
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+# autocutsel -fork &
+# autocutsel -selection PRIMARY -fork &
+# autocutsel -selection SECONDARY -fork &
 
 # fire up wm
 exec "$DOTFILES_PATH/de/wmstart"
