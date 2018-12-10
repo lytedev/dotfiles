@@ -39,12 +39,7 @@ highlight clear ALEWarningSign
 
 let g:fzf_layout = { 'window': 'enew' }
 
-let g:OmniSharp_server_use_mono = 1
-let g:ale_linters = {
-			\ 'cs': ['OmniSharp']
-			\}
-
-set completeopt=noinsert,menuone,noselect
+set completeopt=noinsert,menuone,noselect,longest,preview
 
 " fix neovim cursor
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1

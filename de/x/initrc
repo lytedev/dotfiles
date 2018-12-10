@@ -42,4 +42,4 @@ export SSH_AUTH_SOCK
 # autocutsel -selection SECONDARY -fork &
 
 # fire up wm
-exec "$DOTFILES_PATH/de/wmstart"
+exec "$DOTFILES_PATH/de/bspwm/wmstart"

@@ -1,26 +1,26 @@
-# Some of my favorite font setups...
-# *font: xft:Monaco for Powerline-9
-# *faceName: xft:Monaco for Powerline-9
-# *boldFont: xft:Monaco for Powerline-9
-# *letterSpace: -1
+## Some of my favorite font setups...
+## *font: xft:Monaco for Powerline-9
+## *faceName: xft:Monaco for Powerline-9
+## *boldFont: xft:Monaco for Powerline-9
+## *letterSpace: -1
 
-# *font: xft:artwiz lemon-8
-# *faceName: xft:artwiz lemon-8
-# *boldFont: xft:artwiz lemon-8
-# *letterSpace: 0
+## *font: xft:artwiz lemon-8
+## *faceName: xft:artwiz lemon-8
+## *boldFont: xft:artwiz lemon-8
+## *letterSpace: 0
 
-# *font: xft:xos4 Terminuss Powerline-8
-# *faceName: xft:xos4 Terminuss Powerline-8
-# *boldFont: xft:xos4 Terminuss Powerline-8
-# *letterSpace: 0
+## *font: xft:xos4 Terminuss Powerline-8
+## *faceName: xft:xos4 Terminuss Powerline-8
+## *boldFont: xft:xos4 Terminuss Powerline-8
+## *letterSpace: 0
 
-# Set fonts in "$HOME/.Xresources.env"
+## Set fonts in "$HOME/.Xresources.env"
 URxvt*font: xft:Iosevka:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt*faceName: xft:Iosevka:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt*boldFont: xft:Iosevka:pixelsize=14:style=bold,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt*letterSpace: 0
 
-# rxvt-unicode configuration
+## rxvt-unicode configuration
 URxvt*termName: rxvt-unicode
 URxvt*scrollBar: false
 URxvt*cursorUnderline: true
@@ -39,10 +39,10 @@ URxvt*matcher.button: 1
 URxvt*depth: 0
 URxvt*iso14755: False
 
-# Other Xorg configuration
+## Other Xorg configuration
 Xcursor.theme: human
 
-# DPI config
+## DPI config
 *dpi: 92
 Xft.dpi: 92
 *autohint: 0

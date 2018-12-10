@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-pacaur -S \
-	gtk-theme-arc-git `# GTK Theme` \
+gpg --recv-keys 0FC3042E345AD05D
+
+pacaur --needed -S \
+	arc-gtk-theme-git `# GTK Theme` \
 	elementary-icon-theme `# GUI File Explorer Icons` \
 	thunar thunar-volman gvfs `# GUI File Explorer + Volume Management/Auto-Mount Disks)` \
 	gvfs-smb `# Auto-Detect Samba Shares` \

@@ -14,7 +14,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "900x5-30+20"
+    geometry = "900x5-20+20"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -110,7 +110,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b> via %a %I %i -> "
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -139,15 +139,15 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = right
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 32
+    max_icon_size = 16
 
     # Paths to default icons.
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/32x32/devices/
@@ -233,7 +233,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
     foreground = "#aaaaaa"
-    timeout = 10
+    timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
@@ -248,7 +248,7 @@
     background = "#f92672"
     foreground = "#111111"
     frame_color = "#c90642"
-    timeout = 0
+    timeout = 30
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
 

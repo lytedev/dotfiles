@@ -40,7 +40,11 @@ if [ -f "$HOME/.env_xprofile" ]; then
 	source "$HOME/.env_xprofile"
 fi
 
-xcape -e 'Control_L=Escape' &
+if command -v xcape >/dev/null 2>&1; then
+	xcape -e 'Control_L=Escape' &
+fi
 
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+if command -v autocutsel >/dev/null 2>&1; then
+	autocutsel -fork &
+	autocutsel -selection PRIMARY -fork &
+fi

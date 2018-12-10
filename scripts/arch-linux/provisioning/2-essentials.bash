@@ -2,7 +2,7 @@
 
 # TODO: install alacritty
 
-pacaur -S \
+pacaur --needed -S \
 	tree `# Handy Filesystem Viewing Utility` \
 	rofi `# Application Launcher` \
 	the_silver_searcher ripgrep `# Code Search Utilities` \
@@ -16,7 +16,7 @@ pacaur -S \
 	python python-pip `# Python 3 Language` \
 	python2 python2-pip `# Language` \
 	pass `# Password Management` \
-	google-chrome-dev `# Default Web Browser` \
+	firefox-developer-edition `# Default Web Browser` \
 	bash-completion `# Handy Scripts for Tab-Completion in Bash` \
 	fzf `# Fuzzy File Finder` \
 	rsync `# File Transfer` \
@@ -37,7 +37,7 @@ pacaur -S \
 	bspwm-git sxhkd-git xdo-git `# Window Manager and Tools for its use` \
 	terminus-font ttf-iosevka-pack `# Primary Fonts` \
 	ttf-freefont `# Font` \
-	ttd-monaco `# Font` \
+	ttf-monaco `# Font` \
 	ttf-font-awesome `# Icon Font` \
 	autocutsel `# Clipboard Helper` \
 	curl `# HTTP Utility` \
