@@ -12,7 +12,7 @@ pacaur --needed -S \
 	openssl `# Crypto` \
 	elixir `# Elixir Language` \
 	ruby `# Language` \
-	nodejs npm `# Language` \
+	nodejs npm yarn `# Language` \
 	python python-pip `# Python 3 Language` \
 	python2 python2-pip `# Language` \
 	pass `# Password Management` \

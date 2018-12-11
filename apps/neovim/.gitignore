@@ -1,7 +1,8 @@
-*
-!.gitignore
-!init.vim
-!settings.vim
-!bindings.vim
-!plugins.vim
-!commands.vim
+/*
+!/ftplugin/*
+!/.gitignore
+!/init.vim
+!/settings.vim
+!/bindings.vim
+!/plugins.vim
+!/commands.vim
