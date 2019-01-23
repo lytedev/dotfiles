@@ -1,22 +1,22 @@
-! Base16 Donokai
+! Base16 Holodized
 ! Scheme: Daniel Flanagan(https://lytedev.io)
 
-#define base00 #111111
-#define base01 #383830
-#define base02 #49483e
-#define base03 #75715e
-#define base04 #a59f85
-#define base05 #f8f8f2
-#define base06 #f5f4f1
-#define base07 #f9f8f5
-#define base08 #f92672
+#define base00 #fdf6e3
+#define base01 #ddd6c3
+#define base02 #ada693
+#define base03 #8d8673
+#define base04 #554f45
+#define base05 #111111
+#define base06 #333333
+#define base07 #555555
+#define base08 #990833
 #define base09 #fd971f
-#define base0A #f4bf75
-#define base0B #a6e22e
-#define base0C #a1efe4
-#define base0D #66d9ef
-#define base0E #ae81ff
-#define base0F #cc6633
+#define base0A #947010
+#define base0B #06623e
+#define base0C #006677
+#define base0D #004488
+#define base0E #4e117f
+#define base0F #883311
 
 *foreground:   base05
 *background:   base00

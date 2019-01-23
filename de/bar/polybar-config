@@ -93,7 +93,7 @@ interval = 25
 mount-0 = ${env:BAR_FS_VOLUME}
 
 format = <label-mounted>
-label-mounted = %used%
+label-mounted = %free%
 label-mounted-foreground = ${colors.filesystem}
 format-mounted-prefix = " "
 format-mounted-prefix-foreground = ${colors.icon}

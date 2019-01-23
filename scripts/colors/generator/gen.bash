@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 SCHEME="donokai"
+TYPE="dark"
 
 v=$(ruby --version)
 
 if [[ $? -eq 0 ]]; then
-	if [[ -n $1 ]]; then
-		SCHEME=$1
-	fi
+	if [[ -n $1 ]]; then SCHEME=$1; fi
+	if [[ -n $2 ]]; then TYPE=$2; fi
 
 	DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)
 
@@ -34,10 +34,10 @@ if [[ $? -eq 0 ]]; then
 	rm -f "$DIR/../vconsole"
 	rm -f "$DIR/../vim"
 	rm -f "$DIR/../xresources"
-	cp "$COLORS_PATH/xresources/base16-$SCHEME.dark.xresources" "$DIR/../xresources"
-	cp "$COLORS_PATH/vconsole/base16-$SCHEME.dark.sh" "$DIR/../vconsole"
+	cp "$COLORS_PATH/xresources/base16-$SCHEME.$TYPE.xresources" "$DIR/../xresources"
+	cp "$COLORS_PATH/vconsole/base16-$SCHEME.$TYPE.sh" "$DIR/../vconsole"
 	cp "$COLORS_PATH/vim/base16-$SCHEME.vim" "$DIR/../vim"
-	cp "$COLORS_PATH/shell/base16-$SCHEME.dark.sh" "$DIR/../shell"
+	cp "$COLORS_PATH/shell/base16-$SCHEME.$TYPE.sh" "$DIR/../shell"
 	chmod +x "$DIR/../shell"
 	chmod +x "$DIR/../vconsole"
 
