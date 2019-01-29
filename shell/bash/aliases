@@ -64,6 +64,10 @@ alias gsur="git submodule update --remote"
 alias glf="git ls-files"
 alias gl="git log --graph --pretty=oneline --abbrev-commit --decorate"
 
+# docker aliases
+alias dlf="docker logs --tail=500 -f"
+alias dclf="docker-compose logs --tail=500 -f"
+
 # misc aliases
 alias p="ping 8.8.8.8"
 alias C="clear && clear"
