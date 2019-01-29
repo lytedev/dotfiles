@@ -67,6 +67,7 @@ alias gl="git log --graph --pretty=oneline --abbrev-commit --decorate"
 # docker aliases
 alias dlf="docker logs --tail=500 -f"
 alias dclf="docker-compose logs --tail=500 -f"
+alias ctop="docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
 
 # misc aliases
 alias p="ping 8.8.8.8"
