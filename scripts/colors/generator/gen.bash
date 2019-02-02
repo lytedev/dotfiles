@@ -3,7 +3,7 @@
 SCHEME="donokai"
 TYPE="dark"
 
-v=$(ruby --version)
+# v=$(ruby --version)
 
 if [[ $? -eq 0 ]]; then
 	if [[ -n $1 ]]; then SCHEME=$1; fi
