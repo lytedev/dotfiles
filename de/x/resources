@@ -30,7 +30,7 @@ URxvt*utf8: 1
 URxvt*scaleHeight: 1
 URxvt*depth: 32
 URxvt*internalBorder: 24
-URxvt*perl-ext-common: default,matcher,resize-font
+URxvt*perl-ext-common: default,matcher,resize-font,config-reload
 URxvt*keysym.M-Escape: perl:keyboard-select:activate
 URxvt*resize-font.smaller: C-Down
 URxvt*resize-font.bigger: C-Up
