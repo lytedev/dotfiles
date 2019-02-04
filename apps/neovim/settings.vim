@@ -179,7 +179,7 @@ set hlsearch
 set foldmethod=syntax
 set foldlevel=99
 set foldnestmax=10
-set foldlevelstart=0
+set foldlevelstart=99
 
 set noautowrite " let me do the writing
 set autochdir " `:e` all day
