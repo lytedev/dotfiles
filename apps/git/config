@@ -1,9 +1,15 @@
 [push]
-	default = matching
+	default = current
 
 [user]
 	name = Daniel Flanagan
 	email = daniel@lytedev.io
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [core]
 	editor = nvim
@@ -30,9 +36,6 @@
 
 [mergetool "nvimdiff"]
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
-[push]
-	default = current
 
 [pager]
 	branch = false
