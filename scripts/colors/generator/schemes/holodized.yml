@@ -6,8 +6,8 @@ base02: "ada693" # darker cream
 base03: "8d8673" # greyish yellow (peuce)
 base04: "554f45" # darker peuce
 base05: "111111" # foreground dark grey
-base06: "333333" # foreground 2 dark grey
-base07: "555555" # foreground 3 dark grey
+base06: "555555" # foreground 2 dark grey
+base07: "888888" # foreground 3 dark grey
 base08: "990833" # magenta
 base09: "8d370f" # orange
 base0A: "947010" # yellow
