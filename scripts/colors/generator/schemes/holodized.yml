@@ -1,6 +1,6 @@
 scheme: "Holodized"
 author: "Daniel Flanagan(https://lytedev.io)"
-base00: "fdf6e3" # background, light cream
+base00: "eeeeee" # background, light cream
 base01: "ddd6c3" # darker cream
 base02: "ada693" # darker cream
 base03: "8d8673" # greyish yellow (peuce)
@@ -9,7 +9,7 @@ base05: "111111" # foreground dark grey
 base06: "333333" # foreground 2 dark grey
 base07: "555555" # foreground 3 dark grey
 base08: "990833" # magenta
-base09: "fd971f" # orange
+base09: "8d370f" # orange
 base0A: "947010" # yellow
 base0B: "06623e" # green
 base0C: "006677" # cyan
