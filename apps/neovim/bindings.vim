@@ -21,10 +21,10 @@ if has('nvim')
 	tnoremap <C-w> <C-\><C-n>:q!<CR>
 
 	" moving between terminal splits
-	" tnoremap <C-h> <C-\><C-n><C-w>h
-	" tnoremap <C-j> <C-\><C-n><C-w>j
-	" tnoremap <C-k> <C-\><C-n><C-w>k
-	" tnoremap <C-l> <C-\><C-n><C-w>l
+	tnoremap <C-h> :TmuxNavigateLeft<CR>
+	tnoremap <C-j> :TmuxNavigateDown<CR>
+	tnoremap <C-k> :TmuxNavigateUp<CR>
+	tnoremap <C-l> :TmuxNavigateRight<CR>
 endif
 
 " enter insert mode when entering a terminal buffer
@@ -51,25 +51,28 @@ function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
 	let stepvalue = a:fwd ? 1 : -1
 	while (line > 0 && line <= lastline)
 		let line = line + stepvalue
-		if ( ! a:lowerlevel && indent(line) == indent ||
-					\ a:lowerlevel && indent(line) < indent)
+		if ( a:lowerlevel == 0 && indent(line) == indent ||
+					\ a:lowerlevel == 1 && indent(line) < indent || 
+					\ a:lowerlevel == -1 && indent(line) > indent)
 			if (! a:skipblanks || strlen(getline(line)) > 0)
 				if (a:exclusive)
 					let line = line - stepvalue
 				endif
 				exe line
-				exe 'normal ' column . '|'
+				exe 'normal ' (column+1) . '|'
 				return
 			endif
 		endif
 	endwhile
 endfunction
 
-" Moving back and forth between lines of same or lower indentation.
+" moving back and forth between lines of same or lower indentation should be sane
 nnoremap <silent> [l :call NextIndent(0, 0, 0, 1)<CR>
 nnoremap <silent> ]l :call NextIndent(0, 1, 0, 1)<CR>
 nnoremap <silent> [L :call NextIndent(0, 0, 1, 1)<CR>
 nnoremap <silent> ]L :call NextIndent(0, 1, 1, 1)<CR>
+nnoremap <silent> [<C-l> :call NextIndent(0, 0, -1, 1)<CR>
+nnoremap <silent> ]<C-l> :call NextIndent(0, 1, -1, 1)<CR>
 vnoremap <silent> [l <Esc>:call NextIndent(0, 0, 0, 1)<CR>m'gv''
 vnoremap <silent> ]l <Esc>:call NextIndent(0, 1, 0, 1)<CR>m'gv''
 vnoremap <silent> [L <Esc>:call NextIndent(0, 0, 1, 1)<CR>m'gv''
@@ -82,26 +85,14 @@ onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 " run make with leader,m
 nnoremap <leader>m :call RunMake()<CR>
 
-" show project viewer with leader,n
-nnoremap <leader>n :call OpenProjectViewer()<CR>
-
-" change buffers with leader,tab
-nnoremap <leader><Tab>		:bnext<CR>
-nnoremap <leader><S-Tab>	:bprevious<CR>
+" show project viewer with leader,n or C-n
+nnoremap <C-n>     :call NERDProjectViewer()<CR>
+nnoremap <leader>n :call NERDProjectViewer()<CR>
 
 " don't kill vim
+" REBIND
 nnoremap <leader>K <Nop>
 nnoremap <S-K> <NOP>
-
-" nerdtree
-nnoremap <C-n> :NERDTree<CR>
-
-" run macro across visually selected lines
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-function! ExecuteMacroOverVisualRange()
-	echo '@'.getcmdline()
-	execute ":'<,'>normal @".nr2char(getchar())
-endfunction
 
 " quick paragraph formatting
 vmap Q gq
@@ -131,13 +122,13 @@ nnoremap <leader>j :bprevious<CR>
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-j> :bprevious<CR>
 
+" change buffers with leader,tab
+nnoremap <leader><Tab>		:bnext<CR>
+nnoremap <leader><S-Tab>	:bprevious<CR>
+
 " fast word change
 nnoremap <leader>c ciw
 nnoremap <leader>C ciW
-
-" bash-like deletion
-inoremap <C-BS> <C-w>
-inoremap <A-BS> <C-w>
 
 " clear search higlight
 nnoremap <leader>/ :let @/ = ""<CR>:<BACKSPACE>
@@ -158,7 +149,7 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" camel case movements
+" camel case motions
 map <silent> ,w <Plug>CamelCaseMotion_w
 map <silent> ,b <Plug>CamelCaseMotion_b
 map <silent> ,e <Plug>CamelCaseMotion_e
@@ -170,14 +161,6 @@ xmap <silent> ib <Plug>CamelCaseMotion_ib
 omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 
-" a _ objects
-" omap <silent> aw <Plug>CamelCaseMotion_aw
-" xmap <silent> aw <Plug>CamelCaseMotion_aw
-omap <silent> ab <Plug>CamelCaseMotion_ab
-xmap <silent> ab <Plug>CamelCaseMotion_ab
-omap <silent> ae <Plug>CamelCaseMotion_ae
-xmap <silent> ae <Plug>CamelCaseMotion_ae
-
 " remove trailing whitespace
 map <F3> mw:%s/\s\+$//<CR>:let @/ = ""<CR>'w
 
@@ -185,20 +168,17 @@ map <F3> mw:%s/\s\+$//<CR>:let @/ = ""<CR>'w
 nnoremap <silent> <leader>w :bd<CR>
 
 " toggle spell checking:
-map <F5> :setlocal spell!<CR>
+map <F4> :setlocal spell!<CR>
 
 " open urls, files, etc. example: http://google.com:
 noremap <leader>o :!xdg-open <cfile><CR><CR>
 
-" run `make run`
-nnoremap <leader>R :ProjectRootExe !make run<cfile><CR><CR>
-
 " insert newline
-" doesn't work in terminals?
+" NOTE: doesn't work in terminals?
 " noremap <S-Enter> i<Enter><Esc>
 " noremap <C-o> i<Enter><Esc>
 
-" keep that dumb window from popping up (wild something or another)
+" prevent wildmenu
 map q: :q
 noremap qqq: q:
 
@@ -214,7 +194,8 @@ cnoremap <c-p> <up>
 xnoremap < <gv
 xnoremap > >gv
 
-nmap ga <Plug><EasyAlign>
-xmap ga <Plug><EasyAlign>
-
+" distraction-free mode
 nnoremap <silent> <Leader>df :DistractionFreeMode<CR>
+
+" recalc syntax highlighting
+nnoremap <leader>gs :syntax sync fromstart<CR>

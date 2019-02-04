@@ -55,6 +55,8 @@ alias tcom="tmux attach -t comms || tmux new -s comms"
 # TODO: make these git aliases in the gitconfig?
 alias g="git"
 alias gs="git status"
+alias gd="git diff"
+alias gdv="git dv"
 alias gpl="git pull"
 alias gp="git push"
 alias gpa="git push --all && git push --tags"

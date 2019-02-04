@@ -12,19 +12,13 @@ hi LeadingWhiteSpaces ctermfg=black ctermbg=black
 :command! ShowSpaceIndents call ShowSpaceIndentation()
 :command! HideSpaceIndents call HideSpaceIndentation()
 
-" allows for manual and syntax folding... supposedly
-augroup vimrc
-	au BufReadPre * setlocal foldmethod=indent
-	au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
-
 " jump to last opened position in file except in git commits
 let jump_to_pos_blacklist = ['gitcommit']
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && index(jump_to_pos_blacklist, &ft) | exe "normal! g'\"" | endif
 endif
 
-" terminal split in neovim
+" terminal split in neovim even tho we tmux
 if has('nvim')
 	function! TerminalSplit()
 		let current_file = @%
@@ -40,7 +34,7 @@ if has('nvim')
 	endfunction
 endif
 
-" Make any necessary directories in the path when saving a file
+" make any necessary directories in the path when saving a file
 fun! <SID>AutoMakeDirectory()
 	let s:directory = expand("<afile>:p:h")
 	if !isdirectory(s:directory)
@@ -49,6 +43,7 @@ fun! <SID>AutoMakeDirectory()
 endfun
 autocmd BufWritePre,FileWritePre * :call <SID>AutoMakeDirectory()
 
+" run make from vim smartly
 if !exists("g:make_args")
 	let g:make_args="default"
 endif
@@ -68,7 +63,7 @@ endfun
 " kill the terminal buffer when the process exits
 autocmd TermClose * call feedkeys('<cr>')
 
-fun! OpenProjectViewer()
+fun! NERDProjectViewer()
 	let path = system("git rev-parse --show-toplevel | tr -d '\\n'")
 	execute 'NERDTree' path
 endfun

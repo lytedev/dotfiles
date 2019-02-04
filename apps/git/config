@@ -7,7 +7,7 @@
 
 [core]
 	editor = nvim
-	pager = nvim -c 'silent %sm/\\e.\\{-}m//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile' -c 'goto 1' -
+	pager = less -r
 
 [http "https://gopkg.in"]
 	followRedirects = true
@@ -33,3 +33,7 @@
 
 [push]
 	default = current
+
+[pager]
+	branch = false
+	diff = nvim -c 'silent %sm/\\e.\\{-}m//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile' -c 'goto 1' -
