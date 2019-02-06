@@ -1,5 +1,7 @@
 # My Dotfiles
 
+**NOTE**: Readme needs updating!
+
 This repository contains the majority of application or OS configuration files
 I use on a daily basis. I keep the here and public in an effort to inform others
 who may not know either how to go about organizing such files or to learn how to
