@@ -13,7 +13,54 @@ augroup PluginManagerInstaller
 	end
 augroup End
 
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
+let g:airline#extensions#tabline#fnamemod = ':t'
+" set laststatus=2 " always show statusline
+" set noshowmode " hides default mode
+
+" cleanup/simplify airline
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+let g:airline#extensions#tabline#buffers_label = ''
+
+" short mode texts
+let g:airline_mode_map = {
+	\ '__' : '-',
+	\ 'n'  : 'N',
+	\ 'i'  : 'I',
+	\ 'R'  : 'R',
+	\ 'T'  : 'T',
+	\ 't'  : 'T',
+	\ 'c'  : 'C',
+	\ 'v'  : 'V',
+	\ 'V'  : 'V',
+	\ '' : 'V',
+	\ 's'  : 'S',
+	\ 'S'  : 'S',
+	\ '' : 'S',
+	\ }
+
+let g:indent_guide_auto_colors = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
+" no ALE gutter
+let g:ale_sign_column_always = 0
+let g:ale_set_signs = 0
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+
+" fix me, baby
+let g:ale_fix_on_save = 1
+
+" autocomplete
 let g:ale_completion_enabled = 1
+
+let g:fzf_layout = { 'window': 'enew' }
 
 " check if we're using vim as the manpage viewer before loading session plugins
 if exists('asmanviewer')
