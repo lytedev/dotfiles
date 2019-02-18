@@ -1,5 +1,3 @@
-" bindings
-
 " common typo fixes
 command! WQ wq
 command! Wq wq
