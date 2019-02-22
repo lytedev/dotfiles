@@ -50,6 +50,7 @@ alias tu="tmux attach -t utils || tmux new -s utils"
 alias tdf="tmux attach -t dotfiles || tmux new -s dotfiles -c \"\$DOTFILES_PATH\""
 alias tmon="tmux attach -t monitoring || tmux new -s monitoring"
 alias tcom="tmux attach -t comms || tmux new -s comms"
+alias tn="tmux attach -t notes || tmux new -s notes"
 
 # git aliases
 # TODO: make these git aliases in the gitconfig?
@@ -75,6 +76,7 @@ alias ctop="docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock qua
 alias p="ping 8.8.8.8"
 alias C="clear && clear"
 alias r="ranger"
+alias rn="/usr/bin/watch -n 1"
 alias sctl="sudo systemctl"
 alias btctl="sudo bluetoothctl"
 alias pt="htop -t" # experimental htop tree-view-by-default
