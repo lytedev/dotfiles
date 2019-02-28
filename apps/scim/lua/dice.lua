@@ -37,7 +37,6 @@ end
 function log(s)
 	s = "[timestamp: " .. tostring(os.time()) .. "]\n" .. s
 	local out = s:gsub("\n", "\n  ")
-	print(out)
 	local file = io.open("/tmp/sc-im-dice.log", "a+")
 	file:write("\n")
 	file:write(out)
@@ -80,11 +79,17 @@ function evalreturn(s)
 	return f()
 end
 
-function parserollstr(s)
-	return evalreturn(replacerolls(s, rolls(s)))
+function sc_parserollstr(s)
+	local r = rolls(s)
+	log(table.tostring(r))
+	return evalreturn(replacerolls(s, r))
 end
 
 function sc_rollres(c, r)
-	local sum = parserollstr(sc.lgetstr(c, r))
+	local os = require "os"
+	local seed = (os.time() + os.clock()) * 10000000
+	math.randomseed(seed)
+	log("Setting Seed: " .. tostring(seed))
+	local sum = sc_parserollstr(sc.lgetstr(c, r))
 	sc.lsetnum(c + 1, r, sum)
 end
