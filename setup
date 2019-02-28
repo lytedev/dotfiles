@@ -44,6 +44,10 @@ links=(
 	"$dfp/apps/qutebrowser/qutebrowser.conf" "$XDG_CONFIG_HOME/qutebrowser/qutebrowser.conf"
 	"$dfp/apps/qutebrowser/keys.conf"        "$XDG_CONFIG_HOME/qutebrowser/keys.conf"
 
+	# sc-im config files and scripts
+	"$dfp/apps/scim/rc"                      "$HOME/.scimrc"
+	"$dfp/apps/scim/lua"                     "$HOME/.scim/lua"
+
 	# document viewer
 	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
 
