@@ -1,7 +1,5 @@
 # My Dotfiles
 
-**NOTE**: Readme needs updating!!
-
 This repository contains the majority of application or OS configuration files
 I use on a daily basis. I keep the here and public in an effort to inform others
 who may not know either how to go about organizing such files or to learn how to
@@ -13,7 +11,7 @@ myself when setting up a new machine.
 * Clone the repo into `~/.config/dotfiles`
 * Run `~/.config/dotfiles/setup`
 * Read the warning, obey it, backup your files, *then* agree
-* Reboot once the script finishes.
+* **Optional**: Reboot once the script finishes
 
 ## Priorities
 
@@ -22,74 +20,57 @@ out in order of priority here:
 
 * These files are primarily configured for Linux, (specifically, Arch Linux) but
   I try to keep the OS-specific stuff in the `os-specific` directory.
-* I am also primarily a Web Developer, so my configuration will reflect that.
-* I rely heavily on Google's products and services. I know some are eager to
-  avoid that.
 * I also prefer apps in my terminal. If I could, I would do everything that
   makes sense to do so in a terminal using only my keyboard. **So if you know
   about really cool and usable terminal-based software, let me know!**
-* I prefer keeping my dotfiles as portable as possible (within reason).
-* These dotfiles should be very quick to setup and get going.
+* I prefer keeping my dotfiles as portable as possible (within reason) though
+		this is obviously very difficult since I only run one OS.
+* Setup should be very quick (downloading and installing packages aside).
 * I aim to keep the dotfiles flexible and extendible, as I usually use them on
   multiple machines with specific use-cases. For example, a shared laptop should
   allow for other non-technical users ease-of-access, while my workstation
   should focus on being quick, powerful, and highly usable for me alone.
-* The only dependencies should be `git` and `bash` for the very basics.
 
 ## Applications
 
 There are several types of applications I use every day, some more than others,
 and sometimes different applications that have the same purpose. Here are the
-applications I use (the primary one is *italicized*, the one I would like to
-become my primary or am very interested in using in more depth is in **bold**)
-for various tasks:
+applications I use:
 
-* **Terminal Emulators**: *rxvt-unicode*
-* **Text Editors**: **vim/Neovim**, Sublime Text
-* **Terminal Multiplexers**: *tmux*
-* **Web Browser**: *Google Chrome*, **qutebrowser**, luakit
-* **Music**: *Google Play Music*
-* **Email**: *Google Inbox*, Gmail, **mutt**
-* **Image Editing**: *GIMP*, *Inkscape*, **Krita**
-* **Documents**: *Google Drive*, though Dropbox's Paper looks neat and I've
-  heard too many good things about LaTeX.
-* **Gaming**: *Steam*, *various emulators*
+* **Terminal Emulator**: Kitty
+* **Text Editor**: Neovim
+* **Terminal Multiplexers**: tmux
+* **Web Browser**: Firefox
+* **Music**: Google Play Music
+* **Email**: Google Inbox, mutt
+* **Image Editing**: GIMP, Inkscape, Krita, Aseprite
+* **Documents**: Neovim + Markdown, sc-im, LibreOffice
+* **Gaming**: Steam, various emulators
 
 ## Workflow
 
-Here are some bullet points on my workflow as a Web Developer:
+Here are some bullet points on my workflow:
 
-* **Text Editing**: I use `vim`/`Neovim` in my terminal as my primary text
-  editor. I usually run it in a `tmux` session alongside a few terminals to have
-  a very flexible IDE-like development environment. More on that in other bullet
-  points.
-* **Version Control**: I use `git` in the terminal (sometimes I pop into
-  GitKraken if I need to do anything crazy) and commit often. I work in a branch
-  named "dev" until it's time to go live, then I merge into master. Other
-  branches beyond "dev" are used for trying crazy things or during large
-  refactors so I can very quickly jump back if needed.
+* **Text Editing**: I use `Neovim` in my terminal as my primary text
+		editor. I usually run it in a `tmux` session alongside a few terminals to
+		have a very flexible IDE-like development environment. More on that in other
+		bullet points. I keep a `tmux` session for each project or group of
+		terminals concerning a similar mind-space.
+* **Version Control**: I use `git` in the terminal and commit often. I work in
+		feature branches that go to a `dev` branch as sort of a staging area for
+		testing until it's time to go live, then I merge into master.
 * **Compiler/Debugging**: I rely heavily on auto-reloading and
-  watch-and-test-and-compile features during development to iterate quickly.
-  Tools such as `webpack` and `webpack-dev-server` are amazing. If you try to do
-  anything to weird or crazy, though, configuring webpack properly can be
-  hazardous to the mind. Or I'm just doing things very wrong. Chrome's dev tools
-  are also killer in this department.
-* **Testing**: I don't do much testing. This is bad and I'm working on it!
+		watch-and-test-and-compile features during development to iterate quickly.
+		Language servers, linters, and simple file watches to trigger your tests are
+		amazing tools to take care of the cruft of writing code and integrating them
+		heavily into Neovim is my current top need/priority.
 
 ## To Do and Improvements
 
 * Add vim in the terminal as the handler for many MIME types (xdg-open and such)
+		for the rare time I'm in a file manager or for opening easily from
+		the browser.
 * Unify all the common variables... somehow? (and use templates and `envsubst`?)
-* Makefile as setup script
-* Vim `<leader>m` binding should be able to run arbitrary commands, not just
-	`make`
-* Dunst and notifications
-* Vimux?
-* terminal on-the-fly font resizing?
-* terminal fontawesome/icons?
-* Alacritty as terminal?
-* Cloud IRC
-* Some kind of notes wiki? (vimwiki with perfect markdown support?)
-
-
-[xdg-user-dirs]: https://wiki.archlinux.org/index.php/XDG_user_directories
+* Makefile instead of setup script
+* [Vimux](https://github.com/benmills/vimux)?
+* Nerd Fonts with ligatures and icons for Kitty
