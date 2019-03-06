@@ -65,7 +65,7 @@ alias grbpf="git push --force-with-lease"
 alias gac="git add -A && git commit"
 alias gsur="git submodule update --remote"
 alias glf="git ls-files"
-alias gl="git log --graph --pretty=oneline --abbrev-commit --decorate"
+alias gl="git log --pretty=format:\"%h %ad%x09%an%x09%s\" --date=short"
 
 # docker aliases
 alias dlf="docker logs --tail=500 -f"

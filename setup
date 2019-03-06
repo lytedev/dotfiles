@@ -54,6 +54,9 @@ links=(
 	# terminal emulator
 	"$dfp/apps/alacritty/"                   "$XDG_CONFIG_HOME/alacritty"
 
+	# kitty config
+	"$dfp/apps/kitty/"                       "$XDG_CONFIG_HOME/kitty"
+
 	# rofi config
 	"$dfp/apps/rofi/config"                  "$XDG_CONFIG_HOME/rofi/config"
 
@@ -88,8 +91,6 @@ read -r -p " [y/N] " response
 response=${response,,} # to lower case
 if [[ $response =~ ^(yes|y)$ ]]; then
 	"$dfp/sudo_setup"
-else
-	::
 fi
 
 echo -e "Dotfiles Installed! Running 'exec bash'...\n"

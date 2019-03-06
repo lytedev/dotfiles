@@ -95,4 +95,6 @@ if has('autocmd')
 	" autocmd WinLeave * call CheckCloseDistractionFreeMode()
 endif
 
+" AddTabularPattern! ssv /\s/r0c0l0
+
 command! DistractionFreeMode call DistractionFreeModeFunc()

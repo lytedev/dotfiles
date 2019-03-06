@@ -164,7 +164,7 @@ super + shift + t
 
 # spawn a terminal
 super + Return
-	urxvtc
+	kitty
 
 # spawn a floating terminal
 super + shift + Return
