@@ -84,7 +84,7 @@ set isfname+=32 " allow filenames to show them 32s
 " no freakin' bell
 set visualbell t_vb=
 if has('autocmd')
-	augroup DisableVisualVell
+	augroup DisableVisualBell
 		autocmd GUIEnter * set visualbell t_vb=
 	augroup END
 endif

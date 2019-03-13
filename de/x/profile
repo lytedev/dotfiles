@@ -7,10 +7,14 @@ if [[ -z "$DOTFILES_PATH" ]]; then
   export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 fi
 
+if command -v autorandr >/dev/null 2>&1; then
+	autorandr -c
+fi
+
 echo "xprofile ($DOTFILES_PATH)" >> "$HOME/.xstartup_log"
 
 if [ -f "$DOTFILES_PATH/de/x/loadresources" ]; then
-  source "$DOTFILES_PATH/de/x/loadresources"
+  "$DOTFILES_PATH/de/x/loadresources" auto
 fi
 
 # keyrepeat settings

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+f="$DOTFILES_PATH/.bspwm-state.json.tmp"
+bspc wm -d > "$f"
+chmod 600 "$f"

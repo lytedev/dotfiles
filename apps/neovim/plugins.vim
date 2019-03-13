@@ -59,6 +59,7 @@ let g:ale_fix_on_save = 1
 
 " autocomplete
 let g:ale_completion_enabled = 1
+let g:ale_typescript_tslint_use_global = 1
 
 let g:fzf_layout = { 'window': 'enew' }
 
@@ -97,10 +98,12 @@ Plug 'wellle/targets.vim'                                       " adds some more
 Plug 'dbakker/vim-projectroot'                                  " adds helper functions for getting to a project's root directory
 Plug 'junegunn/goyo.vim'                                        " better distraction-free editing
 Plug 'editorconfig/editorconfig-vim'                            " loads project-specific editor settings
+Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'junegunn/vim-peekaboo'                                    " preview registers
 Plug 'scrooloose/nerdtree'                                      " file browser
 Plug 'tpope/vim-eunuch'                                         " unix helper commands
 Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
-
+Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
+Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
