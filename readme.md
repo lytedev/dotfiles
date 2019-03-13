@@ -1,9 +1,3 @@
-# Note
-
-This is a Mixon Hill Inc. employee specific version of my dotfiles from here:
-
-* https://github.com/lytedev/dotfiles
-
 # My Dotfiles
 
 This repository contains the majority of application or OS configuration files
