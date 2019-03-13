@@ -10,14 +10,12 @@ BACKGROUND_COLOR=$(xrdb -query           | sed -ne 's/.*background:\s*\(.*\)$/\1
 FOREGROUND_COLOR=$(xrdb -query           | sed -ne 's/.*foreground:\s*\(.*\)$/\1/p' | head -n 1)
 GAP=$(xrdb -query                        | sed -ne 's/.*internalBorder:\s*\(.*\)$/\1/p' | head -n 1)
 
-echo "$@" >> "$HOME/.sxhkd.log"
-
 rofi \
 	-combi-modi run,window \
 	-show combi \
 	-modi combi \
 	-font "$LAUNCHER_FONT $LAUNCHER_FONT_SIZE" \
-	-padding "$GAP" \
+	-padding $GAP \
 	-bw "$BORDER_WIDTH" \
 	-color-enabled \
 	-color-window "$BACKGROUND_COLOR","$HIGHLIGHT_COLOR","$FOREGROUND_COLOR","$BACKGROUND_COLOR" \
