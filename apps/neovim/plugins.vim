@@ -72,6 +72,7 @@ else
 endif
 
 Plug 'junegunn/vim-plug'                                        " plugin manager should manage itself
+Plug 'lytedev/elm-vim'                                          " elm lang
 Plug 'vim-airline/vim-airline'                                  " status line
 Plug 'vim-airline/vim-airline-themes'                           " more minimal status line
 Plug 'nathanaelkane/vim-indent-guides'                          " indentation guides
@@ -96,9 +97,10 @@ Plug 'wellle/targets.vim'                                       " adds some more
 Plug 'dbakker/vim-projectroot'                                  " adds helper functions for getting to a project's root directory
 Plug 'junegunn/goyo.vim'                                        " better distraction-free editing
 Plug 'editorconfig/editorconfig-vim'                            " loads project-specific editor settings
-Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'junegunn/vim-peekaboo'                                    " preview registers
 Plug 'scrooloose/nerdtree'                                      " file browser
 Plug 'tpope/vim-eunuch'                                         " unix helper commands
+Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
+
