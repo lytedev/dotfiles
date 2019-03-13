@@ -95,6 +95,9 @@ if [ "$PWD" = "$HOME" ]; then
 	cd "$NICE_HOME" || cd || return
 fi
 
+# TODO: check if fd command exists
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 _make_paths
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

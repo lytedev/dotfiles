@@ -4,6 +4,13 @@ echo "xloadresources" >> "$HOME/.xstartup_log"
 
 ENV_TYPE="${1}"
 
+if [[ "$ENV_TYPE" = "auto" ]]; then
+	if [[ "$(xrandr --listmonitors | grep 'Monitors:' | awk '{print $2}')" -gt 1 ]]; then
+		ENV_TYPE="lodpi"
+	fi
+	echo "xloadresources auto env: $ENV_TYPE" >> "$HOME/.xstartup_log"
+fi
+
 if [[ -z "$ENV_TYPE" ]]; then
 	ENV_TYPE=""
 else
