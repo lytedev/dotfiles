@@ -38,9 +38,9 @@ if command -v sxhkd >/dev/null 2>&1; then
 	sxhkd -m -1 &
 fi
 
-# if [ -f "$DOTFILES_PATH/de/x/loadresources" ]; then
-#   source "$DOTFILES_PATH/de/x/loadresources"
-# fi
+if [ -f "$DOTFILES_PATH/de/x/loadresources" ]; then
+  "$DOTFILES_PATH/de/x/loadresources"
+fi
 
 if [ -f "$HOME/.fehbg" ]; then
   "$HOME/.fehbg" &

@@ -45,6 +45,7 @@ Xcursor.theme: human
 ## DPI config
 dpi: 92
 .dpi: 92
+*dpi: 92
 Xft.dpi: 92
 *autohint: 0
 *lcdfilter: lcddefault

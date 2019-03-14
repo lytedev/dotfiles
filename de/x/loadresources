@@ -7,6 +7,8 @@ ENV_TYPE="${1}"
 if [[ "$ENV_TYPE" = "auto" ]]; then
 	if [[ "$(xrandr --listmonitors | grep 'Monitors:' | awk '{print $2}')" -gt 1 ]]; then
 		ENV_TYPE="lodpi"
+	else
+		ENV_TYPE=""
 	fi
 	echo "xloadresources auto env: $ENV_TYPE" >> "$HOME/.xstartup_log"
 fi
@@ -23,6 +25,8 @@ userresources="$HOME/.Xresources"
 usercolors="$HOME/.Xresources.colors"
 userenv="$HOME/.Xresources${ENV_TYPE}.env"
 usermodmap="$HOME/.Xmodmap"
+
+echo "userenv: $userenv" >> "$HOME/.xstartup_log"
 
 if [ -f "$sysresources" ]; then
   xrdb -merge "$sysresources" >/dev/null 2>&1
@@ -41,6 +45,7 @@ if [ -f "$usercolors" ]; then
 fi
 
 if [ -f "$userenv" ]; then
+	echo "Merging env Xresources: $userenv" >> ~/.xstartup_log
   xrdb -merge "$userenv" >/dev/null 2>&1
 fi
 

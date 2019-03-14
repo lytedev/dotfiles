@@ -23,6 +23,7 @@ if [ -f "$HOME/.xmodmap" ]; then
 fi
 
 echo "a" > ~/.xinitrc.log
+echo "initrc" > ~/.xstartup_log
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
