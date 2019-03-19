@@ -1,5 +1,7 @@
 # My Dotfiles
 
+[🖥️Upstream][upstream] - [🐙 GitHub Mirror][github]
+
 This repository contains the majority of application or OS configuration files
 I use on a daily basis. I keep the here and public in an effort to inform others
 who may not know either how to go about organizing such files or to learn how to
@@ -74,3 +76,7 @@ Here are some bullet points on my workflow:
 * Makefile instead of setup script
 * [Vimux](https://github.com/benmills/vimux)?
 * Nerd Fonts with ligatures and icons for Kitty
+
+
+[upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
+[github]: https://github.com/lytedev/dotfiles
