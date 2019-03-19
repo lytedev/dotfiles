@@ -1,6 +1,6 @@
 # My Dotfiles
 
-[🖥️Upstream][upstream] - [🐙 GitHub Mirror][github]
+[🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
 
 This repository contains the majority of application or OS configuration files
 I use on a daily basis. I keep the here and public in an effort to inform others
