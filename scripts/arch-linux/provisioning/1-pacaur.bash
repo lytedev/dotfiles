@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
+# TODO: this script is out of date!
+
 # installs pacaur on a fresh arch install
 
 # install the dependencies
 sudo pacman -S git curl openssl perl expac yajl --noconfirm
 
 # receive cower's gpg key
-gpg --recv-keys 1EB2638FF56C0C53
+# gpg --recv-keys 1EB2638FF56C0C53
 
 # setup a temporary place to install the packages from
 REPOSITORY_PATH="/tmp/provisioning"

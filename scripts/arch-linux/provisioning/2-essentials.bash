@@ -1,62 +1,59 @@
 #!/usr/bin/env bash
 
-# TODO: install alacritty
-
 pacaur --needed -S \
+	neomutt `# Email Client` \
+	weechat `# IRC Client` \
+	aria2 `# Downloads Manager` \
 	tree `# Handy Filesystem Viewing Utility` \
 	rofi `# Application Launcher` \
-	the_silver_searcher ripgrep `# Code Search Utilities` \
-	alsa-utils `# Audio Utilities` \
+	ripgrep `# Code Search Utilities` \
+	fd `# File Search` \
+	fzf `# Fuzzy File Finder` \
 	htop `# Process Management and System Resources Monitoring` \
 	openssh `# Remote Access` \
 	openssl `# Crypto` \
 	elixir `# Elixir Language` \
-	ruby `# Language` \
 	nodejs npm yarn `# Language` \
 	python python-pip `# Python 3 Language` \
-	python2 python2-pip `# Language` \
 	pass `# Password Management` \
 	firefox-developer-edition `# Default Web Browser` \
-	bash-completion `# Handy Scripts for Tab-Completion in Bash` \
-	fzf `# Fuzzy File Finder` \
 	rsync `# File Transfer` \
+	alsa-utils `# Audio Utilities` \
+	alsa-plugins `# Plugins for ALSA` \
 	pulseaudio pavucontrol `# Audio Backend and Controls` \
+	pulseaudio-ctl `# CLI Utility for Pulseaudio` \
 	neovim vim `# Text Editors` \
 	unzip `# Handy Utility for ZIP Files` \
-	xsel `# Manage X Selection` \
-	xclip `# Manage X Clipboards` \
+	xclip xsel `# X Selection & Clipboard Management` \
+	autocutsel `# Clipboard Helper` \
 	tmux `# Terminal Multiplexer` \
 	rxvt-unicode-pixbuf `# Terminal with PixBuf Patches` \
-	xorg-xinit xorg-server xorg-xrdb `# X.org Display Server` \
-	xorg-drivers `# Video Drivers for X?` \
-	xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool feh xorg-xprop `# X Utilties` \
-	pulseaudio-ctl `# CLI Utility for Pulseaudio` \
-	alsa-plugins `# Plugins for ALSA` \
+	kitty `# Almost Better Terminal Emulator` \
+	xorg-xinit xorg-server xorg-xrdb `# X Display Server` \
+	xorg-drivers `# Video Drivers for X` \
+	xcb-util xcb-util-keysyms xcb-util-wm xorg-xrandr xdotool xorg-xprop `# X Utilties` \
+	feh `# Image Viewer & Wallpaper Manager` \
 	unclutter-xfixes-git `# Hides cursor after no use for a time` \
 	gtk-engine-murrine xorg-server-devel `# GTK Theme Base and Headers?` \
 	bspwm-git sxhkd-git xdo-git `# Window Manager and Tools for its use` \
+	wlroots-git sway-git `# Wayland Compositor` \
 	terminus-font ttf-iosevka-pack `# Primary Fonts` \
-	ttf-freefont `# Font` \
-	ttf-monaco `# Font` \
 	ttf-font-awesome `# Icon Font` \
-	autocutsel `# Clipboard Helper` \
 	curl `# HTTP Utility` \
 	w3m `# Viewing Images in Terminals` \
 	jq `# CLI for Interacting with JSON` \
+	bash-completion `# Handy Scripts for Tab-Completion in Bash` \
 	--noconfirm --noedit
 
 # install text editor utilities and other python packages
-sudo pip3 install neovim jedi mistune psutil setproctitle
-sudo pip2 install neovim
-
-# shortcut for browser
-sudo ln -s /usr/bin/google-chrome-unstable /usr/bin/chrome
-
-# install patched fonts
-mkdir -p "$HOME/.fonts/OTF"
-curl -L -o "$HOME/.fonts/OTF/monaco_powerline_nerd_font.otf" https://github.com/taohex/font/raw/master/Monaco%20for%20Powerline%20Nerd%20Font%20Complete.otf
-fc-cache -vf
+sudo pip3 install \
+	neovim `# Text Editor Plugin Integration` \
+	jedi `# Text Editor Intelligence Helper` \
+	mistune `# Markdown Parser` \
+	psutil `# Process Utilities` \
+	setproctitle `# Good Name` \
+	httpie `# HTTP CLI Utility`
 
 # install rxvt-unicode script for resizing font on-the-fly
 mkdir -p "$HOME/.urxvt/ext"
-curl -L -o "$HOME/.urxvt/ext/resize-font" https://raw.githubusercontent.com/simmel/urxvt-resize-font/master/resize-font
+curl -L -o "$HOME/.urxvt/ext/resize-font" https://raw.githubusercontent.com/lytedev/urxvt-resize-font/master/resize-font
