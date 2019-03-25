@@ -223,9 +223,6 @@ underline_char="-"
 
 # Color block range
 # --block_range start end
-start=0
-end=15
-
 # block_range="0,15"
 
 # Toggle color blocks
@@ -278,7 +275,7 @@ progress_color_total="distro"
 # --disk_display bar, infobar, barinfo, off
 memory_display="off"
 battery_display="off"
-disk_display="off"
+disk_display="on"
 
 
 # }}}
