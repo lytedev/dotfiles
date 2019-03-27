@@ -11,3 +11,5 @@ color "type=STRG fg=WHITE bg=BLACK bold=0 dim=1"
 color "type=NUMB fg=YELLOW bg=BLACK bold=0 dim=1"
 
 nmap "J" "<C-j>"
+nmap "fi" ":format \"#\"<cr>"
+nmap "B" "Vir"
