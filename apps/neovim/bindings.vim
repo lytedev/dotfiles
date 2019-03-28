@@ -120,6 +120,8 @@ nnoremap <leader>j :bprevious<CR>
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-j> :bprevious<CR>
 
+nnoremap <leader>r :source ~/.config/nvim/init.vim<CR>
+
 " change buffers with leader,tab
 nnoremap <leader><Tab>		:bnext<CR>
 nnoremap <leader><S-Tab>	:bprevious<CR>

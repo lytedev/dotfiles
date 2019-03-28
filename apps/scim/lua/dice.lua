@@ -91,5 +91,5 @@ function sc_rollres(c, r)
 	math.randomseed(seed)
 	log("Setting Seed: " .. tostring(seed))
 	local sum = sc_parserollstr(sc.lgetstr(c, r))
-	sc.lsetstr(c + 1, r, tostring(sum))
+	sc.lsetnum(c, r, sum)
 end
