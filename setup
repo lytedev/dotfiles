@@ -2,6 +2,17 @@
 
 # TODO: ascii art header
 
+INTERACTIVE=1
+
+while test $# -gt 0; do
+	case "$1" in
+		-x|--non-interactive)
+			INTERACTIVE=0
+			shift
+			;;
+	esac
+done
+
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
 source "${dfp}/scripts/setup_helpers.bash"
 
@@ -83,15 +94,18 @@ links=(
 	"$dfp/shell/user-dirs"                   "$XDG_CONFIG_HOME/user-dirs.dirs"
 )
 
+# TODO: pass interactive?
 _dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-files.lock" "${links[@]}"
 
-echo -n -e "Do you want to run the sudo_setup script for changes to /etc"
-echo -n -e "\nand other root directories?"
-read -r -p " [y/N] " response
-response=${response,,} # to lower case
-if [[ $response =~ ^(yes|y)$ ]]; then
-	"$dfp/sudo_setup"
-fi
+if [[ "$INTERACTIVE" = 1 ]]; then
+	echo -n -e "Do you want to run the sudo_setup script for changes to /etc"
+	echo -n -e "\nand other root directories?"
+	read -r -p " [y/N] " response
+	response=${response,,} # to lower case
+	if [[ $response =~ ^(yes|y)$ ]]; then
+		"$dfp/sudo_setup"
+	fi
 
-echo -e "Dotfiles Installed! Running 'exec bash'...\n"
-exec bash
+	echo -e "Dotfiles Installed! Running 'exec bash'...\n"
+	exec bash
+fi
