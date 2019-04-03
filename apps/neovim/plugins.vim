@@ -73,7 +73,6 @@ else
 endif
 
 Plug 'junegunn/vim-plug'                                        " plugin manager should manage itself
-Plug 'lytedev/elm-vim'                                          " elm lang
 Plug 'vim-airline/vim-airline'                                  " status line
 Plug 'vim-airline/vim-airline-themes'                           " more minimal status line
 Plug 'nathanaelkane/vim-indent-guides'                          " indentation guides
@@ -107,3 +106,4 @@ Plug 'tpope/vim-eunuch'                                         " unix helper co
 Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
+Plug 'lytedev/elm-vim'                                          " elm lang

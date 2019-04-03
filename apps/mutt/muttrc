@@ -35,7 +35,16 @@ bind index,pager \CI sidebar-open
 bind index,pager \CB sidebar-toggle-visible
 
 bind pager g top
-bind pager G top
+bind pager G bottom
+
+# bind pager j top
+# bind pager j top
+bind pager \Cu half-up
+bind pager \Cd half-down
+bind pager k half-up
+bind pager j half-down
+bind pager J next-entry
+bind pager K previous-entry
 
 bind attach,index g first-entry
 bind attach,index G last-entry
@@ -45,7 +54,7 @@ set message_cachedir = "~/.cache/mutt/bodies"
 
 macro index,pager A s><return>y
 
-# G to get mail
+# C-R to get mail
 bind index \CR imap-fetch-mail
 
 # bind index g noop
@@ -58,3 +67,9 @@ bind index \CR imap-fetch-mail
 # macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 
 set record=""
+
+# bulk operations
+# T - tag messages matching... [type in regex]
+# ; - perform command on tagged messages
+# <command> - A to archive!
+

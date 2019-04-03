@@ -83,9 +83,13 @@ onoremap <silent> ]L :call NextIndent(1, 1, 1, 1)<CR>
 " run make with leader,m
 nnoremap <leader>m :call RunMake()<CR>
 
-" show project viewer with leader,n or C-n
-nnoremap <C-n>     :call NERDProjectViewer()<CR>
-nnoremap <leader>n :call NERDProjectViewer()<CR>
+" NERDTree bindings
+" show file manager in current directory
+nnoremap <C-n>      :NERDTreeToggle<CR>
+" show file manager in git repo root
+nnoremap <leader>n  :call NERDProjectViewer()<CR>
+" focus the current file in NERDTree
+nnoremap <leader>gn :NERDTreeFind<CR>
 
 " don't kill vim
 " REBIND
@@ -114,6 +118,11 @@ nnoremap <leader>l :Buffers<CR>
 " switch to previous buffer
 nnoremap <leader>h :b#<CR>
 
+" go to definitions
+nnoremap <leader>gd :ALEGoToDefinition<CR>
+nnoremap <leader>gh :ALEGoToDefinitionInSplit<CR>
+nnoremap <leader>gv :ALEGoToDefinitionInVSplit<CR>
+
 " use leader j and k to switch buffers as well
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader>j :bprevious<CR>
@@ -130,8 +139,15 @@ nnoremap <leader><S-Tab>	:bprevious<CR>
 nnoremap <leader>c ciw
 nnoremap <leader>C ciW
 
+" fast splits
+nnoremap <silent> <leader>s :split<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+
+" fast split closing
+nnoremap <silent> <leader>q <C-w>o
+
 " clear search higlight
-nnoremap <leader>/ :let @/ = ""<CR>:<BACKSPACE>
+nnoremap <silent> <leader>/ :let @/ = ""<CR>:<BACKSPACE>
 
 " remap jk/jj and its variants to escape
 inoremap jj <Esc>
