@@ -144,7 +144,7 @@ nnoremap <silent> <leader>s :split<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
 
 " fast split closing
-nnoremap <silent> <leader>q <C-w>o
+nnoremap <silent> <leader>q <C-w>q
 
 " clear search higlight
 nnoremap <silent> <leader>/ :let @/ = ""<CR>:<BACKSPACE>
