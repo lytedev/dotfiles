@@ -46,7 +46,6 @@ fi
 
 if command -v autocutsel >/dev/null 2>&1; then
 	autocutsel -fork &
-	autocutsel -selection PRIMARY -fork &
 fi
 
 if [ -f "$HOME/.env_xprofile" ]; then
