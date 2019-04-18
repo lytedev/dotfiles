@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash"
-$(__fzf_cd__)
+# TODO: needs fixing...?
+[ -f "$HOME/.fzf.bash" ] && source "$HOME/.fzf.bash" && $(__fzf_cd__)

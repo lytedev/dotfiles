@@ -9,7 +9,9 @@ set editing-mode vi
 "\C-e": end-of-line
 "\C-d": delete-char
 
-"\e\C-p": "cdp\n"
+"\e\C-p": " \C-e\C-u`__fzf_cd__`\n"
+"\e\C-s": " \C-e\C-uscwd\n"
+"\e\C-g": " \C-e\C-u. gcwd\n"
 
 # vi settings
 $if mode=vi

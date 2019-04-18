@@ -106,4 +106,4 @@ Plug 'tpope/vim-eunuch'                                         " unix helper co
 Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
-Plug 'lytedev/elm-vim'                                          " elm lang
+" Plug 'lytedev/elm-vim'                                          " elm lang
