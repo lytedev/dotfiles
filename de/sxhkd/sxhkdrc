@@ -158,7 +158,7 @@ super + t
 super + shift + t
 	compton-trans -c -o 100
 
-# swap sxhkx config with an alternate file and reload the new one
+# swap sxhkd config with an alternate file and reload the new one
 # super + shift + alt + ctrl + r
 # if [ -e ~/.config/sxhkd/altsxhkdrc ]; then mv ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/origsxhkdrc && mv ~/.config/sxhkd/altsxhkdrc ~/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd; fi
 
@@ -166,13 +166,13 @@ super + shift + t
 super + Return
 	urxvtc
 
-# spawn a rock-solid and reliable terminal
+# spawn a rock-solid and reliable terminal for when I break things
 super + alt + Return
-	urxvtc
+	urxvt
 
 # spawn a floating terminal
 super + shift + Return
-	bspc rule -a '*' -o state=floating && urxvtc
+	bspc rule -a '*' -o state=floating && "urxvtc"
 
 # spawn the app launcher
 super + space

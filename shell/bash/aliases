@@ -50,7 +50,7 @@ alias tu="tmux attach -t utils || tmux new -s utils"
 alias tdf="tmux attach -t dotfiles || tmux new -s dotfiles -c \"\$DOTFILES_PATH\""
 alias tmon="tmux attach -t monitoring || tmux new -s monitoring"
 alias tcom="tmux attach -t comms || tmux new -s comms"
-alias tn="tmux attach -t notes || tmux new -s notes"
+alias tn="tmux attach -t notes || tmux new -s notes -c \"\$NOTES_PATH\""
 
 # git aliases
 # TODO: make these git aliases in the gitconfig?

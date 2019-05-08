@@ -77,6 +77,8 @@ if command -v nvim >/dev/null 2>&1; then
 	export EDITOR="nvim"
 fi
 
+export TERMINAL="urxvtc"
+
 export BROWSER="firefox-developer-edition"
 
 # unlimited history

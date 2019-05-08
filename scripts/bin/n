@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-SUBDIR="${2:-}"
-mkdir -p "$NOTES_PATH/$SUBDIR"
-"$EDITOR" "$NOTES_PATH/$SUBDIR/$(date +%Y-%m-%d)_$1.md"
+N "$(date +%Y-%m-%d)_${1}"
