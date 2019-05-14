@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+N "$(date +%Y-%m-%d)"
