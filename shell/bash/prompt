@@ -27,6 +27,8 @@ export -f "preprocess_pwd"
 
 prompt_command_func()
 {
+	# commit history to prevent data loss from edge cases
+	history -a
 	RET=$?
 	# set the color of the user and host based on the result of the previous
 	# command
