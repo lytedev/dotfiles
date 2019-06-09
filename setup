@@ -59,6 +59,9 @@ links=(
 	"$dfp/apps/scim/rc"                      "$HOME/.scimrc"
 	"$dfp/apps/scim/lua"                     "$HOME/.scim/lua"
 
+	# libinput configuration
+	"$dfp/de/libinput/gestures.conf"         "$XDG_CONFIG_HOME/libinput-gestures.conf"
+
 	# document viewer
 	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
 
