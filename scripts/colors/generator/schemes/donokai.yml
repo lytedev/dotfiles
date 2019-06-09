@@ -3,7 +3,7 @@ author: "Daniel Flanagan(https://lytedev.io)"
 base00: "111111" # background, dark grey
 base01: "383830" # lighter grey
 base02: "49483e" # lighter grey
-base03: "75715e" # greyish yellow (peuce)
+base03: "75715e" # pale-ish yellow
 base04: "a59f85" # lighter peuce
 base05: "f8f8f2" # foreground white
 base06: "f5f4f1" # foreground 2 white

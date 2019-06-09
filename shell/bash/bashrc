@@ -58,6 +58,9 @@ source "$DOTFILES_PATH/shell/bash/prompt"
 # instead places them in the readline for editing
 shopt -s histverify
 
+# always _append_ to bash history
+shopt -s histappend
+
 # prevents some Java GUI apps from not working or rendering properly due to
 # using wacky window managers
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -81,8 +84,18 @@ export TERMINAL="urxvtc"
 
 export BROWSER="firefox-developer-edition"
 
-# unlimited history
-export HISTSIZE=""
+# "unlimited" history
+export HISTFILESIZE="10000000"
+export HISTSIZE="10000000"
+
+# ignore duplicates and commands starting with space (" ")
+export HISTCONTROL=ignoreboth
+
+# ignore certain commands
+HISTIGNORE='ls:ll:la'
+
+# ensure command history is comprised of single lines
+shopt -s cmdhist
 
 # load a per-device config last so anything can be overridden
 if [ -a "$HOME/.env_bashrc" ]; then
