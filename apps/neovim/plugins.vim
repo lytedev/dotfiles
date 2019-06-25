@@ -49,17 +49,17 @@ let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 " no ALE gutter
-let g:ale_sign_column_always = 0
-let g:ale_set_signs = 0
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+" let g:ale_sign_column_always = 0
+" let g:ale_set_signs = 0
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
 
 " fix me, baby
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 " autocomplete
-let g:ale_completion_enabled = 1
-let g:ale_typescript_tslint_use_global = 1
+" let g:ale_completion_enabled = 1
+" let g:ale_typescript_tslint_use_global = 1
 
 let g:fzf_layout = { 'window': 'enew' }
 
@@ -76,7 +76,7 @@ Plug 'junegunn/vim-plug'                                        " plugin manager
 Plug 'vim-airline/vim-airline'                                  " status line
 Plug 'vim-airline/vim-airline-themes'                           " more minimal status line
 Plug 'nathanaelkane/vim-indent-guides'                          " indentation guides
-Plug 'w0rp/ale'                                                 " syntax checker
+" Plug 'w0rp/ale'                                               " syntax checker
 Plug 'SirVer/ultisnips'                                         " snippet manager
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
 Plug 'junegunn/fzf.vim'                                         " helpers for using fzf in vim
@@ -106,4 +106,6 @@ Plug 'tpope/vim-eunuch'                                         " unix helper co
 Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language server completion
+Plug 'JakeBecker/elixir-ls', {'for': ['elixir'], 'do': { -> g:elixirls.compile() }}
 " Plug 'lytedev/elm-vim'                                          " elm lang

@@ -40,3 +40,6 @@
 [pager]
 	branch = false
 	diff = nvim -c 'silent %sm/\\e.\\{-}m//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile' -c 'goto 1' -
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
