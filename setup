@@ -24,6 +24,7 @@ links=(
 	"$dfp/de/sxhkd/sxhkdrc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 	"$dfp/de/x/resources"                    "$HOME/.Xresources"
 	"$dfp/de/x/initrc"                       "$HOME/.xinitrc"
+	"$dfp/de/x/initrc"                       "$HOME/.vnc/xstartup"
 	"$dfp/de/x/profile"                      "$HOME/.xprofile"
 	"$dfp/de/x/modmap"                       "$HOME/.xmodmap"
 	"$dfp/de/compton/compton.conf"           "$XDG_CONFIG_HOME/compton.conf"
