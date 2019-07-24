@@ -96,6 +96,7 @@ Plug 'michaeljsmith/vim-indent-object'                          " adds an indent
 Plug 'wellle/targets.vim'                                       " adds some more handy text objects
 Plug 'dbakker/vim-projectroot'                                  " adds helper functions for getting to a project's root directory
 Plug 'junegunn/goyo.vim'                                        " better distraction-free editing
+Plug 'tpope/vim-sleuth'                                         " try and detect indent method
 Plug 'editorconfig/editorconfig-vim'                            " loads project-specific editor settings
 Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
@@ -109,3 +110,4 @@ Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language server completion
 Plug 'JakeBecker/elixir-ls', {'for': ['elixir'], 'do': { -> g:elixirls.compile() }}
 " Plug 'lytedev/elm-vim'                                          " elm lang
+Plug 'https://git.lyte.dev/lytedev/vim-lytlang.git'

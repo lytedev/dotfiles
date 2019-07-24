@@ -246,3 +246,7 @@ Print
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+
+super + d
+	xdotool key super+4 && sleep 0.1 && xdotool key shift+4 && xdotool key shift+4 && xdotool key shift+4 && sleep 0.2 && xdotool key super+1 && xdotool key super+3
