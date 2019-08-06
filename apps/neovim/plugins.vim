@@ -110,4 +110,4 @@ Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language server completion
 Plug 'JakeBecker/elixir-ls', {'for': ['elixir'], 'do': { -> g:elixirls.compile() }}
 " Plug 'lytedev/elm-vim'                                          " elm lang
-Plug 'https://git.lyte.dev/lytedev/vim-lytlang.git'
+Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'

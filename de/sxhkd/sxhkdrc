@@ -250,3 +250,6 @@ super + Escape
 
 super + d
 	xdotool key super+4 && sleep 0.1 && xdotool key shift+4 && xdotool key shift+4 && xdotool key shift+4 && sleep 0.2 && xdotool key super+1 && xdotool key super+3
+
+super + ctrl + c
+	bspc rule -a '*' -o state=floating && urxvtc --geometry 80x16 -e sh -c "khal calendar && bash"
