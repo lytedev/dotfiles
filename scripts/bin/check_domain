@@ -55,28 +55,32 @@ check_domain() {
 	fi
 
 	local domain="$1"
+
 	# create a unique temporary file
-	TMP=$(mktemp "${domain}_XXX")
+	local tmp=$(mktemp "${domain}_XXX")
+
 	# dump whois output into temp file
-	whois "$domain" > "$TMP" 2>&1
+	whois "$domain" > "$tmp" 2>&1
+
 	# check contents and output appropriately
-	if egrep -q "$AVAIL_REGEX" "$TMP" > /dev/null 2>&1; then
+	if egrep -q "$AVAIL_REGEX" "$tmp" > /dev/null 2>&1; then
 		echo -e "$COLOR_GREEN$domain / probably available$COLOR_RESET"
-	elif egrep -q "$TIMEOUT_REGEX" "$TMP" > /dev/null 2>&1; then
+	elif egrep -q "$TIMEOUT_REGEX" "$tmp" > /dev/null 2>&1; then
 		echo -e "$COLOR_YELLOW$domain / timed out$COLOR_RESET"
 	else
 		echo -e "$COLOR_RED$domain / unavailable$COLOR_RESET"
 	fi
-	rm "$TMP"
+
+	# cleanup
+	rm "$tmp"
 }
 
 # iterate all provided domain names combined with all TLDs and check them
 # concurrently
 elements=${#DOMAINS[@]}
 while (( "$#" )); do
-	for (( i=0; i<$elements; i++ )); do
-		D="$1${DOMAINS[${i}]}"
-		check_domain "${D}" &
+	for (( i=0;i<${elements};i++ )); do
+		check_domain "$1${DOMAINS[${i}]}" &
 	done
 	shift
 done
