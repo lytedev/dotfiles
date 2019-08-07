@@ -6,8 +6,7 @@
 AVAIL_REGEX='^No match|^NOT FOUND|^Not fo|AVAILABLE|^No Data Fou|has not been regi|No entri'
 TIMEOUT_REGEX='^Timeout'
 
-COLOR_RESET="\x1b[0m"
-COLOR_GREEN="\x1b[32m"
+COLOR_RESET="\x1b[0m" COLOR_GREEN="\x1b[32m"
 COLOR_YELLOW="\x1b[33m"
 COLOR_RED="\x1b[31m"
 
@@ -49,7 +48,7 @@ check_domain() {
 	TMP=$(mktemp "check_domain_whois_${DOMAIN}_XXX")
 	whois "$DOMAIN" > "$TMP" 2>&1
 	if egrep -q "$AVAIL_REGEX" "$TMP"; then
-		echo -e "$COLOR_GREEN$DOMAIN / available$COLOR_RESET"
+		echo -e "$COLOR_GREEN$DOMAIN / probably available$COLOR_RESET"
 	elif egrep -q "$TIMEOUT_REGEX" "$TMP"; then
 		echo -e "$COLOR_YELLOW$DOMAIN / timed out$COLOR_RESET"
 	else
