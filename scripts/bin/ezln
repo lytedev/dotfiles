@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+SOURCE=$(realpath "$1")
+DEST=$(realpath -m "$2")
+
+ln -s "$SOURCE" "$DEST"

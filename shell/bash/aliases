@@ -29,6 +29,7 @@ alias cd..="cd .."
 alias cdd="cd \"\$DOTFILES_PATH\"" # go to dotfiles
 alias cdc="cd \"\$XDG_CONFIG_HOME\"" # go to
 alias cdn="cd \"\$NOTES_PATH\""
+alias cdl="cd \"\$NICE_HOME/dl\""
 
 # quick parent-directory aliases
 alias ..="cd .."
