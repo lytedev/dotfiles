@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# TODO:
+# + trap exit signals to cleanup all temp files and cancel all jobs
+# + run in batches to prevent spawning way too many processes
+# + detect when piping into another application and suppress colors?
+# + temp file control (or none for no disk space)?
+# + command line options or env vars?
+#		+ --tlds "com,net,org"
+#		+ --max-concurrent-whois-jobs
+#		+ --avail-regex and --timeout-regex
+
 # suggested usage: ./check_domain | tee /tmp/chkdmn && sort /tmp/chkdmn
 
 # constants
@@ -44,23 +54,27 @@ check_domain() {
 		return
 	fi
 
-	DOMAIN="$1"
-	TMP=$(mktemp "check_domain_whois_${DOMAIN}_XXX")
-	whois "$DOMAIN" > "$TMP" 2>&1
-	if egrep -q "$AVAIL_REGEX" "$TMP"; then
-		echo -e "$COLOR_GREEN$DOMAIN / probably available$COLOR_RESET"
-	elif egrep -q "$TIMEOUT_REGEX" "$TMP"; then
-		echo -e "$COLOR_YELLOW$DOMAIN / timed out$COLOR_RESET"
+	local domain="$1"
+	# create a unique temporary file
+	TMP=$(mktemp "${domain}_XXX")
+	# dump whois output into temp file
+	whois "$domain" > "$TMP" 2>&1
+	# check contents and output appropriately
+	if egrep -q "$AVAIL_REGEX" "$TMP" > /dev/null 2>&1; then
+		echo -e "$COLOR_GREEN$domain / probably available$COLOR_RESET"
+	elif egrep -q "$TIMEOUT_REGEX" "$TMP" > /dev/null 2>&1; then
+		echo -e "$COLOR_YELLOW$domain / timed out$COLOR_RESET"
 	else
-		echo -e "$COLOR_RED$DOMAIN / unavailable$COLOR_RESET"
+		echo -e "$COLOR_RED$domain / unavailable$COLOR_RESET"
 	fi
+	rm "$TMP"
 }
 
 # iterate all provided domain names combined with all TLDs and check them
 # concurrently
 elements=${#DOMAINS[@]}
 while (( "$#" )); do
-	for (( i=0; i<$ELEMENTS; i++ )); do
+	for (( i=0; i<$elements; i++ )); do
 		D="$1${DOMAINS[${i}]}"
 		check_domain "${D}" &
 	done
