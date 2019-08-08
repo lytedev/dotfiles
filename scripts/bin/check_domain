@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+# TODO:
+# + trap exit signals to cleanup all temp files and cancel all jobs
+# + run in batches to prevent spawning way too many processes
+# + detect when piping into another application and suppress colors?
+# + temp file control (or none for no disk space)?
+# + command line options or env vars?
+#		+ --tlds "com,net,org"
+#		+ --max-concurrent-whois-jobs
+#		+ --avail-regex and --timeout-regex
+
+# suggested usage: ./check_domain | tee /tmp/chkdmn && sort /tmp/chkdmn
+
+# constants
+AVAIL_REGEX='^No match|^NOT FOUND|^Not fo|AVAILABLE|^No Data Fou|has not been regi|No entri'
+TIMEOUT_REGEX='^Timeout'
+
+COLOR_RESET="\x1b[0m" COLOR_GREEN="\x1b[32m"
+COLOR_YELLOW="\x1b[33m"
+COLOR_RED="\x1b[31m"
+
+DOMAINS=( \
+	'.com' '.net' '.org' '.eu' '.in' '.it' '.sk' '.ac' '.ae' '.af' '.ag' '.al' \
+	'.am' '.as' '.at' '.ax' '.be' '.bi' '.bo' '.by' '.bz' '.cc' '.cd' '.cf' '.cg' \
+	'.ch' '.ci' '.cl' '.cm' '.cn' '.co' '.cr' '.cx' '.cz' '.dk' '.dm' '.do' '.ec' \
+	'.ee' '.es' '.fi' '.fm' '.fo' '.ga' '.gd' '.gf' '.gg' '.gl' '.gp' '.gq' '.gr' \
+	'.gs' '.gt' '.gy' '.hk' '.hm' '.hn' '.ht' '.id' '.im' '.in' '.io' '.ir' '.is' \
+	'.je' '.ke' '.kg' '.kz' '.la' '.lc' '.li' '.lt' '.lu' '.lv' '.ly' '.me' '.mg' \
+	'.mk' '.ml' '.mn' '.mq' '.ms' '.mu' '.mw' '.mx' '.na' '.ne' '.ng' '.nl' '.nu' \
+	'.nz' '.pe' '.ph' '.pk' '.pl' '.pr' '.pt' '.pw' '.qa' '.ro' '.rs' '.ru' '.rw' \
+	'.sb' '.sc' '.sd' '.se' '.sh' '.si' '.sl' '.sr' '.st' '.su' '.sx' '.sg' '.tk' \
+	'.tl' '.to' '.tv' '.tw' '.ug' '.vc' '.ve' '.vg' '.vn' '.vu' '.ws' \
+	)
+
+# check dependencies
+if command -v whois >/dev/null 2>&1; then
+	:
+else
+	echo "You need to install whois before proceeding!"
+	exit 2
+fi
+
+# check arguments
+if [ "$#" == "0" ]; then
+	echo "You need to supply at least one argument!"
+	exit 1
+fi
+
+# main function
+check_domain() {
+	if [ "$#" == "0" ]; then
+		echo "No domain specified."
+		return
+	fi
+
+	local domain="$1"
+
+	# create a unique temporary file
+	local tmp=$(mktemp "${domain}_XXX")
+
+	# dump whois output into temp file
+	whois "$domain" > "$tmp" 2>&1
+
+	# check contents and output appropriately
+	if egrep -q "$AVAIL_REGEX" "$tmp" > /dev/null 2>&1; then
+		echo -e "$COLOR_GREEN$domain / probably available$COLOR_RESET"
+	elif egrep -q "$TIMEOUT_REGEX" "$tmp" > /dev/null 2>&1; then
+		echo -e "$COLOR_YELLOW$domain / timed out$COLOR_RESET"
+	else
+		echo -e "$COLOR_RED$domain / unavailable$COLOR_RESET"
+	fi
+
+	# cleanup
+	rm "$tmp"
+}
+
+# iterate all provided domain names combined with all TLDs and check them
+# concurrently
+elements=${#DOMAINS[@]}
+while (( "$#" )); do
+	for (( i=0;i<${elements};i++ )); do
+		check_domain "$1${DOMAINS[${i}]}" &
+	done
+	shift
+done
+wait
