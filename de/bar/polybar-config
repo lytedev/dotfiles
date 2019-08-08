@@ -4,7 +4,7 @@
 
 [colors]
 foreground = ${xrdb:color7:#222222}
-background = ${xrdb:color0:#111111}
+background = #bb111111
 
 tray-bg = #222222
 
@@ -68,7 +68,7 @@ font-1 = ${env:BAR_ICON_FONT_DECLARATION}
 
 modules-left = bspwm
 modules-center = date
-modules-right = cpu filesystem memory volume xbacklight xkeyboard temperature battery
+modules-right = cpu filesystem memory volume microphone xbacklight xkeyboard temperature battery
 
 tray-position = right
 tray-padding = 0
@@ -385,3 +385,11 @@ compositing-border = source
 [global/wm]
 margin-top = ${env:WINDOW_GAP}
 margin-bottom = ${env:WINDOW_GAP}
+
+[module/microphone]
+type = custom/script
+exec = $DOTFILES_PATH/de/bar/mic.bash
+tail = true
+format = <label>
+label = %output%
+click-left = kill -USR1 %pid%

@@ -154,3 +154,5 @@ hi Search cterm=NONE ctermbg=blue ctermfg=black
 highlight LineNr ctermbg=none ctermfg=8
 highlight CursorLineNr ctermbg=18 ctermfg=gray
 hi IndentGuidesEven ctermbg=18
+
+hi Normal ctermbg=NONE

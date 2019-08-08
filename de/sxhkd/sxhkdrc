@@ -253,3 +253,6 @@ super + d
 
 super + ctrl + c
 	bspc rule -a '*' -o state=floating && urxvtc --geometry 80x16 -e sh -c "khal calendar && bash"
+
+super + shift + v
+	kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.pid")

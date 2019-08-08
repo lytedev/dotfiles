@@ -18,6 +18,8 @@
 URxvt.font: xft:Iosevka:pixelsize=14,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt.faceName: xft:Iosevka:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt.boldFont: xft:Iosevka:pixelsize=14:style=bold,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+# URxvt.transparent: true
+# URxvt.shading: 70
 URxvt.letterSpace: 0
 
 ## rxvt-unicode configuration
@@ -36,7 +38,6 @@ URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
-URxvt.depth: 0
 URxvt.iso14755: False
 
 ## Other Xorg configuration
