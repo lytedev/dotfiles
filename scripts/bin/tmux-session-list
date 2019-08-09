@@ -2,7 +2,9 @@
 
 ANY_SESSION_PREFIX="#[bg=colour18]#[fg=colour7]"
 CUR_SESSION_PREFIX="#[bg=colour4]#[fg=colour0]"
+URG_SESSION_PREFIX="#[bg=colour1]#[fg=colour0]"
 ANY_SESSION_SUFFIX="#[bg=default]#[fg=default] "
+URG_SESSION_SUFFIX="${ANY_SESSION_SUFFIX}"
 CUR_SESSION_SUFFIX="${ANY_SESSION_SUFFIX}"
 
 CUR_TMUX_SESSION="$1"

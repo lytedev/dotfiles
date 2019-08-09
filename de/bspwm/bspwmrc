@@ -52,7 +52,7 @@ if command -v unclutter >/dev/null 2>&1; then
 fi
 
 if command -v compton >/dev/null 2>&1; then
-	if [[ -z $NO_COMPTON ]]; then
+	if [[ "$NO_COMPTON" -ne 1 ]]; then
 		compton &
 	fi
 fi

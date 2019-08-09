@@ -1,10 +1,10 @@
 #!/bin/sh
 
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
-  export XDG_CONFIG_HOME="$HOME/.config"
+	export XDG_CONFIG_HOME="$HOME/.config"
 fi
 if [[ -z "$DOTFILES_PATH" ]]; then
-  export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+	export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 fi
 
 if command -v autorandr >/dev/null 2>&1; then
@@ -37,7 +37,7 @@ if [ -f "$HOME/.xmodmap" ]; then
 fi
 
 if [ -f "$DOTFILES_PATH/de/x/loadresources" ]; then
-  "$DOTFILES_PATH/de/x/loadresources"
+	"$DOTFILES_PATH/de/x/loadresources"
 fi
 
 if command -v xcape >/dev/null 2>&1; then

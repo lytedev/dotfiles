@@ -256,3 +256,6 @@ super + ctrl + c
 
 super + shift + v
 	kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.pid")
+
+super + v
+	tmux new-window 'sh -ci tmuxswitcher'

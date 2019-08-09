@@ -121,7 +121,6 @@ label-occupied-font = 2
 label-urgent-font = 2
 label-empty-font = 2
 
-
 type = internal/bspwm
 pin-workspaces = false
 
@@ -383,8 +382,8 @@ compositing-border = source
 ; ######################### ;
 
 [global/wm]
-margin-top = ${env:WINDOW_GAP}
-margin-bottom = ${env:WINDOW_GAP}
+margin-top = ${env:WINDOW_GAP:0}
+margin-bottom = ${env:WINDOW_GAP:0}
 
 [module/microphone]
 type = custom/script
