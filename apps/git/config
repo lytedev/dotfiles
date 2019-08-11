@@ -26,6 +26,14 @@
 
 [alias]
 	d = difftool
+	s = status
+	co = checkout
+	mm = merge master
+	rim = rebase -i master
+	b = rev-parse --symbolic-full-name HEAD
+	p = push
+	pl = pull
+	pf = push --force-with-lease
 
 [merge]
 	tool = nvimdiff
