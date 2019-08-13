@@ -52,6 +52,7 @@ alias tdf="tmux attach -t dotfiles || tmux new -s dotfiles -c \"\$DOTFILES_PATH\
 alias tmon="tmux attach -t monitoring || tmux new -s monitoring"
 alias tcom="tmux attach -t comms || tmux new -s comms"
 alias tn="tmux attach -t notes || tmux new -s notes -c \"\$NOTES_PATH\""
+alias tm="tmux attach -t music || tmux new -s music"
 
 # git aliases
 # TODO: make these git aliases in the gitconfig?
@@ -69,6 +70,7 @@ alias gds="git diff --staged"
 alias gpl="git pull"
 alias gp="git push"
 alias gpa="git push --all && git push --tags"
+alias gpt="git push && git push --tags"
 alias gpf="git push --force-with-lease"
 alias gac="git add -A && git commit"
 alias gsur="git submodule update --remote"
