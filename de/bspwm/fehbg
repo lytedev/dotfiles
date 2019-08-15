@@ -1,2 +1,14 @@
-#!/bin/sh
-feh --no-fehbg --bg-fill '/home/daniel/img/wall/forest-sapling-vignette.jpg' 
+#!/usr/bin/env bash
+
+feh --no-fehbg --bg-fill \
+	"${HOME}/.wallpaper" \
+	"${HOME}/.wallpaper2" \
+	"${HOME}/.wallpaper3" \
+	"${HOME}/.wallpaper4" \
+	"${HOME}/.wallpaper5" \
+	"${HOME}/.wallpaper6" \
+	"${HOME}/.wallpaper7" \
+	"${HOME}/.wallpaper8" \
+	"${HOME}/.wallpaper9" \
+	"${HOME}/.wallpaper_last" \
+	2>/dev/null
