@@ -82,4 +82,4 @@ Here are some bullet points on my workflow:
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
-[desktop-screenshot]: https://lyte.dev/files/unix/desktop-screenshot.png
+[desktop-screenshot]: https://lyte.dev/unix/desktop-screenshot.png
