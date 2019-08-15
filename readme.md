@@ -2,6 +2,8 @@
 
 [🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
 
+![Desktop Screenshot][desktop-screenshot]
+
 This repository contains the majority of application or OS configuration files
 I use on a daily basis. I keep the here and public in an effort to inform others
 who may not know either how to go about organizing such files or to learn how to
@@ -80,3 +82,4 @@ Here are some bullet points on my workflow:
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
+[desktop-screenshot]: https://lyte.dev/files/unix/desktop-screenshot.png

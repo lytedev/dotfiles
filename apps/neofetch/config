@@ -287,7 +287,7 @@ image_backend="w3m"
 
 # Image Source
 # --image wall, ascii, /path/to/img, /path/to/dir/, off
-image="wall"
+image="~/.wallpaper"
 
 # Thumbnail directory
 thumbnail_dir="$HOME/.cache/thumbnails/neofetch"
@@ -314,7 +314,7 @@ image_size="360px"
 
 # Right gap between image and text
 # --gap num
-gap=4
+gap=1
 
 # Image offsets
 # Only works with the w3m backend.
