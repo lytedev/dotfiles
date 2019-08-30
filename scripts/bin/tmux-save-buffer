@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+sess="$1"; shift
+d="$(date +%Y-%m-%d_%H-%M-%S)"
+f="$HOME/$d.tmux-buffer.log"
+touch "$f"
+chmod 600 "$f"
+tmux capture-pane -pS -1000000000 > "$f"
