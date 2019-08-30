@@ -109,5 +109,6 @@ Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript lan
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language server completion
 Plug 'JakeBecker/elixir-ls', {'for': ['elixir'], 'do': { -> g:elixirls.compile() }}
-" Plug 'lytedev/elm-vim'                                          " elm lang
+Plug 'tpope/vim-dadbod'                                         " databasing in vim
+" Plug 'lytedev/elm-vim'                                        " elm lang
 Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'

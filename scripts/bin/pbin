@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+HOST="ld"
+INTERNAL_PUBLIC_DIR="~/../services/data/files/pastes"
+
+f="${1}"
+uuid="$(uuid v1)"
+
+[ "${f}" == "" ] && echo "No file provided. Exiting." >&2 && exit 2
+[ ! -f "${f}" ] && echo "File '$f' does not exist. Exiting." >&2 && exit 1
+
+scp "${f}" "${HOST}:${INTERNAL_PUBLIC_DIR}/${uuid}.txt"
+
+echo "${f} uploaded to https://lyte.dev/pastes/${uuid}.txt"
+echo "I recommend checking the file for secrets before sharing."
