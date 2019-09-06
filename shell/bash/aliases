@@ -97,6 +97,8 @@ alias gpmdpe="electron --app=/usr/share/gpmdp/resources/app.asar"
 alias t="task"
 alias sc="sc-im"
 alias scs="sc-im \"\$NOTES_PATH/_scratch.sc\""
+alias disks="lsblk && df -h"
+alias dd="dd status=progress"
 
 # games aliases
 # this sometimes fixes steam dynamic library issues?
@@ -108,3 +110,6 @@ alias man="vman"
 
 # neomutt is better
 alias mutt="neomutt"
+
+# fsw aliases
+alias fsw-mix-test="fsw \"mix test\" ./**/*.{ex,exs,erl,hrl,xrl,yrl}"

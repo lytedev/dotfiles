@@ -4,7 +4,7 @@ HOST="ld"
 INTERNAL_PUBLIC_DIR="~/../services/data/files/pastes"
 
 f="${1}"
-uuid="$(uuid v1)"
+uuid="$(uuid -v 1)"
 
 [ "${f}" == "" ] && echo "No file provided. Exiting." >&2 && exit 2
 [ ! -f "${f}" ] && echo "File '$f' does not exist. Exiting." >&2 && exit 1
