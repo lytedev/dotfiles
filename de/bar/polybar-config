@@ -89,7 +89,7 @@ override-redirect = true
 type = internal/fs
 interval = 25
 
-mount-0 = ${env:BAR_FS_VOLUME}
+mount-0 = ${env:BAR_FS_VOLUME:/}
 
 format = <label-mounted>
 label-mounted = %free%

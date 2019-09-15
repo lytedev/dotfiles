@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
+if egrep -q '^\[multilib\]$' /etc/pacman.conf; then
+	echo "Multilib Repository Already Enabled!"
+else
+	echo "Enabling Multilib Repository (with sudo)..."
+	sudo sh -c 'echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
+	pacaur -Syy
+fi
+
 pacaur --needed -S \
-	arc-gtk-theme-git `# GTK Theme` \
+	arc-gtk-theme `# GTK Theme` \
 	elementary-icon-theme `# GUI File Explorer Icons` \
 	thunar thunar-volman gvfs `# GUI File Explorer + Volume Management/Auto-Mount Disks)` \
 	samba `# Sharing Files with other (Windows) PCs` \
@@ -23,7 +31,13 @@ pacaur --needed -S \
 	neofetch `# swag` \
 	cloc `# For counting lines of code` \
 	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji `# Emoji` \
-	siji-git gohufont artwiz-fonts phallus-fonts-git `# Bitmap Fonts` \
+	siji-git gohufont artwiz-fonts `# Bitmap Fonts` \
 	autorandr `# Monitor Helper` \
+	docker `# Containers` \
 	keybase keybase-gui kbfs `# Keybase Applications` \
+	discord `# Chat` \
+	steam steamcmd lutris `# Games` \
+	gnome-shell `# Guh-nome Guh-shell` \
+	redshift `# Save Your Eyes` \
+	vlc `# Video Viewer` \
 	--noconfirm --noedit

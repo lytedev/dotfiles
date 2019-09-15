@@ -5,21 +5,20 @@
 # installs pacaur on a fresh arch install
 
 # install the dependencies
-sudo pacman -S git curl openssl perl expac yajl --noconfirm
-
-# receive cower's gpg key
-# gpg --recv-keys 1EB2638FF56C0C53
+sudo pacman -S git curl openssl perl expac yajl meson gmock gtest --noconfirm
 
 # setup a temporary place to install the packages from
 REPOSITORY_PATH="/tmp/provisioning"
 mkdir -p "$REPOSITORY_PATH"
 
 # clone the repositories
-git clone https://aur.archlinux.org/cower.git "$REPOSITORY_PATH/cower"
+rm -rf "$REPOSITORY_PATH/auracle-git"
+rm -rf "$REPOSITORY_PATH/pacaur"
+git clone https://aur.archlinux.org/auracle-git.git "$REPOSITORY_PATH/auracle-git"
 git clone https://aur.archlinux.org/pacaur.git "$REPOSITORY_PATH/pacaur"
 
-# build and install cower
-cd "$REPOSITORY_PATH/cower"
+# build and install auracle
+cd "$REPOSITORY_PATH/auracle-git"
 makepkg -i --noconfirm
 cd -
 
@@ -28,5 +27,10 @@ cd "$REPOSITORY_PATH/pacaur"
 makepkg -i --noconfirm
 cd -
 
+# cleanup
+rm -rf "$REPOSITORY_PATH/auracle-git"
+rm -rf "$REPOSITORY_PATH/pacaur"
+
 # once installed, let the package manager manage itself and its dependencies
-pacaur -S cower pacaur --noconfirm --noedit
+pacaur -S auracle-git pacaur --noconfirm --noedit
+

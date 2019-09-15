@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-# todo?
+pacaur --needed -S --noconfirm --noedit
