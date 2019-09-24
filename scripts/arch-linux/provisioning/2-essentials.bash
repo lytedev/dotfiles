@@ -10,7 +10,7 @@ pacaur --needed -S \
 	fd `# File Search` \
 	fzf `# Fuzzy File Finder` \
 	htop `# Process Management and System Resources Monitoring` \
-	openssh `# Remote Access` \
+	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
 	elixir `# Elixir Language` \
 	nodejs npm yarn `# JavaScript Runtime` \
