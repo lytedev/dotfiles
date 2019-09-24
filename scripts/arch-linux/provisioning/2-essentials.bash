@@ -44,16 +44,8 @@ pacaur --needed -S \
 	jq `# CLI for Interacting with JSON` \
 	ranger `# CLI File Manager` \
 	bash-completion `# Handy Scripts for Tab-Completion in Bash` \
+	python-neovim python-jedi python-mistune python-psutil python-setproctitle httpie \
 	--noconfirm --noedit
-
-# install text editor utilities and other python packages
-sudo pip3 install \
-	neovim `# Text Editor Plugin Integration` \
-	jedi `# Text Editor Intelligence Helper` \
-	mistune `# Markdown Parser` \
-	psutil `# Process Utilities` \
-	setproctitle `# Good Name` \
-	httpie `# HTTP CLI Utility`
 
 # install rxvt-unicode script for resizing font on-the-fly
 mkdir -p "$HOME/.urxvt/ext"
