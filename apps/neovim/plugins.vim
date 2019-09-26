@@ -101,7 +101,7 @@ Plug 'editorconfig/editorconfig-vim'                            " loads project-
 Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
-" Plug 'junegunn/vim-peekaboo'                                    " preview registers
+" Plug 'junegunn/vim-peekaboo'                                  " preview registers
 Plug 'scrooloose/nerdtree'                                      " file browser
 Plug 'tpope/vim-eunuch'                                         " unix helper commands
 Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
@@ -111,5 +111,5 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language serve
 Plug 'neoclide/coc-json'                                        " coc config ft
 Plug 'JakeBecker/elixir-ls', {'for': ['elixir', 'eelixir'], 'do': { -> g:elixirls.compile() }}
 Plug 'tpope/vim-dadbod'                                         " databasing in vim
-" Plug 'lytedev/elm-vim'                                        " elm lang
+Plug 'lytedev/elm-vim'                                          " elm lang
 Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'

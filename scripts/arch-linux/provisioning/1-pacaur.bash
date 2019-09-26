@@ -5,7 +5,7 @@
 # installs pacaur on a fresh arch install
 
 # install the dependencies
-sudo pacman -S git curl openssl perl expac yajl meson gmock gtest --noconfirm
+sudo pacman -S git curl openssl perl expac yajl meson gmock gtest jq --noconfirm
 
 # setup a temporary place to install the packages from
 REPOSITORY_PATH="/tmp/provisioning"

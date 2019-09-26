@@ -9,6 +9,7 @@ else
 fi
 
 pacaur --needed -S \
+	pigz `# Multi-core gzipping` \
 	arc-gtk-theme `# GTK Theme` \
 	elementary-icon-theme `# GUI File Explorer Icons` \
 	thunar thunar-volman gvfs `# GUI File Explorer + Volume Management/Auto-Mount Disks)` \
