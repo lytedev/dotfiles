@@ -118,11 +118,6 @@ nnoremap <leader>l :Buffers<CR>
 " switch to previous buffer
 nnoremap <leader>h :b#<CR>
 
-" go to definitions
-nnoremap <leader>gd :ALEGoToDefinition<CR>
-nnoremap <leader>gh :ALEGoToDefinitionInSplit<CR>
-nnoremap <leader>gv :ALEGoToDefinitionInVSplit<CR>
-
 " use leader j and k to switch buffers as well
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader>j :bprevious<CR>
@@ -211,7 +206,25 @@ xnoremap < <gv
 xnoremap > >gv
 
 " distraction-free mode
-nnoremap <silent> <Leader>df :DistractionFreeMode<CR>
+nnoremap <silent> <leader>df :DistractionFreeMode<CR>
 
 " recalc syntax highlighting
 nnoremap <leader>gs :syntax sync fromstart<CR>
+
+" lsp bindings
+
+" coc
+
+" open coc config
+nnoremap <leader><space>c :CocConfig<CR>
+
+" go to definitions
+nnoremap <leader>d <Plug>(coc-jump-definition)
+
+" ale
+
+" go to definitions
+" nnoremap <leader>gd :ALEGoToDefinition<CR>
+" nnoremap <leader>gh :ALEGoToDefinitionInSplit<CR>
+" nnoremap <leader>gv :ALEGoToDefinitionInVSplit<CR>
+

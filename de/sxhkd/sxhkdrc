@@ -140,9 +140,13 @@ super + alt + minus
 super + r
 	bspc node -R 90
 
-# balance the current node
+# balance the current node's leaves
 super + shift + b
 	bspc node -B
+
+# balance the current node's sibling leaves
+super + ctrl + b
+	bspc node -f parent && bspc node -B
 
 # wm-independant shortcuts
 
@@ -252,7 +256,7 @@ super + d
 	xdotool key super+4 && sleep 0.1 && xdotool key shift+4 && xdotool key shift+4 && xdotool key shift+4 && sleep 0.2 && xdotool key super+1 && xdotool key super+3
 
 super + ctrl + c
-	bspc rule -a '*' -o state=floating && urxvtc --geometry 80x16 -e sh -c "khal calendar && bash"
+	bspc rule -a '*' -o state=floating && urxvtc --geometry 64x9 -e sh -c "cal -n 3 && bash"
 
 super + shift + v
 	kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.pid")
