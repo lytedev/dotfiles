@@ -44,7 +44,7 @@ pacaur --needed -S \
 	jq `# CLI for Interacting with JSON` \
 	ranger `# CLI File Manager` \
 	bash-completion `# Handy Scripts for Tab-Completion in Bash` \
-	python-neovim python-jedi python-mistune python-psutil python-setproctitle httpie \
+	python-neovim python-jedi python-mistune python-psutil python-setproctitle httpie `# httpie and neovim dependencies` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly
