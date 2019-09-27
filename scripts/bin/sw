@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+d="$(date +%s)"
+echo "Stopwatch started $(date)"
+
+while true; do
+	_dt=$((`date +%s` - d))
+	days=$((_dt / 86400))
+	echo -ne "\r${days}d $(date -u --date @$((_dt)) +%H:%M:%S) "
+	sleep 0.1
+done

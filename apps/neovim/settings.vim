@@ -2,7 +2,6 @@ scriptencoding utf8
 
 " ALE completeopt recommendation
 set completeopt=menu,menuone,preview,noselect,noinsert
-" set completeopt=noinsert,menuone,noselect,longest,preview
 
 " line number defaults
 set nonumber
@@ -156,3 +155,13 @@ highlight CursorLineNr ctermbg=18 ctermfg=gray
 hi IndentGuidesEven ctermbg=18
 
 hi Normal ctermbg=NONE
+
+" lsp config
+
+" ale
+
+" set completeopt=noinsert,menuone,noselect,longest,preview
+
+" coc
+
+

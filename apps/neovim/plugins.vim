@@ -108,7 +108,8 @@ Plug 'sheerun/vim-polyglot'                                     " vim plugin loa
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language server completion
-Plug 'JakeBecker/elixir-ls', {'for': ['elixir'], 'do': { -> g:elixirls.compile() }}
+Plug 'neoclide/coc-json'                                        " coc config ft
+Plug 'JakeBecker/elixir-ls', {'for': ['elixir', 'eelixir'], 'do': { -> g:elixirls.compile() }}
 Plug 'tpope/vim-dadbod'                                         " databasing in vim
 Plug 'lytedev/elm-vim'                                          " elm lang
 Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'

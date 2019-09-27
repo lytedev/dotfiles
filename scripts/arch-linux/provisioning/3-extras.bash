@@ -22,7 +22,7 @@ pacaur --needed -S \
 	audacity `# Audio Editing Application` \
 	cmake `# Cross-Platform Make` \
 	accountsservice `# Mainly for User Avatars with LightDM` \
-	deluge `# GUI Torrent Client` \
+	deluge cairo python-cairo `# GUI Torrent Client` \
 	lightdm lightdm-gtk-greeter `# Nice User Login` \
 	polybar-git `# Bar` \
 	php `# PHP Language` \
@@ -41,4 +41,5 @@ pacaur --needed -S \
 	gnome-shell `# Guh-nome Guh-shell` \
 	redshift `# Save Your Eyes` \
 	vlc `# Video Viewer` \
+	ncdu `# Disk Usage Analyzer` \
 	--noconfirm --noedit
