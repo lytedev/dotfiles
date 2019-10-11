@@ -17,6 +17,19 @@ alias f='fzf'
 alias cp="rsync -ah --progress"
 alias year="cal $(date +%Y)"
 
+# gets the newest function for the current directory (or the specified directory
+# if one is provided)
+function ltl() {
+	local d="${1-$PWD}"
+	unset -v l
+	for f in "$d"/*; do
+		[[ $f -nt $l ]] && [[ ! -d $f ]] && l="$f"
+	done
+	echo "$l"
+}
+
+alias vltl="vim \"\$(ltl)\""
+
 # navigation aliases
 function c() {
 	if [[ -n $1 ]]; then
