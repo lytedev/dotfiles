@@ -9,6 +9,7 @@ else
 fi
 
 pacaur --needed -S \
+	bluez bluz-libs bluez-utils bluez-tools \
 	pigz `# Multi-core gzipping` \
 	arc-gtk-theme `# GTK Theme` \
 	elementary-icon-theme `# GUI File Explorer Icons` \

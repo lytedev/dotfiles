@@ -6,8 +6,6 @@ export BAR_HEIGHT=40
 export BAR_ON_TOP=0
 export BAR_SIDE_MARGIN=200
 
-MONITOR_WIDTH=$(xrandr | grep "$BAR_MONITOR" | grep -Po ' \d+' | head -n 1)
-
 export BAR_FONT="${BAR_FONT:-$(xrdb -query | sed -ne      's/.*font:\s*xft:\([^:]*\)\:.*$/\1/p' | head -n 1)}"
 export BAR_ICON_FONT="${BAR_ICON_FONT:-"Font Awesome 5 Free"}"
 export BAR_FONT_SIZE="${BAR_FONT_SIZE:-$(xrdb -query | sed -ne 's/.*font:\s*xft:[^-,]*\=\([0-9]*\).*$/\1/p' | head -n 1)}"
@@ -27,6 +25,8 @@ export POS_Y=0
 if [ -f "$HOME/.env_bar" ]; then
 	source "$HOME/.env_bar"
 fi
+
+export MONITOR_WIDTH=$(xrandr | grep "^$BAR_MONITOR " | grep -Po ' \d+' | head -n 1)
 
 export BAR_FONT_DECLARATION="${BAR_FONT}:pixelsize=${BAR_FONT_SIZE};1"
 export BAR_ICON_FONT_DECLARATION="${BAR_ICON_FONT}:style=Solid:pixelsize=${BAR_ICON_FONT_SIZE};1"
@@ -55,5 +55,11 @@ else
 fi
 
 # bspc
+
+echo "Monitor: $BAR_MONITOR"
+echo "Bottom?: $BAR_BOTTOM"
+echo "Dimensions: $POS_X $POS_Y $BAR_WIDTH $BAR_HEIGHT"
+echo "EHeight: $EHEIGHT"
+echo "Margin: $BAR_SIDE_MARGIN"
 
 polybar lytedev
