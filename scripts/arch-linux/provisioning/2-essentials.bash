@@ -45,6 +45,8 @@ pacaur --needed -S \
 	ranger `# CLI File Manager` \
 	bash-completion `# Handy Scripts for Tab-Completion in Bash` \
 	python-neovim python-jedi python-mistune python-psutil python-setproctitle httpie `# httpie and neovim dependencies` \
+	docker docker-compose `# Yummy containers` \
+	inotify-tools `# Watching` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly
