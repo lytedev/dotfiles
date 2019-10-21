@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-nf "${1}.md"
+fn="${1}"; shift
+nf "${fn}.md" $*

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+f="${HOME}/.scrup.png"
+
+pkill unclutter
+sleep 0.1
+import "${f}"
+upload "${f}" "scrup-$(date +%Y-%m-%d_%H-%M-%S).png" "scrots"
+unclutter &

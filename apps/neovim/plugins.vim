@@ -112,4 +112,5 @@ Plug 'neoclide/coc-json'                                        " coc config ft
 Plug 'JakeBecker/elixir-ls', {'for': ['elixir', 'eelixir'], 'do': { -> g:elixirls.compile() }}
 Plug 'tpope/vim-dadbod'                                         " databasing in vim
 Plug 'lytedev/elm-vim'                                          " elm lang
+Plug 'google/vim-jsonnet'                                       " jsonnet
 Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'

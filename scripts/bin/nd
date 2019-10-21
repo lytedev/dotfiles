@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-N "$(date +%Y-%m-%d)"
+fn="${1}"; shift
+N "$(date +%Y-%m-%d)_${fn}" $*
