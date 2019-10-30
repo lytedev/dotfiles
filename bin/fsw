@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
+# Some examples in case you forget:
+# Elixir: fsw "mix run" ./**/*.{ex,exs}
+# Run bash file on any event (note single quotes): fsw 'bash ${__FSW_FILENAME}' ./**/*.bash
+
 SHELL_COMMAND="${1}"
 shift
-inotifywait -q -m -e close_write -r "${@}" | while read -r _ _; do
+inotifywait -q -m -e close_write -r "${@}" | while read -r __FSW_FILENAME __FSW_EVENT; do
 	eval "${SHELL_COMMAND}"
 done
