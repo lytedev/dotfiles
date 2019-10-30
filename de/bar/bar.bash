@@ -24,8 +24,9 @@ export BAR_VERTICAL_MARGIN=0
 export POS_Y=0
 
 # allow a per-device config to override options
-if [ -f "$HOME/.env_bar" ]; then
-	source "$HOME/.env_bar"
+echo "$EDFP"
+if [ -f "$EDFP/bar" ]; then
+	source "$EDFP/bar"
 fi
 
 export BAR_FONT_DECLARATION="${BAR_FONT}:pixelsize=${BAR_FONT_SIZE};1"

@@ -6,3 +6,4 @@ colors/gen/tmp
 *.tmp
 *.secret
 /.repositories
+/.env/

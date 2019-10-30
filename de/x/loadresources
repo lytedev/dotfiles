@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo "xloadresources" >> "$HOME/.xstartup_log"
-
 ENV_TYPE="${1}"
 
 if [[ "$ENV_TYPE" = "auto" ]]; then
@@ -10,23 +8,20 @@ if [[ "$ENV_TYPE" = "auto" ]]; then
 	else
 		ENV_TYPE=""
 	fi
-	echo "xloadresources auto env: $ENV_TYPE" >> "$HOME/.xstartup_log"
 fi
 
 if [[ -z "$ENV_TYPE" ]]; then
 	ENV_TYPE=""
 else
-	ENV_TYPE=".${ENV_TYPE}"
+	ENV_TYPE="${ENV_TYPE}-"
 fi
 
 sysresources="/etc/X11/xinit/.Xresources"
 sysmodmap="/etc/X11/xinit/.Xmodmap"
 userresources="$HOME/.Xresources"
-usercolors="$HOME/.Xresources.colors"
-userenv="$HOME/.Xresources${ENV_TYPE}.env"
-usermodmap="$HOME/.Xmodmap"
-
-echo "userenv: $userenv" >> "$HOME/.xstartup_log"
+usercolors="$DOTFILES_PATH/scripts/colors/xresources"
+userenv="$EDFP/x/${ENV_TYPE}resources"
+usermodmap="$EDFP/x/modmap"
 
 if [ -f "$sysresources" ]; then
   xrdb -merge "$sysresources" >/dev/null 2>&1
@@ -45,7 +40,6 @@ if [ -f "$usercolors" ]; then
 fi
 
 if [ -f "$userenv" ]; then
-	echo "Merging env Xresources: $userenv" >> ~/.xstartup_log
   xrdb -merge "$userenv" >/dev/null 2>&1
 fi
 

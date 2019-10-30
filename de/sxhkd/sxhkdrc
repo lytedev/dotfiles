@@ -180,7 +180,7 @@ super + shift + Return
 
 # spawn the app launcher
 super + space
-	"$DOTFILES_PATH/scripts/bin/app-launcher" -modi run -show run
+	app-launcher -modi run -show run
 
 # lock the desktop
 super + ctrl + shift + l
