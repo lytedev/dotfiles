@@ -67,6 +67,9 @@ links=(
 	# document viewer
 	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
 
+	# htop
+	"$dfp/apps/htop/rc"                      "$XDG_CONFIG_HOME/htop/htoprc"
+
 	# terminal emulator
 	"$dfp/apps/alacritty/"                   "$XDG_CONFIG_HOME/alacritty"
 
