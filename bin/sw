@@ -9,3 +9,7 @@ while true; do
 	echo -ne "\r${days}d $(date -u --date @$((_dt)) +%H:%M:%S) "
 	sleep 0.1
 done
+
+# TODO: add "lap" capabilities?
+
+echo -ne "\rStopwatch stopped at $(date)\n"

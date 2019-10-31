@@ -112,6 +112,7 @@ alias sc="sc-im"
 alias scs="sc-im \"\$NOTES_PATH/_scratch.sc\""
 alias disks="lsblk && df -h"
 alias dd="dd status=progress"
+alias wifi="sudo nmtui"
 
 # games aliases
 # this sometimes fixes steam dynamic library issues?
