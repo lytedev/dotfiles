@@ -62,7 +62,6 @@ inotifywait -m -e "${FSW_EVENTS}" -r "${DIRS[@]}" 2>&1 \
 		export FSW_DIR="$dir"
 		export FSW_PATH="$dir$filename"
 		export FSW_FILE_EVENTS="$events"
-		<<< "$FSW_PATH" grep -P
-		eval "${SHELL_COMMAND}"
+		<<< "$FSW_PATH" grep -P "$FILTER" > /dev/null 2>&1  && eval "${SHELL_COMMAND}"
 	fi
 done
