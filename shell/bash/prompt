@@ -6,7 +6,7 @@ PROMPT_SUCCESS_COLOR='\[\e[0;34m\]'
 PROMPT_FAILURE_COLOR='\[\e[0;31m\]'
 DIR_COLOR='\[\e[0;35m\]'
 
-MAX_PATH_PIECE_CHARS=3
+MAX_PATH_PIECE_CHARS=${BASH_PROMPT_MAX_PATH_PIECE_CHARS:-3}
 
 # prompt rendering functions
 preprocess_pwd() {
@@ -14,9 +14,9 @@ preprocess_pwd() {
 	[[ "$p" == "/" ]] && echo "/" && return 1
 	[[ "$p" == "${NICE_HOME}" ]] && echo "~" && return 0
 	# with ellipsis
-	# echo "$(<<< "$p" cut -c2- | awk '{split($0,p,"/");for(k in p){if(length(p[k])>'"$((MAX_PATH_PIECE_CHARS+1))"'){printf "/%.'"$((MAX_PATH_PIECE_CHARS))"'s…",p[k]}else{printf "/%s",p[k]}}}')"
+	#echo "$(<<< "$p" cut -c2- | awk '{split($0,p,"/");for(k in p){if(k==length(p)){printf "/%s",p[k]}else{if(length(p[k])>'"$((MAX_PATH_PIECE_CHARS+1))"'){printf "/%.'"$((MAX_PATH_PIECE_CHARS))"'s…",p[k]}else{printf "/%s",p[k]}}}}')"
 	# without ellipsis
-	echo "$(<<< "$p" cut -c2- | awk '{split($0,p,"/");for(k in p){printf "/%.'"$MAX_PATH_PIECE_CHARS"'s",p[k]}}')"
+	echo "$(<<< "$p" cut -c2- | awk '{split($0,p,"/");for(k in p){if(k==length(p)){printf "/%s",p[k]}else{printf "/%.'"$MAX_PATH_PIECE_CHARS"'s",p[k]}}}')"
 }
 export -f "preprocess_pwd"
 
