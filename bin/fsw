@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+_VERSION="0.2.0"
+
+function help() {
+	I="  "
+	cat <<USAGE
+fsw - run a command when a file is modified
+
+Usage:
+${I}fsw <command> [filter] [dirs...]
+
+${I}command - the specified bash command to eval
+${I}filter  - an optional filename filter
+${I}dirs    - the directories to watch (defaults to current directory)
+
+Advanced:
+${I}Command Variables:
+${I}${I}Your commands have runtime access to some variables associated with the
+${I}${I}${I}inotifywait event enabling further extensibility:
+${I}${I}+ FSW_FILENAME    - the name of the file
+${I}${I}+ FSW_DIR         - the directory containing the file
+${I}${I}+ FSW_PATH        - the full relative path of the file
+${I}${I}+ FSW_FILE_EVENTS - a comma-separated list of the inotify events
+${I}Environment:
+${I}${I}Some customization options exist using environment variables
+${I}${I}${I}due to their uncommon usage.
+${I}${I}+ FSW_EVENTS - the list of events to have inotifywait observe
+	
+References:
+${I}+ Filter works with grep -P
+${I}+ See inotifywait(1) for FSW_EVENTS options.
+	
+Examples:
+${I}fsw 'make' '\.c$'
+${I}fsw 'bash \$filename' '\.bash$'
+${I}fsw 'mix test --failed' '.exs?$' lib test
+${I}FSW_EVENTS=open,access fsw 'espeak "Intruder Alert!"' \\
+${I}${I}${I}'.*' /etc/secrets \$HOME/.secrets
+USAGE
+}
+
+if [[ $1 = '-h' ]] || [[ $1 = '--help' ]] || [[ -z $1 ]]; then
+	help
+	exit 0
+fi
+
+FSW_EVENTS="${FSW_EVENTS:-close_write}"
+SHELL_COMMAND="${1}"; shift
+FILTER="${1}"; shift
+DIRS=("${1:-.}"); shift
+while [[ ! -z $1 ]]; do
+	DIRS+=("$1"); shift
+done
+inotifywait -m -e "${FSW_EVENTS}" -r "${DIRS[@]}" 2>&1 \
+	| grep --line-buffered -v '  Beware: since -r was given, this may take a while!' \
+	| while read -r dir events filename; do
+	if [[ "$dir $events" = "Watches established." ]]; then
+		echo "Ready."
+	else
+		export FSW_FILENAME="$filename"
+		export FSW_DIR="$dir"
+		export FSW_PATH="$dir$filename"
+		export FSW_FILE_EVENTS="$events"
+		<<< "$FSW_PATH" grep -P "$FILTER" > /dev/null 2>&1  && eval "${SHELL_COMMAND}"
+	fi
+done

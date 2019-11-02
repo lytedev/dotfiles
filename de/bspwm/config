@@ -8,10 +8,11 @@ BSPWM_MONITORS=$(bspc query -M | tac)
 MONITOR_COUNT=$(echo "${BSPWM_MONITORS}" | wc -w | awk '{ printf $1 }')
 NUM_DESKTOPS=${#DESKTOPS[@]}
 PER_MONITOR=$((NUM_DESKTOPS / MONITOR_COUNT))
+REVERSE_DESKTOP_ORDERING=0
 
 # allow a per-device config to override options
-if [ -f "$HOME/.env_bspwm" ]; then
-	source "$HOME/.env_bspwm"
+if [ -f "$EDFP/bspwm" ]; then
+	source "$EDFP/bspwm"
 fi
 
 bspc config normal_border_color      "$(xrdb -query | sed -ne 's/.*background:\s*//p')"
@@ -42,7 +43,17 @@ for mon in ${BSPWM_MONITORS}; do
   i=$((max + 1))
 done
 
+if [[ $REVERSE_DESKTOP_ORDERING -eq 1 ]]; then
+	prev_mon=
+	for mon in ${BSPWM_MONITORS}; do
+		if [[ ! -z $prev_mon ]]; then
+			bspc monitor "$mon" --swap "$prev_mon"
+		fi
+		prev_mon="$mon"
+	done
+fi
+
 # allow a per-device config to override options
-if [ -f "$HOME/.env_bspwm_after" ]; then
-	source "$HOME/.env_bspwm_after"
+if [ -f "$EDFP/bspwm-after" ]; then
+	source "$EDFP/bspwm-after"
 fi

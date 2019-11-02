@@ -2,13 +2,18 @@
 
 source "$DOTFILES_PATH/de/bar/bar.bash" --just-vars
 
-LAUNCHER_FONT=$(xrdb -query              | sed -ne 's/.*font:\s*xft:\([^: ]*\).*$/\1/p' | head -n 1)
-LAUNCHER_FONT_SIZE=$(xrdb -query         | sed -ne 's/.*font:\s*xft:.*=\([0-9]*\).*$/\1/p' | head -n 1)
-HIGHLIGHT_COLOR=$(xrdb -query            | sed -ne 's/.*color4*:\s*\(.*\)$/\1/p' | head -n 1)
-HIGHLIGHT_FOREGROUND_COLOR=$(xrdb -query | sed -ne 's/.*background:\s*\(.*\)$/\1/p' | head -n 1)
-BACKGROUND_COLOR=$(xrdb -query           | sed -ne 's/.*background:\s*\(.*\)$/\1/p' | head -n 1)
-FOREGROUND_COLOR=$(xrdb -query           | sed -ne 's/.*foreground:\s*\(.*\)$/\1/p' | head -n 1)
-GAP=$(xrdb -query                        | sed -ne 's/.*internalBorder:\s*\(.*\)$/\1/p' | head -n 1)
+LAUNCHER_FONT="$BAR_FONT"
+LAUNCHER_FONT_SIZE="$BAR_FONT_SIZE"
+HIGHLIGHT_COLOR="$(xrq color4)"
+HIGHLIGHT_FOREGROUND_COLOR="$(xrq background)"
+BACKGROUND_COLOR=$(xrq background)
+FOREGROUND_COLOR=$(xrq foreground)
+GAP=$(xrq internalBorder)
+
+# load a per-device config last so anything can be overridden
+if [ -a "$EDFP/app-launcher" ]; then
+	source "$EDFP/app-launcher"
+fi
 
 rofi \
 	-combi-modi run,window \

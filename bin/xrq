@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ -z $1 ]]; then
+	echo "No argument provided. Showing everything..." >&2
+	xrdb -query
+fi
+
+xrdb -query | sed -ne 's/.*'"$1"':\s*\(.*\)$/\1/p' | head -n 1

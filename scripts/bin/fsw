@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-SHELL_COMMAND="${1}"
-shift
-inotifywait -q -m -e close_write -r "${@}" | while read -r _ _; do
-	eval "${SHELL_COMMAND}"
-done

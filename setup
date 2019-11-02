@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-# TODO: ascii art header
+# TODO: ascii art header since I'm a leet haxx0r
+
+dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
+source "${dfp}/scripts/setup_helpers.bash"
+edfp="${dfp}/.env"
 
 INTERACTIVE=1
 
@@ -12,9 +16,6 @@ while test $# -gt 0; do
 			;;
 	esac
 done
-
-dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
-source "${dfp}/scripts/setup_helpers.bash"
 
 links=(
 	# desktop environment files
@@ -66,6 +67,9 @@ links=(
 	# document viewer
 	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
 
+	# htop
+	"$dfp/apps/htop/rc"                      "$XDG_CONFIG_HOME/htop/htoprc"
+
 	# terminal emulator
 	"$dfp/apps/alacritty/"                   "$XDG_CONFIG_HOME/alacritty"
 
@@ -97,6 +101,33 @@ links=(
 	# XDG user directories
 	"$dfp/shell/user-dirs"                   "$XDG_CONFIG_HOME/user-dirs.dirs"
 )
+
+mkdir -p "$edfp/"
+if [[ ! -L "$HOME/.env" ]]; then
+	ln -s "$edfp/" "$HOME/.env/"
+fi
+mkdir -p "$edfp/bash.d/"
+mkdir -p "$edfp/bin/"
+mkdir -p "$edfp/x/"
+mkdir -p "$HOME/.bin/"
+
+touches=(
+	"$edfp/bash"
+	"$edfp/x/init"
+	"$edfp/x/profile"
+	"$edfp/x/resources"
+	"$edfp/vim"
+	"$edfp/bspwm"
+	"$edfp/bar"
+	"$edfp/app-launcher"
+)
+
+for t in "${touches[@]}"; do
+	touch "$t"
+done
+
+chmod 700 -R "$edfp"
+chmod 700 -R "$HOME/.bin"
 
 # TODO: pass interactive?
 _dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-files.lock" "${links[@]}"

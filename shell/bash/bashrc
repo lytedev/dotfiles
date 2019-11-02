@@ -5,6 +5,8 @@
 # for making sure they're loaded!
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+export ENV_DOTFILES_PATH="$DOTFILES_PATH/.env"
+export EDFP="$ENV_DOTFILES_PATH" # shorter alias
 NICE_HOME="$HOME"
 
 # TODO: better logic for auto-detecting alternative home directories?
@@ -98,8 +100,8 @@ HISTIGNORE='ls:ll:la'
 shopt -s cmdhist
 
 # load a per-device config last so anything can be overridden
-if [ -a "$HOME/.env_bashrc" ]; then
-	source "$HOME/.env_bashrc"
+if [ -a "$EDFP/bash" ]; then
+	source "$EDFP/bash"
 fi
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
