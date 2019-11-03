@@ -29,6 +29,7 @@ function ltl() {
 }
 
 alias vltl="vim \"\$(ltl)\""
+alias ltlv="vltl"
 
 # navigation aliases
 function c() {
