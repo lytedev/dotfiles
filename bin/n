@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 fn="${1}"; shift
-N "$(date +%Y-%m-%d)_${fn}.md" $*
+N "$(date +%Y-%m-%d)_${fn}" $*
