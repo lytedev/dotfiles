@@ -103,9 +103,7 @@ links=(
 )
 
 mkdir -p "$edfp/"
-if [[ ! -L "$HOME/.env" ]]; then
-	ln -s "$edfp/" "$HOME/.env/"
-fi
+[[ ! -e "$HOME/.env" ]] && ln -s "$edfp/" "$HOME/.env"
 mkdir -p "$edfp/bash.d/"
 mkdir -p "$edfp/bin/"
 mkdir -p "$edfp/x/"
