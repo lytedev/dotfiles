@@ -47,6 +47,7 @@ pacaur --needed -S \
 	python-neovim python-jedi python-mistune python-psutil python-setproctitle httpie `# httpie and neovim dependencies` \
 	docker docker-compose `# Yummy containers` \
 	inotify-tools `# Watching` \
+	zathura zathura-pdf-mupdf `# Document Viewer` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly
