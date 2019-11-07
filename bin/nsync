@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# TODO: warn on merge conflicts?
 cd "${NOTES_PATH}" || exit
 git add -A
 git commit -m Updates

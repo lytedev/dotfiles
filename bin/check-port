@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [[ $1 = t ]] || [[ $1 = tcp ]] || \
+	[[ $1 = T ]] || [[ $1 = TCP ]]; then
+	echo "TCP is the default. You don't need to specify it."
+	exit 1
+fi
+
+if [[ $1 = u ]] || [[ $1 = udp ]] || \
+	[[ $1 = U ]] || [[ $1 = UDP ]]; then
+	shift
+	set -x
+	sudo nmap -sU $1 -p $2
+else
+	set -x
+	nmap $1 -p $2
+fi
