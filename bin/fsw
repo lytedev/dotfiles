@@ -49,6 +49,11 @@ FSW_EVENTS="${FSW_EVENTS:-close_write}"
 SHELL_COMMAND="${1}"; shift
 FILTER="${1}"; shift
 DIRS=("${1:-.}"); shift
+if [[ -e $FILTER ]]; then
+	# TODO: this is a sad hack/workaround
+	echo "It looks like your filter is an actual file. I'll just watch that for you."
+	DIRS=("${FILTER}")
+fi
 while [[ ! -z $1 ]]; do
 	DIRS+=("$1"); shift
 done

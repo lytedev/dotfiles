@@ -1,17 +1,9 @@
 #!/usr/bin/env moon
-
-require('fun')!
-
-garg = (v, i) -> os.getenv(v[1]) or arg[i] or v[2]
-target, fwd, mpr, sargs, margs = unpack totable map garg, iter {
-	{"REMOTE_MACHINE", "remote"}
-	{"SSH_FORWARD_PORTS", "1313,3000,8000,8080,1234,40080:80,40443:443"}
-	{"MOSH_PORT_RANGE", "60000:61000"}
-	{"SSH_ARGS", "-XY"}
-	{"MOSH_ARGS", ""}
+arg_spec = {
+	{"target", "REMOTE_MACHINE", "remote"}
+	{"mpr", "MOSH_PORT_RANGE", "60000:61000"}
+	{"sargs", "SSH_ARGS", "-XY"}
+	{"margs", "MOSH_ARGS", ""}
 }
-
-sfwd = fwd\gsub "(%d+):?(%d*),?", (p, mp) ->
-	"-L #{p}:localhost:#{if mp == "" then p else mp} "
-
-os.execute "mosh -p '#{mpr}' '#{target}' --ssh='ssh #{sfwd} #{sargs}' #{margs}"
+args = {v[1], os.getenv(v[2]) or arg[i] or v[3] for i, v in ipairs(arg_spec)}
+os.execute "mosh -p '#{args.mpr}' '#{args.target}' --ssh='ssh #{args.sargs}' #{args.margs}"
