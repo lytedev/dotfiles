@@ -8,6 +8,7 @@ pacaur --needed -S \
 	rofi `# Application Launcher` \
 	ripgrep `# Code Search Utilities` \
 	fd `# File Search` \
+	sd `# Easy Find/Replace` \
 	fzf `# Fuzzy File Finder` \
 	htop `# Process Management and System Resources Monitoring` \
 	openssh mosh `# Remote Access` \
@@ -47,9 +48,12 @@ pacaur --needed -S \
 	python-neovim python-jedi python-mistune python-psutil python-setproctitle httpie `# httpie and neovim dependencies` \
 	docker docker-compose `# Yummy containers` \
 	inotify-tools `# Watching` \
-	zathura zathura-pdf-mupdf `# Document Viewer` \
+	luajit lua luarocks `# Lua` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly
 mkdir -p "$HOME/.urxvt/ext"
 curl -L -o "$HOME/.urxvt/ext/resize-font" https://raw.githubusercontent.com/lytedev/urxvt-resize-font/master/resize-font
+
+# helpful Lua libs
+<<< "fun moonscript lpeg alt-getopt luafilesystem" tr ' ' "\n" | xargs -I % sudo luarocks install %

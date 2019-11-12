@@ -43,4 +43,6 @@ pacaur --needed -S \
 	redshift `# Save Your Eyes` \
 	vlc `# Video Viewer` \
 	ncdu `# Disk Usage Analyzer` \
+	zathura zathura-pdf-mupdf `# Document Viewer` \
+	scrot `# Screenshot Tool` \
 	--noconfirm --noedit

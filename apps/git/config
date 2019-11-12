@@ -34,6 +34,7 @@
 	p = push
 	pl = pull
 	pf = push --force-with-lease
+	a = add -A
 
 [merge]
 	tool = nvimdiff
