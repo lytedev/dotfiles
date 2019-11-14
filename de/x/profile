@@ -44,8 +44,12 @@ if command -v xcape >/dev/null 2>&1; then
 	xcape -e 'Control_L=Escape' &
 fi
 
-if command -v autocutsel >/dev/null 2>&1; then
+if command -v autocutsel &> /dev/null; then
 	autocutsel -fork &
+fi
+
+if command -v libinput-gestures-setup &> /dev/null; then
+	libinput-gestures-setup start
 fi
 
 if [ -f "$HOME/.env_xprofile" ]; then
