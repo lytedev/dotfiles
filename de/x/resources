@@ -17,6 +17,8 @@
 ## Set fonts in "$HOME/.Xresources.env"
 URxvt.font: xft:Iosevka Term:pixelsize=14,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt.faceName: xft:Iosevka Term:pixelsize=14,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+Emacs.font: Iosevka Term
+Emacs.faceName: Iosevka Term
 # URxvt.transparent: true
 # URxvt.shading: 70
 URxvt.letterSpace: 0

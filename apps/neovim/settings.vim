@@ -77,7 +77,8 @@ set nobackup " sessions handle this quite nicely
 set nowritebackup " no but really they do
 set noswapfile " no seriously sessions are cool
 set timeout " key combo mapping timeout
-set ttimeoutlen=200 " ms for key combo mapping timeout
+set ttimeoutlen=100 " ms delay for tapping key combos
+set timeoutlen=150 " ms for key combo mapping timeout
 set isfname+=32 " allow filenames to show them 32s
 
 " no freakin' bell
