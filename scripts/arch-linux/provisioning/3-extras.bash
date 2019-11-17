@@ -46,4 +46,5 @@ pacaur --needed -S \
 	zathura zathura-pdf-mupdf `# Document Viewer` \
 	scrot `# Screenshot Tool` \
 	libinput libinput-gestures `# Trackpad Control` \
+	xcape `# Escape Better` \
 	--noconfirm --noedit
