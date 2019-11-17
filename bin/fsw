@@ -26,11 +26,11 @@ ${I}Environment:
 ${I}${I}Some customization options exist using environment variables
 ${I}${I}${I}due to their uncommon usage.
 ${I}${I}+ FSW_EVENTS - the list of events to have inotifywait observe
-	
+
 References:
 ${I}+ Filter works with grep -P
 ${I}+ See inotifywait(1) for FSW_EVENTS options.
-	
+
 Examples:
 ${I}fsw 'make' '\.c$'
 ${I}fsw 'bash \$filename' '\.bash$'
@@ -62,6 +62,7 @@ inotifywait -m -e "${FSW_EVENTS}" -r "${DIRS[@]}" 2>&1 \
 		export FSW_DIR="$dir"
 		export FSW_PATH="$dir$filename"
 		export FSW_FILE_EVENTS="$events"
+		export FSW_EVENT="$events $dir$filename"
 		<<< "$FSW_PATH" grep -P "$FILTER" > /dev/null 2>&1  && eval "${SHELL_COMMAND}"
 	fi
 done
