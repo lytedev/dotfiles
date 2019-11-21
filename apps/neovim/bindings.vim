@@ -50,7 +50,7 @@ function! NextIndent(exclusive, fwd, lowerlevel, skipblanks)
 	while (line > 0 && line <= lastline)
 		let line = line + stepvalue
 		if ( a:lowerlevel == 0 && indent(line) == indent ||
-					\ a:lowerlevel == 1 && indent(line) < indent || 
+					\ a:lowerlevel == 1 && indent(line) < indent ||
 					\ a:lowerlevel == -1 && indent(line) > indent)
 			if (! a:skipblanks || strlen(getline(line)) > 0)
 				if (a:exclusive)
@@ -219,7 +219,16 @@ nnoremap <leader>gs :syntax sync fromstart<CR>
 nnoremap <leader><space>c :CocConfig<CR>
 
 " go to definitions
+nnoremap <leader>gd <Plug>(coc-jump-definition)
 nnoremap <leader>d <Plug>(coc-jump-definition)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " ale
 

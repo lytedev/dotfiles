@@ -112,4 +112,5 @@ Plug 'JakeBecker/elixir-ls', {'for': ['elixir', 'eelixir'], 'do': { -> g:elixirl
 Plug 'tpope/vim-dadbod'                                         " databasing in vim
 Plug 'lytedev/elm-vim'                                          " elm lang
 Plug 'google/vim-jsonnet'                                       " jsonnet
+Plug 'sirtaj/vim-openscad'                                      " openscad
 Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'
