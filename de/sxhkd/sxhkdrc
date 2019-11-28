@@ -168,7 +168,7 @@ super + shift + t
 
 # spawn a terminal
 super + Return
-	urxvtc
+	kitty
 
 # spawn a rock-solid and reliable terminal for when I break things
 super + alt + Return
@@ -195,13 +195,13 @@ super + e
 {_,shift + }XF86AudioLowerVolume
 	amixer -D pulse sset Master 5%-
 
-	# pulseaudio-ctl lower	
+	# pulseaudio-ctl lower
 	# ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%- && amixer -c 1 sset Headphone $ADJ%- && amixer -c 1 sset Master $ADJ%- && update_bar_MasterVolume
 
 {_,shift + }XF86AudioRaiseVolume
 	amixer -D pulse sset Master 5%+
 
-	# pulseaudio-ctl raise	
+	# pulseaudio-ctl raise
 	# ADJ={10,1} && amixer -c 1 sset Speaker $ADJ%+ && amixer -c 1 sset Headphone $ADJ%+ && amixer -c 1 sset Master $ADJ%+ && update_bar_MasterVolume
 
 XF86AudioMute
