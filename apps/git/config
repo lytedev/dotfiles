@@ -35,6 +35,8 @@
 	pl = pull
 	pf = push --force-with-lease
 	a = add -A
+	cnv = commit --no-verify
+	c = commit
 
 [merge]
 	tool = nvimdiff
