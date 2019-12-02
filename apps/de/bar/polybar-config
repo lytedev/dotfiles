@@ -387,7 +387,7 @@ margin-bottom = ${env:WINDOW_GAP:0}
 
 [module/microphone]
 type = custom/script
-exec = $DOTFILES_PATH/de/bar/mic.bash
+exec = $DOTFILES_PATH/apps/de/bar/mic.bash
 tail = true
 format = <label>
 label-foreground = ${colors.icon}

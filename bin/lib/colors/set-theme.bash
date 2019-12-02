@@ -7,7 +7,7 @@ THEME="$1"
 echo "$THEME"
 
 "$DIR/generator/gen.bash" "$THEME"
-"$DOTFILES_PATH/de/x/loadresources"
+"$DOTFILES_PATH/apps/de/x/loadresources"
 resrc
 restartbar
 # TODO: set GTK theme to "Arc-Dark" or "Arc-Light"

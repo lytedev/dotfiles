@@ -20,31 +20,31 @@ export NICE_HOME
 export NOTES_DIR="$NICE_HOME/doc/notes"
 
 # set our PATH
-source "$DOTFILES_PATH/shell/bash/paths"
+source "$DOTFILES_PATH/apps/shell/bash/paths"
 
 # stop parsing on a non-interactive shell
 [ -z "$PS1" ] && return
 
 # load our key binds
 case $- in
-	*i*) bind -f "$DOTFILES_PATH/shell/inputrc";;
+	*i*) bind -f "$DOTFILES_PATH/apps/shell/inputrc";;
 	*) ;;
 esac
 
 # import our aliases
-source "$DOTFILES_PATH/shell/bash/aliases"
+source "$DOTFILES_PATH/apps/shell/bash/aliases"
 
 # import our autocompletions
-source "$DOTFILES_PATH/shell/bash/autocompletions"
+source "$DOTFILES_PATH/apps/shell/bash/autocompletions"
 
 # load our vconsole colors
 if [ "${TERM%%-*}" = 'linux' ] && [[ $- == *i* ]]; then
-	BASE16_SHELL="$DOTFILES_PATH/scripts/colors/vconsole"
+	BASE16_SHELL="$DOTFILES_PATH/bin/lib/colors/vconsole"
 	[[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 fi
 
 # load our terminal colors
-BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
+BASE16_SHELL="$DOTFILES_PATH/bin/lib/colors/shell"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
 
 # disable ctrl-s terminal freeze
@@ -54,7 +54,7 @@ BASE16_SHELL="$DOTFILES_PATH/scripts/colors/shell"
 shopt -s globstar
 
 # import our prompt
-source "$DOTFILES_PATH/shell/bash/prompt"
+source "$DOTFILES_PATH/apps/shell/bash/prompt"
 
 # prevents binds or commands pulling from history from insta-sending, and
 # instead places them in the readline for editing

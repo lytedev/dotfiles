@@ -36,8 +36,8 @@ if [ -f "$HOME/.xmodmap" ]; then
 	xmodmap "$HOME/.xmodmap"
 fi
 
-if [ -f "$DOTFILES_PATH/de/x/loadresources" ]; then
-	"$DOTFILES_PATH/de/x/loadresources"
+if [ -f "$DOTFILES_PATH/apps/de/x/loadresources" ]; then
+	"$DOTFILES_PATH/apps/de/x/loadresources"
 fi
 
 if command -v xcape >/dev/null 2>&1; then

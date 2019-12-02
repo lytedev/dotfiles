@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
-source "${dfp}/shell/bash/bashrc"
+dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../../" && pwd)
+source "${dfp}/apps/shell/bash/bashrc"
 
 USER_DISAGREE_CODE=120
 NO_AGREEMENT_CODE=121
@@ -73,6 +73,6 @@ _dotfiles_setup_run_setup() {
 		echo "Quitting due to lack of user agreement."
 		return "${NO_AGREEMENT_CODE}"
 	fi
-	
+
 }
 export -f _dotfiles_setup_run_setup

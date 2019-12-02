@@ -3,7 +3,7 @@
 # TODO: ascii art header since I'm a leet haxx0r
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
-source "${dfp}/scripts/setup_helpers.bash"
+source "${dfp}/bin/lib/setup_helpers.bash"
 edfp="${dfp}/.env"
 
 INTERACTIVE=1
@@ -19,35 +19,35 @@ done
 
 links=(
 	# desktop environment files
-	"$dfp/de/bspwm/bspwmrc"                  "$XDG_CONFIG_HOME/bspwm/bspwmrc"
-	"$dfp/de/bspwm/fehbg"                    "$HOME/.fehbg"
-	"$dfp/de/sway/config"                    "$XDG_CONFIG_HOME/sway/config"
-	"$dfp/de/sxhkd/sxhkdrc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
-	"$dfp/de/x/resources"                    "$HOME/.Xresources"
-	"$dfp/de/x/initrc"                       "$HOME/.xinitrc"
-	"$dfp/de/x/initrc"                       "$HOME/.vnc/xstartup"
-	"$dfp/de/x/profile"                      "$HOME/.xprofile"
-	"$dfp/de/x/modmap"                       "$HOME/.xmodmap"
-	"$dfp/de/compton/compton.conf"           "$XDG_CONFIG_HOME/compton.conf"
-	"$dfp/de/dunst/dunstrc"                  "$XDG_CONFIG_HOME/dunst/dunstrc"
-	"$dfp/scripts/colors/xresources"         "$HOME/.Xresources.colors"
+	"$dfp/apps/de/bspwm/bspwmrc"             "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+	"$dfp/apps/de/bspwm/fehbg"               "$HOME/.fehbg"
+	"$dfp/apps/de/sway/config"               "$XDG_CONFIG_HOME/sway/config"
+	"$dfp/apps/de/sxhkd/sxhkdrc"             "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+	"$dfp/apps/de/x/resources"               "$HOME/.Xresources"
+	"$dfp/apps/de/x/initrc"                  "$HOME/.xinitrc"
+	"$dfp/apps/de/x/initrc"                  "$HOME/.vnc/xstartup"
+	"$dfp/apps/de/x/profile"                 "$HOME/.xprofile"
+	"$dfp/apps/de/x/modmap"                  "$HOME/.xmodmap"
+	"$dfp/apps/de/compton/compton.conf"      "$XDG_CONFIG_HOME/compton.conf"
+	"$dfp/apps/de/dunst/dunstrc"             "$XDG_CONFIG_HOME/dunst/dunstrc"
+	"$dfp/bin/lib/colors/xresources"         "$HOME/.Xresources.colors"
 
 	# shell files
-	"$dfp/shell/bash/bashrc"                 "$HOME/.bashrc"
-	"$dfp/shell/bash/bash_profile"           "$HOME/.bash_profile"
-	"$dfp/shell/tmux/tmux.conf"              "$HOME/.tmux.conf"
-	"$dfp/shell/tmux/layouts"                "$HOME/.tmux/layouts"
+	"$dfp/apps/shell/bash/bashrc"            "$HOME/.bashrc"
+	"$dfp/apps/shell/bash/bash_profile"      "$HOME/.bash_profile"
+	"$dfp/apps/shell/tmux/tmux.conf"         "$HOME/.tmux.conf"
+	"$dfp/apps/shell/tmux/layouts"           "$HOME/.tmux/layouts"
 
 	# text editor files
 	"$dfp/apps/neovim/"                      "$XDG_CONFIG_HOME/nvim"
 	"$dfp/apps/neovim/"                      "$HOME/.vim"
 	"$dfp/apps/neovim/init.vim"              "$HOME/.vimrc"
-	"$dfp/scripts/colors/vim"                "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
+	"$dfp/bin/lib/colors/vim"                "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 
 	# gtk configuration files
-	"$dfp/de/gtk/2rc"                        "$HOME/.gtkrc-2.0"
-	"$dfp/de/gtk/2rc"                        "$HOME/.gtkrc"
-	"$dfp/de/gtk/3settings.ini"              "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
+	"$dfp/apps/de/gtk/2rc"                   "$HOME/.gtkrc-2.0"
+	"$dfp/apps/de/gtk/2rc"                   "$HOME/.gtkrc"
+	"$dfp/apps/de/gtk/3settings.ini"         "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
 
 	# irc files
 	"$dfp/apps/irssi/"                       "$HOME/.irssi"
@@ -62,7 +62,7 @@ links=(
 	"$dfp/apps/scim/lua"                     "$HOME/.scim/lua"
 
 	# libinput configuration
-	"$dfp/de/libinput/gestures.conf"         "$XDG_CONFIG_HOME/libinput-gestures.conf"
+	"$dfp/apps/de/libinput/gestures.conf"    "$XDG_CONFIG_HOME/libinput-gestures.conf"
 
 	# document viewer
 	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
@@ -80,7 +80,7 @@ links=(
 	"$dfp/apps/rofi/config"                  "$XDG_CONFIG_HOME/rofi/config"
 
 	# bar files
-	"$dfp/de/bar/polybar-config"             "$XDG_CONFIG_HOME/polybar/config"
+	"$dfp/apps/de/bar/polybar-config"        "$XDG_CONFIG_HOME/polybar/config"
 
 	# ranger config
 	"$dfp/apps/ranger/"                      "$XDG_CONFIG_HOME/ranger"
@@ -96,10 +96,10 @@ links=(
 	"$dfp/apps/git/config"                   "$HOME/.gitconfig"
 
 	# fontconfig
-	"$dfp/de/fontconfig/"                    "$XDG_CONFIG_HOME/fontconfig"
+	"$dfp/apps/de/fontconfig/"               "$XDG_CONFIG_HOME/fontconfig"
 
 	# XDG user directories
-	"$dfp/shell/user-dirs"                   "$XDG_CONFIG_HOME/user-dirs.dirs"
+	"$dfp/apps/shell/user-dirs"              "$XDG_CONFIG_HOME/user-dirs.dirs"
 )
 
 mkdir -p "$edfp/"
@@ -131,12 +131,12 @@ chmod 700 -R "$HOME/.bin"
 _dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-files.lock" "${links[@]}"
 
 if [[ "$INTERACTIVE" = 1 ]]; then
-	echo -n -e "Do you want to run the sudo_setup script for changes to /etc"
+	echo -n -e "Do you want to run the bin/lib/sudo_setup script for changes to /etc"
 	echo -n -e "\nand other root directories?"
 	read -r -p " [y/N] " response
 	response=${response,,} # to lower case
 	if [[ $response =~ ^(yes|y)$ ]]; then
-		"$dfp/sudo_setup"
+		"$dfp/bin/lib/sudo_setup"
 	fi
 
 	echo -e "Dotfiles Installed! Running 'exec bash'...\n"
