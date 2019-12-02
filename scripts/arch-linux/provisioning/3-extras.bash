@@ -48,3 +48,5 @@ pacaur --needed -S \
 	libinput libinput-gestures `# Trackpad Control` \
 	xcape `# Escape Better` \
 	--noconfirm --noedit
+
+# TODO: recommend systemd services?
