@@ -1,7 +1,7 @@
 #!/usr/bin/env moon
 arg_spec = {
 	{"target", "REMOTE_MACHINE", "remote"}
-	{"fwd", "FORWARD_PORTS", "1313,3000,4800:8000,8080,1234,40080:80,40443:443"}
+	{"fwd", "FORWARD_PORTS", "1313,3000,4800:8000,8080,1234,4400:4000,40080:80,40443:443"}
 	{"sargs", "SSH_ARGS", "-XY"}
 }
 args = {v[1], os.getenv(v[2]) or arg[i] or v[3] for i, v in ipairs(arg_spec)}

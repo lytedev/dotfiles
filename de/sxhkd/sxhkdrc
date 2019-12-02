@@ -168,7 +168,7 @@ super + shift + t
 
 # spawn a terminal
 super + Return
-	kitty
+	urxvtc
 
 # spawn a rock-solid and reliable terminal for when I break things
 super + alt + Return
