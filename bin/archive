@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+archive_name="${1}"; shift
+tar czvf "${archive_name}.tar.gz" ${@}
+echo "Archive created at: ${archive_name}"
