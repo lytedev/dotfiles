@@ -33,13 +33,17 @@ if [[ ! -z "${1+x}" ]]; then
 	out="${1}"; shift
 fi
 
+# TODO: if no logging, log="/dev/null"
+log="$td/log"
+
 chmod +x "$transform"
 echo "Hello World" > "$in"
+touch "$log"
 
 fswi \
-	"bash -c '< \"$in\" \"$transform\" > \"$out\"'" \
+	"bash -c 'cd \"$td\" && < \"$in\" \"$transform\" | tee \"$out\"'" \
 	'in$|transform$' \
-	"$td" "$pdir" &> /dev/null &
+	"$td" "$pdir" &> "$log" &
 watcher="$!"
 
 if [[ -z ${cleanup_trap+x} ]]; then
