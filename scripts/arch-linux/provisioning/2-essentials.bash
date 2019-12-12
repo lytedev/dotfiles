@@ -57,3 +57,5 @@ curl -L -o "$HOME/.urxvt/ext/resize-font" https://raw.githubusercontent.com/lyte
 
 # helpful Lua libs
 <<< "fun moonscript lpeg alt-getopt luafilesystem" tr ' ' "\n" | xargs -I % sudo luarocks install %
+
+# TODO: recommend systemd services?
