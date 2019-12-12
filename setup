@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # TODO: ascii art header since I'm a leet haxx0r
+# TODO: quiet mode?
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
 source "${dfp}/scripts/setup_helpers.bash"

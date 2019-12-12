@@ -12,9 +12,9 @@ NICE_HOME="$HOME"
 # TODO: better logic for auto-detecting alternative home directories?
 # 1. check dirname(basename $HOME)) matches username
 # 2. check /home/$username
-[[ $(basename "${HOME}") = "usr" ]] && NICE_HOME="$(realpath "$HOME/..")"
 [[ $(basename "${HOME}") = ".home" ]] && NICE_HOME="$(realpath "$HOME/..")"
-# TODO: nice home explicitly definable on a per-device (env) basis
+[[ -e "${HOME}/.nice_home" ]] && NICE_HOME="$(cat "${HOME}/.nice_home")"
+[[ -e "${EDFP}/.nice_home" ]] && NICE_HOME="$(cat "${EDFP}/.nice_home")"
 
 export NICE_HOME
 export NOTES_DIR="$NICE_HOME/doc/notes"

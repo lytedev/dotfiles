@@ -78,6 +78,7 @@ Here are some bullet points on my workflow:
 * Makefile instead of setup script
 * [Vimux](https://github.com/benmills/vimux)?
 * Nerd Fonts with ligatures and icons for Kitty
+* Setup network file sharing directory
 
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles

@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+SAVED_PIPELINE_DIR="$EDFP/pipelines"
+mkdir -p "$SAVED_PIPELINE_DIR"
+
+if [[ ! -z "${1+x}" ]]; then
+	pdir="$SAVED_PIPELINE_DIR/$1"; shift
+	mkdir -p "$pdir"
+	if [[ -z ${1+x} ]]; then
+		td="$(mktemp -p "$pdir" -d "tmp_pipeline.XXXXXXXX")"
+		cleanup_trap="rm -rf \"$td\""
+	else
+		td="$pdir/$1"; shift
+		mkdir -p "$td"
+	fi
+	transform="$pdir/transform"
+else
+	td="$(mktemp --tmpdir -d pipeline.XXXXXXXX)"
+	transform="$td/transform"
+	cleanup_trap="rm -rf \"$td\""
+fi
+
+if [[ ! -e "$transform" ]]; then
+	echo -e "#!/usr/bin/env bash\n# for ${td}\n\nbase64" > "$transform"
+fi
+
+in="$td/in"
+out="$td/out"
+
+chmod +x "$transform"
+echo "Hello World" > "$in"
+
+touch /tmp/ll.log
+FSW_DEBUG=1 fswi \
+	"bash -c '< \"$in\" \"$transform\" > \"$out\"'" \
+	'in$|transform$' \
+	"$td" "$pdir" \ &> /tmp/ll.log &
+watcher="$!"
+
+if [[ -z ${cleanup_trap+x} ]]; then
+	trap "kill \"$watcher\"" EXIT
+else
+	trap "${cleanup_trap}; kill \"$watcher\"" EXIT
+fi
+
+nvim \
+	--cmd 'set shm+=atIWF' \
+	--cmd 'set shm-=Oo' \
+	-o "$in" "$transform" "$out" \
+	--cmd 'set autoread' \
+	--cmd 'set updatetime=250' \
+	--cmd 'autocmd CursorHold,CursorHoldI <buffer> silent write'
+	--cmd 'autocmd BufWrite * sleep 500m | checktime'
+
+# TODO: vim set autoread
