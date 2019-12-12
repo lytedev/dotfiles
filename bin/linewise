@@ -2,7 +2,7 @@
 
 if [[ ! -z "${1+x}" ]]; then
 	while read r; do
-		<<< "${r}" "$1"
+		<<< "${r}" "$@"
 	done
 else
 	echo "No reader program provided."

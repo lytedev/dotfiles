@@ -49,7 +49,6 @@ else
 fi
 
 job="call jobstart(['inotifywait', '-m', '-e', 'close_write', '${out}'], {'on_stdout':{j,d,e->execute('checktime')}})"
-echo "$job"
 
 # this will only autosave (and therefore autoreload) for the out buffer (since
 # it was opened last) - autosaving (and therefore autorunning) is potentially
