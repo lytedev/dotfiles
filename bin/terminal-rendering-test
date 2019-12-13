@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# sources:
+# https://askubuntu.com/questions/528928/how-to-do-underline-bold-italic-strikethrough-color-background-and-size-i
+# https://askubuntu.com/questions/27314/script-to-display-all-terminal-colors
+
+indent="  "
+padding=" "
+reset="\e[0;39;49m"
+
+for s in {0..8}; do # text styles
+	for t in {30..37}; do # text color
+		for b in {40..47}; do # background
+			echo -ne "${indent}\e[$s;$t;${b}m${padding}\\\e[$s;$t;${b}m${padding}${reset}"
+		done
+		echo
+	done
+	echo
+done
+echo -e "Emoji: 😱😍😬🎉"
+echo

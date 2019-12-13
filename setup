@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
-# TODO: ascii art header since I'm a leet haxx0r
+#                                                                              #
+#                       _       _           _                                  #
+#                      | |_   _| |_,___  __| | _____   __                      #
+#                      | | | | | __/ _ \/ ,` |/ _ \ \ / /                      #
+#                      | | |_| | ||  __/ (_| |  __/\ V /                       #
+#                      |_|\__, |\__\___|\__,_|\___| \_/                        #
+#                          \__/                                                #
+#                                                                              #
+#                               D O T F I L E S                                #
+#                                                                              #
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
 source "${dfp}/bin/lib/setup_helpers.bash"
