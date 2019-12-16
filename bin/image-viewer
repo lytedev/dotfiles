@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+feh -C /usr/share/fonts/ttf-iosevka-type -e "iosevka-type-regular/12" -d -., "$@"

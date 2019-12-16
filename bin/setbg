@@ -3,5 +3,6 @@
 index="${2}"
 wp_file="${HOME}/.wallpaper${index}"
 rm -f "${wp_file}"
+echo "Setting ${1} as ${wp_file}"
 ln -s "$(realpath "${1}")" "${wp_file}"
 "${HOME}/.fehbg"

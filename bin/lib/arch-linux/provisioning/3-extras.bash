@@ -47,6 +47,7 @@ pacaur --needed -S \
 	scrot `# Screenshot Tool` \
 	libinput libinput-gestures `# Trackpad Control` \
 	xcape `# Escape Better` \
+	dunst `# Desktop Notifications` \
 	--noconfirm --noedit
 
 # TODO: recommend systemd services?
