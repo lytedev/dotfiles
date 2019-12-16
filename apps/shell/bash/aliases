@@ -133,3 +133,6 @@ alias mutt="neomutt"
 
 # fsw aliases
 alias fsw-mix-test="fsw \"mix test\" ./**/*.{ex,exs,erl,hrl,xrl,yrl}"
+
+# weechat aliases
+alias chat="WEECHAT_PASSPHRASE=\"\$(pass weechat-passphrase | head -n 1)\" weechat"
