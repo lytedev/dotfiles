@@ -120,3 +120,9 @@ export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_byte
 _make_paths
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [[ -d ~/.asdf/ ]] && [[ -f ~/.asdf/asdf.sh ]]; then
+	source "~/.asdf/asdf.sh"
+elif [[ -d /opt/asdf-vm/ ]] && [[ -f /opt/asdf-vm/asdf.sh ]]; then
+	source "/opt/asdf-vm/asdf.sh"
+fi
