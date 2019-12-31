@@ -1,11 +1,29 @@
 #!/usr/bin/env bash
 
 err() {
-	>&2 echo "ERROR: $@"; usage; exit 1
+	errpre=""
+	errpost=""
+	if test -t 1; then
+    ncolors=$(tput colors)
+		if test -n "$ncolors" && test $ncolors -ge 8; then
+			errpre="$(tput setaf 1)"
+			errpost="$(tput setaf 7)"
+		fi
+	fi
+	>&2 echo "${errpre}ERROR: $@${errpost}"; usage; exit 1
 }
 
 warn() {
-	>&2 echo "$@"
+	pre=""
+	post=""
+	if test -t 1; then
+    ncolors=$(tput colors)
+		if test -n "$ncolors" && test $ncolors -ge 8; then
+			pre="$(tput setaf 3)"
+			post="$(tput setaf 7)"
+		fi
+	fi
+	>&2 echo "${pre}WARNING: $@${post}"
 }
 
 usage() { >&2 cat <<USAGEDOC
@@ -39,9 +57,11 @@ while read -r line; do
 	body="${body}\n${line}"
 done
 
+[[ -z $body ]] && err 'Body was blank.'
+
 echo "Recipient: $recipient"
 
-warn "Finished reading body. Sending email..."
+>&2 echo "Finished reading body. Sending email..."
 
 swaks --auth \
 	--server smtp.mailgun.org \
