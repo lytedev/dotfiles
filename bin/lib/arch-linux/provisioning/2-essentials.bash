@@ -49,6 +49,7 @@ pacaur --needed -S \
 	docker docker-compose `# Yummy containers` \
 	inotify-tools `# Watching` \
 	luajit lua luarocks `# Lua` \
+	swaks `# SMTP CLI` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly
