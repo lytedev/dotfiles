@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+xclip -selection primary
+xclip -selection primary -out | xclip -selection clipboard
+xclip -selection primary -out | xclip -selection secondary
