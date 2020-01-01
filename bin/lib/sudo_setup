@@ -8,8 +8,8 @@ if [[ $UID -ne 0 ]]; then
 	exit
 fi
 
-dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../" && pwd)
-source "${dfp}/scripts/setup_helpers.bash"
+dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../../" && pwd)
+source "${dfp}/bin/lib/setup_helpers.bash"
 
 links=(
 	# display manager files
