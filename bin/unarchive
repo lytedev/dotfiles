@@ -4,6 +4,6 @@ archive_name="${1}"; shift
 to_dir="$(basename $archive_name)"
 mkdir -p "${to_dir}"
 pushd "${to_dir}"
-tar xzvf "${archive_name}"
+tar --zstd -xvf "${archive_name}"
 echo "Unarchived to: ${to_dir}"
 popd

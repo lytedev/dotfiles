@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-archive_name="${1}.tar.gz"; shift
-tar czvf "${archive_name}" ${@}
+archive_name="${1}.tar.zstd"; shift
+tar --zstd -cvf "${archive_name}" ${@}
 echo "Archive created at: ${archive_name}"
