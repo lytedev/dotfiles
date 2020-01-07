@@ -5,7 +5,7 @@ set $down  j
 set $up    k
 set $right l
 
-set $term termite
+set $term kitty
 set $menu app-launcher
 
 output * bg /home/daniel/usr/.wallpaper fill
