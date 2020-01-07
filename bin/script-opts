@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+# TODO: helper for taking a data structure and building bash args?
