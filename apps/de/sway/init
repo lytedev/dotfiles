@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-killall -9 urxvtd
-urxvtd &
+# killall -9 urxvtd
+# urxvtd &
 
 # key repeat
 export WLC_REPEAT_DELAY=200
@@ -14,5 +14,6 @@ export XKB_DEFAULT_OPTIONS=caps:escape
 export QT_QPA_PLATFORM=wayland-egl
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
+export MOZ_ENABLE_WAYLAND=1
 
 sway
