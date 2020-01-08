@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
 
-# allows bspwm to reload when killed
-while true; do
-	bspwm || break
-done
+bspwm

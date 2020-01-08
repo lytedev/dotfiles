@@ -5,7 +5,7 @@ source "$HOME/.bashrc"
 # NO_COMPTON=1
 BORDER_WIDTH=5 # change in bspwm_config, here for launcher
 START_BAR=1
-BAR_COMMAND="$DOTFILES_PATH/apps/de/bar/bar.bash"
+BAR_COMMAND="$DOTFILES_PATH/apps/de/polybar/run"
 
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
 	export XDG_CONFIG_HOME="$HOME/.config"

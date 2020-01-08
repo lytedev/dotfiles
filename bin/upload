@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: progress bar!
+
 HOST="ld"
 
 f="${1}"

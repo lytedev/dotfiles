@@ -105,7 +105,7 @@ highlight GitGutterChangeDelete ctermbg=black guibg=black
 hi NonText ctermfg=black guifg=black
 
 set hidden " allows buffer switching without saving
-set shortmess=Ia " hide vim intro, skip lots of file messages/prompts
+set shortmess+=Ia " hide vim intro, skip lots of file messages/prompts
 set history=1000
 
 " undo files

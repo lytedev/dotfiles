@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ ! -z "${1+x}" ]]; then
+	while read r; do
+		<<< "${r}" "$@"
+	done
+else
+	echo "No reader program provided."
+	exit 1
+fi
