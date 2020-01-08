@@ -4,6 +4,7 @@
 [user]
 	name = Daniel Flanagan
 	email = daniel@lytedev.io
+	signingkey = daniel@lytedev.io
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -54,3 +55,7 @@
 
 [url "git@github.com:postmates"]
 	insteadOf = https://github.com/postmates
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
