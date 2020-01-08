@@ -38,6 +38,7 @@ pacaur --needed -S \
 	gtk-engine-murrine xorg-server-devel `# GTK Theme Base and Headers?` \
 	bspwm-git sxhkd-git xdo-git `# Window Manager and Tools for its use` \
 	wlroots-git sway-git `# Wayland Compositor` \
+	waybar mako `# Wayland Bar & Notifications` \
 	terminus-font ttf-iosevka-type ttf-iosevka-term `# Primary Fonts` \
 	ttf-font-awesome `# Icon Font` \
 	curl `# HTTP Utility` \

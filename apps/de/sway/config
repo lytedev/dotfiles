@@ -1,8 +1,8 @@
 set $mod Mod4
 
-set $left  h
-set $down  j
-set $up    k
+set $left h
+set $down j
+set $up	k
 set $right l
 
 set $term kitty
@@ -20,12 +20,12 @@ output * bg $HOME/.wallpaper fill
 #
 # Example configuration:
 #
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+#input "2:14:SynPS/2_Synaptics_TouchPad" {
+#	dwt enabled
+#	tap enabled
+#	natural_scroll enabled
+#	middle_emulation enabled
+#}
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -97,18 +97,18 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 mode "resize" {
-    bindsym $left resize shrink width 10 px or 10 ppt
-    bindsym $down resize grow height 10 px or 10 ppt
-    bindsym $up resize shrink height 10 px or 10 ppt
-    bindsym $right resize grow width 10 px or 10 ppt
+	bindsym $left resize shrink width 10 px or 10 ppt
+	bindsym $down resize grow height 10 px or 10 ppt
+	bindsym $up resize shrink height 10 px or 10 ppt
+	bindsym $right resize grow width 10 px or 10 ppt
 
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 default_border none
@@ -117,12 +117,7 @@ default_border none
 
 # man 5 sway-bar
 bar {
-    position bottom
-    colors {
-        statusline #ffffff
-        background #111111
-        inactive_workspace #11111100 #11111100 #5c5c5c
-    }
+	swaybar_command waybar
 }
 
 input * {
@@ -130,4 +125,7 @@ input * {
 	repeat_rate 60
 }
 
+focus_follows_mouse no
+
 # include /etc/sway/config.d/*
+include $EDFP/sway/config.d/*

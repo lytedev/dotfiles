@@ -41,6 +41,7 @@ links=(
 	"$dfp/apps/de/x/modmap"                  "$HOME/.xmodmap"
 	"$dfp/apps/de/compton/compton.conf"      "$XDG_CONFIG_HOME/compton.conf"
 	"$dfp/apps/de/dunst/dunstrc"             "$XDG_CONFIG_HOME/dunst/dunstrc"
+	"$dfp/apps/de/mako/"                     "$XDG_CONFIG_HOME/mako"
 	"$dfp/bin/lib/colors/xresources"         "$HOME/.Xresources.colors"
 
 	# shell files
@@ -59,6 +60,10 @@ links=(
 	"$dfp/apps/de/gtk/2rc"                   "$HOME/.gtkrc-2.0"
 	"$dfp/apps/de/gtk/2rc"                   "$HOME/.gtkrc"
 	"$dfp/apps/de/gtk/3settings.ini"         "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
+
+	# bar files
+	"$dfp/apps/de/polybar/config"            "$XDG_CONFIG_HOME/polybar/config"
+	"$dfp/apps/de/waybar/"                   "$XDG_CONFIG_HOME/waybar"
 
 	# irc files
 	"$dfp/apps/irssi/"                       "$HOME/.irssi"
@@ -90,9 +95,6 @@ links=(
 	# rofi config
 	"$dfp/apps/rofi/config"                  "$XDG_CONFIG_HOME/rofi/config"
 
-	# bar files
-	"$dfp/apps/de/bar/polybar-config"        "$XDG_CONFIG_HOME/polybar/config"
-
 	# ranger config
 	"$dfp/apps/ranger/"                      "$XDG_CONFIG_HOME/ranger"
 
@@ -118,6 +120,8 @@ mkdir -p "$edfp/"
 mkdir -p "$edfp/bash.d/"
 mkdir -p "$edfp/bin/"
 mkdir -p "$edfp/x/"
+mkdir -p "$edfp/sway/waybar"
+mkdir -p "$edfp/sway/config.d"
 mkdir -p "$HOME/.bin/"
 
 touches=(
@@ -127,7 +131,7 @@ touches=(
 	"$edfp/x/resources"
 	"$edfp/vim"
 	"$edfp/bspwm"
-	"$edfp/bar"
+	"$edfp/polybar"
 	"$edfp/app-launcher"
 )
 

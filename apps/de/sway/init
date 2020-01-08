@@ -16,4 +16,9 @@ export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 export MOZ_ENABLE_WAYLAND=1
 
+# configuration flag for some of my dotfiles scripts
+export IS_WAYLAND=1
+
+exec mako
+
 sway
