@@ -133,6 +133,7 @@ touches=(
 	"$edfp/bspwm"
 	"$edfp/polybar"
 	"$edfp/app-launcher"
+	"$edfp/workdock"
 )
 
 for t in "${touches[@]}"; do

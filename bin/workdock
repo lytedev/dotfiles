@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 resrc
-source "$HOME/.workdock.env"
+source "$EDFP/workdock" --just-vars
 "${DOTFILES_PATH}/apps/de/x/loadresources" lodpi
 autorandr --change
 "${DOTFILES_PATH}/apps/de/bspwm/bspwmrc"
 "${DOTFILES_PATH}/apps/de/x/loadresources" lodpi
 restartbar
 "${HOME}/.fehbg"
+source "$EDFP/workdock"
