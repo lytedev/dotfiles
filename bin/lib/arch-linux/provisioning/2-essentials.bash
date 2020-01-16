@@ -50,6 +50,8 @@ pacaur --needed -S \
 	docker docker-compose `# Yummy containers` \
 	inotify-tools `# Watching` \
 	luajit lua luarocks `# Lua` \
+	fish `# Shell` \
+	pkgfile `# Package File Metadata` \
 	swaks `# SMTP CLI` \
 	--noconfirm --noedit
 
