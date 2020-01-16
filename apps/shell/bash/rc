@@ -17,7 +17,6 @@ NICE_HOME="$HOME"
 [[ -e "${EDFP}/.nice_home" ]] && NICE_HOME="$(cat "${EDFP}/.nice_home")"
 
 export NICE_HOME
-export NOTES_DIR="$NICE_HOME/doc/notes"
 
 # set our PATH
 source "$DOTFILES_PATH/apps/shell/bash/paths"

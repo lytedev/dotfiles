@@ -45,10 +45,11 @@ links=(
 	"$dfp/bin/lib/colors/xresources"         "$HOME/.Xresources.colors"
 
 	# shell files
-	"$dfp/apps/shell/bash/bashrc"            "$HOME/.bashrc"
+	"$dfp/apps/shell/bash/rc"                "$HOME/.bashrc"
 	"$dfp/apps/shell/bash/bash_profile"      "$HOME/.bash_profile"
 	"$dfp/apps/shell/tmux/tmux.conf"         "$HOME/.tmux.conf"
 	"$dfp/apps/shell/tmux/layouts"           "$HOME/.tmux/layouts"
+	"$dfp/apps/shell/fish/"                  "$XDG_CONFIG_HOME/fish"
 
 	# text editor files
 	"$dfp/apps/neovim/"                      "$XDG_CONFIG_HOME/nvim"
