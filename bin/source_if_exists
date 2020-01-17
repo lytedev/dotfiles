@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+f="$1"; shift
+[ -f "$f" ] && . "$f" "$@"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../../" && pwd)
-source "${dfp}/apps/shell/bash/bashrc"
+source "${dfp}/apps/shell/bash/rc"
 
 USER_DISAGREE_CODE=120
 NO_AGREEMENT_CODE=121

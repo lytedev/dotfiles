@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+echo "paths"
+
+export GOPATH="$HOME/.go"
+
+# PATH=$PATH:$APPENDED_PATH
+PATH="$DOTFILES_PATH/bin":$PATH
+PATH="$ENV_PATH/bin":$PATH
+[ -d "$HOME/.bin" ] && PATH=$PATH:"$HOME/.bin"
+PATH=$PATH:"$HOME/.cargo/bin"
+PATH=$PATH:"$HOME/.yarn/bin"
+PATH=$PATH:"$GOPATH/bin"
+[ -d "$HOME/.local/bin" ] && PATH=$PATH:"$HOME/.local/bin"
+has_command python && PATH="$(python -m site --user-base)/bin:$PATH"
+has_command ruby && PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+export PATH
+export NOTES_PATH="${NOTES_PATH:-$NICE_HOME/doc/notes}"

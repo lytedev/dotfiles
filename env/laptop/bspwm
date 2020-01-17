@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+export WINDOW_GAP=0

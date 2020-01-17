@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+# TODO: move to laptop env
 resrc
-source "$HOME/.workdock.env"
+. maybe_source_env_file workdock
 "${DOTFILES_PATH}/apps/de/x/loadresources" lodpi
 autorandr --change
 "${DOTFILES_PATH}/apps/de/bspwm/bspwmrc"
 "${DOTFILES_PATH}/apps/de/x/loadresources" lodpi
 restartbar
 "${HOME}/.fehbg"
+. maybe_source_env_file workdock

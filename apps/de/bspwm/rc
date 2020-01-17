@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+source "$HOME/.bashrc"
+
+# NO_COMPTON=1
+BORDER_WIDTH=5 # change in bspwm_config, here for launcher
+START_BAR=1
+BAR_COMMAND="$DOTFILES_PATH/apps/de/polybar/run"
+
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+	export XDG_CONFIG_HOME="$HOME/.config"
+fi
+if [[ -z "$DOTFILES_PATH" ]]; then
+	export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+fi
+
+BSPWM_STATE_FILE="$HOME/.bspwm_state"
+
+if [ -e "$BSPWM_STATE" ] ; then
+	bspc wm -l "$BSPWM_STATE"
+	rm "$BSPWM_STATE"
+fi
+
+source "$DOTFILES_PATH/apps/de/bspwm/config"
+
+[ -f "$DOTFILES_PATH/apps/de/x/loadresources" ] && "$DOTFILES_PATH/apps/de/x/loadresources"
+[ -f "$HOME/.fehbg" ] && "$HOME/.fehbg" &
+has_command urxvtd && urxvtd &
+has_command dunst && dunst &
+has_command sxhkd && sxhkd -m -1 &
+has_command unclutter && unclutter &
+[[ "$NO_COMPTON" -ne 1 ]] && has_command compton && compton &
+[[ $START_BAR -eq 1 ]] && ${BAR_COMMAND} &
+
+bspc wm -o

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+export OVERRIDE_BAR_MONITOR="DP1"
+export OVERRIDE_BAR_HEIGHT="24"
+export BAR_ICON_FONT_SIZE="9"
+
+xrdb -merge "$ENV_PATH/lodpi-resource"
+
+xrandr --output eDP1 --scale-from 1600x900 --filter nearest --mode 3200x1800

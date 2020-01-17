@@ -20,5 +20,6 @@ export MOZ_ENABLE_WAYLAND=1
 export IS_WAYLAND=1
 
 mako &
+killall -9 dunst &> /dev/null
 
 sway

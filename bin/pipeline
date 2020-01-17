@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SAVED_PIPELINE_DIR="$EDFP/pipelines"
+SAVED_PIPELINE_DIR="$DOTFILES_PATH/bin/pipelines"
 mkdir -p "$SAVED_PIPELINE_DIR"
 
 if [[ ! -z "${1+x}" ]]; then

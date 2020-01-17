@@ -13,7 +13,7 @@ pacaur --needed -S \
 	htop `# Process Management and System Resources Monitoring` \
 	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
-	elixir `# Elixir Language` \
+	erlang elixir `# Elixir Language` \
 	nodejs npm yarn `# JavaScript Runtime` \
 	python python-pip `# Python 3 Language` \
 	pass `# Password Management` \
@@ -50,6 +50,8 @@ pacaur --needed -S \
 	docker docker-compose `# Yummy containers` \
 	inotify-tools `# Watching` \
 	luajit lua luarocks `# Lua` \
+	fish `# Shell` \
+	pkgfile `# Package File Metadata` \
 	swaks `# SMTP CLI` \
 	--noconfirm --noedit
 

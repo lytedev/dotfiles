@@ -13,7 +13,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 output * bg $HOME/.wallpaper fill
 
 # TODO: configured displays?
-# output eDP-1 res 3200x1800 pos 0 0 scale 2
+output eDP-1 res 3200x1800 pos 0 0 scale 2
 # output DP-3 res 3440x1440 pos 1600 0
 
 ### Input configuration
@@ -128,4 +128,4 @@ input * {
 focus_follows_mouse no
 
 # include /etc/sway/config.d/*
-include $EDFP/sway/config.d/*
+include $ENV_PATH/sway/config.d/*

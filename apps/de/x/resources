@@ -15,8 +15,8 @@
 *.boldFont: xft:Iosevka Term Bold:pixelsize=14,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 
 *.letterSpace: 0
-# URxvt.transparent: true
-# URxvt.shading: 70
+## URxvt.transparent: true
+## URxvt.shading: 70
 
 ## rxvt-unicode configuration
 URxvt.termName: rxvt-unicode
@@ -44,6 +44,7 @@ dpi: 92
 .dpi: 92
 *dpi: 92
 Xft.dpi: 92
+
 *autohint: 0
 *lcdfilter: lcddefault
 *hintstyle: hintfull

@@ -11,6 +11,7 @@ fi
 pacaur --needed -S \
 	bluez bluz-libs bluez-utils bluez-tools \
 	pigz `# Multi-core gzipping` \
+	iw `# WiFi Power Saving` \
 	arc-gtk-theme `# GTK Theme` \
 	elementary-icon-theme `# GUI File Explorer Icons` \
 	thunar thunar-volman gvfs `# GUI File Explorer + Volume Management/Auto-Mount Disks)` \
