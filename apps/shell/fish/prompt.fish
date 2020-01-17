@@ -25,7 +25,9 @@ function fish_prompt
 	printf (preprocess_pwd)" "
 end
 
-function fish_mode_prompt
+function fish_mode_prompt; end
+
+function fish_right_prompt
 	set_color brblack
 	switch $fish_bind_mode
 		case default
@@ -39,5 +41,4 @@ function fish_mode_prompt
 		case visual
 			echo 'V'
 		end
-		echo -n ' '
 	end

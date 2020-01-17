@@ -128,4 +128,4 @@ input * {
 focus_follows_mouse no
 
 # include /etc/sway/config.d/*
-include $EDFP/sway/config.d/*
+include $ENV_PATH/sway/config.d/*

@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set -U fish_user_paths $HOME/.go $GOPATH/bin $DOTFILES_PATH/bin $EDFP/bin $HOME/.bin $HOME/.cargo/bin $HOME/.yarn/bin
+set -U fish_user_paths $HOME/.go $GOPATH/bin $DOTFILES_PATH/bin $ENV_PATH/bin $HOME/.bin $HOME/.cargo/bin $HOME/.yarn/bin
 test -d $HOME/.local/bin && set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 test -d $HOME/.bin && set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 

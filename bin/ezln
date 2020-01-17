@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SOURCE=$(realpath "$1")
-DEST=$(realpath -m "$2")
+SOURCE=$(realpath "$1") # this one exists
+DEST=$(realpath -m "$2") # this is the link to what exists
 
 ln -s "$SOURCE" "$DEST"

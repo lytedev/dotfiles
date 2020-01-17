@@ -1,7 +1,22 @@
-set -U XDG_CONFIG_HOME "$HOME/.config"
-set -U DOTFILES_PATH "$XDG_CONFIG_HOME/dotfiles"
-set -U ENV_DOTFILES_PATH "$DOTFILES_PATH/env"
-set -U EDFP "$ENV_DOTFILES_PATH"
+#!/usr/bin/env fish
+
+set -U XDG_CONFIG_HOME $HOME/.config
+set -U DOTFILES_PATH $XDG_CONFIG_HOME/dotfiles
+set -U ENV_PATH $HOME/.env
+
+$DOTFILES_PATH/bin/lib/colors/shell
+
+function source_if_exists
+	test -f $ENV_PATH/$argv[1] && source $argv[1]
+end
+
+function maybe_source_env_file
+	source_if_exists $ENV_PATH/$argv[1]
+end
+
+function has_command
+	command -v $argv[1] 2>&1 >/dev/null
+end
 
 # TODO: better logic for auto-detecting alternative home directories?
 # 1. check dirname(basename $HOME)) matches username
@@ -9,7 +24,7 @@ set -U EDFP "$ENV_DOTFILES_PATH"
 set -U NICE_HOME $HOME
 test (basename $HOME) = .home && set -U NICE_HOME (realpath $HOME/..)
 test -e $HOME/.nice_home && set -U NICE_HOME (cat $HOME/.nice_home)
-test -e $EDFP/.nice_home && set -U NICE_HOME (cat $EDFP/.nice_home)
+test -e $ENV_PATH/.nice_home && set -U NICE_HOME (cat $ENV_PATH/.nice_home)
 
 # setup paths
 source $DOTFILES_PATH/apps/shell/fish/paths.fish
@@ -29,7 +44,7 @@ source $DOTFILES_PATH/apps/shell/fish/prompt.fish
 source $DOTFILES_PATH/apps/shell/fish/aliases.fish
 
 set -U _JAVA_AWT_WM_NONREPARENTING 1
-set -U LS_COLORS 'ow=01;36;40'
+# set -U LS_COLORS 'ow=01;36;40'
 set -U LESS -x2 # less tab size of 2 spaces
 set -U TERMINAL urxvtc
 set -U BROWSER firefox-developer-edition
@@ -51,7 +66,7 @@ command -v fd 2>&1 >/dev/null && set -U FZF_DEFAULT_COMMAND 'fd --type f --hidde
 # nonsense that clutters it up and that they have a preferred starting
 # directory where they keep the stuff they actually care about
 # we only do this if the user is opening a shell at $HOME
-test $PWD = $HOME && cd $NICE_HOME || cd || exit
+if test $PWD = $HOME; cd $NICE_HOME || cd; end
 
 test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
 

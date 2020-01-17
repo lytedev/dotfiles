@@ -2,6 +2,6 @@
 
 # bash_profile is executed immediately after logging in
 
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
+if [[ -f "$HOME/.bashrc" ]]; then
+  source "$HOME/.bashrc"
 fi

@@ -1,21 +1,9 @@
 #!/usr/bin/env bash
 
-#                                                                              #
-#                       _       _           _                                  #
-#                      | |_   _| |_,___  __| | _____   __                      #
-#                      | | | | | __/ _ \/ ,` |/ _ \ \ / /                      #
-#                      | | |_| | ||  __/ (_| |  __/\ V /                       #
-#                      |_|\__, |\__\___|\__,_|\___| \_/                        #
-#                          \__/                                                #
-#                                                                              #
-#                               D O T F I L E S                                #
-#                                                                              #
-
-# TODO: quiet mode?
+# TODO: quiet/auto-agree mode for curl | bash automagic?
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
 source "${dfp}/bin/lib/setup_helpers.bash"
-edfp="${dfp}/.env"
 
 INTERACTIVE=1
 
@@ -30,23 +18,23 @@ done
 
 links=(
 	# desktop environment files
-	"$dfp/apps/de/bspwm/bspwmrc"             "$XDG_CONFIG_HOME/bspwm/bspwmrc"
+	"$dfp/apps/de/bspwm/rc"                  "$XDG_CONFIG_HOME/bspwm/bspwmrc"
 	"$dfp/apps/de/bspwm/fehbg"               "$HOME/.fehbg"
 	"$dfp/apps/de/sway/config"               "$XDG_CONFIG_HOME/sway/config"
-	"$dfp/apps/de/sxhkd/sxhkdrc"             "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
+	"$dfp/apps/de/sxhkd/rc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 	"$dfp/apps/de/x/resources"               "$HOME/.Xresources"
-	"$dfp/apps/de/x/initrc"                  "$HOME/.xinitrc"
-	"$dfp/apps/de/x/initrc"                  "$HOME/.vnc/xstartup"
+	"$dfp/apps/de/x/init"                    "$HOME/.xinitrc"
+	"$dfp/apps/de/x/init"                    "$HOME/.vnc/xstartup"
 	"$dfp/apps/de/x/profile"                 "$HOME/.xprofile"
 	"$dfp/apps/de/x/modmap"                  "$HOME/.xmodmap"
 	"$dfp/apps/de/compton/compton.conf"      "$XDG_CONFIG_HOME/compton.conf"
-	"$dfp/apps/de/dunst/dunstrc"             "$XDG_CONFIG_HOME/dunst/dunstrc"
+	"$dfp/apps/de/dunst/rc"                  "$XDG_CONFIG_HOME/dunst/dunstrc"
 	"$dfp/apps/de/mako/"                     "$XDG_CONFIG_HOME/mako"
 	"$dfp/bin/lib/colors/xresources"         "$HOME/.Xresources.colors"
 
 	# shell files
 	"$dfp/apps/shell/bash/rc"                "$HOME/.bashrc"
-	"$dfp/apps/shell/bash/bash_profile"      "$HOME/.bash_profile"
+	"$dfp/apps/shell/bash/profile"           "$HOME/.bash_profile"
 	"$dfp/apps/shell/tmux/tmux.conf"         "$HOME/.tmux.conf"
 	"$dfp/apps/shell/tmux/layouts"           "$HOME/.tmux/layouts"
 	"$dfp/apps/shell/fish/"                  "$XDG_CONFIG_HOME/fish"
@@ -100,8 +88,8 @@ links=(
 	"$dfp/apps/ranger/"                      "$XDG_CONFIG_HOME/ranger"
 
 	# mutt config
-	"$dfp/apps/mutt/muttrc"                  "$XDG_CONFIG_HOME/.muttrc"
-	"$dfp/apps/mutt/muttrc"                  "$HOME/.muttrc"
+	"$dfp/apps/mutt/rc"                      "$XDG_CONFIG_HOME/.muttrc"
+	"$dfp/apps/mutt/rc"                      "$HOME/.muttrc"
 
 	# neofetch config
 	"$dfp/apps/neofetch/config"              "$XDG_CONFIG_HOME/neofetch/config"
@@ -116,32 +104,6 @@ links=(
 	"$dfp/apps/shell/user-dirs"              "$XDG_CONFIG_HOME/user-dirs.dirs"
 )
 
-mkdir -p "$edfp/"
-[[ ! -e "$HOME/.env" ]] && ln -s "$edfp/" "$HOME/.env"
-mkdir -p "$edfp/bash.d/"
-mkdir -p "$edfp/bin/"
-mkdir -p "$edfp/x/"
-mkdir -p "$edfp/sway/waybar"
-mkdir -p "$edfp/sway/config.d"
-mkdir -p "$HOME/.bin/"
-
-touches=(
-	"$edfp/bash"
-	"$edfp/x/init"
-	"$edfp/x/profile"
-	"$edfp/x/resources"
-	"$edfp/vim"
-	"$edfp/bspwm"
-	"$edfp/polybar"
-	"$edfp/app-launcher"
-	"$edfp/workdock"
-)
-
-for t in "${touches[@]}"; do
-	touch "$t"
-done
-
-chmod 700 -R "$edfp"
 chmod 700 -R "$HOME/.bin"
 
 # TODO: pass interactive?

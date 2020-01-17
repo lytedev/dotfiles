@@ -21,11 +21,7 @@ export BAR_BOTTOM="false"
 export BAR_VERTICAL_MARGIN=0
 export POS_Y=0
 
-# allow a per-device config to override options
-echo "$EDFP"
-if [ -f "$EDFP/polybar" ]; then
-	source "$EDFP/polybar"
-fi
+. maybe_source_env_file polybar
 
 export MONITOR_WIDTH=$(xrandr | grep "^$BAR_MONITOR " | grep -Po ' \d+' | head -n 1)
 
