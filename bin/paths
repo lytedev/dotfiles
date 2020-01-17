@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-echo "paths"
 
 export GOPATH="$HOME/.go"
 

@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-echo "prelude"
 
 # these are all paths used across many of the dotfiles and should be assumed to
 # be loaded and properly set by every script - this means you are responsible

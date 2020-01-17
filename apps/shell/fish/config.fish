@@ -70,8 +70,8 @@ if test $PWD = $HOME; cd $NICE_HOME || cd; end
 
 test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
 
-if test -d $HOME/.asdf/; and test -f $HOME/.asdf/asdf.sh
-	source $HOME/.asdf/asdf.sh
-else if test -d /opt/asdf-vm/; and test -f /opt/asdf-vm/asdf.sh
-	source $HOME/opt/asdf-vm/asdf.sh
+if test -f $HOME/.asdf/asdf.fish
+	source $HOME/.asdf/asdf.fish
+else if test -f /opt/asdf-vm/asdf.fish
+	source /opt/asdf-vm/asdf.fish
 end
