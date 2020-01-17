@@ -5,7 +5,7 @@ pacaur --needed -S \
 	weechat `# IRC Client` \
 	aria2 `# Downloads Manager` \
 	tree `# Handy Filesystem Viewing Utility` \
-	rofi `# Application Launcher` \
+	dmenu rofi `# Application Launcher` \
 	ripgrep `# Code Search Utilities` \
 	fd `# File Search` \
 	sd `# Easy Find/Replace` \
@@ -21,7 +21,7 @@ pacaur --needed -S \
 	rsync `# File Transfer` \
 	alsa-utils `# Audio Utilities` \
 	alsa-plugins `# Plugins for ALSA` \
-	pulseaudio pavucontrol `# Audio Backend and Controls` \
+	pulseaudio pavucontrol pulsemixer `# Audio Backend and Controls` \
 	pulseaudio-ctl `# CLI Utility for Pulseaudio` \
 	neovim vim `# Text Editors` \
 	unzip `# Simple Unzipping` \
