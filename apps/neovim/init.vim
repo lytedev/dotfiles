@@ -50,9 +50,6 @@ exec 'source ' . commandsfile
 let bindingsfile=$vimdir.'/bindings.vim'
 exec 'source ' . bindingsfile
 
-" colors
-let &t_Co=16
-
 " load a per-environment file if one exists
 if filereadable(expand('$HOME/.env_init_after.vim'))
 	source "$HOME/.env_init_after.vim"
