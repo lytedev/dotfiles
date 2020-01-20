@@ -4,7 +4,7 @@ set -U XDG_CONFIG_HOME $HOME/.config
 set -U DOTFILES_PATH $XDG_CONFIG_HOME/dotfiles
 set -U ENV_PATH $HOME/.env
 
-$DOTFILES_PATH/bin/lib/colors/shell
+# $DOTFILES_PATH/bin/lib/colors/shell
 $DOTFILES_PATH/bin/prelude
 
 function source_if_exists

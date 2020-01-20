@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
@@ -7,7 +7,7 @@ export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 
 [[ ! $- == *i* ]] && return # stop parsing on a non-interactive shell
 
-. "$DOTFILES_PATH/apps/shell/bash/aliases"
+. "$DOTFILES_PATH/apps/shell/bash/aliases.bash"
 . "$DOTFILES_PATH/apps/shell/bash/autocompletions"
 . "$DOTFILES_PATH/apps/shell/bash/prompt"
 

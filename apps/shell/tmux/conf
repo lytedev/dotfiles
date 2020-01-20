@@ -8,10 +8,10 @@ bind-key T source-file "$HOME/.tmux.conf" \; display-message "source-file done"
 unbind r
 bind r source-file "$HOME/.tmux.conf"
 
-set -as terminal-overrides ',xterm*:smxx=\E[9m'
+# set -as terminal-overrides ',xterm*:smxx=\E[9m'
+set -g default-terminal "screen-256color"
 
 # sane defaults
-set -g default-terminal "tmux"
 set -g mouse on
 
 # honestly not exactly sure?
