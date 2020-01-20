@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
@@ -18,10 +18,6 @@ if [[ "${TERM%%-*}" = 'linux' ]]; then
 	c="$DOTFILES_PATH/bin/lib/colors/vconsole"
 	[[ -s "$c" ]] && . "$c"
 fi
-
-# load our shell colors
-c="$DOTFILES_PATH/bin/lib/colors/shell"
-[[ -s "$c" ]] && . "$c"
 
 # prevents some Java GUI apps from not working or rendering properly due to
 # using wacky window managers
