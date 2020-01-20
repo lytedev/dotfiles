@@ -4,5 +4,5 @@
 # `asmanviewer` variable, so launch vim that way when using vim as our man
 # page viewer
 
-vim --cmd "let asmanviewer=1" -c "SuperMan $*"
+"$EDITOR" --cmd "let asmanviewer=1" -c "SuperMan $*"
 [ "$?" != "0" ] && echo "No manual entry for $*" && exit 1

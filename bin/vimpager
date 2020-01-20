@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+nvim \
+	-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile' \
+	"$@" \
+	-

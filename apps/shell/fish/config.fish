@@ -22,11 +22,11 @@ set -U BROWSER firefox-developer-edition
 set -U ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
 
 # set our EDITOR to neovim if we've got it
-set -U EDITOR vim
+set -Ux EDITOR vim
 if has_command nvim
 	alias vim nvim
 	alias ovim 'command vim'
-	set -U EDITOR nvim
+	set -Ux EDITOR nvim
 end
 
 # load a per-device config last so anything can be overridden
