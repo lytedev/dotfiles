@@ -11,7 +11,7 @@ bind r source-file "$HOME/.tmux.conf"
 set -as terminal-overrides ',xterm*:smxx=\E[9m'
 
 # sane defaults
-set -g default-terminal "tmux-256color"
+set -g default-terminal "tmux"
 set -g mouse on
 
 # honestly not exactly sure?
@@ -19,7 +19,7 @@ set -g mouse on
 set -g escape-time 0
 
 # show window activity
-# TODO: this needs to be properly setup
+# TODO: this needs to be properly setup - presumably with tmux-session-list
 setw -g monitor-activity on
 setw -g visual-bell on
 setw -g bell-action other
@@ -46,7 +46,8 @@ bind-key j switch-client -p
 bind-key h switch-client -p
 bind-key k switch-client -n
 bind-key l switch-client -n
-bind s run-shell "tmux new-window tmuxswitcher"
+# bind s run-shell "tmux new-window sh -c '$DOTFILES_PATH/bin/tmuxswitcher'"
+bind s run-shell "tmux new-window 'sh -c ~/.config/dotfiles/bin/tmuxswitcher'"
 
 # reset the working directory of the current session
 bind-key P attach-session -t . -c '#{pane_current_path}' \; display-message 'Reset session dir to #{pane_current_path}'

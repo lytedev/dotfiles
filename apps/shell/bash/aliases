@@ -70,7 +70,6 @@ alias .........="cd ../../../../../../../.."
 
 # tmux aliases
 # TODO: see if this can be worked around?
-alias tmux='TERM=screen-256color-bce tmux' # syntax higlighting for vim in tmux
 alias tmnew="tmux new -s"
 alias tmls="tmux list-sessions"
 alias tmatt="tmux attach -t"
