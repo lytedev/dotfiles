@@ -131,7 +131,7 @@ alias btctl "bt"
 alias btctl "sudo bluetoothctl"
 alias pbcopy "clip"
 alias pt "htop -t" # experimental htop tree-view-by-default
-alias resrc "source $HOME/.bashrc"
+alias resrc "source $XDG_CONFIG_HOME/fish/config.fish"
 alias redshift "redshift -r -l 39.0997:-94.5786 -t 6500K:2500K"
 alias gpmdpe "electron --app=/usr/share/gpmdp/resources/app.asar"
 alias t "task"

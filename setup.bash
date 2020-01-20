@@ -19,7 +19,7 @@ done
 links=(
 	# desktop environment files
 	"$dfp/apps/de/bspwm/rc"                  "$XDG_CONFIG_HOME/bspwm/bspwmrc"
-	"$dfp/apps/de/bspwm/fehbg"               "$HOME/.fehbg"
+	"$dfp/apps/de/bspwm/wallpapers"          "$HOME/.fehbg"
 	"$dfp/apps/de/sway/config"               "$XDG_CONFIG_HOME/sway/config"
 	"$dfp/apps/de/sxhkd/rc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 	"$dfp/apps/de/x/resources"               "$HOME/.Xresources"

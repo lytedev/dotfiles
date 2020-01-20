@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-source "$DOTFILES_PATH/apps/de/polybar/run" --just-vars
+. "$DOTFILES_PATH/apps/de/polybar/run" --just-vars
 
 LAUNCHER_FONT="$BAR_FONT"
 LAUNCHER_FONT_SIZE="$BAR_FONT_SIZE"

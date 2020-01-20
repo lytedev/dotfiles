@@ -17,4 +17,3 @@ NICE_HOME="$HOME"
 export NICE_HOME
 
 . "$DOTFILES_PATH/bin/paths"
-

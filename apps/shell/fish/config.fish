@@ -5,6 +5,7 @@ set -U DOTFILES_PATH $XDG_CONFIG_HOME/dotfiles
 set -U ENV_PATH $HOME/.env
 
 $DOTFILES_PATH/bin/lib/colors/shell
+$DOTFILES_PATH/bin/prelude
 
 function source_if_exists
 	test -f $ENV_PATH/$argv[1] && source $argv[1]
@@ -46,7 +47,7 @@ source $DOTFILES_PATH/apps/shell/fish/aliases.fish
 set -U _JAVA_AWT_WM_NONREPARENTING 1
 # set -U LS_COLORS 'ow=01;36;40'
 set -U LESS -x2 # less tab size of 2 spaces
-set -U TERMINAL urxvtc
+set -U TERMINAL kitty
 set -U BROWSER firefox-developer-edition
 set -U ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
 
@@ -58,7 +59,12 @@ if command -v nvim 2>&1 >/dev/null
 	set -U EDITOR nvim
 end
 
-_make_paths
+# load a per-device config last so anything can be overridden
+# TODO: this does not work quite right for fish?
+maybe_source_env_file config.fish
+maybe_source_env_file .hidden/config.fish
+
+mkdir -p $NOTES_PATH
 
 command -v fd 2>&1 >/dev/null && set -U FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 

@@ -152,7 +152,7 @@ super + ctrl + b
 
 # spawn a transparent node
 super + alt + t
-	urxvtc && compton-trans -c -o 0
+	"$TERMINAL" && compton-trans -c -o 0
 
 # make current node transparent
 super + t
@@ -168,7 +168,7 @@ super + shift + t
 
 # spawn a terminal
 super + Return
-	urxvtc
+	"$TERMINAL"
 
 # spawn a rock-solid and reliable terminal for when I break things
 super + alt + Return
@@ -176,7 +176,7 @@ super + alt + Return
 
 # spawn a floating terminal
 super + shift + Return
-	bspc rule -a '*' -o state=floating && "urxvtc"
+	bspc rule -a '*' -o state=floating && "$TERMINAL"
 
 # spawn the app launcher
 super + space
@@ -256,7 +256,7 @@ super + d
 	xdotool key super+4 && sleep 0.1 && xdotool key shift+4 && xdotool key shift+4 && xdotool key shift+4 && sleep 0.2 && xdotool key super+1 && xdotool key super+3
 
 super + ctrl + c
-	bspc rule -a '*' -o state=floating && urxvtc --geometry 64x9 -e sh -c "cal -n 3 && bash"
+	bspc rule -a '*' -o state=floating && urxvt --geometry 64x9 -e sh -c "cal -n 3 && bash"
 
 super + shift + v
 	kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.pid")

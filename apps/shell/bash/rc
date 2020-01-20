@@ -52,7 +52,8 @@ if has_command nvim; then
 fi
 
 # load a per-device config last so anything can be overridden
-. maybe_source_env_file bash
+. maybe_source_env_file bashrc
+. maybe_source_env_file .hidden/bashrc
 
 # create paths we kind of expect to exist in some scripts
 mkdir -p "${NOTES_PATH}"

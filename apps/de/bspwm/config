@@ -1,14 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-BORDER_WIDTH=5 # change in bspwmrc
-export WINDOW_GAP=25
-DESKTOPS=$(seq 10)
+export WINDOW_GAP=0
+NUM_DESKTOPS=10
+DESKTOPS=$(seq "$NUM_DESKTOPS")
 
 BSPWM_MONITORS=$(bspc query -M | tac)
-MONITOR_COUNT=$(<<< "${BSPWM_MONITORS}" wc -w | awk '{ printf $1 }')
-NUM_DESKTOPS=${#DESKTOPS[@]}
+MONITOR_COUNT=$(<<< "$BSPWM_MONITORS" wc -w | awk '{ printf $1 }')
 PER_MONITOR=$((NUM_DESKTOPS / MONITOR_COUNT))
-REVERSE_DESKTOP_ORDERING=0
+REVERSE_DESKTOP_ORDERING=${REVERSE_DESKTOP_ORDERING:-0}
 
 . maybe_source_env_file bspwm
 
@@ -28,21 +27,20 @@ bspc config window_gap                "$WINDOW_GAP"
 bspc rule -a "*" split_dir=right
 
 i=1
-for mon in ${BSPWM_MONITORS}; do
+for mon in $BSPWM_MONITORS; do
   max=$((i + PER_MONITOR - 1))
 	screens=
 	for j in $(seq $i $max); do
-		ind=${DESKTOPS[$((j - 1))]}
-		screens="${screens}${ind} "
+		screens="${screens}${j} "
 	done
   bspc monitor "$mon" -d $screens
   i=$((max + 1))
 done
 
-if [[ $REVERSE_DESKTOP_ORDERING -eq 1 ]]; then
+if [ $REVERSE_DESKTOP_ORDERING -eq 1 ]; then
 	prev_mon=
 	for mon in ${BSPWM_MONITORS}; do
-		if [[ ! -z $prev_mon ]]; then
+		if [ ! -z $prev_mon ]; then
 			bspc monitor "$mon" --swap "$prev_mon"
 		fi
 		prev_mon="$mon"

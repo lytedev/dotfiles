@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-. maybe_source_env_file .hidden/bash

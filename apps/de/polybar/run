@@ -1,12 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 export BAR_MONITOR="$(polybar --list-monitors | tail -n 1 | sed -n 's/^\s*\(.*\):.*$/\1/p')"
 # export BAR_MONITOR="$(polybar --list-monitors | tail -n 2 | head -n 1 | sed -n 's/^\s*\(.*\):.*$/\1/p')"
 export BAR_HEIGHT=40
 export BAR_ON_TOP=0
-export BAR_SIDE_MARGIN=200
+export BAR_SIDE_MARGIN=0
 
-export BAR_FONT="${BAR_FONT:-$(xrdb -query | sed -ne      's/.*font:\s*xft:\([^:]*\)\:.*$/\1/p' | head -n 1)}"
+export BAR_FONT="${BAR_FONT:-$(xrdb -query | sed -ne 's/.*font:\s*xft:\([^:]*\)\:.*$/\1/p' | head -n 1)}"
 export BAR_ICON_FONT="${BAR_ICON_FONT:-"Font Awesome 5 Free"}"
 export BAR_FONT_SIZE="${BAR_FONT_SIZE:-$(xrdb -query | sed -ne 's/.*font:\s*xft:[^-,]*\=\([0-9]*\).*$/\1/p' | head -n 1)}"
 export BAR_ICON_FONT_SIZE="${BAR_ICON_FONT_SIZE:-$((BAR_FONT_SIZE))}"
@@ -41,12 +41,12 @@ fi
 
 if [ "$BAR_ON_TOP" -eq 1 ]; then
 	export BAR_BOTTOM="false"
-	export POS_Y=$GAP
+	export POS_Y="$GAP"
 	bspc config -m "${BAR_MONITOR}" top_padding "$EHEIGHT"
 	bspc config -m "${BAR_MONITOR}" bottom_padding "0"
 else
 	export BAR_BOTTOM="true"
-	export POS_Y=$GAP
+	export POS_Y="$GAP"
 	bspc config -m "${BAR_MONITOR}" top_padding "0"
 	bspc config -m "${BAR_MONITOR}" bottom_padding "$EHEIGHT"
 fi

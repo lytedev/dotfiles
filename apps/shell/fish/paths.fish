@@ -8,5 +8,3 @@ command -v python 2>&1 >/dev/null && set -U fish_user_paths (python -m site --us
 command -v ruby 2>&1 >/dev/null && set -U fish_user_paths (ruby -e 'print Gem.user_dir')"/bin" $fish_user_paths
 
 set -U NOTES_PATH $NICE_HOME/doc/notes
-
-function _make_paths; mkdir -p $NOTES_PATH; end

@@ -13,7 +13,7 @@ myself when setting up a new machine.
 ## Setup
 
 * Clone the repo into `~/.config/dotfiles`
-* Run `~/.config/dotfiles/setup`
+* Run `~/.config/dotfiles/setup.bash`
 * Read the warning, obey it, backup your files, *then* agree
 * **Optional**: Reboot once the script finishes
 

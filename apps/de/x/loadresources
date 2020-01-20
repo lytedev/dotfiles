@@ -1,9 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-echo "xload init" > /tmp/xload
-echo "ep: $ENV_PATH" > /tmp/xload
 xqm() {
-	f="$1"; shift; [ -f "$f" ] && xrdb -merge "$f" "$@" &>/dev/null && echo "xqm LOADING $f" >> /tmp/xload
+	f="$1"; shift; [ -f "$f" ] && xrdb -merge "$f" "$@" &>/dev/null
 }
 
 xqm "/etc/X11/xinit/.Xresources"
