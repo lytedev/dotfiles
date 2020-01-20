@@ -35,7 +35,7 @@ links=(
 	# shell files
 	"$dfp/apps/shell/bash/rc"                "$HOME/.bashrc"
 	"$dfp/apps/shell/bash/profile"           "$HOME/.bash_profile"
-	"$dfp/apps/shell/tmux/tmux.conf"         "$HOME/.tmux.conf"
+	"$dfp/apps/shell/tmux/conf"              "$HOME/.tmux.conf"
 	"$dfp/apps/shell/tmux/layouts"           "$HOME/.tmux/layouts"
 	"$dfp/apps/shell/fish/"                  "$XDG_CONFIG_HOME/fish"
 
@@ -99,6 +99,9 @@ links=(
 
 	# fontconfig
 	"$dfp/apps/de/fontconfig/"               "$XDG_CONFIG_HOME/fontconfig"
+
+	# fontconfig
+	"$dfp/apps/elixir/iex.exs"               "$HOME/.iex.exs"
 
 	# XDG user directories
 	"$dfp/apps/shell/user-dirs"              "$XDG_CONFIG_HOME/user-dirs.dirs"

@@ -4,9 +4,9 @@ set -g prefix C-s
 bind-key s send-prefix
 
 # reload tmux.conf
-bind-key T source-file ~/.tmux.conf \; display-message "source-file done"
+bind-key T source-file "$HOME/.tmux.conf" \; display-message "source-file done"
 unbind r
-bind r source-file ~/.tmux.conf
+bind r source-file "$HOME/.tmux.conf"
 
 set -as terminal-overrides ',xterm*:smxx=\E[9m'
 
@@ -46,7 +46,7 @@ bind-key j switch-client -p
 bind-key h switch-client -p
 bind-key k switch-client -n
 bind-key l switch-client -n
-bind s run-shell "tmux new-window 'sh -c ~/.config/dotfiles/bin/tmuxswitcher'"
+bind s run-shell "tmux new-window tmuxswitcher"
 
 # reset the working directory of the current session
 bind-key P attach-session -t . -c '#{pane_current_path}' \; display-message 'Reset session dir to #{pane_current_path}'
@@ -60,9 +60,9 @@ set -g status-interval 5
 set -g status-right-length 80
 set -g status-right "#[fg=colour4]#W#[fg=default]#[bg=default] #H"
 set -g status-left-length 200
-set -g status-left "#[fg=colour7]#(~/.config/dotfiles/bin/tmux-session-list #S)"
+set -g status-left "#[fg=colour7]#(tmux-session-list #S)"
 
-bind-key O run-shell "~/.config/dotfiles/bin/tmux-save-buffer #S" \; display-message "Saved buffer to ~/<date>.<session-name>.tmux-buffer.log"
+bind-key O run-shell "tmux-save-buffer #S" \; display-message "Saved buffer to ~/<date>.<session-name>.tmux-buffer.log"
 
 # pane split line colors
 set -g pane-active-border-style bg=black,fg=blue
@@ -135,7 +135,7 @@ set -g @resurrect-save 'C-v'
 set -g @resurrect-restore 'R'
 
 # initialize tmux plugin manager
-run '~/.tmux/plugins/tpm/tpm'
+run '$HOME/.tmux/plugins/tpm/tpm'
 
 # attempt at integrating nested tmux sessions nicely
 # bind -T root F12 \

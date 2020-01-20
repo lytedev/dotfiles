@@ -124,7 +124,11 @@ nnoremap <leader>j :bprevious<CR>
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-j> :bprevious<CR>
 
-nnoremap <leader>r :source ~/.config/nvim/init.vim<CR>
+if has('nvim')
+	nnoremap <leader>r :source $vimdir/init.vim<CR>
+else
+	nnoremap <leader>r :source $HOME/.vimrc<CR>
+endif
 
 " change buffers with leader,tab
 nnoremap <leader><Tab>		:bnext<CR>
