@@ -58,7 +58,7 @@ function c
 end
 alias cd.. "cd .."
 alias cdd "cd $DOTFILES_PATH" # go to dotfiles
-alias cde "cd $ENV_DOTFILES_PATH" # go to env dotfiles
+alias cde "cd $ENV_PATH" # go to env dotfiles
 alias cdc "cd $XDG_CONFIG_HOME" # go to ~/.config
 alias cdn "cd $NOTES_PATH"
 alias cdl "cd $NICE_HOME/dl"
@@ -159,6 +159,6 @@ alias fsw-mix-test 'fsw "mix test" ./**/*.{ex,exs,erl,hrl,xrl,yrl}'
 
 # weechat aliases
 function chat
-	set -l pass (pass weechat-passphrase | head -n 1)
+	set -l pass (pass config/weechat-passphrase | head -n 1)
 	env WEECHAT_PASSPHRASE $pass weechat
 end

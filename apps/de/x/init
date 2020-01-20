@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # as far as I can tell, this file is only executed when you run startx from the
 # TTY - you probably want to modify xprofile
@@ -6,13 +6,9 @@
 [ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
 [ -z "$DOTFILES_PATH" ] && export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 
-echo xinit >> /tmp/xstartup
+. "$DOTFILES_PATH/bin/prelude"
 
 [ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
-[ -f "$HOME/.xmodmap" ] && xmodmap "$HOME/.xmodmap"
-
-eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
-export SSH_AUTH_SOCK
 
 # TODO: env? [ -f "$HOME/.env_xinitrc" ] && . "$HOME/.env_xinitrc"
 

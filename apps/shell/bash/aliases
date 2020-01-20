@@ -52,7 +52,7 @@ function c() {
 }
 alias cd..="cd .."
 alias cdd="cd \"\$DOTFILES_PATH\"" # go to dotfiles
-alias cde="cd \"\$ENV_DOTFILES_PATH\"" # go to env dotfiles
+alias cde="cd \"\$ENV_PATH\"" # go to current dotfiles...? env
 alias cdc="cd \"\$XDG_CONFIG_HOME\"" # go to ~/.config
 alias cdn="cd \"\$NOTES_PATH\""
 alias cdl="cd \"\$NICE_HOME/dl\""
@@ -151,4 +151,4 @@ alias mutt="neomutt"
 alias fsw-mix-test="fsw \"mix test\" ./**/*.{ex,exs,erl,hrl,xrl,yrl}"
 
 # weechat aliases
-alias chat="WEECHAT_PASSPHRASE=\"\$(pass weechat-passphrase | head -n 1)\" weechat"
+alias chat="WEECHAT_PASSPHRASE=\"\$(pass config/weechat-passphrase | head -n 1)\" weechat"

@@ -12,4 +12,8 @@
 # keep the pipelines but hide their results
 /bin/pipelines/*/*/*
 
+# a place to keep secrets per-env
 /env/*/.hidden
+
+# ... and a place to keep shared secrets
+/env/.hidden

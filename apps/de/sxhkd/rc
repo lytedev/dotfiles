@@ -67,7 +67,7 @@ super + {Left,Down,Up,Right}
 
 # focus/move node to the selected desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} ^{1-9,10}
+	bspc {desktop -f,node -d} {1-9,10}
 
 # # focus clicked node
 ~button1

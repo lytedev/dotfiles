@@ -3,7 +3,6 @@
 SETUVAR BROWSER:firefox\x2ddeveloper\x2dedition
 SETUVAR --path DOTFILES_PATH:/home/daniel/\x2ehome/\x2econfig/dotfiles
 SETUVAR EDITOR:nvim
-SETUVAR --path ENV_DOTFILES_PATH:/home/daniel/\x2ehome/\x2econfig/dotfiles/env
 SETUVAR --path ENV_PATH:/home/daniel/\x2ehome/\x2eenv
 SETUVAR ERL_AFLAGS:\x2dkernel\x20shell_history\x20enabled\x20\x2dkernel\x20shell_history_file_bytes\x201024000
 SETUVAR FZF_DEFAULT_COMMAND:fd\x20\x2d\x2dtype\x20f\x20\x2d\x2dhidden\x20\x2d\x2dfollow\x20\x2d\x2dexclude\x20\x2egit

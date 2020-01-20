@@ -106,6 +106,8 @@ links=(
 
 chmod 700 -R "$HOME/.bin"
 
+# TODO: note about setting up ~/.env (link to a folder in ./env)
+
 # TODO: pass interactive?
 _dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-files.lock" "${links[@]}"
 
@@ -119,5 +121,8 @@ if [[ "$INTERACTIVE" = 1 ]]; then
 	fi
 
 	echo -e "Dotfiles Installed! Running 'exec bash'...\n"
-	exec bash
+
+	# execute the user's shell
+	ush="$(getent passwd $LOGNAME | cut -d: -f7)"
+	exec "$ush"
 fi

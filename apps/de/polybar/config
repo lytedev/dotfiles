@@ -102,16 +102,16 @@ format-mounted-prefix-foreground = ${colors.icon}
 ; ########################### ;
 
 [module/bspwm]
-ws-icon-0 = dev;
-ws-icon-1 = web;
-ws-icon-2 = gfx;
-ws-icon-3 = env;
-ws-icon-4 = play;
-ws-icon-5 = chat;
-ws-icon-6 = out;
-ws-icon-7 = mon;
-ws-icon-8 = misc;
-ws-icon-9 = util;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 ws-icon-default = ♟
 
 ; misc icon: 

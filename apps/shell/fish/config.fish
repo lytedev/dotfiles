@@ -66,7 +66,9 @@ command -v fd 2>&1 >/dev/null && set -U FZF_DEFAULT_COMMAND 'fd --type f --hidde
 # nonsense that clutters it up and that they have a preferred starting
 # directory where they keep the stuff they actually care about
 # we only do this if the user is opening a shell at $HOME
-if test $PWD = $HOME; cd $NICE_HOME || cd; end
+if test $PWD = $HOME; or test $PWD = $NICE_HOME;
+	cd $NICE_HOME || cd
+end
 
 test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
 
