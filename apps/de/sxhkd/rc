@@ -228,7 +228,7 @@ XF86AudioPrev
 
 # open rofi as a window switcher
 super + w
-	"$DOTFILES_PATH/scripts/bin/app-launcher" -modi window,run -show window
+	"app-launcher" -modi window,run -show window
 
 # close the current application
 super + c
@@ -257,9 +257,6 @@ super + d
 
 super + ctrl + c
 	bspc rule -a '*' -o state=floating && urxvt --geometry 64x9 -e sh -c "cal -n 3 && bash"
-
-super + shift + v
-	kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.pid")
 
 super + v
 	tmux new-window 'sh -ci tmuxswitcher'

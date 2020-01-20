@@ -141,6 +141,7 @@ alias dd "dd status=progress"
 alias wifi "sudo nmtui"
 alias year 'cal (date +%Y)'
 alias y year
+alias pa pulsemixer
 
 # games aliases
 # this sometimes fixes steam dynamic library issues?

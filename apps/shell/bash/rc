@@ -52,7 +52,7 @@ fi
 . maybe_source_env_file .hidden/bashrc
 
 # create paths we kind of expect to exist in some scripts
-mkdir -p "${NOTES_PATH}"
+mkdir -p "$NOTES_PATH" "$SCROTS_PATH" "$USER_LOGS_PATH"
 
 # open nice home instead if we're opening at home
 if [ "$PWD" = "$HOME" ] || [ "$PWD" = "$NICE_HOME" ]; then
