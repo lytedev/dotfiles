@@ -15,7 +15,8 @@ uuid="$(uuidgen -t)"
 [ ! -f "${f}" ] && echo "File '$f' does not exist. Exiting." >&2 && exit 1
 
 ssh ld mkdir -p "${internal_dir}"
-rsync_output="$(rsync --stats --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}")"
+rsync_output="$(rsync --no-owner --no-group --no-perms --stats --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}")"
+ssh ld chmod a+r "${internal_dir}/${fname}"
 num_uploaded="$(<<< "${rsync_output}" grep -oP "Number of created files: \K\d+")"
 
 if [[ $num_uploaded -eq 1 ]]; then

@@ -1,4 +1,3 @@
-[[
 #!/bin/sh
 # Base16 <%= @.scheme %> - Shell color setup script
 # <%= @author %>

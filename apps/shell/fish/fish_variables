@@ -45,4 +45,4 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:yellow\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/home/daniel/\x2ehome/\x2elocal/bin\x1e/home/daniel/\x2ehome/\x2elocal/bin\x1e/home/daniel/\x2ehome/\x2elocal/bin\x1e/home/daniel/\x2ehome/\x2ego\x1e/home/daniel/\x2ehome/\x2ego/bin\x1e/home/daniel/\x2ehome/\x2econfig/dotfiles/bin\x1e/home/daniel/\x2ehome/\x2eenv/bin\x1e/home/daniel/\x2ehome/\x2ebin\x1e/home/daniel/\x2ehome/\x2ecargo/bin\x1e/home/daniel/\x2ehome/\x2eyarn/bin
+SETUVAR fish_user_paths:/home/daniel/\x2ehome/\x2elocal/bin\x1e/home/daniel/\x2ehome/\x2elocal/bin\x1e/home/daniel/\x2ehome/\x2elocal/bin\x1e/home/daniel/\x2ehome/\x2ego\x1e/home/daniel/\x2ehome/\x2econfig/dotfiles/bin\x1e/home/daniel/\x2ehome/\x2eenv/bin\x1e/home/daniel/\x2ehome/\x2ebin\x1e/home/daniel/\x2ehome/\x2ecargo/bin\x1e/home/daniel/\x2ehome/\x2eyarn/bin

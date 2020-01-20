@@ -91,6 +91,7 @@ endif
 
 " color scheme
 let base16colorspace=16
+let &t_Co=16
 set background=dark
 syntax enable
 colorscheme base16-donokai
