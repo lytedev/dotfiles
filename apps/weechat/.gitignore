@@ -9,7 +9,6 @@
 !/logger.conf
 !/lua.conf
 !/perl.conf
-!/plugins.conf
 !/python.conf
 !/relay.conf
 !/script.conf

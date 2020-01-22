@@ -22,6 +22,7 @@ ssh ld mkdir -p "${internal_dir}"
 rsync --progress --no-owner --no-group --no-perms --stats --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
 code="$?"
 ssh ld chmod a+r "${internal_dir}/${fname}"
+echo "Uploaded to: ${url}"
 
 if [ "$code" -ne 0 ]; then
 	printf "ERROR: The file failed to upload - perhaps rsync failed for some reason?\n  See \"%s/.upload.log\" for details\n" "$HOME"

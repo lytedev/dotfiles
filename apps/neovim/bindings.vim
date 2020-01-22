@@ -8,27 +8,29 @@ command! Q q
 " best leader
 let mapleader = "\<Space>"
 
-if has('nvim')
-	" terminal mappings
-	" open a terminal split at 80 columns
-	nnoremap <C-t> :vsplit term://bash<CR>
-	nnoremap <C-S-T> :split term://bash<CR>
-	" tnoremap <C-t> <C-\><C-n>:call TerminalSplit()<CR>
-
-	" close the terminal
-	tnoremap <C-w> <C-\><C-n>:q!<CR>
-
-	" moving between terminal splits
-	tnoremap <C-h> :TmuxNavigateLeft<CR>
-	tnoremap <C-j> :TmuxNavigateDown<CR>
-	tnoremap <C-k> :TmuxNavigateUp<CR>
-	tnoremap <C-l> :TmuxNavigateRight<CR>
-endif
-
 " enter insert mode when entering a terminal buffer
 augroup InsertModeOnBlankTerminal
 	autocmd BufWinEnter,WinEnter term://* startinsert
 augroup END
+
+" terminal mappings
+nnoremap <leader>t :split term://$SHELL<CR><C-\><C-n>:resize 24<CR>i
+nnoremap <C-t> :split term://$SHELL<CR><C-\><C-n>:resize 24<CR>i
+nnoremap <leader><leader>t :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
+" nnoremap <C-S-T> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
+nnoremap <C-v> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
+
+" close the terminal
+tnoremap <C-w> <C-\><C-n>:q!<CR>
+tnoremap <leader>w <C-\><C-n>:q!<CR>
+tnoremap <C-n> <C-\><C-n>
+tnoremap <C-[> <C-\><C-n>
+
+" moving between terminal splits
+tnoremap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
+tnoremap <C-j> <C-\><C-n>:TmuxNavigateDown<CR>
+tnoremap <C-k> <C-\><C-n>:TmuxNavigateUp<CR>
+tnoremap <C-l> <C-\><C-n>:TmuxNavigateRight<CR>
 
 " Jump to the next or previous line that has the same level or a lower
 " level of indentation than the current line.
@@ -121,8 +123,12 @@ nnoremap <leader>h :b#<CR>
 " use leader j and k to switch buffers as well
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader>j :bprevious<CR>
-nnoremap <C-k> :bnext<CR>
-nnoremap <C-j> :bprevious<CR>
+
+" window/pane navigation
+nnoremap <C-h> :TmuxNavigateLeft<CR>
+nnoremap <C-j> :TmuxNavigateDown<CR>
+nnoremap <C-k> :TmuxNavigateUp<CR>
+nnoremap <C-l> :TmuxNavigateRight<CR>
 
 if has('nvim')
 	nnoremap <leader>r :source $vimdir/init.vim<CR>

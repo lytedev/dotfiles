@@ -153,6 +153,7 @@ alias man "vman"
 
 # neomutt is better
 alias mutt "neomutt"
+alias mail "mutt"
 
 # fsw aliases
 alias fsw-mix-test 'fsw "mix test" ./**/*.{ex,exs,erl,hrl,xrl,yrl}'
@@ -160,5 +161,5 @@ alias fsw-mix-test 'fsw "mix test" ./**/*.{ex,exs,erl,hrl,xrl,yrl}'
 # weechat aliases
 function chat
 	set -l pass (pass config/weechat-passphrase | head -n 1)
-	env WEECHAT_PASSPHRASE $pass weechat
+	env WEECHAT_PASSPHRASE=$pass weechat
 end

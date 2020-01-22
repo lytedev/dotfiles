@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
-set -U XDG_CONFIG_HOME $HOME/.config
-set -U DOTFILES_PATH $XDG_CONFIG_HOME/dotfiles
-set -U ENV_PATH $HOME/.env
+set -Ux XDG_CONFIG_HOME $HOME/.config
+set -Ux DOTFILES_PATH $XDG_CONFIG_HOME/dotfiles
+set -Ux ENV_PATH $HOME/.env
 
 function source_if_exists; test -f $ENV_PATH/$argv[1] && source $argv[1]; end
 function maybe_source_env_file; source_if_exists $ENV_PATH/$argv[1]; end
@@ -16,10 +16,10 @@ for f in key-bindings colors prompt aliases
 	source $DOTFILES_PATH/apps/shell/fish/$f.fish
 end
 
-set -U _JAVA_AWT_WM_NONREPARENTING 1
-set -U TERMINAL kitty
-set -U BROWSER firefox-developer-edition
-set -U ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
+set -Ux _JAVA_AWT_WM_NONREPARENTING 1
+set -Ux TERMINAL kitty
+set -Ux BROWSER firefox-developer-edition
+set -Ux ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
 
 # set our EDITOR to neovim if we've got it
 set -Ux EDITOR vim
@@ -29,6 +29,9 @@ if has_command nvim
 	set -Ux EDITOR nvim
 end
 
+# more sane ls colors
+set -Ux LS_COLORS 'ow=01;36;40'
+
 # load a per-device config last so anything can be overridden
 # TODO: this does not work quite right for fish?
 maybe_source_env_file config.fish
@@ -36,7 +39,7 @@ maybe_source_env_file .hidden/config.fish
 
 mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
 
-command -v fd 2>&1 >/dev/null && set -U FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
+has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
 # nonsense that clutters it up and that they have a preferred starting

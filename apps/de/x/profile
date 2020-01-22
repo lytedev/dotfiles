@@ -8,8 +8,9 @@
 [ -f "$DOTFILES_PATH/apps/de/x/loadresources" ] && "$DOTFILES_PATH/apps/de/x/loadresources"
 [ -f "$HOME/.xmodmap" ] && xmodmap "$HOME/.xmodmap"
 has_command xcape && xcape -e 'Control_L=Escape' &
-has_command autocutsel && autocutsel -fork &
 has_command libinput-gestures-setup && libinput-gestures-setup start
+has_command autocutsel && autocutsel -s PRIMARY &
+has_command autocutsel && autocutsel -s CLIPBOARD &
 has_command autorandr && autorandr -c
 has_command redshift && redshift -r -l 39.1:-94.6 -t 6500K:3000K &
 

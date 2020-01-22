@@ -38,6 +38,8 @@ let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:prosession_dir = $vimdir."/session/"
 
+let g:polyglot_disabled = ['cue', 'cuesheet']
+
 " let g:fzf_layout = { 'window': 'enew' }
 
 " check if we're using vim as the manpage viewer before loading session plugins
@@ -73,7 +75,6 @@ Plug 'dbakker/vim-projectroot'                                  " adds helper fu
 Plug 'junegunn/goyo.vim'                                        " better distraction-free editing
 Plug 'tpope/vim-sleuth'                                         " try and detect indent method
 Plug 'editorconfig/editorconfig-vim'                            " loads project-specific editor settings
-Plug 'sheerun/vim-polyglot'                                     " vim plugin loader for many languages
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'scrooloose/nerdtree'                                      " file browser
@@ -90,4 +91,5 @@ Plug 'tpope/vim-dadbod'                                         " vim
 Plug 'lytedev/elm-vim', {'for': ['elm']}                        " elm lang
 Plug 'google/vim-jsonnet', {'for': ['jsonnet', 'libsonnet']}    " jsonnet
 Plug 'sirtaj/vim-openscad', {'for': ['scad']}                   " openscad
+Plug 'jjo/vim-cue'
 " Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'

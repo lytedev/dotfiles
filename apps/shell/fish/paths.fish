@@ -16,15 +16,30 @@ has_command python && set -U fish_user_paths (python -m site --user-base)"/bin" 
 has_command ruby && set -U fish_user_paths (ruby -e 'print Gem.user_dir')"/bin" $fish_user_paths
 
 if test (dirname (basename $HOME)) = $USER
-	set -U NICE_HOME $HOME
+	set -Ux NICE_HOME $HOME
 else
-	set -U NICE_HOME /home/$USER
+	set -Ux NICE_HOME /home/$USER
 end
 
 for p in $NICE_HOME $HOME $ENV_PATH
-	test -f $p/.nice_home && set -U NICE_HOME (cat $p/.nice_home)
+	test -f $p/.nice_home && set -Ux NICE_HOME (cat $p/.nice_home)
 end
 
-set -U NOTES_PATH $NICE_HOME/doc/notes
-set -U SCROTS_PATH $NICE_HOME/img/scrots
-set -U USER_LOGS_PATH $NICE_HOME/doc/logs
+set -Ux NOTES_PATH $NICE_HOME/doc/notes
+set -Ux SCROTS_PATH $NICE_HOME/img/scrots
+set -Ux USER_LOGS_PATH $NICE_HOME/doc/logs
+
+set -Ux XDG_DESKTOP_DIR $HOME/desktop
+set -Ux XDG_PUBLICSHARE_DIR $HOME/public
+set -Ux XDG_TEMPLATES_DIR $HOME/templates
+
+set -Ux XDG_DOCUMENTS_DIR $NICE_HOME/doc
+set -Ux XDG_DOWNLOAD_DIR $NICE_HOME/dl
+set -Ux XDG_MUSIC_DIR $NICE_HOME/music
+set -Ux XDG_PICTURES_DIR $NICE_HOME/img
+set -Ux XDG_VIDEOS_DIR $NICE_HOME/video
+set -Ux XDG_GAMES_DIR $NICE_HOME/games
+
+set -Ux NOTES_PATH $NOTES_PATH $XDG_DOCUMENTS_DIR/notes
+set -Ux USER_LOGS_PATH $USER_LOGS_PATH $XDG_DOCUMENTS_DIR/logs
+set -Ux SCROTS_PATH $SCROTS_PATH $XDG_PICTURES_DIR/scrots
