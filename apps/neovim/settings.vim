@@ -76,12 +76,13 @@ set splitbelow " don't split top
 set noerrorbells " shhhh, vim
 set visualbell " but visual noise for alerts is ok
 set nobackup " sessions handle this quite nicely
-set nowritebackup " no but really they do
-set noswapfile " no seriously sessions are cool
+set nowritebackup " no, but really, they do
+set noswapfile " no, seriously, sessions are cool
 set timeout " key combo mapping timeout
 set ttimeoutlen=100 " ms delay for tapping key combos
 set timeoutlen=150 " ms for key combo mapping timeout
 set isfname+=32 " allow filenames to show them 32s
+set updatetime=300 " recommended for coc.nvim
 
 " no freakin' bell
 set visualbell t_vb=

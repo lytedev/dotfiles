@@ -222,14 +222,14 @@ nnoremap <leader>gs :syntax sync fromstart<CR>
 " open coc config
 nnoremap <leader><space>c :CocConfig<CR>
 
-" go to definitions
-nnoremap <leader>gd <Plug>(coc-jump-definition)
-nnoremap <leader>d <Plug>(coc-jump-definition)
-
+" smart jumps
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> g[ <Plug>(coc-diagnostic-prev)
+nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)

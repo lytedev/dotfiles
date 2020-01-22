@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # TODO: progress bar!
 
@@ -9,21 +9,20 @@ fname="${2:-$(basename "${f}")}"
 subdir="${3:-uploads}"
 internal_dir="/home/daniel/services/data/files/${subdir}"
 url="https://lyte.dev/${subdir}/${fname}"
-uuid="$(uuidgen -t)"
 
-[ "${f}" == "" ] && echo "No file provided. Exiting." >&2 && exit 2
+[ "${f}" = "" ] && echo "No file provided. Exiting." >&2 && exit 2
 [ ! -f "${f}" ] && echo "File '$f' does not exist. Exiting." >&2 && exit 1
 
-ssh ld mkdir -p "${internal_dir}"
-rsync_output="$(rsync --no-owner --no-group --no-perms --stats --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}")"
-ssh ld chmod a+r "${internal_dir}/${fname}"
-num_uploaded="$(<<< "${rsync_output}" grep -oP "Number of created files: \K\d+")"
-
-if [[ $num_uploaded -eq 1 ]]; then
-	echo "${f} uploaded to ${url}"
-elif [[ "$(curl -s -o /dev/null -w "%{http_code}" "${url}")" -eq 200 ]]; then
+if [ "$(curl -s -o /dev/null -w "%{http_code}" "${url}")" -eq 200 ]; then
 	echo "ERROR: A file already exists at ${url}"
-else
-	echo "${rsync_output}" >> "${HOME}/.upload.log"
-	echo "ERROR: The file failed to upload - perhaps rsync failed for some reason?\n  See \"${HOME}/.upload.log\" for details"
+	exit 3
+fi
+
+ssh ld mkdir -p "${internal_dir}"
+rsync --progress --no-owner --no-group --no-perms --stats --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
+code="$?"
+ssh ld chmod a+r "${internal_dir}/${fname}"
+
+if [ "$code" -ne 0 ]; then
+	printf "ERROR: The file failed to upload - perhaps rsync failed for some reason?\n  See \"%s/.upload.log\" for details\n" "$HOME"
 fi

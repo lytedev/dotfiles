@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 pacaur --needed -S \
 	neomutt `# Email Client` \
@@ -59,7 +59,17 @@ pacaur --needed -S \
 mkdir -p "$HOME/.urxvt/ext"
 curl -L -o "$HOME/.urxvt/ext/resize-font" https://raw.githubusercontent.com/lytedev/urxvt-resize-font/master/resize-font
 
+# install our font (customized iosevka from https://github.com/lytedev/iosevka)
+(
+	curl -L -o "$HOME/font.tar.zstd" https://lyte.dev/uploads/lyte-font.tar.zstd
+	mkdir "$HOME/.fonts"
+	cd "$HOME/.fonts" || return
+	tar --zstd -xvf "$HOME/font.tar.zstd"
+	rm "$HOME/font.tar.zstd"
+	fc-cache -f
+)
+
 # helpful Lua libs
-<<< "fun moonscript lpeg alt-getopt luafilesystem" tr ' ' "\n" | xargs -I % sudo luarocks install %
+echo "fun moonscript lpeg alt-getopt luafilesystem" | tr ' ' "\n" | xargs -I % sudo luarocks install %
 
 # TODO: recommend systemd services?
