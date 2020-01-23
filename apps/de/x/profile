@@ -13,6 +13,7 @@ has_command autocutsel && autocutsel -s PRIMARY &
 has_command autocutsel && autocutsel -s CLIPBOARD &
 has_command autorandr && autorandr -c
 has_command redshift && redshift -r -l 39.1:-94.6 -t 6500K:3000K &
+has_command kdeconnect-indicator && kdeconnect-indicator &
 
 eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
 export SSH_AUTH_SOCK

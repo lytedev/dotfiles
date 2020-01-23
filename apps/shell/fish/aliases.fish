@@ -32,6 +32,10 @@ function ltl
 	echo $l
 end
 
+function scount -d "Silent count" -w count
+	count $argv > /dev/null
+end
+
 function ltld
 	set d $argv[1] .
 	set -l l ""
@@ -48,31 +52,42 @@ alias vltl "vim (ltl)"
 alias cdltl "cd (ltld)"
 alias ltlv vltl
 
-# navigation aliases
-function c
-	if count $argv
-		cd $NICE_HOME && cd $argv[1] || exit 1
+function d -w cd
+	if scount $argv
+		cd $argv || exit 1
 	else
 		cd $NICE_HOME || exit 1
 	end
+	la
 end
-alias cd.. "cd .."
-alias cdd "cd $DOTFILES_PATH" # go to dotfiles
-alias cde "cd $ENV_PATH" # go to env dotfiles
-alias cdc "cd $XDG_CONFIG_HOME" # go to ~/.config
-alias cdn "cd $NOTES_PATH"
-alias cdl "cd $NICE_HOME/dl"
-alias cdg "cd $NICE_HOME/games"
+
+# navigation aliases
+function c -w cd
+	if scount $argv
+		cd $NICE_HOME && d $argv || exit 1
+	else
+		d $NICE_HOME
+	end
+	la
+end
+
+alias cd.. "d .."
+alias cdd "d $DOTFILES_PATH" # go to dotfiles
+alias cde "d $ENV_PATH" # go to env dotfiles
+alias cdc "d $XDG_CONFIG_HOME" # go to ~/.config
+alias cdn "d $NOTES_PATH"
+alias cdl "d $NICE_HOME/dl"
+alias cdg "d $NICE_HOME/games"
 
 # quick parent-directory aliases
-alias .. "cd .."
-alias ... "cd ../.."
-alias .... "cd ../../.."
-alias ..... "cd ../../../.."
-alias ...... "cd ../../../../.."
-alias ....... "cd ../../../../../.."
-alias ........ "cd ../../../../../../.."
-alias ......... "cd ../../../../../../../.."
+alias .. "d .."
+alias ... "d ../.."
+alias .... "d ../../.."
+alias ..... "d ../../../.."
+alias ...... "d ../../../../.."
+alias ....... "d ../../../../../.."
+alias ........ "d ../../../../../../.."
+alias ......... "d ../../../../../../../.."
 
 # tmux aliases
 # TODO: see if this can be worked around?
@@ -89,7 +104,7 @@ alias tm "tmux attach -t music || tmux new -s music"
 # git aliases
 # TODO: make these git aliases in the gitconfig?
 function g
-	if count $argv >/dev/null
+	if scount $argv
 		git $argv
 	else
 		git status
@@ -157,6 +172,11 @@ alias mail "mutt"
 
 # fsw aliases
 alias fsw-mix-test 'fsw "mix test" ./**/*.{ex,exs,erl,hrl,xrl,yrl}'
+
+function field
+	not scount $argv && echo "No field index provided"; exit 1
+	awk "{print \$$argv[1]}"
+end
 
 # weechat aliases
 function chat

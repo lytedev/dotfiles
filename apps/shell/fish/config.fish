@@ -4,8 +4,6 @@ set -Ux XDG_CONFIG_HOME $HOME/.config
 set -Ux DOTFILES_PATH $XDG_CONFIG_HOME/dotfiles
 set -Ux ENV_PATH $HOME/.env
 
-function source_if_exists; test -f $ENV_PATH/$argv[1] && source $argv[1]; end
-function maybe_source_env_file; source_if_exists $ENV_PATH/$argv[1]; end
 function has_command; command -v $argv[1] 2>&1 >/dev/null; end
 
 source $DOTFILES_PATH/apps/shell/fish/paths.fish
@@ -33,9 +31,10 @@ end
 set -Ux LS_COLORS 'ow=01;36;40'
 
 # load a per-device config last so anything can be overridden
-# TODO: this does not work quite right for fish?
-maybe_source_env_file config.fish
-maybe_source_env_file .hidden/config.fish
+for cf in config.fish .hidden/config.fish
+	set f $ENV_PATH/$cf
+	test -f $f && source $f
+end
 
 mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
 

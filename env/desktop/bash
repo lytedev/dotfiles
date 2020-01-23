@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-. "$ENV_PATH/.hidden/bash"
+hb="$ENV_PATH/.hidden/bash"
+[ -f "$hb" ] && . "$hb"

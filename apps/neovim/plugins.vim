@@ -66,7 +66,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'                       " allow transiti
 Plug 'christoomey/vim-tmux-navigator'                           " allow transitions within tmux
 Plug 'godlygeek/tabular'                                        " align text
 Plug 'lytedev/vim-superman'                                     " view man pages with vim
-Plug 'tpope/vim-surround'                                       " quickly modify text surrounding objects
+Plug 'machakann/vim-sandwich'                                   " quickly modify text surrounding objects
 Plug 'tpope/vim-speeddating'                                    " vim knows about date-like text objects
 Plug 'tpope/vim-fugitive'                                       " vim git commands
 Plug 'michaeljsmith/vim-indent-object'                          " adds an indentation level text object
