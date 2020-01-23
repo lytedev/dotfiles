@@ -30,15 +30,13 @@ end
 # more sane ls colors
 set -Ux LS_COLORS 'ow=01;36;40'
 
-# load a per-device config last so anything can be overridden
-for cf in config.fish .hidden/config.fish
-	set f $ENV_PATH/$cf
-	test -f $f && source $f
-end
-
-mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
-
 has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
+
+test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
+
+function fish_greeting
+	fortune
+end
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
 # nonsense that clutters it up and that they have a preferred starting
@@ -48,10 +46,16 @@ if test $PWD = $HOME; or test $PWD = $NICE_HOME;
 	cd $NICE_HOME || cd
 end
 
-test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
-
 if test -f $HOME/.asdf/asdf.fish
 	source $HOME/.asdf/asdf.fish
 else if test -f /opt/asdf-vm/asdf.fish
 	source /opt/asdf-vm/asdf.fish
 end
+
+# load a per-device config last so anything can be overridden
+for cf in config.fish .hidden/config.fish
+	set f $ENV_PATH/$cf
+	test -f $f && source $f
+end
+
+mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH

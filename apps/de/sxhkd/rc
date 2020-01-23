@@ -230,6 +230,9 @@ XF86AudioPrev
 super + w
 	"app-launcher" -modi window,run -show window
 
+super + shift + v
+	sh -c 'kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.pid")'
+
 # close the current application
 super + c
 	bspc node -c
@@ -241,22 +244,11 @@ super + shift + c
 # kill the wm, if alt is held, it will reload instead of truly quitting...
 # I think?
 super + ctrl + {alt +,_} Escape
-	{bspc wm -d > "$BSPWM_STATE_FILE" && bspc quit, \
-		bspc quit 1}
-
-Print
-	scrot "$NICE_HOME/img/scrots/%Y-%m-%d_%H-%M-%S_\$wx\$h.png"
+	sh -c '{bspc wm -d > "$BSPWM_STATE_FILE" && bspc quit, bspc quit 1}'
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-
-super + d
-	xdotool key super+4 && sleep 0.1 && xdotool key shift+4 && xdotool key shift+4 && xdotool key shift+4 && sleep 0.2 && xdotool key super+1 && xdotool key super+3
-
 super + ctrl + c
 	bspc rule -a '*' -o state=floating && urxvt --geometry 64x9 -e sh -c "cal -n 3 && bash"
-
-super + v
-	tmux new-window 'sh -ci tmuxswitcher'

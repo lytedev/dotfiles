@@ -53,6 +53,7 @@ pacaur --needed -S \
 	fish `# Shell` \
 	pkgfile `# Package File Metadata` \
 	swaks `# SMTP CLI` \
+	fortune-mod fortune-mod-archlinux `# Fortune` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly

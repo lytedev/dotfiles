@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-pidfile="/var/run/user/$(id -u)/polybar-mic-script.pid"
+pidfile="/var/run/user/$(id -u)/polybar-mic-script.sh.pid"
 
 if [ -e "$pidfile" ]; then
 	kill "$(cat "${pidfile}")" > /dev/null 2>&1
