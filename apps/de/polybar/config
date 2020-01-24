@@ -41,8 +41,8 @@ time = ${colors.foreground}
 monitor = ${xrdb:polybar.display_monitor:HDMI-1}
 width = ${xrdb:polybar.width:100%-200}
 height = ${xrdb:polybar.height:40}
-offset-x = ${xrdb:polybar.offset_x:30}
-offset-y = ${xrdb:polybar.offset_y:30}
+offset-x = ${xrdb:polybar.offset_x:100}
+offset-y = ${xrdb:polybar.offset_y:100}
 radius = 0.0
 fixed-center = true
 bottom = ${xrdb:polybar.bottom_of_display:true}
@@ -63,7 +63,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = ${xrdb:polybar.primary_font}
+font-0 = iosevka\-lyte:pixelsize=14;1
 font-1 = ${xrdb:polybar.secondary_font}
 
 modules-left = bspwm

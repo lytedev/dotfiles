@@ -2,8 +2,9 @@
 #define mono_font iosevka-lyte
 #define mono_font_size 14
 #define mono_font_letterspace 0
+#define icon_font Font Awesome 5 Free Solid
+#define icon_font_size 12
 #define bold_mono_font iosevka-lyte Semibold
-#define icon_font Font Awesome 5 Free
 #define emoji_font Noto Emoji
 #define font_fallback_stack xft:icon_font,xft:FreeSans
 
@@ -68,20 +69,22 @@ bspwm.border_width: window_border
 bspwm.num_desktops: 10
 bspwm.reverse_desktop_ordering: 0
 bspwm.split_ratio: 0.5
+bspwm.start_compton: false
+bspwm.start_bar: true
 
 ! polybar
-polybar.primary_font: xft:mono_font:pixelsize=mono_font_size
-polybar.secondary_font: xft:icon_font:pixelsize=mono_font_size
+polybar.primary_font: mono_font:pixelsize=mono_font_size;1
+polybar.secondary_font: icon_font:style=Regular:pixelsize=icon_font_size;1
 polybar.display_monitor: HDMI-1
 polybar.bottom_of_display: true
 polybar.margin: window_margin
 polybar.storage_volume: /
 polybar.ethernet_interface: eth0
 polybar.wireless_interface: wan0
-polybar.width: 100%:-100
+polybar.width: 100%
 polybar.height: 40
 ! if you have a margin value, be sure to include that in your offsets
-polybar.offset_x: 50
+polybar.offset_x: 0
 polybar.offset_y: 0
 
 ! rofi

@@ -6,6 +6,10 @@ yoffset="$(xrq polybar.offset_y)"
 eheight="$((height + margin + yoffset))"
 bar_monitor="$(xrq polybar.display_monitor)"
 
+# export BAR_FONT_DECLARATION="${BAR_FONT}:pixelsize=${BAR_FONT_SIZE};1"
+# export BAR_ICON_FONT_DECLARATION="${BAR_ICON_FONT}:style=Solid:pixelsize=${BAR_ICON_FONT_SIZE};1"
+# export BAR_ICON_FONT_2_DECLARATION="${BAR_ICON_FONT_2}:style=Regular:pixelsize=${BAR_ICON_FONT_SIZE};1"
+
 # TODO: if bspwm is the active window manager
 if has_command bspc; then
 	if [ ! "$(xrq polybar.bottom_of_display)" = "true" ]; then
