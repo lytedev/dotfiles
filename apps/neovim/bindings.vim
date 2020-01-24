@@ -20,10 +20,11 @@ nnoremap <leader><leader>t :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 1
 " nnoremap <C-S-T> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
 nnoremap <C-y> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
 
-" close the terminal
+" close
 tnoremap <C-w> <C-\><C-n>:q!<CR>
 tnoremap <leader>w <C-\><C-n>:q!<CR>
-tnoremap <C-n> <C-\><C-n>
+
+" normal mode
 tnoremap <C-[> <C-\><C-n>
 
 " moving between terminal splits
@@ -116,6 +117,10 @@ nnoremap <C-b> :Buffers<CR>
 
 " launch fzf for open buffers (files)
 nnoremap <leader>l :Buffers<CR>
+
+if has("nvim")
+  au FileType fzf tnoremap <Esc> <C-c><C-c>
+endif
 
 " switch to previous buffer
 nnoremap <leader>h :b#<CR>

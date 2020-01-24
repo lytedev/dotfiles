@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# TODO: this doesn't quite work all the time
-export REVERSE_DESKTOP_ORDERING=1

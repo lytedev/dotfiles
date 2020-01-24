@@ -6,6 +6,7 @@ xqm() {
 
 xqm "/etc/X11/xinit/.Xresources"
 xqm "$HOME/.Xresources"
+xqm "$HOME/.Xresources.colors"
 xqm "$DOTFILES_PATH/bin/lib/colors/xresources"
 xqm "$ENV_PATH/x/resources"
 

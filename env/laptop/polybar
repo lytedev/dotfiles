@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-export BAR_SIDE_MARGIN=0
-export BAR_HEIGHT=80
-
-[[ -v OVERRIDE_BAR_MONITOR ]] && export BAR_MONITOR="$OVERRIDE_BAR_MONITOR"
-[[ -v OVERRIDE_BAR_HEIGHT ]] && export BAR_HEIGHT="$OVERRIDE_BAR_HEIGHT"
-
-return 0

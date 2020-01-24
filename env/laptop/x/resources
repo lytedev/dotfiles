@@ -8,3 +8,6 @@ dpi: 190
 .dpi: 190
 *dpi: 190
 Xft.dpi: 190
+
+polybar.height: 80
+polybar.display_monitor: eDP1
