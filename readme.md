@@ -17,6 +17,10 @@ myself when setting up a new machine.
 * Read the warning, obey it, backup your files, *then* agree
 * **Optional**: Reboot once the script finishes
 
+**NOTE**: I'm in the middle of migrating from urxvt+bash to kitty+fish (and
+a less anything-dependent system in general). Lots of things are broken. The
+setup script probably no longer sets up *absolutely everything*.
+
 ## Priorities
 
 I have specific needs and desires (as does any developer) and I will lay those
