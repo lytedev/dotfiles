@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
+<<<<<<< HEAD:setup.bash
 # TODO: quiet/auto-agree mode for curl | bash automagic?
+||||||| bc5ce9e:setup
+# TODO: ascii art header since I'm a leet haxx0r
+=======
+# TODO: ascii art header since I'm a leet haxx0r
+# TODO: quiet mode?
+>>>>>>> 0d0e131714c756be933e158919908c19e0c35b2b:setup
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
 source "${dfp}/bin/lib/setup_helpers.bash"

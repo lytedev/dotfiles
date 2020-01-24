@@ -119,10 +119,17 @@ alias sctlu="systemctl --user"
 alias logs="sudo journalctl"
 alias logsr="sudo journalctl -r"
 alias logsf="sudo journalctl -f"
+<<<<<<< HEAD:apps/shell/bash/aliases.bash
 alias bt="sudo bluetoothctl"
 alias btctl="bt"
 alias btctl="sudo bluetoothctl"
 alias pbcopy="clip"
+||||||| bc5ce9e:shell/bash/aliases
+alias btctl="sudo bluetoothctl"
+=======
+alias bt="sudo bluetoothctl"
+alias btctl="bt"
+>>>>>>> 0d0e131714c756be933e158919908c19e0c35b2b:shell/bash/aliases
 alias pt="htop -t" # experimental htop tree-view-by-default
 alias resrc="source \$HOME/.bashrc"
 alias redshift="redshift -r -l 39.0997:-94.5786 -t 6500K:2500K"
