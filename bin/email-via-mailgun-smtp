@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+err() {
+	errpre=""
+	errpost=""
+	if test -t 1; then
+    ncolors=$(tput colors)
+		if test -n "$ncolors" && test $ncolors -ge 8; then
+			errpre="$(tput setaf 1)"
+			errpost="$(tput setaf 7)"
+		fi
+	fi
+	>&2 echo "${errpre}ERROR: $@${errpost}"; usage; exit 1
+}
+
+warn() {
+	pre=""
+	post=""
+	if test -t 1; then
+    ncolors=$(tput colors)
+		if test -n "$ncolors" && test $ncolors -ge 8; then
+			pre="$(tput setaf 3)"
+			post="$(tput setaf 7)"
+		fi
+	fi
+	>&2 echo "${pre}WARNING: $@${post}"
+}
+
+usage() { >&2 cat <<USAGEDOC
+usage:
+	email-via-mailgun-smtp [recipient] [subject] [username] [password] <<< 'Hello, world!'
+
+email-via-mailgun-smtp will read all the input from stdin and use the contents as the body of the email.
+recipient will default to DEFAULT_MAILGUN_SMTP_RECIPIENT if not set
+username will default to DEFAULT_MAILGUN_SMTP_USERNAME if not set
+password will default to DEFAULT_MAILGUN_SMTP_PASSWORD if not set
+subject will default to DEFAULT_MAILGUN_SMTP_SUBJECT if not set
+USAGEDOC
+}
+
+recipient="${1:-$DEFAULT_MAILGUN_SMTP_RECIPIENT}"; shift
+[[ -z $recipient ]] && err 'No recipient provided.'
+
+subject="${1:-$DEFAULT_MAILGUN_SMTP_SUBJECT}"; shift
+[[ -z $subject ]] && warn 'No subject provided. Leaving blank.'
+
+username="${1:-$DEFAULT_MAILGUN_SMTP_USERNAME}"; shift
+[[ -z $username ]] && err 'No username provided.'
+
+password="${1:-$DEFAULT_MAILGUN_SMTP_PASSWORD}"; shift
+[[ -z $password ]] && err 'No password provided.'
+
+warn "Reading email body from stdin..."
+
+body=""
+while read -r line; do
+	body="${body}\n${line}"
+done
+
+[[ -z $body ]] && err 'Body was blank.'
+
+echo "Recipient: $recipient"
+
+>&2 echo "Finished reading body. Sending email..."
+
+swaks --auth \
+	--server smtp.mailgun.org \
+	--au "$username" \
+	--ap "$password" \
+	--to "$recipient" \
+	--h-Subject: "$subject" \
+	--body "$body"
+

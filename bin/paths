@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+export GOPATH="$HOME/.go"
+
+# PATH=$PATH:$APPENDED_PATH
+PATH="$DOTFILES_PATH/bin":$PATH
+PATH="$ENV_PATH/bin":$PATH
+[ -d "$HOME/.bin" ] && PATH=$PATH:"$HOME/.bin"
+PATH=$PATH:"$HOME/.cargo/bin"
+PATH=$PATH:"$HOME/.yarn/bin"
+PATH=$PATH:"$GOPATH/bin"
+[ -d "$HOME/.local/bin" ] && PATH=$PATH:"$HOME/.local/bin"
+has_command python && PATH="$(python -m site --user-base)/bin:$PATH"
+has_command ruby && PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+export PATH
+
+export XDG_DESKTOP_DIR="$HOME/desktop"
+export XDG_PUBLICSHARE_DIR="$HOME/public"
+export XDG_TEMPLATES_DIR="$HOME/templates"
+
+export XDG_DOCUMENTS_DIR="$NICE_HOME/doc"
+export XDG_DOWNLOAD_DIR="$NICE_HOME/dl"
+export XDG_MUSIC_DIR="$NICE_HOME/music"
+export XDG_PICTURES_DIR="$NICE_HOME/img"
+export XDG_VIDEOS_DIR="$NICE_HOME/video"
+export XDG_GAMES_DIR="$NICE_HOME/games"
+
+export NOTES_PATH="${NOTES_PATH:-$XDG_DOCUMENTS_DIR/notes}"
+export USER_LOGS_PATH="${USER_LOGS_PATH:-$XDG_DOCUMENTS_DIR/logs}"
+export SCROTS_PATH="${SCROTS_PATH:-$XDG_PICTURES_DIR/scrots}"

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# bash_profile is executed immediately after logging in
+
+if [[ -f "$HOME/.bashrc" ]]; then
+  source "$HOME/.bashrc"
+fi

@@ -13,7 +13,7 @@ myself when setting up a new machine.
 ## Setup
 
 * Clone the repo into `~/.config/dotfiles`
-* Run `~/.config/dotfiles/setup`
+* Run `~/.config/dotfiles/setup.bash`
 * Read the warning, obey it, backup your files, *then* agree
 * **Optional**: Reboot once the script finishes
 
@@ -78,6 +78,7 @@ Here are some bullet points on my workflow:
 * Makefile instead of setup script
 * [Vimux](https://github.com/benmills/vimux)?
 * Nerd Fonts with ligatures and icons for Kitty
+* Setup network file sharing directory
 
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles

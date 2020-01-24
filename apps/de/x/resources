@@ -1,0 +1,53 @@
+## Some of my favorite font setups...
+## *font: xft:Monaco for Powerline-9
+## *boldFont: xft:Monaco for Powerline-9
+## *letterSpace: -1
+
+## *font: xft:artwiz lemon-8
+## *boldFont: xft:artwiz lemon-8
+## *letterSpace: 0
+
+## *font: xft:xos4 Terminuss Powerline-8
+## *boldFont: xft:xos4 Terminuss Powerline-8
+## *letterSpace: 0
+
+*.font: xft:Iosevka Term:pixelsize=14,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+*.boldFont: xft:Iosevka Term Bold:pixelsize=14,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+
+*.letterSpace: 0
+## URxvt.transparent: true
+## URxvt.shading: 70
+
+## rxvt-unicode configuration
+URxvt.termName: rxvt-unicode
+URxvt.scrollBar: false
+URxvt.cursorUnderline: true
+URxvt.cursorBlink: true
+URxvt.intensityStyles: true
+URxvt.utf8: 1
+URxvt.scaleHeight: 1
+URxvt.depth: 32
+URxvt.internalBorder: 24
+URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.iso14755: False
+
+## Other Xorg configuration
+Xcursor.theme: human
+
+## DPI config
+dpi: 92
+.dpi: 92
+*dpi: 92
+Xft.dpi: 92
+
+*autohint: 0
+*lcdfilter: lcddefault
+*hintstyle: hintfull
+*hinting: 1
+*antialias: 1
+*rgba: rgb

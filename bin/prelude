@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# these are all paths used across many of the dotfiles and should be assumed to
+# be loaded and properly set by every script - this means you are responsible
+# for making sure they're loaded!
+export XDG_CONFIG_HOME="$HOME/.config"
+export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+export ENV_PATH="$HOME/.env"
+
+# TODO: better logic for auto-detecting alternative home directories?
+# 1. check dirname(basename $HOME)) matches username
+# 2. check /home/$username
+NICE_HOME="$HOME"
+[ "$(basename "${HOME}")" = ".home" ] && NICE_HOME="$(realpath "$HOME/..")"
+[ -e "${HOME}/.nice_home" ] && NICE_HOME="$(cat "${HOME}/.nice_home")"
+[ -e "${ENV_PATH}/.nice_home" ] && NICE_HOME="$(cat "${ENV_PATH}/.nice_home")"
+export NICE_HOME
+
+. "$DOTFILES_PATH/bin/paths"

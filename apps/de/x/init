@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+# as far as I can tell, this file is only executed when you run startx from the
+# TTY - you probably want to modify xprofile
+
+[ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
+[ -z "$DOTFILES_PATH" ] && export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+
+. "$DOTFILES_PATH/bin/prelude"
+
+[ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
+
+# TODO: env? [ -f "$HOME/.env_xinitrc" ] && . "$HOME/.env_xinitrc"
+
+exec "$DOTFILES_PATH/apps/de/bspwm/wmstart"

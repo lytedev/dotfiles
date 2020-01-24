@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-source "$DOTFILES_PATH/de/bar/bar.bash" --just-vars
+. "$DOTFILES_PATH/apps/de/polybar/run" --just-vars
 
 LAUNCHER_FONT="$BAR_FONT"
 LAUNCHER_FONT_SIZE="$BAR_FONT_SIZE"
@@ -10,10 +10,7 @@ BACKGROUND_COLOR=$(xrq background)
 FOREGROUND_COLOR=$(xrq foreground)
 GAP=$(xrq internalBorder)
 
-# load a per-device config last so anything can be overridden
-if [ -a "$EDFP/app-launcher" ]; then
-	source "$EDFP/app-launcher"
-fi
+. maybe_source_env_file app-launcher
 
 rofi \
 	-combi-modi run,window \

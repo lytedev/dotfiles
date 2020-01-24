@@ -4,6 +4,7 @@
 [user]
 	name = Daniel Flanagan
 	email = daniel@lytedev.io
+	signingkey = daniel@lytedev.io
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -36,6 +37,7 @@
 	pf = push --force-with-lease
 	a = add -A
 	cnv = commit --no-verify
+	canv = commit --no-verify
 	c = commit
 
 [merge]
@@ -50,7 +52,14 @@
 
 [pager]
 	branch = false
-	diff = nvim -c 'silent %sm/\\e.\\{-}m//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile' -c 'goto 1' -
+	# remove ansi codes, pad each file's diff with newlines, show as diff, remove top padding
+	diff = vimpager -c 'silent %sm/\\e[^mK]*[mK]//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent execute \"normal gg2dd\"'
 
 [url "git@github.com:postmates"]
 	insteadOf = https://github.com/postmates
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	program = gpg2

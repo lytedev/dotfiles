@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+echo "Not implemented yet!"; exit 1
+
+edfp="$ENV_PATH/$1"
+mkdir -p "$edfp/"
+mkdir -p "$edfp/.hidden/bash.d/"
+mkdir -p "$edfp/bin/"
+mkdir -p "$edfp/x/"
+mkdir -p "$edfp/sway/waybar"
+mkdir -p "$edfp/sway/config.d"
+mkdir -p "$HOME/.bin/"
+
+touches=(
+	"$edfp/bash"
+	"$edfp/x/init"
+	"$edfp/x/profile"
+	"$edfp/x/resources"
+	"$edfp/vim"
+	"$edfp/bspwm"
+	"$edfp/polybar"
+	"$edfp/app-launcher"
+	"$edfp/workdock"
+)
+
+for t in "${touches[@]}"; do
+	touch "$t"
+done
+
+chmod 700 -R "$edfp"

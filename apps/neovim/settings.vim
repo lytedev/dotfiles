@@ -1,4 +1,6 @@
-scriptencoding utf8
+scriptencoding utf-8
+set fileencoding=utf8
+set encoding=utf8
 
 " ALE completeopt recommendation
 set completeopt=menu,menuone,preview,noselect,noinsert
@@ -74,12 +76,13 @@ set splitbelow " don't split top
 set noerrorbells " shhhh, vim
 set visualbell " but visual noise for alerts is ok
 set nobackup " sessions handle this quite nicely
-set nowritebackup " no but really they do
-set noswapfile " no seriously sessions are cool
+set nowritebackup " no, but really, they do
+set noswapfile " no, seriously, sessions are cool
 set timeout " key combo mapping timeout
 set ttimeoutlen=100 " ms delay for tapping key combos
 set timeoutlen=150 " ms for key combo mapping timeout
 set isfname+=32 " allow filenames to show them 32s
+set updatetime=300 " recommended for coc.nvim
 
 " no freakin' bell
 set visualbell t_vb=
@@ -89,9 +92,6 @@ if has('autocmd')
 	augroup END
 endif
 
-" color scheme
-let base16colorspace=256
-set background=dark
 syntax enable
 colorscheme base16-donokai
 
@@ -105,7 +105,7 @@ highlight GitGutterChangeDelete ctermbg=black guibg=black
 hi NonText ctermfg=black guifg=black
 
 set hidden " allows buffer switching without saving
-set shortmess=Ia " hide vim intro, skip lots of file messages/prompts
+set shortmess+=Ia " hide vim intro, skip lots of file messages/prompts
 set history=1000
 
 " undo files

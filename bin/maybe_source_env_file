@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+f="$1"; shift
+. source_if_exists "$ENV_PATH/$f" "$@"

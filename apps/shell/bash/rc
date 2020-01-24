@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+
+. "$DOTFILES_PATH/bin/prelude"
+
+[[ ! $- == *i* ]] && return # stop parsing on a non-interactive shell
+
+. "$DOTFILES_PATH/apps/shell/bash/aliases.bash"
+. "$DOTFILES_PATH/apps/shell/bash/autocompletions"
+. "$DOTFILES_PATH/apps/shell/bash/prompt"
+
+stty -ixon # disable ctrl-s terminal freezing
+bind -f "$DOTFILES_PATH/apps/shell/inputrc" # load our key
+# load our vconsole colors if in a tty
+if [[ "${TERM%%-*}" = 'linux' ]]; then
+	c="$DOTFILES_PATH/bin/lib/colors/vconsole"
+	[[ -s "$c" ]] && . "$c"
+fi
+
+# prevents some Java GUI apps from not working or rendering properly due to
+# using wacky window managers
+export _JAVA_AWT_WM_NONREPARENTING=1
+export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
+has_command fd && export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export LS_COLORS='ow=01;36;40'
+export LESS="-x2" # less tab size of 2 spaces
+export TERMINAL="urxvtc"
+export BROWSER="firefox-developer-edition"
+export HISTFILESIZE="10000000" # "unlimited" history
+export HISTSIZE="10000000" # "unlimited" history
+export HISTCONTROL=ignoreboth # ignore duplicates and commands starting with space (" ")
+shopt -s globstar # allow ** recursive wildcard globbing
+# prevents binds or commands pulling from history from insta-sending, and
+# instead places them in the readline for editing
+shopt -s histverify
+shopt -s histappend # always _append_ to bash history
+shopt -s cmdhist # ensure command history is comprised of single lines
+HISTIGNORE='ls:ll:la' # ignore certain commands
+
+# set our EDITOR to neovim if we've got it
+export EDITOR="vim"
+if has_command nvim; then
+	alias vim="nvim"
+	alias ovim="\\vim"
+	export EDITOR="nvim"
+fi
+
+# load a per-device config last so anything can be overridden
+. maybe_source_env_file bashrc
+. maybe_source_env_file .hidden/bashrc
+
+# create paths we kind of expect to exist in some scripts
+mkdir -p "$NOTES_PATH" "$SCROTS_PATH" "$USER_LOGS_PATH"
+
+# open nice home instead if we're opening at home
+if [ "$PWD" = "$HOME" ] || [ "$PWD" = "$NICE_HOME" ]; then
+	cd "$NICE_HOME" || cd || return
+fi
+
+[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+
+if [[ -d "$HOME/.asdf/" ]] && [[ -f "$HOME/.asdf/asdf.sh" ]]; then
+	. "$HOME/.asdf/asdf.sh"
+elif [[ -d /opt/asdf-vm/ ]] && [[ -f /opt/asdf-vm/asdf.sh ]]; then
+	. "/opt/asdf-vm/asdf.sh"
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,7 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-addon=""
-if [[ -n $1 ]]; then
-	addon="-${1}"
-fi
+addon=""; [ -n "$1" ] && addon="-${1}"
 echo "${PWD}" > "${DOTFILES_PATH}/.cwd${addon}.tmp"

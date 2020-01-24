@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+archive_name="$(basename "${1}").tar.zstd"
+tar --zstd -cvf "${archive_name}" "${@}"
+echo "Archive created at: ${archive_name}	"

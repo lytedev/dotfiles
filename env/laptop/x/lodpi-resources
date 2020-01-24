@@ -1,0 +1,19 @@
+## *.font: xft:Iosevka Nerd Font Mono:pixelsize=16,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+## *.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=16,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+## URxvt.font: xft:Iosevka Nerd Font Mono:pixelsize=16,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+## URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=16,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+
+## *.font: xft:scientifica:pixelsize=11,xft:Iosevka Nerd Font Mono:pixelsize=12,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=11,xft:FreeSans:pixelsize=12
+## *.boldFont: xft:scientifica:pixelsize=11,xft:Iosevka Nerd Font Mono:style=bold:pixelsize=12,xft:Font Awesome 5 Free:pixelsize=11,xft:FreeSans:pixelsize=12
+## URxvt.font: xft:scientifica:pixelsize=11,xft:Iosevka Nerd Font Mono:pixelsize=12,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=11,xft:FreeSans:pixelsize=12
+## URxvt.boldFont: xft:scientifica:pixelsize=11,xft:Iosevka Nerd Font Mono:style=bold:pixelsize=12,xft:Font Awesome 5 Free:pixelsize=11,xft:FreeSans:pixelsize=12
+
+*.font: xft:curie:pixelsize=11,xft:Iosevka Nerd Font Mono:pixelsize=12,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=8,xft:FreeSans:pixelsize=12
+*.boldFont: xft:curie:pixelsize=11,xft:Iosevka Nerd Font Mono:style=bold:pixelsize=12,xft:Font Awesome 5 Free:pixelsize=8,xft:FreeSans:pixelsize=12
+URxvt.font: xft:curie:pixelsize=11,xft:Iosevka Nerd Font Mono:pixelsize=12,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=8,xft:FreeSans:pixelsize=12
+URxvt.boldFont: xft:curie:pixelsize=11,xft:Iosevka Nerd Font Mono:style=bold:pixelsize=12,xft:Font Awesome 5 Free:pixelsize=8,xft:FreeSans:pixelsize=12
+
+dpi: 92
+.dpi: 92
+*dpi: 92
+Xft.dpi: 92

@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-SUBDIR="${2:-}"
+SUBDIR="${2:-./}"
 mkdir -p "$NOTES_PATH/$SUBDIR"
 "$EDITOR" "$NOTES_PATH/$SUBDIR/$1"

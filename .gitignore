@@ -1,9 +1,18 @@
-colors/gen/vendor
-colors/gen/tmp
 *.lock
 *.log
 *.pid
 *.tmp
 *.secret
-/.repositories
-/.env/
+
+# TODO: should be unnecessary once color generation is homegrown
+/colors/gen/vendor
+/colors/gen/tmp
+
+# keep the pipelines but hide their results
+/bin/pipelines/*/*/*
+
+# a place to keep secrets per-env
+/env/*/.hidden
+
+# ... and a place to keep shared secrets
+/env/.hidden

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+resrc
+
+export OVERRIDE_BAR_MONITOR="DP1"
+export OVERRIDE_BAR_HEIGHT="24"
+export BAR_ICON_FONT_SIZE="9"
+
+"${DOTFILES_PATH}/apps/de/x/loadresources" lodpi
+autorandr --change
+"${DOTFILES_PATH}/apps/de/bspwm/bspwmrc"
+restartbar
+"${HOME}/.fehbg"
+"${DOTFILES_PATH}/apps/de/x/loadresources" lodpi
+xrdb -merge "$ENV_PATH/lodpi-resource"
+xrandr --output eDP1 --scale-from 1600x900 --filter nearest --mode 3200x1800

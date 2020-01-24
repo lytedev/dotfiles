@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+xqm() {
+	f="$1"; shift; [ -f "$f" ] && xrdb -merge "$f" "$@" &>/dev/null
+}
+
+xqm "/etc/X11/xinit/.Xresources"
+xqm "$HOME/.Xresources"
+xqm "$DOTFILES_PATH/bin/lib/colors/xresources"
+xqm "$ENV_PATH/x/resources"
+
+sysmodmap="/etc/X11/xinit/.Xmodmap"
+usermodmap="$ENV_PATH/x/modmap"
+
+[ -f "$sysmodmap" ] && xmodmap "$sysmodmap" &>/dev/null
+[ -f "$usermodmap" ] && xmodmap "$usermodmap" &>/dev/null
+
+if [ -d "/etc/X11/xinit/xinitrc.d" ] ; then
+  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi

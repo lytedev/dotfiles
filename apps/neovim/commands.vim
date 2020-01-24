@@ -18,22 +18,6 @@ if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && index(jump_to_pos_blacklist, &ft) | exe "normal! g'\"" | endif
 endif
 
-" terminal split in neovim even tho we tmux
-if has('nvim')
-	function! TerminalSplit()
-		let current_file = @%
-		echo current_file
-		if match(current_file, "term://*") != -1
-			split
-			terminal
-		else
-			split
-			resize 24
-			terminal
-		endif
-	endfunction
-endif
-
 " make any necessary directories in the path when saving a file
 fun! <SID>AutoMakeDirectory()
 	let s:directory = expand("<afile>:p:h")
