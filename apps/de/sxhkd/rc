@@ -231,7 +231,7 @@ super + w
 	"app-launcher" -modi window,run -show window
 
 super + shift + v
-	sh -c 'kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.pid")'
+	sh -c 'kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.sh.pid")'
 
 # close the current application
 super + c

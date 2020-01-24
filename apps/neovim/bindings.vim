@@ -18,7 +18,7 @@ nnoremap <leader>t :split term://$SHELL<CR><C-\><C-n>:resize 24<CR>i
 nnoremap <C-t> :split term://$SHELL<CR><C-\><C-n>:resize 24<CR>i
 nnoremap <leader><leader>t :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
 " nnoremap <C-S-T> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
-nnoremap <C-v> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
+nnoremap <C-y> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
 
 " close the terminal
 tnoremap <C-w> <C-\><C-n>:q!<CR>

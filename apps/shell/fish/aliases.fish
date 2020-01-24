@@ -68,7 +68,6 @@ function c -w cd
 	else
 		d $NICE_HOME
 	end
-	la
 end
 
 alias cd.. "d .."

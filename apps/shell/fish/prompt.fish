@@ -27,18 +27,18 @@ end
 
 function fish_mode_prompt; end
 
-function fish_right_prompt
-	set_color brblack
-	switch $fish_bind_mode
-		case default
-			echo 'N'
-		case insert
-			echo 'I'
-		case replace_one
-			echo 'R'
-		case replace
-			echo 'R'
-		case visual
-			echo 'V'
-		end
-	end
+# function fish_right_prompt
+# 	set_color brblack
+# 	switch $fish_bind_mode
+# 		case default
+# 			echo 'N'
+# 		case insert
+# 			echo 'I'
+# 		case replace_one
+# 			echo 'R'
+# 		case replace
+# 			echo 'R'
+# 		case visual
+# 			echo 'V'
+# 	end
+# end

@@ -79,6 +79,7 @@ Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript lan
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'scrooloose/nerdtree'                                      " file browser
 Plug 'tpope/vim-eunuch'                                         " unix helper commands
+Plug 'mbbill/undotree'                                          " undo tree visualizer
 " Plug 'junegunn/vim-peekaboo'                                  " preview registers
 
 " language support
