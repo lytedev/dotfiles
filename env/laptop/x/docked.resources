@@ -1,0 +1,7 @@
+dpi: 92
+.dpi: 92
+*dpi: 92
+Xft.dpi: 92
+
+polybar.display_monitor: DP1
+polybar.height: 40

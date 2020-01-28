@@ -2,10 +2,13 @@
 
 NUM_DESKTOPS="$(xrq bspwm.num_desktops)"
 REVERSE_DESKTOP_ORDERING="$(xrq bspwm.reverse_desktop_ordering)"
-BSPWM_MONITORS=$(bspc query -M | tac)
+REVERSE_MONITOR_DESKTOPS="$(xrq bspwm.reverse_monitor_desktops)"
+BSPWM_MONITORS=$(bspc query -M)
 MONITOR_COUNT=$(<<< "$BSPWM_MONITORS" wc -w | awk '{ printf $1 }')
 PER_MONITOR=$((NUM_DESKTOPS / MONITOR_COUNT))
 DESKTOPS=$(seq "$NUM_DESKTOPS")
+
+[ $REVERSE_MONITOR_DESKTOPS -eq 1 ] && BSPWM_MONITORS=$(<<< "$BSPWM_MONITORS" tac)
 
 bspc config normal_border_color       "$(xrq bspwm.normal_border_color)"
 bspc config focused_border_color      "$(xrq bspwm.focused_border_color)"

@@ -1,8 +1,8 @@
 ! font
 #define mono_font iosevka-lyte
 #define mono_font_size 14
-#define mono_font_letterspace 0 
-#define icon_font Font Awesome 5 Free Solid 
+#define mono_font_letterspace 0
+#define icon_font Font Awesome 5 Free Solid
 #define icon_font_size 12
 #define bold_mono_font iosevka-lyte Semibold
 #define emoji_font Noto Emoji
@@ -68,6 +68,7 @@ bspwm.window_gap: window_margin
 bspwm.border_width: window_border
 bspwm.num_desktops: 10
 bspwm.reverse_desktop_ordering: 0
+bspwm.reverse_monitor_desktops: 0
 bspwm.split_ratio: 0.5
 bspwm.start_compton: false
 bspwm.start_bar: true

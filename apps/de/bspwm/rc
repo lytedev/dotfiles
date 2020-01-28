@@ -10,7 +10,6 @@ fi
 
 . "$DOTFILES_PATH/apps/de/bspwm/config"
 
-[ -f "$DOTFILES_PATH/apps/de/x/loadresources" ] && "$DOTFILES_PATH/apps/de/x/loadresources"
 [ -f "$HOME/.fehbg" ] && "$HOME/.fehbg" &
 [ "$(xrq bspwm.start_compton)" = "true" ] && has_command compton && compton &
 [ "$(xrq bspwm.start_bar)" = "true" ] && has_command "${BAR_COMMAND}" && "${BAR_COMMAND}" &
