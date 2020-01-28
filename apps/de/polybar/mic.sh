@@ -14,10 +14,10 @@ cleanup() {
 print_status() {
 	if amixer get Capture | grep -q '\[off\]'; then
 		# red means recording
-		echo "%{F$(xrdb -query | grep -Po 'color4:.*#\K\w[0-9a-f]+')}"
+		echo "%{B$(xrdb -query | grep -Po 'color4:.*#\K\w[0-9a-f]+')}  "
 	else
 		# blue means nobody can hear you scream
-		echo "%{F$(xrdb -query | grep -Po 'color1:.*#\K\w[0-9a-f]+')}"
+		echo "%{B$(xrdb -query | grep -Po 'color1:.*#\K\w[0-9a-f]+')}   "
 	fi
 }
 
