@@ -69,6 +69,9 @@ links=(
 	# libinput configuration
 	"$dfp/apps/de/libinput/gestures.conf"    "$XDG_CONFIG_HOME/libinput-gestures.conf"
 
+  # gpg config
+  "$dfp/apps/gpg/"                         "$HOME/.gnupg"
+
 	# document viewer
 	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
 
