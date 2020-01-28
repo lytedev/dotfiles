@@ -49,6 +49,9 @@ pacaur --needed -S \
 	libinput libinput-gestures `# Trackpad Control` \
 	xcape `# Escape Better` \
 	dunst `# Desktop Notifications` \
+	rofimoji `# Emoji Picker` \
 	--noconfirm --noedit
+
+curl -L -o "$HOME/.emoji.txt" https://lyte.dev/uploads/emoji.txt
 
 # TODO: recommend systemd services?

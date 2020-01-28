@@ -233,6 +233,15 @@ super + w
 super + shift + v
 	sh -c 'kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.sh.pid")'
 
+super + shift + v
+	sh -c 'kill -USR1 $(cat "/var/run/user/$UID/polybar-mic-script.sh.pid")'
+
+super + shift + e
+	rofimoji --use-clipboard --rofi-args='--sort -sorting-method fzf'
+
+super + shift + p
+	rofi-pass
+
 # close the current application
 super + c
 	bspc node -c

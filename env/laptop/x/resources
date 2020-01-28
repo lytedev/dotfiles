@@ -1,10 +1,13 @@
 *.font: xft:Iosevka Nerd Font Mono:pixelsize=12,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 *.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=12,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+
 URxvt.font: xft:Iosevka Nerd Font Mono:pixelsize=32,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=32,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
-Emacs.font: Iosevka Term
-Emacs.faceName: Iosevka Term
+
 dpi: 190
 .dpi: 190
 *dpi: 190
 Xft.dpi: 190
+
+polybar.height: 80
+polybar.display_monitor: eDP1

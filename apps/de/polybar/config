@@ -38,14 +38,14 @@ time = ${colors.foreground}
 ; ########################### ;
 
 [bar/lytedev]
-monitor = ${env:BAR_MONITOR:HDMI-1}
-width = ${env:BAR_WIDTH:HDMI-1}
-height = ${env:BAR_HEIGHT:30}
-offset-x = ${env:POS_X:30}
-offset-y = ${env:POS_Y:30}
+monitor = ${xrdb:polybar.display_monitor:HDMI-1}
+width = ${xrdb:polybar.width:100%-200}
+height = ${xrdb:polybar.height:40}
+offset-x = ${xrdb:polybar.offset_x:100}
+offset-y = ${xrdb:polybar.offset_y:100}
 radius = 0.0
 fixed-center = true
-bottom = ${env:BAR_BOTTOM:true}
+bottom = ${xrdb:polybar.bottom_of_display:true}
 dpi = ${xrdb:dpi:92}
 
 background = ${colors.background}
@@ -63,8 +63,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = ${env:BAR_FONT_DECLARATION}
-font-1 = ${env:BAR_ICON_FONT_DECLARATION}
+font-0 = iosevka\-lyte:pixelsize=14;1
+font-1 = ${xrdb:polybar.secondary_font}
 
 modules-left = bspwm
 modules-center = date
@@ -89,7 +89,7 @@ override-redirect = true
 type = internal/fs
 interval = 25
 
-mount-0 = ${env:BAR_FS_VOLUME:/}
+mount-0 = ${xrdb:polybar.storage_volume:/}
 
 format = <label-mounted>
 label-mounted = %free%
@@ -171,14 +171,14 @@ label = 
 bar-width = 5
 bar-indicator = |
 bar-indicator-foreground = ${colors.foreground}
-bar-indicator-font = 0
+bar-indicator-font = 1
 bar-fill = ─
 ; bar-fill = -
-bar-fill-font = 0
+bar-fill-font = 1
 bar-fill-foreground = ${colors.bar-bg}
 bar-empty = ─
 ; bar-empty = -
-bar-empty-font = 0
+bar-empty-font = 1
 bar-empty-foreground = ${colors.bar-bg}
 
 ; ########################### ;
@@ -211,7 +211,7 @@ label-foreground = ${colors.memory}
 
 [module/wifi]
 type = internal/network
-interface = ${env:BAR_WIFI_INTERFACE}
+interface = ${xrdb:polybar.wireless_interface}
 interval = 10.0
 
 ;format-connected = <ramp-signal> <label-connected>
@@ -239,7 +239,7 @@ ramp-signal-4 = 
 
 [module/eth]
 type = internal/network
-interface = ${env:BAR_ETH_INTERFACE}
+interface = ${xrdb:polybar.ethernet_interface}
 interval = 10.0
 
 format-connected-prefix = " "
@@ -298,11 +298,11 @@ bar-volume-foreground-5 = ${colors.bar-bg}
 bar-volume-foreground-6 = ${colors.bar-bg}
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 0
+bar-volume-indicator-font = 1
 bar-volume-fill = ─
-bar-volume-fill-font = 0
+bar-volume-fill-font = 1
 bar-volume-empty = ─
-bar-volume-empty-font = 0
+bar-volume-empty-font = 1
 bar-volume-empty-foreground = ${colors.icon}
 
 ; ######################### ;
@@ -382,8 +382,8 @@ compositing-border = source
 ; ######################### ;
 
 [global/wm]
-margin-top = ${env:WINDOW_GAP:0}
-margin-bottom = ${env:WINDOW_GAP:0}
+margin-top = ${xrdb:polybar.margin:0}
+margin-bottom = ${xrdb:polybar.margin:0}
 
 [module/microphone]
 type = custom/script

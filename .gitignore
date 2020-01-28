@@ -3,6 +3,7 @@
 *.pid
 *.tmp
 *.secret
+<<<<<<< HEAD
 
 # TODO: should be unnecessary once color generation is homegrown
 /colors/gen/vendor
@@ -16,3 +17,22 @@
 
 # ... and a place to keep shared secrets
 /env/.hidden
+||||||| 0d0e131
+/.repositories
+/.env/
+=======
+fishd.tmp.*
+
+# TODO: should be unnecessary once color generation is homegrown
+/colors/gen/vendor
+/colors/gen/tmp
+
+# keep the pipelines but hide their results
+/bin/pipelines/*/*/*
+
+# a place to keep secrets per-env
+/env/*/.hidden
+
+# ... and a place to keep shared secrets
+/env/.hidden
+>>>>>>> master

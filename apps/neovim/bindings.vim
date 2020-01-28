@@ -117,6 +117,10 @@ nnoremap <C-b> :Buffers<CR>
 " launch fzf for open buffers (files)
 nnoremap <leader>l :Buffers<CR>
 
+if has("nvim")
+  au FileType fzf tnoremap <Esc> <C-c><C-c>
+endif
+
 " switch to previous buffer
 nnoremap <leader>h :b#<CR>
 

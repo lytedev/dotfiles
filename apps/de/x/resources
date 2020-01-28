@@ -1,24 +1,33 @@
-## Some of my favorite font setups...
-## *font: xft:Monaco for Powerline-9
-## *boldFont: xft:Monaco for Powerline-9
-## *letterSpace: -1
+! font
+#define mono_font iosevka-lyte
+#define mono_font_size 14
+#define mono_font_letterspace 0 
+#define icon_font Font Awesome 5 Free Solid 
+#define icon_font_size 12
+#define bold_mono_font iosevka-lyte Semibold
+#define emoji_font Noto Emoji
+#define font_fallback_stack xft:icon_font,xft:FreeSans
 
-## *font: xft:artwiz lemon-8
-## *boldFont: xft:artwiz lemon-8
-## *letterSpace: 0
+! window spacing
+#define window_padding 24
+#define window_border 5
+#define window_margin 0
 
-## *font: xft:xos4 Terminuss Powerline-8
-## *boldFont: xft:xos4 Terminuss Powerline-8
-## *letterSpace: 0
+! dpi
+#define base_dpi 92
 
-*.font: xft:Iosevka Term:pixelsize=14,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
-*.boldFont: xft:Iosevka Term Bold:pixelsize=14,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+! alternatives
+!#define mono_font scientifica
+!#define mono_font_size 11
+!#define mono_font curie
+!#define mono_font_size 10
 
-*.letterSpace: 0
-## URxvt.transparent: true
-## URxvt.shading: 70
+! font
+*.font: xft:mono_font:pixelsize=mono_font_size,xft:emoji_font,font_fallback_stack
+*.boldFont: xft:bold_mono_font:pixelsize=mono_font_size
+*.letterSpace: mono_font_letterspace
 
-## rxvt-unicode configuration
+! rxvt-unicode
 URxvt.termName: rxvt-unicode
 URxvt.scrollBar: false
 URxvt.cursorUnderline: true
@@ -27,7 +36,7 @@ URxvt.intensityStyles: true
 URxvt.utf8: 1
 URxvt.scaleHeight: 1
 URxvt.depth: 32
-URxvt.internalBorder: 24
+URxvt.internalBorder: window_padding
 URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.resize-font.smaller: C-Down
@@ -36,18 +45,54 @@ URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.iso14755: False
 
-## Other Xorg configuration
+! misc
 Xcursor.theme: human
 
-## DPI config
-dpi: 92
-.dpi: 92
-*dpi: 92
-Xft.dpi: 92
+! dpi
+dpi: base_dpi
+.dpi: base_dpi
+*dpi: base_dpi
+Xft.dpi: base_dpi
 
+! font rendering
+! TODO: is this still relevant?
 *autohint: 0
 *lcdfilter: lcddefault
 *hintstyle: hintfull
 *hinting: 1
 *antialias: 1
 *rgba: rgb
+
+! bspwm
+bspwm.window_gap: window_margin
+bspwm.border_width: window_border
+bspwm.num_desktops: 10
+bspwm.reverse_desktop_ordering: 0
+bspwm.split_ratio: 0.5
+bspwm.start_compton: false
+bspwm.start_bar: true
+
+! polybar
+polybar.primary_font: mono_font:pixelsize=mono_font_size;1
+polybar.secondary_font: icon_font:style=Regular:pixelsize=icon_font_size;1
+polybar.display_monitor: HDMI-1
+polybar.bottom_of_display: true
+polybar.margin: window_margin
+polybar.storage_volume: /
+polybar.ethernet_interface: eth0
+polybar.wireless_interface: wan0
+polybar.width: 100%
+polybar.height: 40
+! if you have a margin value, be sure to include that in your offsets
+polybar.offset_x: 0
+polybar.offset_y: 0
+
+! rofi
+rofi.font: mono_font mono_font_size
+rofi.padding: window_padding
+rofi.bw: window_border
+rofi.color-enabled: true
+rofi.monitor: -4
+rofi.width: 600
+rofi.sort: true
+rofi.sorting-method: fzf
