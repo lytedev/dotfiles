@@ -5,6 +5,7 @@ set -U fish_user_paths \
 	$GOPATH/bin \
 	$DOTFILES_PATH/bin \
 	$ENV_PATH/bin \
+	$ENV_PATH/.hidden/bin \
 	$HOME/.bin \
 	$HOME/.cargo/bin \
 	$HOME/.yarn/bin
