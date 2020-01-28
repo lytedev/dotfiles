@@ -1,9 +1,11 @@
 #!/usr/bin/env moon
+
 arg_spec = {
 	{"target", "REMOTE_MACHINE", "remote"}
 	{"mpr", "MOSH_PORT_RANGE", "60000:61000"}
 	{"sargs", "SSH_ARGS", "-XY"}
 	{"margs", "MOSH_ARGS", ""}
 }
+
 args = {v[1], os.getenv(v[2]) or arg[i] or v[3] for i, v in ipairs(arg_spec)}
 os.execute "mosh -p '#{args.mpr}' '#{args.target}' --ssh='ssh #{args.sargs}' #{args.margs}"
