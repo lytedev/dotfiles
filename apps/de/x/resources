@@ -1,8 +1,8 @@
 ! font
 #define mono_font iosevka-lyte
 #define mono_font_size 14
-#define mono_font_letterspace 0
-#define icon_font Font Awesome 5 Free Solid
+#define mono_font_letterspace 0 
+#define icon_font Font Awesome 5 Free Solid 
 #define icon_font_size 12
 #define bold_mono_font iosevka-lyte Semibold
 #define emoji_font Noto Emoji
@@ -94,3 +94,5 @@ rofi.bw: window_border
 rofi.color-enabled: true
 rofi.monitor: -4
 rofi.width: 600
+rofi.sort: true
+rofi.sorting-method: fzf

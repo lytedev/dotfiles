@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+op="${1:--c}"; shift &>/dev/null
+cd ~/.password-store || ( echo "Could not cd to ~/.password-store" && exit 1 )
+pp="$(fd gpg | sd ".gpg" "" | fzf --height 40%)"
+echo pass $op $pp
+pass "$op" "$@" "$pp"
+cd - || return 1

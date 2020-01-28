@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+op="${1:--c}"; shift &>/dev/null
+cd ~/.password-store || ( echo "Could not cd to ~/.password-store" && exit 1 )
+r="$(< "$HOME/.emoji.txt" fzf --height 40%)"
+echo "Selected $r (it's in your clipboard)"
+<<< $r awk '$0=$1' | tr -d '\n' | clip
+cd - || return 1
