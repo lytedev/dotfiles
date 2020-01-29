@@ -56,12 +56,12 @@ bind-key P attach-session -t . -c '#{pane_current_path}' \; display-message 'Res
 set -g status-position bottom
 set -g status-bg colour0
 set -g status-fg colour8
-set -g message-style 'fg=colour7 bg=colour18'
 set -g status-interval 5
 set -g status-right-length 80
 set -g status-right "#[fg=colour4]#W#[fg=default]#[bg=default] #H"
 set -g status-left-length 200
-set -g status-left "#[fg=colour7]#(tmux-session-list #S)"
+set -g status-left "#[fg=colour7]#(~/.config/dotfiles/bin/tmux-session-list #S)"
+set -g message-style 'fg=colour7 bg=colour18'
 
 bind-key O display-message "#(tmux-save-buffer #S)"
 
