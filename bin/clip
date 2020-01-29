@@ -1,5 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 xclip -selection primary
 xclip -selection primary -out | xclip -selection clipboard
 xclip -selection primary -out | xclip -selection secondary
+echo "Your input was stored in all clipboards."
+sleep 5 && killall xclip &>/dev/null &
