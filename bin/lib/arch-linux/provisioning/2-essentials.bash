@@ -53,6 +53,7 @@ pacaur --needed -S \
 	fish `# Shell` \
 	pkgfile `# Package File Metadata` \
 	swaks `# SMTP CLI` \
+	time `# GNU time` \
 	fortune-mod fortune-mod-archlinux `# Fortune` \
 	--noconfirm --noedit
 

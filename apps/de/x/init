@@ -9,7 +9,6 @@
 . "$DOTFILES_PATH/bin/prelude"
 
 [ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
-
-# TODO: env? [ -f "$HOME/.env_xinitrc" ] && . "$HOME/.env_xinitrc"
+[ -f "$ENV_PATH/x/init" ] && . "$ENV_PATH/x/init"
 
 exec "$DOTFILES_PATH/apps/de/bspwm/wmstart"
