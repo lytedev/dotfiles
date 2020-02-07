@@ -70,7 +70,7 @@ links=(
 	"$dfp/apps/de/libinput/gestures.conf"    "$XDG_CONFIG_HOME/libinput-gestures.conf"
 
   # gpg config
-  "$dfp/apps/gpg/"                         "$HOME/.gnupg"
+  "$dfp/apps/gpg/agent.conf"               "$HOME/.gnupg/gpg-agent.conf"
 
 	# document viewer
 	"$dfp/apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
@@ -126,9 +126,8 @@ if [[ "$INTERACTIVE" = 1 ]]; then
 		"$dfp/bin/lib/sudo_setup"
 	fi
 
-	echo -e "Dotfiles Installed! Running 'exec bash'...\n"
-
 	# execute the user's shell
 	ush="$(getent passwd $LOGNAME | cut -d: -f7)"
+	echo -e "Dotfiles Installed! Running 'exec $ush'...\n"
 	exec "$ush"
 fi
