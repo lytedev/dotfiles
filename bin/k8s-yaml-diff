@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+[ "$#" -lt 2 ] && echo "Need two filenames." && exit 1
+
+f1="$1"; shift
+f2="$1"; shift
+
+nvim -d <(k8s-yaml-sort "$f1") <(k8s-yaml-sort "$f2")

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+[ "$#" -lt 2 ] && echo "Need two filenames." && exit 1
+
+f1="$1"; shift; echo "$f1" >&2
+f2="$1"; shift; echo "$f2" >&2
+
+nvim -d <(yq . "$f1" | jq -S .) <(yq . "$f2" | jq -S .)

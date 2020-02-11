@@ -52,19 +52,20 @@ else
 	trap "${cleanup_trap}; kill \"$watcher\"" EXIT
 fi
 
-job="call jobstart(['inotifywait', '-m', '-e', 'close_write', '${out}'], {'on_stdout':{j,d,e->execute('checktime')}})"
+job="$(echo "let g:pipeline_job_id = jobstart(['inotifywait', '-m', '-e', 'close_write', '${out}'], {'detach':1,'on_stdout':{j,d,e->execute('checktime')}})")"
+
+echo $job >> "$log"
 
 # this will only autosave (and therefore autoreload) for the out buffer (since
 # it was opened last) - autosaving (and therefore autorunning) is potentially
 # very scary
-nvim \
-	--cmd 'set shm+=atIWF' \
-	--cmd 'set shm-=Oo' \
+nvim -V9"$td/vimlog" \
 	-o "$in" "$transform" "$out" \
 	--cmd 'set autoread' \
 	--cmd 'set updatetime=250' \
 	--cmd 'autocmd CursorHold,CursorHoldI <buffer> silent write' \
-	--cmd "$(<<< "$job" tr "'" '"')"
+	--cmd 'autocmd VimLeave call jobstop(g:pipeline_job_id)' \
+	--cmd "$job"
 
 #!/usr/bin/env bash
 

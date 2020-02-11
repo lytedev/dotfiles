@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+[ "$#" -lt 1 ] && echo "Need a filename." && exit 1
+cat "$1" | yq -s . | jq -S '
+	sort_by(.metadata.name) |
+	sort_by(.kind) |
+	.[] | .spec.template.spec.containers |=
+		if . == null then empty
+		else
+			map(
+				if . == null then empty
+				else .env |= sort_by(.name)
+					| .volumeMounts |= sort_by(.name)
+				end
+			)
+		end
+	'
