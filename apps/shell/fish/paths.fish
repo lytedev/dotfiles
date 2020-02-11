@@ -1,5 +1,7 @@
 #!/usr/bin/env fish
 
+set -Ux GOPATH $HOME/.go
+
 set -U fish_user_paths \
 	$HOME/.go \
 	$GOPATH/bin \

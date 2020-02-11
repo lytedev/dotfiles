@@ -1,12 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 SAVED_PIPELINE_DIR="$DOTFILES_PATH/bin/pipelines"
 mkdir -p "$SAVED_PIPELINE_DIR"
 
-if [[ ! -z "${1+x}" ]]; then
+if [ -n "${1+x}" ]; then
 	pdir="$SAVED_PIPELINE_DIR/$1"; shift
 	mkdir -p "$pdir"
-	if [[ -z ${1+x} ]]; then
+	if [ -z ${1+x} ]; then
 		td="$(mktemp -p "$pdir" -d "tmp_pipeline.XXXXXXXX")"
 		cleanup_trap="rm -rf \"$td\""
 	else
@@ -20,18 +20,13 @@ else
 	cleanup_trap="rm -rf \"$td\""
 fi
 
-if [[ ! -e "$transform" ]]; then
-	echo -e "#!/usr/bin/env bash\n# for ${td}\n\nbase64" > "$transform"
-fi
+[ ! -e "$transform" ] && \
+	printf "#!/usr/bin/env bash\n# for %s\n\nbase64" "${td}" > "$transform"
 
 in="$td/in"
-if [[ ! -z "${1+x}" ]]; then
-	in="${1}"; shift
-fi
+[ -n "${1+x}" ] && in="${1}" && shift
 out="$td/out"
-if [[ ! -z "${1+x}" ]]; then
-	out="${1}"; shift
-fi
+[ -n "${1+x}" ] && out="${1}" && shift
 
 # TODO: if no logging, log="/dev/null"
 log="$td/log"
@@ -43,10 +38,11 @@ touch "$log"
 fswi \
 	"bash -c 'cd \"$td\" && < \"$in\" \"$transform\" | tee \"$out\"'" \
 	'in$|transform$' \
-	"$td" "$pdir" &> "$log" &
+	"$td" "$pdir" > "$log" 2>&1 &
+
 watcher="$!"
 
-if [[ -z ${cleanup_trap+x} ]]; then
+if [ -z "${cleanup_trap+x}" ]; then
 	trap "kill \"$watcher\"" EXIT
 else
 	trap "${cleanup_trap}; kill \"$watcher\"" EXIT
@@ -58,78 +54,7 @@ job="call jobstart(['inotifywait', '-m', '-e', 'close_write', '${out}'], {'on_st
 # it was opened last) - autosaving (and therefore autorunning) is potentially
 # very scary
 nvim \
-	--cmd 'set shm+=atIWF' \
-	--cmd 'set shm-=Oo' \
 	-o "$in" "$transform" "$out" \
-	--cmd 'set autoread' \
+	--cmd "$(echo "$job" | tr "'" '"')" \
 	--cmd 'set updatetime=250' \
-	--cmd 'autocmd CursorHold,CursorHoldI <buffer> silent write' \
-	--cmd "$(<<< "$job" tr "'" '"')"
-
-#!/usr/bin/env bash
-
-# SAVED_PIPELINE_DIR="$EDFP/pipelines"
-# mkdir -p "$SAVED_PIPELINE_DIR"
-
-# if [[ ! -z "${1+x}" ]]; then
-# 	pdir="$SAVED_PIPELINE_DIR/$1"; shift
-# 	mkdir -p "$pdir"
-# 	if [[ -z ${1+x} ]]; then
-# 		td="$(mktemp -p "$pdir" -d "tmp_pipeline.XXXXXXXX")"
-# 		cleanup_trap="rm -rf \"$td\""
-# 	else
-# 		td="$pdir/$1"; shift
-# 		mkdir -p "$td"
-# 	fi
-# 	transform="$pdir/transform"
-# else
-# 	td="$(mktemp --tmpdir -d pipeline.XXXXXXXX)"
-# 	transform="$td/transform"
-# 	cleanup_trap="rm -rf \"$td\""
-# fi
-
-# if [[ ! -e "$transform" ]]; then
-# 	echo -e "#!/usr/bin/env bash\n# for ${td}\n\nbase64" > "$transform"
-# fi
-
-# in="$td/in"
-# if [[ ! -z "${1+x}" ]]; then
-# 	in="${1}"; shift
-# fi
-# out="$td/out"
-# if [[ ! -z "${1+x}" ]]; then
-# 	out="${1}"; shift
-# fi
-
-# # TODO: if no logging, log="/dev/null"
-# log="$td/log"
-
-# chmod +x "$transform"
-# echo "Hello World" > "$in"
-# touch "$log"
-
-# fswi \
-# 	"bash -c 'cd \"$td\" && < \"$in\" \"$transform\" | tee \"$out\"'" \
-# 	'in$|transform$' \
-# 	"$td" "$pdir" &> "$log" &
-# watcher="$!"
-
-# if [[ -z ${cleanup_trap+x} ]]; then
-# 	trap "kill \"$watcher\"" EXIT
-# else
-# 	trap "${cleanup_trap}; kill \"$watcher\"" EXIT
-# fi
-
-# job="call jobstart(['inotifywait', '-m', '-e', 'close_write', '${out}'], {'on_stdout':{j,d,e->execute('checktime')}})"
-
-# # this will only autosave (and therefore autoreload) for the out buffer (since
-# # it was opened last) - autosaving (and therefore autorunning) is potentially
-# # very scary
-# nvim \
-# 	--cmd 'set shm+=atIWF' \
-# 	--cmd 'set shm-=Oo' \
-# 	-o "$in" "$transform" "$out" \
-# 	--cmd 'set autoread' \
-# 	--cmd 'set updatetime=250' \
-# 	--cmd 'autocmd CursorHold,CursorHoldI <buffer> silent write' \
-# 	--cmd "$(<<< "$job" tr "'" '"')"
+	--cmd 'autocmd CursorHold,CursorHoldI <buffer> silent write'

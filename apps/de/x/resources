@@ -1,6 +1,7 @@
 ! font
 #define mono_font iosevka-lyte
 #define mono_font_size 14
+#define bar_font_size 12
 #define mono_font_letterspace 0
 #define icon_font Font Awesome 5 Free Solid
 #define icon_font_size 12
@@ -74,7 +75,7 @@ bspwm.start_compton: false
 bspwm.start_bar: true
 
 ! polybar
-polybar.primary_font: mono_font:pixelsize=mono_font_size;1
+polybar.primary_font: mono_font:pixelsize=bar_font_size;1
 polybar.secondary_font: icon_font:style=Regular:pixelsize=icon_font_size;1
 polybar.display_monitor: HDMI-1
 polybar.bottom_of_display: true
