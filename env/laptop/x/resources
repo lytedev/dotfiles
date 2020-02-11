@@ -1,3 +1,5 @@
+#define bar_font_size 12
+
 *.font: xft:Iosevka Nerd Font Mono:pixelsize=12,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 *.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=12,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 
@@ -9,5 +11,6 @@ dpi: 190
 *dpi: 190
 Xft.dpi: 190
 
-polybar.height: 80
+polybar.height: 70
 polybar.display_monitor: eDP1
+polybar.primary_font: iosevka-lyte:pixelsize=bar_font_size;1

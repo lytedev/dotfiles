@@ -104,6 +104,11 @@ highlight GitGutterChangeDelete ctermbg=black guibg=black
 
 hi NonText ctermfg=black guifg=black
 
+hi DiffAdd    ctermfg=NONE ctermbg=green
+hi DiffChange ctermfg=NONE ctermbg=blue
+hi DiffDelete ctermfg=NONE ctermbg=red
+hi DiffText   ctermfg=NONE ctermbg=yellow
+
 set hidden " allows buffer switching without saving
 set shortmess+=Ia " hide vim intro, skip lots of file messages/prompts
 set history=1000
