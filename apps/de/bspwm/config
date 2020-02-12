@@ -8,7 +8,7 @@ MONITOR_COUNT=$(<<< "$BSPWM_MONITORS" wc -w | awk '{ printf $1 }')
 PER_MONITOR=$((NUM_DESKTOPS / MONITOR_COUNT))
 DESKTOPS=$(seq "$NUM_DESKTOPS")
 
-[ $REVERSE_MONITOR_DESKTOPS -eq 1 ] && BSPWM_MONITORS=$(<<< "$BSPWM_MONITORS" tac)
+[ "$REVERSE_MONITOR_DESKTOPS" -eq 1 ] && BSPWM_MONITORS=$(<<< "$BSPWM_MONITORS" tac)
 
 bspc config normal_border_color       "$(xrq bspwm.normal_border_color)"
 bspc config focused_border_color      "$(xrq bspwm.focused_border_color)"
@@ -36,7 +36,7 @@ for mon in $BSPWM_MONITORS; do
   i=$((max + 1))
 done
 
-if [ $REVERSE_DESKTOP_ORDERING -eq 1 ]; then
+if [ "$REVERSE_DESKTOP_ORDERING" -eq 1 ]; then
 	prev_mon=
 	for mon in ${BSPWM_MONITORS}; do
 		if [ ! -z $prev_mon ]; then
