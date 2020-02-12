@@ -14,16 +14,18 @@
 
 [core]
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=2 -RFX
 
 [http "https://gopkg.in"]
 	followRedirects = true
 
 [diff]
-	tool = nvimdiff
+	tool = cat
 
 [difftool]
 	prompt = false
+
+[multidiff]
+	tool = nvimdiff -f
 
 [alias]
 	d = difftool
@@ -48,12 +50,22 @@
 	prompt = false
 
 [mergetool "nvimdiff"]
-	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvimdiff $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c '$wincmd J'
+
+[mergetool "cat"]
+	cmd = cat $BASE $LOCAL $REMOTE $MERGED
+
+[mergetool "echo"]
+	cmd = echo $BASE $LOCAL $REMOTE $MERGED
+
+[mergetool "vimmultidiff"]
+	cmd = vim-multi-diff-builder $BASE $LOCAL $REMOTE $MERGED
 
 [pager]
 	branch = false
 	# remove ansi codes, pad each file's diff with newlines, show as diff, remove top padding
-	diff = vimpager -c 'silent %sm/\\e[^mK]*[mK]//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent execute \"normal gg2dd\"'
+	# diff = vimpager -c 'silent %sm/\\e[^mK]*[mK]//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent execute \"normal gg2dd\"'
+	diff = less
 
 [url "git@github.com:postmates"]
 	insteadOf = https://github.com/postmates
@@ -63,17 +75,3 @@
 
 [gpg]
 	program = gpg2
-[color]
-	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse

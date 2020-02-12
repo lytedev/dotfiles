@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+td="$(mktemp -p "$pdir" -d "tmp_vim_git_multi_diff.XXXXXXXX")"
+trap "rm -rf \"$td\"" EXIT
+
+files="$(git diff --name-only "$@")"
+
+for f in $files; do
+	d="$(dirname "$td/$f")"
+	rfn="$(basename "$f")"
+	fn="$rfn._@HEAD"
+	cfn="$rfn._@DISK"
+	mkdir -p "$d"
+	git --no-pager show HEAD:"$f" > "$d/$fn" 2>/dev/null || \
+		echo "<NO FILE>" > "$d/$fn"
+	cp "$f" "$d/$cfn"
+	nvim -d "$d/$fn" "$d/$cfn"
+	exit 3
+done
+
+ls -R "$td"
+rm -rf "$td"
