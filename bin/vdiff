@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+repo_root="$(git rev-parse --show-toplevel)"
+pushd "$repo_root" &> /dev/null || ( echo "Repo doesn't exist!"; exit 2 )
+td="$(mktemp -p "$pdir" -d "vdiff.XXXXXXXX")"
+trap "rm -rf \"$td\"" EXIT
+files="$(git diff --name-only "$@")"
+
+args=()
+vcmd=""
+for f in $files; do
+	d="$(dirname "$td/$f")"
+	rfn="$(basename "$f")"
+	fn="$rfn._@HEAD"
+	cfn="$rfn"
+
+	mkdir -p "$d"
+	git --no-pager show HEAD:"$f" > "$d/$fn" 2>/dev/null || \
+		echo "<FILE CREATED>" > "$d/$fn"
+	cp "$f" "$d/$cfn" 2>/dev/null || echo "<FILE DELETED>" > "$d/$cfn"
+
+	if [ -z "$args" ]; then
+		args+=($d/$fn -c)
+		vcmd="vert diffsplit $d/$cfn"
+	else
+		vcmd="$vcmd | tabnew | e $d/$fn | vert diffsplit $d/$cfn"
+	fi
+done
+
+remaps="nnoremap <leader>k :tabnext<CR> | nnoremap <leader>j :tabprev<CR>"
+nvim "${args[@]}" "$vcmd | tabnext | $remaps"
+
+rm -rf "$td"
+popd &> /dev/null || ( echo "Could not return to original directory" && exit 4 )

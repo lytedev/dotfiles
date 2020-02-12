@@ -43,7 +43,7 @@ let g:polyglot_disabled = ['cue', 'cuesheet']
 " let g:fzf_layout = { 'window': 'enew' }
 
 " check if we're using vim as the manpage viewer before loading session plugins
-if exists('asmanviewer')
+if exists('asmanviewer') || exists('nosession')
 	let g:prosession_dir = '/dev/null'
 else
 	Plug 'tpope/vim-obsession'        " session ease-of-use

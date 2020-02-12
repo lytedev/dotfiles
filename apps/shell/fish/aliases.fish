@@ -110,7 +110,7 @@ function g
 	end
 end
 alias gs "git status"
-alias gd "git d"
+alias gd "git diff"
 alias gds "gd --staged"
 # alias gdv "git dv" # TODO: what is this?
 alias gpl "git pull"
@@ -156,6 +156,7 @@ alias wifi "sudo nmtui"
 alias year 'cal (date +%Y)'
 alias y year
 alias pa pulsemixer
+alias vd vdiff
 
 # games aliases
 # this sometimes fixes steam dynamic library issues?

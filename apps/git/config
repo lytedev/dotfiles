@@ -19,13 +19,10 @@
 	followRedirects = true
 
 [diff]
-	tool = cat
+	tool = nvimdiff
 
 [difftool]
 	prompt = false
-
-[multidiff]
-	tool = nvimdiff -f
 
 [alias]
 	d = difftool
@@ -52,20 +49,10 @@
 [mergetool "nvimdiff"]
 	cmd = nvimdiff $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c '$wincmd J'
 
-[mergetool "cat"]
-	cmd = cat $BASE $LOCAL $REMOTE $MERGED
-
-[mergetool "echo"]
-	cmd = echo $BASE $LOCAL $REMOTE $MERGED
-
-[mergetool "vimmultidiff"]
-	cmd = vim-multi-diff-builder $BASE $LOCAL $REMOTE $MERGED
-
 [pager]
 	branch = false
 	# remove ansi codes, pad each file's diff with newlines, show as diff, remove top padding
-	# diff = vimpager -c 'silent %sm/\\e[^mK]*[mK]//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent execute \"normal gg2dd\"'
-	diff = less
+	diff = vimpager -c 'silent %sm/\\e[^mK]*[mK]//g' -c 'silent %s/^diff/\\r\\rdiff/' -c 'silent set ft=diff' -c 'silent execute \"normal gg2dd\"'
 
 [url "git@github.com:postmates"]
 	insteadOf = https://github.com/postmates
