@@ -71,14 +71,14 @@ bspwm.num_desktops: 10
 bspwm.reverse_desktop_ordering: 0
 bspwm.reverse_monitor_desktops: 0
 bspwm.split_ratio: 0.5
-bspwm.start_compton: false
-bspwm.start_bar: true
+bspwm.start_compton: 0
+bspwm.start_bar: 1
 
 ! polybar
 polybar.primary_font: mono_font:pixelsize=bar_font_size;1
 polybar.secondary_font: icon_font:style=Regular:pixelsize=icon_font_size;1
 polybar.display_monitor: HDMI-1
-polybar.bottom_of_display: true
+polybar.bottom_of_display: 1
 polybar.margin: window_margin
 polybar.storage_volume: /
 polybar.ethernet_interface: eth0
