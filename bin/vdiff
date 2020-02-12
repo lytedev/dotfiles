@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 repo_root="$(git rev-parse --show-toplevel)"
-pushd "$repo_root" &> /dev/null || ( echo "Repo doesn't exist!"; exit 2 )
+if ! pushd "$repo_root" &> /dev/null; then
+	echo "Repo doesn't exist!"
+	exit 2
+fi
 td="$(mktemp -p "$pdir" -d "vdiff.XXXXXXXX")"
 trap "rm -rf \"$td\"" EXIT
 files="$(git diff --name-only "$@")"
@@ -30,5 +33,7 @@ done
 remaps="nnoremap <leader>k :tabnext<CR> | nnoremap <leader>j :tabprev<CR>"
 nvim "${args[@]}" "$vcmd | tabnext | $remaps"
 
-rm -rf "$td"
-popd &> /dev/null || ( echo "Could not return to original directory" && exit 4 )
+if ! popd &> /dev/null; then
+	echo "Could not return to original directory"
+	exit 4
+fi
