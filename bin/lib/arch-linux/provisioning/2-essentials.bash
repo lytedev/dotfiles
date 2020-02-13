@@ -55,6 +55,7 @@ pacaur --needed -S \
 	swaks `# SMTP CLI` \
 	time `# GNU time` \
 	fortune-mod fortune-mod-archlinux `# Fortune` \
+	diff-so-fancy `# Fancy Diffs` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly

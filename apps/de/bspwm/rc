@@ -1,18 +1,17 @@
 #!/usr/bin/env sh
 
+. "$DOTFILES_PATH/apps/de/x/profile"
+
 BAR_COMMAND="startbar"
 BSPWM_STATE_FILE="$HOME/.bspwm_state"
 
-if [ -e "$BSPWM_STATE" ] ; then
-	bspc wm -l "$BSPWM_STATE"
-	rm "$BSPWM_STATE"
-fi
+[ -e "$BSPWM_STATE" ] && bspc wm -l "$BSPWM_STATE" && rm "$BSPWM_STATE"
 
 . "$DOTFILES_PATH/apps/de/bspwm/config"
 
 [ -f "$HOME/.fehbg" ] && "$HOME/.fehbg" &
-[ "$(xrq bspwm.start_compton)" = "true" ] && has_command compton && compton &
-[ "$(xrq bspwm.start_bar)" = "true" ] && has_command "${BAR_COMMAND}" && "${BAR_COMMAND}" &
+[ "$(xrq bspwm.start_compton)" -eq 1 ] && has_command compton && compton &
+[ "$(xrq bspwm.start_bar)" -eq 1 ] && has_command "${BAR_COMMAND}" && "${BAR_COMMAND}" &
 has_command urxvtd && urxvtd &
 has_command dunst && dunst &
 has_command sxhkd && sxhkd -m -1 &

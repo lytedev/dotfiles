@@ -1,11 +1,13 @@
+scriptencoding utf-8
+set fileencoding=utf8
+
 let $vimdir = $HOME.'/.vim'
 if has('nvim')
 	let $vimdir = $XDG_CONFIG_HOME.'/nvim'
 endif
 
-" load a per-environment file if one exists
-if filereadable("$ENV_PATH/vim")
-	source "$ENV_PATH/vim"
+if filereadable($ENV_PATH."/vim")
+	source $ENV_PATH."/vim"
 endif
 
 call plug#begin($vimdir.'/bundle')

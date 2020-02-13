@@ -12,7 +12,7 @@ bar_monitor="$(xrq polybar.display_monitor)"
 
 # TODO: if bspwm is the active window manager
 if has_command bspc; then
-	if [ ! "$(xrq polybar.bottom_of_display)" = "true" ]; then
+	if [ ! "$(xrq polybar.bottom_of_display)" -eq 1 ]; then
 		bspc config -m "${bar_monitor}" top_padding "$eheight"
 		bspc config -m "${bar_monitor}" bottom_padding "0"
 	else

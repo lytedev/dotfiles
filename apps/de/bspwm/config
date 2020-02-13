@@ -4,11 +4,11 @@ NUM_DESKTOPS="$(xrq bspwm.num_desktops)"
 REVERSE_DESKTOP_ORDERING="$(xrq bspwm.reverse_desktop_ordering)"
 REVERSE_MONITOR_DESKTOPS="$(xrq bspwm.reverse_monitor_desktops)"
 BSPWM_MONITORS=$(bspc query -M)
-MONITOR_COUNT=$(<<< "$BSPWM_MONITORS" wc -w | awk '{ printf $1 }')
+MONITOR_COUNT=$(echo "$BSPWM_MONITORS" | wc -w | awk '{ printf $1 }')
 PER_MONITOR=$((NUM_DESKTOPS / MONITOR_COUNT))
 DESKTOPS=$(seq "$NUM_DESKTOPS")
 
-[ $REVERSE_MONITOR_DESKTOPS -eq 1 ] && BSPWM_MONITORS=$(<<< "$BSPWM_MONITORS" tac)
+[ "$REVERSE_MONITOR_DESKTOPS" -eq 1 ] && BSPWM_MONITORS=$(echo "$BSPWM_MONITORS" | tac)
 
 bspc config normal_border_color       "$(xrq bspwm.normal_border_color)"
 bspc config focused_border_color      "$(xrq bspwm.focused_border_color)"
@@ -28,7 +28,7 @@ bspc rule -a "*" split_dir=right
 i=1
 for mon in $BSPWM_MONITORS; do
   max=$((i + PER_MONITOR - 1))
-	screens=
+	screens=""
 	for j in $(seq $i $max); do
 		screens="${screens}${j} "
 	done
@@ -36,7 +36,7 @@ for mon in $BSPWM_MONITORS; do
   i=$((max + 1))
 done
 
-if [ $REVERSE_DESKTOP_ORDERING -eq 1 ]; then
+if [ "$REVERSE_DESKTOP_ORDERING" -eq 1 ]; then
 	prev_mon=
 	for mon in ${BSPWM_MONITORS}; do
 		if [ ! -z $prev_mon ]; then
