@@ -4,8 +4,8 @@ _VERSION="0.2.0"
 
 function help() {
 	I="  "
-	cat <<USAGE
-fsw - run a command when a file is modified
+	cat << USAGE
+fsw - run a command when a file is modified - v$_VERSION
 
 Usage:
 ${I}fsw <command> [filter] [dirs...]
@@ -41,9 +41,15 @@ USAGE
 }
 
 dbg() {
-	if [[ ! -z ${FSW_DEBUG+x} ]]; then
-		echo -e "[debug] fsw: $@"
+	if [[ -n ${FSW_DEBUG+x} ]]; then
+		echo -e "[debug] fsw: $*"
 	fi
+}
+
+contains_element () {
+  local e match="$1"; shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
 }
 
 if [[ $1 = '-h' ]] || [[ $1 = '--help' ]] || [[ -z $1 ]]; then
@@ -64,16 +70,20 @@ if [[ -e $FILTER ]]; then
 	echo "It looks like your filter is an actual file. I'll just watch that for you."
 	DIRS=("${FILTER}")
 fi
-while [[ ! -z $1 ]] && $(realpath $1) &> /dev/null; do
+while [[ -n $1 ]] && realpath "$1" &> /dev/null; do
 	dbg "Directory: ${1}"
 	DIRS+=("$1"); shift
 done
-inotifywait -m -e "${FSW_EVENTS}" -r "${DIRS[@]}" 2>&1 \
+inotifywait -m -e "${FSW_EVENTS},delete,delete_self" -r "${DIRS[@]}" 2>&1 \
 	| grep --line-buffered -v '  Beware: since -r was given, this may take a while!' \
 	| while read -r dir events filename; do
+	if contains_element "$dir" "${DIRS[@]}" && [[ $events =~ "delete" ]]; then
+		echo "One of the watched directories (\"$dir\") was deleted. Exiting..."
+		exit 75
+	fi
 	if [[ "$dir $events" = "Watches established." ]]; then
 		echo "Ready."
-		dbg "Directory: ${DIRS[@]}"
+		dbg "Directory: ${DIRS[*]}"
 	else
 		export FSW_FILENAME="$filename"
 		export FSW_DIR="$dir"

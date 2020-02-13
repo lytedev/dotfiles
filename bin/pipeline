@@ -8,7 +8,7 @@ if [ -n "${1+x}" ]; then
 	mkdir -p "$pdir"
 	if [ -z ${1+x} ]; then
 		td="$(mktemp -p "$pdir" -d "tmp_pipeline.XXXXXXXX")"
-		cleanup_trap="rm -rf \"$td\""
+		trap "rm -rf '$td'" EXIT
 	else
 		td="$pdir/$1"; shift
 		mkdir -p "$td"
@@ -17,48 +17,23 @@ if [ -n "${1+x}" ]; then
 else
 	td="$(mktemp --tmpdir -d pipeline.XXXXXXXX)"
 	transform="$td/transform"
-	cleanup_trap="rm -rf \"$td\""
+	trap "rm -rf '$td'" EXIT
 fi
 
 [ ! -e "$transform" ] && \
-	printf "#!/usr/bin/env bash\n# for %s\n\nbase64" "${td}" > "$transform"
+	printf "#!/usr/bin/env bash\n# you must save this buffer manually\n# for %s\n
+base64" "${td}" > "$transform"
 
-in="$td/in"
-[ -n "${1+x}" ] && in="${1}" && shift
-out="$td/out"
-[ -n "${1+x}" ] && out="${1}" && shift
+in="$td/in";   [ -n "${1+x}" ] && in="${1}"  && shift
+out="$td/out"; [ -n "${1+x}" ] && out="${1}" && shift
 
 # TODO: if no logging, log="/dev/null"
 log="$td/log"
-
-chmod +x "$transform"
-echo "Hello World" > "$in"
 touch "$log"
 
-fswi \
-	"bash -c 'cd \"$td\" && < \"$in\" \"$transform\" | tee \"$out\"'" \
-	'in$|transform$' \
-	"$td" "$pdir" > "$log" 2>&1 &
+chmod +x "$transform"
 
-watcher="$!"
+# TODO: saved inputs?
+echo "Hello World" > "$in"
 
-if [ -z "${cleanup_trap+x}" ]; then
-	trap "kill \"$watcher\"" EXIT
-else
-	trap "${cleanup_trap}; kill \"$watcher\"" EXIT
-fi
-
-job="$(echo "let g:pipeline_job_id = jobstart(['inotifywait', '-m', '-e', 'close_write', '${out}'], {'detach':1,'on_stdout':{j,d,e->execute('checktime')}})" | tr "'" '"')"
-
-echo $job >> "$log"
-
-# this will only autosave (and therefore autoreload) for the out buffer (since
-# it was opened last) - autosaving (and therefore autorunning) is potentially
-# very scary
-nvim -V9"$td/vimlog" \
-	-o "$in" "$transform" "$out" \
-	--cmd "$job" \
-	--cmd 'set updatetime=250' \
-	--cmd 'autocmd CursorHold,CursorHoldI <buffer> silent write' \
-	--cmd 'autocmd VimLeave call jobstop(g:pipeline_job_id)' \
-	--cmd "$job"
+env PIPELINE_IN="$id" PIPELINE_TRANSFORM="$transform" PIPELINE_OUT="$out" nvim --cmd "source $DOTFILES_PATH/apps/neovim/scripts/pipeline.vim"
