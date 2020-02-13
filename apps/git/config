@@ -4,7 +4,6 @@
 [user]
 	name = Daniel Flanagan
 	email = daniel@lytedev.io
-	signingkey = daniel@lytedev.io
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -62,3 +61,6 @@
 
 [gpg]
 	program = gpg2
+
+[include]
+	path = $ENV_PATH/gitconfig

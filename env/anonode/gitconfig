@@ -1,0 +1,6 @@
+[user]
+	signingkey = daniel@anonode.net
+
+[commit]
+	gpgsign = true
+
