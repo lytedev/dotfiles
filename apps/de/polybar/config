@@ -128,10 +128,10 @@ ws-icon-9 = 10;0
 ws-icon-default = -
 ; misc icon: -
 
-label-focused-font = 2
-label-occupied-font = 2
-label-urgent-font = 2
-label-empty-font = 2
+label-focused-font = 1
+label-occupied-font = 1
+label-urgent-font = 1
+label-empty-font = 1
 
 type = internal/bspwm
 pin-workspaces = false
