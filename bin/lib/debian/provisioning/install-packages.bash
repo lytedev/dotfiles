@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
-apt install \
+echo "Setting up yarn source..."
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+sudo apt remove cmdtest # conflicts with yarn
+
+sudo apt update
+
+sudo apt install \
 	tmux \
 	fish \
 	fd-find \
@@ -21,4 +29,6 @@ apt install \
 	ranger \
 	inotify-tools \
 	time \
-	fortune
+	fortune \
+	nodejs yarn \
+	kitty-terminfo
