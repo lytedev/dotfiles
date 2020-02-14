@@ -84,7 +84,7 @@ set -g base-index 1
 set -g pane-base-index 1
 
 # custom predefined layouts
-bind M-l source-file ~/.tmux/layouts/dev.tmux
+bind M-l source-file $XDG_CONFIG_HOME/tmux/layouts/dev.tmux
 
 # present a menu of urls to open from the visible pane
 # TODO: fzf-ify this
