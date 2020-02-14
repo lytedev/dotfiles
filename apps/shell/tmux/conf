@@ -136,7 +136,7 @@ set -g @resurrect-save 'C-v'
 set -g @resurrect-restore 'R'
 
 # initialize tmux plugin manager
-run '$HOME/.tmux/plugins/tpm/tpm'
+run '$XDG_CONFIG_HOME/tmux/plugins/tpm/tpm'
 
 # attempt at integrating nested tmux sessions nicely
 # bind -T root F12 \
