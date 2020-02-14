@@ -32,4 +32,5 @@ sudo apt install \
 	fortune \
 	nodejs yarn \
 	gawk \
+	gnupg2 \
 	kitty-terminfo
