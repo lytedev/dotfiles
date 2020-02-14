@@ -31,4 +31,5 @@ sudo apt install \
 	time \
 	fortune \
 	nodejs yarn \
+	gawk \
 	kitty-terminfo
