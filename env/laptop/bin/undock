@@ -3,7 +3,7 @@
 resrc
 "${DOTFILES_PATH}/apps/de/x/loadresources"
 autorandr --change
-"${DOTFILES_PATH}/apps/de/bspwm/bspwmrc"
+"${DOTFILES_PATH}/apps/de/bspwm/rc"
 "${DOTFILES_PATH}/apps/de/x/loadresources"
 restartbar
 "${HOME}/.fehbg"

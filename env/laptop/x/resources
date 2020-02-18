@@ -1,13 +1,14 @@
 #define mono_font iosevka-lyte
+#define mono_font_size 12
 #define bar_font_size 12
 #define icon_font Font Awesome 5 Free Solid
 #define icon_font_size 12
 
-*.font: xft:Iosevka Nerd Font Mono:pixelsize=12,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
-*.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=12,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+*.font: xft:mono_font:pixelsize=mono_font_size,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+*.boldFont: xft:mono_font:style=bold:pixelsize=mono_font_size,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 
-URxvt.font: xft:Iosevka Nerd Font Mono:pixelsize=32,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
-URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=bold:pixelsize=32,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+# URxvt.font: xft:mono_font:pixelsize=32,xft:Noto Emoji,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
+# URxvt.boldFont: xft:mono_font:style=bold:pixelsize=32,xft:Font Awesome 5 Free:pixelsize=14,xft:FreeSans:pixelsize=14
 
 dpi: 190
 .dpi: 190
