@@ -6,8 +6,8 @@ if has('nvim')
 	let $vimdir = $XDG_CONFIG_HOME.'/nvim'
 endif
 
-if filereadable($ENV_PATH."/vim")
-	source $ENV_PATH."/vim"
+if filereadable("$ENV_PATH/vim")
+	source "$ENV_PATH/vim"
 endif
 
 call plug#begin($vimdir.'/bundle')

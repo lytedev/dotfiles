@@ -10,6 +10,7 @@ set -U fish_user_paths \
 	$ENV_PATH/.hidden/bin \
 	$HOME/.bin \
 	$HOME/.cargo/bin \
+	$HOME/.nimble/bin \
 	$HOME/.yarn/bin
 
 test -d $HOME/.local/bin && set -U fish_user_paths $HOME/.local/bin $fish_user_paths
