@@ -18,6 +18,7 @@ for f in $files; do
 	cfn="$rfn"
 
 	mkdir -p "$d"
+	# TODO: show at ref if provided
 	git --no-pager show HEAD:"$f" > "$d/$fn" 2>/dev/null || \
 		echo "<FILE CREATED>" > "$d/$fn"
 	cp "$f" "$d/$cfn" 2>/dev/null || echo "<FILE DELETED>" > "$d/$cfn"

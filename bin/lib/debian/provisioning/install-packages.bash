@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo apt install curl gnupg2
+
 echo "Setting up yarn source..."
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -23,7 +25,6 @@ sudo apt install \
 	neovim vim \
 	unzip \
 	lua5.3 luajit \
-	curl \
 	jq \
 	w3m \
 	ranger \
@@ -32,5 +33,5 @@ sudo apt install \
 	fortune \
 	nodejs yarn \
 	gawk \
-	gnupg2 \
+	netcat \
 	kitty-terminfo
