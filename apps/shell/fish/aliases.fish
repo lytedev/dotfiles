@@ -114,6 +114,9 @@ alias gd "git diff"
 alias gds "gd --staged"
 # alias gdv "git dv" # TODO: what is this?
 alias gpl "git pull"
+alias ga "git add"
+alias gcm "git commit -m"
+alias gco "git checkout"
 alias gp "git push"
 alias gpa "git push --all && git push --tags"
 alias gpt "git push && git push --tags"
@@ -130,6 +133,11 @@ alias dclf "docker-compose logs --tail=500 -f"
 alias ctop "docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest"
 
 # misc aliases
+function pp
+	while not ping -n 1 -t 5 8.8.8.8
+		sleep 1
+	end
+end
 alias p "ping 8.8.8.8"
 alias C "clear && clear"
 alias r "ranger"
