@@ -73,6 +73,7 @@ Plug 'michaeljsmith/vim-indent-object'                          " adds an indent
 Plug 'wellle/targets.vim'                                       " adds some more handy text objects
 Plug 'dbakker/vim-projectroot'                                  " adds helper functions for getting to a project's root directory
 Plug 'junegunn/goyo.vim'                                        " better distraction-free editing
+Plug 'junegunn/limelight.vim'                                   " dim inactive blocks of code
 Plug 'tpope/vim-sleuth'                                         " try and detect indent method
 Plug 'editorconfig/editorconfig-vim'                            " loads project-specific editor settings
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language

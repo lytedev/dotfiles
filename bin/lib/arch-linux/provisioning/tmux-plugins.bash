@@ -3,7 +3,8 @@
 mkdir -p "$HOME/.config/systemd/user"
 
 # tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"
+[ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] && \
+	git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
 # load tmux config
 tmux source-file "$HOME/.tmux.conf"
