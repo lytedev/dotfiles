@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+export GITHUB_UPSTREAM="$(git remote -vv | awk '{$0=$2}')"
+
+git log --merges --ancestry-path --oneline $1..master \
+	| grep -i 'pull request' \
+	| tail -n1 \
+	| awk '{$0=$5}' \
+	| cut -c2- \
+	| xargs -I % open https://github.com/$GITHUB_UPSTREAM/${PWD##*/}/pull/%
