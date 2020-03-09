@@ -23,7 +23,7 @@ nnoremap <C-y> :vsplit term://$SHELL<CR><C-\><C-n>:vertical resize 120<CR>i
 " close the terminal
 tnoremap <C-w> <C-\><C-n>:q!<CR>
 tnoremap <leader>w <C-\><C-n>:q!<CR>
-tnoremap <C-n> <C-\><C-n>
+" tnoremap <C-n> <C-\><C-n>
 tnoremap <C-[> <C-\><C-n>
 
 " moving between terminal splits
@@ -87,7 +87,7 @@ nnoremap <leader>m :call RunMake()<CR>
 
 " NERDTree bindings
 " show file manager in current directory
-nnoremap <C-n>      :NERDTreeToggle<CR>
+nnoremap <C-f>      :NERDTreeToggle<CR>
 " show file manager in git repo root
 nnoremap <leader>n  :call NERDProjectViewer()<CR>
 " focus the current file in NERDTree

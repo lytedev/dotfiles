@@ -9,7 +9,7 @@ else
 fi
 
 pacaur --needed -S \
-	bluez bluz-libs bluez-utils bluez-tools \
+	bluez bluez-libs bluez-utils bluez-tools \
 	pigz `# Multi-core gzipping` \
 	iw `# WiFi Power Saving` \
 	arc-gtk-theme `# GTK Theme` \
@@ -24,7 +24,7 @@ pacaur --needed -S \
 	audacity `# Audio Editing Application` \
 	cmake `# Cross-Platform Make` \
 	accountsservice `# Mainly for User Avatars with LightDM` \
-	deluge cairo python-cairo `# GUI Torrent Client` \
+	deluge deluge-gtk cairo python-cairo `# GUI Torrent Client` \
 	lightdm lightdm-gtk-greeter `# Nice User Login` \
 	polybar-git `# Bar` \
 	php `# PHP Language` \

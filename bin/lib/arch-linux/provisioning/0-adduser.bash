@@ -2,7 +2,7 @@
 
 # user's username
 USERNAME=daniel
-USER_GROUPS="admin,users,wheel"
+USER_GROUPS="admin,users"
 
 # add admin group
 groupadd admin 2>/dev/null
