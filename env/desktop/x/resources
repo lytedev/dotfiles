@@ -4,3 +4,4 @@ polybar.primary_font: iosevka\-lyte:pixelsize=bar_font_size;1
 bspwm.reverse_desktop_ordering: 0
 bspwm.reverse_monitor_desktops: 1
 polybar.display_monitor: DisplayPort-0
+polybar.height: 40

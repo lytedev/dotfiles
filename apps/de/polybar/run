@@ -3,6 +3,7 @@
 height="$(xrq polybar.height)"
 margin="$(xrq polybar.margin)"
 yoffset="$(xrq polybar.offset_y)"
+window_margin="$(xrq bspwm.window_gap)"
 eheight="$((height + margin + yoffset))"
 bar_monitor="$(xrq polybar.display_monitor)"
 
