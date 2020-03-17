@@ -162,12 +162,4 @@ hi IndentGuidesEven ctermbg=18
 
 hi Normal ctermbg=NONE
 
-" lsp config
-
-" ale
-
-" set completeopt=noinsert,menuone,noselect,longest,preview
-
-" coc
-
-
+let b:csv_arrange_align = 'l*'

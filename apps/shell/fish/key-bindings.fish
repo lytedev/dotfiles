@@ -20,5 +20,12 @@ function fish_user_key_bindings
 	bind -M insert \ce end-of-line
 	bind -M insert \ca beginning-of-line
 	bind -M insert \cw forward-word
-	# bind -M insert \t forward-word
+
+	bind -M insert \cv edit_command_buffer
+	bind -M default \cv edit_command_buffer
+
+	bind -M insert \ee false
+  bind -M insert \ev false
+	bind -M default \ee false
+  bind -M default \ev false
 end

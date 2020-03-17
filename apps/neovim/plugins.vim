@@ -94,4 +94,5 @@ Plug 'lytedev/elm-vim', {'for': ['elm']}                        " elm lang
 Plug 'google/vim-jsonnet', {'for': ['jsonnet', 'libsonnet']}    " jsonnet
 Plug 'sirtaj/vim-openscad', {'for': ['scad']}                   " openscad
 Plug 'jjo/vim-cue'
+Plug 'chrisbra/csv.vim'
 " Plug 'ssh://git@git.lyte.dev:2222/lytedev/vim-lytlang.git'

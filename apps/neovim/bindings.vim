@@ -246,6 +246,8 @@ nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>f   <Plug>(coc-format)
+vmap <leader>f   <Plug>(coc-format-selected)
 
 " ale
 
@@ -254,3 +256,5 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " nnoremap <leader>gh :ALEGoToDefinitionInSplit<CR>
 " nnoremap <leader>gv :ALEGoToDefinitionInVSplit<CR>
 
+" misc plugins
+nmap <leader>aa :%ArrangeColumn!<CR>
