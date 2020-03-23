@@ -1,5 +1,14 @@
 #!/usr/bin/env sh
 
+[ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
+[ -z "$DOTFILES_PATH" ] && export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+
+. "$DOTFILES_PATH/bin/prelude"
+
+has_command libinput-gestures-setup && libinput-gestures-setup start
+has_command kdeconnect-indicator && kdeconnect-indicator &
+has_command gnome-keyring-daemon && eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
+
 # killall -9 urxvtd
 # urxvtd &
 
@@ -8,7 +17,7 @@ export WLC_REPEAT_DELAY=200
 export WLC_REPEAT_RATE=60
 
 # caps lock -> escape key mapping
-export XKB_DEFAULT_OPTIONS=caps:escape
+# export XKB_DEFAULT_OPTIONS=caps:escape
 
 # enable wayland support
 export QT_QPA_PLATFORM=wayland-egl

@@ -93,6 +93,18 @@ bindsym $mod+f floating toggle
 bindsym $mod+Alt+f focus mode_toggle
 bindsym $mod+p focus parent
 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym $mod+Shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
@@ -112,6 +124,8 @@ mode "resize" {
 }
 
 default_border none
+for_window [app_id="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 5
 
 # bindsym $mod+r mode "resize"
 
@@ -126,6 +140,10 @@ input * {
 }
 
 focus_follows_mouse no
+
+client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
+client.focused_inactive #111111 #111111 #ffffff #111111 #111111
+client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
 # include /etc/sway/config.d/*
 include $ENV_PATH/sway/config.d/*
