@@ -13,6 +13,7 @@ has_command gnome-keyring-daemon && eval "$(gnome-keyring-daemon --start --compo
 # urxvtd &
 
 # key repeat
+export WAYLAND_DISPLAY=wayland-0
 export WLC_REPEAT_DELAY=200
 export WLC_REPEAT_RATE=60
 

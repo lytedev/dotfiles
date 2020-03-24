@@ -13,8 +13,10 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 output * bg $HOME/.wallpaper fill
 
 # TODO: configured displays?
-output eDP-1 res 3200x1800 pos 0 0 scale 2
-# output DP-3 res 3440x1440 pos 1600 0
+# output eDP-1 res 3200x1800 pos 0 0 scale 2
+# output DVI-D-1 res 2560x1440@60Hz
+# output DVI-D-1 transform 270
+# output DP-1 res 3440x1440@100Hz
 
 ### Input configuration
 #
