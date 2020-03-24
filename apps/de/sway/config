@@ -12,28 +12,9 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 output * bg $HOME/.wallpaper fill
 
-# TODO: configured displays?
-# output eDP-1 res 3200x1800 pos 0 0 scale 2
-# output DVI-D-1 res 2560x1440@60Hz
-# output DVI-D-1 transform 270
-# output DP-1 res 3440x1440@100Hz
-
-### Input configuration
-#
-# Example configuration:
-#
-#input "2:14:SynPS/2_Synaptics_TouchPad" {
-#	dwt enabled
-#	tap enabled
-#	natural_scroll enabled
-#	middle_emulation enabled
-#}
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
 bindsym $mod+Return exec $term
 bindsym $mod+t exec $term
+bindsym $mod+Alt+Return exec urxvt
 bindsym $mod+c kill
 bindsym $mod+Space exec $menu
 bindsym $mod+Shift+r reload
@@ -110,6 +91,8 @@ bindsym $mod+Shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+bindsym $mod+Control+Shift+l exec swaylock
+
 mode "resize" {
 	bindsym $left resize shrink width 10 px or 10 ppt
 	bindsym $down resize grow height 10 px or 10 ppt
@@ -147,5 +130,4 @@ client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
-# include /etc/sway/config.d/*
 include $ENV_PATH/sway/config.d/*

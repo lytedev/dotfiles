@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: ascii art header
-
 if [[ $UID -ne 0 ]]; then
 	echo "Re-running with 'sudo -E'..."
 	sudo -E "$0" "$@"
@@ -13,19 +11,20 @@ source "${dfp}/bin/lib/setup_helpers.bash"
 
 links=(
 	# display manager files
-	"$dfp/apps/de/sway/init"                "/usr/bin/sway-lytedev"
-	"$dfp/apps/de/sway/dm-entry"            "/usr/share/wayland-sessions/sway-lytedev.desktop"
+	"apps/de/sway/init"                "/usr/bin/sway-lytedev"
+	"apps/de/sway/dm-entry"            "/usr/share/wayland-sessions/sway-lytedev.desktop"
+
+	# TODO: laptop-specific setup? part of laptop env?
 
 	# touchpad
-	"$dfp/apps/de/libinput/touchpad.conf"   "/etc/X11/xorg.conf.d/41-libinput-lytedev-touchpad-options.conf"
+	"apps/de/libinput/touchpad.conf"   "/etc/X11/xorg.conf.d/41-libinput-lytedev-touchpad-options.conf"
 
 	# udev rules
-	"$dfp/apps/udev-rules/lowbat"           "/etc/udev/rules.d/99-lowbat.rules"
-	# TODO: laptop-specific setup?
-	"$dfp/apps/udev-rules/wifi-powersave"   "/etc/udev/rules.d/81-wifi-powersave.rules"
+	"apps/udev-rules/lowbat"           "/etc/udev/rules.d/99-lowbat.rules"
+	"apps/udev-rules/wifi-powersave"   "/etc/udev/rules.d/81-wifi-powersave.rules"
 
 	# tmpfiles
-	"$dfp/apps/tmpfiles/disable-lid-wakeup" "/etc/tmpfiles.d/disable-lid-wakeup.conf"
+	"apps/tmpfiles/disable-lid-wakeup" "/etc/tmpfiles.d/disable-lid-wakeup.conf"
 )
 
 _dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-root-files.lock" "${links[@]}"

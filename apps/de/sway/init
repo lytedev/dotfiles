@@ -5,22 +5,17 @@
 
 . "$DOTFILES_PATH/bin/prelude"
 
-has_command libinput-gestures-setup && libinput-gestures-setup start
-has_command kdeconnect-indicator && kdeconnect-indicator &
-has_command gnome-keyring-daemon && eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
-
 # killall -9 urxvtd
 # urxvtd &
 
 # key repeat
-export WAYLAND_DISPLAY=wayland-0
 export WLC_REPEAT_DELAY=200
 export WLC_REPEAT_RATE=60
 
 # caps lock -> escape key mapping
 # export XKB_DEFAULT_OPTIONS=caps:escape
 
-# enable wayland support
+# enable wayland support for some applications
 export QT_QPA_PLATFORM=wayland-egl
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
@@ -33,3 +28,7 @@ mako &
 killall -9 dunst &> /dev/null
 
 sway
+
+# has_command libinput-gestures-setup && libinput-gestures-setup start
+# has_command kdeconnect-indicator && kdeconnect-indicator &
+# has_command gnome-keyring-daemon && eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"

@@ -1,0 +1,20 @@
+# TODO: setup displays
+output HDMI-A-1 res 2560x1440@60Hz pos 0 0
+output HDMI-A-1 transform 270
+output DP-1 res 3440x1440@100Hz pos 1440 1120
+
+# TODO: setup trackpad/gestures
+### Input configuration
+#
+# Example configuration:
+#
+#input "2:14:SynPS/2_Synaptics_TouchPad" {
+#	dwt enabled
+#	tap enabled
+#	natural_scroll enabled
+#	middle_emulation enabled
+#}
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+

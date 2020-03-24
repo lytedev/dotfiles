@@ -57,7 +57,7 @@ _dotfiles_setup_link_files() {
 			echo -e "  Linking (from/to):\n    ~/$(realpath --relative-to="$HOME" "$source_file")\n    $i"
 			source_file=""
 		else
-			source_file="$i"
+			source_file="$dfp/$i"
 		fi
 	done
 	echo -e "\nDone.\n"
