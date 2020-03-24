@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+(test -z "$DISPLAY" || test -n "$WAYLAND_DISPLAY" || test -n "$SWAYSOCK" || test "$IS_WAYLAND" -eq 1)

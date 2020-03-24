@@ -40,6 +40,7 @@ pacaur --needed -S \
 	wlroots-git sway-git `# Wayland Compositor` \
 	swaylock `# Wayland Compositor` \
 	waybar mako `# Wayland Bar & Notifications` \
+	slurp grim `# Wayland Screen Selection & Clipping` \
 	wl-clipboard `# Wayland Clipboard CLI` \
 	terminus-font ttf-iosevka-type ttf-iosevka-term `# Primary Fonts` \
 	ttf-font-awesome `# Icon Font` \

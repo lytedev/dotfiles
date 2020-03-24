@@ -19,6 +19,7 @@ export WLC_REPEAT_RATE=60
 export QT_QPA_PLATFORM=wayland-egl
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
+# export GDK_BACKEND=wayland # DON'T SET THIS ONE
 export MOZ_ENABLE_WAYLAND=1
 
 # configuration flag for some of my dotfiles scripts

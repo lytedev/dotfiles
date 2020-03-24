@@ -75,14 +75,18 @@ Here are some bullet points on my workflow:
 
 ## To Do and Improvements
 
++ Wayland stuff
+	+ Sway hotkey parity (as much as is possible) with sxhkd/bspwm
+	+ Clean out all the X11 cruft?
 * Add vim in the terminal as the handler for many MIME types (xdg-open and such)
 		for the rare time I'm in a file manager or for opening easily from
 		the browser.
 * Unify all the common variables... somehow? (and use templates and `envsubst`?)
 * Makefile instead of setup script
 * [Vimux](https://github.com/benmills/vimux)?
-* Nerd Fonts with ligatures and icons for Kitty
+* Custom Iosevka font with kitty-compatible ligatures
 * Setup network file sharing directory
++ Investigate some systemd services (homed,
 
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
