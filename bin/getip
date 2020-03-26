@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+curl -s --connect-timeout 3 --max-time 10 --retry 5 --retry-delay 0 \
+	--retry-max-time 40 "$@" ifconfig.co/json | jq

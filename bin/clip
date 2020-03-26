@@ -1,7 +1,13 @@
 #!/usr/bin/env sh
 
-xclip -selection primary
-xclip -selection primary -out | xclip -selection clipboard
-xclip -selection primary -out | xclip -selection secondary
-echo "Your input was stored in all clipboards."
-sleep 5 && killall xclip &>/dev/null &
+if is_wayland; then
+	# echo "Clip: YES. THIS IS WAYLAND SPEAKING." >&2
+	sed 's/^\s+//g' | wl-copy "$@"
+	echo "Your trimmed input was stored in all clipboards."
+else
+	xclip -selection primary
+	xclip -selection primary -out | xclip -selection clipboard
+	xclip -selection primary -out | xclip -selection secondary
+	echo "Your input was stored in all clipboards."
+	sleep 5 && killall xclip > /dev/null 2>&1 &
+fi

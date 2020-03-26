@@ -5,6 +5,7 @@
 
 . "$DOTFILES_PATH/bin/prelude"
 
+# killall -9 dunst &> /dev/null
 # killall -9 urxvtd
 # urxvtd &
 
@@ -25,11 +26,9 @@ export MOZ_ENABLE_WAYLAND=1
 # configuration flag for some of my dotfiles scripts
 export IS_WAYLAND=1
 
-mako &
-killall -9 dunst &> /dev/null
-
 sway
 
+# mako &
 # has_command libinput-gestures-setup && libinput-gestures-setup start
 # has_command kdeconnect-indicator && kdeconnect-indicator &
 # has_command gnome-keyring-daemon && eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
