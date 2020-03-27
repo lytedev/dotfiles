@@ -48,7 +48,7 @@ links=(
 	"apps/neovim/"                      "$HOME/.vim"
 	"apps/neovim/init.vim"              "$HOME/.vimrc"
 	"bin/lib/colors/vim"                "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
-	"apps/emacs/config"                 "$HOME/.emacs"
+	"apps/emacs/"                       "$HOME/.emacs.d"
 
 	# gtk configuration files
 	"apps/de/gtk/2rc"                   "$HOME/.gtkrc-2.0"
