@@ -36,6 +36,7 @@ Get vimmy with it.
 
 #+begin_src emacs-lisp
 (setq evil-want-abbrev-expand-on-insert-exit nil)
+(setq evil-want-keybinding nil)
 
 (use-package evil
   :config
@@ -71,7 +72,7 @@ And so that I can iterate quickly while writing this, setup the chord `<space>r`
 #+begin_src emacs-lisp
 (defun lytedev/reload-config ()
     (interactive)
-    (load-file "~/.emacs"))
+    (load-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "C-x M-r") 'lytedev/reload-config)
 #+end_src
 
