@@ -16,6 +16,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+t exec $term
 bindsym $mod+Alt+Return exec urxvt
 bindsym $mod+c kill
+bindsym $mod+Shift+c kill # TODO: kill -9
 bindsym $mod+Space exec $menu
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+Escape exit
