@@ -3,7 +3,7 @@
 
 [user]
 	name = Daniel Flanagan
-	email = daniel@lytedev.io
+	email = daniel@lyte.dev
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
