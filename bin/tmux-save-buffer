@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
-prelude
+. ~/.config/dotfiles/bin/prelude
+
+echo "${USER_LOGS_PATH}"
 
 sess="$1"; shift
 d="$(date +%Y-%m-%d_%H-%M-%S)"
@@ -8,4 +10,4 @@ f="${USER_LOGS_PATH}/${d}.${sess}.tmux-buffer.log"
 touch "$f"
 chmod 600 "$f"
 tmux capture-pane -pS -1000000000 > "$f"
-echo "$f"
+echo "Saved output to $f"
