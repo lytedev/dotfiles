@@ -5,12 +5,12 @@ err() {
 	errpost=""
 	if test -t 1; then
     ncolors=$(tput colors)
-		if test -n "$ncolors" && test $ncolors -ge 8; then
+		if test -n "$ncolors" && test "$ncolors" -ge 8; then
 			errpre="$(tput setaf 1)"
 			errpost="$(tput setaf 7)"
 		fi
 	fi
-	>&2 echo "${errpre}ERROR: $@${errpost}"; usage; exit 1
+	>&2 echo "${errpre}ERROR: $*${errpost}"; usage; exit 1
 }
 
 warn() {
@@ -18,12 +18,12 @@ warn() {
 	post=""
 	if test -t 1; then
     ncolors=$(tput colors)
-		if test -n "$ncolors" && test $ncolors -ge 8; then
+		if test -n "$ncolors" && test "$ncolors" -ge 8; then
 			pre="$(tput setaf 3)"
 			post="$(tput setaf 7)"
 		fi
 	fi
-	>&2 echo "${pre}WARNING: $@${post}"
+	>&2 echo "${pre}WARNING: $*${post}"
 }
 
 usage() { >&2 cat <<USAGEDOC

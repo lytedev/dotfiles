@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # TODO: needs fixing...?
-cd "$(dirname "$(fzf)")"
+cd "$(dirname "$(fzf)")" || exit 1

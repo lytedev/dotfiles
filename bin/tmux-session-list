@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 ANY_SESSION_PREFIX="#[bg=colour18]#[fg=colour7]"
-CUR_SESSION_PREFIX="#[bg=colour4]#[fg=colour0]"
-URG_SESSION_PREFIX="#[bg=colour1]#[fg=colour0]"
 ANY_SESSION_SUFFIX="#[bg=default]#[fg=default] "
-URG_SESSION_SUFFIX="${ANY_SESSION_SUFFIX}"
+CUR_SESSION_PREFIX="#[bg=colour4]#[fg=colour0]"
 CUR_SESSION_SUFFIX="${ANY_SESSION_SUFFIX}"
+# TODO: implement urgent session highlighting
+# URG_SESSION_SUFFIX="${ANY_SESSION_SUFFIX}"
+# URG_SESSION_PREFIX="#[bg=colour1]#[fg=colour0]"
 
 CUR_TMUX_SESSION="$1"
 if [ -z "$1" ]; then
@@ -26,4 +27,5 @@ if(s==curSesh){
 	s=aspre" "s" "assuf
 }printf s}')"
 
+# shellcheck disable=SC2001
 echo "${TMUX_SESSION_LIST//\s*$/}" | sed -e 's/\s*$//'

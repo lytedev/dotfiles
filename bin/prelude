@@ -16,4 +16,5 @@ NICE_HOME="$HOME"
 [ -e "${ENV_PATH}/.nice_home" ] && NICE_HOME="$(cat "${ENV_PATH}/.nice_home")"
 export NICE_HOME
 
+# shellcheck disable=SC1090
 . "$DOTFILES_PATH/bin/paths"

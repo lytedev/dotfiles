@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-gawk '{print $'${1:-1}'}'
+has_command gawk || ( echo "No gawk."; exit 1 )
+index="${1:-1}"; shift; gawk '{print $'"${index}"'}' "$@"

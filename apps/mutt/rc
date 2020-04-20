@@ -1,32 +1,14 @@
-# set imap_user = "wraithx2@gmail.com"
-# set imap_pass = "`pass google | head -n 1`"
 set realname = "Daniel Flanagan"
-set from = "daniel@lytedev.io"
+set from = "Daniel Flanagan <daniel@lyte.dev>"
 set use_from = yes
 set envelope_from = yes
+set edit_headers = yes
 
+set folder="~/../mail"
+set sendmail="/usr/bin/esmtp"
 set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
-
-set smtp_url = 'smtps://wraithx2@gmail.com@smtp.gmail.com:465/'
-set smtp_pass = `pass google-app-password | head -n 1`
-set imap_user = 'wraithx2@gmail.com'
-set imap_pass = `pass google-app-password | head -n 1`
-
-set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
-
-set ssl_force_tls = yes
-set folder = imaps://imap.gmail.com/
-set spoolfile = +INBOX
-# set record = "+[Gmail]/Sent Mail"
-set postponed = "+[Gmail]/Drafts"
-set editor = "nvim"
-set timeout = 30
-
-mailboxes =INBOX "=[Gmail]/All Mail" =[Gmail]/Sent\ Mail =[Gmail]/Drafts =[Gmail]/Spam =[Gmail]/Trash
-
-set sort=reverse-date
 
 bind index,pager \CD sync-mailbox
 bind index,pager \CP sidebar-prev
@@ -37,8 +19,6 @@ bind index,pager \CB sidebar-toggle-visible
 bind pager g top
 bind pager G bottom
 
-# bind pager j top
-# bind pager j top
 bind pager \Cu half-up
 bind pager \Cd half-down
 bind pager k half-up
@@ -51,25 +31,6 @@ bind attach,index G last-entry
 
 set header_cache = "~/.cache/mutt/headers"
 set message_cachedir = "~/.cache/mutt/bodies"
-
 macro index,pager A s><return>y
-
-# C-R to get mail
 bind index \CR imap-fetch-mail
-
-# bind index g noop
-# macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-# macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
-# macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-# macro index gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
-# macro index gt "<change-folder>=[Gmail]/Trash<enter>" "Go to trash"
-# macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Trash"
-# macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
-
 set record=""
-
-# bulk operations
-# T - tag messages matching... [type in regex]
-# ; - perform command on tagged messages
-# <command> - A to archive!
-

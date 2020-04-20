@@ -8,6 +8,7 @@ if [ -n "${1+x}" ]; then
 	mkdir -p "$pdir"
 	if [ -z ${1+x} ]; then
 		td="$(mktemp -p "$pdir" -d "tmp_pipeline.XXXXXXXX")"
+		# shellcheck disable=SC2064
 		trap "rm -rf '$td'" EXIT
 	else
 		td="$pdir/$1"; shift
@@ -17,6 +18,7 @@ if [ -n "${1+x}" ]; then
 else
 	td="$(mktemp --tmpdir -d pipeline.XXXXXXXX)"
 	transform="$td/transform"
+	# shellcheck disable=SC2064
 	trap "rm -rf '$td'" EXIT
 fi
 
@@ -36,4 +38,4 @@ chmod +x "$transform"
 # TODO: saved inputs?
 echo "Hello World" > "$in"
 
-env PIPELINE_IN="$id" PIPELINE_TRANSFORM="$transform" PIPELINE_OUT="$out" nvim --cmd "source $DOTFILES_PATH/apps/neovim/scripts/pipeline.vim"
+env PIPELINE_IN="$in" PIPELINE_TRANSFORM="$transform" PIPELINE_OUT="$out" nvim --cmd "source $DOTFILES_PATH/apps/neovim/scripts/pipeline.vim"

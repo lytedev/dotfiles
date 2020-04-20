@@ -15,4 +15,4 @@ mogrify \
 	-define png:exclude-chunk=all \
 	-interlace none \
 	-colorspace sRGB \
-	$1
+	"$1"

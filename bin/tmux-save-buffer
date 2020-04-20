@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-. ~/.config/dotfiles/bin/prelude
-
 echo "${USER_LOGS_PATH}"
 
 sess="$1"; shift

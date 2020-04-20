@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 [ "$#" -lt 1 ] && echo "Need a filename." && exit 1
-cat "$1" | yq -s . | jq -S '
+< "$1" yq -s . | jq -S '
 	sort_by(.metadata.name) |
 	sort_by(.kind) |
 	.[] | .spec.template.spec.containers |=

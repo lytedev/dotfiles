@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 
-NUM_DESKTOPS="$(xrq bspwm.num_desktops)"
+NUM_DESKTOPS="$(xrq bspwm.num_desktops || echo '10')"
 REVERSE_DESKTOP_ORDERING="$(xrq bspwm.reverse_desktop_ordering)"
 REVERSE_MONITOR_DESKTOPS="$(xrq bspwm.reverse_monitor_desktops)"
 BSPWM_MONITORS=$(bspc query -M)
 MONITOR_COUNT=$(echo "$BSPWM_MONITORS" | wc -w | awk '{ printf $1 }')
-PER_MONITOR=$((NUM_DESKTOPS / MONITOR_COUNT))
+PER_MONITOR="$(xrq bspwm.num_desktops_per_monitor || echo $((NUM_DESKTOPS / MONITOR_COUNT)))"
 DESKTOPS=$(seq "$NUM_DESKTOPS")
 
 [ "$REVERSE_MONITOR_DESKTOPS" -eq 1 ] && BSPWM_MONITORS=$(echo "$BSPWM_MONITORS" | tac)
@@ -26,11 +26,14 @@ bspc config remove_disabled_monitors  true
 bspc rule -a "*" split_dir=right
 
 i=1
+total_screens=0
 for mon in $BSPWM_MONITORS; do
   max=$((i + PER_MONITOR - 1))
 	screens=""
 	for j in $(seq $i $max); do
-		screens="${screens}${j} "
+		[[ "$total_screens" -ge "$NUM_DESKTOPS" ]] || screens="${screens}${j} "
+		total_screens=$((total_screens+1))
+		echo $NUM_DESKTOPS $total_screens $screens
 	done
   bspc monitor "$mon" -d $screens
   i=$((max + 1))
