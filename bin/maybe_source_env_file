@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-f="$1"; shift; . source_if_exists "$ENV_PATH/$f" "$@"
+set -xe
+
+f="$1"; shift
+[ -f "$f" ] && source "$f" "$@"
+true

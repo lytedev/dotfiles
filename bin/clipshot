@@ -5,11 +5,12 @@ if is_wayland; then
 else
 	pkill unclutter
 	sleep 0.1
-	import ~/.ss.png
-	chmod 700 ~/.ss.png
-	< ~/.ss.png xclip -t image/png -i -selection clipboard
-	< ~/.ss.png xclip -t image/png -i -selection primary
-	< ~/.ss.png xclip -t image/png -i -selection secondary
-	< ~/.ss.png xclip -t image/png -i -selection buffer-cut
+	fn="$SCROTS_PATH/clipshot_$(date +"%Y-%m-%d_%H-%M-%S").png"
+	import "$fn"
+	chmod 700 "$fn"
+	< "$fn" xclip -t image/png -i -selection clipboard
+	< "$fn" xclip -t image/png -i -selection primary
+	< "$fn" xclip -t image/png -i -selection secondary
+	< "$fn" xclip -t image/png -i -selection buffer-cut
 	unclutter &
 fi
