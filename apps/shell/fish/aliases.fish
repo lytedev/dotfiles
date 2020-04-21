@@ -192,3 +192,7 @@ function chat
 	set -l pass (pass config/weechat-passphrase | head -n 1)
 	env WEECHAT_PASSPHRASE=$pass weechat
 end
+
+# grep aliases
+alias rg "rg --text"
+alias grep "rg"

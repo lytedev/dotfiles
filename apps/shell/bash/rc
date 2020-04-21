@@ -59,12 +59,10 @@ if [ "$PWD" = "$HOME" ] || [ "$PWD" = "$NICE_HOME" ]; then
 	cd "$NICE_HOME" || cd || return
 fi
 
-[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+# if [[ -d "$HOME/.asdf/" ]] && [[ -f "$HOME/.asdf/asdf.sh" ]]; then
+# 	. "$HOME/.asdf/asdf.sh"
+# elif [[ -d /opt/asdf-vm/ ]] && [[ -f /opt/asdf-vm/asdf.sh ]]; then
+# 	. "/opt/asdf-vm/asdf.sh"
+# fi
 
-if [[ -d "$HOME/.asdf/" ]] && [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-	. "$HOME/.asdf/asdf.sh"
-elif [[ -d /opt/asdf-vm/ ]] && [[ -f /opt/asdf-vm/asdf.sh ]]; then
-	. "/opt/asdf-vm/asdf.sh"
-fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash

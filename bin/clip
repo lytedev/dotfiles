@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
 
+# TODO: detect MIME type?
+# can a `clip-once` script exist building on this?
+# wl-copy `-o`, xclip `-l 1`?
+
 if is_wayland; then
-	# echo "Clip: YES. THIS IS WAYLAND SPEAKING." >&2
-	sed 's/^\s+//g' | sed 's/\s+$//g' | wl-copy "$@"
-	echo "Your trimmed input was stored in all clipboards."
+	wl-copy -n wl-copy --trim-newline "$@"
 else
-	xclip -selection clipboard
-	sleep 5 && killall xclip > /dev/null 2>&1 &
+	xclip -i -sel p -f "$@" | xclip -i -sel c "$@"
 fi

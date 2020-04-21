@@ -260,4 +260,8 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + ctrl + c
-	bspc rule -a '*' -o state=floating && urxvt --geometry 64x9 -e sh -c "cal -n 3 && bash"
+	bspc rule -a '*' -o state=floating && kitty -o remember_window_size=no -o initial_window_width=66c -o initial_window_height=10c sh -c "cal -n 3 && printf 'Press [ENTER] to close.' && read"
+
+super + ctrl + p
+	bspc rule -a '*' -o state=floating && \
+		kitty -o remember_window_size=no -o initial_window_width=122c -o initial_window_height=40c sh -c "{ env FZFP_PASS_OPTS='' FZFP_HEIGHT=100% fzfp | head -n 1 | sd '\n\$' '' | clip; } &"

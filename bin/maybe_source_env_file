@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -xe
-
 f="$1"; shift
 [ -f "$f" ] && source "$f" "$@"
 true
