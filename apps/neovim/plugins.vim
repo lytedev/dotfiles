@@ -88,7 +88,7 @@ Plug 'sheerun/vim-polyglot'                                     " vim plugin loa
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language server interface
-Plug 'JakeBecker/elixir-ls', {'for': ['elixir', 'eelixir'], 'do': { -> g:elixirls.compile() }}
+Plug 'elixir-lsp/elixir-ls', {'for': ['elixir', 'eelixir'], 'do': { -> g:elixirls.compile() }}
 Plug 'tpope/vim-dadbod'                                         " vim
 Plug 'lytedev/elm-vim', {'for': ['elm']}                        " elm lang
 Plug 'google/vim-jsonnet', {'for': ['jsonnet', 'libsonnet']}    " jsonnet

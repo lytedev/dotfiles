@@ -2,3 +2,12 @@ max-visible=5
 default-timeout=30000
 background-color=#111111
 border-color=#666666
+font=iosevka-lyte 11
+progress-color=source #33333388
+# format="<b>%s</b>
+default-timeout=15000
+
+[urgency="high"]
+background-color=#f92672
+text-color=#111111
+border-color=#f92672

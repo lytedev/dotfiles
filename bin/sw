@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 d="$(date +%s)"
+_dt=$(($(date +%s) - d))
 echo "Stopwatch started $(date)"
+
+trap 'echo -ne "\nStopwatch stopped at $(date)\n" && exit 0' SIGINT
 
 while true; do
 	_dt=$(($(date +%s) - d))
@@ -12,4 +15,3 @@ done
 
 # TODO: add "lap" capabilities?
 
-echo -ne "\rStopwatch stopped at $(date)\n"

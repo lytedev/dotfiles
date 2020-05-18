@@ -22,7 +22,7 @@ function fish_prompt
 		else
 			set_color -b red black
 		end
-		printf " SUDO $USER@$hostname"
+		printf " SUDO $USER@$hostname "
 	else
 		if test $last_cmd_status -eq 0
 			set_color blue

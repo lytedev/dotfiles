@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ -z "${@}" ]] && { echo "No argument provided." >&2 ; exit 1; }
+
 d=$(($(date +%s) + $1));
 echo "Countdown started at $(date)"
 

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+LAUNCHER_HISTORY_FILE="$ENV_PATH/launch.log"
+touch "$LAUNCHER_HISTORY_FILE"
+app="$(
+	< "$LAUNCHER_HISTORY_FILE" \
+		awk 'NF{NF--};1' | \
+		cat - <(dmenu_path) | \
+		sort | uniq -c | sort -nr | \
+		sd '^\s+' '' | \
+		cut -d' ' -f2- | \
+		fzf
+	)"
+echo "$app $(date +%s)" >> "$LAUNCHER_HISTORY_FILE"
+echo "$app"

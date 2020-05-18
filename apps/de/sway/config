@@ -1,26 +1,43 @@
-set $mod Mod4
+# TODO:
+#
+# + Super+r should rotate the selected group of windows.
+# + Super+Control+{1-9} should control the size of the preselect space.
+# + Super+Shift+b should balance the size of all selected nodes.
 
+set $default_gap 20
 set $left h
 set $down j
 set $up	k
 set $right l
-
-set $term kitty
-# TODO: launcher for wayland
-# set $menu app-launcher
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $term term
+set $fterm floating-term
+set $menu app-launcher
 
 output * bg $HOME/.wallpaper fill
 
+focus_wrapping no
+gaps inner $default_gap
+smart_borders on|no_gaps
+hide_edge_borders smart_no_gaps
+set $mod Mod4
+
+bindsym Control+Space exec makoctl dismiss
+# bindsym $mod+Control+Space exec makoctl invoke
 bindsym $mod+Return exec $term
+bindsym $mod+shift+Return exec $fterm
 bindsym $mod+t exec $term
 bindsym $mod+Alt+Return exec urxvt
+bindsym $mod+Shift+Alt+Return exec kitty
 bindsym $mod+c kill
 bindsym $mod+Shift+c kill # TODO: kill -9
 bindsym $mod+Space exec $menu
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+Escape exit
 bindsym $mod+Shift+e exit
+bindsym $mod+Shift+p exec pass-chooser
+bindsym $mod+Control+j split v
+bindsym $mod+Control+l split h
+bindsym $mod+Control+f focus mode_toggle
 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
@@ -74,8 +91,12 @@ bindsym $mod+e layout toggle split
 
 bindsym $mod+Shift+f fullscreen
 bindsym $mod+f floating toggle
+bindsym $mod+s floating disable
 bindsym $mod+Alt+f focus mode_toggle
 bindsym $mod+p focus parent
+bindsym $mod+period focus child
+bindsym $mod+comma focus child
+bindsym $mod+tab workspace back_and_forth
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -89,8 +110,14 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bindsym $mod+Shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+minus gaps inner current minus 5
+bindsym $mod+plus gaps inner current plus 5
+bindsym $mod+Control+Alt+h gaps horizontal current minus 5
+bindsym $mod+Control+Alt+l gaps horizontal current plus 5
+bindsym $mod+Control+Alt+j gaps vertical current minus 5
+bindsym $mod+Control+Alt+k gaps vertical current plus 5
+# TODO: this should also reset the horizontal and vertical gaps?
+bindsym $mod+Control+equal gaps inner current set $default_gap
 
 bindsym $mod+Control+Shift+l exec swaylock
 
@@ -109,13 +136,13 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-default_border none
-for_window [app_id="^.*"] border pixel 5
-for_window [class="^.*"] border pixel 5
+default_border pixel 5
+for_window [app_id="floating_terminal"] floating enable
+for_window [class="floating_terminal"] floating enable
+for_window [class=".*"] layout splith
 
 # bindsym $mod+r mode "resize"
 
-# man 5 sway-bar
 bar {
 	swaybar_command waybar
 }
@@ -130,5 +157,8 @@ focus_follows_mouse no
 client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
+
+exec_always makoctl reload
+exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 
 include $ENV_PATH/sway/config.d/*

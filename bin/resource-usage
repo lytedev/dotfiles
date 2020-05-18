@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# TODO: radeontop can continuously dump to a file, would be fast to just keep
+# last line and have this run in the background
+gpu_usage="$(radeontop -l 1 -d - | rg --color never -o "gpu (\d+.\d+)" -r '$1')"
+gpu_temp="$(sensors | rg 'amdgpu.*mem:\s+\+(\d+\.\d+)' --multiline-dotall --multiline -o -r '$1')"
+
+# NOTE: this is all cpu usage since boot:
+# cpu_usage_data_snapshot="$(cat /proc/stat | head -n 1 | cut -d ' ' -f 2- | sd '^\s+' '')"
+# function cpu_usage_data() {
+# 	echo "$cpu_usage_data_snapshot"
+# }
+# cpu_usage="$(bc -l <<< "100-(100*($(cpu_usage_data | awk '{printf $4}').0/$(cpu_usage_data | sd " " "+" | bc).0))")"
+
+mpstat_samples=2
+mpstat_sample_seconds=1
+cpu_idle="$(mpstat --dec=2 "$mpstat_sample_seconds" "$mpstat_samples" | tail -n 1 | field 12)"
+cpu_usage="$(echo "100.0-$cpu_idle" | bc -l)"
+cpu_temp="0.0"
+
+printf "GPU [USAGE: %6.2f%%] [THERMALS: %6.2f°C]\n" "$gpu_usage" "$gpu_temp"
+printf "CPU [USAGE: %6.2f%%] [THERMALS: %6.2f°C]\n" "$cpu_usage" "$cpu_temp"
+

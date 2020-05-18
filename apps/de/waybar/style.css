@@ -17,18 +17,8 @@ window#waybar.hidden {
 	opacity: 0.2;
 }
 
-window#waybar.termite {
-	background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-	background-color: #000000;
-	border: none;
-}
-
 window#waybar.empty {
-	color: #666666;
-	background-color: #111111;
+	opacity: 0.2;
 }
 
 #workspaces button {
@@ -44,8 +34,18 @@ window#waybar.empty {
 	 */
 }
 
-#workspaces button.focused {
+#workspaces button.visible {
 	background-color: #333333;
+}
+
+#workspaces button.focused {
+	background-color: #66d9ef;
+	color: #111111;
+}
+
+#workspaces button.empty {
+	color: #666666;
+	/* background-color: #111111; */
 }
 
 #workspaces button.urgent {

@@ -10,4 +10,3 @@ cd "$FZFP_PASS_DIR" || { echo "Could not cd to $FZFP_PASS_DIR" >&2; exit 1; }
 pp="$(fd gpg | sd ".gpg" "" | fzf --height "$FZFP_HEIGHT" --prompt "$FZFP_PROMPT")"
 "${FZFP_PASS_CMD}" $FZFP_PASS_OPTS "$@" "$pp"
 cd - >/dev/null || return 1
-

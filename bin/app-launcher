@@ -1,3 +1,7 @@
 #!/usr/bin/env sh
 
-rofi -combi-modi run,window -show combi -modi combi -sorting-method fzf --sort "$@"
+if is_wayland; then
+	floating-term sh -c "launch | xargs swaymsg exec --"
+else
+	rofi -combi-modi run,window -show combi -modi combi -sorting-method fzf --sort "$@"
+fi

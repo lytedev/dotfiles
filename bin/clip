@@ -1,11 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # TODO: detect MIME type?
 # can a `clip-once` script exist building on this?
 # wl-copy `-o`, xclip `-l 1`?
 
 if is_wayland; then
-	wl-copy -n wl-copy --trim-newline "$@"
+	wl-copy -n "$@"
 else
-	xclip -i -sel p -f "$@" | xclip -i -sel c "$@"
+	xclip -i -sel c "$@"
 fi

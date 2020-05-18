@@ -91,7 +91,7 @@ alias ......... "d ../../../../../../../.."
 # tmux aliases
 # TODO: see if this can be worked around?
 alias tmnew "tmux new -s"
-alias tmls "tmux list-sessions"
+alias tmls "tmux list-sessions | rg --color never -o '^(.*?):.*?\(.*?\)(.*)\$' -r '\$1\$2'"
 alias tmatt "tmux attach -t"
 alias tu "tmux attach -t utils || tmux new -s utils"
 alias tdf "tmux attach -t dotfiles || tmux new -s dotfiles -c $DOTFILES_PATH"
@@ -181,11 +181,6 @@ alias mail "mutt"
 
 # fsw aliases
 alias fsw-mix-test 'fsw "mix test" ./**/*.{ex,exs,erl,hrl,xrl,yrl}'
-
-function field
-	not scount $argv && echo "No field index provided"; exit 1
-	awk "{print \$$argv[1]}"
-end
 
 # weechat aliases
 function chat

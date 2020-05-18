@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-loginctl show-session "$(loginctl | grep $(whoami) | field 1)" -p Type | grep -i wayland >/dev/null
+loginctl show-session "$(loginctl | grep "$(whoami)" | tail -n 1 | field 1)" -p Type | grep -i wayland >/dev/null

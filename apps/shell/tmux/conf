@@ -132,7 +132,10 @@ set -g @plugin "christoomey/vim-tmux-navigator"
 set -g @continuum-restore "on"
 
 # let continuum startup on boot
-set -g @continuum-boot "on"
+# NOTE: disabled this due to it starting up before sway socket is up and then
+# sway commands do not work from within tmux
+# TODO: maybe sway (or any wm) can start continuum?
+# set -g @continuum-boot "on"
 
 # bindings for tmux-resurrect
 set -g @resurrect-save "C-v"
