@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-SCROT_DIR="$NICE_HOME/img/scrots/"
-LATEST_SCROT="$(\ls -Art "${SCROT_DIR}" | tail -n 1)"
-krita "${SCROT_DIR}${LATEST_SCROT}"
+scrot_dir="$NICE_HOME/img/scrots/"
+# shellcheck disable=SC2012
+latest_scrot="$(\ls -Art "${scrot_dir}" | tail -n 1)"
+krita "${scrot_dir}${latest_scrot}"

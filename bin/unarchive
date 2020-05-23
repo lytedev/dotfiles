@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 archive_name="${1}"; shift
-to_dir="$(basename $archive_name)"
+to_dir="$(basename "$archive_name")"
 mkdir -p "${to_dir}"
-pushd "${to_dir}"
+pushd "${to_dir}" || ( echo "${to_dir} does not exist" ; exit 1 )
 tar --zstd -xvf "${archive_name}"
 echo "Unarchived to: ${to_dir}"
-popd
+popd || exit 2

@@ -63,7 +63,7 @@ set -g status-left-length 200
 set -g status-left "#[fg=colour7]#(~/.config/dotfiles/bin/tmux-session-list #S)"
 set -g message-style "fg=colour7 bg=colour18"
 
-bind-key O display-message "#(tmux-save-buffer #S)"
+bind-key O display-message "#(~/.config/dotfiles/bin/tmux-save-buffer #S)"
 
 # pane split line colors
 set -g pane-active-border-style bg=black,fg=blue
@@ -97,7 +97,7 @@ bind-key u capture-pane \;\
 is_vim="ps -o state= -o comm= -t \"#{pane_tty}\" \
 	| grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
 bind-key -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
-bind-key -Tcopy-mode-vi "C-h" send -X "cancel select-pane -L"
+bind-key -T copy-mode-vi "C-h" send -X "cancel select-pane -L"
 bind-key -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
 bind-key -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
 bind-key -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
@@ -105,7 +105,8 @@ bind-key -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
 # bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 # YANKING
-bind-key -Tcopy-mode-vi "y" send -X copy-selection
+# bind-key -T copy-mode-vi "y" send -X copy-selection
+bind-key -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel -X 'clip'
 
 set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.config/tmux/plugins/"
 
@@ -131,7 +132,10 @@ set -g @plugin "christoomey/vim-tmux-navigator"
 set -g @continuum-restore "on"
 
 # let continuum startup on boot
-set -g @continuum-boot "on"
+# NOTE: disabled this due to it starting up before sway socket is up and then
+# sway commands do not work from within tmux
+# TODO: maybe sway (or any wm) can start continuum?
+# set -g @continuum-boot "on"
 
 # bindings for tmux-resurrect
 set -g @resurrect-save "C-v"
@@ -155,3 +159,5 @@ run "~/.config/tmux/plugins/tpm/tpm"
 # 	refresh-client -S
 
 unbind-key C-p
+
+set -g @resurrect-hook-pre-restore-pane-processes 'tmux switch-client -n && tmux kill-session -t 0'

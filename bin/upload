@@ -21,6 +21,7 @@ fi
 ssh ld mkdir -p "${internal_dir}"
 rsync --progress --no-owner --no-group --no-perms --stats --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
 code="$?"
+# shellcheck disable=SC2029
 ssh ld chmod a+r "${internal_dir}/${fname}"
 echo "Uploaded to: ${url}"
 

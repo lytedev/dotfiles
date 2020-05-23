@@ -4,8 +4,6 @@ set -Ux XDG_CONFIG_HOME $HOME/.config
 set -Ux DOTFILES_PATH $XDG_CONFIG_HOME/dotfiles
 set -Ux ENV_PATH $HOME/.env
 
-function has_command; command -v $argv[1] 2>&1 >/dev/null; end
-
 source $DOTFILES_PATH/apps/shell/fish/paths.fish
 
 status --is-interactive || exit
@@ -60,3 +58,10 @@ for cf in config.fish .hidden/config.fish
 end
 
 mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
+
+# start a tmux session by default if possible and we're not already in
+# a terminal multiplexer
+if has_command tmux && string match -v -q '*tmux*' $TERM && string match -v -q '*screen*' $TERM
+	tmux attach -t default || tmux new -s default
+end
+

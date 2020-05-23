@@ -60,6 +60,7 @@ pacaur --needed -S \
 	fortune-mod fortune-mod-archlinux `# Fortune` \
 	diff-so-fancy `# Fancy Diffs` \
 	oath-toolkig `# One-Time Passwords` \
+	sysstat `# System Statistics` \
 	--noconfirm --noedit
 
 # install rxvt-unicode script for resizing font on-the-fly

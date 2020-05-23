@@ -26,7 +26,7 @@ export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_byte
 has_command fd && export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export LS_COLORS='ow=01;36;40'
 export LESS="-x2" # less tab size of 2 spaces
-export TERMINAL="urxvtc"
+export TERMINAL="kitty"
 export BROWSER="firefox-developer-edition"
 export HISTFILESIZE="10000000" # "unlimited" history
 export HISTSIZE="10000000" # "unlimited" history
@@ -59,12 +59,10 @@ if [ "$PWD" = "$HOME" ] || [ "$PWD" = "$NICE_HOME" ]; then
 	cd "$NICE_HOME" || cd || return
 fi
 
-[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+# if [[ -d "$HOME/.asdf/" ]] && [[ -f "$HOME/.asdf/asdf.sh" ]]; then
+# 	. "$HOME/.asdf/asdf.sh"
+# elif [[ -d /opt/asdf-vm/ ]] && [[ -f /opt/asdf-vm/asdf.sh ]]; then
+# 	. "/opt/asdf-vm/asdf.sh"
+# fi
 
-if [[ -d "$HOME/.asdf/" ]] && [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-	. "$HOME/.asdf/asdf.sh"
-elif [[ -d /opt/asdf-vm/ ]] && [[ -f /opt/asdf-vm/asdf.sh ]]; then
-	. "/opt/asdf-vm/asdf.sh"
-fi
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash

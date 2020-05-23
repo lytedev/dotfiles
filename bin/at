@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+[[ -z "$1" ]] && { echo "No argument provided." >&2 ; exit 1; }
+
+d="$(date -d "${@}" +%s)"
+while [[ "$d" -ge "$(date +%s)" ]]; do
+	_dt=$((d - $(date +%s)))
+	days=$((_dt / 86400))
+	echo -ne "\rTime Remaining: ${days}d $(date -u --date @$((_dt)) +%H:%M:%S) ";
+	sleep 0.1
+done

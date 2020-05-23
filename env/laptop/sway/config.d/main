@@ -3,6 +3,8 @@ output HDMI-A-1 res 2560x1440@60Hz pos 0 0
 output HDMI-A-1 transform 270
 output DP-1 res 3440x1440@100Hz pos 1440 1120
 
+bindswitch lid:toggle exec swaylock
+
 # TODO: setup trackpad/gestures
 ### Input configuration
 #

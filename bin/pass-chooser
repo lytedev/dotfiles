@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+# TODO: can we use fzfp here?
+floating-term \
+	bash -c "
+		cd $HOME/.password-store
+		fd gpg |
+			sd '.gpg\$' '' |
+			fzf --height 100% --prompt 'fzf-pass> ' > /tmp/fzfp-key
+		pass \"\$(cat /tmp/fzfp-key)\" |
+			head -n 1 |
+			sd '\s+\$' '' |
+			nohup clip &>/dev/null &
+		notify-send -a 'pass' 'Password in Clipboard'
+		"

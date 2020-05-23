@@ -4,11 +4,11 @@ bbin="bible" # npm i -g bible
 pbin="less"
 
 # bible args
-bargs=""
+bargs=("")
 
 # pager args
 pargs="-R"
 
-[ "$1" = "s" ] && bargs="$bargs --search" && shift
+[[ $1 = s ]] && { bargs+=("--search"); shift; }
 
-"${bbin}" $bargs "$*" | "${pbin}" $pargs
+"${bbin}" "${bargs[@]}" "$*" | "${pbin}" $pargs

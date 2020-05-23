@@ -1,4 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
+[ "$#" -lt 1 ] && { echo "No arguments provided" >&2 ; exit 1; }
+
+# shellcheck disable=SC1090
 f="$1"; shift
-[ -f "$f" ] && . "$f" "$@"
+{ [ -f "$f" ] && source "$f" "$@"; } || { echo "$f does not exist" >&2 ; exit 3; }

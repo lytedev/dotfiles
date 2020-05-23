@@ -15,14 +15,28 @@ function preprocess_pwd
 end
 
 function fish_prompt
-	if test $status -eq 0
-		set_color blue
+	set last_cmd_status $status
+	if test (id -u) -eq 0
+		if test $last_cmd_status -eq 0
+			set_color -b blue black
+		else
+			set_color -b red black
+		end
+		printf " SUDO $USER@$hostname "
 	else
-		set_color red
+		if test $last_cmd_status -eq 0
+			set_color blue
+		else
+			set_color red
+		end
+		printf "$USER@$hostname"
 	end
-	printf $USER"@"$hostname" "
+	set_color normal
+	printf " "
 	set_color magenta
-	printf (preprocess_pwd)" "
+	printf (preprocess_pwd)""
+	set_color normal
+	printf " "
 end
 
 function fish_mode_prompt; end

@@ -91,7 +91,7 @@ alias ......... "d ../../../../../../../.."
 # tmux aliases
 # TODO: see if this can be worked around?
 alias tmnew "tmux new -s"
-alias tmls "tmux list-sessions"
+alias tmls "tmux list-sessions | rg --color never -o '^(.*?):.*?\(.*?\)(.*)\$' -r '\$1\$2'"
 alias tmatt "tmux attach -t"
 alias tu "tmux attach -t utils || tmux new -s utils"
 alias tdf "tmux attach -t dotfiles || tmux new -s dotfiles -c $DOTFILES_PATH"
@@ -154,6 +154,7 @@ alias pbcopy "clip"
 alias pt "htop -t" # experimental htop tree-view-by-default
 alias resrc "source $XDG_CONFIG_HOME/fish/config.fish"
 alias redshift "redshift -r -l 39.0997:-94.5786 -t 6500K:2500K"
+alias noredshift "killall redshift; redshift -P -O 5700"
 alias gpmdpe "electron --app=/usr/share/gpmdp/resources/app.asar"
 alias t "task"
 alias sc "sc-im"
@@ -181,13 +182,12 @@ alias mail "mutt"
 # fsw aliases
 alias fsw-mix-test 'fsw "mix test" ./**/*.{ex,exs,erl,hrl,xrl,yrl}'
 
-function field
-	not scount $argv && echo "No field index provided"; exit 1
-	awk "{print \$$argv[1]}"
-end
-
 # weechat aliases
 function chat
 	set -l pass (pass config/weechat-passphrase | head -n 1)
 	env WEECHAT_PASSPHRASE=$pass weechat
 end
+
+# grep aliases
+alias rg "rg --text"
+alias grep "rg"

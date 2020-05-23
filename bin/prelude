@@ -6,6 +6,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
 export ENV_PATH="$HOME/.env"
+export TERMINAL="kitty"
 
 # TODO: better logic for auto-detecting alternative home directories?
 # 1. check dirname(basename $HOME)) matches username
@@ -16,4 +17,5 @@ NICE_HOME="$HOME"
 [ -e "${ENV_PATH}/.nice_home" ] && NICE_HOME="$(cat "${ENV_PATH}/.nice_home")"
 export NICE_HOME
 
+# shellcheck disable=SC1090
 . "$DOTFILES_PATH/bin/paths"

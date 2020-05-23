@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 [ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
 [ -z "$DOTFILES_PATH" ] && export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
@@ -9,7 +9,7 @@
 [ -f "$HOME/.xmodmap" ] && xmodmap "$HOME/.xmodmap"
 has_command libinput-gestures-setup && libinput-gestures-setup start
 has_command autorandr && autorandr -c
-has_command redshift && redshift -r -l 39.1:-94.6 -t 6500K:3000K &
+# has_command redshift && redshift -r -l 39.1:-94.6 -t 6500K:3000K &
 has_command kdeconnect-indicator && kdeconnect-indicator &
 
 has_command gnome-keyring-daemon && eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
@@ -17,4 +17,4 @@ export SSH_AUTH_SOCK
 
 xset r rate 250 80 & # keyrepeat
 
-. maybe_source_env_file x/profile
+source maybe_source_env_file x/profile
