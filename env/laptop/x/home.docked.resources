@@ -1,0 +1,4 @@
+polybar.display_monitor: DP1-1
+polybar.height: 40
+bspwm.reverse_monitor_desktops: 1
+bspwm.reverse_desktop_ordering: 1
