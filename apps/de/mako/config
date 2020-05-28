@@ -6,6 +6,8 @@ font=iosevka-lyte 11
 progress-color=source #33333388
 # format="<b>%s</b>
 default-timeout=15000
+# history=1
+# max-history=100
 
 [urgency="high"]
 background-color=#f92672
