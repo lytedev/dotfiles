@@ -20,3 +20,17 @@ bindswitch lid:toggle exec swaylock
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+
+# Touchpad
+# Identifier: 1739:30383:DLL075B:01_06CB:76AF_Touchpad
+input type:touchpad {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+	pointer_accel 0.33
+}
+
+input type:keyboard {
+	xkb_options ctrl:nocaps
+}

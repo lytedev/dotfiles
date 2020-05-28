@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-. "$DOTFILES_PATH/apps/de/x/profile"
+# . "$DOTFILES_PATH/apps/de/x/profile"
 
 BAR_COMMAND="startbar"
 BSPWM_STATE_FILE="$HOME/.bspwm_state"

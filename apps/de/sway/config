@@ -163,3 +163,6 @@ exec_always makoctl reload
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 
 include $ENV_PATH/sway/config.d/*
+
+exec mako
+exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf
