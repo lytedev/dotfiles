@@ -76,6 +76,7 @@ Here are some bullet points on my workflow:
 ## To Do and Improvements
 
 + `c` (and similar aliases) could utilize `CDPATH` envvar?
++ Better/more secure remote management configuration in dotfiles? [1][1]
 + Wayland stuff
 	+ Sway hotkey parity (as much as is possible) with sxhkd/bspwm
 	+ Clean out all the X11 cruft?
@@ -93,3 +94,4 @@ Here are some bullet points on my workflow:
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
 [desktop-screenshot]: https://lyte.dev/unix/desktop-screenshot.png
+[1]: https://smallstep.com/blog/ssh-tricks-and-tips/
