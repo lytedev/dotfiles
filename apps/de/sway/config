@@ -4,7 +4,7 @@
 # + Super+Control+{1-9} should control the size of the preselect space.
 # + Super+Shift+b should balance the size of all selected nodes.
 
-set $default_gap 20
+set $default_gap 0
 set $left h
 set $down j
 set $up	k

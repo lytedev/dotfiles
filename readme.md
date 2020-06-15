@@ -75,6 +75,7 @@ Here are some bullet points on my workflow:
 
 ## To Do and Improvements
 
++ `c` (and similar aliases) could utilize `CDPATH` envvar?
 + Wayland stuff
 	+ Sway hotkey parity (as much as is possible) with sxhkd/bspwm
 	+ Clean out all the X11 cruft?
