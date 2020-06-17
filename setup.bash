@@ -74,6 +74,9 @@ links=(
 	# libinput configuration
 	"apps/de/libinput/gestures.conf"    "$XDG_CONFIG_HOME/libinput-gestures.conf"
 
+	# kakoune editor configuration
+	"apps/kak/"                         "$XDG_CONFIG_HOME/kak"
+
   # gpg config
   "apps/gpg/agent.conf"               "$HOME/.gnupg/gpg-agent.conf"
 

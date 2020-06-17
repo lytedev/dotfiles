@@ -1,0 +1,23 @@
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+
+plug "andreyorst/fzf.kak"
+
+map global normal <c-p> ': fzf-mode<ret>'
+
+map global normal D '<a-l>d' -docstring 'delete to end of line'
+map global normal Y '<a-l>y' -docstring 'yank to end of line'
+
+hook global InsertChar k %{ try %{
+  exec -draft hh <a-k>jk<ret> d
+  exec <esc>
+}}
+hook global InsertChar j %{ try %{
+  exec -draft hh <a-k>jj<ret> d
+  exec <esc>
+}}
+
+set global tabstop 2
+set global indentwidth 2
+
+set-option global fzf_file_command 'rg'
+
