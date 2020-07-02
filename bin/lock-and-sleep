@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if is_wayland; then
+	swaylock &
+else
+	dm-tool switch-to-greeter &
+fi
+sudo systemctl suspend

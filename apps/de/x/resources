@@ -77,7 +77,7 @@ bspwm.start_bar: 1
 ! polybar
 polybar.primary_font: mono_font:pixelsize=bar_font_size;1
 polybar.secondary_font: icon_font:style=Regular:pixelsize=icon_font_size;1
-polybar.display_monitor: HDMI-1
+polybar.display_monitor: DisplayPort-0
 polybar.bottom_of_display: 1
 polybar.margin: window_margin
 polybar.storage_volume: /

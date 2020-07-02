@@ -120,6 +120,7 @@ bindsym $mod+Control+Alt+k gaps vertical current plus 5
 bindsym $mod+Control+equal gaps inner current set $default_gap
 
 bindsym $mod+Control+Shift+l exec swaylock
+bindsym $mod+Control+Shift+s exec lock-and-sleep
 
 mode "resize" {
 	bindsym $left resize shrink width 10 px or 10 ppt

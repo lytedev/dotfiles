@@ -16,6 +16,7 @@ set -Ux _JAVA_AWT_WM_NONREPARENTING 1
 set -Ux TERMINAL kitty
 set -Ux BROWSER firefox-developer-edition
 set -Ux ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
+set -Ux LESS "-r"
 
 # set our EDITOR to neovim if we've got it
 set -Ux EDITOR vim
@@ -64,4 +65,3 @@ mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
 if has_command tmux && string match -v -q '*tmux*' $TERM && string match -v -q '*screen*' $TERM
 	tmux attach -t default || tmux new -s default
 end
-

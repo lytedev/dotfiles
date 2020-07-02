@@ -188,6 +188,11 @@ function chat
 	env WEECHAT_PASSPHRASE=$pass weechat
 end
 
+function rgl
+	# ripgrep | less
+	rg --color always $argv | less -r
+end
+
 # grep aliases
 alias rg "rg --text"
 alias grep "rg"
