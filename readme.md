@@ -16,8 +16,8 @@ when setting up a new machine.
 take chunks you like instead! Backup your files first!
 
 ```
-git clone https://git.lyte.dev/lytedev/dotfiles.git ~/.config/dotfiles
-cd ~/.config/dotfiles && ./setup.bash # follow the instructions!
+git clone 'https://git.lyte.dev/lytedev/dotfiles.git' '~/.config/dotfiles'
+cd '~/.config/dotfiles' && ./setup.bash # follow the instructions!
 ```
 
 ## Priorities
