@@ -2,13 +2,13 @@
 
 # TODO: progress bar!
 
-HOST="ld"
+HOST="faceless"
 
 f="${1}"
 fname="${2:-$(basename "${f}")}"
 subdir="${3:-uploads}"
-internal_dir="/home/daniel/services/data/files/${subdir}"
-url="https://lyte.dev/${subdir}/${fname}"
+internal_dir="/home/daniel/files/${subdir}"
+url="https://files.lyte.dev/${subdir}/${fname}"
 
 [ "${f}" = "" ] && echo "No file provided. Exiting." >&2 && exit 2
 [ ! -f "${f}" ] && echo "File '$f' does not exist. Exiting." >&2 && exit 1
@@ -18,11 +18,9 @@ if [ "$(curl -s -o /dev/null -w "%{http_code}" "${url}")" -eq 200 ]; then
 	exit 3
 fi
 
-ssh ld mkdir -p "${internal_dir}"
-rsync --progress --no-owner --no-group --no-perms --stats --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
+ssh "$HOST" mkdir -p "${internal_dir}"
+rsync --progress --no-owner --no-group --chmod=644 --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
 code="$?"
-# shellcheck disable=SC2029
-ssh ld chmod a+r "${internal_dir}/${fname}"
 echo "Uploaded to: ${url}"
 
 if [ "$code" -ne 0 ]; then
