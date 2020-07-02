@@ -15,7 +15,7 @@ when setting up a new machine.
 **NOTE**: Unless you're me, you probably shouldn't use my setup exactly. Just
 take chunks you like instead! Backup your files first!
 
-```
+```sh
 git clone https://git.lyte.dev/lytedev/dotfiles.git ~/.config/dotfiles
 cd ~/.config/dotfiles && ./setup.bash # follow the instructions!
 ```
