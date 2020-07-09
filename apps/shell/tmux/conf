@@ -108,6 +108,11 @@ bind-key -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
 # bind-key -T copy-mode-vi "y" send -X copy-selection
 bind-key -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel -X 'clip'
 
+# various control binds
+bind-key n command-prompt -p "New Session:" "new-session -s '%1'"
+bind-key K kill-pane
+bind-key C-S-k kill-session -C
+
 set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.config/tmux/plugins/"
 
 # list of plugins
