@@ -1,5 +1,6 @@
 [Desktop Entry]
+Version=1.0
 Name=sway-lytedev
 Comment=SirCmpwn's Wayland window manager with lytedev's config
-Exec=sway-lytedev
+Exec=/usr/bin/sway-lytedev
 Type=Application
