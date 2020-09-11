@@ -12,6 +12,7 @@ set $right l
 set $term term
 set $fterm floating-term
 set $menu app-launcher
+set $fileexplorer thunar
 
 output * bg $HOME/.wallpaper fill
 
@@ -31,6 +32,7 @@ bindsym $mod+Shift+Alt+Return exec kitty
 bindsym $mod+c kill
 bindsym $mod+Shift+c kill # TODO: kill -9
 bindsym $mod+Space exec $menu
+bindsym $mod+e exec $fileexplorer
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+Escape exit
 bindsym $mod+Shift+e exit
@@ -86,8 +88,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+b splith
 bindsym $mod+v splitv
-
-bindsym $mod+e layout toggle split
 
 bindsym $mod+Shift+f fullscreen
 bindsym $mod+f floating toggle
