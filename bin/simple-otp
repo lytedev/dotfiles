@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# TODO: check for oathtool
+
+key="$1"; shift
+args=("$@")
+
+oathtool --totp=sha1 -b "$key" "${args[@]}"

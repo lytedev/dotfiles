@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# TODO: check for pass
+
+key="$1"; shift
+args=("$@")
+
+otp="$(pass "$key" | grep -Pi '^otp.*: ?.*$' | cut -d ':' -f 2 | sed 's/ //g')"
+simple-otp "$otp"
