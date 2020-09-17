@@ -30,7 +30,7 @@ bindsym $mod+t exec $term
 bindsym $mod+Alt+Return exec urxvt
 bindsym $mod+Shift+Alt+Return exec kitty
 bindsym $mod+c kill
-bindsym $mod+Shift+c kill # TODO: kill -9
+bindsym $mod+Shift+c kill # TODO: kill -9?
 bindsym $mod+Space exec $menu
 bindsym $mod+e exec $fileexplorer
 bindsym $mod+Shift+r reload
@@ -46,7 +46,6 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
-# TODO: this should nudge if floating?
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -119,7 +118,7 @@ bindsym $mod+Control+Alt+k gaps vertical current plus 5
 # TODO: this should also reset the horizontal and vertical gaps?
 bindsym $mod+Control+equal gaps inner current set $default_gap
 
-bindsym $mod+Control+Shift+l exec swaylock
+bindsym $mod+Control+Shift+l exec dm-tool lock
 bindsym $mod+Control+Shift+s exec lock-and-sleep
 
 mode "resize" {
@@ -162,8 +161,7 @@ client.unfocused        #111111 #111111 #ffffff #111111 #111111
 exec mako
 exec_always makoctl reload
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
+exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf
 
 include $ENV_PATH/sway/config.d/*
 
-exec mako
-exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf

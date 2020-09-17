@@ -43,9 +43,8 @@ window#waybar.empty {
 	color: #111111;
 }
 
-#workspaces button.empty {
+#workspaces button.persistent {
 	color: #666666;
-	/* background-color: #111111; */
 }
 
 #workspaces button.urgent {
