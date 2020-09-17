@@ -5,5 +5,8 @@
 key="$1"; shift
 args=("$@")
 
-otp="$(pass "$key" | grep -Pi '^otp.*: ?.*$' | cut -d ':' -f 2 | sed 's/ //g')"
+otp="$(set -e; pass "$key" 2>/dev/null | grep -Pi '^otp.*: ?.*$' | cut -d ':' -f 2 | sed 's/ //g')"
+otp_status="$?"
+[[ $otp_status != 0 ]] && { echo "pass command failed with exit code $otp_status"; exit 1; }
+[[ -z $otp ]] && { echo "No OTP secret found for pass entry '$key'"; exit 2; }
 simple-otp "$otp"
