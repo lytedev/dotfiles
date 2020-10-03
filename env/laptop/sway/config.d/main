@@ -1,4 +1,8 @@
-# TODO: setup displays
+exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf
+
+# exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+
+# TODO: setup displays (when docked for work?)
 output eDP-1 res 1600x900 pos 0 0
 
 bindswitch lid:toggle exec swaylock
@@ -14,5 +18,3 @@ input type:touchpad {
 input type:keyboard {
 	xkb_options ctrl:nocaps
 }
-
-exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf

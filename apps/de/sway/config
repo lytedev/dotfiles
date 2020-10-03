@@ -158,7 +158,6 @@ client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
-exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
 exec mako
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 exec_always makoctl reload
