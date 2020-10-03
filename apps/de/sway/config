@@ -118,7 +118,7 @@ bindsym $mod+Control+Alt+k gaps vertical current plus 5
 # TODO: this should also reset the horizontal and vertical gaps?
 bindsym $mod+Control+equal gaps inner current set $default_gap
 
-bindsym $mod+Control+Shift+l exec dm-tool lock
+bindsym $mod+Control+Shift+l exec swaylock
 bindsym $mod+Control+Shift+s exec lock-and-sleep
 
 mode "resize" {
@@ -158,10 +158,10 @@ client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
+exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
 exec mako
 exec_always makoctl reload
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
-exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf
 
 include $ENV_PATH/sway/config.d/*
 
