@@ -49,6 +49,7 @@ pacaur --needed -S \
 	libinput libinput-gestures `# Trackpad Control` \
 	xcape `# Escape Better` \
 	dunst `# Desktop Notifications` \
+	gammastep `# Redshift for Wayland` \
 	rofimoji `# Emoji Picker` \
 	--noconfirm --noedit
 
