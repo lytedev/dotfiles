@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
-f="${HOME}/.scrup.png"
+set -x
 
-pkill unclutter
-sleep 0.1
-import "${f}"
-upload "${f}" "scrup-$(date +%Y-%m-%d_%H-%M-%S).png" "scrots"
-unclutter &
+remote_dir="scrots"
+url_prefix="https://files.lyte.dev/$remote_dir"
+
+u="$(uuid -v4)"
+d="$(date +%Y-%m-%d_%H-%M-%S)"
+
+fn="$(clipshot)"
+if [ $? -eq 0 ]; then
+	echo "Scrot captured. Uploading..."
+	upload "${fn}" "scrup-$u-$d.png" "$remote_dir"
+	echo "$url_prefix/scrup-$u-$d.png" | clip
+	notify-send "Scrot uploaded. URL in clipboard."
+else
+	exit 1
+fi

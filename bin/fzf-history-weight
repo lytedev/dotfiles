@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+rf="$1" # history count record file
+cf="$1" # all choices file
+
+touch "$record"
+app="$(
+	< "$rf" awk 'NF{NF--};1' | cat - "$cf" | \
+		sort | uniq -c | sort -nr | \
+		sd '^\s+' '' | \
+		cut -d' ' -f2- | \
+		fzf
+	)"
+echo "$app $(date +%s)" >> "$LAUNCHER_HISTORY_FILE"
+echo "$app"

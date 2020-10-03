@@ -64,3 +64,5 @@
 
 [include]
 	path = $ENV_PATH/gitconfig
+[color]
+	ui = auto

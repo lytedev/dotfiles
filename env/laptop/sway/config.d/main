@@ -14,3 +14,5 @@ input type:touchpad {
 input type:keyboard {
 	xkb_options ctrl:nocaps
 }
+
+exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf

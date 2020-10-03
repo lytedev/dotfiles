@@ -1,0 +1,28 @@
+{
+  "date": "d/m/Y",
+  "default_account": 1,
+  "delimiter": "comma",
+  "headers": true,
+  "ignore_duplicate_lines": true,
+  "ignore_duplicate_transactions": true,
+  "rules": true,
+  "skip_form": false,
+  "specifics": [
+    "AppendHash"
+  ],
+  "roles": [
+    "date_transaction",
+    "description",
+    "amount",
+  ],
+  "do_mapping": [true, true ,true],
+  "mapping": {
+    "3": {
+      "Savings Account": 3
+    },
+    "4": {
+      "Savings Account": 3
+    }
+  },
+  "version": 2
+}

@@ -12,6 +12,7 @@ set $right l
 set $term term
 set $fterm floating-term
 set $menu app-launcher
+set $fileexplorer thunar
 
 output * bg $HOME/.wallpaper fill
 
@@ -29,8 +30,9 @@ bindsym $mod+t exec $term
 bindsym $mod+Alt+Return exec urxvt
 bindsym $mod+Shift+Alt+Return exec kitty
 bindsym $mod+c kill
-bindsym $mod+Shift+c kill # TODO: kill -9
+bindsym $mod+Shift+c kill # TODO: kill -9?
 bindsym $mod+Space exec $menu
+bindsym $mod+e exec $fileexplorer
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+Escape exit
 bindsym $mod+Shift+e exit
@@ -44,7 +46,6 @@ bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
 
-# TODO: this should nudge if floating?
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -86,8 +87,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+b splith
 bindsym $mod+v splitv
-
-bindsym $mod+e layout toggle split
 
 bindsym $mod+Shift+f fullscreen
 bindsym $mod+f floating toggle
@@ -159,6 +158,7 @@ client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
+exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
 exec mako
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 exec_always makoctl reload
@@ -166,5 +166,3 @@ exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 
 include $ENV_PATH/sway/config.d/*
 
-exec mako
-exec libinput-gestures -c $DOTFILES_PATH/apps/de/libinput/sway-gestures.conf
