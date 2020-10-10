@@ -7,7 +7,7 @@ app="$(
 		awk 'NF{NF--};1' | \
 		cat - <(dmenu_path) | \
 		sort | uniq -c | sort -nr | \
-		sd '^\s+' '' | \
+		sd -fm '^\s+' '' | \
 		cut -d' ' -f2- | \
 		fzf
 	)"
