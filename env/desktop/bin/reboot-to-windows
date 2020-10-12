@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+sudo efibootmgr -n 0001
+sudo reboot
