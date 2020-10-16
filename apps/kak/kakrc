@@ -1,23 +1,51 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
-plug "andreyorst/fzf.kak"
-
-map global normal <c-p> ': fzf-mode<ret>'
+plug "TeddyDD/kakoune-selenized" theme
+plug "robertmeta/plug.kak" noload do %{
+    set global plug_always_ensure true
+    set global plug_max_active_downloads 25
+}
+plug "alexherbo2/connect.kak"
+plug "ul/kak-lsp" do %{
+    cargo build --release --locked
+    cargo install --force --path .
+}
+plug 'delapouite/kakoune-buffers' %{
+  # map global normal ^ q
+  # map global normal <a-^> Q
+  # map global normal q b
+  # map global normal Q B
+  # map global normal <a-q> <a-b>
+  # map global normal <a-Q> <a-B>
+  # map global normal b ': enter-buffers-mode<ret>' -docstring 'buffers'
+  # map global normal B ': enter-user-mode -lock buffers<ret>' -docstring 'buffers (lock)'
+}
 
 map global normal D '<a-l>d' -docstring 'delete to end of line'
 map global normal Y '<a-l>y' -docstring 'yank to end of line'
 
+declare -hidden range-faces show_matching_range
+
 hook global InsertChar k %{ try %{
-  exec -draft hh <a-k>jk<ret> d
+  exec -draft hH <a-k>jk<ret> d
   exec <esc>
 }}
-hook global InsertChar j %{ try %{
-  exec -draft hh <a-k>jj<ret> d
-  exec <esc>
-}}
+
+hook global WinCreate .* %{
+    addhl ranges show_matching_range
+}
+
+map global normal '^' '<a-h>' -docstring 'jump to start of line'
+
+add-highlighter global/show-trailing-whitespaces regex '\h+$' 0:Error
+add-highlighter global show-matching
 
 set global tabstop 2
 set global indentwidth 2
 
-set-option global fzf_file_command 'rg'
-
+face global Information white,black
+face global MenuBackground white,black
+face global MenuForeground black,blue
+face global PrimarySelection black,blue
+face global PrimarySelection black,white
+face global MatchingChar default,gray
