@@ -34,30 +34,10 @@
 			networkmanager
 			wget curl w3m
 			git
-			kitty
 			pciutils usbutils binutils
-			sway waybar mako wl-clipboard
-			firefox-devedition-bin
 			ripgrep sd
 			nodejs python3
-			fzf
-			fortune
-			dmenu
-			ranger
 			rsync
-			pass
-			brightnessctl
-			vulkan-tools # TODO: vulkan?
-			htop
-			rustup
-			clang
-			pavucontrol
-			pamixer
-			strongswan
-			gnumake
-			elixir
-			docker docker-compose
-			postgresql
 		];
 		variables = {
 			EDITOR = "nvim";
@@ -120,6 +100,28 @@
 			pulsemixer
 			file
 			appimage-run
+			kitty
+			sway waybar mako wl-clipboard
+			firefox-devedition-bin
+			fzf
+			fortune
+			dmenu
+			ranger
+			pass
+			brightnessctl
+			vulkan-tools # TODO: vulkan?
+			rustup
+			clang
+			pavucontrol
+			pamixer
+			strongswan
+			gnumake
+			elixir
+			docker docker-compose
+			postgresql
+			htop
+			google-cloud-sdk
+			slurp grim
 		];
   };
 
