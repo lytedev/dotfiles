@@ -116,6 +116,9 @@ links=(
 
 	# XDG user directories
 	"apps/shell/user-dirs"              "$XDG_CONFIG_HOME/user-dirs.dirs"
+
+	# XDG user directories
+	"env/nix/pkgs"                      "$XDG_CONFIG_HOME/nixpkgs"
 )
 
 chmod 700 -R "$HOME/.bin"

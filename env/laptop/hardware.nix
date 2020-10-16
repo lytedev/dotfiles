@@ -12,6 +12,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+	boot.kernelParams = [ "resume=/swapfile" "resume_offset=874496" ];
+	boot.resumeDevice = "/dev/disk/by-uuid/d1d92974-c0c0-4566-8131-c3dda9b21122";
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/d1d92974-c0c0-4566-8131-c3dda9b21122";
@@ -23,7 +25,13 @@
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+	swapDevices = [
+		{
+			device = "/swapfile";
+			priority = 0;
+			size = 16000;
+		}
+	];
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

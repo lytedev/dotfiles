@@ -63,5 +63,6 @@ mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
 # start a tmux session by default if possible and we're not already in
 # a terminal multiplexer
 if has_command tmux && string match -v -q '*tmux*' $TERM && string match -v -q '*screen*' $TERM
+	tmux start-server
 	tmux attach -t default || tmux new -s default
 end

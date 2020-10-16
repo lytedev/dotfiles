@@ -3,9 +3,11 @@
 {
   imports = [ /etc/nixos/hardware-configuration.nix ];
 
-  boot.loader = {
-		systemd-boot.enable = true;
-		efi.canTouchEfiVariables = true;
+	boot = {
+		loader = {
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+		};
 	};
 
 	nixpkgs.config = {
@@ -27,7 +29,35 @@
 
 	environment = {
 		systemPackages = with pkgs; [
-			wget vim neovim git curl fish bash tmux pciutils usbutils w3m networkmanager sway zsh kitty firefox-devedition-bin ripgrep lightdm fortune sd fzf dmenu ranger nodejs python3 rsync pass brightnessctl wl-clipboard waybar mako vulkan-tools htop rustup clang
+			fish bash tmux
+			vim neovim
+			networkmanager
+			wget curl w3m
+			git
+			kitty
+			pciutils usbutils binutils
+			sway waybar mako wl-clipboard
+			firefox-devedition-bin
+			ripgrep sd
+			nodejs python3
+			fzf
+			fortune
+			dmenu
+			ranger
+			rsync
+			pass
+			brightnessctl
+			vulkan-tools # TODO: vulkan?
+			htop
+			rustup
+			clang
+			pavucontrol
+			pamixer
+			strongswan
+			gnumake
+			elixir
+			docker docker-compose
+			postgresql
 		];
 		variables = {
 			EDITOR = "nvim";
@@ -36,10 +66,19 @@
 
   fonts.fonts = with pkgs; [ iosevka ];
 
+  virtualisation.docker.enable = true;
+
   hardware = {
+		bluetooth = {
+			enable = true;
+		};
 		pulseaudio = {
 			enable = true;
 			support32Bit = true;
+			package = pkgs.pulseaudioFull;
+			# extraConfig = "
+			# 	load-module module-switch-on-connect
+			# ";
 		};
 		opengl = {
 			enable = true;
@@ -65,12 +104,6 @@
 
   services = {
 		openssh.enable = true;
-		xserver = {
-			enable = true;
-			displayManager.lightdm = {
-				enable = true;
-			};
-		};
 	};
 
   networking.firewall.enable = false;
@@ -79,9 +112,15 @@
 
   users.users.daniel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     shell = pkgs.fish;
 		home = "/home/daniel/.home";
+		packages = with pkgs; [
+			steam
+			pulsemixer
+			file
+			appimage-run
+		];
   };
 
   system.stateVersion = "20.03";
