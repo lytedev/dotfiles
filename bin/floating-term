@@ -5,7 +5,7 @@
 flags=("")
 case "$TERMINAL" in
 	kitty )
-		flags=(-o remember_window_size=no -o initial_window_width=122c -o initial_window_height=24c --class floating_terminal)
+		flags=(-o remember_window_size=no -o initial_window_width=60c -o initial_window_height=12c --class floating_terminal)
 		;;
 
 	# TODO: rxvt?

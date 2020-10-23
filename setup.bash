@@ -122,6 +122,9 @@ links=(
 
 	# MPD client
 	"apps/ncmpcpp"                      "$HOME/.ncmpcpp"
+
+	# XDG user directories
+	"env/nix/pkgs"                      "$XDG_CONFIG_HOME/nixpkgs"
 )
 
 chmod 700 -R "$HOME/.bin"
