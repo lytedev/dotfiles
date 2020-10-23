@@ -116,6 +116,12 @@ links=(
 
 	# XDG user directories
 	"apps/shell/user-dirs"              "$XDG_CONFIG_HOME/user-dirs.dirs"
+
+	# Music Player Daemon
+	"apps/mpd"                          "$XDG_CONFIG_HOME/mpd"
+
+	# MPD client
+	"apps/ncmpcpp"                      "$HOME/.ncmpcpp"
 )
 
 chmod 700 -R "$HOME/.bin"

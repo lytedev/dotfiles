@@ -1,5 +1,5 @@
 ! font
-#define mono_font iosevka-lyte
+#define mono_font Iosevka
 #define mono_font_size 14
 #define bar_font_size 12
 #define mono_font_letterspace 0

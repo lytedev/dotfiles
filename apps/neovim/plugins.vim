@@ -46,13 +46,13 @@ let g:polyglot_disabled = ['cue', 'cuesheet']
 if exists('asmanviewer') || exists('nosession')
 	let g:prosession_dir = '/dev/null'
 else
+	Plug 'tpope/vim-obsession'        " session ease-of-use
+	Plug 'dhruvasagar/vim-prosession' " more session ease-of-use
 endif
 
 Plug 'junegunn/vim-plug'                                        " plugin manager should manage itself
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " fuzzy file finding
 Plug 'junegunn/fzf.vim'                                         " helpers for using fzf in vim
-Plug 'tpope/vim-obsession'                                      " session ease-of-use
-Plug 'dhruvasagar/vim-prosession'                               " more session ease-of-use
 Plug 'vim-airline/vim-airline'                                  " status line
 Plug 'vim-airline/vim-airline-themes'                           " more minimal status line
 Plug 'nathanaelkane/vim-indent-guides'                          " indentation guides
