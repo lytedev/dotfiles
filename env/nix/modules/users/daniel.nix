@@ -25,7 +25,6 @@
 			strongswan
 			gnumake
 			elixir
-			docker docker-compose
 			postgresql
 			htop
 			google-cloud-sdk

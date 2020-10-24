@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-# our vim config is setup to not auto-load sessions if we set the
-# `asmanviewer` variable, so launch vim that way when using vim as our man
-# page viewer
-
-"$EDITOR" --cmd "let asmanviewer=1" -c "SuperMan $*" || \
-	( echo "No manual entry for $*" && exit 1 )

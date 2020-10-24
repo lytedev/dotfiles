@@ -1,3 +1,9 @@
 { config, pkgs, ... }: {
-  imports = [ /etc/nixos/hardware-configuration.nix ];
+	virtualisation.docker = {
+		enable = true;
+		enableOnBoot = false;
+	};
+	environment.systemPackages = with pkgs; [
+		docker docker-compose
+	];
 }

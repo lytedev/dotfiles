@@ -171,10 +171,6 @@ alias vd vdiff
 # this sometimes fixes steam dynamic library issues?
 alias lsteam "env LD_PRELOAD='/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1 /usr/$LIB/libgpg-error.so' steam"
 
-# override the man commands with vim
-alias _man "\\man"
-alias man "vman"
-
 # neomutt is better
 alias mutt "neomutt"
 alias mail "mutt"

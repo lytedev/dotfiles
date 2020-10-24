@@ -3,10 +3,12 @@
 		systemPackages = [ pkgs.neovim ];
 		variables = {
 			EDITOR = "nvim";
+			MANPAGER = "nvim +Man!";
+			MANWIDTH = "80";
 		};
 		shellAliases = {
-			vim = "neovim";
-			vi = "neovim";
+			vim = "nvim";
+			vi = "nvim";
 		};
 	};
 }

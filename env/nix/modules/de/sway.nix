@@ -12,6 +12,8 @@
 			wl-clipboard
 			slurp
 			grim
+			font-awesome
     ];
   };
+	# services.xserver.displayManager.defaultSession = "sway-lytedev";
 }

@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  imports = [ ../lightdm.nix ];
   fonts.fonts = with pkgs; [ iosevka ];
 	hardware.opengl = {
 		enable = true;
@@ -7,6 +8,7 @@
 	};
 	environment = {
 		systemPackages = with pkgs; [
+			glxinfo
 			firefox-devedition-bin
 			pavucontrol
 			brightnessctl
