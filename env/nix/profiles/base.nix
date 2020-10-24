@@ -1,27 +1,45 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
+	imports = [
+		../modules/fish.nix
+		../modules/bash.nix
+		../modules/tmux.nix
+		../modules/neovim.nix
+	];
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "us";
   time.timeZone = "America/Chicago";
 
 	environment = {
 		systemPackages = with pkgs; [
-			fish bash
-			tmux
-			neovim
-			networkmanager
+			less
 			wget curl
 			rsync
 			w3m
 			git
 			pciutils usbutils binutils
 			ripgrep sd fd
+			unzip
 		];
 		variables = {
 			EDITOR = "nvim";
-			PAGER = "nvim";
-			VISUAL = "nvim";
+			PAGER = "less";
+			VISUAL = "less";
 		};
+		shellAliases = {
+			vim = "neovim";
+			vi = "neovim";
+		};
+	};
+
+  programs = {
+		gnupg.agent = {
+			enable = true;
+			enableSSHSupport = true;
+			pinentryFlavor = "curses";
+		};
+	};
+
+  services = {
+		openssh.enable = true;
 	};
 }

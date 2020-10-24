@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
-{
-	networkmanager.enable = true;
+{ config, pkgs, ... }: {
+	networking.networkmanager.enable = true;
+	environment.systemPackages = [ pkgs.networkmanager ];
 }
