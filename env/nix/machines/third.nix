@@ -1,48 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ /etc/nixos/hardware-configuration.nix ];
+	imports = [
+		../profiles/laptop.nix
+		../modules/systemd-boot-efi.nix
+		../modules/intel.nix
+	];
 
-	boot = {
-		loader = {
-			systemd-boot.enable = true;
-			efi.canTouchEfiVariables = true;
-		};
-	};
-
-	nixpkgs.config = {
-		allowUnfree = true;
-		packageOverrides = pkgs: {
-			vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-		};
-	};
-
-  networking = {
-    networkmanager.enable = true;
-    hostName = "third.lyte.dev";
-  };
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "us";
-
-  time.timeZone = "America/Chicago";
-
-	environment = {
-		systemPackages = with pkgs; [
-			fish bash tmux
-			vim neovim
-			networkmanager
-			wget curl w3m
-			git
-			pciutils usbutils binutils
-			ripgrep sd
-			nodejs python3
-			rsync
-		];
-		variables = {
-			EDITOR = "nvim";
-		};
-	};
+  networking.hostName "third.lyte.dev";
 
   fonts.fonts = with pkgs; [ iosevka ];
 
@@ -128,6 +93,4 @@
 			ncurses
 		];
   };
-
-  system.stateVersion = "20.03";
 }
