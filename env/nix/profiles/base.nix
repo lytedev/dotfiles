@@ -21,13 +21,8 @@
 			unzip
 		];
 		variables = {
-			EDITOR = "nvim";
 			PAGER = "less";
 			VISUAL = "less";
-		};
-		shellAliases = {
-			vim = "neovim";
-			vi = "neovim";
 		};
 	};
 
