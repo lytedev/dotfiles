@@ -10,9 +10,9 @@ in {
 			extraPackages = with pkgs; [
 				swaylock
 				swayidle
-				xwayland
-				waybar
+				unstable.xwayland
 				mako
+				waybar
 				kanshi
 				wl-clipboard
 				slurp
@@ -21,6 +21,9 @@ in {
 				unstable.gammastep
 			];
 			extraSessionCommands = ''
+				systemctl --user import-environment
+				export TERMINAL=kitty
+				export BROWSER=firefox-devedition
 				export WLC_REPEAT_DELAY=200
 				export WLC_REPEAT_RATE=60
 				export CLUTTER_BACKEND=wayland
@@ -30,7 +33,6 @@ in {
 				export XDG_CURRENT_DESKTOP=sway
 			'';
 		};
-		waybar.enable = true;
 	};
 	services = {
 		pipewire.enable = true;

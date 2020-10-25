@@ -22,7 +22,10 @@
 		enable = true;
 	};
 
-	console.font = "TER16x32";
+	console.useXkbConfig = true;
+	services.xserver.xkbOptions = "ctrl:nocaps";
+		# TODO: setup caps-lock as Control/Escape?
+	# console.font = "TER16x32";
 
 	# services.upower = {
 	#		enable = true;

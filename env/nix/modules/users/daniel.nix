@@ -33,6 +33,7 @@
 			autoconf
 			ncurses
 			weechat
+			# thunar thunar-archive-plugin thunar-volman
 		];
   };
 }

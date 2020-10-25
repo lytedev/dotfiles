@@ -1,3 +1,5 @@
+include $HOME/.env/sway/config.d/main
+
 # TODO:
 #
 # + Super+r should rotate the selected group of windows.
@@ -9,9 +11,9 @@ set $left h
 set $down j
 set $up	k
 set $right l
-set $term term
-set $fterm floating-term
-set $menu app-launcher
+set $term kitty
+set $fterm /home/daniel/.home/.config/dotfiles/bin/floating-term
+set $menu /home/daniel/.home/.config/dotfiles/bin/app-launcher
 set $fileexplorer thunar
 
 output * bg $HOME/.wallpaper fill
@@ -27,7 +29,6 @@ bindsym Control+Space exec makoctl dismiss
 bindsym $mod+Return exec $term
 bindsym $mod+shift+Return exec $fterm
 bindsym $mod+t exec $term
-bindsym $mod+Alt+Return exec urxvt
 bindsym $mod+Shift+Alt+Return exec kitty
 bindsym $mod+c kill
 bindsym $mod+Shift+c kill # TODO: kill -9?
@@ -162,6 +163,3 @@ exec mako
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 exec_always makoctl reload
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
-
-include $ENV_PATH/sway/config.d/*
-

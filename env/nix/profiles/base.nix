@@ -6,7 +6,6 @@
 		../modules/neovim.nix
 	];
   i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "us";
   time.timeZone = "America/Chicago";
 
 	environment = {
@@ -19,6 +18,7 @@
 			pciutils usbutils binutils
 			ripgrep sd fd
 			unzip
+			killall
 		];
 		variables = {
 			PAGER = "less";
@@ -58,7 +58,5 @@
 			"a1efe4"
 			"f9f8f5"
 		];
-		# useXkbConfig = true;
-		# TODO: setup caps-lock as Control/Escape?
 	};
 }

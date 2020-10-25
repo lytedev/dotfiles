@@ -14,6 +14,10 @@
 					name = "Arc-Dark";
 				};
 				clock-format = "%H:%M:%S";
+				extraConfig = ''
+					xft-dpi=260
+					font-name=Iosevka
+				'';
 			};
 			# background = "";
 		};
