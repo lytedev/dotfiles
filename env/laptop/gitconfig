@@ -1,6 +1,0 @@
-[user]
-	signingkey = daniel@lytedev.io
-
-[commit]
-	gpgsign = true
-

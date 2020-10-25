@@ -1,7 +1,0 @@
-! convert caps lock to control
-clear Lock
-keycode 66 = Control_L
-add Control = Control_L
-
-! a fake keycode for xcape
-keycode 254 = Escape

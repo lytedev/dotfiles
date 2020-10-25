@@ -14,4 +14,8 @@
 			brightnessctl
 		];
 	};
+	qt5 = {
+		platformTheme = "gtk2";
+		style = "gtk2";
+	};
 }

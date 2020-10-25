@@ -10,18 +10,8 @@ dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../../" && pwd)
 source "${dfp}/bin/lib/setup_helpers.bash"
 
 links=(
-	# display manager files
-	"apps/de/sway/init"                "/usr/bin/sway-lytedev"
-	"apps/de/sway/dm-entry"            "/usr/share/wayland-sessions/sway-lytedev.desktop"
-
-	# TODO: laptop-specific setup? part of laptop env?
-
-	# touchpad
-	"apps/de/libinput/touchpad.conf"   "/etc/X11/xorg.conf.d/41-libinput-lytedev-touchpad-options.conf"
-
 	# udev rules
 	"apps/udev-rules/lowbat"           "/etc/udev/rules.d/99-lowbat.rules"
-	"apps/udev-rules/wifi-powersave"   "/etc/udev/rules.d/81-wifi-powersave.rules"
 
 	# tmpfiles
 	"apps/tmpfiles/disable-lid-wakeup" "/etc/tmpfiles.d/disable-lid-wakeup.conf"

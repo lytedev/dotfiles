@@ -32,6 +32,7 @@
 			automake
 			autoconf
 			ncurses
+			weechat
 		];
   };
 }

@@ -1,8 +1,0 @@
-#define bar_font_size 12
-# TODO: this needs fixing
-polybar.primary_font: iosevka\-lyte:pixelsize=bar_font_size;1
-bspwm.num_desktops_per_monitor: 3
-bspwm.reverse_desktop_ordering: 0
-bspwm.reverse_monitor_desktops: 0
-polybar.display_monitor: DisplayPort-0
-polybar.height: 40

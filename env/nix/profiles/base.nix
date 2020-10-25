@@ -37,4 +37,28 @@
   services = {
 		openssh.enable = true;
 	};
+
+	console = {
+		earlySetup = true;
+		colors = [
+			"111111"
+			"f92672"
+			"a6e22e"
+			"f4bf75"
+			"66d9ef"
+			"ae81ff"
+			"a1efe4"
+			"f8f8f2"
+			"75715e"
+			"f92672"
+			"a6e22e"
+			"f4bf75"
+			"66d9ef"
+			"ae81ff"
+			"a1efe4"
+			"f9f8f5"
+		];
+		# useXkbConfig = true;
+		# TODO: setup caps-lock as Control/Escape?
+	};
 }

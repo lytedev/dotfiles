@@ -5,11 +5,14 @@
 			vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
 		};
 	};
-	hardware.opengl = {
-		extraPackages = with pkgs; [
-			vaapiIntel
-			vaapiVdpau
-			libvdpau-va-gl
-		];
+	hardware = {
+		cpu.intel.updateMicrocode = true;
+		opengl = {
+			extraPackages = with pkgs; [
+				vaapiIntel
+				vaapiVdpau
+				libvdpau-va-gl
+			];
+		};
 	};
 }

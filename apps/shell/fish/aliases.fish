@@ -48,7 +48,7 @@ function ltld
 	echo $l
 end
 
-alias vltl "vim (ltl)"
+alias vltl "$EDITOR (ltl)"
 alias cdltl "cd (ltld)"
 alias ltlv vltl
 

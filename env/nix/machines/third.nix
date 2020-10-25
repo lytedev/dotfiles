@@ -12,6 +12,20 @@
 		../modules/users/valerie.nix
 	];
 
-  networking.hostName = "third.lyte.dev";
-  networking.firewall.enable = false;
+	networking = {
+		hostName = "third.lyte.dev";
+		firewall.enable = false;
+		networkmanager.wifi.powersave = true;
+	};
+
+	services.fwupd = {
+		enable = true;
+	};
+
+	console.font = "TER16x32";
+
+	# services.upower = {
+	#		enable = true;
+	#		criticalPowerAction = "Hibernate";
+	# };
 }
