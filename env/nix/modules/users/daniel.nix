@@ -33,8 +33,9 @@
 			autoconf
 			ncurses
 			weechat
+			python39Full
 			jq
-			xfce.thunar xfce.thunar-archive-plugin # xfce.thunar-volman
+			xfce.thunar xfce.thunar-archive-plugin xfce.thunar-volman
 		];
   };
 }
