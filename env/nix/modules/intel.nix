@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+	services.xserver.videoDrivers = [ "intel" ];
 	nixpkgs.config = {
 		allowUnfree = true;
 		packageOverrides = pkgs: {
