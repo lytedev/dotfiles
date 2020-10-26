@@ -23,10 +23,6 @@
 			unzip
 			killall
 		];
-		variables = {
-			PAGER = "less";
-			VISUAL = "less";
-		};
 	};
 
 	programs = {

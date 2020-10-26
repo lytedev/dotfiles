@@ -3,7 +3,7 @@
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
-	imports = [ ./base.nix ];
+	imports = [ ./graphics.nix ];
 	programs = {
 		sway = {
 			enable = true;

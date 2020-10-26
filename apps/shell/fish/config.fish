@@ -18,15 +18,6 @@ set -Ux BROWSER firefox-developer-edition
 set -Ux ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
 set -Ux LESS "-r"
 
-# set our EDITOR to neovim if we've got it
-set -Ux EDITOR vim
-if has_command nvim
-	set -Ux EDITOR nvim
-end
-alias ovim 'command vim' # always have an alias to normal vim just in case
-alias vim $EDITOR
-alias vi $EDITOR
-
 # more sane ls colors
 set -Ux LS_COLORS 'ow=01;36;40'
 
