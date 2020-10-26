@@ -141,7 +141,7 @@ mode "resize" {
 default_border pixel 5
 for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
-for_window [class=".*"] layout splith
+for_window [class=".*"] layout splitv
 
 # bindsym $mod+r mode "resize"
 
@@ -161,9 +161,9 @@ client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
 exec mako
-exec gammastep -t 6500:3500 -l 39.0:-94.5
 exec_always makoctl reload
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
+exec_always kanshi
 
 include $ENV_PATH/sway/config.d/*
 

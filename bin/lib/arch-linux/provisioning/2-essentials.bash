@@ -40,6 +40,7 @@ pacaur --needed -S \
 	bspwm-git sxhkd-git xdo-git `# Window Manager and Tools for its use` \
 	wlroots-git sway-git `# Wayland Compositor` \
 	swaylock `# Wayland Compositor` \
+	kanshi `# Monitor Management for Wayland` \
 	waybar mako `# Wayland Bar & Notifications` \
 	slurp grim wl-clipboard `# Wayland Screen Selection & Clipping` \
 	wl-clipboard `# Wayland Clipboard CLI` \

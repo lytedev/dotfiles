@@ -125,6 +125,9 @@ links=(
 
 	# XDG user directories
 	"env/nix/pkgs"                      "$XDG_CONFIG_HOME/nixpkgs"
+
+	# Kanshi configuration
+	"apps/kanshi"                      "$XDG_CONFIG_HOME/kanshi"
 )
 
 chmod 700 -R "$HOME/.bin"
