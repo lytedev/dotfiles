@@ -33,6 +33,7 @@
 			autoconf
 			ncurses
 			weechat
+			python39Full
 			# thunar thunar-archive-plugin thunar-volman
 		];
   };

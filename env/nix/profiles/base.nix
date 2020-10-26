@@ -8,8 +8,8 @@
 
 	nixpkgs.config.allowUnfree = true;
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "America/Chicago";
+	i18n.defaultLocale = "en_US.UTF-8";
+	time.timeZone = "America/Chicago";
 
 	environment = {
 		systemPackages = with pkgs; [
@@ -29,7 +29,7 @@
 		};
 	};
 
-  programs = {
+	programs = {
 		gnupg.agent = {
 			enable = true;
 			enableSSHSupport = true;
@@ -37,8 +37,12 @@
 		};
 	};
 
-  services = {
-		openssh.enable = true;
+	services = {
+		openssh = {
+			enable = true;
+			passwordAuthentication = false;
+			permitRootLogin = "no";
+		};
 	};
 
 	console = {
