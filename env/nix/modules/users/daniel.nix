@@ -33,7 +33,8 @@
 			autoconf
 			ncurses
 			weechat
-			# thunar thunar-archive-plugin thunar-volman
+			jq
+			xfce.thunar xfce.thunar-archive-plugin # xfce.thunar-volman
 		];
   };
 }

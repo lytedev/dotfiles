@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-LAUNCHER_HISTORY_FILE="$ENV_PATH/launch.log"
+LAUNCHER_HISTORY_FILE="$HOME/.local/share/lytelaunch/launch.log"
+mkdir --parents "$(dirname "$LAUNCHER_HISTORY_FILE")"
 touch "$LAUNCHER_HISTORY_FILE"
 app="$(
 	< "$LAUNCHER_HISTORY_FILE" \

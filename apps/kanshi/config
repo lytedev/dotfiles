@@ -1,0 +1,6 @@
+profile desktop-H  {
+  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 1440,560 scale 1 transform normal
+  output "Dell Inc. DELL U2719DC 5DL4QS2" enable mode 2560x1440@60Hz position 0,0 scale 1 transform 90
+  output "Dell Inc. DELL U2719DC 9DL4QS2" enable mode 2560x1440@60Hz position 4880,0 scale 1 transform 270
+  exec "$HOME/.config/dotfiles/apps/kanshi/desktop-H-workspaces.sh"
+}

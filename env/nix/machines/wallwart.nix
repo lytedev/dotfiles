@@ -18,6 +18,20 @@
 		firewall.enable = false;
 	};
 
-	console.useXkbConfig = true;
-	services.xserver.xkbOptions = "ctrl:nocaps";
+	environment = {
+		systemPackages = with pkgs; [ ntfs3g ];
+	};
+
+  fileSystems."/storage/ext".options = [ "defaults" "user" "nofail" ];
+  fileSystems."/storage/butter".options = [ "defaults" "auto" "nofail" ];
+	fileSystems."/storage/windows" = {
+		device = "/dev/disk/by-uuid/AE624593624560E7";
+		fsType = "ntfs";
+		options = [ "defaults" "auto" "nofail" ];
+	};
+	fileSystems."/storage/shared" = {
+		device = "/dev/disk/by-uuid/26F6144A6B518523";
+		fsType = "ntfs";
+		options = [ "defaults" "auto" "nofail" ];
+	};
 }

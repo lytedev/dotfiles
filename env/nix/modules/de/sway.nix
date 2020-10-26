@@ -10,14 +10,14 @@ in {
 			extraPackages = with pkgs; [
 				swaylock
 				swayidle
-				unstable.xwayland
-				mako
+				unstable.mako
 				waybar
-				kanshi
 				wl-clipboard
 				slurp
 				grim
-				font-awesome
+				unstable.font-awesome
+				unstable.xwayland
+				unstable.kanshi
 				unstable.gammastep
 			];
 			extraSessionCommands = ''

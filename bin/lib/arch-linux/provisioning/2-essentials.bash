@@ -14,6 +14,7 @@ pacaur --needed -S \
 	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
 	erlang elixir `# Elixir Language` \
+	asdf-vm `# Runtime Version Manager` \
 	nodejs npm yarn `# JavaScript Runtime` \
 	python python-pip `# Python 3 Language` \
 	pass `# Password Management` \
@@ -39,6 +40,7 @@ pacaur --needed -S \
 	bspwm-git sxhkd-git xdo-git `# Window Manager and Tools for its use` \
 	wlroots-git sway-git `# Wayland Compositor` \
 	swaylock `# Wayland Compositor` \
+	kanshi `# Monitor Management for Wayland` \
 	waybar mako `# Wayland Bar & Notifications` \
 	slurp grim wl-clipboard `# Wayland Screen Selection & Clipping` \
 	wl-clipboard `# Wayland Clipboard CLI` \

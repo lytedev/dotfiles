@@ -27,6 +27,10 @@
 		# TODO: setup caps-lock as Control/Escape?
 	# console.font = "TER16x32";
 
+	services.xserver.displayManager.lightdm.greeters.gtk.extraConfig = ''
+		xft-dpi=260
+	'';
+
 	# services.upower = {
 	#		enable = true;
 	#		criticalPowerAction = "Hibernate";

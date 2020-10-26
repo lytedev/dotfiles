@@ -1,5 +1,7 @@
 # dotfiles by lytedev
 
+curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/nixos/init.sh
+
 [🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
 
 ![Desktop Screenshot][desktop-screenshot]

@@ -117,8 +117,17 @@ links=(
 	# XDG user directories
 	"apps/shell/user-dirs"              "$XDG_CONFIG_HOME/user-dirs.dirs"
 
+	# Music Player Daemon
+	"apps/mpd"                          "$XDG_CONFIG_HOME/mpd"
+
+	# MPD client
+	"apps/ncmpcpp"                      "$HOME/.ncmpcpp"
+
 	# XDG user directories
 	"env/nix/pkgs"                      "$XDG_CONFIG_HOME/nixpkgs"
+
+	# Kanshi configuration
+	"apps/kanshi"                      "$XDG_CONFIG_HOME/kanshi"
 )
 
 chmod 700 -R "$HOME/.bin"
