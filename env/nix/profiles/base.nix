@@ -5,6 +5,9 @@
 		../modules/tmux.nix
 		../modules/neovim.nix
 	];
+
+	nixpkgs.config.allowUnfree = true;
+
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "America/Chicago";
 
