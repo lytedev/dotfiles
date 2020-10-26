@@ -2,10 +2,10 @@
 
 # NOTE: run this from inside a NixOS installation, not from the live USB/CD
 
-rhome="/root"
-home="/home/daniel/.home"
-nhome="/home/daniel"
-cfd="/.config/dotfiles"
+root_home="/root"
+daniel_home="/home/daniel/.home"
+nice_home="/home/daniel"
+dotfiles="/.config/dotfiles"
 
 add_unstable_channel() {
 	nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
@@ -24,39 +24,41 @@ symlink_nixos() {
 }
 
 setup_wallpaper() {
-	mkdir --parents "$nhome/img/walls"
-	curl --silent --output "$nhome/img/walls/clouds_by_souredapply.png" \
+	mkdir --parents "$nice_home/img/walls"
+	curl --silent --output "$nice_home/img/walls/clouds_by_souredapply.png" \
 		"https://art.ngfiles.com/images/530000/530895_souredapple_clouds.png"
-	rm --recursive --force "$home/.wallpaper"
-	ln --symbolic "$nhome/img/walls/clouds_by_souredapply.png" "$home/.wallpaper"
+	rm --recursive --force "$daniel_home/.wallpaper"
+	ln --symbolic "$nice_home/img/walls/clouds_by_souredapply.png" "$daniel_home/.wallpaper"
 }
 
 generate_ssh_key() {
-	mkdir --mode 600 --parents "$home/.ssh"
-	ssh-keygen -N '' -t ed25519 -f "$home/.ssh/$(hostname --short)"
-	mkdir --mode 640 --parents "$nhome/public"
-	cp "$home/.ssh/$(hostname --short).pub" "$nhome/public"
+	mkdir --mode 600 --parents "$daniel_home/.ssh"
+	keyfile="$daniel_home/.ssh/$(hostname --short)"
+	ssh-keygen -N '' -t ed25519 -f "$keyfile"
+	mkdir --mode 640 --parents "$nice_home/public"
+	cp "$keyfile.pub" "$nice_home/public"
+	ssh-add "$keyfile"
 }
 
 fix_dotfiles_origin() {
-	cd "$home$cfd"
+	cd "$daniel_home$dotfiles"
 	git remote set-url origin "ssh://git@git.lyte.dev:2222/lytedev/dotfiles.git"
 }
 
 init_for_root() {
-	clone_dotfiles "$rhome$cfd"
-	symlink_nixos "$rhome$cfd/env/nix/"
+	clone_dotfiles "$root_home$dotfiles"
+	symlink_nixos "$root_home$dotfiles/env/nix/"
 	add_unstable_channel
 	nixos-rebuild switch
-	chown daniel:users "$home"
+	chown daniel:users "$daniel_home"
 	echo "Re-running as user daniel..."
-	sudo --user daniel "$rhome$cfd/init.sh"
+	sudo --user daniel "$root_home$dotfiles/init.sh"
 }
 
 init_for_daniel() {
-	clone_dotfiles "$home$cfd"
+	clone_dotfiles "$daniel_home$dotfiles"
 	generate_ssh_key
-	symlink_nixos "$home$cfd/env/nix/"
+	symlink_nixos "$daniel_home$dotfiles/env/nix/"
 	setup_wallpaper
 	# TODO: setup ssh/gpg keys
 	# TODO: setup password store
@@ -70,7 +72,7 @@ else
 fi
 
 echo "Here is this machine's public SSH key:"
-echo "  $(cat "$home/.ssh/$(hostname --short).pub")"
+echo "  $(cat "$daniel_home/.ssh/$(hostname --short).pub")"
 echo "It needs to be added to existing cloud-based git accounts"
 echo "and other machines before proceeding."
 echo
