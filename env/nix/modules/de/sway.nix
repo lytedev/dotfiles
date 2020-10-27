@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+	unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
 	imports = [ ./graphics.nix ];
 	programs = {
@@ -43,12 +43,12 @@ in {
 			disableWhileTyping = false;
 		};
 	};
-  xdg.portal = {
-    enable = true;
-    gtkUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      unstable.xdg-desktop-portal-wlr
-    ];
-  };
+	xdg.portal = {
+		enable = true;
+		gtkUsePortal = true;
+		extraPortals = with pkgs; [
+			xdg-desktop-portal-gtk
+			unstable.xdg-desktop-portal-wlr
+		];
+	};
 }

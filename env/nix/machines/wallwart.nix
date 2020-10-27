@@ -22,8 +22,8 @@
 		systemPackages = with pkgs; [ ntfs3g ];
 	};
 
-  fileSystems."/storage/ext".options = [ "defaults" "user" "nofail" ];
-  fileSystems."/storage/butter".options = [ "defaults" "auto" "nofail" ];
+	fileSystems."/storage/ext".options = [ "defaults" "user" "nofail" ];
+	fileSystems."/storage/butter".options = [ "defaults" "auto" "nofail" ];
 	fileSystems."/storage/windows" = {
 		device = "/dev/disk/by-uuid/AE624593624560E7";
 		fsType = "ntfs";

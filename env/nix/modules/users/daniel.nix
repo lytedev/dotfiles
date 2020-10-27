@@ -1,8 +1,8 @@
 { config, pkgs, ... }: {
-  users.users.daniel = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
-    shell = pkgs.fish;
+	users.users.daniel = {
+		isNormalUser = true;
+		extraGroups = [ "wheel" "docker" ];
+		shell = pkgs.fish;
 		home = "/home/daniel/.home";
 		packages = with pkgs; [
 			fortune # fun sayings
@@ -43,5 +43,5 @@
 			niv # dependency pinning?
 			lorri # project envrc - like asdf-vm?
 		];
-  };
+	};
 }
