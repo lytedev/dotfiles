@@ -4,13 +4,16 @@ let
 	unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
 	imports = [ ./graphics.nix ];
+	fonts.fonts = with pkgs; [
+		noto-fonts-emoji font-awesome
+	];
 	programs = {
 		sway = {
 			enable = true;
 			extraPackages = with pkgs; [
 				swaylock
 				swayidle
-				unstable.mako
+				unstable.mako unstable.libnotify
 				waybar
 				wl-clipboard
 				slurp

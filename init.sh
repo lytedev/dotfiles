@@ -45,6 +45,12 @@ fix_dotfiles_origin() {
 	git remote set-url origin "ssh://git@git.lyte.dev:2222/lytedev/dotfiles.git"
 }
 
+setup_home_manager() {
+	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+	nix-channel --update
+	nix-shell '<home-manager>' -A install
+}
+
 init_for_root() {
 	clone_dotfiles "$root_home$dotfiles"
 	symlink_nixos "$root_home$dotfiles/env/nix/"

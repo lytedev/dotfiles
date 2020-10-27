@@ -1,4 +1,7 @@
 { config, pkgs, ... }: {
+	fonts.fonts = with pkgs; [
+		# helvetica # needed by zoom
+	];
 	users.users.daniel = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" "docker" ];
@@ -24,15 +27,22 @@
 			elixir
 			postgresql # database
 			htop # almost as good as bottom (btm)
-			google-cloud-sdk # gcloud
-			kubectl # kubernetes cli
-			awscli # aws cli
 			unzip # needed by a handful of other utilities
 			autoconf automake # autotools
 			weechat # irc
 			python39Full # python 3.9
 			jq # awk for json
 			xfce.thunar xfce.thunar-archive-plugin xfce.thunar-volman # gui file manager
+			mpd # music player daemon
+			ncmpcpp # ncurses music player client
+			vlc # video player
+
+			# TODO: work module?
+			google-cloud-sdk # gcloud
+			kubectl # kubernetes cli
+			awscli # aws cli
+			zoom # video conferencing
+			lastpass-cli
 
 			# TODO: move this one to just laptop?
 			brightnessctl # laptop screen brightness
