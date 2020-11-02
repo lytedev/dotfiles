@@ -1,24 +1,17 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-set -x
+# kanshi will potentially run this more than once
+LOCKFILE="/tmp/kanshi-workspace-arranging.lock"
+if ! (set -o noclobber; echo > "$LOCKFILE"); then exit 1; fi
+touch "$LOCKFILE"
+# TODO: some way to ensure the lock file is cleaned up?
+# maybe check if the file is older than a minute?
 
-uw='Samsung Electric Company CF791 HTRJ500315'
-l='Dell Inc. DELL U2719DC 5DL4QS2'
-r='Dell Inc. DELL U2719DC 9DL4QS2'
+move_workspace() { swaymsg workspace "$1"; swaymsg move workspace to "'$2'"; }
+setup_output() { out="$1"; shift; while (($#)); do move_workspace "$1" "$out"; shift; done; }
 
-mws() {
-  swaymsg workspace "$1", move workspace to output "\"$2\""
-}
+setup_output 'Dell Inc. DELL U2719DC 9DL4QS2'            9 8 7
+setup_output 'Dell Inc. DELL U2719DC 5DL4QS2'            6 5 4
+setup_output 'Samsung Electric Company CF791 HTRJ500315' 3 2 1
 
-mws 5 "$l"
-mws 6 "$l"
-mws 4 "$l"
-
-mws 8 "$r"
-mws 9 "$r"
-mws 7 "$r"
-
-mws 2 "$uw"
-mws 3 "$uw"
-mws 1 "$uw"
-
+rm "$LOCKFILE"

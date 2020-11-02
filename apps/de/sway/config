@@ -19,44 +19,44 @@ input type:keyboard {
 	repeat_rate 60
 }
 
-bindsym Control+Space exec makoctl dismiss
+bindsym $mod+control+space exec makoctl dismiss
 # bindsym $mod+Control+Space exec makoctl invoke
-bindsym $mod+Return exec term
-bindsym $mod+shift+Return exec floating-term
+bindsym $mod+return exec term
+bindsym $mod+shift+return exec floating-term
 bindsym $mod+t exec term
-bindsym $mod+Alt+Return exec urxvt
-bindsym $mod+Shift+Alt+Return exec kitty
+bindsym $mod+alt+return exec urxvt
+bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
-bindsym $mod+Shift+c kill # TODO: kill -9?
-bindsym $mod+Space exec app-launcher
+bindsym $mod+shift+c kill # TODO: kill -9?
+bindsym $mod+space exec app-launcher
 bindsym $mod+e exec thunar
-bindsym $mod+Shift+r reload
-bindsym $mod+Control+Escape exit
-bindsym $mod+Shift+e exit
-bindsym $mod+Shift+p exec pass-chooser
-bindsym $mod+Control+j split v
-bindsym $mod+Control+l split h
-bindsym $mod+Control+f focus mode_toggle
+bindsym $mod+shift+r reload
+bindsym $mod+control+Escape exit
+bindsym $mod+shift+e exit
+bindsym $mod+shift+p exec pass-chooser
+bindsym $mod+control+j split v
+bindsym $mod+control+l split h
+bindsym $mod+control+f focus mode_toggle
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+left focus left
+bindsym $mod+down focus down
+bindsym $mod+up focus up
+bindsym $mod+right focus right
 
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+shift+h move left
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
+bindsym $mod+shift+l move right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+shift+left move left
+bindsym $mod+shift+down move down
+bindsym $mod+shift+up move up
+bindsym $mod+shift+right move right
 
 floating_modifier $mod normal
 
@@ -71,24 +71,24 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+shift+1 move container to workspace 1
+bindsym $mod+shift+2 move container to workspace 2
+bindsym $mod+shift+3 move container to workspace 3
+bindsym $mod+shift+4 move container to workspace 4
+bindsym $mod+shift+5 move container to workspace 5
+bindsym $mod+shift+6 move container to workspace 6
+bindsym $mod+shift+7 move container to workspace 7
+bindsym $mod+shift+8 move container to workspace 8
+bindsym $mod+shift+9 move container to workspace 9
+bindsym $mod+shift+0 move container to workspace 10
 
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
-bindsym $mod+Shift+f fullscreen
+bindsym $mod+shift+f fullscreen
 bindsym $mod+f floating toggle
 bindsym $mod+s floating disable
-bindsym $mod+Alt+f focus mode_toggle
+bindsym $mod+alt+f focus mode_toggle
 bindsym $mod+p focus parent
 bindsym $mod+period focus child
 bindsym $mod+comma focus child
@@ -96,12 +96,12 @@ bindsym $mod+tab workspace back_and_forth
 
 bindsym $mod+minus gaps inner current minus 5
 bindsym $mod+plus gaps inner current plus 5
-bindsym $mod+Control+Alt+h gaps horizontal current minus 5
-bindsym $mod+Control+Alt+l gaps horizontal current plus 5
-bindsym $mod+Control+Alt+j gaps vertical current minus 5
-bindsym $mod+Control+Alt+k gaps vertical current plus 5
+bindsym $mod+control+alt+h gaps horizontal current minus 5
+bindsym $mod+control+alt+l gaps horizontal current plus 5
+bindsym $mod+control+alt+j gaps vertical current minus 5
+bindsym $mod+control+alt+k gaps vertical current plus 5
 # TODO: this should also reset the horizontal and vertical gaps?
-bindsym $mod+Control+equal gaps inner current set $default_gap
+bindsym $mod+control+equal gaps inner current set $default_gap
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -112,9 +112,9 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym $mod+Shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym $mod+shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym $mod+Control+Shift+l exec swaylock
+bindsym $mod+control+shift+l exec swaylock
 # TODO: toggle-able swayidle? does the idle thing in waybar handle this?
 # TODO: one-time swayidle/monitor-off
 # bindsym $mod+Control+Shift+s exec lock-and-disable-monitors
@@ -125,18 +125,18 @@ mode "resize" {
 	bindsym k resize shrink height 10 px or 10 ppt
 	bindsym l resize grow width 10 px or 10 ppt
 
-	bindsym Left resize shrink width 10 px or 10 ppt
-	bindsym Down resize grow height 10 px or 10 ppt
-	bindsym Up resize shrink height 10 px or 10 ppt
-	bindsym Right resize grow width 10 px or 10 ppt
+	bindsym left resize shrink width 10 px or 10 ppt
+	bindsym down resize grow height 10 px or 10 ppt
+	bindsym up resize shrink height 10 px or 10 ppt
+	bindsym right resize grow width 10 px or 10 ppt
 
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
+	bindsym return mode "default"
+	bindsym escape mode "default"
 }
 
 for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
-for_window [class=".*"] layout splitv
+# for_window [class=".*"] layout splitv
 
 output * bg $HOME/.wallpaper fill
 
@@ -144,12 +144,12 @@ client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
+exec_always kanshi
 bar {
 	swaybar_command waybar
 }
 
 exec mako
-exec_always kanshi
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 
 include $ENV_PATH/sway/config.d/main
