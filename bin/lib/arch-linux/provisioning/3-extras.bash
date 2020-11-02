@@ -5,11 +5,12 @@ if egrep -q '^\[multilib\]$' /etc/pacman.conf; then
 else
 	echo "Enabling Multilib Repository (with sudo)..."
 	sudo sh -c 'echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
-	pacaur -Syy
+	yay -Sy
 fi
 
-pacaur --needed -S \
-	bluez bluez-libs bluez-utils bluez-tools \
+yay -S \
+	xf86-input-libinput \
+	bluez bluez-libs bluez-utils bluez-tools `# Bluetooth` \
 	pigz `# Multi-core gzipping` \
 	iw `# WiFi Power Saving` \
 	arc-gtk-theme `# GTK Theme` \
@@ -23,36 +24,26 @@ pacaur --needed -S \
 	gimp inkscape krita `# Image/Vector Editing Applications` \
 	audacity `# Audio Editing Application` \
 	cmake `# Cross-Platform Make` \
-	accountsservice `# Mainly for User Avatars with LightDM` \
+	accountsservice `# Mainly for User Avatars with Display Manager` \
+	gdm `# Display Manager of choice` \
 	deluge deluge-gtk cairo python-cairo `# GUI Torrent Client` \
-	lightdm lightdm-gtk-greeter `# Nice User Login` \
-	polybar-git `# Bar` \
+	elixir nodejs erlang \
 	php `# PHP Language` \
 	nginx `# Web Server` \
 	postgresql pgcli `# RDBMS` \
-	urxvt-perls-git urxvt-resize-font-git `# rxvt-unicode scripts` \
 	neofetch `# swag` \
 	cloc `# For counting lines of code` \
-	ttf-noto-fonts-simple ttf-noto-fonts-ib noto-fonts-emoji `# Emoji` \
-	siji-git gohufont artwiz-fonts `# Bitmap Fonts` \
-	autorandr `# Monitor Helper` \
+	noto-fonts noto-fonts-emoji `# Emoji` \
 	docker `# Containers` \
-	keybase keybase-gui kbfs `# Keybase Applications` \
 	discord `# Chat` \
 	steam steamcmd lutris `# Games` \
 	gnome-shell `# Guh-nome Guh-shell` \
-	redshift `# Save Your Eyes` \
 	vlc `# Video Viewer` \
 	ncdu `# Disk Usage Analyzer` \
 	zathura zathura-pdf-mupdf `# Document Viewer` \
-	scrot `# Screenshot Tool` \
 	libinput libinput-gestures `# Trackpad Control` \
-	xcape `# Escape Better` \
-	dunst `# Desktop Notifications` \
-	gammastep `# Redshift for Wayland` \
-	rofimoji `# Emoji Picker` \
-	--noconfirm --noedit
+	efibootmgr efivar `# UEFI Boot CLI Stuff` \
+ 	glu mesa wxgtk2 libpng `# Various` \
+	gammastep `# Redshift for Wayland`
 
 curl -L -o "$HOME/.emoji.txt" https://lyte.dev/uploads/emoji.txt
-
-# TODO: recommend systemd services?

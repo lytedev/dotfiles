@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-pacaur --needed -S --noconfirm --noedit \
-	weechat-poljar-matrix-git weechat-discord-git wee-slack
+yay -S weechat-poljar-matrix-git weechat-discord-git wee-slack
 
 wcpm="/usr/lib/weechat/python/matrix"
 hwcp="${HOME}/.weechat/python"

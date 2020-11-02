@@ -1,6 +1,6 @@
 [Desktop Entry]
-Version=1.0
 Name=sway-lytedev
-Comment=SirCmpwn's Wayland window manager with lytedev's config
-Exec=/usr/bin/sway-lytedev
+Comment=Sway with lytedev's config
+Exec=sway-lytedev
 Type=Application
+X-GDM-Session-Type=wayland

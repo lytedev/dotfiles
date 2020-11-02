@@ -1,21 +1,15 @@
 #!/usr/bin/env bash
 
-# user's username
 USERNAME=daniel
-USER_GROUPS="admin,users"
+GROUPS="admin,users"
 
-# add admin group
 groupadd admin 2>/dev/null
-
-# create actual home directory
-mkdir -p "/home/$USERNAME/.home"
-
-# add user with groups
-useradd -m -d "/home/$USERNAME/.home" -G "${USER_GROUPS}" -s "/bin/bash" "$USERNAME"
-
-# give home directory ownership
-chown -R "$USERNAME:$USERNAME" "/home/$USERNAME"
-
-# have user set new user's password
+mkdir --parents "/home/$USERNAME/.home"
+mkdir --parents "/home/$USERNAME/dl"
+useradd --home-dir "/home/$USERNAME/.home" \
+	--groups "${GROUPS}" \
+	--shell "/bin/bash" \
+	"$USERNAME"
+chown --recursive "$USERNAME:$USERNAME" "/home/$USERNAME"
 echo "Setting password for user '$USERNAME'"
 passwd "$USERNAME"

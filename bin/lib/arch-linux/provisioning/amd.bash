@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-pacaur --needed -S --noconfirm --noedit \
-	libva-mesa-driver mesa-vdpau libva-vdpau-driver libvdpau-va-gl `# Hardware Accelerated Video` \
+# TODO: vulkan
+yay -S \
+	xf86-video-amdgpu mesa \
+	libva-mesa-driver mesa-vdpau libva-vdpau-driver libvdpau-va-gl `# Hardware Accelerated Video`

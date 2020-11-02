@@ -4,35 +4,32 @@
 # + Super+Control+{1-9} should control the size of the preselect space.
 # + Super+Shift+b should balance the size of all selected nodes.
 
+set $mod Mod4
 set $default_gap 0
-set $left h
-set $down j
-set $up	k
-set $right l
-set $term term
-set $fterm floating-term
-set $menu app-launcher
-set $fileexplorer thunar
-
-output * bg $HOME/.wallpaper fill
 
 focus_wrapping no
 gaps inner $default_gap
 smart_borders on|no_gaps
 hide_edge_borders smart_no_gaps
-set $mod Mod4
+default_border pixel 5
+focus_follows_mouse no
+
+input type:keyboard {
+	repeat_delay 200
+	repeat_rate 60
+}
 
 bindsym Control+Space exec makoctl dismiss
 # bindsym $mod+Control+Space exec makoctl invoke
-bindsym $mod+Return exec $term
-bindsym $mod+shift+Return exec $fterm
-bindsym $mod+t exec $term
+bindsym $mod+Return exec term
+bindsym $mod+shift+Return exec floating-term
+bindsym $mod+t exec term
 bindsym $mod+Alt+Return exec urxvt
 bindsym $mod+Shift+Alt+Return exec kitty
 bindsym $mod+c kill
 bindsym $mod+Shift+c kill # TODO: kill -9?
-bindsym $mod+Space exec $menu
-bindsym $mod+e exec $fileexplorer
+bindsym $mod+Space exec app-launcher
+bindsym $mod+e exec thunar
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+Escape exit
 bindsym $mod+Shift+e exit
@@ -41,20 +38,20 @@ bindsym $mod+Control+j split v
 bindsym $mod+Control+l split h
 bindsym $mod+Control+f focus mode_toggle
 
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -97,18 +94,6 @@ bindsym $mod+period focus child
 bindsym $mod+comma focus child
 bindsym $mod+tab workspace back_and_forth
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-bindsym $mod+Shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
 bindsym $mod+minus gaps inner current minus 5
 bindsym $mod+plus gaps inner current plus 5
 bindsym $mod+Control+Alt+h gaps horizontal current minus 5
@@ -118,16 +103,27 @@ bindsym $mod+Control+Alt+k gaps vertical current plus 5
 # TODO: this should also reset the horizontal and vertical gaps?
 bindsym $mod+Control+equal gaps inner current set $default_gap
 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym $mod+Shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 bindsym $mod+Control+Shift+l exec swaylock
-# TODO: toggle-able swayidle?
-# TODO: one-time swayidle?
+# TODO: toggle-able swayidle? does the idle thing in waybar handle this?
+# TODO: one-time swayidle/monitor-off
 # bindsym $mod+Control+Shift+s exec lock-and-disable-monitors
 
 mode "resize" {
-	bindsym $left resize shrink width 10 px or 10 ppt
-	bindsym $down resize grow height 10 px or 10 ppt
-	bindsym $up resize shrink height 10 px or 10 ppt
-	bindsym $right resize grow width 10 px or 10 ppt
+	bindsym h resize shrink width 10 px or 10 ppt
+	bindsym j resize grow height 10 px or 10 ppt
+	bindsym k resize shrink height 10 px or 10 ppt
+	bindsym l resize grow width 10 px or 10 ppt
 
 	bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
@@ -138,32 +134,22 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-default_border pixel 5
 for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
 for_window [class=".*"] layout splitv
 
-# bindsym $mod+r mode "resize"
-
-bar {
-	swaybar_command waybar
-}
-
-input * {
-	repeat_delay 200
-	repeat_rate 60
-}
-
-focus_follows_mouse no
+output * bg $HOME/.wallpaper fill
 
 client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
+bar {
+	swaybar_command waybar
+}
+
 exec mako
-exec_always makoctl reload
-exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 exec_always kanshi
+exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 
-include $ENV_PATH/sway/config.d/*
-
+include $ENV_PATH/sway/config.d/main

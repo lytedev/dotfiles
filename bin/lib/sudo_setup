@@ -15,16 +15,19 @@ links=(
 	"apps/de/sway/dm-entry"            "/usr/share/wayland-sessions/sway-lytedev.desktop"
 
 	# TODO: laptop-specific setup? part of laptop env?
-
 	# touchpad
 	"apps/de/libinput/touchpad.conf"   "/etc/X11/xorg.conf.d/41-libinput-lytedev-touchpad-options.conf"
 
 	# udev rules
 	"apps/udev-rules/lowbat"           "/etc/udev/rules.d/99-lowbat.rules"
 	"apps/udev-rules/wifi-powersave"   "/etc/udev/rules.d/81-wifi-powersave.rules"
+	"apps/udev-rules/gcadapter"        "/etc/udev/rules.d/51-gcadapter.rules"
 
 	# tmpfiles
 	"apps/tmpfiles/disable-lid-wakeup" "/etc/tmpfiles.d/disable-lid-wakeup.conf"
+
+	# lightdm
+	"apps/de/gnome/gdm-tap-to-click"   "/etc/dconf/db/gdm.d/06-tap-to-click"
 )
 
 _dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-root-files.lock" "${links[@]}"

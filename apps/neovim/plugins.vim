@@ -56,7 +56,7 @@ Plug 'junegunn/fzf.vim'                                         " helpers for us
 Plug 'vim-airline/vim-airline'                                  " status line
 Plug 'vim-airline/vim-airline-themes'                           " more minimal status line
 Plug 'nathanaelkane/vim-indent-guides'                          " indentation guides
-Plug 'SirVer/ultisnips'                                         " snippet manager
+" Plug 'SirVer/ultisnips'                                         " snippet manager
 Plug 'bkad/CamelCaseMotion'                                     " camel case and underscore word movements
 Plug 'vim-scripts/LargeFile'                                    " gracefully handle very large files
 Plug 'tpope/vim-commentary'                                     " toggle comments in code easily
