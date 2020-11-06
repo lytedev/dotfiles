@@ -2,6 +2,7 @@
 
 [🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
 
+![Battlestation][battlestation-photo]
 ![Desktop Screenshot][desktop-screenshot]
 
 My various configuration files. Don't use them directly, just take things you
@@ -31,4 +32,5 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
 [desktop-screenshot]: https://files.lyte.dev/unix/desktop-screenshot.png
+[battlestation-photo]: https://files.lyte.dev/unix/battlestation.png
 [1]: https://smallstep.com/blog/ssh-tricks-and-tips/
