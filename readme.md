@@ -13,6 +13,7 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 
 ## To Do
 
++ Setup `nnn`
 + Move to NixOS (WIP) or Guix? Declarative is the future!
 + Custom Iosevka font with kitty-compatible ligatures?
 + Makefile instead of setup script
