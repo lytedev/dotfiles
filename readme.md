@@ -1,15 +1,15 @@
 # lytedev's dotfiles
 
-This repository is undergoing some massive changes.
+![Desktop Screenshot][desktop-screenshot]
 
-Tread lightly.
+My various configuration files. Don't use them directly, just take from them at
+will. And don't run this:
 
 ```
 curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotfiles | sh
 ```
 
 [🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
-
 
 ## To Do
 

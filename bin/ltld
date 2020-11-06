@@ -1,0 +1,13 @@
+#!/usr/bin/env fish
+
+# Echoes the newest subdirectory in the specified directory (or current directory if none is given)
+
+set d $argv[1] .
+set -l l ""
+for f in $d[1]/*
+	if test -z $l; set l $f; continue; end
+	if command test $f -nt $l; and test -d $f
+		set l $f
+	end
+end
+echo $l

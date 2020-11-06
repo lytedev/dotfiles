@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+# Silent count
+
+count $argv > /dev/null
+

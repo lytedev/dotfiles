@@ -13,35 +13,7 @@ alias la 'll -A' # show all
 # other file aliases
 alias tree 'tree -Csuh'
 alias f fzf
-alias rcp 'rsync -ah --progress'
-
-function ltl --description 'Echoes the newest file in the specified directory (or current directory if none is given)'
-	set d $argv[1] .
-	set -l l ""
-	for f in $d[1]/*
-		if test -z $l; set l $f; continue; end
-		if command test $f -nt $l; and test ! -d $f
-			set l $f
-		end
-	end
-	echo $l
-end
-
-function scount -d "Silent count" -w count
-	count $argv > /dev/null
-end
-
-function ltld --description 'Echoes the newest subdirectory in the specified directory (or current directory if none is given)'
-	set d $argv[1] .
-	set -l l ""
-	for f in $d[1]/*
-		if test -z $l; set l $f; continue; end
-		if command test $f -nt $l; and test -d $f
-			set l $f
-		end
-	end
-	echo $l
-end
+alias rcp 'rsync -r -ah --progress'
 
 alias vltl "$EDITOR (ltl)"
 alias cdltl "cd (ltld)"
