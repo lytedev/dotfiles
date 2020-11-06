@@ -5,7 +5,7 @@ This repository is undergoing some massive changes.
 Tread lightly.
 
 ```
-curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotfiles
+curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotfiles | sh
 ```
 
 [🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
