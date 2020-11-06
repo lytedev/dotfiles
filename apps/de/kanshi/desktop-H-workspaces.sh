@@ -4,8 +4,8 @@
 LOCKFILE="/tmp/lytedev-kanshi-workspace-arranging.lock"
 if ! [[ -f $LOCKFILE ]]; then
 	touch "$LOCKFILE"
+	# TODO: something is pretty broken with sway/kanshi right now
 	sleep 0.1
-	echo "L: $(date)" >> /tmp/kanshilog
 	# TODO: some way to ensure the lock file is cleaned up?
 	# maybe check if the file is older than a minute?
 
@@ -30,7 +30,6 @@ if ! [[ -f $LOCKFILE ]]; then
 
 	rm "$LOCKFILE"
 else
-	echo "F: $(date)" >> /tmp/kanshilog
 	echo "Already locked: $LOCKFILE" >&2
 	exit 1
 fi
