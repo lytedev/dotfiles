@@ -32,5 +32,5 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
 [desktop-screenshot]: https://files.lyte.dev/unix/desktop-screenshot.png
-[battlestation-photo]: https://files.lyte.dev/unix/battlestation.png
+[battlestation-photo]: https://files.lyte.dev/unix/battlestation.jpg
 [1]: https://smallstep.com/blog/ssh-tricks-and-tips/
