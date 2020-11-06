@@ -154,7 +154,7 @@ client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
-exec_always kanshi
+exec_always 'killall kanshi; kanshi &>/tmp/kanshilog2'
 exec mako
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 

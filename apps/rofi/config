@@ -1,6 +1,0 @@
-rofi.lines: 10
-rofi.width: 25
-rofi.matching: fuzzy
-rofi.separator-style: none
-rofi.hide-scrollbar: true
-rofi.line-margin: 5
