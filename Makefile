@@ -1,7 +1,5 @@
 MAKEFILE_PATH ?= $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-all: install
-default: install
-
+.PHONY: install
 install:
-	cd ${MAKEFILE_PATH} && ./setup.bash
+	@cd ${MAKEFILE_PATH} && ./bin/setup-dotfiles

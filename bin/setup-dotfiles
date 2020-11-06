@@ -2,8 +2,8 @@
 
 # TODO: quiet/auto-agree mode for curl | bash automagic?
 
-dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
-source "${dfp}/lib/setup_helpers.bash"
+dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
+source "${dfp}/env/common/setup_helpers.bash"
 
 INTERACTIVE=1
 
@@ -15,9 +15,6 @@ while test $# -gt 0; do
 			;;
 	esac
 done
-
-# TODO: note about setting up ~/.env (link to a folder in ./env)
-# should prompt user, perhaps?
 
 links=(
 	# desktop environment files
@@ -34,7 +31,7 @@ links=(
 	"apps/de/compton/compton.conf"      "$XDG_CONFIG_HOME/compton.conf"
 	"apps/de/dunst/rc"                  "$XDG_CONFIG_HOME/dunst/dunstrc"
 	"apps/de/mako/"                     "$XDG_CONFIG_HOME/mako"
-	"bin/lib/colors/xresources"         "$HOME/.Xresources.colors"
+	"env/common/colors/xresources"      "$HOME/.Xresources.colors"
 
 	# shell files
 	"apps/shell/bash/rc"                "$HOME/.bashrc"
@@ -47,7 +44,7 @@ links=(
 	"apps/neovim/"                      "$XDG_CONFIG_HOME/nvim"
 	"apps/neovim/"                      "$HOME/.vim"
 	"apps/neovim/init.vim"              "$HOME/.vimrc"
-	"bin/lib/colors/vim"                "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
+	"env/common/colors/vim"             "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 	"apps/emacs/"                       "$HOME/.emacs.lytedev"
 
 	# gtk configuration files
@@ -130,18 +127,16 @@ links=(
 	"apps/kanshi"                      "$XDG_CONFIG_HOME/kanshi"
 )
 
-chmod 700 -R "$HOME/.bin"
-
 # TODO: pass interactive?
 _dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-files.lock" "${links[@]}"
 
 if [[ "$INTERACTIVE" = 1 ]]; then
-	echo -n -e "Do you want to run the bin/lib/sudo_setup script for changes to /etc"
+	echo -n -e "Do you want to run the env/common/sudo_setup script for changes to /etc"
 	echo -n -e "\nand other root directories?"
 	read -r -p " [y/N] " response
 	response=${response,,} # to lower case
 	if [[ $response =~ ^(yes|y)$ ]]; then
-		"$dfp/bin/lib/sudo_setup"
+		"$dfp/env/common/sudo_setup"
 	fi
 
 	# execute the user's shell

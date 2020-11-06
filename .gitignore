@@ -6,13 +6,10 @@
 fishd.tmp.*
 
 # keep the pipelines but hide their results
-/bin/pipelines/*/*/*
+/env/common/data/pipelines/*/*/*
 
 # a place to keep secrets per-env
-/env/*/.hidden
-
-# ... and a place to keep shared secrets
-/env/.hidden
+.hidden
 
 # TODO: should be unnecessary once color generation is homegrown
 /colors/gen/vendor

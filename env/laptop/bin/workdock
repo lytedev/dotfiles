@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-autorandr --change
-xrandr --output eDP1 --scale-from 1600x900 --filter nearest --mode 3200x1800
-xrdb -merge "$ENV_PATH/x/docked.resources"
-"${DOTFILES_PATH}/apps/de/bspwm/rc"
-restartbar
-"${HOME}/.fehbg"

@@ -5,7 +5,7 @@
 root_home="/root"
 daniel_home="/home/daniel/.home"
 nice_home="/home/daniel"
-dotfiles="/.config/dotfiles"
+dotfiles="/.config/lytedev-dotfiles"
 
 add_unstable_channel() {
 	nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable

@@ -1,0 +1,5 @@
+exec libinput-gestures -c $HOME/.config/lytedev-dotfiles/apps/de/libinput/sway-gestures.conf
+bindswitch lid:toggle exec swaylock
+input type:keyboard {
+	xkb_options ctrl:nocaps
+}

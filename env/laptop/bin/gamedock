@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-autorandr --load games
-xrandr --output eDP1 --mode 1600x900
-"${DOTFILES_PATH}/apps/de/bspwm/rc"
-xrdb -merge "$ENV_PATH/x/games.resources"
-restartbar
-"${HOME}/.fehbg"

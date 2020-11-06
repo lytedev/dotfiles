@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-hb="$ENV_PATH/.hidden/bash"
-[ -f "$hb" ] && . "$hb"

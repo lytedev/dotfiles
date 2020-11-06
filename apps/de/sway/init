@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 [ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
-[ -z "$DOTFILES_PATH" ] && export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+[ -z "$DOTFILES_PATH" ] && export DOTFILES_PATH="$XDG_CONFIG_HOME/lytedev-dotfiles"
 
 . "$DOTFILES_PATH/bin/prelude"
 

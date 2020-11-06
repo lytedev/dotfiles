@@ -4,7 +4,7 @@
 # + Super+Control+{1-9} should control the size of the preselect space.
 # + Super+Shift+b should balance the size of all selected nodes.
 
-set $dfpbin $HOME/.config/dotfiles/bin
+set $dfpbin $HOME/.config/lytedev-dotfiles/bin
 set $mod Mod4
 set $default_gap 0
 
@@ -167,4 +167,5 @@ bar {
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
 
-include $HOME/.env/sway/config.d/main
+include $HOME/.env/sway/main
+# include $HOME/.env/sway/config.d/*

@@ -4,8 +4,9 @@
 # be loaded and properly set by every script - this means you are responsible
 # for making sure they're loaded!
 export XDG_CONFIG_HOME="$HOME/.config"
-export DOTFILES_PATH="$XDG_CONFIG_HOME/dotfiles"
+export DOTFILES_PATH="$XDG_CONFIG_HOME/lytedev-dotfiles"
 export ENV_PATH="$HOME/.env"
+
 export TERMINAL="kitty"
 
 # TODO: better logic for auto-detecting alternative home directories?

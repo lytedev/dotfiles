@@ -1,4 +1,4 @@
-# dotfiles by lytedev
+# lytedev's dotfiles
 
 This repository is undergoing some massive changes.
 
@@ -11,9 +11,9 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 [🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
 
 
-## Improvements
+## To Do
 
-+ Move to NixOS or Guix? Declarative is the future!
++ Move to NixOS (WIP) or Guix? Declarative is the future!
 + Custom Iosevka font with kitty-compatible ligatures?
 + Makefile instead of setup script
 + `c` (and similar aliases) could utilize `CDPATH` envvar?

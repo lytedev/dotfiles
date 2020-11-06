@@ -47,7 +47,7 @@ bind-key h switch-client -p
 bind-key k switch-client -n
 bind-key l switch-client -n
 # bind s run-shell "tmux new-window sh -c "$DOTFILES_PATH/bin/tmuxswitcher""
-bind s run-shell "tmux new-window \"sh -c ~/.config/dotfiles/bin/tmuxswitcher\""
+bind s run-shell "tmux new-window \"sh -c ~/.config/lytedev-dotfiles/bin/tmuxswitcher\""
 
 # reset the working directory of the current session
 bind-key P attach-session -t . -c "#{pane_current_path}" \; display-message "Reset session dir to #{pane_current_path}"
@@ -60,10 +60,10 @@ set -g status-interval 5
 set -g status-right-length 80
 set -g status-right "#[fg=colour4]#W#[fg=default]#[bg=default] #H"
 set -g status-left-length 200
-set -g status-left "#[fg=colour7]#(~/.config/dotfiles/bin/tmux-session-list #S)"
+set -g status-left "#[fg=colour7]#(~/.config/lytedev-dotfiles/bin/tmux-session-list #S)"
 set -g message-style "fg=colour7 bg=colour18"
 
-bind-key O display-message "#(~/.config/dotfiles/bin/tmux-save-buffer #S)"
+bind-key O display-message "#(~/.config/lytedev-dotfiles/bin/tmux-save-buffer #S)"
 
 # pane split line colors
 set -g pane-active-border-style bg=black,fg=blue

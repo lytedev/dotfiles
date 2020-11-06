@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-source "$HOME/.config/dotfiles/bin/prelude"
+source "$(dirname "$0")/prelude"
 floating-term sh -c "launch | xargs swaymsg exec --"
