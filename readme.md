@@ -1,5 +1,7 @@
 # lytedev's dotfiles
 
+[🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
+
 ![Desktop Screenshot][desktop-screenshot]
 
 My various configuration files. Don't use them directly, just take things you
@@ -9,9 +11,7 @@ like from them at will. And don't run this:
 curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotfiles | sh
 ```
 
-[🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
-
-## To Do
+# To Do
 
 + Setup `nnn`
 + Move to NixOS (WIP) or Guix? Declarative is the future!
