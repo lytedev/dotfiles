@@ -1,12 +1,14 @@
 # lytedev's dotfiles
 
+My various configuration files. Don't use them directly, just take what you
+like.
+
 [🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
 
 ![Battlestation][battlestation-photo]
 ![Desktop Screenshot][desktop-screenshot]
 
-My various configuration files. Don't use them directly, just take things you
-like from them at will. And don't run this:
+# Setup
 
 ```
 curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotfiles | sh
