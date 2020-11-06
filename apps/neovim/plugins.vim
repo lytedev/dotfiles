@@ -6,39 +6,11 @@ augroup PluginManagerInstaller
 	endif
 augroup End
 
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1 " automatically displays all buffers when there's only one tab open
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
-let g:airline#extensions#tabline#buffers_label = ''
-
-let g:airline_mode_map = {
-	\ '__' : '-',
-	\ 'n'  : 'N',
-	\ 'i'  : 'I',
-	\ 'R'  : 'R',
-	\ 'T'  : 'T',
-	\ 't'  : 'T',
-	\ 'c'  : 'C',
-	\ 'v'  : 'V',
-	\ 'V'  : 'V',
-	\ '' : 'V',
-	\ 's'  : 'S',
-	\ 'S'  : 'S',
-	\ '' : 'S',
-	\ }
-
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:prosession_dir = $vimdir."/session/"
-
 let g:polyglot_disabled = ['cue', 'cuesheet']
+let g:jsonnet_fmt_on_save = 0
 
 " let g:fzf_layout = { 'window': 'enew' }
 
@@ -76,7 +48,6 @@ Plug 'junegunn/goyo.vim'                                        " better distrac
 Plug 'junegunn/limelight.vim'                                   " dim inactive blocks of code
 Plug 'tpope/vim-sleuth'                                         " try and detect indent method
 Plug 'editorconfig/editorconfig-vim'                            " loads project-specific editor settings
-Plug 'scrooloose/nerdtree'                                      " file browser
 Plug 'tpope/vim-eunuch'                                         " unix helper commands
 Plug 'mbbill/undotree'                                          " undo tree visualizer
 " Plug 'junegunn/vim-peekaboo'                                  " preview registers

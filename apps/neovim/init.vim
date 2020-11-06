@@ -12,6 +12,7 @@ endif
 
 call plug#begin($vimdir.'/bundle')
 source $vimdir/plugins.vim
+source $vimdir/airline.vim
 call plug#end()
 
 filetype on

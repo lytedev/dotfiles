@@ -2,11 +2,11 @@ set realname = "Daniel Flanagan"
 set from = "Daniel Flanagan <daniel@lyte.dev>"
 set use_from = yes
 set envelope_from = yes
-set edit_headers = yes
+# set edit_headers = yes
 
-set folder="~/../mail"
-set sendmail="/usr/bin/esmtp"
-set sidebar_visible
+# set folder="~/../mail"
+# set sendmail="/usr/bin/esmtp"
+# set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 
@@ -15,6 +15,14 @@ bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CI sidebar-open
 bind index,pager \CB sidebar-toggle-visible
+
+set smtp_url = "smtps://wraithx2@gmail.com@smtp.gmail.com:465/"
+set smtp_pass = "`pass google-app-password`"
+set imap_user = "wraithx2@gmail.com"
+set imap_pass = "`pass google-app-password`"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
 
 bind pager g top
 bind pager G bottom
@@ -25,12 +33,15 @@ bind pager k half-up
 bind pager j half-down
 bind pager J next-entry
 bind pager K previous-entry
+bind index \CR imap-fetch-mail
 
 bind attach,index g first-entry
 bind attach,index G last-entry
 
+macro index,pager A s><return>y
+
+set record = ""
+set editor = "nvim"
+set charset = "utf-8"
 set header_cache = "~/.cache/mutt/headers"
 set message_cachedir = "~/.cache/mutt/bodies"
-macro index,pager A s><return>y
-bind index \CR imap-fetch-mail
-set record=""

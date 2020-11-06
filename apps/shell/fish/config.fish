@@ -22,6 +22,7 @@ set -Ux LESS "-r"
 set -Ux EDITOR vim
 if has_command nvim
 	set -Ux EDITOR nvim
+	set -Ux MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_on_startup=0" +Man!'
 end
 alias ovim 'command vim' # always have an alias to normal vim just in case
 alias vim $EDITOR

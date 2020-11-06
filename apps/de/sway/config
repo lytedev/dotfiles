@@ -20,11 +20,10 @@ input type:keyboard {
 }
 
 bindsym $mod+control+space exec makoctl dismiss
-# bindsym $mod+Control+Space exec makoctl invoke
+bindsym $mod+shift+space exec makoctl invoke
 bindsym $mod+return exec term
 bindsym $mod+shift+return exec floating-term
 bindsym $mod+t exec term
-bindsym $mod+alt+return exec urxvt
 bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?
