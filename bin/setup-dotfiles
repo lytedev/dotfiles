@@ -128,7 +128,7 @@ links=(
 )
 
 # TODO: pass interactive?
-_dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-files.lock" "${links[@]}"
+_dotfiles_setup_run_setup "$HOME/.using-lytedev-dotfiles.lock" "${links[@]}"
 
 if [[ "$INTERACTIVE" = 1 ]]; then
 	echo -n -e "Do you want to run the env/common/sudo_setup script for changes to /etc"

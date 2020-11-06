@@ -7,7 +7,7 @@ if [[ $UID -ne 0 ]]; then
 fi
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../../" && pwd)
-source "${dfp}/bin/lib/setup_helpers.bash"
+source "${dfp}/env/common/setup_helpers.bash"
 
 # cp "$dfp/apps/de/sway/dm-entry" "/usr/share/wayland-sessions/lsway.desktop"
 
@@ -27,5 +27,5 @@ links=(
 	"apps/de/gnome/gdm-tap-to-click"   "/etc/dconf/db/gdm.d/06-tap-to-click"
 )
 
-_dotfiles_setup_run_setup "$dfp/.agreed-to-erasing-root-files.lock" "${links[@]}"
+_dotfiles_setup_run_setup "$HOME/.using-lytedev-etcfiles.lock" "${links[@]}"
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 kitty \
+	--single-instance \
 	-o remember_window_size=no \
 	-o initial_window_width=60c \
 	-o initial_window_height=12c \

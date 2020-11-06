@@ -33,9 +33,8 @@ input type:touchpad {
 
 bindsym $mod+control+space exec makoctl dismiss
 bindsym $mod+shift+space exec makoctl invoke
-bindsym $mod+return exec kitty
+bindsym $mod+return exec kitty --single-instance
 bindsym $mod+shift+return exec $dfpbin/floating-term
-bindsym $mod+t exec kitty
 bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?

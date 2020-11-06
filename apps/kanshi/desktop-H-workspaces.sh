@@ -2,7 +2,7 @@
 
 # kanshi will potentially run this more than once
 LOCKFILE="/tmp/kanshi-workspace-arranging.lock"
-if ! (set -o noclobber; echo > "$LOCKFILE"); then exit 1; fi
+if ! (set -o noclobber; echo > "$LOCKFILE" &>/dev/null) &>/dev/null; then echo "Already locked: $LOCKFILE" >&2; exit 0; fi
 touch "$LOCKFILE"
 # TODO: some way to ensure the lock file is cleaned up?
 # maybe check if the file is older than a minute?

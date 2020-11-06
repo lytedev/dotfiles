@@ -23,6 +23,8 @@ in {
 				unstable.kanshi
 				unstable.gammastep
 			];
+			# TODO: this should come from the user's homedir maybe through dotfiles
+			# somehow? home-manager?
 			extraSessionCommands = ''
 				systemctl --user import-environment
 				export TERMINAL=kitty
