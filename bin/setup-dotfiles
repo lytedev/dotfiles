@@ -3,7 +3,7 @@
 # TODO: quiet/auto-agree mode for curl | bash automagic?
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/" && pwd)
-source "${dfp}/bin/lib/setup_helpers.bash"
+source "${dfp}/lib/setup_helpers.bash"
 
 INTERACTIVE=1
 

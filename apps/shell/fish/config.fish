@@ -68,6 +68,6 @@ if has_command tmux && string match -v -q '*tmux*' $TERM && string match -v -q '
 	tmux attach -t default || tmux new -s default
 end
 
-if set -q $__HM_SESS_VARS_SOURCED
+if set -q $__HM_SESS_VARS_SOURCED; and test -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 	exec bash -c "source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh; exec fish"
 end

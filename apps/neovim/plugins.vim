@@ -58,7 +58,6 @@ Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 Plug 'leafo/moonscript-vim', {'for': ['moon', 'moonscript']}    " moonscript language
 Plug 'OmniSharp/omnisharp-vim', {'for': ['cs']}                 " C# language
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}                 " language server interface
-Plug 'neovim/nvim-lspconfig'                                    " neovim-native language server interface
 Plug 'tpope/vim-dadbod'                                         " vim database functions
 Plug 'lytedev/elm-vim', {'for': ['elm']}                        " elm lang
 Plug 'google/vim-jsonnet', {'for': ['jsonnet', 'libsonnet']}    " jsonnet
