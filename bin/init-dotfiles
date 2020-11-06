@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 
-# NOTE: run this from inside a NixOS installation, not from the live USB/CD
+set -e
+
+# NOTE: run this from inside a Linux installation, not from the live USB/CD
+# TODO: detect OS and perform OS-specific setup
 
 root_home="/root"
 daniel_home="/home/daniel/.home"
@@ -13,9 +16,11 @@ add_unstable_channel() {
 }
 
 clone_dotfiles() {
-	echo "Setting up dotfiles for root..."
+	echo "Setting up dotfiles for $USER..."
 	mkdir --parents "$1"
-	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1"
+	set +e
+	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1" &>/dev/null
+	set -e
 }
 
 symlink_nixos() {
@@ -34,10 +39,12 @@ setup_wallpaper() {
 generate_ssh_key() {
 	mkdir --mode 600 --parents "$daniel_home/.ssh"
 	keyfile="$daniel_home/.ssh/$(hostname --short)"
-	ssh-keygen -N '' -t ed25519 -f "$keyfile"
-	mkdir --mode 640 --parents "$nice_home/public"
-	cp "$keyfile.pub" "$nice_home/public"
-	ssh-add "$keyfile"
+	if ! [ -f "$keyfile" ]; then
+		ssh-keygen -N '' -t ed25519 -f "$keyfile"
+		mkdir --mode 640 --parents "$nice_home/public"
+		cp "$keyfile.pub" "$nice_home/public"
+		ssh-add "$keyfile"
+	fi
 }
 
 fix_dotfiles_origin() {
@@ -64,7 +71,8 @@ init_for_root() {
 init_for_daniel() {
 	clone_dotfiles "$daniel_home$dotfiles"
 	generate_ssh_key
-	symlink_nixos "$daniel_home$dotfiles/env/nix/"
+	FUNC=$(declare -f symlink_nixos)
+	sudo sh -c "$FUNC; symlink_nixos \"$daniel_home$dotfiles/env/nix/\""
 	setup_wallpaper
 	# TODO: setup ssh/gpg keys
 	# TODO: setup password store
@@ -86,4 +94,4 @@ echo "Don't forget to setup GPG keys by importing from an existing machine"
 echo "or adding new child keys!"
 echo
 echo "The simplest method for doing this is to run the following:"
-echo '  scp -r "$TARGET_MACHINE:~/.gnupg" "$HOME/.gnupg"
+echo '  scp -r "$TARGET_MACHINE:~/.gnupg" "$HOME/.gnupg'
