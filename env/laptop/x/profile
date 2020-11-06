@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-has_command xcape && xcape -e 'Control_L=Escape' &

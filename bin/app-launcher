@@ -1,7 +1,4 @@
 #!/usr/bin/env sh
 
-if is_wayland; then
-	floating-term sh -c "launch | xargs swaymsg exec --"
-else
-	rofi -combi-modi run,window -show combi -modi combi -sorting-method fzf --sort "$@"
-fi
+source "$HOME/.config/dotfiles/bin/prelude"
+floating-term sh -c "launch | xargs swaymsg exec --"

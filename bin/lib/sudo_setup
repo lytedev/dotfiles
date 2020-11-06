@@ -22,8 +22,10 @@ links=(
 	"apps/udev-rules/lowbat"           "/etc/udev/rules.d/99-lowbat.rules"
 	"apps/udev-rules/wifi-powersave"   "/etc/udev/rules.d/81-wifi-powersave.rules"
 	"apps/udev-rules/gcadapter"        "/etc/udev/rules.d/51-gcadapter.rules"
+	"apps/udev-rules/wifi-powersave"   "/etc/udev/rules.d/81-wifi-powersave.rules"
 
 	# tmpfiles
+	# TODO: does this even do anything anymore?
 	"apps/tmpfiles/disable-lid-wakeup" "/etc/tmpfiles.d/disable-lid-wakeup.conf"
 
 	# lightdm

@@ -1,21 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-# TODO: geomoetry flags?
-
-flags=("")
-case "$TERMINAL" in
-	kitty )
-		flags=(-o remember_window_size=no -o initial_window_width=60c -o initial_window_height=12c --class floating_terminal)
-		;;
-
-	# TODO: rxvt?
-esac
-
-if is_wayland; then
-	# wayland only needs app_id or class set to "floating_terminal"
-	: # no-op
-else
-	bspc rule -a '*' -o state=floating
-fi
-
-"$TERMINAL" "${flags[@]}" "$@"
+kitty \
+	-o remember_window_size=no \
+	-o initial_window_width=60c \
+	-o initial_window_height=12c \
+	--class floating_terminal \
+	"$@"

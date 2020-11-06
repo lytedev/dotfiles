@@ -71,6 +71,7 @@ alias cdc "d $XDG_CONFIG_HOME" # go to ~/.config
 alias cdn "d $NOTES_PATH"
 alias cdl "d $XDG_DOWNLOAD_DIR"
 alias cdg "d $XDG_GAMES_DIR"
+alias cdnx "d $DOTFILES_PATH/env/nix"
 
 # quick parent-directory aliases
 alias .. "d .."

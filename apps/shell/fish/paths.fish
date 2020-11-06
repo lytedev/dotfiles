@@ -48,3 +48,8 @@ set -Ux TMUX_PLUGIN_MANAGER_PATH $XDG_CONFIG_HOME/tmux/plugins/
 set -Ux NOTES_PATH $XDG_DOCUMENTS_DIR/notes
 set -Ux USER_LOGS_PATH $XDG_DOCUMENTS_DIR/logs
 set -Ux SCROTS_PATH $XDG_PICTURES_DIR/scrots
+
+if test -n "$NIX_PATH"
+	set NIX_PATH :
+end
+set -Ux NIX_PATH $HOME/.nix-defexpr/channels:$NIX_PATH

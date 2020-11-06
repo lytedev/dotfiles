@@ -54,7 +54,7 @@
 		"interval": 3
 	},
 	"memory": {
-		"format": "{} <span foreground=\"#666666\"></span>"
+		"format": "{} <span foreground=\"#666666\"></span>"
 	},
 	"temperature": {
 		// "thermal-zone": 2,
@@ -92,14 +92,14 @@
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
-		"format": "{volume} <span foreground=\"#666666\">{icon}</span> {format_source}",
+		"format": "{volume} <span weight='900' face=\"Font Awesome 5 Free\" foreground=\"#666666\">{icon}</span> {format_source}",
 		//"format": "{volume}% {icon} {format_source}",
 		//"format-bluetooth": "{volume}% {icon} {format_source}",
 		//"format-bluetooth-muted": " {icon} {format_source}",
-		//"format-muted": " {format_source}",
-		"format-muted": "<span foreground=\"#666666\"></span> {format_source}",
-		"format-source": "<span foreground=\"#666666\"></span>",
-		"format-source-muted": "<span foreground=\"#666666\"></span>",
+		//"format-muted": " {format_source}",
+		"format-muted": "<span foreground=\"#666666\"></span> {format_source}",
+		"format-source": "<span foreground=\"#f92672\">  </span>",
+		"format-source-muted": "<span foreground=\"#66d9ef\"> </span>",
 		"format-icons": {
 			"headphones": "",
 			"handsfree": "",
@@ -107,8 +107,9 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["", "", ""]
+			"default": ["", "", ""]
 		},
+		// TODO: toggle mute?
 		"on-click": "pavucontrol"
 	}
 }
