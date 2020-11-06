@@ -7,7 +7,7 @@ HOST="faceless"
 f="${1}"
 fname="${2:-$(basename "${f}")}"
 subdir="${3:-uploads}"
-internal_dir="/home/daniel/files/${subdir}"
+internal_dir="/home/daniel/public-static-files/${subdir}"
 url="https://files.lyte.dev/${subdir}/${fname}"
 
 [ "${f}" = "" ] && echo "No file provided. Exiting." >&2 && exit 2

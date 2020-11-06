@@ -10,7 +10,9 @@ in
 			EDITOR = "nvim";
 			PAGER = "nvim";
 			VISUAL = "nvim";
-			MANPAGER = "nvim +Man!";
+			# we have to escape these doublequotes so that they work when NixOS
+			# injects them into the shell
+			MANPAGER = ''env MANWIDTH=\"\" nvim --cmd \"let g:prosession_on_startup=0\" +Man!'';
 			MANWIDTH = "80";
 		};
 		shellAliases = aliases;

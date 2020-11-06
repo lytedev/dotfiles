@@ -39,11 +39,13 @@ in {
 	};
 	services = {
 		pipewire.enable = true;
-		xserver.libinput = {
-			enable = true;
-			tapping = true;
-			naturalScrolling = true;
-			disableWhileTyping = false;
+		xserver = {
+			libinput = {
+				enable = true;
+				tapping = true;
+				naturalScrolling = true;
+				disableWhileTyping = false;
+			};
 		};
 	};
 	xdg.portal = {

@@ -4,6 +4,7 @@
 # + Super+Control+{1-9} should control the size of the preselect space.
 # + Super+Shift+b should balance the size of all selected nodes.
 
+set $dfpbin $HOME/.config/dotfiles/bin
 set $mod Mod4
 set $default_gap 0
 
@@ -33,17 +34,17 @@ input type:touchpad {
 bindsym $mod+control+space exec makoctl dismiss
 bindsym $mod+shift+space exec makoctl invoke
 bindsym $mod+return exec kitty
-bindsym $mod+shift+return exec floating-term
+bindsym $mod+shift+return exec $dfpbin/floating-term
 bindsym $mod+t exec kitty
 bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?
-bindsym $mod+space exec app-launcher
+bindsym $mod+space exec $dfpbin/app-launcher
 bindsym $mod+e exec thunar
 bindsym $mod+shift+r reload
 bindsym $mod+control+Escape exit
 bindsym $mod+shift+e exit
-bindsym $mod+shift+p exec pass-chooser
+bindsym $mod+shift+p exec $dfpbin/pass-chooser
 bindsym $mod+control+j split v
 bindsym $mod+control+l split h
 bindsym $mod+control+f focus mode_toggle

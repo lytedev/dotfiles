@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-	imports = [ ../lightdm.nix ];
+	imports = [ ../gdm.nix ];
 	fonts.fonts = with pkgs; [ iosevka ];
 	hardware.opengl = {
 		enable = true;

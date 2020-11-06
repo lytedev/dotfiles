@@ -8,6 +8,7 @@
 		../modules/bluetooth.nix
 		../modules/pulseaudio.nix
 		../modules/de/sway.nix
+		../modules/de/gnome.nix
 		../modules/users/daniel.nix
 		../modules/users/valerie.nix
 	];
@@ -26,10 +27,6 @@
 	services.xserver.xkbOptions = "ctrl:nocaps";
 		# TODO: setup caps-lock as Control/Escape?
 	# console.font = "TER16x32";
-
-	services.xserver.displayManager.lightdm.greeters.gtk.extraConfig = ''
-		xft-dpi=260
-	'';
 
 	swapDevices = [ { device = "/swapfile"; size = (1024*16); } ];
 

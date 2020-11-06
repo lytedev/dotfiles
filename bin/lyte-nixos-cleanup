@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# TODO: use nix-shell because it's cool?
+nix-collect-garbage -d
