@@ -28,13 +28,15 @@ function d -w cd --description "Quickly jump to NICE_HOME (or given dir) and sho
 end
 
 # navigation aliases
-function c -w cd --description "Quickly jump to a subdirectory of NICE_HOME (or just to NICE_HOME if none given)"
+function c --description "Quickly jump to a subdirectory of NICE_HOME (or just to NICE_HOME if none given)"
 	if scount $argv
 		cd $NICE_HOME && d $argv || exit 1
 	else
 		d $NICE_HOME
 	end
 end
+complete --erase --command c
+complete --command c -a "(pushd $NICE_HOME && fd . . --max-depth 1 --min-depth 1 && popd)"
 
 alias cd.. "d .."
 alias cdd "d $DOTFILES_PATH" # go to dotfiles
