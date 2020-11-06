@@ -71,7 +71,7 @@ init_for_daniel() {
 	fix_dotfiles_origin
 }
 
-if [ "$EUID" -eq 0 ]
+if [ "$EUID" -eq 0 ]; then
 	init_for_root
 else
 	init_for_daniel
