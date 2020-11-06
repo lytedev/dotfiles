@@ -166,3 +166,7 @@ end
 # grep aliases
 alias rg "rg --text"
 alias grep "rg"
+
+alias vim nvim
+alias vi nvim
+

@@ -17,6 +17,17 @@ focus_follows_mouse no
 input type:keyboard {
 	repeat_delay 200
 	repeat_rate 60
+	# I have a keyboard that takes care of this on my workstation, so we only enable
+	# this on laptops
+	# xkb_options ctrl:nocaps
+}
+
+input type:touchpad {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+	pointer_accel 0.33
 }
 
 bindsym $mod+control+space exec makoctl dismiss
@@ -151,4 +162,8 @@ bar {
 	swaybar_command waybar
 }
 
-include $ENV_PATH/sway/config.d/main
+# TODO: exec_always?
+exec gammastep -t 6500:3500 -l 39.0:-94.5
+exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+
+include $HOME/.env/sway/config.d/main

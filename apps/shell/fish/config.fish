@@ -17,27 +17,15 @@ set -Ux TERMINAL kitty
 set -Ux BROWSER firefox-developer-edition
 set -Ux ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
 set -Ux LESS "-r"
-
-# set our EDITOR to neovim if we've got it
-set -Ux EDITOR vim
-if has_command nvim
-	set -Ux EDITOR nvim
-	set -Ux MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_on_startup=0" +Man!'
-end
-alias ovim 'command vim' # always have an alias to normal vim just in case
-alias vim $EDITOR
-alias vi $EDITOR
-
-# more sane ls colors
-set -Ux LS_COLORS 'ow=01;36;40'
+set -Ux LS_COLORS 'ow=01;36;40' # more sane ls colors
+set -Ux EDITOR nvim
+set -Ux MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_on_startup=0" +Man!'
 
 has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 
 test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
 
-function fish_greeting
-	fortune
-end
+function fish_greeting; fortune; end
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
 # nonsense that clutters it up and that they have a preferred starting
@@ -53,21 +41,14 @@ else if test -f /opt/asdf-vm/asdf.fish
 	source /opt/asdf-vm/asdf.fish
 end
 
-# load a per-device config last so anything can be overridden
+if set -q $__HM_SESS_VARS_SOURCED; and test -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+	exec bash -c "source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh; exec fish"
+end
+
+# load a per-device, secret config last so anything can be overridden
 for cf in config.fish .hidden/config.fish
 	set f $ENV_PATH/$cf
 	test -f $f && source $f
 end
 
 mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
-
-# start a tmux session by default if possible and we're not already in
-# a terminal multiplexer
-if has_command tmux && string match -v -q '*tmux*' $TERM && string match -v -q '*screen*' $TERM
-	tmux start-server
-	tmux attach -t default || tmux new -s default
-end
-
-if set -q $__HM_SESS_VARS_SOURCED; and test -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
-	exec bash -c "source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh; exec fish"
-end
