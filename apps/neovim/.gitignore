@@ -6,4 +6,5 @@
 !/settings.vim
 !/bindings.vim
 !/plugins.vim
+!/airline.vim
 !/commands.vim
