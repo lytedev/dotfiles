@@ -1,0 +1,10 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+UUID=14b10323-31c1-4eda-8067-4647cdb30c78 /                ext4  rw,relatime                                                                                               0 1
+UUID=F6C0-101A                            /boot            vfat  rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 2
+UUID=d4a27795-14a2-4c3f-ba0e-1c2112fc7228 /home            ext4  rw,relatime                                                                                               0 2
+UUID=26F6144A6B518523                     /storage/shared  ntfs  rw,relatime,uid=0,gid=0,umask=00,nls=utf8,auto,nofail,errors=continue,mft_zone_multiplier=1               0 0
+UUID=AE624593624560E7                     /storage/windows ntfs  rw,relatime,uid=0,gid=0,umask=00,nls=utf8,auto,nofail,errors=continue,mft_zone_multiplier=1               0 0
+UUID=9c4e25c5-c4de-4722-b79a-ae09881d2a98 /storage/ext     ext4  rw,relatime,auto,nofail                                                                                   0 2
+UUID=e568cf1f-3f86-4ef4-b144-bfc1244624f8 /storage/butter  btrfs rw,relatime,space_cache,subvolid=5,subvol=/,auto,nofail                                                   0 0

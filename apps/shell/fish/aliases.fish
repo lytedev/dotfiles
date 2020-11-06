@@ -121,7 +121,9 @@ alias scs "sc-im $NOTES_PATH/_scratch.sc"
 alias disks "lsblk && df -h"
 alias dd "dd status=progress"
 alias wifi "sudo nmtui"
+alias svim "sudo -E nvim"
 alias year 'cal (date +%Y)'
+alias mount 'sudo -E mount'
 alias pa pulsemixer
 
 # weechat aliases

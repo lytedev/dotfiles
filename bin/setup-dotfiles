@@ -4,6 +4,7 @@
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 source "${dfp}/env/common/setup_helpers.bash"
+test ! -d "$HOME/.env" && "$dfp/bin/choose-common-env"
 
 INTERACTIVE=1
 
