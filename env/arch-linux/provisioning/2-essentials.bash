@@ -26,10 +26,10 @@ yay -S \
 	kitty `# Almost Better Terminal Emulator` \
 	feh `# Image Viewer & Wallpaper Manager` \
 	wlroots-git sway-git `# Wayland Compositor` \
-	swaylock-git `# Wayland Compositor` \
-	kanshi-git `# Monitor Management for Wayland` \
-	waybar-git mako-git `# Wayland Bar & Notifications` \
-	slurp grim wl-clipboard `# Wayland Screen Selection & Clipping` \
+	swaylock-git swayidle-git `# Auto-Locking for Sway` \
+	kanshi-git `# Monitor Management for Sway` \
+	waybar-git mako-git `# Sway Bar & Notifications` \
+	slurp grim wl-clipboard `# Sway Screen Selection & Clipping` \
 	ttf-iosevka `# Primary Fonts` \
 	ttf-font-awesome `# Icon Font` \
 	curl `# HTTP Utility` \
