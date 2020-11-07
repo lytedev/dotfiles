@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+if not test "$_" = exec
+	echo 'Run with `exec`'
+	exit 1
+end
+
+set -l work_conf_dir $ENV_PATH/.hidden/fish.d/postmates
+test -d $work_conf_dir || \
+	git clone git@github.com:lytedev/postmates.git $work_conf_dir
+fish --interactive --init-command "source $work_conf_dir/config.fish"
