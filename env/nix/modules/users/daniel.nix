@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+	unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in {
 	fonts.fonts = with pkgs; [
 		# helvetica # needed by zoom
 	];
@@ -13,7 +16,7 @@
 			pulsemixer # audio
 			file # identify file types
 			kitty # terminal emulator
-			fzf # fuzzy finder
+			unstable.fzf # fuzzy finder
 			dmenu # TODO: currently only using this for dmenu_path in `bin/launch`
 			ranger # tui for file management
 			pass # the standard unix password manager

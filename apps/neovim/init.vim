@@ -39,6 +39,7 @@ filetype indent on
 filetype plugin on
 
 " use :h option-list if you need to know what these do
+set fcs=eob:\+
 set encoding=utf8
 set tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
 set autoindent smartindent
