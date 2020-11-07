@@ -58,6 +58,11 @@ setup_home_manager() {
 	nix-shell '<home-manager>' -A install
 }
 
+setup_dotfiles() {
+	cd "$daniel_home$dotfiles"
+	./bin/setup-dotfiles
+}
+
 init_for_root() {
 	clone_dotfiles "$root_home$dotfiles"
 	symlink_nixos "$root_home$dotfiles/env/nix/"
@@ -77,6 +82,7 @@ init_for_daniel() {
 	# TODO: setup ssh/gpg keys
 	# TODO: setup password store
 	fix_dotfiles_origin
+	setup_dotfiles
 }
 
 if [ "$EUID" -eq 0 ]; then
