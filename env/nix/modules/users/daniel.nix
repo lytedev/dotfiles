@@ -36,12 +36,13 @@
 			mpd # music player daemon
 			ncmpcpp # ncurses music player client
 			vlc # video player
+			google-chrome # sometimes ya gotta screenshare
 
 			# TODO: work module?
 			google-cloud-sdk # gcloud
 			kubectl # kubernetes cli
 			awscli # aws cli
-			zoom # video conferencing
+			zoom-us # video conferencing
 			lastpass-cli
 
 			# TODO: move this one to just laptop?
