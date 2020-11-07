@@ -1,7 +1,3 @@
-" Base16 Donokai (https://github.com/chriskempson/base16)
-" Scheme: Daniel Flanagan(https://lytedev.io)
-
-" GUI color definitions
 let s:gui00 = "111111"
 let s:gui01 = "383830"
 let s:gui02 = "49483e"
