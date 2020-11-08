@@ -11,6 +11,7 @@ in {
 		sway = {
 			enable = true;
 			extraPackages = with pkgs; [
+				unstable.pipewire
 				swaylock
 				swayidle
 				unstable.mako unstable.libnotify

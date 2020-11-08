@@ -1,4 +1,6 @@
 exec libinput-gestures -c $HOME/.config/lytedev-dotfiles/apps/de/libinput/sway-gestures.conf
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
 bindswitch lid:toggle exec swaylock
 input type:keyboard {
 	xkb_options ctrl:nocaps

@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+	unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in {
 	fonts.fonts = with pkgs; [
 		# helvetica # needed by zoom
 	];
@@ -13,7 +16,7 @@
 			pulsemixer # audio
 			file # identify file types
 			kitty # terminal emulator
-			fzf # fuzzy finder
+			unstable.fzf # fuzzy finder
 			dmenu # TODO: currently only using this for dmenu_path in `bin/launch`
 			ranger # tui for file management
 			pass # the standard unix password manager
@@ -36,12 +39,13 @@
 			mpd # music player daemon
 			ncmpcpp # ncurses music player client
 			vlc # video player
+			google-chrome # sometimes ya gotta screenshare
 
 			# TODO: work module?
 			google-cloud-sdk # gcloud
 			kubectl # kubernetes cli
 			awscli # aws cli
-			zoom # video conferencing
+			zoom-us # video conferencing
 			lastpass-cli
 
 			# TODO: move this one to just laptop?

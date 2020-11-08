@@ -16,6 +16,8 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 
 # To Do
 
++ Fix sway workspaces on desktop
++ Neovim LSP
 + Setup `nnn`
 + Move to NixOS (WIP) or Guix? Declarative is the future!
 + Custom Iosevka font with kitty-compatible ligatures?

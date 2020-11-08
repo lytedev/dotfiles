@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+head /etc/os-release -n 1 | grep 'NixOS$'; test $? -eq 1; is_nixos=$?
+head /etc/os-release -n 1 | grep 'Arch Linux'; test $? -eq 1; is_arch_linux=$?
+
 set -e
 
 # NOTE: run this from inside a Linux installation, not from the live USB/CD
@@ -16,11 +19,13 @@ add_unstable_channel() {
 }
 
 clone_dotfiles() {
+	if test $is_arch_linux -eq 1; then
+		pacman -S --needed git
+	fi
 	echo "Setting up dotfiles for $USER..."
 	mkdir --parents "$1"
-	set +e
-	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1" &>/dev/null
-	set -e
+	rm -r "$1"
+	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1"
 }
 
 symlink_nixos() {
@@ -58,11 +63,36 @@ setup_home_manager() {
 	nix-shell '<home-manager>' -A install
 }
 
+setup_dotfiles() {
+	cd "$daniel_home$dotfiles"
+	./bin/setup-dotfiles
+}
+
+distro_specific_root_setup() {
+	if test $is_nixos -eq 1; then
+		symlink_nixos "$root_home$dotfiles/env/nix/"
+		add_unstable_channel
+		nixos-rebuild switch # this should create the `daniel` user
+	elif test $is_arch_linux -eq 1; then
+		# TODO: install any necessary packages for remaining setup portion
+		"$root_home$dotfiles/env/arch-linux/provision.d/00-add-user.bash"
+		printf ''
+	fi
+}
+
+distro_specific_user_setup() {
+	if test $is_nixos -eq 1; then
+		FUNC=$(declare -f symlink_nixos)
+		sudo sh -c "$FUNC; symlink_nixos \"$daniel_home$dotfiles/env/nix/\""
+	elif test $is_arch_linux -eq 1; then
+		# TODO: setup all the things
+		printf ''
+	fi
+}
+
 init_for_root() {
 	clone_dotfiles "$root_home$dotfiles"
-	symlink_nixos "$root_home$dotfiles/env/nix/"
-	add_unstable_channel
-	nixos-rebuild switch
+	distro_specific_root_setup
 	chown daniel:users "$daniel_home"
 	echo "Re-running as user daniel..."
 	sudo --user daniel "$root_home$dotfiles/init.sh"
@@ -71,12 +101,14 @@ init_for_root() {
 init_for_daniel() {
 	clone_dotfiles "$daniel_home$dotfiles"
 	generate_ssh_key
-	FUNC=$(declare -f symlink_nixos)
-	sudo sh -c "$FUNC; symlink_nixos \"$daniel_home$dotfiles/env/nix/\""
+	distro_specific_user_setup
 	setup_wallpaper
 	# TODO: setup ssh/gpg keys
 	# TODO: setup password store
 	fix_dotfiles_origin
+	setup_dotfiles
+	# TODO: fetch password store
+	# TODO: fetch notes database
 }
 
 if [ "$EUID" -eq 0 ]; then

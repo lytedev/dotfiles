@@ -9,6 +9,7 @@ in {
 	services = {
 		pipewire.enable = true;
 		xserver = {
+			desktopManager.gnome3.enable = true;
 			libinput = {
 				enable = true;
 				tapping = true;
