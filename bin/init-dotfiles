@@ -124,6 +124,10 @@ echo "and other machines before proceeding."
 echo
 echo "Don't forget to setup GPG keys by importing from an existing machine"
 echo "or adding new child keys!"
+if test $is_arch_linux -eq 1; then
+	echo
+	echo 'You will need to set a password for your new user.'
+fi
 echo
 echo "The simplest method for doing this is to run the following:"
 echo '  scp -r "$TARGET_MACHINE:~/.gnupg" "$HOME/.gnupg'
