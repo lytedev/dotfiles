@@ -11,13 +11,14 @@ endif
 
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
-let g:prosession_dir = $vimdir."/session/"
 let g:jsonnet_fmt_on_save = 0
 
 call plug#begin($vimdir.'/plugged')
 	Plug 'junegunn/vim-plug'                  " plugin manager should manage itself
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'                   " helpers for using fzf in vim
+	Plug 'editorconfig/editorconfig-vim'      " loads project-specific editor settings
+	Plug 'tpope/vim-sleuth'                   " try and detect indent method
 	Plug 'nathanaelkane/vim-indent-guides'    " indentation guides
 	Plug 'bkad/CamelCaseMotion'               " camel case and underscore word movements
 	Plug 'vim-scripts/LargeFile'              " gracefully handle very large files
@@ -28,8 +29,8 @@ call plug#begin($vimdir.'/plugged')
 	Plug 'michaeljsmith/vim-indent-object'    " adds an indentation level text object
 	Plug 'wellle/targets.vim'                 " adds some more handy text objects
 	Plug 'junegunn/goyo.vim'                  " better distraction-free editing
-	Plug 'tpope/vim-sleuth'                   " try and detect indent method
-	Plug 'editorconfig/editorconfig-vim'      " loads project-specific editor settings
+
+	" language-specific plugins
 	Plug 'google/vim-jsonnet', {'for': ['jsonnet', 'libsonnet']}
 	Plug 'calviken/vim-gdscript3', {'for': ['gdscript']}
 call plug#end()
@@ -39,12 +40,11 @@ filetype indent on
 filetype plugin on
 
 " use :h option-list if you need to know what these do
-set fcs=eob:\+
 set encoding=utf8
 set tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
 set autoindent smartindent
-set list nostartofline listchars=trail:·,tab:\ \ ,trail:~
-set linebreak formatoptions=crql1jn " TODO: anything else useful? :h fo-table
+set list nostartofline listchars=trail:·,tab:\ \ ,trail:~ fcs=eob:\+
+set linebreak formatoptions=crql1jn " TODO: see if there is more in `:h fo-table`
 set synmaxcol=200
 set lazyredraw
 set scrolloff=8 sidescrolloff=15
@@ -78,6 +78,8 @@ hi ColorColumn ctermbg=7 ctermfg=0
 
 " jump to last opened position in file except in git commits
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && index(['gitcommit'], &ft) | exe "normal! g'\"" | endif
+
+command! W write
 
 inoremap jj <Esc>
 inoremap jk <Esc>
