@@ -1,7 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-head /etc/os-release -n 1 | grep 'NixOS$'; test $? -eq 1; is_nixos=$?
-head /etc/os-release -n 1 | grep 'Arch Linux'; test $? -eq 1; is_arch_linux=$?
+head /etc/os-release --lines 1 | grep 'NixOS$' &>/dev/null; test $? -eq 1; is_nixos=$?
+head /etc/os-release --lines 1 | grep 'Arch Linux' &>/dev/null; test $? -eq 1; is_arch_linux=$?
 
 set -e
 
@@ -19,12 +19,9 @@ add_unstable_channel() {
 }
 
 clone_dotfiles() {
-	if test $is_arch_linux -eq 1; then
-		pacman -S --needed git
-	fi
 	echo "Setting up dotfiles for $USER..."
 	mkdir --parents "$1"
-	rm -r "$1"
+	rm --recursive --force "$1"
 	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1"
 }
 
@@ -48,13 +45,13 @@ generate_ssh_key() {
 		ssh-keygen -N '' -t ed25519 -f "$keyfile"
 		mkdir --mode 640 --parents "$nice_home/public"
 		cp "$keyfile.pub" "$nice_home/public"
-		ssh-add "$keyfile"
 	fi
 }
 
 fix_dotfiles_origin() {
-	cd "$daniel_home$dotfiles"
+	pushd "$daniel_home$dotfiles"
 	git remote set-url origin "ssh://git@git.lyte.dev:2222/lytedev/dotfiles.git"
+	popd
 }
 
 setup_home_manager() {
@@ -64,8 +61,9 @@ setup_home_manager() {
 }
 
 setup_dotfiles() {
-	cd "$daniel_home$dotfiles"
+	pushd "$daniel_home$dotfiles"
 	./bin/setup-dotfiles
+	popd
 }
 
 distro_specific_root_setup() {
@@ -100,6 +98,7 @@ init_for_root() {
 }
 
 init_for_daniel() {
+	set +x
 	clone_dotfiles "$daniel_home$dotfiles"
 	generate_ssh_key
 	distro_specific_user_setup
@@ -113,6 +112,9 @@ init_for_daniel() {
 }
 
 if [ "$EUID" -eq 0 ]; then
+	if test $is_arch_linux -eq 1; then
+		pacman -S --needed git
+	fi
 	init_for_root
 else
 	init_for_daniel
