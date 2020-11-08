@@ -19,11 +19,13 @@ add_unstable_channel() {
 }
 
 clone_dotfiles() {
+	if test $is_arch_linux -eq 1; then
+		pacman -S --needed git
+	fi
 	echo "Setting up dotfiles for $USER..."
 	mkdir --parents "$1"
-	set +e
-	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1" &>/dev/null
-	set -e
+	rm -r "$1"
+	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1"
 }
 
 symlink_nixos() {
