@@ -93,9 +93,10 @@ distro_specific_user_setup() {
 init_for_root() {
 	clone_dotfiles "$root_home$dotfiles"
 	distro_specific_root_setup
-	chown daniel:users "$daniel_home"
+	clone_dotfiles "$daniel_home$dotfiles"
+	chown daniel:users -R "$daniel_home"
 	echo "Re-running as user daniel..."
-	sudo --user daniel "$root_home$dotfiles/bin/init-dotfiles"
+	sudo --user daniel "$daniel_home$dotfiles/bin/init-dotfiles"
 }
 
 init_for_daniel() {
