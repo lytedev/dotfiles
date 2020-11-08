@@ -67,20 +67,20 @@ setup_dotfiles() {
 }
 
 distro_specific_root_setup() {
-	if test $is_nixos -eq 1 then
+	if test $is_nixos -eq 1; then
 		symlink_nixos "$root_home$dotfiles/env/nix/"
 		add_unstable_channel
 		nixos-rebuild switch
-	elif test $is_arch_linux -eq 1
+	elif test $is_arch_linux -eq 1; then
 		# TODO: install any necessary packages for remaining setup portion
 	fi
 }
 
 distro_specific_user_setup() {
-	if test $is_nixos -eq 1 then
+	if test $is_nixos -eq 1; then
 		FUNC=$(declare -f symlink_nixos)
 		sudo sh -c "$FUNC; symlink_nixos \"$daniel_home$dotfiles/env/nix/\""
-	elif test $is_arch_linux -eq 1
+	elif test $is_arch_linux -eq 1; then
 		# TODO: setup all the things
 	fi
 }
