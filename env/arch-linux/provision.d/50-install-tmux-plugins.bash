@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir -p "$HOME/.config/systemd/user"
+mkdir -p "$XDG_CONFIG_HOME/systemd/user"
 
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] && \
 	git clone https://github.com/tmux-plugins/tpm "$XDG_CONFIG_HOME/tmux/plugins/tpm"

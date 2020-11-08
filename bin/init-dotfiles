@@ -70,9 +70,10 @@ distro_specific_root_setup() {
 	if test $is_nixos -eq 1; then
 		symlink_nixos "$root_home$dotfiles/env/nix/"
 		add_unstable_channel
-		nixos-rebuild switch
+		nixos-rebuild switch # this should create the `daniel` user
 	elif test $is_arch_linux -eq 1; then
 		# TODO: install any necessary packages for remaining setup portion
+		"$root_home$dotfiles/env/arch-linux/provision.d/00-add-user.bash"
 		printf ''
 	fi
 }
