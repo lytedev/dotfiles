@@ -1,0 +1,2 @@
+#!/usr/bin/env fish
+swaymsg input (swaymsg -t get_inputs | jq -r '.[] | select(.name == "ELAN Touchscreen") | .identifier') events disabled
