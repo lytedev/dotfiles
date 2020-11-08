@@ -110,7 +110,7 @@ init_for_daniel() {
 
 if [ "$EUID" -eq 0 ]; then
 	if test $is_arch_linux -eq 1; then
-		pacman -S --needed git
+		pacman -S --needed git inetutils
 	fi
 	init_for_root
 else
