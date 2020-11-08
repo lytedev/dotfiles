@@ -16,6 +16,8 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 
 # To Do
 
++ **Learn to use `journalctl`**
++ Vim sessions?
 + Fix sway workspaces on desktop
 + Neovim LSP
 + Setup `nnn`
