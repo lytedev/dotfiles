@@ -95,7 +95,7 @@ init_for_root() {
 	distro_specific_root_setup
 	chown daniel:users "$daniel_home"
 	echo "Re-running as user daniel..."
-	sudo --user daniel "$root_home$dotfiles/init.sh"
+	sudo --user daniel "$root_home$dotfiles/bin/init-dotfiles"
 }
 
 init_for_daniel() {
