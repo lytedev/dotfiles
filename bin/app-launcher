@@ -1,4 +1,2 @@
 #!/usr/bin/env sh
-
-source "$(dirname "$0")/prelude"
-floating-term sh -c "launch | xargs swaymsg exec --"
+"$(dirname "$0")/floating-term" sh -c "\"$(dirname "$0")/launch\" | xargs swaymsg exec --"

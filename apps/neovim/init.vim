@@ -42,7 +42,7 @@ filetype plugin on
 set encoding=utf8
 set tabstop=2 shiftwidth=2 softtabstop=2 noexpandtab
 set autoindent smartindent
-set list nostartofline listchars=trail:·,tab:\ \ ,trail:~ fcs=eob:\+
+set list nostartofline listchars=trail:·,tab:\ \ ,trail:~
 set linebreak formatoptions=crql1jn " TODO: see if there is more in `:h fo-table`
 set synmaxcol=200
 set lazyredraw
@@ -62,6 +62,7 @@ set noautowrite autochdir autoread
 set nomodeline noshowmode noshowcmd laststatus=0 " TODO: custom modeline and buffer list?
 set clipboard+=unnamedplus
 set t_Co=256
+let &fcs = 'eob: '
 
 syntax enable
 colorscheme base16-donokai

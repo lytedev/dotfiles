@@ -1,3 +1,2 @@
 #!/usr/bin/env sh
-
-env WAYLAND_DEBUG=1 FZFP_HEIGHT="100%" floating-term bash -c "fzfp | head -n 1 | wl-copy &"
+env FZFP_HEIGHT="100%" floating-term bash -c "fzfp | head -n 1 | wl-copy &"
