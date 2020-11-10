@@ -12,27 +12,26 @@ endif
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:jsonnet_fmt_on_save = 0
+let g:fzf_preview_window = ['down:40%:hidden', 'ctrl-/']
 
 call plug#begin($vimdir.'/plugged')
-	Plug 'junegunn/vim-plug'                  " plugin manager should manage itself
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'                   " helpers for using fzf in vim
-	Plug 'editorconfig/editorconfig-vim'      " loads project-specific editor settings
-	Plug 'tpope/vim-sleuth'                   " try and detect indent method
-	Plug 'nathanaelkane/vim-indent-guides'    " indentation guides
-	Plug 'bkad/CamelCaseMotion'               " camel case and underscore word movements
-	Plug 'vim-scripts/LargeFile'              " gracefully handle very large files
-	Plug 'tpope/vim-commentary'               " toggle comments in code easily
-	Plug 'tpope/vim-repeat'                   " better vim repeating for plugin-provided actions
-	Plug 'christoomey/vim-tmux-navigator'     " allow window navigation to play nicely with tmux
-	Plug 'machakann/vim-sandwich'             " quickly modify text surrounding objects
-	Plug 'michaeljsmith/vim-indent-object'    " adds an indentation level text object
-	Plug 'wellle/targets.vim'                 " adds some more handy text objects
-	Plug 'junegunn/goyo.vim'                  " better distraction-free editing
-
-	" language-specific plugins
-	Plug 'google/vim-jsonnet', {'for': ['jsonnet', 'libsonnet']}
-	Plug 'calviken/vim-gdscript3', {'for': ['gdscript']}
+	Plug 'junegunn/vim-plug'               " plugin manager should manage itself
+	Plug 'sheerun/vim-polyglot'            " handles language-specific configuration
+	Plug 'junegunn/fzf',                   { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'                " helpers for using fzf in vim
+	Plug 'editorconfig/editorconfig-vim'   " loads project-specific editor settings
+	Plug 'tpope/vim-sleuth'                " try and detect indent method
+	Plug 'vim-scripts/LargeFile'           " gracefully handle very large files
+	Plug 'nathanaelkane/vim-indent-guides' " indentation guides
+	Plug 'christoomey/vim-tmux-navigator'  " allow window navigation to play nicely with tmux
+	Plug 'tpope/vim-commentary'            " toggle comments in code easily
+	Plug 'tpope/vim-repeat'                " better vim repeating for plugin-provided actions
+	Plug 'machakann/vim-sandwich'          " quickly modify text surrounding objects
+	Plug 'michaeljsmith/vim-indent-object' " adds an indentation level text object
+	Plug 'bkad/CamelCaseMotion'            " camel case and underscore word movements
+	Plug 'wellle/targets.vim'              " adds some more handy text objects
+	Plug 'tpope/vim-obsession'             " even better session handling
+	Plug 'dhruvasagar/vim-prosession'      " even better session handling
 call plug#end()
 
 filetype on
@@ -67,17 +66,16 @@ set t_Co=256
 syntax enable
 colorscheme base16-donokai
 
-call matchadd('ColorColumn', '\%81v', 100)
-
 hi Search cterm=NONE ctermbg=blue ctermfg=black
 hi LineNr ctermbg=none ctermfg=8
 hi CursorLineNr ctermbg=18 ctermfg=gray
 hi IndentGuidesEven ctermbg=18
 hi Normal ctermbg=NONE
-hi ColorColumn ctermbg=7 ctermfg=0
+hi ColorColumn ctermbg=15 ctermfg=0
+hi TooLongColorColumn ctermbg=1 ctermfg=0
 
-" jump to last opened position in file except in git commits
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") && index(['gitcommit'], &ft) | exe "normal! g'\"" | endif
+call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('TooLongColorColumn', '\%121v', 200)
 
 command! W write
 
@@ -88,7 +86,6 @@ nnoremap <C-p> :GitFiles<CR>
 nnoremap <C-o> :Files<CR>
 nnoremap <C-u> :GFiles?<CR>
 nnoremap <C-b> :Buffers<CR>
-au FileType fzf tnoremap <Esc> <C-c><C-c>
 
 nnoremap <C-h> :TmuxNavigateLeft<CR>
 nnoremap <C-j> :TmuxNavigateDown<CR>
@@ -121,13 +118,20 @@ xnoremap < <gv
 xnoremap > >gv
 
 let mapleader = "\<Space>"
+nnoremap <silent> <leader>r :source $vimdir/init.vim<CR>:echo 'Reloaded init.vim'<CR>
 nnoremap <silent> <leader>w :bd<CR>
 nnoremap <leader>h :b#<CR>
 nnoremap <leader>k :bnext<CR>
 nnoremap <leader>j :bprevious<CR>
-nnoremap <silent> <leader>/ :let @/ = ""<CR>:<BACKSPACE>
+nnoremap <leader>/ :let @/ = ""<CR>:<BACKSPACE>
 
 nnoremap <leader>t :split<CR>:term<CR>:resize 24<CR>:startinsert<CR>
 tnoremap <C-w> <C-\><C-n>:q!<CR>
+
+au BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+	\ | 	exe "normal! g'\""
+	\ | endif
+au FileType fzf tnoremap <Esc> <C-c><C-c>
 
 " TODO: learn about the wildmenu `q:`
