@@ -17,6 +17,7 @@ let g:fzf_preview_window = ['down:40%:hidden', 'ctrl-/']
 call plug#begin($vimdir.'/plugged')
 	Plug 'junegunn/vim-plug'               " plugin manager should manage itself
 	Plug 'sheerun/vim-polyglot'            " handles language-specific configuration
+	Plug 'neovim/nvim-lspconfig'           " deeper language integration via language servers
 	Plug 'junegunn/fzf',                   { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'                " helpers for using fzf in vim
 	Plug 'editorconfig/editorconfig-vim'   " loads project-specific editor settings
@@ -134,5 +135,7 @@ au BufReadPost *
 	\ | 	exe "normal! g'\""
 	\ | endif
 au FileType fzf tnoremap <Esc> <C-c><C-c>
+
+luafile $vimdir/lsp.lua
 
 " TODO: learn about the wildmenu `q:`
