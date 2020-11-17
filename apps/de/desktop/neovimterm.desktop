@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Neovim-Term
+Comment=Edit files using Neovim in the Kitty terminal emulator
+Path=/usr/bin
+Exec=kitty nvim %f
+Icon=kitty
+Terminal=true

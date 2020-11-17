@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+ANY_WINDOW_PREFIX="#[fg=default]"
+ANY_WINDOW_SUFFIX="#[bg=default]#[fg=default] "
+CUR_WINDOW_PREFIX="#[fg=colour4]"
+CUR_WINDOW_SUFFIX="${ANY_WINDOW_SUFFIX}"
+URG_WINDOW_PREFIX="#[fg=colour1]"
+URG_WINDOW_SUFFIX="${ANY_WINDOW_SUFFIX}"
+
+CUR_TMUX_WINDOW="$1"
+if [ -z "$1" ]; then
+	CUR_TMUX_WINDOW="$(tmux display-message -p '#S')"
+fi
+export CUR_TMUX_WINDOW
+
+TMUX_WINDOW_LIST="$(tmux list-windows | awk \
+	-v curSesh="${CUR_TMUX_WINDOW}" \
+	-v aspre="${ANY_WINDOW_PREFIX}" \
+	-v assuf="${ANY_WINDOW_SUFFIX}" \
+	-v cspre="${CUR_WINDOW_PREFIX}" \
+	-v cssuf="${CUR_WINDOW_SUFFIX}" \
+	-v uspre="${URG_WINDOW_PREFIX}" \
+	-v ussuf="${URG_WINDOW_SUFFIX}" \
+'{s=substr($1,0,length($1)-1);
+if(s==curSesh){
+	s=cspre" "s" "cssuf
+}else{
+	s=aspre" "s" "assuf
+}printf s}')"
+
+# shellcheck disable=SC2001
+echo "${TMUX_WINDOW_LIST//\s*$/}" | sed -e 's/\s*$//'

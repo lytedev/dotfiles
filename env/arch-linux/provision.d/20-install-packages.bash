@@ -64,6 +64,7 @@ yay -Sy \
 	alsa-plugins `# Plugins for ALSA` \
 	pulseaudio pavucontrol pulsemixer `# Audio Backend and Controls` \
 	neovim `# Text Editors` \
+	sc-im `# Spreadsheets` \
 	unzip `# Simple Unzipping` \
 	tmux `# Terminal Multiplexer` \
 	kitty `# Almost Better Terminal Emulator` \
@@ -73,6 +74,9 @@ yay -Sy \
 	kanshi-git `# Monitor Management for Sway` \
 	waybar-git mako-git `# Sway Bar & Notifications` \
 	slurp grim wl-clipboard `# Sway Screen Selection & Clipping` \
+	pipewire pipewire-pulse libpipewire02 `# Pipewire` \
+	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \
+	obs-studio-wayland obs-xdg-portal `# OBS` \
 	ttf-iosevka `# Primary Fonts` \
 	ttf-font-awesome `# Icon Font` \
 	curl `# HTTP Utility` \

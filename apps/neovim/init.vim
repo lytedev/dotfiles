@@ -23,6 +23,7 @@ call plug#begin($vimdir.'/plugged')
 	Plug 'editorconfig/editorconfig-vim'   " loads project-specific editor settings
 	Plug 'tpope/vim-sleuth'                " try and detect indent method
 	Plug 'vim-scripts/LargeFile'           " gracefully handle very large files
+	Plug 'vim-scripts/restore_view.vim'    " persistent buffer views
 	Plug 'nathanaelkane/vim-indent-guides' " indentation guides
 	Plug 'christoomey/vim-tmux-navigator'  " allow window navigation to play nicely with tmux
 	Plug 'tpope/vim-commentary'            " toggle comments in code easily
@@ -60,7 +61,7 @@ set spellfile=$vimdir/spell/en.utf-8.add
 set ignorecase smartcase incsearch wrapscan hlsearch
 set foldmethod=syntax foldlevel=99 foldnestmax=10 foldlevelstart=99 " TODO: get good at folding
 set noautowrite autochdir autoread
-set nomodeline noshowmode noshowcmd laststatus=0 " TODO: custom modeline and buffer list?
+set nomodeline noshowmode noshowcmd laststatus=2 noruler
 set clipboard+=unnamedplus
 set t_Co=256
 let &fcs = 'eob: '
@@ -75,6 +76,9 @@ hi IndentGuidesEven ctermbg=18
 hi Normal ctermbg=NONE
 hi ColorColumn ctermbg=15 ctermfg=0
 hi TooLongColorColumn ctermbg=1 ctermfg=0
+hi ActiveBuffer ctermbg=4 ctermfg=0
+hi StatusLine ctermbg=18 ctermfg=7
+hi StatusLineNC ctermbg=18 ctermfg=7
 
 call matchadd('ColorColumn', '\%81v', 100)
 call matchadd('TooLongColorColumn', '\%121v', 200)
@@ -122,19 +126,49 @@ xnoremap > >gv
 let mapleader = "\<Space>"
 nnoremap <silent> <leader>r :source $vimdir/init.vim<CR>:echo 'Reloaded init.vim'<CR>
 nnoremap <silent> <leader>w :bd<CR>
-nnoremap <leader>h :b#<CR>
-nnoremap <leader>k :bnext<CR>
-nnoremap <leader>j :bprevious<CR>
+nnoremap <silent> <leader>h :b#<CR>
+nnoremap <silent> <leader>k :bnext<CR>
+nnoremap <silent> <leader>j :bprevious<CR>
 nnoremap <leader>/ :let @/ = ""<CR>:<BACKSPACE>
 
 nnoremap <leader>t :split<CR>:term<CR>:resize 24<CR>:startinsert<CR>
 tnoremap <C-w> <C-\><C-n>:q!<CR>
 
-au BufReadPost *
-	\ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-	\ | 	exe "normal! g'\""
-	\ | endif
-au FileType fzf tnoremap <Esc> <C-c><C-c>
+function! NeatFoldText()
+	" TODO: WIP
+	let lines_count = v:foldend - v:foldstart + 1
+	let foldchar = matchstr(&fillchars, 'fold:\zs.')
+	let foldtextstart = strpart('^' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+	let foldtextend = printf("%s %".(winwidth(0)-20)."dL", foldtextstart, getline(v:foldstart), lines_count)
+	let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+	return printf("%s%d", substitute(getline(v:foldstart), "^.", ">"), lines_count)
+endfunction
+set foldtext=NeatFoldText()
+
+" TODO: only update this portion when needed?
+function! StatusLineBufferByNum(_, bufnum)
+	let l:prefix = '%#InactiveBuffer#'
+	let l:suffix = '%* '
+	let l:bufinfo = getbufinfo(a:bufnum)[0]
+	if l:bufinfo.listed == 0
+		return '%*'
+	end
+	if l:bufinfo['hidden'] == 0 && index(l:bufinfo['windows'], g:statusline_winid) >= 0
+		let l:prefix = '%#ActiveBuffer# '
+		let l:suffix = ' %* '
+	endif
+	return l:prefix . fnamemodify(bufname(a:bufnum), ':t') . l:suffix
+endfunction
+
+function! StatusLineBuffers()
+	return join(map(nvim_list_bufs(), function("StatusLineBufferByNum")), '')
+endfunction
+
+function! StatusLine()
+	return StatusLineBuffers() . '%*%=%c,%l/%L (%p%%)'
+endfunction
+
+set statusline=%!StatusLine()
 
 luafile $vimdir/lsp.lua
 

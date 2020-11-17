@@ -1,11 +1,10 @@
 #!/usr/bin/env sh
 
-echo "${USER_LOGS_PATH}"
-
 sess="$1"; shift
 d="$(date +%Y-%m-%d_%H-%M-%S)"
 f="${USER_LOGS_PATH}/${d}.${sess}.tmux-buffer.log"
+mkdir -p "$(dirname "$f")"
 touch "$f"
 chmod 600 "$f"
 tmux capture-pane -pS -1000000000 > "$f"
-echo "Saved output to $f"
+echo "Saved pane output to $f"

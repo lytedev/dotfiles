@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-# ls aliases
+# TODO: exa?
 alias lk 'ls -lSr' # order by filesize reversed
 alias lt 'ls -ltr' # order by file modified time
 alias lc 'ls -ltcr' # order by filectime
@@ -10,9 +10,10 @@ alias l  'ls -h --color --group-directories-first' # same as above
 alias ll 'ls -lv --group-directories-first' # non-flat view
 alias la 'll -A' # show all
 
-# other file aliases
+# TODO: cat > bat
 alias tree 'tree -Csuh'
 alias f fzf
+alias t "tmux"
 alias rcp 'rsync -r -ah --progress'
 
 alias vltl "$EDITOR (ltl)"
@@ -57,47 +58,13 @@ alias ....... "d ../../../../../.."
 alias ........ "d ../../../../../../.."
 alias ......... "d ../../../../../../../.."
 
-# tmux aliases
-alias tmnew "tmux new -s"
-alias tmls "tmux list-sessions | rg --color never -o '^(.*?):.*?\(.*?\)(.*)\$' -r '\$1\$2'"
-alias tmatt "tmux attach -t"
-alias tms "tmatt (tmls | fzf | field 1)"
-function tmux-attach-or-new
-	tmux attach -t $argv || tmux new -s $argv
-end
-alias tu "tmux-attach-or-new utils"
-alias tmon "tmux-attach-or-new monitoring"
-alias tcom "tmux-attach-or-new comms"
-alias tm "tmux-attach-or-new music"
-alias tdf "tmux attach -t dotfiles || tmux new -s dotfiles -c $DOTFILES_PATH"
-alias tn "tmux attach -t notes || tmux new -s notes -c $NOTES_PATH"
-
-# git aliases
-# TODO: make these git aliases in the gitconfig?
-function g
+function g -w git
 	if scount $argv
 		git $argv
 	else
 		git status
 	end
 end
-alias gs "git status"
-alias gd "git diff"
-alias gds "gd --staged"
-# alias gdv "git dv" # TODO: what is this?
-alias gpl "git pull"
-alias ga "git add"
-alias gcm "git commit -m"
-alias gco "git checkout"
-alias gp "git push"
-alias gpa "git push --all && git push --tags"
-alias gpt "git push && git push --tags"
-alias gpf "git push --force-with-lease"
-alias gac "git add -A && git commit"
-alias gacnv "git add -A && git commit --no-verify"
-alias gsur "git submodule update --remote"
-alias glf "git ls-files"
-alias gl "git log --pretty=format:\"%h %ad%x09%an%x09%s\" --date=short"
 
 # docker aliases
 alias dlf "docker logs --tail=500 -f"
@@ -111,11 +78,11 @@ function pp
 	end
 end
 alias p "ping 8.8.8.8"
-alias C "clear && clear"
-alias r "ranger"
+alias C "clear && clear" # TODO: this should clear a tmux pane's scrollback/logs
+alias r "nnn"
 alias sctl "sudo systemctl"
 alias sctlu "systemctl --user"
-alias bt "sudo bluetoothctl"
+alias bt "sudo bluetoothctl" # TODO: a vi-like tui for bluetooth would be great
 alias btctl "bt"
 alias resrc "source $XDG_CONFIG_HOME/fish/config.fish"
 alias sc "sc-im"

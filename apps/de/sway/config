@@ -8,6 +8,11 @@ set $dfpbin $HOME/.config/lytedev-dotfiles/bin
 set $mod Mod4
 set $default_gap 0
 
+exec initctl set-env --global SWAYSOCK="$SWAYSOCK"
+exec initctl set-env --global I3SOCK="$I3SOCK"
+exec initctl set-env --global WAYLAND_DISPLAY="$WAYLAND_DISPLAY"
+exec initctl emit sway-session
+
 focus_wrapping no
 gaps inner $default_gap
 smart_borders on|no_gaps

@@ -1,124 +1,109 @@
 #!/usr/bin/env bash
 
+# NOTE: run this from inside a Linux installation, not from the live USB/CD
+# TODO: detect if in a live image
+
 head /etc/os-release --lines 1 | grep 'NixOS$' &>/dev/null; test $? -eq 1; is_nixos=$?
 head /etc/os-release --lines 1 | grep 'Arch Linux' &>/dev/null; test $? -eq 1; is_arch_linux=$?
 
 set -e
+set -x
 
-# NOTE: run this from inside a Linux installation, not from the live USB/CD
-# TODO: detect OS and perform OS-specific setup
-
-root_home="/root"
-daniel_home="/home/daniel/.home"
-nice_home="/home/daniel"
-dotfiles="/.config/lytedev-dotfiles"
-
-add_unstable_channel() {
-	nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-	nix-channel --update
+run_via_dotfiles_if_necessary() {
+	# clone dotfiles and re-run from repo if we're not in the repo
+	pushd "$(dirname "$0")"
+	if git remote get-url origin | grep 'lytedev/dotfiles'; then
+		echo "Already in dotfiles repo!"
+	else
+		echo "Setting up dotfiles for $EUID..."
+		d="$HOME/.config/lytedev-dotfiles"
+		mkdir --parents "$d"
+		rm --recursive --force "$d"
+		git clone "https://git.lyte.dev/lytedev/dotfiles" "$d"
+		exec "$d/bin/init-dotfiles"
+		exit 0
+	fi
+	popd
 }
 
-clone_dotfiles() {
-	echo "Setting up dotfiles for $USER..."
-	mkdir --parents "$1"
-	rm --recursive --force "$1"
-	git clone "https://git.lyte.dev/lytedev/dotfiles" "$1"
-}
-
-symlink_nixos() {
+symlink_nixos_config() {
 	rm --force "/etc/nixos/lytedev"
 	ln --symbolic "$1" "/etc/nixos/lytedev"
 }
 
-setup_wallpaper() {
-	mkdir --parents "$nice_home/img/walls"
-	curl --silent --output "$nice_home/img/walls/clouds_by_souredapply.png" \
-		"https://art.ngfiles.com/images/530000/530895_souredapple_clouds.png"
-	rm --recursive --force "$daniel_home/.wallpaper"
-	ln --symbolic "$nice_home/img/walls/clouds_by_souredapply.png" "$daniel_home/.wallpaper"
-}
-
-generate_ssh_key() {
-	mkdir --mode 600 --parents "$daniel_home/.ssh"
-	keyfile="$daniel_home/.ssh/$(hostname --short)"
-	if ! [ -f "$keyfile" ]; then
-		ssh-keygen -N '' -t ed25519 -f "$keyfile"
-		mkdir --mode 640 --parents "$nice_home/public"
-		cp "$keyfile.pub" "$nice_home/public"
-	fi
-}
-
-fix_dotfiles_origin() {
-	pushd "$daniel_home$dotfiles"
-	git remote set-url origin "ssh://git@git.lyte.dev:2222/lytedev/dotfiles.git"
-	popd
-}
-
-setup_home_manager() {
-	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-	nix-channel --update
-	nix-shell '<home-manager>' -A install
-}
-
-setup_dotfiles() {
-	pushd "$daniel_home$dotfiles"
-	./bin/setup-dotfiles
-	popd
-}
-
-distro_specific_root_setup() {
-	if test $is_nixos -eq 1; then
-		symlink_nixos "$root_home$dotfiles/env/nix/"
-		add_unstable_channel
-		nixos-rebuild switch # this should create the `daniel` user
-	elif test $is_arch_linux -eq 1; then
-		"$root_home$dotfiles/env/arch-linux/provision.d/00-add-user.bash"
-	fi
-}
-
-distro_specific_user_setup() {
-	if test $is_nixos -eq 1; then
-		FUNC=$(declare -f symlink_nixos)
-		sudo sh -c "$FUNC; symlink_nixos \"$daniel_home$dotfiles/env/nix/\""
-	elif test $is_arch_linux -eq 1; then
-		"$root_home$dotfiles/env/arch-linux/provision.sh"
-	fi
-}
-
-init_for_root() {
-	clone_dotfiles "$root_home$dotfiles"
-	distro_specific_root_setup
-	clone_dotfiles "$daniel_home$dotfiles"
-	chown daniel:users -R "$daniel_home"
-	echo "Re-running as user daniel..."
-	sudo --user daniel "$daniel_home$dotfiles/bin/init-dotfiles"
-}
-
-init_for_daniel() {
-	set +x
-	clone_dotfiles "$daniel_home$dotfiles"
-	generate_ssh_key
-	distro_specific_user_setup
-	setup_wallpaper
-	# TODO: setup ssh/gpg keys
-	# TODO: setup password store
-	fix_dotfiles_origin
-	setup_dotfiles
-	# TODO: fetch password store
-	# TODO: fetch notes database
-}
-
 if [ "$EUID" -eq 0 ]; then
 	if test $is_arch_linux -eq 1; then
-		pacman -S --needed git inetutils
+		pacman -Sy --needed --noconfirm git inetutils openssh sudo
 	fi
-	init_for_root
+	run_via_dotfiles_if_necessary
+	pushd "$(dirname "$0")/.."
+	if test $is_nixos -eq 1; then
+		symlink_nixos_config "$HOME/.config/lytedev-dotfiles/env/nix/"
+		nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+		nix-channel --update
+		nixos-rebuild switch # this should create the `daniel` user
+	elif test $is_arch_linux -eq 1; then
+		ls -la
+		"env/arch-linux/provision.d/00-add-user.bash"
+	fi
+	c=/home/daniel/.home/.config/
+	mkdir --parents "$c"
+	chown -R daniel:users "$c"
+	cp --recursive . "$c/lytedev-dotfiles"
+	sudo --user daniel "$c/bin/init-dotfiles"
+	popd
+	exit 0
 else
-	init_for_daniel
+	run_via_dotfiles_if_necessary
+	echo
+	echo
+	echo
+	echo "PREPARING TO GENERATE SSH KEY FOR USER"
+	echo
+	echo
+	echo
+	pushd "$HOME"
+	keyfile=".ssh/$(hostname --short)"
+	echo $keyfile
+	if ! [ -f "$keyfile" ]; then
+		mkdir --mode 700 --parents .ssh
+		chmod 700 .ssh
+		ls -la .ssh
+		ssh-keygen -N '' -t ed25519 -f "$keyfile"
+		mkdir --mode 755 --parents "$NICE_HOME/public"
+		cp "$keyfile.pub" "$NICE_HOME/public"
+	fi
+	popd
+	if test $is_nixos -eq 1; then
+		FUNC=$(declare -f symlink_nixos_config)
+		sudo sh -c "$FUNC; symlink_nixos_config \"$HOME/.config/lytedev-dotfiles/env/nix/\""
+	elif test $is_arch_linux -eq 1; then
+		sudo "$HOME/.config/lytedev-dotfiles/env/arch-linux/provision.sh"
+	fi
+	mkdir --parents "$NICE_HOME/img/walls"
+	curl --silent --output "$NICE_HOME/img/walls/clouds_by_souredapply.png" \
+		"https://art.ngfiles.com/images/530000/530895_souredapple_clouds.png"
+	rm --recursive --force "$HOME/.wallpaper"
+	ln --symbolic "$NICE_HOME/img/walls/clouds_by_souredapply.png" "$HOME/.wallpaper"
+
+	# TODO: setup ssh/gpg keys
+	# TODO: setup password store
+
+	pushd "$HOME/.config/lytedev-dotfiles"
+	git remote set-url origin "ssh://git@git.lyte.dev:2222/lytedev/dotfiles.git"
+	./bin/setup-dotfiles
+	popd
+
+	# nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+	# nix-channel --update
+	# nix-shell '<home-manager>' -A install
+
+	# TODO: fetch password store
+	# TODO: fetch notes database
 fi
 
 echo "Here is this machine's public SSH key:"
-echo "  $(cat "$daniel_home/.ssh/$(hostname --short).pub")"
+echo "  $(cat "$HOME/.ssh/$(hostname --short).pub")"
 echo "It needs to be added to existing cloud-based git accounts"
 echo "and other machines before proceeding."
 echo
