@@ -25,7 +25,8 @@
 
 [alias]
 	a = add
-	A = add
+	A = add -A
+	ac = commit -a
 	b = rev-parse --symbolic-full-name HEAD
 	c = commit
 	cm = commit -m
