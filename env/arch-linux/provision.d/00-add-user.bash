@@ -10,7 +10,7 @@ echo '%admin ALL=(ALL) ALL' >> /etc/sudoers.d/admin-group-sudoers
 groupadd admin 2>/dev/null
 mkdir --parents "$ud/.home" "$ud/dl"
 useradd --home-dir "$ud/.home" \
-	--groups "admin,users" \
+	--groups "admin,users,uucp,lock" \
 	--shell "/bin/bash" \
 	"$u"
 chown --recursive "$u:$u" "$ud"

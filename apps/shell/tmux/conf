@@ -11,7 +11,7 @@ bind-key -n C-l select-pane -R
 bind-key -n C-k select-pane -U
 bind-key -n C-j select-pane -D
 bind-key -n C-h select-pane -L
-bind s run-shell "tmux new-window \"sh -c ~/.config/lytedev-dotfiles/bin/tmuxswitcher\""
+bind s run "tmux split-window -l 12 'sh -c ~/.config/lytedev-dotfiles/bin/tmuxswitcher'"
 
 bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
 
@@ -28,8 +28,10 @@ set -g status-position bottom
 set -g status-bg colour0
 set -g status-fg colour8
 set -g status-interval 5
-set -g status-left-length 200
+set -g status-left-length 50
 set -g status-left "#h:#S.#W"
+set -g status-right-length 280
+set -g status-right "#(kubeline && printf ' ')#{pane_current_path} #(cd '#{pane_current_path}' && git rev-parse --abbrev-ref --sq HEAD | tr -d \"'\")#{pane_current_command}"
 set -g message-style "fg=colour7 bg=colour18"
 set -g pane-active-border-style bg=black,fg=blue
 set -g pane-border-style bg=black,fg=colour18
@@ -45,7 +47,8 @@ bind-key u capture-pane \;\
 	save-buffer /tmp/tmux-buffer \;\
 	split-window -l 10 "urlscan /tmp/tmux-buffer"
 
-bind-key -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel -X 'wl-copy'
+bind-key -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel 'wl-copy'
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'wl-copy'; \
 
 bind-key K kill-pane
 bind-key C-S-k kill-window

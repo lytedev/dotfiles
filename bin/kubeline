@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+c="$(kubectl config current-context | tr -d "\n")"
+if [ -n "$c" ]; then
+	printf "$c"
+fi
+a="$(kubectl config view --minify --output 'jsonpath={..namespace}')"
+if [ -n "$a" ]; then
+	printf ".%s" "$a"
+fi

@@ -9,6 +9,7 @@ if empty(glob($vimdir.'/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $vimdir.'init.vim'
 endif
 
+let g:completion_enable_auto_popup = 0
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:jsonnet_fmt_on_save = 0
@@ -18,6 +19,7 @@ call plug#begin($vimdir.'/plugged')
 	Plug 'junegunn/vim-plug'               " plugin manager should manage itself
 	Plug 'sheerun/vim-polyglot'            " handles language-specific configuration
 	Plug 'neovim/nvim-lspconfig'           " deeper language integration via language servers
+	Plug 'nvim-lua/completion-nvim'        " language server completion
 	Plug 'junegunn/fzf',                   { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'                " helpers for using fzf in vim
 	Plug 'editorconfig/editorconfig-vim'   " loads project-specific editor settings
@@ -34,7 +36,12 @@ call plug#begin($vimdir.'/plugged')
 	Plug 'wellle/targets.vim'              " adds some more handy text objects
 	Plug 'tpope/vim-obsession'             " even better session handling
 	Plug 'dhruvasagar/vim-prosession'      " even better session handling
+	Plug 'dhruvasagar/vim-prosession'      " even better session handling
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+" luafile $vimdir/lsp.lua
+" autocmd BufEnter * lua require('completion').on_attach()
 
 filetype on
 filetype indent on
@@ -54,7 +61,7 @@ set splitright splitbelow
 set noerrorbells visualbell t_vb=
 set nobackup nowritebackup noswapfile
 set timeout ttimeoutlen=100 timeoutlen=150
-set hidden shortmess+=Ia
+set hidden shortmess+=Iac
 set history=1000
 set undofile undodir=$vimdir/undo undolevels=1000 undoreload=10000
 set spellfile=$vimdir/spell/en.utf-8.add
@@ -74,8 +81,8 @@ hi LineNr ctermbg=none ctermfg=8
 hi CursorLineNr ctermbg=18 ctermfg=gray
 hi IndentGuidesEven ctermbg=18
 hi Normal ctermbg=NONE
-hi ColorColumn ctermbg=15 ctermfg=0
-hi TooLongColorColumn ctermbg=1 ctermfg=0
+hi ColorColumn ctermbg=18
+hi TooLongColorColumn ctermbg=18 ctermfg=1
 hi ActiveBuffer ctermbg=4 ctermfg=0
 hi StatusLine ctermbg=18 ctermfg=7
 hi StatusLineNC ctermbg=18 ctermfg=7
@@ -123,6 +130,8 @@ cnoremap <c-p> <up>
 xnoremap < <gv
 xnoremap > >gv
 
+" TODO: learn about the wildmenu `q:`
+
 let mapleader = "\<Space>"
 nnoremap <silent> <leader>r :source $vimdir/init.vim<CR>:echo 'Reloaded init.vim'<CR>
 nnoremap <silent> <leader>w :bd<CR>
@@ -160,6 +169,8 @@ function! StatusLineBufferByNum(_, bufnum)
 	return l:prefix . fnamemodify(bufname(a:bufnum), ':t') . l:suffix
 endfunction
 
+au BufReadPost * | if stridx(&ft, 'commit') >= 0 | exe "startinsert!" | endif
+
 function! StatusLineBuffers()
 	return join(map(nvim_list_bufs(), function("StatusLineBufferByNum")), '')
 endfunction
@@ -168,8 +179,7 @@ function! StatusLine()
 	return StatusLineBuffers() . '%*%=%c,%l/%L (%p%%)'
 endfunction
 
+" set laststatus=0 showtabline tabline=%!StatusLine()
 set statusline=%!StatusLine()
 
-luafile $vimdir/lsp.lua
-
-" TODO: learn about the wildmenu `q:`
+imap <silent> <c-n> <Plug>(completion_trigger)

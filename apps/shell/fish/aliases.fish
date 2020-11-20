@@ -106,6 +106,10 @@ function rgl
 	rg --color always $argv | less -r
 end
 
+# kubernetes aliases
+alias k "kubectl"
+alias kg "k get"
+
 # grep aliases
 alias rg "rg --text"
 alias grep "rg"
