@@ -144,7 +144,7 @@ nnoremap <leader>t :split<CR>:term<CR>:resize 24<CR>:startinsert<CR>
 tnoremap <C-w> <C-\><C-n>:q!<CR>
 
 function! NeatFoldText()
-	" TODO: WIP
+	" TODO: finish this!
 	let lines_count = v:foldend - v:foldstart + 1
 	let foldchar = matchstr(&fillchars, 'fold:\zs.')
 	let foldtextstart = strpart('^' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
@@ -154,8 +154,8 @@ function! NeatFoldText()
 endfunction
 set foldtext=NeatFoldText()
 
-" TODO: only update this portion when needed?
-function! StatusLineBufferByNum(_, bufnum)
+" TODO: only update this portion when needed instead of every render?
+function! StatusLineBufferByNum(bufnum)
 	let l:prefix = '%#InactiveBuffer#'
 	let l:suffix = '%* '
 	let l:bufinfo = getbufinfo(a:bufnum)[0]
@@ -171,12 +171,29 @@ endfunction
 
 au BufReadPost * | if stridx(&ft, 'commit') >= 0 | exe "startinsert!" | endif
 
+let l:status_line_max_length = 5
 function! StatusLineBuffers()
-	return join(map(nvim_list_bufs(), function("StatusLineBufferByNum")), '')
+	let l:since_active = 0
+	let l:acc = []
+	for bufnum in nvim_list_bufs()
+		let l:entry = StatusLineBufferByNum(bufnum)
+		if l:entry =~ "^%#ActiveBuffer#"
+			"
+		endif
+		let l:acc = add(l:acc, l:entry)
+		if l:since_active > 0
+			let l:since_active = l:since_active + 1
+		endif
+	endfor
+	return join(l:acc, '')
 endfunction
 
 function! StatusLine()
-	return StatusLineBuffers() . '%*%=%c,%l/%L (%p%%)'
+	try
+		return StatusLineBuffers().'%*%=%c,%l/%L (%p%%)'
+	catch
+		return 'buflisterr%*%=%c,%l/%L (%p%%)'
+	endtry
 endfunction
 
 " set laststatus=0 showtabline tabline=%!StatusLine()
