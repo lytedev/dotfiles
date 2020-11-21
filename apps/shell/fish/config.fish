@@ -25,7 +25,7 @@ has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --e
 
 test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
 
-function fish_greeting; fortune; end
+function fish_greeting; date; end
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
 # nonsense that clutters it up and that they have a preferred starting

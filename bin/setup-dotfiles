@@ -19,20 +19,12 @@ done
 
 links=(
 	# desktop environment files
-	"apps/de/bspwm/rc"                  "$XDG_CONFIG_HOME/bspwm/bspwmrc"
-	"apps/de/bspwm/wallpapers"          "$HOME/.fehbg"
 	"apps/de/sway/config"               "$XDG_CONFIG_HOME/sway/config"
 	"apps/de/sway/lock"                 "$XDG_CONFIG_HOME/swaylock/config"
-	"apps/de/sxhkd/rc"                  "$XDG_CONFIG_HOME/sxhkd/sxhkdrc"
-	"apps/de/x/resources"               "$HOME/.Xresources"
-	"apps/de/x/init"                    "$HOME/.xinitrc"
-	"apps/de/x/init"                    "$HOME/.vnc/xstartup"
-	"apps/de/x/profile"                 "$HOME/.xprofile"
-	"apps/de/x/modmap"                  "$HOME/.xmodmap"
-	"apps/de/compton/compton.conf"      "$XDG_CONFIG_HOME/compton.conf"
-	"apps/de/dunst/rc"                  "$XDG_CONFIG_HOME/dunst/dunstrc"
 	"apps/de/mako/"                     "$XDG_CONFIG_HOME/mako"
-	"env/common/colors/xresources"      "$HOME/.Xresources.colors"
+	"apps/de/sway/mimeapps.list"        "$XDG_CONFIG_HOME/mimeapps.list"
+	"apps/de/sway/mimeapps.list"        "$XDG_CONFIG_HOME/sway-mimeapps.list"
+	"apps/de/sway/mimeapps.list"        "$HOME/.local/share/applications/mimeapps.list"
 
 	# shell files
 	"apps/shell/bash/rc"                "$HOME/.bashrc"

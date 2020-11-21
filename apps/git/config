@@ -24,19 +24,26 @@
 	prompt = false
 
 [alias]
-	d = difftool
-	s = status
-	co = checkout
-	mm = merge master
-	rim = rebase -i master
+	a = add
+	A = add -A
+	ac = commit -a
 	b = rev-parse --symbolic-full-name HEAD
-	p = push
-	pl = pull
-	pf = push --force-with-lease
-	a = add -A
-	cnv = commit --no-verify
-	canv = commit --no-verify
 	c = commit
+	cm = commit -m
+	cnv = commit --no-verify
+	co = checkout
+	d = diff
+	ds = diff --staged
+	dt = difftool
+	l = log --pretty=format:'%h %ad%x09%an%x09%s' --date=short
+	ls = ls-files
+	mm = merge master
+	p = push
+	pf = push --force-with-lease
+	pl = pull
+	rim = rebase -i master
+	s = status
+	sur = submodule update --remote
 
 [merge]
 	tool = nvimdiff

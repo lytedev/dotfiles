@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+fish -c (history | head -n 1 | grep -v history) | fzf

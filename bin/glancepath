@@ -1,0 +1,11 @@
+#!/usr/bin/env -S awk -f
+{
+	split(substr($0, 2), p, "/");
+	for (k in p) {
+		if (k == length(p)) {
+			printf "/%s", p[k]
+		} else {
+			printf "/%.3s", p[k]
+		}
+	}
+}

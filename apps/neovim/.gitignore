@@ -1,4 +1,4 @@
 /*
 !/.gitignore
 !/init.vim
-!/lsp.lua
+!/nvim_lsp.lua

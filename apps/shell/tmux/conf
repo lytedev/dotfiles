@@ -1,90 +1,45 @@
-# ^s as prefix
 unbind C-b
 set -g prefix C-s
 bind-key s send-prefix
 
-# reload tmux.conf
-bind-key T source-file "$HOME/.tmux.conf" \; display-message "source-file done"
-unbind r
-bind r source-file "$HOME/.tmux.conf"
-
-# set -as terminal-overrides ",xterm*:smxx=\E[9m"
-set -g default-terminal "screen-256color"
-
-# sane defaults
-set -g mouse on
-
-# honestly not exactly sure?
-# set -sg escape-time 1
-set -g escape-time 0
-
-# show window activity
-# TODO: this needs to be properly setup - presumably with tmux-session-list
-setw -g monitor-activity on
-setw -g visual-bell on
-setw -g bell-action other
-
-# common window sizes
-bind-key W resize-pane -x 100
-bind-key f resize-pane -x 120
-bind-key F resize-pane -x 125
-bind-key 8 resize-pane -x 80
-bind-key 2 resize-pane -y 20
-
-# splitting
 bind-key v split-window -h
 bind-key b split-window
-bind-key h split-window
-
-# show tmux status bar by default with (C-s, H) to toggle it
-set -g status on
-set -g history-limit 102400000
+bind-key T source-file "$HOME/.tmux.conf" \; display-message "Reloaded $HOME/.tmux.conf"
+bind-key O display-message "#(~/.config/lytedev-dotfiles/bin/tmux-save-buffer #S)"
 bind-key H set -s status
+bind-key -n C-l select-pane -R
+bind-key -n C-k select-pane -U
+bind-key -n C-j select-pane -D
+bind-key -n C-h select-pane -L
+bind s run "tmux split-window -l 12 'sh -c ~/.config/lytedev-dotfiles/bin/tmuxswitcher'"
 
-# simple session switching
-bind-key j switch-client -p
-bind-key h switch-client -p
-bind-key k switch-client -n
-bind-key l switch-client -n
-# bind s run-shell "tmux new-window sh -c "$DOTFILES_PATH/bin/tmuxswitcher""
-bind s run-shell "tmux new-window \"sh -c ~/.config/lytedev-dotfiles/bin/tmuxswitcher\""
+bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
 
-# reset the working directory of the current session
-bind-key P attach-session -t . -c "#{pane_current_path}" \; display-message "Reset session dir to #{pane_current_path}"
-
-# status bar and messages
+set -g default-terminal "screen-256color"
+set -g mouse on
+set -g escape-time 0
+set -g monitor-activity on
+set -g visual-bell on
+set -g bell-action other
+set -g mode-keys vi
+set -g history-limit 102400000
+set -g status on
 set -g status-position bottom
 set -g status-bg colour0
 set -g status-fg colour8
 set -g status-interval 5
-set -g status-right-length 80
-set -g status-right "#[fg=colour4]#W#[fg=default]#[bg=default] #H"
-set -g status-left-length 200
-set -g status-left "#[fg=colour7]#(~/.config/lytedev-dotfiles/bin/tmux-session-list #S)"
+set -g status-left-length 50
+set -g status-left "#h:#S.#W"
+set -g status-right-length 280
+set -g status-right "#(kubeline && printf ' ')#{pane_current_path} #(cd '#{pane_current_path}' && git rev-parse --abbrev-ref --sq HEAD | tr -d \"'\")#{pane_current_command}"
 set -g message-style "fg=colour7 bg=colour18"
-
-bind-key O display-message "#(~/.config/lytedev-dotfiles/bin/tmux-save-buffer #S)"
-
-# pane split line colors
 set -g pane-active-border-style bg=black,fg=blue
 set -g pane-border-style bg=black,fg=colour18
-
-# cLocK mOdE Is sUpEr 3LeEt
 set -g clock-mode-colour colour8
-
-# windows (which I don't use much...?)
-# TODO: do I have a use case for windows?
-setw -g window-status-current-format ""
-
-# vim copying
-setw -g mode-keys vi
-
-# 1-based indexing for key binding simplicity
 set -g base-index 1
 set -g pane-base-index 1
 
-# custom predefined layouts
-bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
+set -g window-status-current-format ""
 
 # present a menu of urls to open from the visible pane
 # TODO: fzf-ify this
@@ -92,62 +47,11 @@ bind-key u capture-pane \;\
 	save-buffer /tmp/tmux-buffer \;\
 	split-window -l 10 "urlscan /tmp/tmux-buffer"
 
-# seamlessly handle pane switching in and out of vim panes
-# see GitHub repos tmux-plugins/vim-tmux-focus-events and christoomey/vim-tmux-navigator
-is_vim="ps -o state= -o comm= -t \"#{pane_tty}\" \
-	| grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-bind-key -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
-bind-key -T copy-mode-vi "C-h" send -X "cancel select-pane -L"
-bind-key -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
-bind-key -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
-bind-key -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
-# not sure about this binding? possibly switch to previous pane...?
-# bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+bind-key -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel 'wl-copy'
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'wl-copy'; \
 
-# YANKING
-# bind-key -T copy-mode-vi "y" send -X copy-selection
-bind-key -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel -X 'clip'
-
-# various control binds
-bind-key n command-prompt -p "New Session:" "new-session -s '%1'"
 bind-key K kill-pane
-bind-key C-S-k kill-session -C
-
-set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.config/tmux/plugins/"
-
-# list of plugins
-set -g @plugin "tmux-plugins/tpm"
-set -g @plugin "tmux-plugins/tmux-sensible"
-set -g @plugin "lytedev/tmux-resurrect"
-set -g @plugin "lytedev/tmux-continuum"
-
-# prefix+[ for select mode
-# v for visual mode
-# yank to clipboard with y
-# paste with prefix+]
-set -g @plugin "tmux-plugins/tmux-yank"
-
-set -g @plugin "tmux-plugins/tmux-copycat"
-set -g @plugin "tmux-plugins/tmux-sessionist"
-set -g @plugin "christoomey/vim-tmux-navigator"
-
-# plugin options
-
-# enable continuum
-set -g @continuum-restore "on"
-
-# let continuum startup on boot
-# NOTE: disabled this due to it starting up before sway socket is up and then
-# sway commands do not work from within tmux
-# TODO: maybe sway (or any wm) can start continuum?
-# set -g @continuum-boot "on"
-
-# bindings for tmux-resurrect
-set -g @resurrect-save "C-v"
-set -g @resurrect-restore "R"
-
-# initialize tmux plugin manager
-run "~/.config/tmux/plugins/tpm/tpm"
+bind-key C-S-k kill-window
 
 # attempt at integrating nested tmux sessions nicely
 # bind -T root F12 \
@@ -162,7 +66,3 @@ run "~/.config/tmux/plugins/tpm/tpm"
 # 	set -u key-table \;\
 # 	set status on \;\
 # 	refresh-client -S
-
-unbind-key C-p
-
-set -g @resurrect-hook-pre-restore-pane-processes 'tmux switch-client -n && tmux kill-session -t 0'

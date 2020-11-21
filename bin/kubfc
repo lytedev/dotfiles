@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+kubectl config get-contexts --no-headers | \
+	uniq | \
+	sort | \
+	tr -s ' ' | \
+	sed -E 's/^\*?[[:space:]]*//g' | \
+	cut -d ' ' -f1 | \
+	fzf | \
+	xargs -I{} kubectl config use-context '{}'
