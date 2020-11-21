@@ -65,7 +65,7 @@ yay -Sy \
 	alsa-utils `# Audio Utilities` \
 	alsa-plugins `# Plugins for ALSA` \
 	pulseaudio pavucontrol pulsemixer `# Audio Backend and Controls` \
-	neovim `# Text Editors` \
+	neovim-git `# Text Editors` \
 	sc-im `# Spreadsheets` \
 	unzip `# Simple Unzipping` \
 	tmux `# Terminal Multiplexer` \

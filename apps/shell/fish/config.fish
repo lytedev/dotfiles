@@ -20,6 +20,8 @@ set -Ux ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_byt
 set -Ux LESS "-r"
 set -Ux LS_COLORS 'ow=01;36;40' # more sane ls colors
 set -Ux EDITOR nvim
+set -Ux VISUAL less
+set -Ux PAGER less
 set -Ux MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_on_startup=0" +Man!'
 
 has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'

@@ -16,16 +16,10 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 
 # To Do
 
-+ nvim statusline overflow
 + **Learn to use `journalctl`**
-+ Vim sessions?
 + Fix sway workspaces on desktop
 + Neovim LSP
-+ Setup `nnn`
 + Move to NixOS (WIP) or Guix? Declarative is the future!
-+ Custom Iosevka font with kitty-compatible ligatures?
-+ Makefile instead of setup script
-+ `c` (and similar aliases) could utilize `CDPATH` envvar?
 + Better/more secure remote management configuration in dotfiles? [1][1]
 + Setup network file share?
 + Add vim in the terminal as the handler for many MIME types (xdg-open and such)

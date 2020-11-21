@@ -1,12 +1,11 @@
-scriptencoding utf-8
 set fileencoding=utf8
 
 let $vimdir = $XDG_CONFIG_HOME.'/nvim'
 
 if empty(glob($vimdir.'/autoload/plug.vim'))
-  silent !curl -fLo $vimdir/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $vimdir.'init.vim'
+	silent !curl -fLo $vimdir/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $vimdir.'init.vim'
 endif
 
 let g:completion_enable_auto_popup = 0
@@ -156,44 +155,60 @@ set foldtext=NeatFoldText()
 
 " TODO: only update this portion when needed instead of every render?
 function! StatusLineBufferByNum(bufnum)
-	let l:prefix = '%#InactiveBuffer#'
+	let l:prefix = ' %#InactiveBuffer#'
 	let l:suffix = '%* '
 	let l:bufinfo = getbufinfo(a:bufnum)[0]
-	if l:bufinfo.listed == 0
-		return '%*'
-	end
 	if l:bufinfo['hidden'] == 0 && index(l:bufinfo['windows'], g:statusline_winid) >= 0
 		let l:prefix = '%#ActiveBuffer# '
-		let l:suffix = ' %* '
+		let l:suffix = ' %*'
 	endif
 	return l:prefix . fnamemodify(bufname(a:bufnum), ':t') . l:suffix
 endfunction
 
 au BufReadPost * | if stridx(&ft, 'commit') >= 0 | exe "startinsert!" | endif
 
-let l:status_line_max_length = 5
+let g:status_line_max_length = 5
 function! StatusLineBuffers()
-	let l:since_active = 0
+	let l:active_index = -1
 	let l:acc = []
-	for bufnum in nvim_list_bufs()
+	for l:bufnum in nvim_list_bufs()
+		let l:bufinfo = getbufinfo(l:bufnum)[0]
+		if l:bufinfo.listed == 0
+			continue
+		end
 		let l:entry = StatusLineBufferByNum(bufnum)
-		if l:entry =~ "^%#ActiveBuffer#"
-			"
-		endif
 		let l:acc = add(l:acc, l:entry)
-		if l:since_active > 0
-			let l:since_active = l:since_active + 1
+		if l:entry =~ "^%#ActiveBuffer#"
+			let l:active_index = index(l:acc, l:entry)
 		endif
 	endfor
-	return join(l:acc, '')
+	if l:active_index >= 0
+		" TODO: instead implement this as a wraparound carousel?
+		let l:offset = g:status_line_max_length / 2
+		let l:min_buf_num = max([0, (l:active_index - offset)])
+		let l:max_buf_num = min([(len(l:acc) - 1), (l:min_buf_num + g:status_line_max_length - 1)])
+		let l:min_buf_num = max([0, (l:max_buf_num - g:status_line_max_length + 1)])
+		let l:buflist = join(l:acc[(l:min_buf_num):(l:max_buf_num)], '')
+		let l:prefix = ""
+		let l:suffix = ""
+		if l:min_buf_num > 0
+			let l:prefix = "< "
+		endif
+		if l:max_buf_num < len(l:acc) - 1
+			let l:suffix = " >"
+		endif
+		return l:prefix . l:buflist . l:suffix
+	else
+		return join(l:acc, '')
+	endif
 endfunction
 
 function! StatusLine()
-	try
+	" try
 		return StatusLineBuffers().'%*%=%c,%l/%L (%p%%)'
-	catch
-		return 'buflisterr%*%=%c,%l/%L (%p%%)'
-	endtry
+	" catch
+		" return 'buflisterr%*%=%c,%l/%L (%p%%)'
+	" endtry
 endfunction
 
 " set laststatus=0 showtabline tabline=%!StatusLine()
