@@ -26,7 +26,7 @@ yay -Sy \
 	accountsservice `# Mainly for User Avatars with Display Manager` \
 	gdm `# Display Manager of choice` \
 	deluge deluge-gtk cairo python-cairo `# GUI Torrent Client` \
-	elixir nodejs erlang \
+	elixir nodejs erlang rustup \
 	php `# PHP Language` \
 	nginx `# Web Server` \
 	postgresql pgcli `# RDBMS` \
@@ -87,4 +87,5 @@ yay -Sy \
 	fortune-mod fortune-mod-archlinux `# Fortune` \
 	diff-so-fancy `# Fancy Diffs` \
 	oath-toolkit `# One-Time Passwords` \
-	sysstat `# System Statistics`
+	sysstat `# System Statistics` \
+	ripcord `# Discord and Slack Client`

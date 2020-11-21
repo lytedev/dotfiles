@@ -5,3 +5,6 @@ bindswitch lid:toggle exec swaylock
 input type:keyboard {
 	xkb_options ctrl:nocaps
 }
+input type:touchscreen {
+	events disabled
+}
