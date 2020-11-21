@@ -5,6 +5,7 @@ set -Ux DOTFILES_PATH $XDG_CONFIG_HOME/lytedev-dotfiles
 set -Ux ENV_PATH $HOME/.env
 
 source $DOTFILES_PATH/apps/shell/fish/paths.fish
+source $DOTFILES_PATH/apps/nnn/config.fish
 
 status --is-interactive || exit
 

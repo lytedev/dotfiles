@@ -64,6 +64,9 @@ links=(
 	# libinput configuration
 	"apps/de/libinput/gestures.conf"    "$XDG_CONFIG_HOME/libinput-gestures.conf"
 
+	# nnn configuration
+	"apps/nnn/"                         "$XDG_CONFIG_HOME/nnn"
+
 	# kakoune editor configuration
 	"apps/kak/"                         "$XDG_CONFIG_HOME/kak"
 

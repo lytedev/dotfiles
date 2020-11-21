@@ -50,7 +50,9 @@ yay -Sy \
 	dmenu `# Application Launcher` \
 	ripgrep `# Code Search Utilities` \
 	fd `# File Search` \
+	exa `# Better ls` \
 	sd `# Easy Find/Replace` \
+	bat `# Better Cat` \
 	fzf `# Fuzzy File Finder` \
 	htop `# Process Management and System Resources Monitoring` \
 	openssh mosh `# Remote Access` \
@@ -92,4 +94,5 @@ yay -Sy \
 	diff-so-fancy `# Fancy Diffs` \
 	oath-toolkit `# One-Time Passwords` \
 	sysstat `# System Statistics` \
+	man-db man-pages `# Come On, Man!` \
 	ripcord `# Discord and Slack Client`

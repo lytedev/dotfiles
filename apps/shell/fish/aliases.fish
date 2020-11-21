@@ -13,6 +13,7 @@ alias la 'll -A' # show all
 # TODO: cat > bat
 alias tree 'tree -Csuh'
 alias f fzf
+alias r 'nnn -P p'
 alias t "tmux"
 alias rcp 'rsync -r -ah --progress'
 
@@ -37,7 +38,8 @@ function c --description "Quickly jump to a subdirectory of NICE_HOME (or just t
 	end
 end
 complete --erase --command c
-complete --command c -a "(pushd $NICE_HOME && fd . . --max-depth 1 --min-depth 1 && popd)"
+complete --command c -a \
+	"(pushd $NICE_HOME && fd . . --max-depth 1 --min-depth 1 -x ls -p && popd)"
 
 alias cd.. "d .."
 alias cdd "d $DOTFILES_PATH" # go to dotfiles
@@ -79,7 +81,7 @@ function pp
 end
 alias p "ping 8.8.8.8"
 alias C "clear && clear" # TODO: this should clear a tmux pane's scrollback/logs
-alias r "nnn"
+alias l "nnn"
 alias sctl "sudo systemctl"
 alias sctlu "systemctl --user"
 alias bt "sudo bluetoothctl" # TODO: a vi-like tui for bluetooth would be great
