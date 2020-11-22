@@ -59,6 +59,7 @@ yay -Sy \
 	openssl `# Crypto` \
 	asdf-vm `# Runtime Version Manager` \
 	python python-pip `# Python 3 Language` \
+	hexyl `# CLI Hex Viewer` \
 	pass `# Password Management` \
 	firefox-developer-edition `# Default Web Browser` \
 	rsync `# File Transfer` \

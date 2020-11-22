@@ -20,7 +20,7 @@ set -Ux ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_byt
 set -Ux LESS "-r"
 set -Ux LS_COLORS 'ow=01;36;40' # more sane ls colors
 set -Ux EDITOR nvim
-set -Ux VISUAL less
+set -Ux VISUAL nvim
 set -Ux PAGER less
 set -Ux MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_on_startup=0" +Man!'
 
@@ -28,7 +28,10 @@ has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --e
 
 test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
 
-function fish_greeting; date; end
+function fish_greeting;
+	set_color -b black brblack
+	printf "%s@%s %s\n" $USER (hostname) (date)
+end
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
 # nonsense that clutters it up and that they have a preferred starting
@@ -61,5 +64,8 @@ function src-hidden-dir
 	echo "Checking $f..."
 	test -f $f && source $f
 end
+test -d $ENV_PATH/.hidden/fish.d && \
+	complete --command src-hidden-dir -a \
+	"(pushd $NICE_HOME && fd . $ENV_PATH/.hidden/fish.d/ --max-depth 1 --min-depth 1 -x ls -p && popd)"
 
 mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH

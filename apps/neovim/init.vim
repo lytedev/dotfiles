@@ -94,6 +94,9 @@ command! W write
 inoremap jj <Esc>
 inoremap jk <Esc>
 
+nnoremap <C-q> :qa<CR>
+inoremap <C-q> <Esc><C-q>
+
 nnoremap <C-p> :GitFiles<CR>
 nnoremap <C-o> :Files<CR>
 nnoremap <C-u> :GFiles?<CR>

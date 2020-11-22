@@ -13,9 +13,14 @@ alias la 'll -A' # show all
 # TODO: cat > bat
 alias tree 'tree -Csuh'
 alias f fzf
-alias r 'nnn -P p'
 alias t "tmux"
 alias rcp 'rsync -r -ah --progress'
+
+function r --wraps nnn --description 'support nnn quit and change directory'
+	set NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
+	nnn -P p $argv
+	test -e $NNN_TMPFILE && source $NNN_TMPFILE && rm $NNN_TMPFILE
+end
 
 alias vltl "$EDITOR (ltl)"
 alias cdltl "cd (ltld)"
@@ -119,4 +124,5 @@ alias grep "rg"
 
 alias vim nvim
 alias vi nvim
+alias v nvim
 
