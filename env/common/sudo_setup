@@ -9,7 +9,7 @@ fi
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/../../" && pwd)
 source "${dfp}/env/common/setup_helpers.bash"
 
-# cp "$dfp/apps/de/sway/dm-entry" "/usr/share/wayland-sessions/lsway.desktop"
+cp "$dfp/apps/de/sway/dm-entry" "/usr/share/wayland-sessions/lsway.desktop"
 
 links=(
 	# display manager files

@@ -27,8 +27,6 @@ links=(
 	"apps/de/sway/mimeapps.list"        "$HOME/.local/share/applications/mimeapps.list"
 
 	# shell files
-	"apps/shell/bash/rc"                "$HOME/.bashrc"
-	"apps/shell/bash/profile"           "$HOME/.bash_profile"
 	"apps/shell/tmux/conf"              "$HOME/.tmux.conf"
 	"apps/shell/tmux/layouts"           "$HOME/.tmux/layouts"
 	"apps/shell/fish/"                  "$XDG_CONFIG_HOME/fish"
@@ -46,7 +44,6 @@ links=(
 	"apps/de/gtk/3settings.ini"         "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
 
 	# bar files
-	"apps/de/polybar/config"            "$XDG_CONFIG_HOME/polybar/config"
 	"apps/de/waybar/"                   "$XDG_CONFIG_HOME/waybar"
 
 	# irc files
@@ -85,18 +82,12 @@ links=(
 	# kitty config
 	"apps/kitty/"                       "$XDG_CONFIG_HOME/kitty"
 
-	# rofi config
-	"apps/rofi/config"                  "$XDG_CONFIG_HOME/rofi/config"
-
 	# ranger config
 	"apps/ranger/"                      "$XDG_CONFIG_HOME/ranger"
 
 	# mutt config
 	"apps/mutt/rc"                      "$XDG_CONFIG_HOME/.muttrc"
 	"apps/mutt/rc"                      "$HOME/.muttrc"
-
-	# neofetch config
-	"apps/neofetch/config"              "$XDG_CONFIG_HOME/neofetch/config"
 
 	# git config
 	"apps/git/config"                   "$HOME/.gitconfig"

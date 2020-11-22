@@ -11,6 +11,9 @@ set $default_gap 0
 exec initctl set-env --global SWAYSOCK="$SWAYSOCK"
 exec initctl set-env --global I3SOCK="$I3SOCK"
 exec initctl set-env --global WAYLAND_DISPLAY="$WAYLAND_DISPLAY"
+exec initctl set-env --global CLUTTER_BACKEND=wayland
+exec initctl set-env --global SDL_VIDEODRIVER=wayland
+exec initctl set-env --global MOZ_ENABLE_WAYLAND=1
 exec initctl emit sway-session
 
 focus_wrapping no
@@ -122,8 +125,12 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym shift+XF86MonBrightnessDown exec brightnessctl set 1%
+bindsym shift+XF86MonBrightnessUp exec brightnessctl set 100%
+bindsym control+XF86MonBrightnessDown exec brightnessctl set 1%-
+bindsym control+XF86MonBrightnessUp exec brightnessctl set +1%
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous

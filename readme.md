@@ -16,6 +16,7 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 
 # To Do
 
++ Hibernation and proper automatic power controls
 + **Learn to use `journalctl`**
 + Fix sway workspaces on desktop
 + Neovim LSP

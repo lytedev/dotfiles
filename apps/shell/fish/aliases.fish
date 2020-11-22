@@ -84,7 +84,8 @@ alias C "clear && clear" # TODO: this should clear a tmux pane's scrollback/logs
 alias l "nnn"
 alias sctl "sudo systemctl"
 alias sctlu "systemctl --user"
-alias bt "sudo bluetoothctl" # TODO: a vi-like tui for bluetooth would be great
+# TODO: a vi-like tui for bluetooth would be great
+alias bt "sctl start bluetooth && sudo bluetoothctl"
 alias btctl "bt"
 alias resrc "source $XDG_CONFIG_HOME/fish/config.fish"
 alias sc "sc-im"
