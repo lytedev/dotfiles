@@ -15,7 +15,7 @@ bind s run "tmux split-window -l 12 'sh -c ~/.config/lytedev-dotfiles/bin/tmuxsw
 
 bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
 
-set -g default-terminal "screen-256color"
+set -g default-terminal "kitty"
 set -g mouse on
 set -g escape-time 0
 set -g monitor-activity on

@@ -3,10 +3,12 @@
 SPLIT="$SPLIT"
 TERMINAL="$TERMINAL"
 USE_SCOPE="${USE_SCOPE:-0}"
+IN_KITTY=0
+[ -n "$KITTY_WINDOW_ID" ] && kitty @ ls --no-response >/dev/null 2>&1 && IN_KITTY=1
 
 if [ -e "${TMUX%%,*}" ] && tmux -V | grep -q '[ -][3456789]\.'; then
 	TERMINAL=tmux
-elif [ -n "$KITTY_WINDOW_ID" ] && kitty @ ls >/dev/null 2>&1; then
+elif [ "$IN_KITTY" == 1 ]; then
 	TERMINAL=kitty
 else
 	TERMINAL="${TERMINAL:-xterm}"
@@ -77,7 +79,7 @@ preview_file () {
 		fi
 	elif [ "$encoding" = "binary" ]; then
 		if [ "${mimetype%%/*}" = "image" ] ; then
-			if [ "$TERMINAL" = "kitty" ]; then
+			if [ "$IN_KITTY" = "1" ]; then
 				# Kitty terminal users can use the native image preview method.
 				kitty +kitten icat --silent --transfer-mode=stream --stdin=no "$1" &
 			elif exists catimg; then
