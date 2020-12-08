@@ -9,6 +9,7 @@ fi
 
 yay -Sy \
 	xf86-input-libinput \
+	fwupd \
 	bluez bluez-libs bluez-utils bluez-tools `# Bluetooth` \
 	pigz `# Multi-core gzipping` \
 	iw `# WiFi Power Saving` \

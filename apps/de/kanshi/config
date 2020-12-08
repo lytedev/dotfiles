@@ -8,3 +8,9 @@ profile desktop-H  {
 profile laptop-solo {
   output "Sharp Corporation 0x144A 0x00000000" enable mode 3200x1800@60Hz position 0,0 scale 2 transform normal
 }
+
+profile laptop-single-ext-mon {
+	output "Dell Inc. DELL U2719DC 9CL4QS2" enable mode 2560x1440@60Hz position 1600,0 scale 1 transform normal
+  output "Sharp Corporation 0x144A 0x00000000" enable mode 3200x1800@60Hz position 0,0 scale 2 transform normal
+  exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/laptop-workspaces.sh"
+}
