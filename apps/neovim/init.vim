@@ -172,6 +172,7 @@ au BufReadPost * | if stridx(&ft, 'commit') >= 0 | exe "startinsert!" | endif
 
 let g:status_line_max_length = 5
 function! StatusLineBuffers()
+	" TODO: mark buffers with unsaved changes
 	let l:active_index = -1
 	let l:acc = []
 	for l:bufnum in nvim_list_bufs()

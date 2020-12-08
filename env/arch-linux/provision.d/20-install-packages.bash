@@ -61,7 +61,7 @@ yay -Sy \
 	asdf-vm `# Runtime Version Manager` \
 	python python-pip `# Python 3 Language` \
 	hexyl `# CLI Hex Viewer` \
-	pass `# Password Management` \
+	pass passff-host `# Password Management` \
 	firefox-developer-edition `# Default Web Browser` \
 	rsync `# File Transfer` \
 	alsa-utils `# Audio Utilities` \

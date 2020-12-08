@@ -5,6 +5,11 @@ profile desktop-H  {
   exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-H-workspaces.sh"
 }
 
+profile desktop-H  {
+  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 1440,560 scale 1 transform normal
+  exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-single-workspace.sh"
+}
+
 profile laptop-solo {
   output "Sharp Corporation 0x144A 0x00000000" enable mode 3200x1800@60Hz position 0,0 scale 2 transform normal
 }
