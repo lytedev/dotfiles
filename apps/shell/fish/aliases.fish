@@ -85,7 +85,7 @@ function pp
 	end
 end
 alias p "ping 8.8.8.8"
-alias C "clear && clear" # TODO: this should clear a tmux pane's scrollback/logs
+alias C "clear && tmux clear-history"
 alias l "nnn"
 alias sctl "sudo systemctl"
 alias sctlu "systemctl --user"
