@@ -2,4 +2,4 @@
 
 f="${1}"
 uuid="$(uuidgen -t)"
-upload "${f}" "${uuid}.txt" "pastes"
+upload "${f}" "${uuid}/${f}" "pastes"
