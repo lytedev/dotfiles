@@ -18,7 +18,7 @@ if [ "$(curl -s -o /dev/null -w "%{http_code}" "${url}")" -eq 200 ]; then
 	exit 3
 fi
 
-ssh "$HOST" mkdir -p "${internal_dir}"
+ssh "$HOST" mkdir -p "$(dirname "${internal_dir}/${fname}")"
 rsync --progress --no-owner --no-group --chmod=644 --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
 code="$?"
 echo "Uploaded to: ${url}"
