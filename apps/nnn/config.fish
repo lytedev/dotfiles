@@ -1,4 +1,4 @@
-set -Ux NNN_OPTS EHacdrx
+set -Ux NNN_OPTS EHacdx
 set -Ux NNN_COLORS 1234
 set -Ux NNN_PLUG p:preview
 set -Ux NNN_FCOLORS 030304020005050805030501

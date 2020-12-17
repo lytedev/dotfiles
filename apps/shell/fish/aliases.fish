@@ -10,6 +10,8 @@ alias lT 'lt -r'
 alias lc 'lt -t accessed'
 alias lC 'lc -r'
 
+set -gx CDPATH $CDPATH . $NICE_HOME
+
 function d -w cd --description "Quickly jump to NICE_HOME (or given relative or absolute path) and list files."
 	if scount $argv
 		cd $argv || exit 1
@@ -19,16 +21,13 @@ function d -w cd --description "Quickly jump to NICE_HOME (or given relative or 
 	la
 end
 
-function c --description "Quickly jump to a subdirectory of NICE_HOME (or just to NICE_HOME if none given)"
+function c -w cd --description "Quickly jump to a subdirectory of NICE_HOME (or just to NICE_HOME if none given)"
 	if scount $argv
 		cd $NICE_HOME && d $argv || exit 1
 	else
 		d $NICE_HOME
 	end
 end
-complete --erase --command c
-complete --command c -a \
-	"(pushd $NICE_HOME && fd . . --max-depth 1 --min-depth 1 -x ls -p && popd)"
 
 alias cd.. "d .."
 alias cdd "d $DOTFILES_PATH"
@@ -108,3 +107,4 @@ alias wifi "sudo iwctl"
 alias year 'cal (date +%Y)'
 alias mount 'sudo -E mount'
 alias pa pulsemixer
+alias mail neomutt
