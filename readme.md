@@ -14,6 +14,19 @@ like.
 curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotfiles | sh
 ```
 
+# Dependencies
+
++ `bat`
++ `fd`
++ `sd`
++ `fzf`
++ `fish`
++ `tmux`
++ `rsync`
++ `exa`
++ `nnn`
++ `nvim`
+
 # To Do
 
 + Hibernation and proper automatic power controls

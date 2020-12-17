@@ -47,7 +47,6 @@ yay -Sy \
 	gammastep `# Redshift for Wayland` \
 	weechat `# IRC Client` \
 	aria2 `# Downloads Manager` \
-	tree `# Handy Filesystem Viewing Utility` \
 	dmenu `# Application Launcher` \
 	ripgrep `# Code Search Utilities` \
 	fd `# File Search` \

@@ -70,10 +70,10 @@ preview_file () {
 	# Otherwise, falling back to the defaults.
 	if [ -d "$1" ]; then
 		cd "$1" || return
-		if exists tree; then
+		if exists exa; then
+			fifo_pager exa --tree --level 3 --colour=always 2>/dev/null
+		elif exists tree; then
 			fifo_pager tree -L 3 -F
-		elif exists exa; then
-			fifo_pager exa -G --colour=always 2>/dev/null
 		else
 			fifo_pager ls --color=always
 		fi
