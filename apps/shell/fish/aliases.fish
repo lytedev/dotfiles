@@ -93,7 +93,7 @@ alias cdltl "cd (ltld)"
 
 function pp; while not ping -n 1 -t 5 8.8.8.8; sleep 1; end; end
 alias p "ping 8.8.8.8"
-alias C "clear; set -q TMUX && tmux clear-history"
+alias C "clear; set -q TMUX && tmux clear-history || true"
 alias sctl "sudo systemctl"
 alias sctlu "systemctl --user"
 alias bt "sctl start bluetooth && sudo bluetoothctl"
