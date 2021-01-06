@@ -83,6 +83,7 @@ hi Normal ctermbg=NONE
 hi ColorColumn ctermbg=18
 hi TooLongColorColumn ctermbg=18 ctermfg=1
 hi ActiveBuffer ctermbg=4 ctermfg=0
+hi DirtyBuffer ctermbg=3 ctermfg=0
 hi StatusLine ctermbg=18 ctermfg=7
 hi StatusLineNC ctermbg=18 ctermfg=7
 
@@ -158,13 +159,20 @@ set foldtext=NeatFoldText()
 
 " TODO: only update this portion when needed instead of every render?
 function! StatusLineBufferByNum(bufnum)
+	let l:bufinfo = getbufinfo(a:bufnum)[0]
 	let l:prefix = ' %#InactiveBuffer#'
 	let l:suffix = '%* '
-	let l:bufinfo = getbufinfo(a:bufnum)[0]
+
+	if l:bufinfo.changed
+		let l:prefix = '%#DirtyBuffer# '
+		let l:suffix = ' %*'
+	end
+
 	if l:bufinfo['hidden'] == 0 && index(l:bufinfo['windows'], g:statusline_winid) >= 0
 		let l:prefix = '%#ActiveBuffer# '
 		let l:suffix = ' %*'
 	endif
+
 	return l:prefix . fnamemodify(bufname(a:bufnum), ':t') . l:suffix
 endfunction
 
