@@ -5,9 +5,9 @@ alias tree 'ls --tree --level=3'
 alias lA 'ls -a'
 alias ll 'ls -l'
 alias la 'll -a'
-alias lt 'll -t modified'
+alias lt 'll -s modified'
 alias lT 'lt -r'
-alias lc 'lt -t accessed'
+alias lc 'lt -s accessed'
 alias lC 'lc -r'
 
 set -gx CDPATH $CDPATH . $NICE_HOME
