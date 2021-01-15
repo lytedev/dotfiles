@@ -72,3 +72,7 @@ test -d $ENV_PATH/.hidden/fish.d && \
 	"(pushd $NICE_HOME && fd . $ENV_PATH/.hidden/fish.d/ --max-depth 1 --min-depth 1 -x ls -p && popd)"
 
 mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
+
+# if status is-interactive; and not set -q TMUX
+# 	exec tmux
+# end
