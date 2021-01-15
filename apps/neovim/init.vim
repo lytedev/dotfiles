@@ -171,6 +171,10 @@ function! StatusLineBufferByNum(bufnum)
 	if l:bufinfo['hidden'] == 0 && index(l:bufinfo['windows'], g:statusline_winid) >= 0
 		let l:prefix = '%#ActiveBuffer# '
 		let l:suffix = ' %*'
+		if l:bufinfo.changed
+			let l:prefix = '%#ActiveBuffer# *'
+			let l:suffix = ' %*'
+		end
 	endif
 
 	return l:prefix . fnamemodify(bufname(a:bufnum), ':t') . l:suffix
