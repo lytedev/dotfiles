@@ -227,6 +227,11 @@ function! StatusLine()
 	" endtry
 endfunction
 
+augroup slime
+  au!
+  autocmd BufNewFile,BufRead *.slimleex set syntax=slim
+augroup END
+
 " set laststatus=0 showtabline tabline=%!StatusLine()
 set statusline=%!StatusLine()
 
