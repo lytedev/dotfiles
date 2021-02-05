@@ -29,19 +29,27 @@ curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotf
 
 # To Do
 
-+ Hibernation and proper automatic power controls
++ Get out of Google!
+	+ `calcurse` for Calendar management?
+	+ `aerc` or `neomutt` for email?
+	+ My home-grown backup network for Drive?
+	+ Photos?
++ Hibernation and proper power management for laptop?
 + **Learn to use `journalctl`**
-+ Fix sway workspaces on desktop
++ Fix sway workspaces on desktop?
 + Neovim LSP
 + Move to NixOS (WIP) or Guix? Declarative is the future!
 + Better/more secure remote management configuration in dotfiles? [1][1]
 + Setup network file share?
++ Home VPN
 + Add vim in the terminal as the handler for many MIME types (xdg-open and such)
 	for the rare time I'm in a file manager or for opening easily from
 	the browser.
+	+ This goes for navigating "into" a file in `nnn`
 + Unify all the common variables... somehow? (and use templates and `envsubst`?)
 + [Vimux](https://github.com/benmills/vimux)?
 + Investigate systemd services that may help with various tasks (homed, etc.)
++ Be more macOS friendly, since work may require that
 
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
