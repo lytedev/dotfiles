@@ -5,10 +5,12 @@ profile desktop-H  {
   exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-H-workspaces.sh"
 }
 
-profile desktop-H  {
-  output "Samsung Electric Company SyncMaster H1AK500000" enable mode 3840x2160 position 0,0 scale 1 transform normal
+profile tv4k  {
+  output "Samsung Electric Company CF791 HTRJ500315" disable
   output "Dell Inc. DELL U2719DC 5DL4QS2" disable
   output "Dell Inc. DELL U2719DC 9DL4QS2" disable
+	output "Samsung Electric Company SyncMaster H1AK500000" enable mode 4096x2160@60Hz position 0,0 scale 1 transform normal
+  # exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-H-workspaces.sh"
 }
 
 profile desktop-H  {
