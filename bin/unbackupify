@@ -1,0 +1,18 @@
+#!/usr/bin/env fish
+
+set host rift
+set dir /storage/daniel/backups
+set ext .tar.zstd.gpg
+
+if not set -q argv[1]
+	echo "No backup filename provided"
+	exit 2
+end
+# TODO: autocomplete?
+# TODO: checksum?
+set fn $argv[1]
+ssh $host "cat $dir/$fn$ext" |
+	gpg --decrypt |
+	zstd --ultra -T2 -22 -dc |
+	tar -xvf -
+echo "Restored!"

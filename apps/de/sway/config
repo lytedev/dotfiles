@@ -169,6 +169,7 @@ client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
 exec_always 'killall kanshi; kanshi'
 exec mako
+exec pipewire
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 
 bar {
