@@ -4,6 +4,8 @@
 
 dfp=$(cd "$(dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 source "${dfp}/env/common/setup_helpers.bash"
+export DOTFILES_PATH="${DOTFILES_PATH:-$dfp}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 test ! -d "$HOME/.env" && "$dfp/bin/choose-common-env"
 
 INTERACTIVE=1
@@ -33,8 +35,6 @@ links=(
 
 	# text editor files
 	"apps/neovim/"                      "$XDG_CONFIG_HOME/nvim"
-	"apps/neovim/"                      "$HOME/.vim"
-	"apps/neovim/init.vim"              "$HOME/.vimrc"
 	"env/common/colors/vim"             "$XDG_CONFIG_HOME/nvim/colors/base16-donokai.vim"
 	"apps/emacs/"                       "$HOME/.emacs.lytedev"
 
@@ -47,7 +47,6 @@ links=(
 	"apps/de/waybar/"                   "$XDG_CONFIG_HOME/waybar"
 
 	# irc files
-	"apps/irssi/"                       "$HOME/.irssi"
 	"apps/weechat/"                     "$HOME/.weechat"
 
 	# qutebrowser config files

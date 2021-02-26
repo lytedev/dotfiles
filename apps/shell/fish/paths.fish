@@ -11,7 +11,8 @@ set -U fish_user_paths \
 	$HOME/.bin \
 	$HOME/.cargo/bin \
 	$HOME/.nimble/bin \
-	$HOME/.yarn/bin
+	$HOME/.yarn/bin \
+	$HOME/.netlify/helper/bin
 
 test -d $HOME/.local/bin && set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 test -d $HOME/.bin && set -U fish_user_paths $HOME/.local/bin $fish_user_paths
