@@ -33,8 +33,8 @@ function fish_greeting;
 	set_color -b black brblack
 	printf "%s@%s %s\n" $USER (hostname) (date)
 	printf "%6d   processes running\n" (ps -aux | wc -l)
-	printf "%6sGB memory available\n" (free -g | grep '^Mem:' | tr -s ' ' | cut -d ' ' -f7)
-	printf "%6d   PTYs open\n" (cat /proc/sys/kernel/pty/nr)
+	has_command free && printf "%6sGB memory available\n" (free -g | grep '^Mem:' | tr -s ' ' | cut -d ' ' -f7)
+	test -f /proc/sys/kernel/pty/nr && printf "%6d   PTYs open\n" (cat /proc/sys/kernel/pty/nr)
 end
 
 # we assume the user uses "$HOME" to just store their mess of dotfiles and other
