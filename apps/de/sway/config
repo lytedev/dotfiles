@@ -51,6 +51,7 @@ bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?
 bindsym $mod+space exec $dfpbin/app-launcher
+bindsym $mod+shift+s exec $dfpbin/clipshot
 bindsym $mod+e exec thunar
 bindsym $mod+shift+r reload
 bindsym $mod+control+Escape exit
@@ -172,6 +173,7 @@ client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
 exec_always 'killall kanshi; kanshi'
 exec mako
+exec pipewire
 exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
 
 bar {

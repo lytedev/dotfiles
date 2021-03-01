@@ -1,0 +1,23 @@
+#!/usr/bin/env fish
+
+set host rift
+set dir /storage/daniel/backups
+set ext .tar.zstd.gpg
+
+if not set -q argv[1]
+	echo "No directory provided"
+	exit 2
+end
+if not test -d $argv[1]
+	echo "Invalid directory given: $argv[1]"
+	exit 1
+end
+set fn (date +%Y%m%d_%H%M%S)(basename $argv[1])
+pushd (dirname $argv[1])
+tar cvf - (basename $argv[1]) 2>/dev/null |
+	zstd --ultra -T2 -22 |
+	gpg --encrypt --recipient daniel@lyte.dev |
+	ssh $host "cat - > $dir/$fn$ext"
+popd
+# TODO: checksum?
+echo "Uploaded to host rift via ssh at $dir/$fn$ext"
