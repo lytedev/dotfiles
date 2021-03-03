@@ -5,7 +5,7 @@ set -Ux GOPATH $HOME/.go
 set -U fish_user_paths \
 	$HOME/.go \
 	$GOPATH/bin \
-	$DOTFILES_PATH/bin \
+	$DOTFILES_PATH/common/bin \
 	$ENV_PATH/bin \
 	$ENV_PATH/.hidden/bin \
 	$HOME/.bin \

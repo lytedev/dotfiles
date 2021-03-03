@@ -3,15 +3,16 @@
 set -Ux XDG_CONFIG_HOME $HOME/.config
 set -Ux DOTFILES_PATH $XDG_CONFIG_HOME/lytedev-dotfiles
 set -Ux ENV_PATH $HOME/.env
+set -Ux FISH_PATH $XDG_CONFIG_HOME/fish
 
-source $DOTFILES_PATH/apps/shell/fish/paths.fish
-source $DOTFILES_PATH/apps/nnn/config.fish
+source $FISH_PATH/paths.fish
 
 status --is-interactive || exit
 
 for f in key-bindings colors prompt aliases
-	source $DOTFILES_PATH/apps/shell/fish/$f.fish
+	source $FISH_PATH/$f.fish
 end
+source $DOTFILES_PATH/common/nnn/config.fish
 
 set -Ux _JAVA_AWT_WM_NONREPARENTING 1
 set -Ux TERMINAL kitty

@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-"$DOTFILES_PATH/apps/de/x/loadresources"

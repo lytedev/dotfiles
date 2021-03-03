@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-f="$DOTFILES_PATH/.bspwm-state.json.tmp"
-c="$DOTFILES_PATH/.bspwm-canvas.json.tmp"
-bspwm_load_state_canvas "$f" > "$c"
-chmod 600 "$c"
-bspc wm -l "$c"
-rm "$c"
-bspwm_load_state_rules "$f" | bash
