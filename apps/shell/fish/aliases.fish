@@ -108,3 +108,4 @@ alias year 'cal (date +%Y)'
 alias mount 'sudo -E mount'
 alias pa pulsemixer
 alias mail neomutt
+alias wje work-journal-entry

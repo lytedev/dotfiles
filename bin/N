@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-
 fn="${1}"; shift; nf "${fn}.md" "$@"

@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+N work/divvy/(date +%Y-%m-%d) && \
+	pushd $NOTES_PATH && git add -A && \
+	git commit -m "Edit work journal entry for "(date +%Y-%m-%d) && nsync
