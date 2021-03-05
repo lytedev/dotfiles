@@ -5,6 +5,7 @@ set -Ux DOTFILES_PATH $XDG_CONFIG_HOME/lytedev-dotfiles
 set -Ux ENV_PATH $HOME/.env
 set -Ux FISH_PATH $XDG_CONFIG_HOME/fish
 
+$DOTFILES_PATH/common/colors/vconsole
 source $FISH_PATH/paths.fish
 
 status --is-interactive || exit

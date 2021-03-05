@@ -1,0 +1,2 @@
+include "/usr/share/kbd/keymaps/i386/qwerty/us.map.gz"
+include "/usr/share/kbd/keymaps/i386/include/ctrl.map.gz"
