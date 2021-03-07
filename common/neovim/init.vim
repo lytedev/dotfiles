@@ -12,6 +12,7 @@ let g:completion_enable_auto_popup = 0
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:jsonnet_fmt_on_save = 0
+let g:skipview_files = ['COMMIT_EDITMSG']
 " let g:fzf_preview_window = ['down:40%:hidden', 'ctrl-/']
 
 call plug#begin($vimdir.'/plugged')
