@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-"$(dirname "$0")/floating-term" sh -c "\"$(dirname "$0")/launch\" | xargs swaymsg exec --"
+floating-term sh -c "launch | xargs swaymsg exec --"

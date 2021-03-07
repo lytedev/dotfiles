@@ -2,18 +2,23 @@
 
 set -Ux XDG_CONFIG_HOME $HOME/.config
 set -Ux DOTFILES_PATH $XDG_CONFIG_HOME/lytedev-dotfiles
-set -Ux ENV_PATH $HOME/.env
+set -Ux ENV_PATH $XDG_CONFIG_HOME/lytedev-env
 set -Ux FISH_PATH $XDG_CONFIG_HOME/fish
 
-$DOTFILES_PATH/common/colors/vconsole
 source $FISH_PATH/paths.fish
+
+for s in $ENV_PATH/*/config.d.fish
+	source $s (dirname $s)
+end
 
 status --is-interactive || exit
 
+$DOTFILES_PATH/common/colors/vconsole
 for f in key-bindings colors prompt aliases
 	source $FISH_PATH/$f.fish
 end
-source $DOTFILES_PATH/common/nnn/config.fish
+
+has_command nnn && source $DOTFILES_PATH/common/nnn/config.fish
 
 set -Ux _JAVA_AWT_WM_NONREPARENTING 1
 set -Ux TERMINAL kitty
@@ -27,7 +32,7 @@ set -Ux VISUAL nvim
 set -Ux PAGER less
 set -Ux MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_on_startup=0" +Man!'
 
-has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
+# has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 
 test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
 
@@ -39,7 +44,7 @@ function fish_greeting;
 	test -f /proc/sys/kernel/pty/nr && printf "%6d   PTYs open\n" (cat /proc/sys/kernel/pty/nr)
 end
 
-# we assume the user uses "$HOME" to just store their mess of dotfiles and other
+# assume the user uses "$HOME" to just store their mess of dotfiles and other
 # nonsense that clutters it up and that they have a preferred starting
 # directory where they keep the stuff they actually care about
 # we only do this if the user is opening a shell at $HOME
@@ -52,30 +57,3 @@ if test -f $HOME/.asdf/asdf.fish
 else if test -f /opt/asdf-vm/asdf.fish
 	source /opt/asdf-vm/asdf.fish
 end
-
-if set -q $__HM_SESS_VARS_SOURCED; and test -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
-	exec bash -c "source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh; exec fish"
-end
-
-# load a per-device, secret config last so anything can be overridden
-for cf in config.fish .hidden/config.fish
-	set f $ENV_PATH/$cf
-	test -f $f && source $f
-end
-
-# TODO: completion
-function src-hidden-dir
-	not scount $argv && echo "No directory specified" && exit 1
-	set f $ENV_PATH/.hidden/fish.d/$argv[1]/config.fish
-	echo "Checking $f..."
-	test -f $f && source $f
-end
-test -d $ENV_PATH/.hidden/fish.d && \
-	complete --command src-hidden-dir -a \
-	"(pushd $NICE_HOME && fd . $ENV_PATH/.hidden/fish.d/ --max-depth 1 --min-depth 1 -x ls -p && popd)"
-
-mkdir -p $NOTES_PATH $USER_LOGS_PATH $SCROTS_PATH
-
-# if status is-interactive; and not set -q TMUX
-# 	exec tmux
-# end

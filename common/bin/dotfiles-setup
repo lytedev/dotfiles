@@ -4,16 +4,36 @@
 
 set dfp (realpath (dirname (status -f))/../..)
 set lock_file $HOME/.using-lytedev-dotfiles.lock
-set -q XDG_CONFIG_HOME || set XDG_CONFIG_HOME $HOME/.config
-source $dfp/common/bin/lib/meta/setup/helpers
-dotfiles_setup_check_agreement $lock_file || begin
-	echo Quitting due to lack of user agreement. && exit 1
+
+if not test -f $lock_file
+	echo This will delete existing files. Make sure you know what you\'re doing.
+	read -r -p "Are you sure you want to continue? [y/N] " response
+	set response (string lower $response)
+	if string match $response y
+		echo "agreed" > "$lock_file"
+	else
+		exit 1
+	end
 end
 
-# test ! -d "$HOME/.env" && $dfp/common/bin/lib/meta/setup/select-os-env.bash
-
+set -q XDG_CONFIG_HOME || set XDG_CONFIG_HOME $HOME/.config
 set h $HOME; set c $XDG_CONFIG_HOME
-echo yo
+if test -d $c/lytedev-env
+	echo "Warning: no environment-specific configuration detected!"
+end
+
+function l -a dot -a target -d "Symlink a dotfile configuration file or directory"
+	if test -L $target || test -f $target || test -d $target
+		rm -rf "$target"
+	end
+	# check if the directory that will contain the link exists
+	set -l d (dirname $target)
+	test -d $d || mkdir -p $d
+	ln -s (pwd)/$dot $target
+	echo Linked $dot to $target
+end
+
+pushd $dfp
 l common/tmux/conf $h/.tmux.conf
 l common/fish $c/fish
 l common/neovim $c/nvim
@@ -29,34 +49,11 @@ l common/kitty $c/kitty
 l common/mutt/rc $c/.muttrc
 l common/git/config $h/.gitconfig
 l common/elixir/iex.exs $h/.iex.exs
+popd
 
-# desktop environment files
-# "apps/de/sway/config"               "$XDG_CONFIG_HOME/sway/config"
-# "apps/de/sway/lock"                 "$XDG_CONFIG_HOME/swaylock/config"
-# "apps/de/mako/"                     "$XDG_CONFIG_HOME/mako"
-# "apps/de/sway/mimeapps.list"        "$XDG_CONFIG_HOME/mimeapps.list"
-# "apps/de/sway/mimeapps.list"        "$XDG_CONFIG_HOME/sway-mimeapps.list"
-# "apps/de/sway/mimeapps.list"        "$HOME/.local/share/applications/mimeapps.list"
-
-# gtk configuration files
-# "apps/de/gtk/2rc"                   "$HOME/.gtkrc-2.0"
-# "apps/de/gtk/2rc"                   "$HOME/.gtkrc"
-# "apps/de/gtk/3settings.ini"         "$XDG_CONFIG_HOME/gtk-3.0/settings.ini"
-
-# bar files
-# "apps/de/waybar/"                   "$XDG_CONFIG_HOME/waybar"
-
-# libinput configuration
-# "apps/de/libinput/gestures.conf"    "$XDG_CONFIG_HOME/libinput-gestures.conf"
-
-# document viewer
-# "apps/zathura/"                     "$XDG_CONFIG_HOME/zathura"
-
-# XDG user directories
-# "apps/shell/user-dirs"              "$XDG_CONFIG_HOME/user-dirs.dirs"
-
-# Kanshi configuration
-# "apps/de/kanshi"                    "$XDG_CONFIG_HOME/kanshi"
+for s in $c/lytedev-env/*/dotfiles-setup.d.fish
+	source $s $dfp $h $c
+end
 
 # execute the user's shell
 set ush (getent passwd $LOGNAME | cut -d: -f7)

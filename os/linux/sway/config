@@ -4,7 +4,6 @@
 # + Super+Control+{1-9} should control the size of the preselect space.
 # + Super+Shift+b should balance the size of all selected nodes.
 
-set $dfpbin $HOME/.config/lytedev-dotfiles/bin
 set $mod Mod4
 set $default_gap 0
 
@@ -46,17 +45,17 @@ input type:touchpad {
 bindsym $mod+control+space exec makoctl dismiss
 bindsym $mod+shift+space exec makoctl invoke
 bindsym $mod+return exec kitty --single-instance
-bindsym $mod+shift+return exec $dfpbin/floating-term
+bindsym $mod+shift+return exec floating-term
 bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?
-bindsym $mod+space exec $dfpbin/app-launcher
-bindsym $mod+shift+s exec $dfpbin/clipshot
+bindsym $mod+space exec app-launcher
+bindsym $mod+shift+s exec clipshot
 bindsym $mod+e exec thunar
 bindsym $mod+shift+r reload
 bindsym $mod+control+Escape exit
 bindsym $mod+shift+e exit
-bindsym $mod+shift+p exec $dfpbin/pass-chooser
+bindsym $mod+shift+p exec pass-chooser
 bindsym $mod+control+j split v
 bindsym $mod+control+l split h
 bindsym $mod+control+f focus mode_toggle
@@ -184,5 +183,4 @@ bar {
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
 
-include $HOME/.env/sway/main
-# include $HOME/.env/sway/config.d/*
+include $XDG_CONFIG_HOME/lytedev-env/*/sway/config

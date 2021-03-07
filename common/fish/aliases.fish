@@ -31,7 +31,7 @@ end
 
 alias cd.. "d .."
 alias cdd "d $DOTFILES_PATH"
-alias cde "d $ENV_PATH"
+alias cde "d $XDG_CONFIG_HOME/lytedev-env"
 alias cdc "d $XDG_CONFIG_HOME"
 alias cdn "d $NOTES_PATH"
 alias cdl "d $XDG_DOWNLOAD_DIR"

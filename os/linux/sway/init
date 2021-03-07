@@ -1,12 +1,17 @@
-#!/usr/bin/env sh
+#!/usr/bin/env fish
 
-[ -z "$XDG_CONFIG_HOME" ] && export XDG_CONFIG_HOME="$HOME/.config"
-[ -z "$DOTFILES_PATH" ] && export DOTFILES_PATH="$XDG_CONFIG_HOME/lytedev-dotfiles"
+set -q XDG_CONFIG_HOME || begin
+	echo XDG_CONFIG_HOME not set
+	exit 1
+end
 
-. "$DOTFILES_PATH/bin/prelude"
+set -q DOTFILES_PATH || begin
+	echo DOTFILES_PATH not set
+	exit 1
+end
 
-export CLUTTER_BACKEND=wayland
-export SDL_VIDEODRIVER=wayland
-export MOZ_ENABLE_WAYLAND=1
+set -Ux CLUTTER_BACKEND wayland
+set -Ux SDL_VIDEODRIVER wayland
+set -Ux MOZ_ENABLE_WAYLAND 1
 
 exec sway

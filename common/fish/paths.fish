@@ -20,10 +20,12 @@ test -d $HOME/.bin && set -U fish_user_paths $HOME/.local/bin $fish_user_paths
 has_command python && set -U fish_user_paths (python -m site --user-base)"/bin" $fish_user_paths
 has_command ruby && set -U fish_user_paths (ruby -e 'print Gem.user_dir')"/bin" $fish_user_paths
 
-if test (dirname (basename $HOME)) = $USER
-	set -Ux NICE_HOME $HOME
+if set -q NICE_HOME
 else
-	set -Ux NICE_HOME /home/$USER
+	set -Ux NICE_HOME $HOME
+	test (basename $HOME) = .home && set -Ux NICE_HOME (realpath $HOME/..)
+	test -f $HOME/.nice_home && set -Ux NICE_HOME (cat $HOME/.nice_home)
+	test -f $ENV_PATH/.nice_home && set -Ux NICE_HOME (cat $ENV_PATH/.nice_home)
 end
 
 for p in $NICE_HOME $HOME $ENV_PATH

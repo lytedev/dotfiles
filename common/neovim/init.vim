@@ -12,14 +12,14 @@ let g:completion_enable_auto_popup = 0
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:jsonnet_fmt_on_save = 0
-let g:fzf_preview_window = ['down:40%:hidden', 'ctrl-/']
+" let g:fzf_preview_window = ['down:40%:hidden', 'ctrl-/']
 
 call plug#begin($vimdir.'/plugged')
 	Plug 'junegunn/vim-plug'               " plugin manager should manage itself
 	Plug 'sheerun/vim-polyglot'            " handles language-specific configuration
 	Plug 'neovim/nvim-lspconfig'           " deeper language integration via language servers
 	Plug 'nvim-lua/completion-nvim'        " language server completion
-	Plug 'junegunn/fzf',                   { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf'                    " fzf
 	Plug 'junegunn/fzf.vim'                " helpers for using fzf in vim
 	Plug 'editorconfig/editorconfig-vim'   " loads project-specific editor settings
 	Plug 'tpope/vim-sleuth'                " try and detect indent method
