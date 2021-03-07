@@ -8,24 +8,32 @@ like.
 ![Battlestation][battlestation-photo]
 ![Desktop Screenshot][desktop-screenshot]
 
-# Setup
-
-```
-curl -s -L https://git.lyte.dev/lytedev/dotfiles/raw/branch/master/bin/init-dotfiles | sh
-```
-
 # Dependencies
 
++ `fish`
 + `bat`
 + `fd`
 + `sd`
 + `fzf`
-+ `fish`
 + `tmux`
 + `rsync`
 + `exa`
 + `nnn`
 + `nvim`
+
+# Setup
+
+```
+set dfp ~/.config/lytedev-dotfiles
+git clone https://git.lyte.dev/lytedev/dotfiles.git $dfp && cd $dfp
+./common/bin/dotfiles-setup
+# symlink host/os-specific directories
+ezln ./os/linux $ENV_PATH/linux
+```
+
+# Basic Usage
+
+
 
 # To Do
 
