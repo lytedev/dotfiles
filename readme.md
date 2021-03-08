@@ -29,6 +29,8 @@ git clone https://git.lyte.dev/lytedev/dotfiles.git $dfp && cd $dfp
 ./common/bin/dotfiles-setup
 # symlink host/os-specific directories
 ezln ./os/linux $ENV_PATH/linux
+# setup again once env has all the layers you want
+dotfiles-setup
 ```
 
 # Basic Usage
