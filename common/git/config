@@ -13,6 +13,7 @@
 
 [core]
 	editor = nvim
+	excludesfile = /home/daniel/.home/.gitignore
 
 [http "https://gopkg.in"]
 	followRedirects = true
