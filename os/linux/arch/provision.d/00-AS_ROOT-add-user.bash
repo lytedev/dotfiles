@@ -16,16 +16,4 @@ useradd --home-dir "$ud/.home" \
 	"$u"
 chown --recursive "$u:$u" "$ud"
 echo "Setting password for user '$u'"
-
-# enforce that a password is set
-# we need one for sudo commands in later scripts
-while true; do
-	passwd "$u"
-	ee=$!
-	echo $ee
-	if [ "$ee" -eq 0 ]; then
-		break
-	fi
-	sleep 2
-done
-echo $!
+passwd "$u"

@@ -134,10 +134,13 @@ cnoremap <c-p> <up>
 xnoremap < <gv
 xnoremap > >gv
 
+nnoremap gd :call CocAction('jumpDefinition')<CR>
+
 " TODO: learn about the wildmenu `q:`
 
 let mapleader = "\<Space>"
 nnoremap <silent> <leader>r :source $vimdir/init.vim<CR>:echo 'Reloaded init.vim'<CR>
+nnoremap <silent> <leader>gv :e $vimdir/init.vim<CR>
 nnoremap <silent> <leader>w :bd<CR>
 nnoremap <silent> <leader>h :b#<CR>
 nnoremap <silent> <leader>k :bnext<CR>

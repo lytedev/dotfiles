@@ -20,7 +20,6 @@ function fish_user_key_bindings
 	bind -M insert \ce end-of-line
 	bind -M insert \ca beginning-of-line
 	bind -M insert \cw forward-word
-	bind -M insert \ct tmuxswitcher
 
 	bind -M insert \cv edit_command_buffer
 	bind -M default \cv edit_command_buffer
@@ -29,4 +28,10 @@ function fish_user_key_bindings
   bind -M insert \ev false
 	bind -M default \ee false
   bind -M default \ev false
+
+	bind --erase \ct
+	bind --erase \c\t
+	bind --erase btab
+
+	bind \ct 'tmux new-session'
 end

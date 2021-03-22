@@ -29,7 +29,12 @@ set -g status-bg colour0
 set -g status-fg colour8
 set -g status-interval 5
 set -g status-left-length 50
-set -g status-left "#h:#S.#W"
+set -g window-status-style "fg=colour8 bg=colour0"
+set -g window-status-current-style "fg=colour8 bg=colour0"
+set -g window-status-format " #I"
+set -g window-status-separator ""
+set -g window-status-current-format " #I"
+set -g status-left "#h:#S #I"
 set -g status-right-length 280
 set -g status-right "#(kubeline && printf ' ')#{pane_current_path} #(cd '#{pane_current_path}' && git rev-parse --abbrev-ref --sq HEAD | tr -d \"'\")#{pane_current_command}"
 set -g message-style "fg=colour7 bg=colour18"

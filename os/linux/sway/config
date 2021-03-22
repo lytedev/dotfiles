@@ -7,14 +7,6 @@
 set $mod Mod4
 set $default_gap 0
 
-exec initctl set-env --global SWAYSOCK="$SWAYSOCK"
-exec initctl set-env --global I3SOCK="$I3SOCK"
-exec initctl set-env --global WAYLAND_DISPLAY="$WAYLAND_DISPLAY"
-exec initctl set-env --global CLUTTER_BACKEND=wayland
-exec initctl set-env --global SDL_VIDEODRIVER=wayland
-exec initctl set-env --global MOZ_ENABLE_WAYLAND=1
-exec initctl emit sway-session
-
 focus_wrapping no
 gaps inner $default_gap
 smart_borders on|no_gaps
@@ -53,7 +45,7 @@ bindsym $mod+shift+return exec floating-term
 bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?
-bindsym $mod+space exec app-launcher
+bindsym $mod+space exec wofi --show drun
 bindsym $mod+shift+s exec clipshot
 bindsym $mod+e exec thunar
 bindsym $mod+shift+r reload

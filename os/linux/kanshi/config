@@ -4,10 +4,15 @@ profile desktop-1x4kside  {
   exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-H-workspaces.sh"
 }
 
+profile desktop-1x4kside2  {
+  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 1440,800 scale 1 transform normal
+  output "Dell Inc. DELL U2720Q D3TM623" enable mode 3840x2160@60Hz position 0,0 scale 1.5 transform 270
+  exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-H-workspaces.sh"
+}
+
 profile desktop-H-4k  {
   output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 1440,800 scale 1 transform normal
   output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 4880,0 scale 1.5 transform 90
-  output "Dell Inc. DELL U2720Q D3TM623" enable mode 3840x2160@60Hz position 0,0 scale 1.5 transform 270
   exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-H-workspaces.sh"
 }
 

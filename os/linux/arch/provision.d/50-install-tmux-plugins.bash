@@ -12,6 +12,3 @@ bash "$XDG_CONFIG_HOME/tmux/plugins/tpm/bindings/install_plugins"
 bash "$XDG_CONFIG_HOME/tmux/plugins/tpm/bindings/update_plugins"
 
 tmux source-file "$HOME/.tmux.conf"
-
-systemctl --user enable tmux.service
-systemctl --user restart tmux.service

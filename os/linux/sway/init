@@ -13,5 +13,10 @@ end
 set -Ux CLUTTER_BACKEND wayland
 set -Ux SDL_VIDEODRIVER wayland
 set -Ux MOZ_ENABLE_WAYLAND 1
+set -Ux XDG_CURRENT_DESKTOP sway
+
+for s in $ENV_PATH/*/sway-init.d.fish
+	source $s (dirname $s)
+end
 
 exec sway
