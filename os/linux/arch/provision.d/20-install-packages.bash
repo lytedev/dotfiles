@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if egrep -q '^\[multilib\]$' /etc/pacman.conf; then
+if grep -E -q '^\[multilib\]$' /etc/pacman.conf; then
 	echo "Multilib Repository Already Enabled!"
 else
 	echo "Enabling Multilib Repository (with sudo)..."

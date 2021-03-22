@@ -10,4 +10,4 @@ docker pull archlinux -q || begin
 	exit 1
 end
 
-docker run -it --rm -v $DOTFILES_PATH:/dotfiles:ro archlinux sh -c "/dotfiles/os/linux/arch/provision.sh"
+docker run -it --rm -v $DOTFILES_PATH:/dotfiles:ro archlinux sh -c "/dotfiles/os/linux/arch/provision.sh && fish"
