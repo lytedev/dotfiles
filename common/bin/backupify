@@ -14,6 +14,8 @@ if not test -d $argv[1]
 end
 set fn (date +%Y%m%d_%H%M%S)(basename $argv[1])
 pushd (dirname $argv[1])
+# TODO: progress bar/status?
+echo "Streaming PGP encrypted backup of $argv[1] to host rift via ssh at $dir/$fn$ext..."
 tar cvf - (basename $argv[1]) 2>/dev/null |
 	zstd --ultra -T2 -22 |
 	gpg --encrypt --recipient daniel@lyte.dev |
@@ -21,3 +23,4 @@ tar cvf - (basename $argv[1]) 2>/dev/null |
 popd
 # TODO: checksum?
 echo "Uploaded to host rift via ssh at $dir/$fn$ext"
+echo '  Run `unbackupify '$fn$ext'` to restore!'
