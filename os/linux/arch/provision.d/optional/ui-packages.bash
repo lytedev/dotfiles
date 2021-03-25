@@ -49,11 +49,11 @@ yay -Sy \
 	pulseaudio pavucontrol pulsemixer `# Audio Backend and Controls` \
 	playerctl `# Media Keys Controls` \
 	feh `# Image Viewer & Wallpaper Manager` \
-	wlroots-git sway-git `# Wayland Compositor` \
-	swaylock-git swayidle-git `# Auto-Locking for Sway` \
-	kanshi-git `# Monitor Management for Sway` \
-	wofi-git `# Sway app launcher` \
-	waybar-git mako-git `# Sway Bar & Notifications` \
+	wlroots sway `# Wayland Compositor` \
+	swaylock swayidle `# Auto-Locking for Sway` \
+	kanshi `# Monitor Management for Sway` \
+	wofi `# Sway app launcher` \
+	waybar mako `# Sway Bar & Notifications` \
 	slurp grim wl-clipboard `# Sway Screen Selection & Clipping` \
 	pipewire pipewire-pulse libpipewire02 `# Pipewire` \
 	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \

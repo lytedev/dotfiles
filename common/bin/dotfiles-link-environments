@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+set dfp (realpath (dirname (status -f))/../..)
+function files
+	cat $argv[1] | while read -l l
+		test -d $l && echo $l
+	end
+end
+files $dfp/common/envs | \
+	fzf -m --prompt "Select applicable environments (multi-select w/ TAB): " | \
+	string trim | \
+	read -a -d \n -z lines
+for l in $lines
+	test $l = "" && continue
+	set ll (string replace -a / - $l)
+	echo "Linking $ENV_PATH/$ll to $dfp/$l"
+	ln -s $dfp/$l $ENV_PATH/$ll &>/dev/null
+end
