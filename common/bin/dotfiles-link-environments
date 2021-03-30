@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env fish
 
 set dfp (realpath (dirname (status -f))/../..)
 function files
