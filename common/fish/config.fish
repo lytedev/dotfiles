@@ -32,10 +32,6 @@ set -Ux VISUAL nvim
 set -Ux PAGER less
 set -Ux MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_on_startup=0" +Man!'
 
-# has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
-
-test -f ~/.fzf/shell/key-bindings.fish && source ~/.fzf/shell/key-bindings.fish
-
 function fish_greeting;
 	set_color -b black brblack
 	printf "%s@%s %s\n" $USER (hostname) (date)

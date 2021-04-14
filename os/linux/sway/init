@@ -10,6 +10,8 @@ set -q DOTFILES_PATH || begin
 	exit 1
 end
 
+# set -Ux QT_QPA_PLATFORM xcb
+# set -Ux QT_QPA_PLATFORM_PLUGIN_PATH /usr/lib/qt/plugins
 set -Ux CLUTTER_BACKEND wayland
 set -Ux SDL_VIDEODRIVER wayland
 set -Ux MOZ_ENABLE_WAYLAND 1
@@ -19,4 +21,9 @@ for s in $ENV_PATH/*/sway-init.d.fish
 	source $s (dirname $s)
 end
 
-exec sway
+set initstr "\n(date): Initializsing Sway WM"
+set elogfile ~/.sway.error.log
+set logfile ~/.sway.log
+
+echo $initstr >> $logfile; echo $initstr >> $elogfile
+exec sway >> $logfile 2>> $elogfile

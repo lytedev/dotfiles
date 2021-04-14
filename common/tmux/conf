@@ -5,13 +5,17 @@ bind-key s send-prefix
 bind-key v split-window -h
 bind-key b split-window
 bind-key T source-file "$HOME/.tmux.conf" \; display-message "Reloaded $HOME/.tmux.conf"
-bind-key O display-message "#(~/.config/lytedev-dotfiles/bin/tmux-save-buffer #S)"
+bind-key O display-message "#(tmux-save-buffer '#S')"
 bind-key H set -s status
 bind-key -n C-l select-pane -R
 bind-key -n C-k select-pane -U
 bind-key -n C-j select-pane -D
 bind-key -n C-h select-pane -L
-bind s run "tmux split-window -l 12 'sh -c ~/.config/lytedev-dotfiles/bin/tmuxswitcher'"
+bind-key -n C-t new-window
+bind-key Tab next-window
+bind-key -n C-Tab next-window
+bind-key -n C-S-Tab previous-window
+bind s run "tmux split-window -l 12 'tmuxswitcher'"
 
 bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
 

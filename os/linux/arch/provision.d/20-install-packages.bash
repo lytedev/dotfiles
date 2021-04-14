@@ -26,6 +26,7 @@ yay -Sy --needed --noconfirm \
 	openssl `# Crypto` \
 	asdf-vm `# Runtime Version Manager` \
 	pass passff-host `# Password Management` \
+	hexyl `# CLI Hex Viewer` \
 	rsync `# File Transfer` \
 	neovim-nightly-bin `# Text Editors` \
 	sc-im `# Spreadsheets` \
@@ -43,4 +44,8 @@ yay -Sy --needed --noconfirm \
 	fortune-mod fortune-mod-archlinux `# Fortune` \
 	oath-toolkit `# One-Time Passwords` \
 	sysstat `# System Statistics` \
+	reflector-simple `# Simplify Mirror Management` \
+	inetutils `# netutils` \
+	nnn `# CLI File Manager` \
+	ntfs-3g `# Windows filesystem stuff` \
 	man-db man-pages `# Come On, Man!`

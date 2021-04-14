@@ -17,11 +17,11 @@ if ! [[ -f $LOCKFILE ]]; then
 	# setup_output 'Dell Inc. DELL U2719DC 5DL4QS2'            4 5 6
 	# setup_output 'Samsung Electric Company CF791 HTRJ500315' 1 2 3
 
-	setup_output 'Dell Inc. DELL U2719DC 9DL4QS2'            9 8
-	setup_output 'Dell Inc. DELL U2719DC 5DL4QS2'            6 5
+	setup_output 'Dell Inc. DELL U2720Q CWTM623'             9 8
+	setup_output 'Dell Inc. DELL U2720Q D3TM623'             6 5
 	setup_output 'Samsung Electric Company CF791 HTRJ500315' 3 2
-	setup_output 'Dell Inc. DELL U2719DC 9DL4QS2'            7
-	setup_output 'Dell Inc. DELL U2719DC 5DL4QS2'            4
+	setup_output 'Dell Inc. DELL U2720Q CWTM623'             7
+	setup_output 'Dell Inc. DELL U2720Q D3TM623'             4
 	setup_output 'Samsung Electric Company CF791 HTRJ500315' 1
 
 	# setup_output 'Dell Inc. DELL U2719DC 9DL4QS2'            8 9 7

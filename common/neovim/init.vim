@@ -94,7 +94,13 @@ call matchadd('TooLongColorColumn', '\%121v', 200)
 command! W write
 
 inoremap jj <Esc>
+inoremap jJ <Esc>
+inoremap Jj <Esc>
+inoremap JJ <Esc>
 inoremap jk <Esc>
+inoremap jK <Esc>
+inoremap Jk <Esc>
+inoremap JK <Esc>
 
 nnoremap <C-q> :qa<CR>
 inoremap <C-q> <Esc><C-q>

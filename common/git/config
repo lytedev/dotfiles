@@ -36,7 +36,9 @@
 	d = diff
 	ds = diff --staged
 	dt = difftool
-	l = log --pretty=format:'%h %ad%x09%an%x09%s' --date=short
+	f = fetch
+	l = log --pretty=format:'%h %ad%x09%an%x09%s' --date=short --decorate
+	graph = log --graph --abbrev-commit --decorate --oneline --all
 	ls = ls-files
 	mm = merge master
 	p = push
@@ -84,3 +86,5 @@
   path = /home/daniel/.home/.netlify/helper/git-config
 [init]
 	defaultBranch = master
+[branch]
+	autoSetupMerge = always

@@ -7,6 +7,7 @@
 set $mod Mod4
 set $default_gap 0
 
+xwayland enable
 focus_wrapping no
 gaps inner $default_gap
 smart_borders on|no_gaps
@@ -160,8 +161,6 @@ for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
 # for_window [class=".*"] layout splitv
 
-output * bg $HOME/.wallpaper fill
-
 client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
@@ -178,5 +177,7 @@ bar {
 # TODO: exec_always?
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+
+output * bg $HOME/.wallpaper fill
 
 include $XDG_CONFIG_HOME/lytedev-env/*/sway/config

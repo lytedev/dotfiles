@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env fish
 
 set dfp (realpath (dirname (status -f))/../..)
 function files
@@ -7,7 +7,9 @@ function files
 	end
 end
 files $dfp/common/envs | \
-	fzf -m --prompt "Select applicable environments (multi-select w/ TAB): " | \
+	fzf --multi --prompt "Select applicable environments (multi-select w/ TAB): " \
+		--preview-window="up:50%:noborder" \
+		--preview="ls -la --color=always {}" | \
 	string trim | \
 	read -a -d \n -z lines
 for l in $lines
