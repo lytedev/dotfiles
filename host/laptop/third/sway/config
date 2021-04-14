@@ -1,10 +1,11 @@
-exec libinput-gestures -c $HOME/.config/lytedev-dotfiles/apps/de/libinput/sway-gestures.conf
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
+exec libinput-gestures -c $DOTFILES_PATH/os/linux/libinput/sway-gestures.conf
+
 bindswitch lid:toggle exec swaylock
+
 input type:keyboard {
 	xkb_options ctrl:nocaps
 }
+
 input type:touchscreen {
 	events disabled
 }
