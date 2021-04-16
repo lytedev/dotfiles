@@ -43,7 +43,7 @@ yay -Sy \
 	gammastep `# Redshift for Wayland` \
 	dmenu `# Application Launcher` \
 	python python-pip `# Python 3 Language` \
-	firefox-developer-edition `# Default Web Browser` \
+	firefox-nightly `# Default Web Browser` \
 	alsa-utils `# Audio Utilities` \
 	alsa-plugins `# Plugins for ALSA` \
 	pulseaudio pavucontrol pulsemixer `# Audio Backend and Controls` \

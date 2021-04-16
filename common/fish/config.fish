@@ -22,7 +22,7 @@ has_command nnn && source $DOTFILES_PATH/common/nnn/config.fish
 
 set -Ux _JAVA_AWT_WM_NONREPARENTING 1
 set -Ux TERMINAL kitty
-set -Ux BROWSER firefox-developer-edition
+set -Ux BROWSER firefox-nightly
 set -Ux ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000" # iex history
 set -Ux LESS "-r"
 set -Ux LS_COLORS 'ow=01;36;40' # more sane ls colors
