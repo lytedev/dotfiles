@@ -11,7 +11,7 @@ fi
 
 # TODO: switch to Nautilus?
 
-yay -Sy \
+yay -Sy --needed \
 	xf86-input-libinput \
 	libinput libinput-gestures `# Trackpad Control` \
 	bluez bluez-libs bluez-utils bluez-tools `# Bluetooth` \
@@ -46,7 +46,7 @@ yay -Sy \
 	firefox-nightly `# Default Web Browser` \
 	alsa-utils `# Audio Utilities` \
 	alsa-plugins `# Plugins for ALSA` \
-	pulseaudio pavucontrol pulsemixer `# Audio Backend and Controls` \
+	pavucontrol pulsemixer `# Audio Backend and Controls` \
 	playerctl `# Media Keys Controls` \
 	feh `# Image Viewer & Wallpaper Manager` \
 	wlroots sway `# Wayland Compositor` \
@@ -57,7 +57,7 @@ yay -Sy \
 	slurp grim wl-clipboard `# Sway Screen Selection & Clipping` \
 	pipewire pipewire-pulse pipewire-media-session `# Pipewire` \
 	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \
-	obs-studio-wayland obs-xdg-portal `# OBS` \
+	obs-studio `# OBS` \
 	ttf-iosevka `# Primary Fonts` \
 	ttf-font-awesome `# Icon Font` \
 	ripcord `# Discord and Slack Client`

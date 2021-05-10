@@ -12,6 +12,7 @@ files $dfp/common/envs | \
 		--preview="ls -la --color=always {}" | \
 	string trim | \
 	read -a -d \n -z lines
+mkdir -p $ENV_PATH
 for l in $lines
 	test $l = "" && continue
 	set ll (string replace -a / - $l)
