@@ -1,19 +1,16 @@
-profile desktop-1x4kside  {
-  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 0,1200 scale 1 transform normal
-  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 3440,0 scale 1.5 transform 90
-}
-
-profile desktop-1x4kside2  {
-  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 1440,800 scale 1 transform normal
-  output "Dell Inc. DELL U2720Q D3TM623" enable mode 3840x2160@60Hz position 0,0 scale 1.5 transform 270
-}
-
 profile desktop-H-2x4kside2  {
-  output "Dell Inc. DELL U2720Q D3TM623" enable mode 3840x2160@60Hz position 0,0 scale 1.5 transform 270
-  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 1440,800 scale 1 transform normal
-  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 4880,0 scale 1.5 transform 90
+  output "Dell Inc. DELL U2720Q D3TM623" enable mode 3840x2160@60Hz position 0,0 scale 1 transform 270
+  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 2160,1200 scale 1 transform normal
+  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 5600,0 scale 1 transform 90
   exec "$DOTFILES_PATH/os/linux/kanshi/desktop-H-workspaces.sh"
 }
+
+# profile desktop-H-2x4kside2  {
+#   output "Dell Inc. DELL U2720Q D3TM623" enable mode 3840x2160@60Hz position 0,0 scale 1.5 transform 270
+#   output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 1440,800 scale 1 transform normal
+#   output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 4880,0 scale 1.5 transform 90
+#   exec "$DOTFILES_PATH/os/linux/kanshi/desktop-H-workspaces.sh"
+# }
 
 profile tv4k  {
   output "Samsung Electric Company CF791 HTRJ500315" disable
@@ -25,12 +22,6 @@ profile desktop-ultrawide  {
   exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-single-workspace.sh"
 }
 
-profile laptop-solo {
+profile laptop {
   output "Sharp Corporation 0x144A 0x00000000" enable mode 3200x1800@60Hz position 0,0 scale 2 transform normal
-}
-
-profile laptop-single-ext-mon {
-	output "Dell Inc. DELL U2719DC 9CL4QS2" enable mode 2560x1440@60Hz position 0,0 scale 1 transform normal
-  output "Sharp Corporation 0x144A 0x00000000" enable mode 3200x1800@60Hz position 0,1440 scale 2 transform normal
-  exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/laptop-workspaces.sh"
 }
