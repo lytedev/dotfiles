@@ -1,6 +1,3 @@
-[push]
-	default = current
-
 [user]
 	name = Daniel Flanagan
 	email = daniel@lyte.dev

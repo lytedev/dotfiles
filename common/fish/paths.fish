@@ -2,7 +2,7 @@
 
 set -Ux GOPATH $HOME/.go
 
-set -U fish_user_paths \
+set -g fish_user_paths \
 	$HOME/.go \
 	$GOPATH/bin \
 	$DOTFILES_PATH/common/bin \
@@ -13,14 +13,14 @@ set -U fish_user_paths \
 	$HOME/.netlify/helper/bin
 
 for d in $ENV_PATH/*/bin
-	test -d $d && set -Ua fish_user_paths $d
+	test -d $d && set -ga fish_user_paths $d
 end
 
-test -d $HOME/.local/bin && set -Ua fish_user_paths $HOME/.local/bin
-test -d $HOME/.bin && set -Ua fish_user_paths $HOME/.local/bin
+test -d $HOME/.local/bin && set -ga fish_user_paths $HOME/.local/bin
+test -d $HOME/.bin && set -ga fish_user_paths $HOME/.local/bin
 
-has_command python && set -Ua fish_user_paths (python -m site --user-base)/bin
-has_command ruby && set -Ua fish_user_paths (ruby -e 'print Gem.user_dir')/bin
+has_command python && set -ga fish_user_paths (python -m site --user-base)/bin
+has_command ruby && set -ga fish_user_paths (ruby -e 'print Gem.user_dir')/bin
 
 if set -q NICE_HOME
 else
