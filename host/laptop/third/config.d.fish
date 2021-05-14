@@ -1,2 +1,2 @@
 set e $argv[1]
-set -ga fish_user_paths $e/bin
+set -gxa fish_user_paths $e/bin

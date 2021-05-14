@@ -13,14 +13,14 @@ set paths_candidates \
 	$HOME/.netlify/helper/bin
 
 for d in $paths_candidates $ENV_PATH/*/bin
-	test -d $d && set -ga fish_user_paths $d
+	test -d $d && set -gxa fish_user_paths $d
 end
 
-test -d $HOME/.local/bin && set -ga fish_user_paths $HOME/.local/bin
-test -d $HOME/.bin && set -ga fish_user_paths $HOME/.local/bin
+test -d $HOME/.local/bin && set -gxa fish_user_paths $HOME/.local/bin
+test -d $HOME/.bin && set -gxa fish_user_paths $HOME/.local/bin
 
-has_command python && set -ga fish_user_paths (python -m site --user-base)/bin
-has_command ruby && set -ga fish_user_paths (ruby -e 'print Gem.user_dir')/bin
+has_command python && set -gxa fish_user_paths (python -m site --user-base)/bin
+has_command ruby && set -gxa fish_user_paths (ruby -e 'print Gem.user_dir')/bin
 
 if set -q NICE_HOME
 else
