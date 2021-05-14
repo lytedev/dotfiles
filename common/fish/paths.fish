@@ -2,7 +2,7 @@
 
 set -Ux GOPATH $HOME/.go
 
-set -g fish_user_paths \
+set paths_candidates \
 	$HOME/.go \
 	$GOPATH/bin \
 	$DOTFILES_PATH/common/bin \
@@ -12,7 +12,7 @@ set -g fish_user_paths \
 	$HOME/.yarn/bin \
 	$HOME/.netlify/helper/bin
 
-for d in $ENV_PATH/*/bin
+for d in $paths_candidates $ENV_PATH/*/bin
 	test -d $d && set -ga fish_user_paths $d
 end
 

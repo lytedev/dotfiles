@@ -40,16 +40,19 @@ function fish_greeting;
 	test -f /proc/sys/kernel/pty/nr && printf "%6d   PTYs open\n" (cat /proc/sys/kernel/pty/nr)
 end
 
+if has_command brew && test -f (brew --prefix asdf)/lib/asdf.fish
+	set -Ux ASDF_DIR (brew --prefix asdf)
+	source (brew --prefix asdf)/lib/asdf.fish
+else if test -f $HOME/.asdf/asdf.fish
+	source $HOME/.asdf/asdf.fish
+else if test -f /opt/asdf-vm/asdf.fish
+	source /opt/asdf-vm/asdf.fish
+end
+
 # assume the user uses "$HOME" to just store their mess of dotfiles and other
 # nonsense that clutters it up and that they have a preferred starting
 # directory where they keep the stuff they actually care about
 # we only do this if the user is opening a shell at $HOME
 if test $PWD = $HOME; or test $PWD = $NICE_HOME;
 	cd $NICE_HOME || cd
-end
-
-if test -f $HOME/.asdf/asdf.fish
-	source $HOME/.asdf/asdf.fish
-else if test -f /opt/asdf-vm/asdf.fish
-	source /opt/asdf-vm/asdf.fish
 end
