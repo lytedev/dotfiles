@@ -12,6 +12,7 @@ set paths_candidates \
 	$HOME/.yarn/bin \
 	$HOME/.netlify/helper/bin
 
+set -ge fish_user_paths
 for d in $paths_candidates $ENV_PATH/*/bin
 	test -d $d && set -gxa fish_user_paths $d
 end
