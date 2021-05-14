@@ -13,7 +13,7 @@ end
 
 status --is-interactive || exit
 
-$DOTFILES_PATH/common/colors/vconsole
+test (uname) = Linux && $DOTFILES_PATH/common/colors/vconsole
 for f in key-bindings colors prompt aliases
 	source $FISH_PATH/$f.fish
 end
