@@ -5,6 +5,7 @@ set -x
 umask 077
 d="$(date +"%Y-%m-%d_%H-%M-%S")"
 fn="$SCROTS_PATH/clipshot_$d.png"
+mkdir -p "$SCROTS_PATH"
 
 if is_wayland; then
 	dim="$(slurp -d)"
