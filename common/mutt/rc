@@ -45,3 +45,5 @@ set editor = "nvim"
 set charset = "utf-8"
 set header_cache = "~/.cache/mutt/headers"
 set message_cachedir = "~/.cache/mutt/bodies"
+
+set new_mail_command="notify-send 'New Email' '%n new messages, %u unread.' &"

@@ -39,6 +39,7 @@ pushd $dfp
 l common/tmux/conf $h/.tmux.conf
 l common/fish $c/fish
 l common/neovim $c/nvim
+l common/wezterm $c/wezterm
 l common/colors/vim $c/nvim/colors/base16-donokai.vim
 l common/weechat $h/.weechat
 l common/scim/rc $h/.scimrc
