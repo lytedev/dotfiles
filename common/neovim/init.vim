@@ -8,6 +8,7 @@ if empty(glob($vimdir.'/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $vimdir.'init.vim'
 endif
 
+" let g:coc_global_extensions = ['coc-elixir', 'coc-diagnostic']
 let g:completion_enable_auto_popup = 0
 let g:indent_guide_auto_colors = 1
 let g:indent_guides_enable_on_vim_startup = 1
@@ -246,3 +247,11 @@ augroup END
 set statusline=%!StatusLine()
 
 imap <silent> <c-n> <Plug>(completion_trigger)
+
+if filereadable(expand($ENV_PATH.'/init.vim'))
+	source "$ENV_PATH/init.vim"
+endif
+
+for f in glob($ENV_PATH.'/*/init.d.vim', 0, 1)
+	source "$f"
+endfor

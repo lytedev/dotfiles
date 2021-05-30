@@ -3,3 +3,4 @@
 !/init.vim
 !/nvim_lsp.lua
 !/ftplugin
+!/coc-settings.json
