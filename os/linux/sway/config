@@ -157,9 +157,6 @@ mode "resize" {
 	bindsym escape mode "default"
 }
 
-for_window [title="."] title_format "<span background="#111111">%title</span>"
-for_window [app_id="__focused__"] title_format "<span background="#111111">%title</span>"
-
 for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
 # for_window [class=".*"] layout splitv
