@@ -1,6 +1,7 @@
 /*
 !/.gitignore
 !/init.vim
+!/init.lua
 !/nvim_lsp.lua
 !/ftplugin
 !/coc-settings.json
