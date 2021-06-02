@@ -14,16 +14,16 @@ set -gx CDPATH $CDPATH . $NICE_HOME
 
 function d -w cd --description "Quickly jump to NICE_HOME (or given relative or absolute path) and list files."
 	if scount $argv
-		cd $argv || exit 1
+		cd $argv
 	else
-		cd $NICE_HOME || exit 1
+		cd $NICE_HOME
 	end
 	la
 end
 
 function c -w cd --description "Quickly jump to a subdirectory of NICE_HOME (or just to NICE_HOME if none given)"
 	if scount $argv
-		cd $NICE_HOME && d $argv || exit 1
+		cd $NICE_HOME && d $argv
 	else
 		d $NICE_HOME
 	end
@@ -86,6 +86,7 @@ alias vi "$EDITOR"
 alias v "$EDITOR"
 alias e "$EDITOR"
 alias se "sudo -E $EDITOR"
+alias sv "sudo -E $EDITOR"
 alias svim "se"
 
 alias vltl "$EDITOR (ltl)"
