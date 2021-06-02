@@ -9,7 +9,7 @@ local vimdir = vim.fn.getenv("XDG_CONFIG_HOME")..'/nvim'
 local packer_install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(packer_install_path)) > 0 then
-  execute("!git clone https://github.com/wbthomason/packer.nvim "..install_path)
+  execute("!git clone https://github.com/wbthomason/packer.nvim "..packer_install_path)
 end
 
 vim.api.nvim_exec([[
@@ -205,97 +205,94 @@ kmap('n', '<silent> <leader>h', ':b#<CR>')
 kmap('n', '<silent> <leader>k', ':bnext<CR>')
 kmap('n', '<silent> <leader>j', ':bprevious<CR>')
 kmap('n', '<leader>/', ':let @/ = ""<CR>:<BACKSPACE>')
+kmapnore('n', '<leader>t', ':split<CR>:term<CR>:resize 24<CR>:startinsert<CR>')
+kmapnore('t', '<C-w>', '<C-\\><C-n>:q!<CR>')
 
-nnoremap <leader>t :split<CR>:term<CR>:resize 24<CR>:startinsert<CR>
-tnoremap <C-w> <C-\><C-n>:q!<CR>
+function neatFoldText()
+	-- TODO: finish this!
+	-- local lines_count = vim.foldend - vim.foldstart + 1
+	-- local foldchar = vim.fn.matchstr(vim.fillchars, 'fold:\\zs.')
+	-- local foldtextstart = vim.fn.strpart('^' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+	-- let foldtextend = printf("%s %".(winwidth(0)-20)."dL", foldtextstart, getline(v:foldstart), lines_count)
+	-- let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+	-- return printf("%s%d", substitute(getline(v:foldstart), "^.", ">"), lines_count)
+end
+-- set foldtext=NeatFoldText()
 
-function! NeatFoldText()
-	" TODO: finish this!
-	let lines_count = v:foldend - v:foldstart + 1
-	let foldchar = matchstr(&fillchars, 'fold:\zs.')
-	let foldtextstart = strpart('^' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-	let foldtextend = printf("%s %".(winwidth(0)-20)."dL", foldtextstart, getline(v:foldstart), lines_count)
-	let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-	return printf("%s%d", substitute(getline(v:foldstart), "^.", ">"), lines_count)
-endfunction
-set foldtext=NeatFoldText()
+-- TODO: only update this portion when needed instead of every render?
+function statusLineBufferByNum(bufnum)
+	local bufinfo = vim.fn.getbufinfo(bufnum)[0]
+	local prefix = ' %#InactiveBuffer#'
+	local suffix = '%* '
 
-" TODO: only update this portion when needed instead of every render?
-function! StatusLineBufferByNum(bufnum)
-	let l:bufinfo = getbufinfo(a:bufnum)[0]
-	let l:prefix = ' %#InactiveBuffer#'
-	let l:suffix = '%* '
-
-	if l:bufinfo.changed
-		let l:prefix = '%#DirtyBuffer# '
-		let l:suffix = ' %*'
+	if bufinfo.changed then
+		prefix = '%#DirtyBuffer# '
+		suffix = ' %*'
 	end
 
-	if l:bufinfo['hidden'] == 0 && index(l:bufinfo['windows'], g:statusline_winid) >= 0
-		let l:prefix = '%#ActiveBuffer# '
-		let l:suffix = ' %*'
-		if l:bufinfo.changed
-			let l:prefix = '%#ActiveBuffer# *'
-			let l:suffix = ' %*'
+	if bufinfo.hidden == 0 and vim.fn.index(bufinfo.windows, vim.g.statusline_winid) >= 0 then
+		prefix = '%#ActiveBuffer# '
+		suffix = ' %*'
+		if bufinfo.changed then
+			prefix = '%#ActiveBuffer# *'
+			suffix = ' %*'
 		end
-	endif
+  end
 
-	return l:prefix . fnamemodify(bufname(a:bufnum), ':t') . l:suffix
-endfunction
+	return prefix..vim.fn.fnamemodify(vim.fn.bufname(bufnum), ':t')..suffix
+end
 
-au BufReadPost * | if stridx(&ft, 'commit') >= 0 | exe "startinsert!" | endif
+execute[[au BufReadPost * | if stridx(&ft, 'commit') >= 0 | exe "startinsert!" | endif]]
 
-let g:status_line_max_length = 5
-function! StatusLineBuffers()
-	" TODO: mark buffers with unsaved changes
-	let l:active_index = -1
-	let l:acc = []
-	for l:bufnum in nvim_list_bufs()
-		let l:bufinfo = getbufinfo(l:bufnum)[0]
-		if l:bufinfo.listed == 0
-			continue
+local status_line_max_length = 5
+
+function statusLineBuffers()
+	-- TODO: mark buffers with unsaved changes
+
+	local active_index = -1
+	local acc = {}
+	for bufnum in vim.fn.nvim_list_bufs() do
+		local bufinfo = vim.fn.getbufinfo(bufnum)[0]
+		if bufinfo.listed ~= 0 then
+      local entry = statusLineBufferByNum(bufnum)
+      table.insert(acc, entry)
+      if vim.fn.matchstr(entry, '^%#ActiveBuffer#') then
+        active_index = vim.fn.index(acc, entry)
+      end
 		end
-		let l:entry = StatusLineBufferByNum(bufnum)
-		let l:acc = add(l:acc, l:entry)
-		if l:entry =~ "^%#ActiveBuffer#"
-			let l:active_index = index(l:acc, l:entry)
-		endif
-	endfor
-	if l:active_index >= 0
-		" TODO: instead implement this as a wraparound carousel?
-		let l:offset = g:status_line_max_length / 2
-		let l:min_buf_num = max([0, (l:active_index - offset)])
-		let l:max_buf_num = min([(len(l:acc) - 1), (l:min_buf_num + g:status_line_max_length - 1)])
-		let l:min_buf_num = max([0, (l:max_buf_num - g:status_line_max_length + 1)])
-		let l:buflist = join(l:acc[(l:min_buf_num):(l:max_buf_num)], '')
-		let l:prefix = ""
-		let l:suffix = ""
-		if l:min_buf_num > 0
-			let l:prefix = "< "
-		endif
-		if l:max_buf_num < len(l:acc) - 1
-			let l:suffix = " >"
-		endif
-		return l:prefix . l:buflist . l:suffix
+	end
+	if active_index >= 0 then
+		-- TODO: instead implement this as a wraparound carousel?
+		local offset = status_line_max_length / 2
+		local min_buf_num = math.max(0, (active_index - offset))
+		local max_buf_num = math.min(#acc - 1, min_buf_num + status_line_max_length - 1)
+		min_buf_num = math.max(0, max_buf_num - status_line_max_length + 1)
+    local buflist = table.concat({table.unpack(acc, min_buf_num, max_buf_num)}, '')
+		local prefix = ''
+		local suffix = ''
+		if min_buf_num > 0 then
+			prefix = '< '
+		end
+		if max_buf_num < (#acc - 1) then
+			suffix = ' >'
+		end
+		return prefix..buflist..suffix
 	else
-		return join(l:acc, '')
-	endif
-endfunction
+		return table.concat(acc, '')
+	end
+end
 
-function! StatusLine()
-	" try
-		return StatusLineBuffers().'%*%=%c,%l/%L (%p%%)'
-	" catch
-		" return 'buflisterr%*%=%c,%l/%L (%p%%)'
-	" endtry
-endfunction
+function statusLine()
+  return statusLineBuffers()..'%*%=%c,%l/%L (%p%%)'
+end
 
+vim.api.nvim_exec[[
 augroup slime
   au!
   autocmd BufNewFile,BufRead *.slimleex set syntax=slim
 augroup END
+]]
 
-" set laststatus=0 showtabline tabline=%!StatusLine()
-set statusline=%!StatusLine()
+vim.o.statusline = '%'..statusLine()
 
-imap <silent> <c-n> <Plug>(completion_trigger)
+kmap('i', '<silent> <c-n>', '<Plug>(completion_trigger)')
