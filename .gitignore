@@ -8,3 +8,5 @@ fishd.tmp.*
 # TODO: should be unnecessary once color generation is homegrown
 /colors/gen/vendor
 /colors/gen/tmp
+
+/tags
