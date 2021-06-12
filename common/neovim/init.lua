@@ -228,6 +228,6 @@ require('telescope').setup{
 	}
 }
 
-require('fold').setup()
-require('statusline').setup()
-require('lsp').setup()
+require('./fold').setup()
+require('./statusline').setup()
+require('./lsp').setup()

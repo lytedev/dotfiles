@@ -1,2 +1,2 @@
-#!/usr/bin/env sh
-tmux new-session -s dotfiles -c "$DOTFILES_PATH"
+#!/usr/bin/env fish
+tmux-lyte-session dotfiles $DOTFILES_PATH

@@ -32,6 +32,12 @@ profile desktop-ultrawide  {
   exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/desktop-single-workspace.sh"
 }
 
+profile laptop-with-display {
+  output "Sharp Corporation 0x144A 0x00000000" enable mode 1920x1080@60Hz position 0,0 scale 1 transform normal
+  output DP-1 enable mode 1920x1080@60Hz position 0,0 scale 1 transform normal
+  exec "$HOME/.config/lytedev-dotfiles/apps/de/kanshi/laptop-single-workspace.bash"
+}
+
 profile laptop {
   output "Sharp Corporation 0x144A 0x00000000" enable mode 3200x1800@60Hz position 0,0 scale 2 transform normal
 }
