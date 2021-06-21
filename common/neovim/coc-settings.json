@@ -2,7 +2,11 @@
 	"coc.preferences.formatOnSaveFiletypes": ["ex", "exs", "elixir"],
   "diagnostic-languageserver.filetypes": {
     "elixir": ["mix_credo", "mix_credo_compile"],
-    "eelixir": ["mix_credo", "mix_credo_compile"]
+    "eelixir": ["mix_credo", "mix_credo_compile"],
+    "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
   },
   "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
   "codeLens.enable": true

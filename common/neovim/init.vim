@@ -142,6 +142,10 @@ xnoremap < <gv
 xnoremap > >gv
 
 nnoremap gd :call CocAction('jumpDefinition')<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy :call CocActionAsync('doHover')<CR>
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " TODO: learn about the wildmenu `q:`
 
@@ -238,10 +242,8 @@ function! StatusLine()
 	" endtry
 endfunction
 
-augroup slime
-  au!
-  autocmd BufNewFile,BufRead *.slimleex set syntax=slim
-augroup END
+augroup slime | au! BufNewFile,BufRead *.slimleex set syntax=slim | augroup END
+augroup ctmpl | au! BufNewFile,BufRead *.ctmpl set syntax=gohtmltmpl | augroup END
 
 " set laststatus=0 showtabline tabline=%!StatusLine()
 set statusline=%!StatusLine()

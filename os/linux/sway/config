@@ -160,26 +160,26 @@ mode "resize" {
 
 for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
-# for_window [class=".*"] layout splitv
+for_window [class=".*"] layout floating enable
+for_window [class=".*"] layout splith
 
 client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111
 client.unfocused        #111111 #111111 #ffffff #111111 #111111
 
-exec_always 'killall kanshi; kanshi'
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec mako
-exec pipewire
-exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
-
 bar {
 	swaybar_command waybar
 }
 
-# TODO: exec_always?
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec mako
+exec pipewire
 exec gammastep -t 6500:3500 -l 39.0:-94.5
-exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
 
+exec_always 'killall kanshi; kanshi'
+exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
+
+no_focus [class=".*"]
 output * bg $HOME/.wallpaper fill
 
 include $XDG_CONFIG_HOME/lytedev-env/*/sway/config
