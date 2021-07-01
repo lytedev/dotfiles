@@ -257,3 +257,5 @@ endif
 for f in glob($ENV_PATH.'/*/init.d.vim', 0, 1)
 	source "$f"
 endfor
+
+set number
