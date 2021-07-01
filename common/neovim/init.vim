@@ -37,7 +37,7 @@ call plug#begin($vimdir.'/plugged')
 	Plug 'wellle/targets.vim'              " adds some more handy text objects
 	Plug 'tpope/vim-obsession'             " even better session handling
 	Plug 'dhruvasagar/vim-prosession'      " even better session handling
-	Plug 'dhruvasagar/vim-prosession'      " even better session handling
+	Plug 'jjo/vim-cue'                     " CUE lang
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
