@@ -38,6 +38,7 @@ yay -Sy --needed --noconfirm \
 	jq `# CLI for Interacting with JSON` \
 	httpie `# httpie and neovim dependencies` \
 	docker docker-compose `# Yummy containers` \
+	age sops `# Simple Secretes Managements` \
 	inotify-tools `# Watching` \
 	fish `# Shell` \
 	time `# GNU time` \
