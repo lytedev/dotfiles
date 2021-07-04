@@ -26,6 +26,8 @@ sudo apt install \
 	unzip \
 	lua5.3 luajit \
 	jq \
+	age \
+	sops \
 	w3m \
 	ranger \
 	inotify-tools \
