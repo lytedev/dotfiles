@@ -39,6 +39,7 @@ dotfiles-setup
 
 # To Do
 
++ Layered gitconfig?
 + Get out of Google!
 	+ `calcurse` for Calendar management?
 	+ `aerc` or `neomutt` for email?
