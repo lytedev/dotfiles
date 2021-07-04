@@ -41,6 +41,9 @@ hi noise cterm=none ctermfg=5 ctermbg=0
 hi statement cterm=none ctermfg=1 ctermbg=0
 hi conditional cterm=none ctermfg=1 ctermbg=0
 hi structure cterm=none ctermfg=4 ctermbg=0
+hi special cterm=none ctermfg=5 ctermbg=0
+hi preproc cterm=none ctermfg=1 ctermbg=0
+hi identifier cterm=none ctermfg=6 ctermbg=0
 hi nontext ctermfg=0 ctermbg=0
 
 hi matchparen cterm=reverse ctermfg=7 ctermbg=0
