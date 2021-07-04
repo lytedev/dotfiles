@@ -46,7 +46,7 @@ hi preproc cterm=none ctermfg=1 ctermbg=0
 hi identifier cterm=none ctermfg=6 ctermbg=0
 hi nontext ctermfg=0 ctermbg=0
 
-# TODO: diagnostics popups, telescope dialogs
+" TODO: diagnostics popups, telescope dialogs
 
 hi matchparen cterm=reverse ctermfg=7 ctermbg=0
 hi search cterm=reverse ctermfg=7 ctermbg=0
