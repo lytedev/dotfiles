@@ -63,8 +63,7 @@ nvim_lsp.sumneko_lua.setup{
 vim.cmd "command! Format execute 'lua vim.lsp.buf.formatting()'"
 vim.o.completeopt = 'menuone,noinsert'
 
--- Compe setup
-require'compe'.setup{
+--[[require'compe'.setup{
   enabled=true,
   autocomplete=true,
   debug=false,
@@ -79,6 +78,7 @@ require'compe'.setup{
   documentation=true,
   source={path=true, nvim_lsp=true},
 }
+]]--
 
 return {
   setup=function()

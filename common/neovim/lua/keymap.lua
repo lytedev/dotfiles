@@ -1,6 +1,4 @@
-local vimdir = os.getenv('XDG_CONFIG_HOME') .. '/nvim'
-
-for _,keys in ipairs{'jj', 'jJ', 'Jj', 'JJ', 'jk', 'jK', 'Jk', 'JK'} do kmap('i', keys, '<Esc>', {}) end
+for _,keys in ipairs{'jj', 'jJ', 'Jj', 'JJ', 'jk', 'jK', 'Jk', 'JK'} do vim.api.nvim_set_keymap('i', keys, '<Esc>', {}) end
 
 local m = {
 	s = {silent = true},
@@ -9,12 +7,13 @@ local m = {
 }
 local keymap = {
 	n = {
-		['<leader>r'] = {':luafile ' .. vimdir .. '/init.lua<cr>:echo \'Reloaded init.lua\'<cr>', m.s},
-		['<leader>gv'] = {':e ' .. vimdir .. '/init.lua<cr>', m.s},
+		['<leader>r'] = {':luafile ' .. vim.g.vimdir .. '/init.lua<cr>:echo \'Reloaded init.lua\'<cr>', m.s},
+		['<leader>gv'] = {':e ' .. vim.g.vimdir .. '/init.lua<cr>', m.s},
 		['<leader>w'] = {':bd<cr>', m.s},
-		['<leader>h'] = {'b#<cr>', m.s},
+		['<leader>h'] = {':b#<cr>', m.s},
 		['<leader>k'] = {':bnext<cr>', m.s},
 		['<leader>j'] = {':bprevious<cr>', m.s},
+		['<leader>m'] = {':lua print()<cr>', m.s},
 		['<leader>/'] = {':let @/ = ""<cr>:<BACKSPACE>', m.s},
 		['<c-q>'] = ':qa<cr>',
 		['<c-p>'] = '<cmd>Telescope git_files<cr>',

@@ -38,10 +38,10 @@ local options = {
 	shortmess = 'filnxToOFIac',
 	history = 1000,
 	undofile = true,
-	undodir = vimdir .. '/undo',
+	undodir = vim.g.vimdir .. '/undo',
 	undolevels = 1000,
 	undoreload = 1000,
-	spellfile = vimdir .. '/spell/en.utf-8.add',
+	spellfile = vim.g.vimdir .. '/spell/en.utf-8.add',
 	ignorecase = true,
 	smartcase = true,
 	incsearch = true,
@@ -59,31 +59,31 @@ local options = {
 	showcmd = false,
 	laststatus = 2,
 	ruler = false,
-	termguicolors = true,
+	number = true,
 }
 for k,v in pairs(options) do
 	vim.o[k] = v
 end
 
-vim.api.nvim_exec([[
-	hi Search cterm=NONE ctermbg=blue ctermfg=black
-	hi LineNr ctermbg=0 ctermfg=8
-	hi CursorLineNr ctermbg=18 ctermfg=gray
-	hi IndentGuidesEven ctermbg=18
-	hi Normal ctermbg=NONE
-	hi ActiveBuffer ctermbg=4 ctermfg=0
-	hi DirtyBuffer ctermbg=3 ctermfg=0
-	hi StatusLine ctermbg=1 ctermfg=7
-	hi StatusLineNC ctermbg=2 ctermfg=7
-	command! W write
-	augroup oncommit
-		au! BufReadPost *
-		if stridx(&ft, 'commit') >= 0
-			exe "startinsert!"
-		endif
-	augroup END
-	augroup slime
-		au! BufNewFile,BufRead *.slimleex set syntax=slim
-	augroup END
-	colorscheme base16-donokai
-]], false)
+vim.api.nvim_command'colorscheme donokai'
+
+vim.api.nvim_command[[
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+nnoremap <c-m> :call SynGroup()<cr>
+]]
+
+-- vim.api.nvim_command[[
+-- 	command! W write
+-- 	augroup oncommit
+-- 		au! BufReadPost *
+-- 		if stridx(&ft, 'commit') >= 0
+-- 			exe "startinsert!"
+-- 		endif
+-- 	augroup END
+-- 	augroup slime
+-- 		au! BufNewFile,BufRead *.slimleex set syntax=slim
+-- 	augroup END
+-- ]]

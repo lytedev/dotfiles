@@ -1,6 +1,6 @@
 local setup = function()
-	local packer_install_path = "#{fn.stdpath 'data'}/site/pack/packer/start/packer.nvim"
-	if #vim.fn.glob(packer_install_path) > 0 then
+	local packer_install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	if #vim.fn.glob(packer_install_path) == 0 then
 		vim.fn.system {'git', 'clone', 'https://github.com/wbthomason/packer.nvim', packer_install_path}
 		vim.api.nvim_command'packadd packer.nvim'
 	end
@@ -27,7 +27,7 @@ local setup = function()
 			'dhruvasagar/vim-prosession',
 			{'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}},
 			'joshdick/onedark.vim',
-			{'lukas-reineke/indent-blankline.nvim', branch = 'lua'},
+			'lukas-reineke/indent-blankline.nvim',
 			{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}},
 			'neovim/nvim-lspconfig',
 			'hrsh7th/nvim-compe',
