@@ -22,15 +22,20 @@ syntax reset
 hi normal cterm=none ctermfg=7
 hi bold cterm=bold
 
+" hi statusline cterm=none ctermfg=7 ctermbg=18
 hi statusline cterm=none ctermfg=7 ctermbg=18
-hi activebuffer cterm=none ctermfg=7 ctermbg=18
+hi statuslinenc cterm=none ctermfg=18 ctermbg=0
+hi inactivebuffer cterm=none ctermbg=18 ctermfg=7
+hi activebuffer cterm=none ctermfg=0 ctermbg=4
+hi dirtybuffer cterm=none ctermfg=0 ctermbg=1
+hi activedirtybuffer cterm=none ctermfg=0 ctermbg=3
 hi linenr cterm=none ctermfg=18
 hi indentblanklinechar cterm=none ctermfg=18
 hi signcolumn cterm=none ctermfg=18 ctermbg=0
+hi matchparen cterm=none ctermbg=5 ctermfg=0
+hi search cterm=bold ctermbg=4
 
-hi LspDiagnosticsSignWarning cterm=none ctermfg=1 ctermbg=0
-hi lspdiagnosticsvirtualtextwarning cterm=none ctermfg=1 ctermbg=0
-
+hi todo cterm=none ctermfg=7 ctermbg=18
 hi comment cterm=none ctermfg=18
 hi keyword cterm=none ctermfg=7
 hi operator cterm=none ctermfg=7
@@ -43,15 +48,27 @@ hi conditional cterm=none ctermfg=1 ctermbg=0
 hi structure cterm=none ctermfg=4 ctermbg=0
 hi special cterm=none ctermfg=5 ctermbg=0
 hi preproc cterm=none ctermfg=1 ctermbg=0
-hi identifier cterm=none ctermfg=6 ctermbg=0
+hi identifier cterm=none ctermfg=4 ctermbg=0
+hi constant cterm=none ctermfg=1
 hi nontext ctermfg=0 ctermbg=0
 
 " TODO: diagnostics popups, telescope dialogs
 
-hi matchparen cterm=reverse ctermfg=7 ctermbg=0
-hi search cterm=reverse ctermfg=7 ctermbg=0
+hi LspDiagnosticsSignWarning cterm=none ctermfg=1 ctermbg=0
+hi lspdiagnosticsvirtualtextwarning cterm=none ctermfg=1 ctermbg=0
 
-hi todo cterm=none ctermfg=7 ctermbg=18
+hi TelescopeBorder ctermfg=18
+hi TelescopePromptBorder ctermfg=18
+hi TelescopeResultsBorder ctermfg=18
+hi TelescopePreviewBorder ctermfg=18
+
+hi TelescopeSelection ctermbg=18 ctermfg=7
+hi TelescopeSelectionCaret ctermfg=7
+hi TelescopeMultiSelection ctermfg=7
+hi TelescopeNormal ctermfg=7
+
+hi TelescopeMatching ctermfg=0 ctermbg=4
+hi TelescopePromptPrefix guifg=red
 
 " vim tui elements
 " call <sid>hi('Debug',         s:gui08, '', s:cterm08, '', '', '')

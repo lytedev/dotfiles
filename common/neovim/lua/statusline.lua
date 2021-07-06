@@ -4,25 +4,28 @@ local status_line_max_length = 5
 
 -- TODO: only update this portion when needed instead of every render?
 local status_line_buffer_by_num = function(bufnum)
-	local bufinfo = fn.getbufinfo(bufnum)
+	local is_active = false
+	local bufinfo = fn.getbufinfo(bufnum)[1]
 	local prefix = ' %#InactiveBuffer#'
 	local suffix = '%* '
 
-	if bufinfo.changed then
+	if bufinfo.changed == 1 then
 		prefix = '%#DirtyBuffer# '
 		suffix = ' %*'
 	end
 
-	if bufinfo.hidden == 0 and fn.index(bufinfo.windows, vim.g.statusline_winid) >= 0 then
+	local windex = fn.index(bufinfo.windows, vim.g.statusline_winid)
+	if bufinfo.hidden and windex >= 0 then
+		is_active = true
 		prefix = '%#ActiveBuffer# '
 		suffix = ' %*'
-		if bufinfo.changed then
-			prefix = '%#ActiveBuffer# *'
+		if bufinfo.changed == 1 then
+			prefix = '%#ActiveDirtyBuffer# *'
 			suffix = ' %*'
 		end
 	end
 
-	return prefix .. fn.fnamemodify(fn.bufname(bufnum), ':t') .. suffix
+	return (prefix .. fn.fnamemodify(fn.bufname(bufnum), ':t') .. suffix), is_active
 end
 
 local status_line_buffers = function()
@@ -31,12 +34,12 @@ local status_line_buffers = function()
 	local active_index = -1
 	local acc = {}
 	for _,bufnum in ipairs(api.nvim_list_bufs()) do
-		local bufinfo = fn.getbufinfo(bufnum)
+		local bufinfo = fn.getbufinfo(bufnum)[1]
 		if bufinfo.listed ~= 0 then
-			local entry = status_line_buffer_by_num(bufnum)
+			local entry, is_active = status_line_buffer_by_num(bufnum)
 			table.insert(acc, entry)
-			if fn.matchstr(entry, '^%#ActiveBuffer#') then
-				active_index = fn.index(acc, entry)
+			if is_active then
+				active_index = #acc
 			end
 		end
 	end
@@ -57,7 +60,12 @@ local status_line_buffers = function()
 		end
 		return prefix .. buflist .. suffix
 	else
-		return table.concat(acc, '')
+		local suffix = ''
+		if #acc - 1 >status_line_max_length then
+			suffix = ' >'
+		end
+		local buflist = table.concat({unpack(acc, 1, math.min(#acc, status_line_max_length))}, '')
+		return buflist .. suffix .. active_index
 	end
 end
 
