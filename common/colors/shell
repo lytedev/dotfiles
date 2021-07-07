@@ -12,16 +12,6 @@ blue="66/d9/ef"
 magenta="ae/81/ff"
 cyan="a1/ef/e4"
 white="cccccc"
-black2="75/71/5e"
-white2="f8/f8/f8"
-
-# TODO: name these?
-color16="fd/97/1f" # Base 09
-color17="cc/66/33" # Base 0F
-color18="38/38/30" # Base 01
-color19="49/48/3e" # Base 02
-color20="a5/9f/85" # Base 04
-color21="f5/f4/f1" # Base 06
 
 if [ -n "$TMUX" ]; then
   # tell tmux to pass the escape sequences through
@@ -63,15 +53,6 @@ ct $blue 4 12
 ct $magenta 5 13
 ct $cyan 6 14
 ct $white 7 10
-ct $black2 8
-ct $white2 15
-
-ct $color16 16
-ct $color17 17
-ct $color18 18
-ct $color19 19
-ct $color20 20
-ct $color21 21
 
 if [ -n "$ITERM_SESSION_ID" ]; then
   # iTerm2 proprietary escape codes
@@ -101,15 +82,7 @@ unset blue
 unset magenta
 unset cyan
 unset white
-unset black2
-unset white2
 
 unset printf_template
 unset printf_template_var
 unset printf_template_custom
-unset color16
-unset color17
-unset color18
-unset color19
-unset color20
-unset color21

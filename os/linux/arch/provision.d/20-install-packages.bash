@@ -31,6 +31,7 @@ yay -Sy --needed --noconfirm \
 	neovim-nightly-bin `# Text Editors` \
 	sc-im `# Spreadsheets` \
 	unzip `# Simple Unzipping` \
+	ctags `# Tags` \
 	tmux `# Terminal Multiplexer` \
 	kitty `# Almost Better Terminal Emulator` \
 	curl `# HTTP Utility` \

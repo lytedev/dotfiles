@@ -8,7 +8,6 @@
 " let s:blue = '04'
 " let s:magenta = '05'
 " let s:cyan = '06'
-" let s:darkgrey = '18'
 
 " let s:cterm02 = '19'
 " let s:cterm04 = '20'
@@ -22,21 +21,20 @@ syntax reset
 hi normal cterm=none ctermfg=7
 hi bold cterm=bold
 
-" hi statusline cterm=none ctermfg=7 ctermbg=18
-hi statusline cterm=none ctermfg=7 ctermbg=18
-hi statuslinenc cterm=none ctermfg=18 ctermbg=0
-hi inactivebuffer cterm=none ctermbg=18 ctermfg=7
+hi statusline cterm=none ctermfg=7 ctermbg=234
+hi statuslinenc cterm=none ctermfg=234 ctermbg=0
+hi inactivebuffer cterm=none ctermbg=234 ctermfg=7
 hi activebuffer cterm=none ctermfg=0 ctermbg=4
 hi dirtybuffer cterm=none ctermfg=0 ctermbg=1
 hi activedirtybuffer cterm=none ctermfg=0 ctermbg=3
-hi linenr cterm=none ctermfg=18
-hi indentblanklinechar cterm=none ctermfg=18
-hi signcolumn cterm=none ctermfg=18 ctermbg=0
+hi linenr cterm=none ctermfg=236
+hi indentblanklinechar cterm=none ctermfg=236
+hi signcolumn cterm=none ctermfg=234 ctermbg=0
 hi matchparen cterm=none ctermbg=5 ctermfg=0
 hi search cterm=bold ctermbg=4
 
-hi todo cterm=none ctermfg=7 ctermbg=18
-hi comment cterm=none ctermfg=18
+hi todo cterm=none ctermfg=7 ctermbg=236
+hi comment cterm=none ctermfg=236
 hi keyword cterm=none ctermfg=7
 hi operator cterm=none ctermfg=7
 hi repeat cterm=none ctermfg=1
@@ -57,12 +55,12 @@ hi nontext ctermfg=0 ctermbg=0
 hi LspDiagnosticsSignWarning cterm=none ctermfg=1 ctermbg=0
 hi lspdiagnosticsvirtualtextwarning cterm=none ctermfg=1 ctermbg=0
 
-hi TelescopeBorder ctermfg=18
-hi TelescopePromptBorder ctermfg=18
-hi TelescopeResultsBorder ctermfg=18
-hi TelescopePreviewBorder ctermfg=18
+hi TelescopeBorder ctermfg=234
+hi TelescopePromptBorder ctermfg=234
+hi TelescopeResultsBorder ctermfg=234
+hi TelescopePreviewBorder ctermfg=234
 
-hi TelescopeSelection ctermbg=18 ctermfg=7
+hi TelescopeSelection ctermbg=234 ctermfg=7
 hi TelescopeSelectionCaret ctermfg=7
 hi TelescopeMultiSelection ctermfg=7
 hi TelescopeNormal ctermfg=7

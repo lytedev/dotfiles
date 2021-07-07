@@ -107,6 +107,7 @@ alias dd "dd status=progress"
 alias wifi "sudo iwctl"
 alias year 'cal (date +%Y)'
 alias mount 'sudo -E mount'
+alias umount 'sudo -E umount'
 alias pa pulsemixer
 alias mail neomutt
 alias wje work-journal-entry

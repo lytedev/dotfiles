@@ -8,13 +8,13 @@ blue="66d9ef" # blue
 magenta="ae81ff" # magenta
 cyan="a1efe4" # cyan
 white="cccccc" # white
-black2="75715e" # black
-white2="f8f8f8" # white
+black2="75715e" # black2
+white2="f8f8f8" # white2
 
 c() {
   c="${1}"; shift
   for n in "$@"; do
-    echo -e "\e]P${n}${c}";
+    printf "\e]P%d%s" "$n" "$c";
   done
 }
 
@@ -32,7 +32,7 @@ c $white2 F
 if [ -x /sbin/clear ]; then
   /sbin/clear
 else
-  echo -e "\e[H\e[2J"
+  printf "\e[H\e[2J"
 fi
 
 unset -f c
