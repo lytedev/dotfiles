@@ -67,21 +67,13 @@ end
 
 vim.api.nvim_command'colorscheme donokai'
 
-vim.api.nvim_command[[
-function! SynGroup()
-	let l:s = synID(line('.'), col('.'), 1)
-	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
-endfun
-nnoremap <c-m> :call SynGroup()<cr>
-]]
+function SynGroup()
+	local s = vim.fn.synID(vim.fn.line('.'), vim.fn.col('.'), 1)
+	print(vim.fn.synIDattr(s, 'name') .. ' -> ' .. vim.fn.synIDattr(vim.fn.synIDtrans(s), 'name'))
+end
 
 vim.api.nvim_command[[
+	au! FileType gitcommit exec 'norm gg' | startinsert!
+	au! BufNewFile,BufRead *.slimleex set syntax=slim
 	command! W write
-	command! X writequit
-	augroup gitcommit
-		au! VimEnter COMMIT_EDITMSG exec 'norm gg' | startinsert!
-	augroup END
-	augroup slime
-		au! BufNewFile,BufRead *.slimleex set syntax=slim
-	augroup END
 ]]

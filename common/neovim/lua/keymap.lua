@@ -13,7 +13,6 @@ local keymap = {
 		['<leader>h'] = {':b#<cr>', m.s},
 		['<leader>k'] = {':bnext<cr>', m.s},
 		['<leader>j'] = {':bprevious<cr>', m.s},
-		['<leader>m'] = {':lua print()<cr>', m.s},
 		['<leader>/'] = {':let @/ = ""<cr>:<BACKSPACE>', m.s},
 		['<c-q>'] = ':qa<cr>',
 		['<c-p>'] = '<cmd>Telescope git_files<cr>',
@@ -26,6 +25,7 @@ local keymap = {
 		['<c-l>'] = ':TmuxNavigateRight<cr>',
 		['<expr> n'] = "'Nn'[v:searchforward]",
 		['<expr> N'] = "'nN'[v:searchforward]",
+		['<c-m>'] = ':lua SynGroup()<cr>'
 	},
 	t = {},
 	[''] = {
