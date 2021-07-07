@@ -58,11 +58,11 @@
 [pager]
 	branch = false
 	# remove ansi codes, pad each file's diff with newlines, show as diff, remove top padding
-	diff = nvim -c 'silent %sm/\\e[^mK]*[mK]//g' \
-		-c 'silent %s/^diff/\\r\\rdiff/' \
-		-c 'silent set ft=diff' \
-		-c 'silent execute \"normal gg2dd\"' \
-		-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile'
+	# diff = nvim -c 'silent %sm/\\e[^mK]*[mK]//g' \
+	# 	-c 'silent %s/^diff/\\r\\rdiff/' \
+	# 	-c 'silent set ft=diff' \
+	# 	-c 'silent execute \"normal gg2dd\"' \
+	# 	-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile'
 
 [url "git@github.com:postmates"]
 	insteadOf = https://github.com/postmates
