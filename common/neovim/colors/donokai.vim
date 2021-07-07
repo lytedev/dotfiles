@@ -1,20 +1,3 @@
-" let s:black = '00'
-" let s:black2 = '08'
-" let s:white = '07'
-" let s:white2 = '15'
-" let s:red = '01'
-" let s:green = '02'
-" let s:yellow = '03'
-" let s:blue = '04'
-" let s:magenta = '05'
-" let s:cyan = '06'
-
-" let s:cterm02 = '19'
-" let s:cterm04 = '20'
-" let s:cterm06 = '21'
-" let s:cterm09 = '16'
-" let s:cterm0F = '17'
-
 hi clear
 syntax reset
 
@@ -27,14 +10,18 @@ hi inactivebuffer cterm=none ctermbg=234 ctermfg=7
 hi activebuffer cterm=none ctermfg=0 ctermbg=4
 hi dirtybuffer cterm=none ctermfg=0 ctermbg=1
 hi activedirtybuffer cterm=none ctermfg=0 ctermbg=3
-hi linenr cterm=none ctermfg=236
+hi pmenu cterm=none ctermfg=7 ctermbg=236
+hi pmenusel cterm=none ctermbg=4 ctermfg=0
+hi pmenusbar cterm=none ctermbg=236 ctermfg=240
+hi pmenuthumb cterm=none ctermbg=240 ctermfg=240
+hi linenr cterm=none ctermfg=240
 hi indentblanklinechar cterm=none ctermfg=236
 hi signcolumn cterm=none ctermfg=234 ctermbg=0
 hi matchparen cterm=none ctermbg=5 ctermfg=0
 hi search cterm=bold ctermbg=4
 
-hi todo cterm=none ctermfg=7 ctermbg=236
-hi comment cterm=none ctermfg=236
+hi todo cterm=none ctermfg=7 ctermbg=240
+hi comment cterm=none ctermfg=240
 hi keyword cterm=none ctermfg=7
 hi operator cterm=none ctermfg=7
 hi repeat cterm=none ctermfg=1
@@ -60,7 +47,7 @@ hi TelescopePromptBorder ctermfg=234
 hi TelescopeResultsBorder ctermfg=234
 hi TelescopePreviewBorder ctermfg=234
 
-hi TelescopeSelection ctermbg=234 ctermfg=7
+hi TelescopeSelection ctermbg=236 ctermfg=7
 hi TelescopeSelectionCaret ctermfg=7
 hi TelescopeMultiSelection ctermfg=7
 hi TelescopeNormal ctermfg=7
