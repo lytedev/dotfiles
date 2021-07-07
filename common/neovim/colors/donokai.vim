@@ -36,6 +36,9 @@ hi preproc cterm=none ctermfg=1 ctermbg=0
 hi identifier cterm=none ctermfg=4 ctermbg=0
 hi constant cterm=none ctermfg=1
 hi nontext ctermfg=0 ctermbg=0
+hi diffoldfile cterm=none ctermfg=1
+hi diffremoved cterm=none ctermfg=1
+hi diffadded cterm=none ctermfg=2
 
 " TODO: diagnostics popups, telescope dialogs
 
