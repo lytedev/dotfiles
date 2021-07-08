@@ -1,0 +1,9 @@
+{
+	"coc.preferences.formatOnSaveFiletypes": ["elixir", "ex", "exs"],
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+  "diagnostic-languageserver.filetypes": {
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"]
+  }
+}
+
