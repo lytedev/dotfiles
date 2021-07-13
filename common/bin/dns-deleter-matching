@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+API="https://api.netlify.com/api/v1"
+TOKEN="$(pass netlify | grep -i token | tr -d ' ' | cut -d ':' -f 2)"
+while read -r l; do
+	set -x -e
+	ID="$(echo $l | awk '{print $2}')"
+	URL="$API/dns_zones/lyte_dev/dns_records/$ID?access_token=$TOKEN"
+	curl -X DELETE -sL "$URL"
+done
+wait

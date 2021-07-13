@@ -2,10 +2,15 @@
 
 API="https://api.netlify.com/api/v1"
 TOKEN="$(pass netlify | grep -i token | tr -d ' ' | cut -d ':' -f 2)"
+counter=0
 while read -r l; do
-	set -x -e
+	counter=$((counter+1))
 	ID="$(echo $l | awk '{print $2}')"
 	URL="$API/dns_zones/lyte_dev/dns_records/$ID?access_token=$TOKEN"
-	curl -X DELETE -sL "$URL" &
+	curl -vvv -X DELETE -sL "$URL" 2>&1 | grep 'ratelimit-remaining' &
+	echo "counter: $counter"
+	jq 'del(.[] | select(.id == "'$ID'"))' /tmp/zone.json > /tmp/zone2.json
+	mv /tmp/zone2.json /tmp/zone.json
+	[ $counter -gt 480 ] && break
 done
 wait
