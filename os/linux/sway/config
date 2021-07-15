@@ -41,13 +41,14 @@ input type:touchpad {
 }
 
 bindsym $mod+control+space exec makoctl dismiss
-bindsym $mod+shift+space exec makoctl invoke
+# bindsym $mod+shift+space exec makoctl invoke
 bindsym $mod+return exec kitty --single-instance
 bindsym $mod+shift+return exec floating-term
 bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?
-bindsym $mod+space exec wofi --show drun
+bindsym $mod+shift+space exec wofi --show drun
+bindsym $mod+space exec app-launcher
 bindsym $mod+shift+s exec clipshot
 bindsym $mod+e exec thunar
 bindsym $mod+shift+r reload
