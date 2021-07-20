@@ -19,6 +19,7 @@ hi indentblanklinechar cterm=none ctermfg=236
 hi signcolumn cterm=none ctermfg=234 ctermbg=0
 hi matchparen cterm=none ctermbg=5 ctermfg=0
 hi search cterm=bold ctermbg=4
+hi incsearch cterm=bold ctermbg=4
 
 hi todo cterm=none ctermfg=7 ctermbg=240
 hi comment cterm=none ctermfg=240

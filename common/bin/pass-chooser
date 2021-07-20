@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-env FZFP_HEIGHT="100%" floating-term bash -c "fzfp | head -n 1 | wl-copy &"
+env FZFP_HEIGHT="100%" floating-term fish -c "fzfp | head -n 1 | clip &"

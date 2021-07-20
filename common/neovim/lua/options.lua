@@ -72,8 +72,9 @@ function SynGroup()
 	print(vim.fn.synIDattr(s, 'name') .. ' -> ' .. vim.fn.synIDattr(vim.fn.synIDtrans(s), 'name'))
 end
 
-vim.api.nvim_command[[
-	au! FileType gitcommit exec 'norm gg' | startinsert!
-	au! BufNewFile,BufRead *.slimleex set syntax=slim
-	command! W write
-]]
+print(vim.api.nvim_exec([[
+au! TextYankPost * silent! lua vim.highlight.on_yank { higroup='Search', timeout=200 }
+au! FileType gitcommit exec 'norm gg' | startinsert!
+au! BufNewFile,BufRead *.slimleex set syntax=slime
+command! W write
+]], true))
