@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 
-# TODO: check for pass
-
-key="$1"; shift
-args=("$@")
-
-otp="$(set -e; pass "$key" 2>/dev/null | grep -Pi '^otp' | cut -d ':' -f 2 | sed 's/ //g')"
-otp_status="$?"
-[[ $otp_status != 0 ]] && { echo "pass command failed with exit code $otp_status"; exit 1; }
-[[ -z $otp ]] && { echo "No OTP secret found for pass entry '$key'"; exit 2; }
-simple-otp "$otp"
+echo 'This script is deprecated. Install and use the pass-otp extension.
+	yay -S pass-otp
+	pass otp $args'
+exit 1

@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+set entry $argv[1]
+set otp_secret (pass $entry | awk -F': ' '/^otp/{gsub(/\s/,"",$2);print $2}')
+set otp_uri "otpauth://totp/totp-secret?secret=$otp_secret&issuer=$entry"
+echo $otp_uri | pass otp append $entry
