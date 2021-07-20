@@ -31,6 +31,7 @@ local setup = function()
 			{'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}},
 			'neovim/nvim-lspconfig',
 			'hrsh7th/nvim-compe',
+			'jjo/vim-cue',
 			'sheerun/vim-polyglot',
 			{'neoclide/coc.nvim', branch = 'release'},
 		}
