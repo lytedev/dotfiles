@@ -7,10 +7,19 @@ local globals = {
 	indent_blankline_filetype_exclude = {'help', 'packer'},
 	indent_blankline_buftype_exclude = {'terminal', 'nofile'},
 	indent_blankline_char_highlight = 'LineNr',
+	svelte_preprocessors = {'typescript', 'coffeescript', 'sass', 'pug'},
+	svelte_preprocessor_tags = {
+		{name = 'sass', tag = 'lang', as = 'sass'},
+		{name = 'coffeescript', tag = 'lang', as = 'coffeescript'},
+		{name = 'pug', tag = 'pug', as = 'pug'},
+	},
+	svelte_indent_script = 0,
+	svelte_indent_style = 0,
 }
 for k,v in pairs(globals) do vim.g[k] = v end
 
 local options = {
+	clipboard = 'unnamedplus',
 	inccommand = 'nosplit',
 	tabstop = 2,
 	softtabstop = 2,
