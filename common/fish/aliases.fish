@@ -111,3 +111,4 @@ alias umount 'sudo -E umount'
 alias pa pulsemixer
 alias mail neomutt
 alias wje work-journal-entry
+alias miex 'iex -S mix'

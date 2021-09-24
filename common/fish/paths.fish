@@ -8,6 +8,7 @@ set paths_candidates \
 	$DOTFILES_PATH/common/bin \
 	$HOME/.bin \
 	$HOME/.cargo/bin \
+	$HOME/.deno/bin \
 	$HOME/.nimble/bin \
 	$HOME/.yarn/bin \
 	$HOME/.netlify/helper/bin

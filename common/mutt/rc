@@ -34,16 +34,22 @@ bind pager j half-down
 bind pager J next-entry
 bind pager K previous-entry
 bind index \CR imap-fetch-mail
+bind index \CR imap-fetch-mail
 
 bind attach,index g first-entry
 bind attach,index G last-entry
 
 macro index,pager A s><return>y
+macro index \' "<tag-pattern>~R !~D !~F<enter>\
+<tag-prefix><save-message>+[Gmail]/All <enter>" \
+"Archive"
 
 set record = ""
 set editor = "nvim"
 set charset = "utf-8"
 set header_cache = "~/.cache/mutt/headers"
 set message_cachedir = "~/.cache/mutt/bodies"
+set timeout = 60
+set sort = reverse-date
 
 set new_mail_command="notify-send 'New Email' '%n new messages, %u unread.' &"
