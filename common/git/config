@@ -75,6 +75,10 @@
 
 [include]
 	path = $ENV_PATH/gitconfig
+
+[include]
+	path = $HOME/.config/lytedev-env/divvy/gitconfig
+
 [color]
 	ui = auto
 
