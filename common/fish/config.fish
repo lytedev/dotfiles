@@ -55,3 +55,5 @@ end
 if test $PWD = $HOME; or test $PWD = $NICE_HOME;
 	cd $NICE_HOME || cd
 end
+
+# test -f '/home/daniel/.home/.config/netlify/helper/path.fish.inc' && source '/home/daniel/.home/.config/netlify/helper/path.fish.inc'

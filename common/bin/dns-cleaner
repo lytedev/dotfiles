@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-set -x -e
-API="https://api.netlify.com/api/v1"
-TOKEN="$(pass netlify | grep -i token | tr -d ' ' | cut -d ':' -f 2)"
-URL="$API/dns_zones/lyte_dev/dns_records?access_token=$TOKEN"
-curl -vvv -sL "$URL" > /tmp/zone.json

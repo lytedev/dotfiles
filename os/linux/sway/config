@@ -161,6 +161,9 @@ mode "resize" {
 
 for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
+for_window [app_id="zoom"] border none, floating enable
+for_window [app_id="zoom" title="^zoom$"] border none, floating enable
+bindsym $mod+shift+alt+f for_window [class=".*"] floating toggle
 for_window [class=".*"] layout floating enable
 for_window [class=".*"] layout splith
 

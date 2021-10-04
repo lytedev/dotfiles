@@ -64,9 +64,6 @@
 	# 	-c 'silent execute \"normal gg2dd\"' \
 	# 	-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile'
 
-[url "git@github.com:postmates"]
-	insteadOf = https://github.com/postmates
-
 [commit]
 	gpgsign = true
 
@@ -82,10 +79,11 @@
 [color]
 	ui = auto
 
-# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
-[include]
-  path = /home/daniel/.home/.netlify/helper/git-config
-[init]
-	defaultBranch = master
-[branch]
-	autoSetupMerge = always
+[http "https://git-p1ap1.divvy.co"]
+	proxy = socks://localhost:9982
+
+[url "git@git-p1ap1.divvy.co"]
+	proxy = https://github.com/postmates
+
+[push]
+	default = current
