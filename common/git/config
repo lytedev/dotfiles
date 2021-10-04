@@ -79,11 +79,5 @@
 [color]
 	ui = auto
 
-[http "https://git-p1ap1.divvy.co"]
-	proxy = socks://localhost:9982
-
-[url "git@git-p1ap1.divvy.co"]
-	proxy = https://github.com/postmates
-
 [push]
 	default = current
