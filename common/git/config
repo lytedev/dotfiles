@@ -70,20 +70,14 @@
 [gpg]
 	program = gpg2
 
-# [include]
-	# path = $ENV_PATH/gitconfig
+[include]
+	path = $ENV_PATH/gitconfig
+
+[include]
+	path = $HOME/.config/lytedev-env/divvy/gitconfig
+
 [color]
 	ui = auto
 
-[http "https://git-p1ap1.divvy.co"]
-	proxy = socks://localhost:9982
-
-[url "git@git-p1ap1.divvy.co"]
-	proxy = https://github.com/postmates
-
 [push]
 	default = current
-
-# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
-# [include]
-	# path = /home/daniel/.home/.config/netlify/helper/git-config

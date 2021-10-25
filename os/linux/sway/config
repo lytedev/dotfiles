@@ -178,6 +178,7 @@ bar {
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec mako
 exec pipewire
+exec /usr/lib/kdeconnectd
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 
 exec_always 'killall kanshi; kanshi'
