@@ -1,18 +1,43 @@
 #!/usr/bin/env fish
 
-set host rift
-set dir /storage/daniel/backups
-set ext .tar.zstd.gpg
+# deps: fish, zstd, gpg, ssh
 
-if not set -q argv[1]
-	echo "No backup filename provided"
-	exit 2
+set -q HOST || set HOST (head -n 1 /etc/hostname | tr -d '\n')
+
+# use the backup-host in the ~/.ssh/config as the default backup remote host
+set -q BACKUP_REMOTE_HOST || set BACKUP_REMOTE_HOST backup-host
+
+# use a user-specific dir by default to backup to
+set -q BACKUP_REMOTE_DIR || set BACKUP_REMOTE_DIR "/storage/"(whoami)"/backups/$HOST"
+
+set BACKUP_FILE_EXT .tar.zstd.gpg
+
+set target $argv[1]
+if test $target = '--list-backup-files'
+	ssh $BACKUP_REMOTE_HOST "command ls -1 $BACKUP_REMOTE_DIR"
+	exit 0
+else if test (count $argv) -lt 1
+	echo "No remote backup filename provided (use --list-backup-files to show)"
+	exit 1
 end
+
 # TODO: autocomplete?
 # TODO: checksum?
-set fn $argv[1]
-ssh $host "cat $dir/$fn$ext" |
-	gpg --decrypt |
-	zstd --ultra -T2 -22 -dc |
-	tar -xvf -
-echo "Restored!"
+# TODO: progress indicator?
+
+set local_dir (echo $target | awk -F. '{print $1}')
+mkdir $local_dir || begin
+	echo "Local unbackup directory '$local_dir' exists"
+	exit 2
+end
+
+pushd $local_dir >/dev/null
+
+	ssh $BACKUP_REMOTE_HOST "cat $BACKUP_REMOTE_DIR/$target" |
+		gpg --decrypt 2>/dev/null |
+		zstd --ultra -T2 -22 -dc |
+		tar -xf -
+
+popd >/dev/null
+
+echo "Restored to $local_dir"
