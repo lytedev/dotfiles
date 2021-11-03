@@ -1,0 +1,9 @@
+# return if not running interactively
+[[ $- != *i* ]] && return
+
+command -v fish >/dev/null 2>&1 && grep fish /etc/shells >/dev/null 2>&1 && {
+	echo "This user is configured to use 'fish' as its primary shell."
+	echo "  You may want to run 'chsh' and set your shell to $(grep fish /etc/shells | head -n1)'."
+	echo "  You may also temporarily use fish by simply running 'fish'."
+	echo "  If you're in bash for intentionally for some reason, then ignore this message."
+}

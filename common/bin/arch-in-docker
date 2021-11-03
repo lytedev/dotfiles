@@ -1,0 +1,7 @@
+#!/usr/bin/env fish
+
+if test (count $argv) -lt 2
+	docker run -it --rm archlinux bash
+else
+	docker run -it --rm $argv[1..-2] archlinux $argv[-1]
+end

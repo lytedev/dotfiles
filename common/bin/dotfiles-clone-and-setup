@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+command -v git >/dev/null 2>&1 || { echo "git not installed"; exit 1; }
+command -v fish >/dev/null 2>&1 || { echo "fish not installed"; exit 2; }
+
+mkdir -p "$HOME/.config"
+git clone https://git.lyte.dev/lytedev/dotfiles.git "$HOME/.config/lytedev-dotfiles"
+exec "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"

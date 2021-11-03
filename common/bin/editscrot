@@ -1,2 +1,3 @@
-#!/usr/bin/env bash
-krita "$(ltl "$NICE_HOME/img/scrots/")"
+#!/usr/bin/env sh
+opener="$(command -v xdg-open 2>&1 >/dev/null && echo "xdg-open" || echo "open")"
+exec nohup "$opener" "$NICE_HOME/img/scrots/$(ls -t "$NICE_HOME/img/scrots/" | head -n1)" >/dev/null 2>&1 &

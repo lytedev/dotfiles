@@ -1,17 +1,18 @@
-#!/usr/bin/env fish
+set MAX_PATH_PIECE_CHARS 3
 
-# TODO: if root, background instead?
+function get_hostname
+	has_command hostname && hostname || cat /etc/hostname
+end
 
-set MAX_PATH_PIECE_CHARS $BASH_PROMPT_MAX_PATH_PIECE_CHARS 3
+function fish_greeting
+	set_color -b black brblack
+	printf "%s@%s %s\n" $USER (get_hostname) (date)
+end
 
-# prompt rendering functions
 function preprocess_pwd
 	test (pwd) = / && echo "/" && return 1
 	test (pwd) = $NICE_HOME && echo "~" && return 0
-	# with ellipsis
-	# echo "$(<<< "$p" cut -c2- | awk '{split($0,p,"/");for(k in p){if(k==length(p)){printf "/%s",p[k]}else{if(length(p[k])>'"
-	# $((MAX_PATH_PIECE_CHARS+1))"'){printf "/%.'"$((MAX_PATH_PIECE_CHARS))"'s…",p[k]}else{printf "/%s",p[k]}}}}')"
-	# without ellipsis
+	# TODO: fix for macOS
 	echo (pwd) | cut -c2- | \
 		awk '{split($0,p,"/");for(k in p){if(k==length(p)){printf "/%s",p[k]}else{printf "/%.'$MAX_PATH_PIECE_CHARS[1]'s",p[k]}}}'
 end

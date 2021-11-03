@@ -1,29 +1,37 @@
 #!/usr/bin/env fish
 
-set -q XDG_CONFIG_HOME || begin
+set --query XDG_CONFIG_HOME || begin
 	echo XDG_CONFIG_HOME not set
 	exit 1
 end
 
-set -q DOTFILES_PATH || begin
+set --query DOTFILES_PATH || begin
 	echo DOTFILES_PATH not set
 	exit 1
 end
 
-# set -Ux QT_QPA_PLATFORM xcb
-# set -Ux QT_QPA_PLATFORM_PLUGIN_PATH /usr/lib/qt/plugins
-set -Ux CLUTTER_BACKEND wayland
-set -Ux SDL_VIDEODRIVER wayland
-set -Ux MOZ_ENABLE_WAYLAND 1
-set -Ux XDG_CURRENT_DESKTOP sway
+# set --export --universal QT_QPA_PLATFORM xcb
+# set --export --universal QT_QPA_PLATFORM_PLUGIN_PATH /usr/lib/qt/plugins
+
+set --export --universal CLUTTER_BACKEND wayland
+set --export --universal SDL_VIDEODRIVER wayland
+set --export --universal MOZ_ENABLE_WAYLAND 1
+set --export --universal XDG_CURRENT_DESKTOP sway
+set --export --universal _JAVA_AWT_WM_NONREPARENTING 1
 
 for s in $ENV_PATH/*/sway-init.d.fish
 	source $s (dirname $s)
 end
 
-set initstr "\n(date): Initializsing Sway WM"
-set elogfile ~/.sway.error.log
-set logfile ~/.sway.log
+set --query SWAY_LOGGING || set SWAY_LOGGING 0
 
-echo $initstr >> $logfile; echo $initstr >> $elogfile
-exec sway >> $logfile 2>> $elogfile
+if test $SWAY_LOGGING = 1
+	set initstr "\n(date): Starting Sway"
+	set elogfile ~/.sway.error.log
+	set logfile ~/.sway.log
+
+	echo $initstr >> $logfile; echo $initstr >> $elogfile
+	exec sway >> $logfile 2>> $elogfile
+else
+	exec sway
+end
