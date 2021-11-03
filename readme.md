@@ -8,6 +8,22 @@ take what you like.
 ![Battlestation][battlestation-photo]
 ![Desktop Screenshot][desktop-screenshot]
 
+# Basic Setup
+
+    curl -Ss https://lyte.dev/df.sh | sh
+
+## I don't like `curl ... | sh`
+
+Clone the repo:
+
+    git clone https://git.lyte.dev/lytedev/dotfiles.git "$HOME/.config/lytedev-dotfiles"
+
+Inspect and run the common (no macOS- or Linux-specific configuration) setup
+`fish` script:
+
+    $EDITOR "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
+    "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
+
 # Repo Structure
 
 My dotfiles are composed together by layering "environments" since I want my dotfiles to be flexible across servers, laptops, desktops, and even my phone (via Termux).
@@ -52,23 +68,7 @@ configuration, so if you are setting up a Arch Linux desktop machine, you
 cannot only link the `os/linux/arch` and `host/desktop` environments but will
 also need to include `os/linux` if you want the Linux-generic configuration.
 
-# Basic Setup
-
-    curl -Ss https://lyte.dev/df.sh | sh
-
-## I don't like `curl ... | sh`
-
-Clone the repo:
-
-    git clone https://git.lyte.dev/lytedev/dotfiles.git "$HOME/.config/lytedev-dotfiles"
-
-Inspect and run the common (no macOS- or Linux-specific configuration) setup
-`fish` script:
-
-    $EDITOR "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
-    "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
-
-## Post-Setup
+# Post-Setup
 
 You will want to symlink relevant environment layers into the `$ENV_PATH` in
 order to have your OS-specific applications be configured and common
