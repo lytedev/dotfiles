@@ -22,7 +22,7 @@ My dotfiles are composed together by layering "environments" since I want my dot
     | |- headless -- for server-class machines with no display/GUI
     | `- laptop ---- for portable, battery-having machines
     `- os ------- specific to operating systems
-      |- linux -----
+      |- linux ----- you alread know <3
       |  |- desktop ------ for desktop-class machines
       |  |- headless ----- for server-class machines with no display/GUI
       |  |- bin ---------- programs/scripts useful to linux machines
