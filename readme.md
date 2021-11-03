@@ -30,15 +30,18 @@ You will want to symlink relevant environment layers into the `$ENV_PATH` in
 order to have your OS-specific applications be configured and common
 applications configured for the host OS.
 
-There's a handy `fzf`-based script that makes this super easy:
+There's a handy `fzf`-based script that makes this super easy (note that you
+can select multiple environments with TAB):
 
-    dotfiles-link-environments # note that you can select multiple with TAB
+    dotfiles-link-environments
 
 You can also list the possible environments:
 
     cat $DOTFILES_PATH/common/envs
 
-And then link them yourself (note the replacing of slashes with dashes):
+And then link them yourself (note that environments must be in $ENV_PATH and
+cannot be nested, so replacing slashes with dashes is a nice way to show what's
+going on):
 
     ln -s (pwd)/os/linux $ENV_PATH/os-linux
     ln -s (pwd)/os/linux/arch $ENV_PATH/os-linux-arch
@@ -49,28 +52,6 @@ And then link them yourself (note the replacing of slashes with dashes):
 And run setup again once you've finished linking all related environments:
 
     dotfiles-setup
-
-# To Do
-
-- Home DNS/Wireguard VPN?
-- Layered gitconfig?
-- Get out of Google!
-  - `calcurse` for Calendar management?
-  - `aerc` or `neomutt` for email?
-  - My home-grown backup network for Drive?
-  - Photos?
-- **Learn to use `journalctl`**
-- Neovim LSP
-- Move to NixOS or Guix? Declarative may be the future...?
-- Better/more secure remote management configuration?
-  - Why can't I hold all these SSH keys/configs/target hosts?
-- Setup network file share that's easily accessible from Windows and macOS hosts?
-  - Samba?
-- Add vim in the terminal as the handler for many MIME types (xdg-open and such)
-  for the rare time I'm in a file manager or for opening easily from
-  the browser.
-  - This goes for navigating "into" a file in `nnn`
-- Investigate systemd services that may help with various tasks (homed, etc.)
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles

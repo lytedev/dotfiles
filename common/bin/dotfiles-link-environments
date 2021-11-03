@@ -8,23 +8,23 @@ end
 mkdir -p $ENV_PATH
 
 function filter_existing_directory
-	while read -l l
-		test -d $DOTFILES_PATH/$l && echo $l
+	while read -l line
+		test -d $DOTFILES_PATH/$line && echo $line
 	end
 end
 
 function reject_empty_lines
-	while read -l l
-		test $l = "" || echo $l
+	while read -l line
+		test $line = "" || echo $line
 	end
 end
 
 function link
-	while read -l l
-		set safe_fn (string replace -a / - $l)
-		echo "Linking $ENV_PATH/$safe_fn to $DOTFILES_PATH/$l"
+	while read -l line
+		set safe_fn (string replace -a / - $line)
+		echo "Linking $ENV_PATH/$safe_fn to $DOTFILES_PATH/$line"
 		rm -f $ENV_PATH/$safe_fn
-		ln -s $DOTFILES_PATH/$l $ENV_PATH/$safe_fn
+		ln -s $DOTFILES_PATH/$line $ENV_PATH/$safe_fn
 	end
 end
 
