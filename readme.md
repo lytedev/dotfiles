@@ -24,7 +24,7 @@ Inspect and run the common (no macOS- or Linux-specific configuration) setup
     $EDITOR "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
     "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
 
-## Advanced Setup
+## Post-Setup
 
 You will want to symlink relevant environment layers into the `$ENV_PATH` in
 order to have your OS-specific applications be configured and common
