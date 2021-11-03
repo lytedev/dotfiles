@@ -46,6 +46,12 @@ inside, it will be sourced by the main configuration file.
 Likewise, some setup only happens in certain environments via the
 `dotfiles-setup.d.fish` script.
 
+One important note on environments is that even though they are laid out like
+a tree (directories), you do NOT automatically get the parent-environment's
+configuration, so if you are setting up a Arch Linux desktop machine, you
+cannot only link the `os/linux/arch` and `host/desktop` environments but will
+also need to include `os/linux` if you want the Linux-generic configuration.
+
 # Basic Setup
 
     curl -Ss https://lyte.dev/df.sh | sh
