@@ -10,7 +10,7 @@ take what you like.
 
 # Basic Setup
 
-    curl -LsSf https://lyte.dev/df.sh | sh
+    curl -Ss https://lyte.dev/df.sh | sh
 
 ## I don't like `curl ... | sh`
 
@@ -44,6 +44,7 @@ And then link them yourself (note the replacing of slashes with dashes):
     ln -s (pwd)/os/linux/arch $ENV_PATH/os-linux-arch
     ln -s (pwd)/host/laptop $ENV_PATH/host-laptop
     ln -s (pwd)/host/laptop/third $ENV_PATH/os-laptop-third
+    # etc...
 
 And run setup again once you've finished linking all related environments:
 

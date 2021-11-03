@@ -16,7 +16,10 @@ set --export --universal MANPAGER 'env MANWIDTH="" nvim --cmd "let g:prosession_
 if command --search --quiet nvim
 	set --export --universal EDITOR nvim
 	set --export --universal VISUAL nvim
-else
+else if command --search --quiet vim
+	set --export --universal EDITOR vim
+	set --export --universal VISUAL vim
+else if command --search --quiet vi
 	set --export --universal EDITOR vi
 	set --export --universal VISUAL vi
 end
