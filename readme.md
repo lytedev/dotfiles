@@ -89,6 +89,28 @@ And run setup again once you've finished linking all related environments:
 
     dotfiles-setup
 
+# Updating
+
+Fork this repo, update your origin to point to your fork, and commit changes:
+
+    git remote origin set-url $YOUR_REPO
+
+Then you can just pull your changes down from wherever.
+
+## No I want your updates
+
+You don't. I rip and tear my dotfiles all the time and will break your entire
+machine. Remember about not using other people's dotfiles directly?
+
+But if you must, you can add an upstream remote to point to my repo:
+
+    git remote add upstream https://git.lyte.dev/lytedev/dotfiles.git
+
+Then you can fetch and merge in my changes whenever you want:
+
+    git fetch upstream
+    git merge upstream/master
+
 # Screenshots
 
 ## Arch Linux Desktop
@@ -96,7 +118,7 @@ And run setup again once you've finished linking all related environments:
 ![Battlestation][battlestation-photo]
 ![Desktop Screenshot][desktop-screenshot]
 
-[upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
+[upstream]: https://git.lyte.dev/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
 [desktop-screenshot]: https://files.lyte.dev/unix/desktop-screenshot.png
 [battlestation-photo]: https://files.lyte.dev/unix/battlestation.jpg
