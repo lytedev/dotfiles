@@ -3,10 +3,9 @@
 My various configuration files. I can't recommend using them directly, just
 take what you like.
 
-[🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
+## Links
 
-![Battlestation][battlestation-photo]
-![Desktop Screenshot][desktop-screenshot]
+[🖥️ Upstream][upstream] • [🐙 GitHub Mirror][github]
 
 # Basic Setup
 
@@ -96,6 +95,13 @@ going on):
 And run setup again once you've finished linking all related environments:
 
     dotfiles-setup
+
+# Screenshots
+
+## Arch Linux Desktop
+
+![Battlestation][battlestation-photo]
+![Desktop Screenshot][desktop-screenshot]
 
 [upstream]: https://git.faceless.lytedev.io/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
