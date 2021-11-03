@@ -9,18 +9,11 @@ take what you like.
 
 # Basic Setup
 
-    curl -Ss https://lyte.dev/df.sh | sh
+    curl -LO lyte.dev/df.sh && . df.sh
 
-## I don't like `curl ... | sh`
-
-Clone the repo:
+## Manual Setup
 
     git clone https://git.lyte.dev/lytedev/dotfiles.git "$HOME/.config/lytedev-dotfiles"
-
-Inspect and run the common (no macOS- or Linux-specific configuration) setup
-`fish` script:
-
-    $EDITOR "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
     "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
 
 # Repo Structure
