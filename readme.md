@@ -9,7 +9,7 @@ take what you like.
 
 # Basic Setup
 
-    curl -LO lyte.dev/df.sh && . df.sh
+    curl -LO lyte.dev/df.sh && sh -i df.sh
 
 ## Manual Setup
 
