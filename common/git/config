@@ -1,6 +1,5 @@
 [user]
 	name = Daniel Flanagan
-	email = daniel@lyte.dev
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -9,14 +8,14 @@
 	required = true
 
 [core]
-	editor = nvim
+	editor = $EDITOR
 	excludesfile = /home/daniel/.home/.gitignore
 
 [http "https://gopkg.in"]
 	followRedirects = true
 
 [diff]
-	tool = nvimdiff
+	tool = $EDITOR -d
 
 [difftool]
 	prompt = false
@@ -34,8 +33,8 @@
 	ds = diff --staged
 	dt = difftool
 	f = fetch
-	l = log --pretty=format:'%h %ad%x09%an%x09%s' --date=short --decorate
-	graph = log --graph --abbrev-commit --decorate --oneline --all
+	l = log --graph --abbrev-commit --decorate --oneline --all
+	plainlog = log --pretty=format:'%h %ad%x09%an%x09%s' --date=short --decorate
 	ls = ls-files
 	mm = merge master
 	p = push
@@ -46,38 +45,33 @@
 	sur = submodule update --remote
 
 [merge]
-	tool = nvimdiff
+	tool = $EDITOR -d
 	conflictstyle = diff3
 
 [mergetool]
 	prompt = false
 
 [mergetool "nvimdiff"]
-	cmd = nvimdiff $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c '$wincmd J'
+	cmd = $EDITOR -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c '$wincmd J'
 
 [pager]
 	branch = false
 	# remove ansi codes, pad each file's diff with newlines, show as diff, remove top padding
-	# diff = nvim -c 'silent %sm/\\e[^mK]*[mK]//g' \
-	# 	-c 'silent %s/^diff/\\r\\rdiff/' \
-	# 	-c 'silent set ft=diff' \
-	# 	-c 'silent execute \"normal gg2dd\"' \
-	# 	-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile'
-
-[commit]
-	gpgsign = true
+	diff = nvim -c 'silent %sm/\\e[^mK]*[mK]//g' \
+		-c 'silent %s/^diff/\\r\\rdiff/' \
+		-c 'silent set ft=diff' \
+		-c 'silent execute \"normal gg2dd\"' \
+		-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile'
 
 [gpg]
 	program = gpg2
-
-[include]
-	path = $ENV_PATH/gitconfig
-
-[include]
-	path = $HOME/.config/lytedev-env/divvy/gitconfig
 
 [color]
 	ui = auto
 
 [push]
 	default = current
+
+[include]
+	path = ~/.config/lytedev-env/host-personal/gitconfig
+	path = ~/.config/lytedev-env/divvy/gitconfig

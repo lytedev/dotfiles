@@ -1,0 +1,5 @@
+[user]
+	email = daniel@lyte.dev
+
+[commit]
+	gpgsign = true
