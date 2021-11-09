@@ -1,6 +1,10 @@
 {
 	"coc.preferences.formatOnSaveFiletypes": ["elixir", "ex", "exs", "typescript", "css", "markdown"],
   "languageserver": {
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"]
+    },
     "arduino": {
       "command":"/home/daniel/.home/.go/bin/arduino-language-server",
       "rootPatterns":["*.ino"],
