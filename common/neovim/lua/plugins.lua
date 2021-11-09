@@ -5,6 +5,8 @@ local setup = function()
 		vim.api.nvim_command'packadd packer.nvim'
 	end
 
+	vim.g.polyglot_disabled = {'cue'}
+
 	local packer = require'packer'
 	packer.startup(function()
 		local plugins = {
