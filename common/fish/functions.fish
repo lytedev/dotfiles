@@ -4,8 +4,10 @@ end
 
 if has_command exa
 	alias ls 'exa --group-directories-first'
+	alias l ls
 	alias tree 'ls --tree --level=3'
 	alias lt 'll --sort=modified'
+	alias lat 'la --sort=modified'
 	alias lc 'lt --sort=accessed'
 	alias lT 'lt --reverse'
 	alias lC 'lc --reverse'
@@ -56,9 +58,10 @@ if has_command nnn
 	function r --wraps nnn --description 'Run nnn with support for jump-to-directory-on-exit via ^G'
 		# TODO: this would break with multiple nnn instances, right?
 		# probably need to mktemp instead
-		set NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
+		set -u NNN_TMPFILE (mktemp)
+		export NNN_TMPFILE
 		nnn -P p $argv
-		test -e $NNN_TMPFILE && source $NNN_TMPFILE && rm $NNN_TMPFILE
+		test -e $NNN_TMPFILE && source $NNN_TMPFILE && cp $NNN_TMPFILE ~/.nnn-last-tmpfile && rm $NNN_TMPFILE
 	end
 	alias l r
 end
