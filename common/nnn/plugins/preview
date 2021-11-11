@@ -4,7 +4,7 @@ SPLIT="$SPLIT"
 TERMINAL="$TERMINAL"
 USE_SCOPE="${USE_SCOPE:-0}"
 IN_KITTY=0
-[ -n "$KITTY_WINDOW_ID" ] && kitty @ ls --no-response >/dev/null 2>&1 && IN_KITTY=1
+[ -z "$SSH_CONNECTION" ] && [ -n "$KITTY_WINDOW_ID" ] && kitty @ ls --no-response >/dev/null 2>&1 && IN_KITTY=1
 
 if [ -e "${TMUX%%,*}" ] && tmux -V | grep -q '[ -][3456789]\.'; then
 	TERMINAL=tmux
