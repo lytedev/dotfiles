@@ -22,4 +22,6 @@ function fish_user_key_bindings
 
 	bind -M insert \cv edit_command_buffer
 	bind -M default \cv edit_command_buffer
+
+	bind -M insert \cs tmuxswitcher
 end

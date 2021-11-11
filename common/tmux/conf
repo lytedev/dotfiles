@@ -62,7 +62,8 @@ bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'wl
 bind-key K kill-pane
 bind-key C-S-k kill-window
 
-# attempt at integrating nested tmux sessions nicely
+# TODO: handle tmux nesting by being able to toggle the prefix (and indicate in status bar?)
+
 # bind -T root F12 \
 # 	set prefix None \;\
 # 	set key-table off \;\
@@ -75,3 +76,5 @@ bind-key C-S-k kill-window
 # 	set -u key-table \;\
 # 	set status on \;\
 # 	refresh-client -S
+
+source-file "$ENV_PATH/*/tmux.d.conf"

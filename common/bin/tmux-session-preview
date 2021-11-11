@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+session_data="$1"
+session_id="$(echo "$session_data" | cut -d':' -f1)"
+
+S="$(tmux ls -F'#{session_id} #{session_name}: #{T:tree_mode_format}' | grep ^"$session_id")"
+session_info="${S##$s}"
+session_name="$(echo "$session_info" | cut -d ':' -f1)"
+
+echo "RAW: $1"
+echo "S: $S"
+echo "INFO: $session_info"
+echo "NAME: $session_name"

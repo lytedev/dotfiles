@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# if inside a session, use the current session
+# if not, a session must be specified after the dir
+d="${1}"
+[ -z "$d" ] && d="#{pane_current_path}"
+target_session="${2}"
+[ -n "$TMUX" ] && target_session="."
+tmux attach-session -t "$target_session" -c "$d"

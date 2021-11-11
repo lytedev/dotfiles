@@ -7,7 +7,16 @@ t="tmux switch-client -t"
 sess="$({ tmux display-message -p -F "$fmt" && tmux list-sessions -F "$fmt"; } \
 	| awk '!seen[$1]++' \
 	| column -t -s'|' \
-	| fzf -q '$' --reverse --prompt 'switch session: ' -1 \
+	| fzf -q '$' --reverse --prompt 'switch session: ' -1 --preview "tmux-session-preview {}" \
 	| cut -d':' -f1)"
 
+[ -z "$sess" ] && exit 1
+
 $t $sess
+
+
+
+# | while read w; do
+			# set W (tmux lsw -t"{}" -F'#{window_id}#{T:tree_mode_format}' | grep ^"$w")
+			# echo "  ﬌ ${W##$w}"
+		# end
