@@ -4,15 +4,10 @@
     "nim": {
       "command": "nimlsp",
       "filetypes": ["nim"]
-    },
-    "arduino": {
-      "command":"/home/daniel/.home/.go/bin/arduino-language-server",
-      "rootPatterns":["*.ino"],
-      "filetypes":["arduino"],
-      "args":["-cli", "/usr/bin/arduino-cli", "-clangd", "/usr/bin/clangd", "-cli-config", "/path/to/arduino-cli.yaml"]
     }
   },
   "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+  "rust-analyzer.checkOnSave.command": "clippy",
   "diagnostic-languageserver.filetypes": {
     "elixir": ["mix_credo", "mix_credo_compile"],
     "eelixir": ["mix_credo", "mix_credo_compile"]

@@ -25,7 +25,9 @@ local keymap = {
 		['<c-l>'] = ':TmuxNavigateRight<cr>',
 		['<expr> n'] = "'Nn'[v:searchforward]",
 		['<expr> N'] = "'nN'[v:searchforward]",
-		['<c-m>'] = ':lua SynGroup()<cr>'
+		['<c-m>'] = ':lua SynGroup()<cr>',
+		['g]'] = '<Plug>(coc-diagnostic-next)',
+		['g['] = '<Plug>(coc-diagnostic-prev)',
 	},
 	t = {},
 	[''] = {

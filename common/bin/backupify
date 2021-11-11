@@ -33,12 +33,18 @@ pushd (dirname $target) >/dev/null
 
 	set remote_path "$BACKUP_REMOTE_DIR/$backup_file_name$BACKUP_FILE_EXT"
 	echo "Streaming PGP encrypted backup of $friendly_target to SSH host $BACKUP_REMOTE_HOST at $remote_path"
-	ssh $BACKUP_REMOTE_HOST "mkdir -p $BACKUP_REMOTE_DIR"
+	ssh $BACKUP_REMOTE_HOST "mkdir -p $BACKUP_REMOTE_DIR" || begin
+		echo "Failed to SSH to $BACKUP_REMOTE_HOST and create remote dir $BACKUP_REMOTE_DIR"
+		exit 3
+	end
 	# TODO: progress indicator?
 	tar cf - . |
 		zstd --ultra -T2 -22 |
 		gpg --encrypt --recipient daniel@lyte.dev |
-		ssh $BACKUP_REMOTE_HOST "cat - > $remote_path"
+		ssh $BACKUP_REMOTE_HOST "cat - > $remote_path" || begin
+			echo "Failed to stream backup"
+			exit 4
+		end
 popd >/dev/null
 
 # TODO: checksum?

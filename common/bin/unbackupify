@@ -21,6 +21,16 @@ else if test (count $argv) -lt 1
 	exit 1
 end
 
+ssh $BACKUP_REMOTE_HOST "echo 1" &>/dev/null || begin
+	echo "Cannot ssh to $BACKUP_REMOTE_HOST"
+	exit 6
+end
+
+ssh $BACKUP_REMOTE_HOST "test -d $BACKUP_REMOTE_DIR/$target" || begin
+	echo "Remote directory $BACKUP_REMOTE_DIR/$target does not exist on $BACKUP_REMOTE_HOST (use --list-backup-files to show)"
+	exit 5
+end
+
 # TODO: autocomplete?
 # TODO: checksum?
 # TODO: progress indicator?
@@ -36,7 +46,10 @@ pushd $local_dir >/dev/null
 	ssh $BACKUP_REMOTE_HOST "cat $BACKUP_REMOTE_DIR/$target" |
 		gpg --decrypt 2>/dev/null |
 		zstd --ultra -T2 -22 -dc |
-		tar -xf -
+		tar -xf - || begin
+			echo "Failed to stream backup"
+			exit 4
+		end
 
 popd >/dev/null
 
