@@ -4,6 +4,11 @@
     "nim": {
       "command": "nimlsp",
       "filetypes": ["nim"]
+    },
+    "godot": {
+      "host": "127.0.0.1",
+      "filetypes": ["gd", "gdscript3"],
+      "port": 6008
     }
   },
   "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",

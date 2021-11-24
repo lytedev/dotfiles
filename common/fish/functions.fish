@@ -165,3 +165,12 @@ alias mount 'sudo -E mount'
 alias umount 'sudo -E umount'
 
 has_command xdg-open && alias open xdg-open
+
+function fish_preexec
+	test -n $TMUX && begin
+		set envlist (tmux show-environment)
+		for var in DISPLAY WAYLAND_DISPLAY
+			set -gx $var (echo $envlist | rg '^'$var'=(.*)$' -r '$1')
+		end
+	end
+end

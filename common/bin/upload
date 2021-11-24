@@ -5,24 +5,41 @@
 HOST="faceless"
 
 f="${1}"
+
+[ "${f}" = "" ] && echo "No file provided. Exiting." >&2 && exit 2
+[ ! -e "${f}" ] && echo "File '$f' does not exist. Exiting." >&2 && exit 1
+
+is_dir="$([ ! -e "${f}" ]; echo "$?")"
+
+set -xe
+
 fname="${2:-$(basename "${f}")}"
 subdir="${3:-uploads}"
 internal_dir="/home/daniel/public-static-files/${subdir}"
 url="https://files.lyte.dev/${subdir}/${fname}"
-
-[ "${f}" = "" ] && echo "No file provided. Exiting." >&2 && exit 2
-[ ! -f "${f}" ] && echo "File '$f' does not exist. Exiting." >&2 && exit 1
 
 if [ "$(curl -s -o /dev/null -w "%{http_code}" "${url}")" -eq 200 ]; then
 	echo "ERROR: A file already exists at ${url}"
 	exit 3
 fi
 
-ssh "$HOST" mkdir -p "$(dirname "${internal_dir}/${fname}")"
-rsync --progress --no-owner --no-group --chmod=644 --ignore-existing "${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
-code="$?"
-echo "Uploaded to: ${url}"
+flags=644
+code=""
+if [ "$is_dir" = "0" ]; then
+	ssh "$HOST" mkdir -p "$(dirname "${internal_dir}/${fname}")"
+	rsync --progress --no-owner --no-group --chmod="$flags" --ignore-existing \
+		"${f}" "${HOST}:${internal_dir}/${fname}" | tee "${HOME}/.upload.log"
+	code="$?"
+else
+	ssh "$HOST" mkdir -p "${internal_dir}/${fname}"
+	flags=755
+	rsync --recursive --progress --no-owner --no-group --chmod="$flags" \
+		"${f}" "${HOST}:${internal_dir}" | tee "${HOME}/.upload.log"
+	code="$?"
+fi
 
 if [ "$code" -ne 0 ]; then
 	printf "ERROR: The file failed to upload - perhaps rsync failed for some reason?\n  See \"%s/.upload.log\" for details\n" "$HOME"
+else
+	echo "Uploaded to: ${url}"
 fi

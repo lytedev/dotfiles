@@ -73,5 +73,5 @@
 	default = current
 
 [include]
-	path = ~/.config/lytedev-env/host-personal/gitconfig
+	path = ~/.config/lytedev-env/host-layer-personal/gitconfig
 	path = ~/.config/lytedev-env/divvy/gitconfig

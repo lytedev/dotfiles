@@ -19,6 +19,8 @@ bind s run "tmux split-window -l 12 'tmuxswitcher'"
 
 bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
 
+set -g update-environment "WAYLAND_DISPLAY DISPLAY"
+
 set -g default-terminal "kitty"
 set -g mouse on
 set -g escape-time 0
