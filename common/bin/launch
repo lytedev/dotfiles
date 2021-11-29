@@ -13,5 +13,7 @@ app="$(
 		grep "\S" | \
 		fzf
 	)"
+# if no app is selected, just exit
+test -z "$app" && exit 1
 echo "$app $(date +%s)" >> "$LAUNCHER_HISTORY_FILE"
 echo "$app"

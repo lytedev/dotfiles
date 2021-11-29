@@ -6,5 +6,5 @@ command -v fish >/dev/null 2>&1 && grep fish /etc/shells >/dev/null 2>&1 && {
 	echo "  You may want to run 'chsh' and set your shell to $(grep fish /etc/shells | head -n1)'."
 	echo "  Once that's done, simply run 'fish'."
 	echo "  You can also try fish temporarily by running 'fish'. No 'chsh' commitment required."
-	echo "  If you're in bash for intentionally for some reason, then ignore this message."
+	echo "  If you're in bash intentionally for some reason, then ignore this message."
 }
