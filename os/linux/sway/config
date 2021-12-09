@@ -184,7 +184,7 @@ exec /usr/lib/kdeconnectd
 exec gammastep -t 6500:3500 -l 39.0:-94.5
 
 exec_always 'killall kanshi; kanshi'
-exec_always notify-send -a "Sway" -i ~/.wallpaper "Sway configuration loaded."
+exec_always notify-send -a "sway" -i ~/.wallpaper "sway configuration loaded"
 
 no_focus [class=".*"]
 output * bg $HOME/.wallpaper fill
