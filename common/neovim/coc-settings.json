@@ -5,6 +5,10 @@
       "command": "nimlsp",
       "filetypes": ["nim"]
     },
+    "zls": {
+      "command": "~/zls/zls",
+      "filetypes": ["zig"]
+    },
     "godot": {
       "host": "127.0.0.1",
       "filetypes": ["gd", "gdscript3"],
