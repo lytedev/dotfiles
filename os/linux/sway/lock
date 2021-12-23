@@ -1,7 +1,8 @@
 color=111111ff
 image=/home/daniel/.home/.wallpaper
 font=IosevkaLyte
-font-size=24
+show-failed-attempts
+ignore-empty-password
 
 indicator-idle-visible
 indicator-radius=150

@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-if grep -E -q '^\[multilib\]$' /etc/pacman.conf; then
-	echo "Multilib Repository Already Enabled!"
-else
-	echo "Enabling Multilib Repository (with sudo)..."
-	sudo sh -c 'echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
-fi
+# if grep -E -q '^\[multilib\]$' /etc/pacman.conf; then
+# 	echo "Multilib Repository Already Enabled!"
+# else
+# 	echo "Enabling Multilib Repository (with sudo)..."
+# 	sudo sh -c 'echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
+# fi
 
 # TODO: some of these may be laptop-only?
-
-# TODO: switch to Nautilus?
+# TODO: switch from Thunar to Nautilus?
 
 yay -Sy --needed \
 	xf86-input-libinput \
@@ -18,6 +17,7 @@ yay -Sy --needed \
 	arc-gtk-theme `# GTK Theme` \
 	elementary-icon-theme `# GUI File Explorer Icons` \
 	thunar thunar-volman gvfs `# GUI File Explorer + Volume Management/Auto-Mount Disks)` \
+	ttf-iosevka-lyte `# My font` \
 	ttf-opensans `# Fonts` \
 	avr-libc avr-gcc dfu-programmer dfu-util `# Keyboard Programming Utilities` \
 	gimp inkscape krita `# Image/Vector Editing Applications` \
@@ -31,7 +31,10 @@ yay -Sy --needed \
 	elixir nodejs erlang rustup `# Langs` \
 	php `# PHP Language` \
 	nginx `# Web Server` \
+	python python-pip `# Python 3 Language` \
+	ctags `# Tags` \
 	postgresql pgcli `# RDBMS` \
+	sc-im `# Spreadsheets` \
 	cloc `# For counting lines of code` \
 	noto-fonts noto-fonts-emoji `# Emoji` \
 	discord `# Voice Chat` \
@@ -42,8 +45,9 @@ yay -Sy --needed \
  	glu mesa wxgtk2 libpng `# Graphical Libs` \
 	gammastep `# Redshift for Wayland` \
 	dmenu `# Application Launcher` \
-	python python-pip `# Python 3 Language` \
-	firefox-nightly `# Default Web Browser` \
+	firefox-developer-edition `# Default Web Browser` \
+	passff-host `# Pass integration in Firefox` \
+	kitty `# Terinal Emulator` \
 	alsa-utils `# Audio Utilities` \
 	alsa-plugins `# Plugins for ALSA` \
 	pavucontrol pulsemixer `# Audio Backend and Controls` \
