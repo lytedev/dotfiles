@@ -55,6 +55,7 @@ l common/mutt/rc $h/.muttrc
 l common/git/config $h/.gitconfig
 l common/elixir/iex.exs $h/.iex.exs
 l common/blender/userpref.blend $c/blender/2.93/config/userpref.blend
+l common/lemonade/config.toml $c/lemonade.toml
 popd
 
 for s in $c/lytedev-env/*/dotfiles-setup.d.fish

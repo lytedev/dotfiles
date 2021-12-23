@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-if grep -E -q '^\[multilib\]$' /etc/pacman.conf; then
-	echo "Multilib Repository Already Enabled!"
-else
-	echo "Enabling Multilib Repository (with sudo)..."
-	sudo sh -c 'echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
-fi
+# if grep -E -q '^\[multilib\]$' /etc/pacman.conf; then
+# 	echo "Multilib Repository Already Enabled!"
+# else
+# 	echo "Enabling Multilib Repository (with sudo)..."
+# 	sudo sh -c 'echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
+# fi
 
 yay -Sy --needed --noconfirm \
 	fwupd \
@@ -25,20 +25,17 @@ yay -Sy --needed --noconfirm \
 	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
 	asdf-vm `# Runtime Version Manager` \
-	pass passff-host `# Password Management` \
+	pass `# Password Management` \
 	hexyl `# CLI Hex Viewer` \
 	rsync `# File Transfer` \
-	neovim-nightly-bin `# Text Editors` \
-	sc-im `# Spreadsheets` \
+	neovim `# Text Editors` \
 	unzip `# Simple Unzipping` \
-	ctags `# Tags` \
 	tmux `# Terminal Multiplexer` \
-	kitty `# Almost Better Terminal Emulator` \
-	curl `# HTTP Utility` \
+	kitty-terminfo `# Almost Better Terminal Emulator` \
+	curl `# It's curl, c'mon` \
 	w3m `# Terminal Browser` \
 	jq `# CLI for Interacting with JSON` \
-	httpie `# httpie and neovim dependencies` \
-	docker docker-compose `# Yummy containers` \
+	xh `# New HTTP Utility` \
 	age sops `# Simple Secretes Managements` \
 	inotify-tools `# Watching` \
 	fish `# Shell` \
@@ -49,5 +46,4 @@ yay -Sy --needed --noconfirm \
 	reflector-simple `# Simplify Mirror Management` \
 	inetutils `# netutils` \
 	nnn `# CLI File Manager` \
-	ntfs-3g `# Windows filesystem stuff` \
 	man-db man-pages `# Come On, Man!`
