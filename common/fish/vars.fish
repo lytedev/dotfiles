@@ -6,7 +6,8 @@ set --export --universal EXA_COLORS '*=0'
 set --export --universal ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
 
 set --export --universal TERMINAL kitty
-set --export --universal BROWSER firefox-nightly
+set --export --universal TERMINAL_ARGS '--single-instance'
+set --export --universal BROWSER firefox-developer-edition
 
 set --export --universal PAGER less
 set --export --universal LESS "-r"

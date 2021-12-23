@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+#
+tmux new-session -d -s sway
+tmux run-shell "$HOME/.tmux/plugins/tmux-resurrect/scripts/restore.sh"
+kitty --single-instance fish -C 'tmux attach -t sway'

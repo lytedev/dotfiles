@@ -58,7 +58,6 @@ set --export --universal XDG_PICTURES_DIR $NICE_HOME/img
 set --export --universal XDG_VIDEOS_DIR $NICE_HOME/video
 set --export --universal XDG_GAMES_DIR $NICE_HOME/games
 
-set --export --universal TMUX_PLUGIN_MANAGER_PATH $XDG_CONFIG_HOME/tmux/plugins/
 set --export --universal NOTES_PATH $XDG_DOCUMENTS_DIR/notes
 set --export --universal USER_LOGS_PATH $XDG_DOCUMENTS_DIR/logs
 set --export --universal SCROTS_PATH $XDG_PICTURES_DIR/scrots
