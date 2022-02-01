@@ -8,52 +8,55 @@ export CURDIR
 dfp="$(realpath "$(dirname "$0")"/../..)"
 
 detect_os() {
-	# NixOS
-	if head /etc/os-release --lines 1 | grep 'NixOS$' >/dev/null 2>&1; then
-		ln -s "$dfp/os/linux/nix" "$ENV_PATH/os-linux-nix" >/dev/null 2>&1
-		return
-	fi
+  # NixOS
+  if head /etc/os-release --lines 1 | grep 'NixOS$' > /dev/null 2>&1; then
+    ln -s "$dfp/os/linux/nix" "$ENV_PATH/os-linux-nix" > /dev/null 2>&1
+    return
+  fi
 
-	# Arch Linux
-	if head /etc/os-release --lines 1 | grep 'Arch Linux' >/dev/null 2>&1; then
-		ln -s "$dfp/os/linux/arch" "$ENV_PATH/os-linux-arch" >/dev/null 2>&1
-		return
-	fi
+  # Arch Linux
+  if head /etc/os-release --lines 1 | grep 'Arch Linux' > /dev/null 2>&1; then
+    ln -s "$dfp/os/linux/arch" "$ENV_PATH/os-linux-arch" > /dev/null 2>&1
+    return
+  fi
 
-	# Pacman-based
-	if command -v pacman; then
-		ln -s "$dfp/os/linux/arch" "$ENV_PATH/os-linux-arch" >/dev/null 2>&1
-		return
-	fi
+  # Pacman-based
+  if command -v pacman; then
+    ln -s "$dfp/os/linux/arch" "$ENV_PATH/os-linux-arch" > /dev/null 2>&1
+    return
+  fi
 
-	# TODO: Debian
+  # TODO: Debian
 
-	echo "Failed to auto-detect your OS! Please setup your environments and run this script again."
-	exit 3
+  echo "Failed to auto-detect your OS! Please setup your environments and run this script again."
+  exit 3
 }
 
-if command -v git >/dev/null 2>&1; then
-	if [ -f "$dfp/common/envs" ]; then
-		# TODO: more shared init stuff?
-		mkdir -p $ENV_PATH
-		detect_os
-		ls -la -R $ENV_PATH/*
-		find "$ENV_PATH" | while read -r s; do
-			f="$s/dotfiles-init.d.sh"
-			if [ -f "$f" ]; then
-				CURDIR="$s"
-				. "$f"
-			fi
-		done
-		$dfp/common/bin/dotfiles-setup
-	else
-		git clone "https://git.lyte.dev/lytedev/dotfiles.git" "$XDG_CONFIG_HOME/lytedev-dotfiles"
-		cd "$XDG_CONFIG_HOME/lytedev-dotfiles" || { echo "Could not cd to dotfiles dir"; exit 2; }
-		. ./common/bin/dotfiles-init
-	fi
+if command -v git > /dev/null 2>&1; then
+  if [ -f "$dfp/common/envs" ]; then
+    # TODO: more shared init stuff?
+    mkdir -p "$ENV_PATH"
+    detect_os
+    ls -la -R "$ENV_PATH/*"
+    find "$ENV_PATH" | while read -r s; do
+      f="$s/dotfiles-init.d.sh"
+      if [ -f "$f" ]; then
+        CURDIR="$s"
+        . "$f"
+      fi
+    done
+    $dfp/common/bin/dotfiles-setup
+  else
+    git clone "https://git.lyte.dev/lytedev/dotfiles.git" "$XDG_CONFIG_HOME/lytedev-dotfiles"
+    cd "$XDG_CONFIG_HOME/lytedev-dotfiles" || {
+                                              echo "Could not cd to dotfiles dir"
+                                                                                   exit 2
+    }
+    . ./common/bin/dotfiles-init
+  fi
 else
-	echo "git not installed"
-	exit 1
+  echo "git not installed"
+  exit 1
 fi
 
 # TODO: run provision script

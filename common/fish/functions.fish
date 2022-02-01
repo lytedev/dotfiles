@@ -142,7 +142,7 @@ alias cdltl "cd (ltld)"
 
 alias p "ping 8.8.8.8"
 function pp --description "Keeps trying to ping 8.8.8.8 forever"
-	while not ping -n 1 -t 5 8.8.8.8
+	while not ping -n 1 -w 5 8.8.8.8
 		sleep 1
 	end
 end

@@ -1,26 +1,28 @@
 unbind C-b
 set -g prefix C-s
-bind-key s send-prefix
+bind s send-prefix
 
-bind-key v split-window -h
-bind-key b split-window
-bind-key T source-file "$HOME/.tmux.conf" \; display-message "Reloaded $HOME/.tmux.conf"
-bind-key O display-message "#(tmux-save-buffer '#S')"
-bind-key H set -s status
-bind-key -n C-l select-pane -R
-bind-key -n C-k select-pane -U
-bind-key -n C-j select-pane -D
-bind-key -n C-h select-pane -L
-bind-key -n C-t new-window
-bind-key Tab next-window
-bind-key -n C-Tab next-window
-bind-key -n C-S-Tab previous-window
+bind v split-window -h
+bind b split-window
+bind T source-file "$HOME/.tmux.conf" \; display-message "Reloaded $HOME/.tmux.conf"
+bind O display-message "#(tmux-save-buffer '#S')"
+bind D attach-session -t . -c '#{pane_current_path}' \; display-message "Set session path to #{pane_current_path}"
+bind H set -s status
+bind -n C-l select-pane -R
+bind -n C-k select-pane -U
+bind -n C-j select-pane -D
+bind -n C-h select-pane -L
+bind -n C-t new-window
+bind Tab next-window
+bind -n C-Tab next-window
+bind -n C-S-Tab previous-window
 bind s run "tmux split-window -l 12 'tmuxswitcher'"
 
 bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
 
 set -g update-environment "WAYLAND_DISPLAY DISPLAY"
 
+# TODO: check if kitty is installed?
 set -g default-terminal "kitty"
 set -g mouse on
 set -g escape-time 0
@@ -42,7 +44,11 @@ set -g window-status-separator ""
 set -g window-status-current-format " #W"
 set -g status-left "#h:#S #W"
 set -g status-right-length 280
-set -g status-right "#(kubeline && printf ' ')#{pane_current_path} #(cd '#{pane_current_path}' && git rev-parse --abbrev-ref --sq HEAD | tr -d \"'\")#{pane_current_command}"
+set -g status-right "#(kubeline && printf ' ')"
+	set -ag status-right "#(pwd | $XDG_CONFIG_HOME/lytedev-dotfiles/common/bin/glancepath) "
+	set -ag status-right "#(cd '#{pane_current_path}' && git rev-parse --abbrev-ref --sq HEAD | tr -d \"'\")"
+	set -ag status-right "#{pane_current_command}"
+
 set -g message-style "fg=colour7 bg=colour18"
 set -g pane-active-border-style bg=black,fg=blue
 set -g pane-border-style bg=black,fg=colour18
@@ -54,29 +60,27 @@ set -g window-status-current-format ""
 
 # present a menu of urls to open from the visible pane
 # TODO: fzf-ify this
-bind-key u capture-pane \;\
-	save-buffer /tmp/tmux-buffer \;\
-	split-window -l 10 "urlscan /tmp/tmux-buffer"
+# bind u capture-pane \;\
+# 	save-buffer /tmp/tmux-buffer \;\
+# 	split-window -l 10 "urlscan /tmp/tmux-buffer"
 
-bind-key -T copy-mode-vi "y" send-keys -X copy-pipe-and-cancel 'wl-copy'
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'wl-copy'; \
+bind -T copy-mode-vi "y" send-keys -X copy-pipe-no-clear 'wl-copy' \; display-message 'Copied to clipboard!'
+bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-no-clear 'wl-copy' \; display-message 'Copied to clipboard!'
 
-bind-key K kill-pane
-bind-key C-S-k kill-window
+bind K kill-pane
+bind C-S-k kill-window
 
 # TODO: handle tmux nesting by being able to toggle the prefix (and indicate in status bar?)
 
-# bind -T root F12 \
-# 	set prefix None \;\
-# 	set key-table off \;\
-# 	set status off \
-# 	if -F "#{pane_in_mode}" "send-keys -X cancel" \;\
-# 	refresh-client -S \;\
+# TODO: styles after `set -u key-table`
+#if -F '#{pane_in_mode}' 'send-keys -X cancel' \;\
+bind -T root F12 set -g prefix None \; set -g key-table off \; display-message "Keys OFF" \; refresh-client -S
 
-# bind -T off F12 \
-# 	set -u prefix \;\
-# 	set -u key-table \;\
-# 	set status on \;\
-# 	refresh-client -S
+# TODO: styles after `set -u key-table`
+bind -T off F12 \
+  set -g -u prefix \;\
+  set -g -u key-table \;\
+	display-message "Keys ON" \;\
+  refresh-client -S
 
 source-file "$ENV_PATH/*/tmux.d.conf"

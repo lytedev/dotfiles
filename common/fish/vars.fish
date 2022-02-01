@@ -25,4 +25,6 @@ else if command --search --quiet vi
 	set --export --universal VISUAL vi
 end
 
+set --export --universal SOPS_AGE_KEY_FILE "$XDG_CONFIG_HOME/sops/age/keys.txt"
+
 # has_command fd && set -Ux FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
