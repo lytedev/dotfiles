@@ -140,7 +140,11 @@ end
 alias vltl "$EDITOR (ltl)"
 alias cdltl "cd (ltld)"
 
-alias p "ping 8.8.8.8"
+function p
+	set ip 8.8.8.8
+	set -q argv[1] && set ip $argv[1]
+	ping $ip
+end
 function pp --description "Keeps trying to ping 8.8.8.8 forever"
 	while not ping -n 1 -w 5 8.8.8.8
 		sleep 1
