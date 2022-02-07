@@ -1,4 +1,8 @@
 set --export --universal XDG_CONFIG_HOME $HOME/.config
+set --export --universal XDG_CACHE_HOME $HOME/.cache
+set --export --universal XDG_DATA_HOME $HOME/.local/share
+set --export --universal XDG_STATE_HOME $HOME/.local/state
+
 set --export --universal DOTFILES_PATH $XDG_CONFIG_HOME/lytedev-dotfiles
 set --export --universal ENV_PATH $XDG_CONFIG_HOME/lytedev-env
 set --export --universal FISH_PATH $XDG_CONFIG_HOME/fish

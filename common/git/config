@@ -72,6 +72,12 @@
 [push]
 	default = current
 
+[sendemail]
+	smtpserver = smtp.mailgun.org
+	smtpuser = daniel@lyte.dev
+	smtrpencryption = tls
+	smtpserverport = 587
+
 [include]
 	path = ~/.config/lytedev-env/host-layer-personal/gitconfig
 	path = ~/.config/lytedev-env/divvy/gitconfig
