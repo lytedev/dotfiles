@@ -14,14 +14,14 @@ end
 # set --export --universal QT_QPA_PLATFORM_PLUGIN_PATH /usr/lib/qt/plugins
 
 set --export --universal CLUTTER_BACKEND wayland
-set --export --universal SDL_VIDEODRIVER wayland
+# set --export --universal SDL_VIDEODRIVER wayland
 set --export --universal MOZ_ENABLE_WAYLAND 1
 set --export --universal XDG_CURRENT_DESKTOP sway
 set --export --universal _JAVA_AWT_WM_NONREPARENTING 1
 
-for s in $ENV_PATH/*/sway-init.d.fish
-	source $s (dirname $s)
-end
+# for s in $ENV_PATH/*/sway-init.d.fish
+# 	source $s (dirname $s)
+# end
 
 set --query SWAY_LOGGING || set SWAY_LOGGING 0
 

@@ -143,7 +143,7 @@ alias cdltl "cd (ltld)"
 function p
 	set ip 8.8.8.8
 	set -q argv[1] && set ip $argv[1]
-	ping $ip
+	ping $ip $argv[2..]
 end
 function pp --description "Keeps trying to ping 8.8.8.8 forever"
 	while not ping -n 1 -w 5 8.8.8.8
