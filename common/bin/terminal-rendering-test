@@ -18,4 +18,8 @@ for s in {0..8}; do # text styles
 	echo
 done
 echo -e "Emoji: 😱😍😬🎉"
+echo -e "Possible Ligatures:"
+echo -r "  --> -> == != === ------> ** ++ |> <* := :: |] [| ===>"
+echo -r "  >= <= =>= ->- >>- <<- <***> =: <. <.> .> ~> ~~> ~~~~>"
+echo -r "  (* |- -| =!= :> <!-- <==> <--> |} {| >=> <=< ++++ ___"
 echo
