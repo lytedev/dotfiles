@@ -7,33 +7,42 @@ local m = {
 }
 local keymap = {
 	n = {
+		['<leader>/'] = {':let @/ = ""<cr>:<BACKSPACE>', m.s},
+
 		['<leader>r'] = {':luafile ' .. vim.g.vimdir .. '/init.lua<cr>:echo \'Reloaded init.lua\'<cr>', m.s},
 		['<leader>gv'] = {':e ' .. vim.g.vimdir .. '/init.lua<cr>', m.s},
+
 		['<leader>w'] = {':bd<cr>', m.s},
 		['<leader>h'] = {':b#<cr>', m.s},
 		['<leader>k'] = {':bnext<cr>', m.s},
 		['<leader>j'] = {':bprevious<cr>', m.s},
-		['<leader>/'] = {':let @/ = ""<cr>:<BACKSPACE>', m.s},
+
 		['<c-q>'] = ':qa<cr>',
+
 		['<c-p>'] = '<cmd>Telescope git_files<cr>',
 		['<c-g>'] = '<cmd>Telescope live_grep<cr>',
 		['<c-b>'] = '<cmd>Telescope buffers<cr>',
 		['<leader>t'] = '<cmd>Telescope help_tags<cr>',
+
 		['<c-h>'] = ':TmuxNavigateLeft<cr>',
 		['<c-j>'] = ':TmuxNavigateDown<cr>',
 		['<c-k>'] = ':TmuxNavigateUp<cr>',
 		['<c-l>'] = ':TmuxNavigateRight<cr>',
+
 		['<expr> n'] = "'Nn'[v:searchforward]",
 		['<expr> N'] = "'nN'[v:searchforward]",
 		['<c-m>'] = ':lua SynGroup()<cr>',
-		['g]'] = '<Plug>(coc-diagnostic-next)',
-		['g['] = '<Plug>(coc-diagnostic-prev)',
 	},
+
+	-- terminal bindings
 	t = {},
+
 	[''] = {
 		['<space>'] = {'<nop>', m.sn},
+
+		-- remove trailing whitespace
 		['<f3>'] = 'mw:%s/\\s\\+$//<cr>:let @/ = ""<cr>\'w',
-		['<f4>'] = ':setlocal spell!<cr>',
+		['<leader>gs'] = ':setlocal spell!<cr>',
 		[',w'] = {'<Plug>CamelCaseMotion_w', m.s},
 		[',b'] = {'<Plug>CamelCaseMotion_b', m.s},
 		[',e'] = {'<Plug>CamelCaseMotion_e', m.s},

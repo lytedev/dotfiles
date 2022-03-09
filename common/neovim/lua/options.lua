@@ -1,4 +1,8 @@
 local globals = {
+	coq_settings = {
+		['display.icons.mode'] = 'none'
+	},
+	dashboard_default_executive = 'telescope',
 	mapleader = ' ',
 	maplocalleader = ' ',
 	completion_enable_auto_popup = 0,
@@ -81,9 +85,21 @@ function SynGroup()
 	print(vim.fn.synIDattr(s, 'name') .. ' -> ' .. vim.fn.synIDattr(vim.fn.synIDtrans(s), 'name'))
 end
 
-print(vim.api.nvim_exec([[
+vim.api.nvim_exec([[
 au! TextYankPost * silent! lua vim.highlight.on_yank { higroup='Search', timeout=200 }
 au! FileType gitcommit exec 'norm gg' | startinsert!
 au! BufNewFile,BufRead *.slimleex set syntax=slime
 command! W write
-]], true))
+]], true)
+-- au! VimEnter * COQnow -s
+
+function NeatFoldText()
+	-- TODO: finish this!
+	-- local lines_count = vim.foldend - vim.foldstart + 1
+	-- local foldchar = vim.fn.matchstr(vim.fillchars, 'fold:\\zs.')
+	-- local foldtextstart = vim.fn.strpart('^' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+	-- let foldtextend = printf("%s %".(winwidth(0)-20)."dL", foldtextstart, getline(v:foldstart), lines_count)
+	-- let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+	-- return printf("%s%d", substitute(getline(v:foldstart), "^.", ">"), lines_count)
+end
+-- set foldtext=NeatFoldText()

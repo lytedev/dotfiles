@@ -1,48 +1,121 @@
-local setup = function()
-	local packer_install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-	if #vim.fn.glob(packer_install_path) == 0 then
-		vim.fn.system {'git', 'clone', 'https://github.com/wbthomason/packer.nvim', packer_install_path}
-		vim.api.nvim_command'packadd packer.nvim'
-	end
-
-	vim.g.polyglot_disabled = {'cue'}
-
-	local packer = require'packer'
-	packer.startup(function()
-		local plugins = {
-			'wbthomason/packer.nvim',
-			'editorconfig/editorconfig-vim',
-			'tpope/vim-sleuth',
-			'vim-scripts/LargeFile',
-			'vim-scripts/restore_view.vim',
-			'christoomey/vim-tmux-navigator',
-			'tpope/vim-fugitive',
-			'tpope/vim-rhubarb',
-			'tpope/vim-commentary',
-			'tpope/vim-repeat',
-			'machakann/vim-sandwich',
-			'michaeljsmith/vim-indent-object',
-			'wellle/targets.vim',
-			'bkad/CamelCaseMotion',
-			'ludovicchabant/vim-gutentags',
-			'tpope/vim-obsession',
-			'dhruvasagar/vim-prosession',
-			'nvim-lua/popup.nvim',
-			'nvim-lua/plenary.nvim',
-			{'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}},
-			-- 'joshdick/onedark.vim',
-			'lukas-reineke/indent-blankline.nvim',
-			-- {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}},
-			'neovim/nvim-lspconfig',
-			'hrsh7th/nvim-compe',
-			'jjo/vim-cue',
-			'sheerun/vim-polyglot',
-			{'neoclide/coc.nvim', branch = 'release'},
-		}
-		for _,plugin in ipairs(plugins) do
-			packer.use(plugin)
-		end
-	end)
+local packer_install_path = vim.fn.stdpath'data' .. '/site/pack/packer/start/packer.nvim'
+if #vim.fn.glob(packer_install_path) == 0 then
+	vim.fn.system{'git', 'clone', 'https://github.com/wbthomason/packer.nvim', packer_install_path}
+	vim.api.nvim_command'packadd packer.nvim'
 end
 
-return {setup = setup}
+local packer = require'packer'
+packer.startup(function()
+	local plugins = {
+		'wbthomason/packer.nvim', -- neovim plugin manager
+
+		'vim-scripts/LargeFile', -- degrade gracefully with large files
+		'tpope/vim-repeat', -- enable repeat for plugin maps
+		'tpope/vim-sleuth', -- use whatever whitespace is in the file
+		'editorconfig/editorconfig-vim', -- handle .editorconfig files
+		'christoomey/vim-tmux-navigator', -- navigate vim splits and tmux panes fluidly
+		'machakann/vim-sandwich', -- edit surrounding characters
+		'michaeljsmith/vim-indent-object', -- adds indent-level text objects
+		'wellle/targets.vim', -- add many other text objects
+		'bkad/CamelCaseMotion', -- invaluable motions for properly operating on various casings
+
+		{
+			-- session management
+			'olimorris/persisted.nvim',
+			config = function()
+				-- TODO: only load session if no arguments passed?
+				require'persisted'.setup{
+					autoload = true,
+				}
+			end
+		},
+		{
+			-- toggle comments
+			'terrortylor/nvim-comment',
+			config = function()
+				require'nvim_comment'.setup()
+			end
+		},
+		{
+			-- fuzzy finder
+			'nvim-telescope/telescope.nvim',
+			requires = {
+				'nvim-lua/popup.nvim',
+				'nvim-lua/plenary.nvim',
+			}
+		},
+		-- TODO: add keymap <leader>ig for toggling these
+		'lukas-reineke/indent-blankline.nvim', -- indentation guide lines
+		'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-cmdline',
+		{
+			'hrsh7th/nvim-cmp',
+			config = function()
+				local cmp = require'cmp'
+
+				cmp.setup{
+					mapping = {
+						['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+						['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+						['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+						['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+						['<C-e>'] = cmp.mapping{
+							i = cmp.mapping.abort(),
+							c = cmp.mapping.close(),
+						},
+						['<CR>'] = cmp.mapping.confirm{select = true}, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					},
+					sources = cmp.config.sources{
+						{ name = 'nvim_lsp' },
+						{ name = 'buffer' },
+					},
+				}
+
+				cmp.setup.cmdline('/', {
+					sources = {
+						{name = 'buffer'},
+					}
+				})
+
+				cmp.setup.cmdline(':', {
+					sources = cmp.config.sources({
+						{name = 'path'}
+					}, {
+						{name = 'cmdline'}
+					})
+				})
+			end,
+		},
+		-- TODO: automate this installation process of :COQdeps<cr>:COQnow<cr>
+		-- {'ms-jpq/coq_nvim', branch = 'coq'},
+		-- {'ms-jpq/coq.thirdparty', branch = '3p'},
+		{
+			'nvim-treesitter/nvim-treesitter',
+			run = ':TSUpdate',
+			config = function()
+				require'nvim-treesitter.configs'.setup {
+					ensure_installed = "maintained",
+					sync_install = false,
+					ignore_install = {},
+					indent = {
+						enable = true,
+					},
+					highlight = {
+						enable = true,
+						disable = {},
+						-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+						-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+						-- Using this option may slow down your editor, and you may see some duplicate highlights.
+						-- Instead of true it can also be a list of languages
+						-- additional_vim_regex_highlighting = false,
+					},
+				}
+			end
+		},
+	}
+	for _,plugin in pairs(plugins) do packer.use(plugin) end
+end)

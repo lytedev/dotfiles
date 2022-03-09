@@ -73,8 +73,4 @@ function StatusLine()
 	return status_line_buffers() .. '%*%=%c,%l/%L (%p%%)'
 end
 
-return {
-	setup=function()
-		vim.o.statusline = '%!v:lua.StatusLine()'
-	end
-}
+vim.o.statusline = '%!v:lua.StatusLine()'
