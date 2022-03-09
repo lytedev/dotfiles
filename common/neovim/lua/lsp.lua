@@ -41,7 +41,15 @@ local lsp_configs = {
 	elixirls = {
 		cmd = { vim.fn.expand'~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh' },
 	},
-	sumneko_lua = {},
+	sumneko_lua = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = {'vim'}
+				}
+			}
+		}
+	},
 	vimls = {},
 	rust_analyzer = {},
 	denols = {}
