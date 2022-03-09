@@ -46,13 +46,14 @@ packer.startup(function()
 		},
 		-- TODO: add keymap <leader>ig for toggling these
 		'lukas-reineke/indent-blankline.nvim', -- indentation guide lines
-		'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-path',
-		'hrsh7th/cmp-cmdline',
+		'neovim/nvim-lspconfig', -- language server configuration helper
+    'williamboman/nvim-lsp-installer', -- plugin containing installation commands for many language servers
+		'hrsh7th/cmp-nvim-lsp', -- add lsp to completion engine
+		'hrsh7th/cmp-buffer', -- add buffer information to completion engine
+		'hrsh7th/cmp-path', -- add filesystem information to complete enging
+		'hrsh7th/cmp-cmdline', -- add completion for vim commands
 		{
+			-- completion engine
 			'hrsh7th/nvim-cmp',
 			config = function()
 				local cmp = require'cmp'
@@ -94,6 +95,7 @@ packer.startup(function()
 		-- {'ms-jpq/coq_nvim', branch = 'coq'},
 		-- {'ms-jpq/coq.thirdparty', branch = '3p'},
 		{
+			-- syntax highlighting and indentation
 			'nvim-treesitter/nvim-treesitter',
 			run = ':TSUpdate',
 			config = function()
