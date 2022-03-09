@@ -23,9 +23,10 @@ packer.startup(function()
 			-- session management
 			'olimorris/persisted.nvim',
 			config = function()
-				-- TODO: only load session if no arguments passed?
+				local should_autoload = #vim.v.argv == 1
 				require'persisted'.setup{
-					autoload = true,
+					autoload = should_autoload,
+					autosave = should_autoload,
 				}
 			end
 		},

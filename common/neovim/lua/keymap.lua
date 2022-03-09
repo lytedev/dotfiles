@@ -32,6 +32,12 @@ local keymap = {
 		['<expr> n'] = "'Nn'[v:searchforward]",
 		['<expr> N'] = "'nN'[v:searchforward]",
 		['<c-m>'] = ':lua SynGroup()<cr>',
+
+		['<leader>s'] = "<cmd>SessionToggle<cr><cmd>echo 'Persisting Session: ' .. g:persisting .. ' (' .. getcwd() .. ')'<cr>",
+		['<leader>S'] = "<cmd>SessionSave<cr><cmd>echo 'Saved Session: ' .. getcwd()<cr>",
+		['<leader>l'] = "<cmd>SessionLoad<cr><cmd>echo 'Loaded Session: ' .. getcwd()<cr>",
+		['<leader>L'] = "<cmd>SessionLoadLast<cr><cmd>echo 'Loaded Last Session: ' .. getcwd()<cr>",
+		['<leader>d'] = "<cmd>SessionDelete<cr><cmd>echo 'Deleted Session for cwd: ' .. getcwd()<cr>",
 	},
 
 	-- terminal bindings
