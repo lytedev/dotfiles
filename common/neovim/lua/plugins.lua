@@ -10,6 +10,7 @@ local has_words_before = function()
 end
 
 local packer = require'packer'
+
 packer.startup(function()
 	local plugins = {
 		'wbthomason/packer.nvim', -- neovim plugin manager
@@ -64,6 +65,7 @@ packer.startup(function()
 
 		'neovim/nvim-lspconfig', -- language server configuration helper
     'williamboman/nvim-lsp-installer', -- plugin containing installation commands for many language servers
+		'hrsh7th/cmp-nvim-lsp-signature-help',
 		'hrsh7th/cmp-nvim-lsp', -- add lsp to completion engine
 		'hrsh7th/cmp-buffer', -- add buffer information to completion engine
 		'hrsh7th/cmp-path', -- add filesystem information to complete enging
@@ -115,6 +117,7 @@ packer.startup(function()
 					},
 					sources = cmp.config.sources({
 						{ name = 'nvim_lsp' },
+						{ name = 'nvim_lsp_signature_help' },
 						{ name = 'luasnip' },
 					}, {
 						{ name = 'buffer' },
