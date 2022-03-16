@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-echo 'This script is deprecated. Install and use the pass-otp extension.
-	yay -S pass-otp
-	pass otp $args'
-exit 1
