@@ -63,6 +63,9 @@
 		-c 'silent execute \"normal gg2dd\"' \
 		-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile'
 
+[url "git@git-p1ap1.divvy.co:"]
+	insteadOf = https://git-p1ap1.divvy.co
+
 [gpg]
 	program = gpg2
 

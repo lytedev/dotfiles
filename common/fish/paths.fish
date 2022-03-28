@@ -23,6 +23,7 @@ set --erase CDPATH
 set --export --global CDPATH . $NICE_HOME
 
 set --export --universal GOPATH $HOME/.go
+set --export --universal GOBIN $GOPATH/bin
 
 set paths_candidates \
 	$DOTFILES_PATH/common/bin \

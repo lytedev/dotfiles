@@ -13,11 +13,6 @@ profile desktop-H-2x4kside2  {
 }
 
 profile desktop-H-2x4kside2  {
-  output "Samsung Electric Company CF791 HTRJ500315" enable mode 3440x1440@100Hz position 0,1200 scale 1 transform normal
-  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 3440,0 scale 1 transform 90
-}
-
-profile desktop-H-2x4kside2  {
   output "Dell Inc. DELL U2720Q D3TM623" enable mode 3840x2160@60Hz position 0,0 scale 1.5 transform normal
 }
 
@@ -28,9 +23,9 @@ profile desktop-H-2x4kside2  {
 #   exec "$DOTFILES_PATH/os/linux/kanshi/desktop-H-workspaces.sh"
 # }
 
-profile tv4ktest  {
-  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 0,900 scale 1.5 transform normal
-	output "Samsung Electric Company SyncMaster H1AK500000" enable mode 3840x2160@60Hz position 2560,0 scale 1.0 transform normal
+profile desktop-primary {
+  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 0,500 scale 1.5 transform 90
+	output "Samsung Electric Company SyncMaster H1AK500000" enable mode 3840x2160@60Hz position 1440,0 scale 1.0 transform normal
 }
 
 profile tv4k  {

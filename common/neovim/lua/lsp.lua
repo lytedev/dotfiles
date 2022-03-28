@@ -9,7 +9,11 @@ local opts = {
 	silent = true,
 }
 
-local on_attach = function(_, bufnr)
+local lsp_format = require'lsp-format'
+
+local on_attach = function(client, bufnr)
+	lsp_format.on_attach(client)
+
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
@@ -39,6 +43,7 @@ local common_config = {
 }
 
 local lsp_configs = {
+	gopls = {},
 	elixirls = {
 		cmd = { vim.fn.expand'~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh' },
 	},

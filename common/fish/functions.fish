@@ -169,7 +169,10 @@ alias mount 'sudo -E mount'
 alias umount 'sudo -E umount'
 
 has_command xdg-open && alias open xdg-open
-has_command docker && alias dc "docker compose"
+has_command docker && begin
+	alias dc "docker compose"
+	alias dk "docker"
+end
 
 function fish_preexec
 	test -n $TMUX && begin

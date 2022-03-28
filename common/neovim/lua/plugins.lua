@@ -5,7 +5,7 @@ if #vim.fn.glob(packer_install_path) == 0 then
 end
 
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local line, col = vim.api.nvim_win_get_cursor(0)
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
@@ -102,7 +102,7 @@ packer.startup(function()
 							elseif has_words_before() then
 								cmp.complete()
 							else
-								fallback()
+								-- fallback()
 							end
 						end, { "i", "s" }),
 						["<S-Tab>"] = cmp.mapping(function(fallback)
@@ -111,7 +111,7 @@ packer.startup(function()
 							elseif luasnip.jumpable(-1) then
 								luasnip.jump(-1)
 							else
-								fallback()
+								-- fallback()
 							end
 						end, { "i", "s" }),
 					},
@@ -169,6 +169,7 @@ packer.startup(function()
 				}
 			end
 		},
+		'lukas-reineke/lsp-format.nvim',
 	}
 	for _,plugin in pairs(plugins) do packer.use(plugin) end
 end)
