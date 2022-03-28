@@ -58,7 +58,12 @@ local lsp_configs = {
 	},
 	vimls = {},
 	rust_analyzer = {},
-	denols = {}
+	tsserver = {
+
+	},
+	denols = {
+		root_dir = lsp.util.root_pattern("deno.json"),
+	},
 }
 
 for server, config in pairs(lsp_configs) do
