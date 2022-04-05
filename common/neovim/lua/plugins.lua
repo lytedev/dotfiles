@@ -5,8 +5,8 @@ if #vim.fn.glob(packer_install_path) == 0 then
 end
 
 local has_words_before = function()
-  local line, col = vim.api.nvim_win_get_cursor(0)
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	local line, col = vim.api.nvim_win_get_cursor(0)
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local packer = require'packer'
@@ -64,7 +64,7 @@ packer.startup(function()
 		'L3MON4D3/LuaSnip',
 
 		'neovim/nvim-lspconfig', -- language server configuration helper
-    'williamboman/nvim-lsp-installer', -- plugin containing installation commands for many language servers
+		'williamboman/nvim-lsp-installer', -- plugin containing installation commands for many language servers
 		'hrsh7th/cmp-nvim-lsp-signature-help',
 		'hrsh7th/cmp-nvim-lsp', -- add lsp to completion engine
 		'hrsh7th/cmp-buffer', -- add buffer information to completion engine
