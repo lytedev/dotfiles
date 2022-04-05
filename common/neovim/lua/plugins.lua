@@ -93,8 +93,11 @@ packer.startup(function()
 							i = cmp.mapping.abort(),
 							c = cmp.mapping.close(),
 						},
+						['<Tab>'] = cmp.config.disable,
+						['<S-Tab>'] = cmp.config.disable,
 						['<CR>'] = cmp.mapping.confirm{select = true}, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-						["<Tab>"] = cmp.mapping(function(fallback)
+						--[[ ["<Tab>"] = cmp.mapping(function(fallback)
+
 							if cmp.visible() then
 								cmp.select_next_item()
 							elseif luasnip.expand_or_jumpable() then
@@ -102,7 +105,7 @@ packer.startup(function()
 							elseif has_words_before() then
 								cmp.complete()
 							else
-								-- fallback()
+								fallback()
 							end
 						end, { "i", "s" }),
 						["<S-Tab>"] = cmp.mapping(function(fallback)
@@ -111,9 +114,10 @@ packer.startup(function()
 							elseif luasnip.jumpable(-1) then
 								luasnip.jump(-1)
 							else
-								-- fallback()
+								fallback()
 							end
 						end, { "i", "s" }),
+						]]--
 					},
 					sources = cmp.config.sources({
 						{ name = 'nvim_lsp' },

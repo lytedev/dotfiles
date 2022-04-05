@@ -69,8 +69,18 @@ local status_line_buffers = function()
 	end
 end
 
+local whitespace = function()
+	local result = ""
+	if vim.o.expandtab == true then
+		result = result .. vim.o.shiftwidth .. "S"
+	else
+		result = result .. vim.o.tabstop .. "T"
+	end
+	return result
+end
+
 function StatusLine()
-	return status_line_buffers() .. '%*%=%c,%l/%L (%p%%)'
+	return status_line_buffers() .. '%*%=%{&filetype} %l;%c (%p%%/%L) ' .. whitespace()
 end
 
 vim.o.statusline = '%!v:lua.StatusLine()'
