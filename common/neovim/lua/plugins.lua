@@ -1,7 +1,7 @@
-local packer_install_path = vim.fn.stdpath'data' .. '/site/pack/packer/start/packer.nvim'
+local packer_install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if #vim.fn.glob(packer_install_path) == 0 then
-	vim.fn.system{'git', 'clone', 'https://github.com/wbthomason/packer.nvim', packer_install_path}
-	vim.api.nvim_command'packadd packer.nvim'
+	vim.fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', packer_install_path }
+	vim.api.nvim_command 'packadd packer.nvim'
 end
 
 local has_words_before = function()
@@ -9,7 +9,7 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local packer = require'packer'
+local packer = require 'packer'
 
 packer.startup(function()
 	local plugins = {
@@ -22,7 +22,7 @@ packer.startup(function()
 		'christoomey/vim-tmux-navigator', -- navigate vim splits and tmux panes fluidly
 		'machakann/vim-sandwich', -- edit surrounding characters
 		'michaeljsmith/vim-indent-object', -- adds indent-level text objects
-		'wellle/targets.vim', -- add many other text objects
+		-- 'wellle/targets.vim', -- add many other text objects
 		'bkad/CamelCaseMotion', -- invaluable motions for properly operating on various casings
 
 		{
@@ -30,7 +30,7 @@ packer.startup(function()
 			'olimorris/persisted.nvim',
 			config = function()
 				local should_autoload = #vim.v.argv == 1
-				require'persisted'.setup{
+				require 'persisted'.setup {
 					autoload = should_autoload,
 					autosave = should_autoload,
 				}
@@ -40,7 +40,7 @@ packer.startup(function()
 			-- toggle comments
 			'terrortylor/nvim-comment',
 			config = function()
-				require'nvim_comment'.setup()
+				require 'nvim_comment'.setup()
 			end
 		},
 		{
@@ -57,7 +57,7 @@ packer.startup(function()
 		},
 		{
 			'tzachar/cmp-fuzzy-path',
-			requires = {'hrsh7th/nvim-cmp', 'tzachar/fuzzy.nvim'},
+			requires = { 'hrsh7th/nvim-cmp', 'tzachar/fuzzy.nvim' },
 		},
 		-- TODO: add keymap <leader>ig for toggling these
 		'lukas-reineke/indent-blankline.nvim', -- indentation guide lines
@@ -70,15 +70,38 @@ packer.startup(function()
 		'hrsh7th/cmp-buffer', -- add buffer information to completion engine
 		'hrsh7th/cmp-path', -- add filesystem information to complete enging
 		'hrsh7th/cmp-cmdline', -- add completion for vim commands
+		'onsails/lspkind-nvim',
 		'saadparwaiz1/cmp_luasnip',
 		{
 			-- completion engine
 			'hrsh7th/nvim-cmp',
 			config = function()
-				local cmp = require'cmp'
-				local luasnip = require'luasnip'
+				local cmp = require 'cmp'
+				local luasnip = require 'luasnip'
 
-				cmp.setup{
+				local prev_item = function(fallback)
+					if cmp.visible() then
+						cmp.select_prev_item()
+					elseif luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end
+
+				local next_item = function(fallback)
+					if cmp.visible() then
+						cmp.select_next_item()
+					elseif luasnip.expand_or_jumpable() then
+						luasnip.expand_or_jump()
+					elseif has_words_before() then
+						cmp.complete()
+					else
+						fallback()
+					end
+				end
+
+				cmp.setup {
 					snippet = {
 						expand = function(args)
 							luasnip.lsp_expand(args.body)
@@ -88,36 +111,16 @@ packer.startup(function()
 						['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 						['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 						['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-						['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-						['<C-e>'] = cmp.mapping{
+						['<C-y>'] = cmp.config.disable,
+						['<C-e>'] = cmp.mapping {
 							i = cmp.mapping.abort(),
 							c = cmp.mapping.close(),
 						},
-						['<Tab>'] = cmp.config.disable,
-						['<S-Tab>'] = cmp.config.disable,
-						['<CR>'] = cmp.mapping.confirm{select = true}, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-						--[[ ["<Tab>"] = cmp.mapping(function(fallback)
-
-							if cmp.visible() then
-								cmp.select_next_item()
-							elseif luasnip.expand_or_jumpable() then
-								luasnip.expand_or_jump()
-							elseif has_words_before() then
-								cmp.complete()
-							else
-								fallback()
-							end
-						end, { "i", "s" }),
-						["<S-Tab>"] = cmp.mapping(function(fallback)
-							if cmp.visible() then
-								cmp.select_prev_item()
-							elseif luasnip.jumpable(-1) then
-								luasnip.jump(-1)
-							else
-								fallback()
-							end
-						end, { "i", "s" }),
-						]]--
+						['<CR>'] = cmp.mapping.confirm { select = false },
+						["<Tab>"] = cmp.mapping(next_item, { "i", "s" }),
+						["<S-Tab>"] = cmp.mapping(prev_item, { "i", "s" }),
+						['<C-n>'] = cmp.mapping(next_item, { "i", "s" }),
+						['<C-p>'] = cmp.mapping(prev_item, { "i", "s" }),
 					},
 					sources = cmp.config.sources({
 						{ name = 'nvim_lsp' },
@@ -128,20 +131,30 @@ packer.startup(function()
 						{ name = 'path' },
 						{ name = 'fuzzy_path' },
 					}),
+					formatting = {
+						format = require("lspkind").cmp_format {
+							with_text = true,
+							menu = {
+								nvim_lsp = "[LSP]",
+							},
+						}
+					},
 				}
 
 				cmp.setup.cmdline('/', {
+					-- mapping = cmp.mapping.preset.cmdline(),
 					sources = {
-						{name = 'buffer'},
-						{name = 'fuzzy_path'},
+						{ name = 'buffer' },
+						{ name = 'fuzzy_path' },
 					}
 				})
 
 				cmp.setup.cmdline(':', {
+					-- mapping = cmp.mapping.preset.cmdline(),
 					sources = cmp.config.sources({
-						{name = 'path'}
+						{ name = 'path' }
 					}, {
-						{name = 'cmdline'}
+						{ name = 'cmdline' }
 					})
 				})
 			end,
@@ -154,8 +167,8 @@ packer.startup(function()
 			'nvim-treesitter/nvim-treesitter',
 			run = ':TSUpdate',
 			config = function()
-				require'nvim-treesitter.configs'.setup {
-					ensure_installed = "maintained",
+				require 'nvim-treesitter.configs'.setup {
+					ensure_installed = "all",
 					sync_install = false,
 					ignore_install = {},
 					indent = {
@@ -175,5 +188,5 @@ packer.startup(function()
 		},
 		'lukas-reineke/lsp-format.nvim',
 	}
-	for _,plugin in pairs(plugins) do packer.use(plugin) end
+	for _, plugin in pairs(plugins) do packer.use(plugin) end
 end)

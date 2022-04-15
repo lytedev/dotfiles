@@ -30,7 +30,7 @@ set -g monitor-activity on
 set -g visual-bell on
 set -g bell-action other
 set -g mode-keys vi
-set -g history-limit 102400000
+set -g history-limit 1024000
 set -g status on
 set -g status-position bottom
 set -g status-bg colour0
