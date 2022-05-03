@@ -4,7 +4,6 @@ font=IosevkaLyte
 show-failed-attempts
 ignore-empty-password
 
-indicator-idle-visible
 indicator-radius=150
 indicator-thickness=30
 

@@ -13,7 +13,7 @@
 		"memory",
 		// "temperature",
 		"backlight",
-		"battery",
+		// "battery",
 		"tray"
 	],
 	"sway/workspaces": {
