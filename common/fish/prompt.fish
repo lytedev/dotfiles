@@ -12,9 +12,8 @@ end
 function preprocess_pwd
 	test (pwd) = / && echo "/" && return 1
 	test (pwd) = $NICE_HOME && echo "~" && return 0
-	# TODO: fix for macOS
-	echo (pwd) | cut -c2- | \
-		awk '{split($0,p,"/");for(k in p){if(k==length(p)){printf "/%s",p[k]}else{printf "/%.'$MAX_PATH_PIECE_CHARS[1]'s",p[k]}}}'
+	pwd | cut -c2- | \
+		awk '{n=split($0,p,"/");for(i=1;i<=n;i++){if(i==n){printf "/%s",p[i]}else{printf "/%.'$MAX_PATH_PIECE_CHARS[1]'s",p[i]}}}'
 end
 
 function fish_prompt

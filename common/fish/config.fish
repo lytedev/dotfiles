@@ -12,7 +12,7 @@ end
 
 if has_command brew && test -f (brew --prefix asdf)/lib/asdf.fish
 	set -Ux ASDF_DIR (brew --prefix asdf)
-	source (brew --prefix asdf)/lib/asdf.fish
+	source (brew --prefix asdf)/libexec/asdf.fish
 else if test -f $HOME/.asdf/asdf.fish
 	source $HOME/.asdf/asdf.fish
 else if test -f /opt/asdf-vm/asdf.fish
