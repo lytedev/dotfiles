@@ -2,6 +2,7 @@ os/linux
 os/linux/arch
 os/linux/nix
 os/linux/debian
+os/macos
 host/desktop
 host/desktop/wallwart
 host/desktop/rising

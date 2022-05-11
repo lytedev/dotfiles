@@ -71,4 +71,4 @@ if test -n "$NIX_PATH"
 	set NIX_PATH :
 end
 test -d $HOME/.nix-defexpr/channels && \
-	 set --export --universal NIX_PATH $HOME/.nix-defexpr/channels:$NIX_PATH
+	set --export --universal NIX_PATH $HOME/.nix-defexpr/channels:$NIX_PATH
