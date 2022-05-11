@@ -8,4 +8,3 @@ command -v fish >/dev/null 2>&1 && grep fish /etc/shells >/dev/null 2>&1 && {
 	echo "  You can also try fish temporarily by running 'fish'. No 'chsh' commitment required."
 	echo "  If you're in bash intentionally for some reason, then ignore this message."
 }
-. "$HOME/.cargo/env"
