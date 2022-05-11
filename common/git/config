@@ -81,3 +81,8 @@
 [include]
 	path = ~/.config/lytedev-env/host-layer-personal/gitconfig
 	path = ~/.config/lytedev-env/divvy/gitconfig
+
+# [push]
+# 	pushOption = merge_request.create
+# 	pushOption = merge_request.remove_source_branch 
+# 	pushOption = merge_request.assign="daniel.flanagan" 
