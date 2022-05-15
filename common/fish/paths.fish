@@ -35,6 +35,7 @@ set paths_candidates \
 	$HOME/.yarn/bin \
 	$HOME/.nimble/bin \
 	$HOME/.cargo/bin \
+	$HOME/.krew/bin \
 	$HOME/.go \
 	$GOPATH/bin \
 	$HOME/.netlify/helper/bin
