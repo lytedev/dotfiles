@@ -22,8 +22,6 @@ bind M-l source-file "$XDG_CONFIG_HOME/tmux/layouts/dev.tmux"
 
 set -g update-environment "WAYLAND_DISPLAY DISPLAY"
 
-# TODO: check if kitty is installed?
-set -g default-terminal "kitty"
 set -g mouse on
 set -g escape-time 0
 set -g monitor-activity on
