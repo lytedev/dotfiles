@@ -10,8 +10,8 @@ for f in vars colors prompt functions key-bindings
 	source $FISH_PATH/$f.fish
 end
 
-if has_command brew && test -f (brew --prefix asdf)/lib/asdf.fish
-	set -Ux ASDF_DIR (brew --prefix asdf)
+if has_command brew && test -f (brew --prefix asdf)/libexec/asdf.fish
+	set --universal --export ASDF_DIR (brew --prefix asdf)
 	source (brew --prefix asdf)/libexec/asdf.fish
 else if test -f $HOME/.asdf/asdf.fish
 	source $HOME/.asdf/asdf.fish
@@ -41,5 +41,6 @@ if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 	set --prepend --export --global fish_user_paths $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
 end
 
-
-test $PWD = $HOME && begin; cd $NICE_HOME || cd; end
+test $PWD = $HOME && begin
+	cd $NICE_HOME || cd
+end
