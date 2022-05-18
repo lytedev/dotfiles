@@ -1,2 +1,7 @@
+theme = "donokai"
+
 [keys.insert]
 j = { k = "normal_mode" }
+
+# [editor]
+# mouse = false
