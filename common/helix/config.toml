@@ -1,7 +1,25 @@
 theme = "donokai"
 
+[editor]
+auto-pairs = false
+scrolloff = 8
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
 [keys.insert]
-j = { k = "normal_mode" }
+j = { k = "normal_mode", j = "normal_mode" }
+
+[keys.normal]
+g = { G = "goto_last_line" }
+
+[keys.select]
+g = { G = "goto_last_line" }
 
 # [editor]
 # mouse = false
