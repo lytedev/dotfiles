@@ -86,13 +86,6 @@ for server, config in pairs(lsp_configs) do
 	lsp[server].setup(config)
 end
 
-local lsp_installer = require 'nvim-lsp-installer'
-lsp_installer.on_server_ready(function(server)
-	local server_opts = {}
-
-	-- if server.name == "elixirls" then
-	-- 	server_opts.cmd = { vim.fn.expand'~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh' }
-	-- end
-
-	server:setup(server_opts)
-end)
+require'nvim-lsp-installer'.setup{
+	automatic_installation = true,
+}
