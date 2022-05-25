@@ -37,7 +37,8 @@ paru -Sy --needed \
 	sc-im `# Spreadsheets` \
 	cloc `# For counting lines of code` \
 	noto-fonts noto-fonts-emoji `# Emoji` \
-	discord `# Voice Chat` \
+	discord `# Personal & Voice Chat` \
+	slack-desktop `# Work Chat` \
 	steam steamcmd lutris `# Games` \
 	gnome-shell `# Guh-nome Guh-shell` \
 	vlc `# Video Viewer` \
