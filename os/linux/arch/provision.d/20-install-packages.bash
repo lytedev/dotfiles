@@ -25,7 +25,7 @@ paru -Sy --needed --noconfirm \
 	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
 	asdf-vm `# Runtime Version Manager` \
-	pass `# Password Management` \
+	pass pass-otp `# Password Management` \
 	hexyl `# CLI Hex Viewer` \
 	rsync `# File Transfer` \
 	neovim `# Text Editors` \

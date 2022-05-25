@@ -10,7 +10,7 @@
 # TODO: some of these may be laptop-only?
 # TODO: switch from Thunar to Nautilus?
 
-yay -Sy --needed \
+paru -Sy --needed \
 	xf86-input-libinput \
 	libinput libinput-gestures `# Trackpad Control` \
 	bluez bluez-libs bluez-utils bluez-tools `# Bluetooth` \
@@ -47,7 +47,7 @@ yay -Sy --needed \
 	dmenu `# Application Launcher` \
 	firefox-developer-edition `# Default Web Browser` \
 	passff-host `# Pass integration in Firefox` \
-	kitty `# Terinal Emulator` \
+	kitty-git `# Terinal Emulator` \
 	alsa-utils `# Audio Utilities` \
 	alsa-plugins `# Plugins for ALSA` \
 	pavucontrol pulsemixer `# Audio Backend and Controls` \
@@ -59,9 +59,8 @@ yay -Sy --needed \
 	wofi `# Sway app launcher` \
 	waybar mako `# Sway Bar & Notifications` \
 	slurp grim wl-clipboard `# Sway Screen Selection & Clipping` \
-	pipewire pipewire-pulse pipewire-media-session `# Pipewire` \
+	pipewire pipewire-pulse wireplumber `# Pipewire` \
 	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \
 	obs-studio `# OBS` \
-	ttf-iosevka `# Primary Fonts` \
 	ttf-font-awesome `# Icon Font` \
 	ripcord `# Discord and Slack Client`
