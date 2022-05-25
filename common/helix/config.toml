@@ -4,10 +4,10 @@ theme = "donokai"
 auto-pairs = false
 scrolloff = 8
 
-[editor.cursor-shape]
-normal = "block"
-insert = "bar"
-select = "underline"
+# [editor.cursor-shape]
+# normal = "block"
+# insert = "bar"
+# select = "underline"
 
 [editor.file-picker]
 hidden = false
@@ -23,3 +23,14 @@ g = { G = "goto_last_line" }
 
 # [editor]
 # mouse = false
+
+# [[language]]
+# name = "typescript"
+# scope = "source.ts"
+# injection-regex = "^(ts|typescript)$"
+# file-types = ["ts"]
+# shebangs = []
+# roots = []
+# # TODO: highlights-params
+# language-server = { command = "deno", args = ["lsp"], language-id = "typescript"}
+# indent = { tab-width = 2, unit = "  " }

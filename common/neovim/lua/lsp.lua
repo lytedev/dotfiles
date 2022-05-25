@@ -45,10 +45,11 @@ local common_config = {
 
 --[[
 
+set els_path ~/.local/share/nvim/lsp_servers/elixir
 curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
-mkdir -p ~/.local/share/nvim/lsp_servers/elixir
-unzip elixir-ls.zip -d ~/.local/share/nvim/lsp_servers/elixir/elixir-ls/
-chmod +x ~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh
+mkdir -p $els_path
+unzip elixir-ls.zip -d $els_path/elixir-ls/
+chmod +x $els_path/elixir-ls/language_server.sh
 
 ]]
 
@@ -74,7 +75,7 @@ local lsp_configs = {
 	},
 	vimls = {},
 	rust_analyzer = {},
-	tsserver = {},
+	-- tsserver = {},
 	pylsp = {},
 	denols = {
 		root_dir = lsp.util.root_pattern("deno.json"),

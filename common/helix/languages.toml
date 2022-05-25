@@ -1,0 +1,3 @@
+[[language]]
+name = "typescript"
+language-server = { cmd = "deno", args = ["lsp"], language-id = "typescript" }

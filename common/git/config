@@ -44,6 +44,9 @@
 	s = status
 	sur = submodule update --remote
 
+[pull]
+	default = current
+
 [merge]
 	tool = $EDITOR -d
 	conflictstyle = diff3
@@ -81,6 +84,9 @@
 [include]
 	path = ~/.config/lytedev-env/host-layer-personal/gitconfig
 	path = ~/.config/lytedev-env/divvy/gitconfig
+
+[branch]
+	autoSetupMerge = true
 
 # [push]
 # 	pushOption = merge_request.create
