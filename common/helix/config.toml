@@ -3,6 +3,7 @@ theme = "donokai"
 [editor]
 auto-pairs = false
 scrolloff = 8
+rulers = [80, 120]
 
 [editor.cursor-shape]
 normal = "block"
