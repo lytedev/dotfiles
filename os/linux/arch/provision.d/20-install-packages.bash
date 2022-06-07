@@ -7,7 +7,7 @@
 # 	sudo sh -c 'echo -e "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf'
 # fi
 
-yay -Sy --needed --noconfirm \
+paru -Sy --needed --noconfirm \
 	fwupd \
 	docker `# Containers` \
 	ncdu `# Disk Usage Analyzer` \
@@ -25,7 +25,7 @@ yay -Sy --needed --noconfirm \
 	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
 	asdf-vm `# Runtime Version Manager` \
-	pass `# Password Management` \
+	pass pass-otp `# Password Management` \
 	hexyl `# CLI Hex Viewer` \
 	rsync `# File Transfer` \
 	neovim `# Text Editors` \
@@ -43,7 +43,7 @@ yay -Sy --needed --noconfirm \
 	fortune-mod fortune-mod-archlinux `# Fortune` \
 	oath-toolkit `# One-Time Passwords` \
 	sysstat `# System Statistics` \
-	reflector-simple `# Simplify Mirror Management` \
+	reflector `# Simplify Mirror Management` \
 	inetutils `# netutils` \
 	nnn `# CLI File Manager` \
 	man-db man-pages `# Come On, Man!`

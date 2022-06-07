@@ -1,3 +1,11 @@
 [[language]]
 name = "typescript"
-language-server = { command = "deno", args = ["lsp"] }
+scope = "source.ts"
+injection-regex = "ts"
+file-types = ["typescript"]
+roots = ["deno.json"]
+language-server = { command = "denopoo", args = ["lsp"] }
+config = { deno = { enable = true, lint = true } }
+comment-token = "//"
+indent = { tab-width = 2, unit = "  " }
+grammar = "javascript"

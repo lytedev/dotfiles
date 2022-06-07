@@ -33,6 +33,7 @@
 
 "comment" = { fg = "#88846F" }
 "ui.virtual" = "#888888"
+# "ui.virtual.ruler" = { bg = "#333333" }
 
 "string" = { fg = "#e6db74" }
 "constant.character" = { fg = "#e6db74" }
