@@ -21,6 +21,9 @@ K = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode"
 
 [keys.normal]
 g = { G = "goto_last_line" }
+D = "kill_to_line_end"
+C = ["kill_to_line_end", "insert_mode"]
+"^" = "goto_line_start"
 
 [keys.select]
 g = { G = "goto_last_line" }
