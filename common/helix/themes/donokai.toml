@@ -32,6 +32,8 @@
 "attribute" = { fg = "fn_declaration" }
 
 "comment" = { fg = "#88846F" }
+"ui.virtual" = "#888888"
+# "ui.virtual.ruler" = { bg = "#333333" }
 
 "string" = { fg = "#e6db74" }
 "constant.character" = { fg = "#e6db74" }
@@ -39,16 +41,26 @@
 "constant.numeric" = { fg = "#ae81ff" }
 "constant.character.escape" = { fg = "#ae81ff" }
 
+"markup.heading" = "blue"
+"markup.list" = "red"
+"markup.bold" = { fg = "yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "magenta", modifiers = ["italic"] }
+"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
+"markup.link.text" = "red"
+"markup.quote" = "cyan"
+"markup.raw" = "green"
+
 "diff.plus" = { fg = "#a6e22e" }
 "diff.delta" = { fg = "#fd971f" }
 "diff.minus" = { fg = "#f92672" }
 
-# "ui.background" = { fg = "text", bg = "background" }
+"ui.background" = { fg = "text", bg = "background" }
 
 "ui.window" = { bg = "widget" }
 "ui.popup" = { bg = "widget" }
 "ui.help" = { bg = "widget" }
-"ui.menu.selected" = { bg = "widget" }
+"ui.menu" = { bg = "widget" }
+"ui.menu.selected" = { bg = "blue", fg = "background" }
 
 "ui.cursor" = { fg = "cursor", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "cursor", modifiers = ["reversed"] }

@@ -1,5 +1,9 @@
 function fish_user_key_bindings
-	test -f $HOME/.fzf/shell/key-bindings.fish && source $HOME/.fzf/shell/key-bindings.fish
+	if command -v brew &>/dev/null && test -f (brew --prefix fzf)/shell/key-bindings.fish
+		source (brew --prefix fzf)/shell/key-bindings.fish
+	else if test -f $HOME/.fzf/shell/key-bindings.fish
+		source $HOME/.fzf/shell/key-bindings.fish
+	end
 
 	type -q fzf_key_bindings && fzf_key_bindings
 	fish_vi_key_bindings insert --no-erase

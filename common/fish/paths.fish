@@ -26,6 +26,7 @@ set --export --universal GOPATH $HOME/.go
 set --export --universal GOBIN $GOPATH/bin
 
 set paths_candidates \
+	$HOME/.asdf/shims \
 	/opt/homebrew/bin \
 	/opt/homebrew/sbin \
 	$DOTFILES_PATH/common/bin \

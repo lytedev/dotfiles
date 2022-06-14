@@ -3,6 +3,7 @@ theme = "donokai"
 [editor]
 auto-pairs = false
 scrolloff = 8
+rulers = [80, 120]
 
 # [editor.cursor-shape]
 # normal = "block"
@@ -13,24 +14,19 @@ scrolloff = 8
 hidden = false
 
 [keys.insert]
-j = { k = "normal_mode", j = "normal_mode" }
+j = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
+J = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
+k = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
+K = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
 
 [keys.normal]
 g = { G = "goto_last_line" }
+D = "kill_to_line_end"
+C = ["kill_to_line_end", "insert_mode"]
+"^" = "goto_line_start"
 
 [keys.select]
 g = { G = "goto_last_line" }
 
 # [editor]
 # mouse = false
-
-# [[language]]
-# name = "typescript"
-# scope = "source.ts"
-# injection-regex = "^(ts|typescript)$"
-# file-types = ["ts"]
-# shebangs = []
-# roots = []
-# # TODO: highlights-params
-# language-server = { command = "deno", args = ["lsp"], language-id = "typescript"}
-# indent = { tab-width = 2, unit = "  " }
