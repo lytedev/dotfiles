@@ -166,6 +166,7 @@ packer.startup(function()
 		'hrsh7th/cmp-path', -- add filesystem information to complete enging
 		'hrsh7th/cmp-cmdline', -- add completion for vim commands
 		'onsails/lspkind-nvim',
+		'simrat39/symbols-outline.nvim',
 		'saadparwaiz1/cmp_luasnip',
 		-- TODO: automate this installation process of :COQdeps<cr>:COQnow<cr>
 		-- {'ms-jpq/coq_nvim', branch = 'coq'},
@@ -272,7 +273,7 @@ vim.api.nvim_command 'colorscheme donokai'
 function SynGroup()
 	local s = vim.fn.synID(vim.fn.line('.'), vim.fn.col('.'), 1)
 	-- TODO: instead of printing, put it in a popup? virtual text?
-	print(vim.fn.synIDattr(s, 'name') .. ' -> ' .. vim.fn.synIDattr(vim.fn.synIDtrans(s), 'name'))
+	print(s .. ': ' .. vim.fn.synIDattr(s, 'name') .. ' -> ' .. vim.fn.synIDattr(vim.fn.synIDtrans(s), 'name'))
 end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -324,12 +325,22 @@ local keymap = {
 		['<leader>k'] = { ':bnext<cr>', m.s },
 		['<leader>j'] = { ':bprevious<cr>', m.s },
 
+
+		['<leader>s'] = "<cmd>SessionToggle<cr><cmd>echo 'Persisting Session: ' .. g:persisting .. ' (' .. getcwd() .. ')'<cr>",
+		['<leader>S'] = "<cmd>SessionSave<cr><cmd>echo 'Saved Session: ' .. getcwd()<cr>",
+		['<leader>l'] = "<cmd>SessionLoad<cr><cmd>echo 'Loaded Session: ' .. getcwd()<cr>",
+		['<leader>L'] = "<cmd>SessionLoadLast<cr><cmd>echo 'Loaded Last Session: ' .. getcwd()<cr>",
+		['<leader>d'] = "<cmd>SessionDelete<cr><cmd>echo 'Deleted Session for cwd: ' .. getcwd()<cr>",
+
+		['<leader>t'] = '<cmd>Telescope help_tags<cr>',
+
+		['<leader>m'] = '<cmd>lua SynGroup()<cr>',
+
 		['<c-q>'] = ':qa<cr>',
 
 		['<c-p>'] = '<cmd>Telescope git_files<cr>',
 		['<c-g>'] = '<cmd>Telescope live_grep<cr>',
 		['<c-b>'] = '<cmd>Telescope buffers<cr>',
-		['<leader>t'] = '<cmd>Telescope help_tags<cr>',
 
 		['<c-h>'] = ':TmuxNavigateLeft<cr>',
 		['<c-j>'] = ':TmuxNavigateDown<cr>',
@@ -338,13 +349,6 @@ local keymap = {
 
 		['<expr> n'] = "'Nn'[v:searchforward]",
 		['<expr> N'] = "'nN'[v:searchforward]",
-		['<c-m>'] = ':lua SynGroup()<cr>',
-
-		['<leader>s'] = "<cmd>SessionToggle<cr><cmd>echo 'Persisting Session: ' .. g:persisting .. ' (' .. getcwd() .. ')'<cr>",
-		['<leader>S'] = "<cmd>SessionSave<cr><cmd>echo 'Saved Session: ' .. getcwd()<cr>",
-		['<leader>l'] = "<cmd>SessionLoad<cr><cmd>echo 'Loaded Session: ' .. getcwd()<cr>",
-		['<leader>L'] = "<cmd>SessionLoadLast<cr><cmd>echo 'Loaded Last Session: ' .. getcwd()<cr>",
-		['<leader>d'] = "<cmd>SessionDelete<cr><cmd>echo 'Deleted Session for cwd: ' .. getcwd()<cr>",
 	},
 
 	-- terminal bindings
@@ -514,7 +518,14 @@ chmod +x $els_path/elixir-ls/language_server.sh
 ]] --
 
 local lsp_configs = {
-	gopls = {},
+	ansiblels = {},
+	bashls = {},
+	clangd = {},
+	denols = {
+		root_dir = lsp.util.root_pattern("deno.json"),
+	},
+	diagnosticls = {},
+	dockerls = {},
 	elixirls = {
 		cmd = { vim.fn.expand '~/.local/share/nvim/lsp_servers/elixir/elixir-ls/language_server.sh' },
 		settings = {
@@ -524,6 +535,13 @@ local lsp_configs = {
 			}
 		}
 	},
+	gopls = {},
+	nimls = {},
+	openscad_ls = {},
+	pylsp = {},
+	rnix = {},
+	rust_analyzer = {},
+	sqlls = {},
 	sumneko_lua = {
 		settings = {
 			Lua = {
@@ -533,13 +551,11 @@ local lsp_configs = {
 			}
 		}
 	},
+	terraform_lsp = {},
+	tflint = {},
 	vimls = {},
-	rust_analyzer = {},
 	-- tsserver = {},
-	pylsp = {},
-	denols = {
-		root_dir = lsp.util.root_pattern("deno.json"),
-	},
+	yamlls = {},
 }
 
 local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
