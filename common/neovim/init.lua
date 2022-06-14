@@ -261,7 +261,7 @@ local options = {
 	laststatus = 2,
 	ruler = false,
 	number = true,
-	-- cmdheight = 0,
+	-- cmdheight = 0, -- TODO: coming soon!
 }
 for k, v in pairs(options) do
 	vim.o[k] = v
