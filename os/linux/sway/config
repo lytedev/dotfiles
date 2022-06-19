@@ -188,7 +188,7 @@ exec_always 'killall kanshi; kanshi'
 # prevents all windows from stealing focus
 no_focus [class=".*"]
 
-output * bg $HOME/.wallpaper fill
+output * background $HOME/.wallpaper fill
 
 include /etc/sway/config.d/*
 include $XDG_CONFIG_HOME/lytedev-env/*/sway/config

@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"position": "bottom",
-	"output": ["eDP-1", "DP-3"],
+	"output": ["eDP-1", "DP-1"],
 	"height": 32,
 	"modules-left": ["clock"],
 	"modules-center": ["sway/workspaces"],

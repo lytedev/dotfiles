@@ -92,3 +92,6 @@
 # 	pushOption = merge_request.create
 # 	pushOption = merge_request.remove_source_branch 
 # 	pushOption = merge_request.assign="daniel.flanagan" 
+
+[url "git@git-p1ap1.divvy.co:"]
+	insteadOf = https://git-p1ap1.divvy.co

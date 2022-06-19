@@ -96,7 +96,6 @@ end
 if has_command rg
 	function rgl; rg --color always $argv | less -r; end
 	alias rg "rg --text"
-	alias grep "rg"
 	alias gr "rg"
 end
 
