@@ -32,7 +32,7 @@ packer.startup(function()
 			-- session management
 			'olimorris/persisted.nvim',
 			config = function()
-				local should_autoload = #vim.v.argv >= 1
+				local should_autoload = #vim.v.argv == 1
 				require 'persisted'.setup {
 					autoload = should_autoload,
 					autosave = should_autoload,
@@ -74,7 +74,6 @@ packer.startup(function()
 				local cmp = require 'cmp'
 				local luasnip = require 'luasnip'
 
-				--[[
 				local prev_item = function(fallback)
 					if cmp.visible() then
 						cmp.select_prev_item()
@@ -96,7 +95,6 @@ packer.startup(function()
 						fallback()
 					end
 				end
-				]] --
 
 				cmp.setup {
 					snippet = {
@@ -118,8 +116,8 @@ packer.startup(function()
 						['<CR>'] = cmp.mapping.confirm { select = false },
 						-- ["<Tab>"] = cmp.mapping(next_item, { "i", "s" }),
 						-- ["<S-Tab>"] = cmp.mapping(prev_item, { "i", "s" }),
-						-- ['<C-n>'] = cmp.mapping(next_item, { "i", "s" }),
-						-- ['<C-p>'] = cmp.mapping(prev_item, { "i", "s" }),
+						['<C-n>'] = cmp.mapping(next_item, { "i", "s" }),
+						['<C-p>'] = cmp.mapping(prev_item, { "i", "s" }),
 					},
 					sources = cmp.config.sources({
 						{ name = 'nvim_lsp' },
