@@ -2,8 +2,12 @@ function has_command --wraps=command --description "Exits non-zero if the given 
 	command --quiet --search $argv[1]
 end
 
+alias ll 'ls -l'
+alias la 'll --all'
+alias lA 'la --all'
+
 if has_command exa
-	alias ls 'exa --group-directories-first'
+	alias ls 'exa --group-directories-first --classify'
 	alias l ls
 	alias tree 'ls --tree --level=3'
 	alias lt 'll --sort=modified'
@@ -11,11 +15,8 @@ if has_command exa
 	alias lc 'lt --sort=accessed'
 	alias lT 'lt --reverse'
 	alias lC 'lc --reverse'
+	alias lD 'la --only-dirs'
 end
-
-alias lA 'ls --all'
-alias ll 'ls -l'
-alias la 'll --all'
 
 function scount --wraps=count --description "Silent count exits with a non-zero status if no arguments given to count"
 	count $argv > /dev/null
