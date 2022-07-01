@@ -281,6 +281,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("InsertLeave", {
+	pattern = "*",
+	callback = function()
+		vim.lsp.buf.formatting_seq_sync()
+		vim.cmd 'write'
+	end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "gitcommit",
 	callback = function()
@@ -323,7 +331,6 @@ local keymap = {
 		['<leader>k'] = { ':bnext<cr>', m.s },
 		['<leader>j'] = { ':bprevious<cr>', m.s },
 
-
 		['<leader>s'] = "<cmd>SessionToggle<cr><cmd>echo 'Persisting Session: ' .. g:persisting .. ' (' .. getcwd() .. ')'<cr>",
 		['<leader>S'] = "<cmd>SessionSave<cr><cmd>echo 'Saved Session: ' .. getcwd()<cr>",
 		['<leader>l'] = "<cmd>SessionLoad<cr><cmd>echo 'Loaded Session: ' .. getcwd()<cr>",
@@ -335,6 +342,7 @@ local keymap = {
 		['<leader>m'] = '<cmd>lua SynGroup()<cr>',
 
 		['<c-q>'] = ':qa<cr>',
+		['<c-x>'] = ':x<cr>',
 
 		['<c-p>'] = '<cmd>Telescope git_files<cr>',
 		['<c-g>'] = '<cmd>Telescope live_grep<cr>',
@@ -375,6 +383,7 @@ local keymap = {
 	},
 	i = {
 		['<c-q>'] = '<esc><c-q>',
+		['<c-x>'] = '<Esc>:x<cr>',
 	},
 }
 for mode, mappings in pairs(keymap) do
