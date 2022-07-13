@@ -281,11 +281,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("InsertLeave", {
+vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*",
 	callback = function()
 		vim.lsp.buf.formatting_seq_sync()
-		vim.cmd 'write'
 	end,
 })
 
