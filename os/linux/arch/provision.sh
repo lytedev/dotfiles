@@ -8,14 +8,14 @@ ls -la "$(dirname "$0")"
 for file in "$(dirname "$0")/provision.d"/*; do
 	test -d "$file" && continue
 	echo "Runnning $file..."
-	if <<< "$file" grep -q "AS_ROOT"; then
-		if [ "$is_root" == "1" ]; then
+	if grep -q "AS_ROOT" "$file"; then
+		if [ "$is_root" = "1" ]; then
 			"$file"
 		else
 			sudo "$file"
 		fi
 	else
-		if [ "$is_root" == "1" ]; then
+		if [ "$is_root" = "1" ]; then
 			sudo -u daniel "$file"
 		else
 			"$file"
