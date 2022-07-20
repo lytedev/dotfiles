@@ -8,7 +8,7 @@
 # fi
 
 paru -Sy --needed --noconfirm \
-	watchexec \
+	fswatch watchexec \
 	fwupd \
 	docker `# Containers` \
 	ncdu `# Disk Usage Analyzer` \
