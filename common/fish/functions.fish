@@ -105,13 +105,10 @@ if has_command kubectl
 	alias kg "k get"
 end
 
-alias vim $EDITOR
-alias vi $EDITOR
 alias v $EDITOR
 alias e $EDITOR
 alias sv "sudo -E $EDITOR"
 alias se sv
-alias svim sv
 
 function ltl --wraps=ls --description "Echoes the name of the file most recently modified either in the current directory or in the given path"
 	set d $argv[1] .

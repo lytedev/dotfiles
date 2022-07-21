@@ -24,6 +24,10 @@ g = { G = "goto_last_line" }
 D = "kill_to_line_end"
 C = ["kill_to_line_end", "insert_mode"]
 "^" = "goto_line_start"
+"C-k" = "jump_view_up"
+"C-j" = "jump_view_down"
+"C-h" = "jump_view_left"
+"C-l" = "jump_view_right"
 
 [keys.select]
 g = { G = "goto_last_line" }
