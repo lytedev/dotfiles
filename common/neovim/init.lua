@@ -1,7 +1,7 @@
 vim.g.vimdir = os.getenv('XDG_CONFIG_HOME') .. '/nvim'
 
+-- ensure our plugin manager plugin is installed
 local packer_install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
 if #vim.fn.glob(packer_install_path) == 0 then
 	vim.fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', packer_install_path }
 	vim.cmd 'packadd packer.nvim'

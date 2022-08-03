@@ -24,8 +24,8 @@ profile desktop-H-2x4kside2  {
 # }
 
 profile desktop-primary {
-  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@60Hz position 0,500 scale 1.5 transform 90
-	output "Samsung Electric Company SyncMaster H1AK500000" enable mode 3840x2160@60Hz position 1440,0 scale 1.0 transform normal
+  output "Dell Inc. DELL U2720Q CWTM623" enable mode 3840x2160@59.997Hz position 0,500 scale 1.5 transform 90
+	output "Samsung Electric Company SyncMaster H1AK500000" enable mode 3840x2160@59.997Hz position 1440,0 scale 1.0 transform normal
 }
 
 profile tv4k  {

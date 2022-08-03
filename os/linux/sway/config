@@ -49,7 +49,7 @@ bindsym $mod+shift+alt+return exec kitty
 bindsym $mod+c kill
 bindsym $mod+shift+c kill # TODO: kill -9?
 bindsym $mod+shift+space exec wofi --show drun
-bindsym $mod+space exec app-launcher
+bindsym $mod+space exec wofi --show drun
 bindsym $mod+shift+s exec clipshot
 bindsym $mod+e exec thunar
 bindsym $mod+shift+r reload

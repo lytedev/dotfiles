@@ -164,6 +164,7 @@ alias dd "dd status=progress"
 alias year 'cal (date +%Y)'
 alias mount 'sudo -E mount'
 alias umount 'sudo -E umount'
+alias ip 'ip -color'
 
 has_command xdg-open && alias open xdg-open
 has_command docker && begin

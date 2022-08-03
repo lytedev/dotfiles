@@ -5,10 +5,10 @@ auto-pairs = false
 scrolloff = 8
 rulers = [80, 120]
 
-# [editor.cursor-shape]
-# normal = "block"
-# insert = "bar"
-# select = "underline"
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
 
 [editor.file-picker]
 hidden = false
@@ -20,17 +20,10 @@ k = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode"
 K = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
 
 [keys.normal]
-g = { G = "goto_last_line" }
 D = "kill_to_line_end"
-C = ["kill_to_line_end", "insert_mode"]
+# C = ["kill_to_line_end", "insert_mode"]
 "^" = "goto_line_start"
 "C-k" = "jump_view_up"
 "C-j" = "jump_view_down"
 "C-h" = "jump_view_left"
 "C-l" = "jump_view_right"
-
-[keys.select]
-g = { G = "goto_last_line" }
-
-# [editor]
-# mouse = false
