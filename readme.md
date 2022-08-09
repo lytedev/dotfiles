@@ -79,6 +79,7 @@ can select multiple environments with TAB):
 
 ```bash
 dotfiles-link-environments
+```
 
 You can also list the possible environments:
 
