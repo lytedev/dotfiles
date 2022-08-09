@@ -132,6 +132,11 @@ git fetch upstream
 git merge upstream/master
 ```
 
+# Todo
+
+- Setup `host/desktop/bin/reboot-to-windows` to use efibootmgr and simply grep for the boot entry
+	- Maybe also a script for cleaning up bad boot entries?
+
 # Screenshots
 
 ## Arch Linux Desktop
