@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set profile_dirs "$HOME/.mozilla/firefox/*.dev-edition-default"
+set profile_dirs $HOME/.mozilla/firefox/*.dev-edition-default
 if test (uname) = Darwin
 	set profile_dirs $HOME/Library/Application\ Support/Firefox/Profiles/*.dev-edition-default
 end

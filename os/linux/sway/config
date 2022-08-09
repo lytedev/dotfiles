@@ -163,7 +163,7 @@ mode "resize" {
 for_window [app_id="floating_terminal"] floating enable
 for_window [class="floating_terminal"] floating enable
 for_window [app_id="zoom"] border none, floating enable
-for_window [app_id="zoom" title="^zoom$"] border none, floating enable
+for_window [title="^zoom$"] border none, floating enable
 bindsym $mod+shift+alt+f for_window [class=".*"] floating toggle
 for_window [class=".*"] layout floating enable
 for_window [class=".*"] layout splith
@@ -177,8 +177,8 @@ bar {
 }
 
 exec mako
-exec gammastep -t 6500:3500 -l 39.0:-94.5
-exec_always 'killall kanshi; kanshi'
+# exec gammastep -t 6500:3500 -l 39.0:-94.5
+# exec_always 'killall kanshi; kanshi'
 # exec /usr/lib/kdeconnectd
 # exec sway-init-tmux
 # exec $term

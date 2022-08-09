@@ -29,7 +29,7 @@ paru -Sy --needed --noconfirm \
 	pass pass-otp `# Password Management` \
 	hexyl `# CLI Hex Viewer` \
 	rsync `# File Transfer` \
-	neovim `# Text Editors` \
+	neovim helix `# Text Editors` \
 	unzip `# Simple Unzipping` \
 	tmux `# Terminal Multiplexer` \
 	kitty-terminfo `# Almost Better Terminal Emulator` \
@@ -37,7 +37,7 @@ paru -Sy --needed --noconfirm \
 	w3m `# Terminal Browser` \
 	jq `# CLI for Interacting with JSON` \
 	xh `# New HTTP Utility` \
-	age sops `# Simple Secretes Managements` \
+	age sops `# Simple Secrets Managements` \
 	inotify-tools `# Watching` \
 	fish `# Shell` \
 	time `# GNU time` \

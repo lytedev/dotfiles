@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 # use `efibootmgr` to list boot entries
-sudo efibootmgr -n 0002
+sudo efibootmgr -n 0001
 sudo reboot
