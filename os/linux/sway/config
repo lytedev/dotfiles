@@ -188,7 +188,7 @@ exec mako
 # prevents all windows from stealing focus
 no_focus [class=".*"]
 
-output * background $HOME/.wallpaper fill
+output * background $HOME/.config/lytedev-dotfiles/os/linux/sway/bg.jpg fill
 
 include /etc/sway/config.d/*
 include $XDG_CONFIG_HOME/lytedev-env/*/sway/config

@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
-# use `efibootmgr` to list boot entries
-sudo efibootmgr -n 0001
+
+next_boot_entry_n="$(efibootmgr | awk 'match($0,/Boot([0-9]+)\*? Windows Boot Manager/,a){print a[1];exit}')"
+
+sudo efibootmgr -n "$next_boot_entry_n"
 sudo reboot

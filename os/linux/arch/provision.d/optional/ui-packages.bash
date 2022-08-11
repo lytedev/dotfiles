@@ -54,7 +54,7 @@ paru -Sy --needed \
 	pavucontrol pulsemixer `# Audio Backend and Controls` \
 	playerctl `# Media Keys Controls` \
 	feh `# Image Viewer & Wallpaper Manager` \
-	wlroots sway `# Wayland Compositor` \
+	wlroots sway swaybg `# Wayland Compositor` \
 	swaylock swayidle `# Auto-Locking for Sway` \
 	kanshi `# Monitor Management for Sway` \
 	wofi `# Sway app launcher` \

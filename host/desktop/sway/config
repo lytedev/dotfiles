@@ -1,1 +1,1 @@
-exec output '"Dell Inc. DELL U2720Q CWTM623"' transform 270 scale 1.5
+output '"Dell Inc. DELL U2720Q CWTM623"' transform 270 scale 1.5
