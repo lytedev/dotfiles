@@ -185,10 +185,10 @@ exec mako
 
 # exec_always notify-send -a "sway" -i ~/.wallpaper "sway configuration loaded"
 
-# prevents all windows from stealing focus
+# prevent all windows from stealing focus
 no_focus [class=".*"]
 
-output * background $HOME/.config/lytedev-dotfiles/os/linux/sway/bg.jpg fill
+output * background $HOME/.wallpaper fill
 
 include /etc/sway/config.d/*
 include $XDG_CONFIG_HOME/lytedev-env/*/sway/config
