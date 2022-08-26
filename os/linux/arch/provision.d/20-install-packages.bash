@@ -47,4 +47,5 @@ paru -Sy --needed --noconfirm \
 	reflector `# Simplify Mirror Management` \
 	inetutils `# netutils` \
 	nnn `# CLI File Manager` \
+	avahi	nss-mdns `# .local DNS` \
 	man-db man-pages `# Come On, Man!`
