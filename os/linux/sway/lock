@@ -1,5 +1,5 @@
-color=111111ff
-image=/home/daniel/.home/.wallpaper
+color=ffffffff
+image=~/.wallpaper
 font=IosevkaLyte
 show-failed-attempts
 ignore-empty-password
