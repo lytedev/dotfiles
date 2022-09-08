@@ -12,7 +12,7 @@ focus_wrapping no
 gaps inner $default_gap
 smart_borders on|no_gaps
 hide_edge_borders smart_no_gaps
-default_border pixel 5
+default_border pixel 1
 focus_follows_mouse no
 mouse_warping none
 
