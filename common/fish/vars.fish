@@ -12,15 +12,15 @@ set --export --universal BROWSER firefox-developer-edition
 set --export --universal PAGER "less"
 set --export --universal MANPAGER "less"
 
-if command --search --quiet nvim
-	set --export --universal EDITOR nvim
-	set --export --universal VISUAL nvim
-else if command --search --quiet helix
+if command --search --quiet helix
 	set --export --universal EDITOR helix
 	set --export --universal VISUAL helix
 else if command --search --quiet hx
 	set --export --universal EDITOR hx
 	set --export --universal VISUAL hx
+else if command --search --quiet nvim
+	set --export --universal EDITOR nvim
+	set --export --universal VISUAL nvim
 else if command --search --quiet vim
 	set --export --universal EDITOR vim
 	set --export --universal VISUAL vim
