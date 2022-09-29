@@ -1,8 +1,0 @@
-{
-	admin "unix//run/caddy/admin.socket"
-}
-
-{system.hostname} {
-	root * /usr/share/caddy
-	file_server browse
-}

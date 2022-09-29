@@ -1,0 +1,11 @@
+{
+	admin "unix//run/caddy/admin.socket"
+}
+
+// http://127.0.0.1 http://0.0.0.0 http://{system.hostname} {
+	root * /srv/http
+	file_server {
+		browse /etc/caddy/browse_template.html
+		hide \.*
+	}
+}
