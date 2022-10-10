@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{html .Name}}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://lyte.dev/styles.css" />
+	</head>
+	<style>
+	body > header { margin-bottom: 0; justify-content: space-between; }
+	body > header > section > span {
+	  text-decoration: none;
+	  line-height: 1.5em;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  padding: .25em .5em;
+	}
+	table { width: 100%; }
+	div.meta { margin-bottom: 0.5em; }
+	thead { background-color: var(--header-bg); margin-bottom: 0.5em; }
+	tr.spacer { height: 0.5em; }
+	th { text-align: left; font-weight: normal; padding: 0.5em 0.8em; margin-bottom: 0.5em; }
+	td { padding: 0 0.8em; }
+	svg { stroke: var(--fg); fill: var(--fg); }
+	</style>
+	<body>
+		<header>
+			<section>
+				{{range $i, $crumb := .Breadcrumbs}}<a href="{{html $crumb.Link}}">{{html $crumb.Text}}</a>{{if ne $i 0}}<a href="./">/</a>{{end}}{{end}}
+			</section>
+			<section>
+				<span class="meta-item">{{.NumDirs}} director{{if eq 1 .NumDirs}}y{{else}}ies{{end}}</span>
+				<span class="meta-item">{{.NumFiles}} file{{if ne 1 .NumFiles}}s{{end}}</span>
+				{{- if ne 0 .Limit}}
+				<span class="meta-item">(of which only <b>{{.Limit}}</b> are displayed)</span>
+				{{- end}}
+			</section>
+		</header>
+		<main>
+			<div class="listing">
+				<table aria-describedby="summary">
+					<thead>
+					<tr>
+						<th>
+							Name
+						</th>
+						<th>
+							Size
+						</th>
+						<th class="hideable">
+							Modified
+						</th>
+					</tr>
+					<tr class="spacer"></tr>
+					</thead>
+					<tbody>
+					{{- range .Items}}
+					<tr class="file">
+						<td>
+							<a href="{{html .URL}}">
+								<span class="name">{{html .Name}}</span>
+							</a>
+						</td>
+						{{- if .IsDir}}
+						<td data-order="-1">&mdash;</td>
+						{{- else}}
+						<td data-order="{{.Size}}">{{.HumanSize}}</td>
+						{{- end}}
+						<td class="hideable"><time datetime="{{.HumanModTime "2006-01-02T15:04:05Z"}}">{{.HumanModTime "01/02/2006 03:04:05 PM -07:00"}}</time></td>
+					</tr>
+					{{- end}}
+					</tbody>
+				</table>
+			</div>
+		</main>
+		<script>
+			function localizeDatetime(e, index, ar) {
+				if (e.textContent === undefined) {
+					return;
+				}
+				var d = new Date(e.getAttribute('datetime'));
+				if (isNaN(d)) {
+					d = new Date(e.textContent);
+					if (isNaN(d)) {
+						return;
+					}
+				}
+				e.textContent = d.toLocaleString([], {day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit"});
+			}
+			var timeList = Array.prototype.slice.call(document.getElementsByTagName("time"));
+			timeList.forEach(localizeDatetime);
+		</script>
+	</body>
+</html>

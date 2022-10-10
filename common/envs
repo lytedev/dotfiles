@@ -23,4 +23,4 @@ host/laptop/postmates-macbook
 host/laptop/uber-macbook
 host/laptop/val-macbook
 host/layer/personal
-host/layer/nginx-user-public
+host/layer/public-webserver
