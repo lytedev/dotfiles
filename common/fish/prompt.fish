@@ -18,6 +18,7 @@ end
 
 function fish_prompt
 	set last_cmd_status $status
+	set prompt_str '$'
 	if test (id -u) -eq 0
 		if test $last_cmd_status -eq 0
 			set_color -b blue black
@@ -25,20 +26,21 @@ function fish_prompt
 			set_color -b red black
 		end
 		printf " SUDO $USER@$hostname "
+		set prompt_str '#'
 	else
 		if test $last_cmd_status -eq 0
 			set_color blue
 		else
 			set_color red
 		end
-		printf %s@%s $USER (echo $hostname | cut -d '.' -f1)
+		printf '%s@%s' $USER (echo $hostname | cut -d '.' -f1)
 	end
 	set_color normal
 	printf " "
 	set_color magenta
-	printf (preprocess_pwd)""
-	set_color normal
-	printf " "
+	printf "%s" (preprocess_pwd)
+	set_color -b black brblack
+	printf "\n$prompt_str "
 end
 
 function fish_mode_prompt; end

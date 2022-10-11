@@ -12,6 +12,8 @@ set --export --universal BROWSER firefox-developer-edition
 set --export --universal PAGER "less"
 set --export --universal MANPAGER "less"
 
+set --universal fish_cursor_insert line
+
 if command --search --quiet helix
 	set --export --universal EDITOR helix
 	set --export --universal VISUAL helix
