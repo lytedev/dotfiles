@@ -28,3 +28,4 @@ D = "kill_to_line_end"
 "C-h" = "jump_view_left"
 "C-l" = "jump_view_right"
 "C-;" = "repeat_last_motion"
+space = { q = ":reflow 80", Q = ":reflow 120" }
