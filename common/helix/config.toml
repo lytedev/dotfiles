@@ -13,6 +13,10 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
+[editor.indent-guides]
+render = true
+character = "🭰"
+
 [keys.insert]
 j = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
 J = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }

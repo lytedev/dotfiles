@@ -5,7 +5,7 @@ function get_hostname
 end
 
 function fish_greeting
-	set_color -b black brblack
+	set_color -b normal brblack
 	printf "%s@%s %s\n" $USER (get_hostname) (date)
 end
 
@@ -18,45 +18,37 @@ end
 
 function fish_prompt
 	set last_cmd_status $status
-	set prompt_str '$'
-	if test (id -u) -eq 0
-		if test $last_cmd_status -eq 0
-			set_color -b blue black
-		else
-			set_color -b red black
-		end
-		printf " SUDO $USER@$hostname "
-		set prompt_str '#'
-	else
-		if test $last_cmd_status -eq 0
-			set_color blue
-		else
-			set_color red
-		end
-		printf '%s@%s' $USER (echo $hostname | cut -d '.' -f1)
+	if set -q SUDO_USER
+		set_color -b yellow black
+		printf " SUDO "
+		set_color -b normal normal
+		printf " "
 	end
-	set_color normal
-	printf " "
-	set_color magenta
-	printf "%s" (preprocess_pwd)
-	set_color -b black brblack
-	printf "\n$prompt_str "
+	if test $last_cmd_status -eq 0
+		set_color -b normal blue
+	else
+		set_color -b normal red
+	end
+	printf "$USER@$hostname"
+	set_color -b normal magenta
+	printf " %s" (preprocess_pwd)
+	set_color -b normal green
+	set -q CMD_DURATION && printf " %dms" $CMD_DURATION
+	if jobs -q
+		set_color -b normal cyan
+		printf " [jobs: %d]" (jobs -p | wc -l)
+	end
+	printf "\n"
+	set_color brblack
+	if test (id -u) -eq 0
+		printf "# "
+	else
+		printf '$ '
+	end
+	set_color -b normal normal
 end
 
 function fish_mode_prompt; end
 
-# function fish_right_prompt
-# 	set_color brblack
-# 	switch $fish_bind_mode
-# 		case default
-# 			echo 'N'
-# 		case insert
-# 			echo 'I'
-# 		case replace_one
-# 			echo 'R'
-# 		case replace
-# 			echo 'R'
-# 		case visual
-# 			echo 'V'
-# 	end
-# end
+function fish_right_prompt
+end
