@@ -36,7 +36,7 @@ function fish_prompt
 	set -q CMD_DURATION && printf " %dms" $CMD_DURATION
 	if jobs -q
 		set_color -b normal cyan
-		printf " [jobs: %d]" (jobs -p | wc -l)
+		printf " &%d" (jobs -p | wc -l)
 	end
 	printf "\n"
 	set_color brblack
