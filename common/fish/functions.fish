@@ -55,18 +55,6 @@ alias ....... "d ../../../../../.."
 alias ........ "d ../../../../../../.."
 alias ......... "d ../../../../../../../.."
 
-if has_command nnn
-	function r --wraps nnn --description 'Run nnn with support for jump-to-directory-on-exit via ^G'
-		# TODO: this would break with multiple nnn instances, right?
-		# probably need to mktemp instead
-		set -u NNN_TMPFILE (mktemp)
-		export NNN_TMPFILE
-		nnn -P p $argv
-		test -e $NNN_TMPFILE && source $NNN_TMPFILE && cp $NNN_TMPFILE ~/.nnn-last-tmpfile && rm $NNN_TMPFILE
-	end
-	alias l r
-end
-
 has_command tmux && alias t "tmux"
 has_command rsync && alias rcp 'rsync -r -ah --progress'
 has_command bat && alias cat bat

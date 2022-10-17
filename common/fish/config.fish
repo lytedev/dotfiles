@@ -41,6 +41,10 @@ if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 	set --prepend --export --global fish_user_paths $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
 end
 
+if has_command nnn
+	source $DOTFILES_PATH/common/nnn/config.fish
+end
+
 test $PWD = $HOME && begin
 	cd $NICE_HOME || cd
 end
