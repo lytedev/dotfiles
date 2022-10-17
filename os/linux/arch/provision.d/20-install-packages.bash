@@ -17,6 +17,7 @@ paru -Sy --needed --noconfirm \
 	aria2 `# Downloads Manager` \
 	dmenu `# Application Launcher` \
 	ripgrep `# Code Search Utilities` \
+	git-delta `# Better Diff Viewer` \
 	fd `# File Search` \
 	exa `# Better ls` \
 	sd `# Easy Find/Replace` \
