@@ -55,7 +55,7 @@ function _user_prompt
 	printf "\n"
 	set_color brblack
 	if test (id -u) -eq 0
-		printf "# "
+		printf '# '
 	else
 		printf '$ '
 	end
