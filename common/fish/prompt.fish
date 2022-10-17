@@ -76,8 +76,14 @@ function _maybe_git_summary
 	end
 end
 
+function _prompt_prefix
+	set_color -b normal brblack
+	printf "# "
+end
+
 function fish_prompt
 	set last_cmd_status $status
+	_prompt_prefix
 	_maybe_sudo_prefix
 	_user_and_host $last_cmd_status
 	_cur_work_dir
