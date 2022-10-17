@@ -81,9 +81,9 @@ function fish_prompt
 	_maybe_sudo_prefix
 	_user_and_host $last_cmd_status
 	_cur_work_dir
+	_maybe_git_summary
 	_last_cmd_duration
 	_maybe_jobs_summary
-	_maybe_git_summary
 	_user_prompt
 end
 
