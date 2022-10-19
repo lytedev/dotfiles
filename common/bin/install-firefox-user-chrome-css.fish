@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
-set profile_dirs $HOME/.mozilla/firefox/*.dev-edition-default
+set profile_dirs $HOME/.mozilla/firefox/*.dev-edition-default $HOME/.mozilla/firefox/*.default-release
 if test (uname) = Darwin
-	set profile_dirs $HOME/Library/Application\ Support/Firefox/Profiles/*.dev-edition-default
+	set profile_dirs $HOME/Library/Application\ Support/Firefox/Profiles/*.dev-edition-default $HOME/.mozilla/firefox/*.default-release
 end
 
 for p in $profile_dirs

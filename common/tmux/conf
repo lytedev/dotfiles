@@ -43,7 +43,6 @@ set -g window-status-current-format " #W"
 set -g status-right ""
 set -g status-left "#h:#S #W "
 	set -ag status-left "#(pwd | $XDG_CONFIG_HOME/lytedev-dotfiles/common/bin/glancepath) "
-	set -ag status-left "#(cd '#{pane_current_path}' && git rev-parse --abbrev-ref --sq HEAD | tr -d \"'\")"
 	set -ag status-left "#(kubeline && printf ' ')"
 set -g status-left-length 1000
 # set -g status-right-length 280
