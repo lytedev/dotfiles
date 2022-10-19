@@ -7,7 +7,7 @@ set --export --universal ERL_AFLAGS "-kernel shell_history enabled -kernel shell
 
 set --export --universal TERMINAL kitty
 set --export --universal TERMINAL_ARGS '--single-instance'
-set --export --universal BROWSER firefox-developer-edition
+set --export --universal BROWSER firefox
 
 set --export --universal PAGER "less"
 set --export --universal MANPAGER "less"
