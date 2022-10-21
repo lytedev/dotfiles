@@ -9,13 +9,14 @@
 
 [core]
 	editor = $EDITOR
+	pager = delta
 	excludesfile = /home/daniel/.home/.gitignore
 
 [http "https://gopkg.in"]
 	followRedirects = true
 
 [diff]
-	tool = $EDITOR -d
+	colorMoved = default
 
 [difftool]
 	prompt = false
@@ -48,23 +49,7 @@
 	default = current
 
 [merge]
-	tool = $EDITOR -d
 	conflictstyle = diff3
-
-[mergetool]
-	prompt = false
-
-[mergetool "nvimdiff"]
-	cmd = $EDITOR -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c '$wincmd J'
-
-[pager]
-	branch = false
-	# remove ansi codes, pad each file's diff with newlines, show as diff, remove top padding
-	diff = nvim -c 'silent %sm/\\e[^mK]*[mK]//g' \
-		-c 'silent %s/^diff/\\r\\rdiff/' \
-		-c 'silent set ft=diff' \
-		-c 'silent execute \"normal gg2dd\"' \
-		-c 'silent setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile'
 
 [gpg]
 	program = gpg2
