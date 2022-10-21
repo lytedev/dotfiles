@@ -66,7 +66,7 @@ function _maybe_git_summary
 	set_color -b normal yellow
 	set cur_sha (git rev-parse --short HEAD 2>/dev/null)
 	if test $status = 0
-		set num_changes (git status --porcelain | wc -l)
+		set num_changes (git status --porcelain | wc -l | string trim)
 		if test $num_changes = 0
 			set num_changes "✔"
 		else
