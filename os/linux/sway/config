@@ -162,13 +162,10 @@ mode "resize" {
 	bindsym escape mode "default"
 }
 
-for_window [app_id="floating_terminal"] floating enable
-for_window [class="floating_terminal"] floating enable
-for_window [app_id="zoom"] border none, floating enable
-for_window [title="^zoom$"] border none, floating enable
-bindsym $mod+shift+alt+f for_window [class=".*"] floating toggle
-for_window [class=".*"] layout floating enable
-for_window [class=".*"] layout splith
+set $tilers "(kitty.*|firefox.*|Slack.*|thunar.*)"
+for_window [app_id=".*"] floating enable
+for_window [app_id=$tilers] layout splith
+bindsym $mod+shift+alt+f for_window [class=$tilers] floating toggle
 
 client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
 client.focused_inactive #111111 #111111 #ffffff #111111 #111111

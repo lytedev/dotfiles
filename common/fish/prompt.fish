@@ -5,8 +5,8 @@ function get_hostname
 end
 
 function fish_greeting
-	set_color -b normal brblack
-	printf "%s@%s %s\n" $USER (get_hostname) (date)
+	_prompt_prefix
+	printf "%s\n" (date)
 end
 
 function preprocess_pwd
