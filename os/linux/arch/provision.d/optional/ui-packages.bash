@@ -46,7 +46,8 @@ paru -Sy --needed \
  	glu mesa wxgtk2 libpng `# Graphical Libs` \
 	gammastep `# Redshift for Wayland` \
 	dmenu `# Application Launcher` \
-	firefox-developer-edition `# Default Web Browser` \
+	firefox `# Default Web Browser` \
+	hunspell-en_US `# Firefox Spell Checking` \
 	passff-host `# Pass integration in Firefox` \
 	kitty-git `# Terinal Emulator` \
 	alsa-utils `# Audio Utilities` \
