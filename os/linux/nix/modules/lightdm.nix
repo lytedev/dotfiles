@@ -15,7 +15,7 @@
 				};
 				clock-format = "%H:%M:%S";
 				extraConfig = ''
-					font-name=Iosevka
+					font-name=IosevkaLyteTerm
 				'';
 			};
 			# background = "";

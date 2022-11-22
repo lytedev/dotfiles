@@ -18,6 +18,7 @@ paru -Sy --needed \
 	elementary-icon-theme `# GUI File Explorer Icons` \
 	thunar thunar-volman gvfs `# GUI File Explorer + Volume Management/Auto-Mount Disks)` \
 	ttf-iosevka-lyte `# My font` \
+	ttf-iosevka-lyte-nerd-font `# My font` \
 	ttf-opensans `# Fonts` \
 	avr-libc avr-gcc dfu-programmer dfu-util `# Keyboard Programming Utilities` \
 	gimp inkscape krita `# Image/Vector Editing Applications` \

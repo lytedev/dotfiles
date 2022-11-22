@@ -1,6 +1,6 @@
 color=ffffffff
 image=~/.wallpaper
-font=IosevkaLyte
+font=IosevkaLyteTerm
 show-failed-attempts
 ignore-empty-password
 
