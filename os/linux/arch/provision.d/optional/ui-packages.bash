@@ -31,7 +31,7 @@ paru -Sy --needed \
 	cmake `# Cross-Platform Make` \
 	elixir nodejs erlang rustup `# Langs` \
 	php `# PHP Language` \
-	nginx `# Web Server` \
+	caddy `# Web Server` \
 	python python-pip `# Python 3 Language` \
 	ctags `# Tags` \
 	postgresql pgcli `# RDBMS` \

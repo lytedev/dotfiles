@@ -1,1 +1,1 @@
-/home/daniel/.config/lytedev-dotfiles/common/colors/vim
+/home/daniel/.home/.config/lytedev-dotfiles/common/colors/vim
