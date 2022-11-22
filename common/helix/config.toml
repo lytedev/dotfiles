@@ -16,7 +16,7 @@ hidden = false
 
 [editor.indent-guides]
 render = true
-character = "🭰"
+character = "▏"
 
 [keys.insert]
 j = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
