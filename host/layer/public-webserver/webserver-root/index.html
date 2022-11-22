@@ -1,6 +1,22 @@
-<head>
-  <title>Public Web lyte.dev Machine</title>
-</head>
-<body>
-  <a href="./public-files/">Public Files</a>
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://lyte.dev/styles.css" />
+		<title>{{ .Host }} - Index</title>
+	</head>
+  <body>
+    <main>
+      <p>Welcome to <code><a href="/">The Index</a></code> at <code><a href="//{{ .Host }}">{{ .Host }}</a></code></p>
+
+			<p>
+				If you wandered here by accident, you are either lost and <a href="https://lyte.dev">in need of context</a>, are <a href="./public-files">looking for a particular file</a>, or are just exploring.
+			</p>
+			
+			<p>Whatever your adventure, welcome!</p>
+
+      <p><a href="/public-files">View <code>{{ .Host }}</code> Public Files</a></p>
+    </main>
+  </body>
+</html>
