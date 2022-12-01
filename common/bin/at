@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-[[ -z "$1" ]] && { echo "No argument provided." >&2 ; exit 1; }
+usage() {
+	echo "Usage:"
+	echo "  at <DATE> && command..."
+}
+
+[[ -z "$1" ]] && { echo "Error: No DATE argument provided." >&2; usage; exit 1; }
 
 d="$(date -d "${@}" +%s)"
 while [[ "$d" -ge "$(date +%s)" ]]; do

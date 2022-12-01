@@ -44,6 +44,7 @@ roots = []
 comment-token = "#"
 language-server = { command = "nimlangserver" }
 indent = { tab-width = 2, unit = " " }
+auto-format = true
 
 [[grammar]]
 name = "nim"
