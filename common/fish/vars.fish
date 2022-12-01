@@ -14,12 +14,12 @@ set --export --universal MANPAGER "less"
 
 set --universal fish_cursor_insert line
 
-if command --search --quiet helix
-	set --export --universal EDITOR helix
-	set --export --universal VISUAL helix
-else if command --search --quiet hx
+if command --search --quiet hx
 	set --export --universal EDITOR hx
 	set --export --universal VISUAL hx
+else if command --search --quiet helix
+	set --export --universal EDITOR helix
+	set --export --universal VISUAL helix
 else if command --search --quiet nvim
 	set --export --universal EDITOR nvim
 	set --export --universal VISUAL nvim
