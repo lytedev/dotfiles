@@ -106,6 +106,6 @@ wheel_scroll_multiplier 5.0
 touch_scroll_multiplier 5.0
 
 # BEGIN_KITTY_THEME
-# Wizzy Muted
+# Wombat
 include current-theme.conf
 # END_KITTY_THEME

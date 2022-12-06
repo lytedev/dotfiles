@@ -1,101 +1,84 @@
-# Author: Shafkath Shuhan <shafkathshuhannyc@gmail.com>
+"namespace" = { fg = "yellow" }
+"module" = { fg = "yellow" }
 
-"namespace" = { fg = "type" }
-"module" = { fg = "type" }
+"type" = { fg = "cyan" }
+"type.builtin" = { fg = "cyan" }
+"type.enum.variant" = { fg = "white" }
+"constructor" = { fg = "white" }
+"variable.other.member" = { fg = "white" }
 
-"type" = { fg = "type" }
-"type.builtin" = { fg = "#66D9EF" }
-"type.enum.variant" = { fg = "text" }
-"constructor" = { fg = "text" }
-"variable.other.member" = { fg = "variable" }
+"keyword" = { fg = "blue" }
+"keyword.directive" = { fg = "blue" }
+"keyword.control" = { fg = "blue" }
+"label" = { fg = "blue" }
 
-"keyword" = { fg = "keyword" }
-"keyword.directive" = { fg = "keyword" }
-"keyword.control" = { fg = "keyword" }
-"label" = { fg = "keyword" }
+"special" = { fg = "blue" }
+"operator" = { fg = "magenta" }
 
-"special" = { fg = "keyword" }
-"operator" = { fg = "text" }
+"punctuation" = { fg = "yellow" }
+"punctuation.delimiter" = { fg = "yellow" }
 
-"punctuation" = { fg = "text" }
-"punctuation.delimiter" = { fg = "text" }
+"variable" = { fg = "white" }
+"variable.parameter" = { fg = "white" }
+"variable.builtin" = { fg = "blue" }
+"constant" = { fg = "red" }
+"constant.builtin" = { fg = "red" }
 
-"variable" = { fg = "variable" }
-"variable.parameter" = { fg = "#fd971f" }
-"variable.builtin" = { fg = "keyword" }
-"constant" = { fg = "variable" }
-"constant.builtin" = { fg = "#ae81ff" }
+"function" = { fg = "green" }
+"function.builtin" = { fg = "green" }
+"function.macro" = { fg = "green" }
+"attribute" = { fg = "green" }
 
-"function" = { fg = "fn_declaration" }
-"function.builtin" = { fg = "fn_declaration" }
-"function.macro" = { fg = "keyword" }
-"attribute" = { fg = "fn_declaration" }
-
-"comment" = { fg = "#88846F" }
-"ui.virtual" = "#888888"
+"comment" = { fg = "gray" }
+"ui.virtual" = "gray"
 # "ui.virtual.ruler" = { bg = "#333333" }
 
-"string" = { fg = "#e6db74" }
-"constant.character" = { fg = "#e6db74" }
-"string.regexp" = { fg = "regex" }
-"constant.numeric" = { fg = "#ae81ff" }
-"constant.character.escape" = { fg = "#ae81ff" }
+"string" = { fg = "yellow" }
+"constant.character" = { fg = "yellow" }
+"string.regexp" = { fg = "yellow" }
+"constant.numeric" = { fg = "blue" }
+"constant.character.escape" = { fg = "blue" }
 
-"markup.heading" = "blue"
+"markup.heading" = "Cyan"
 "markup.list" = "red"
 "markup.bold" = { fg = "yellow", modifiers = ["bold"] }
 "markup.italic" = { fg = "magenta", modifiers = ["italic"] }
 "markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
-"markup.link.text" = "red"
-"markup.quote" = "cyan"
+"markup.link.text" = "blue"
+"markup.quote" = "yellow"
 "markup.raw" = "green"
 
-"diff.plus" = { fg = "#a6e22e" }
-"diff.delta" = { fg = "#fd971f" }
-"diff.minus" = { fg = "#f92672" }
+"diff.plus" = { fg = "green" }
+"diff.delta" = { fg = "blue" }
+"diff.minus" = { fg = "red" }
 
-"ui.background" = { fg = "text", bg = "background" }
+"ui.background" = { fg = "fg", bg = "bg" }
 
-"ui.window" = { bg = "widget" }
-"ui.popup" = { bg = "widget" }
-"ui.help" = { bg = "widget" }
-"ui.menu" = { bg = "widget" }
-"ui.menu.selected" = { bg = "blue", fg = "background" }
+"ui.window" = { bg = "bg" }
+"ui.popup" = { bg = "bg", fg = "white" }
+"ui.help" = { bg = "bg" }
+"ui.menu" = { bg = "bg" }
+"ui.menu.selected" = { bg = "blue", fg = "bg" }
 
-"ui.cursor" = { fg = "cursor", modifiers = ["reversed"] }
-"ui.cursor.primary" = { fg = "cursor", modifiers = ["reversed"] }
-"ui.cursor.match" = { fg = "#888888", modifiers = ["reversed"] }
+"ui.cursor" = { bg = "white", modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "white", modifiers = ["reversed"] }
+"ui.cursor.match" = { fg = "gray", bg = "white", modifiers = ["reversed"] }
 
-"ui.selection" = { bg = "#878b91" }
-"ui.selection.primary" = { bg = "#575b61" }
+"ui.selection" = { bg = "cyan", fg = "bg" }
+"ui.selection.primary" = { bg = "cyan", fg = "bg" }
 
-"ui.linenr" = { fg = "#90908a" }
-"ui.linenr.selected" = { fg = "#c2c2bf" }
+"ui.linenr" = { fg = "gray" }
+"ui.linenr.selected" = { fg = "white" }
 
-"ui.statusline" = { fg = "active_text", bg = "#333333" }
-"ui.statusline.inactive" = { fg = "active_text", bg = "#222222" }
+"ui.statusline" = { fg = "gray", bg = "bg" }
+"ui.statusline.inactive" = { fg = "bg", bg = "gray" }
 
-"ui.text" = { fg = "text", bg = "background" }
-"ui.text.focus" = { fg = "active_text" }
+"ui.text" = { fg = "gray", bg = "bg" }
+"ui.text.focus" = { fg = "white" }
 
-"warning" = { fg = "#cca700" }
-"error" = { fg = "#f48771" }
-"info" = { fg = "#75beff" }
-"hint" = { fg = "#eeeeeb3" }
+"warning" = { fg = "yellow" }
+"error" = { fg = "red" }
+"info" = { fg = "blue" }
+"hint" = { fg = "green" }
 
 diagnostic = { modifiers = ["underlined"] }
-
-[palette]
-type = "#A6E22E"
-keyword = "#F92672"
-regex = "#CE9178"
-special = "#C586C0"
-variable = "#F8F8F2"
-fn_declaration = "#A6E22E"
-
-background = "#111111"
-text = "#f8f8f2"
-active_text = "#ffffff"
-cursor = "#a6a6a6"
-inactive_cursor = "#878b91"
-widget = "#1e1f1c"

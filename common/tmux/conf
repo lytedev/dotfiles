@@ -31,12 +31,12 @@ set -g mode-keys vi
 set -g history-limit 1024000
 set -g status on
 set -g status-position bottom
-set -g status-bg colour0
+set -g status-bg colour19
 set -g status-fg colour8
 set -g status-interval 5
 set -g status-left-length 50
-set -g window-status-style "fg=colour8 bg=colour0"
-set -g window-status-current-style "fg=colour8 bg=colour0"
+set -g window-status-style "fg=colour8 bg=colour19"
+set -g window-status-current-style "fg=colour8 bg=colour19"
 set -g window-status-format " #W"
 set -g window-status-separator ""
 set -g window-status-current-format " #W"
@@ -48,9 +48,9 @@ set -g status-left-length 1000
 # set -g status-right-length 280
 	# set -ag status-right "#{pane_current_command}"
 
-set -g message-style "fg=colour7 bg=colour18"
-set -g pane-active-border-style bg=black,fg=blue
-set -g pane-border-style bg=black,fg=colour18
+set -g message-style "fg=colour7 bg=colour19"
+set -g pane-active-border-style fg=blue
+set -g pane-border-style fg=colour19
 set -g clock-mode-colour colour8
 set -g base-index 1
 set -g pane-base-index 1
