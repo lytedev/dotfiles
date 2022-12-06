@@ -3,10 +3,12 @@
 	"position": "bottom",
 	"output": ["eDP-1", "DP-3"],
 	"height": 32,
-	"modules-left": ["clock"],
+	"modules-left": ["clock", "sway/title"],
 	"modules-center": ["sway/workspaces"],
 	"modules-right": [
 		"idle_inhibitor",
+		"bluetooth",
+		"wireplumber",
 		"pulseaudio",
 		// "network",
 		"cpu",
@@ -16,6 +18,16 @@
 		"battery",
 		"tray"
 	],
+	"bluetooth": {
+		"format": "<span foreground=\"#666666\"></span>",
+		"format-connected": "<span foreground=\"#666666\"></span>",
+		"format-connected-battery": "<span foreground=\"#666666\"></span>",
+		// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+		"tooltip-format": "{controller_alias}@{controller_address} ({num_connections} connected)",
+		"tooltip-format-connected": "{controller_alias}@{controller_address} ({num_connections} connected)\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}@{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}@{device_address} ( {device_battery_percentage}%)"
+	},
 	"sway/workspaces": {
 		"disable-scroll": false,
 		"persistent_workspaces": {
@@ -36,8 +48,8 @@
 	"idle_inhibitor": {
 		"format": "<span foreground=\"#666666\">{icon}</span>",
 		"format-icons": {
-			"activated": "",
-			"deactivated": ""
+			"activated": "﯎",
+			"deactivated": "﯏"
 		}
 	},
 	"tray": {
@@ -49,12 +61,12 @@
 		"format": "{:%a %b %d %H:%M:%S}"
 	},
 	"cpu": {
-		"format": "{usage} <span foreground=\"#666666\"></span>",
+		"format": "{usage} <span foreground=\"#666666\"></span>",
 		"tooltip": true,
 		"interval": 3
 	},
 	"memory": {
-		"format": "{} <span foreground=\"#666666\"></span>"
+		"format": "{} <span foreground=\"#666666\"></span>"
 	},
 	"temperature": {
 		// "thermal-zone": 2,
@@ -76,12 +88,12 @@
 			"critical": 15
 		},
 		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% ",
-		"format-plugged": "{capacity}% ",
+		"format-charging": "{capacity}% ",
+		"format-plugged": "{capacity}% ﮣ",
 		"format-alt": "{time} {icon}",
-		// "format-good": "", // An empty format will hide the module
-		// "format-full": "",
-		"format-icons": ["", "", "", "", ""]
+		"format-good": "", // An empty format will hide the module
+		"format-full": "",
+		"format-icons": ["", "", "", "", ""]
 	},
 	"network": {
 		"format-wifi": "{essid} ({signalStrength}%) ",
@@ -92,18 +104,18 @@
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
-		"format": "{volume} <span weight='900' face=\"Font Awesome 5 Free\" foreground=\"#666666\">{icon}</span> {format_source}",
+		"format": "{volume} <span foreground=\"#666666\">{icon}</span> {format_source}",
 		//"format": "{volume}% {icon} {format_source}",
 		//"format-bluetooth": "{volume}% {icon} {format_source}",
 		//"format-bluetooth-muted": " {icon} {format_source}",
 		//"format-muted": " {format_source}",
-		"format-muted": "<span foreground=\"#666666\"></span> {format_source}",
-		"format-source": "<span foreground=\"#f92672\">  </span>",
-		"format-source-muted": "<span foreground=\"#66d9ef\"> </span>",
+		"format-muted": "<span foreground=\"#666666\">ﱝ</span> {format_source}",
+		"format-source": "<span foreground=\"#bf7998\"></span>",
+		"format-source-muted": "<span foreground=\"#6c88a6\"></span>",
 		"format-icons": {
 			"headphones": "",
-			"handsfree": "",
-			"headset": "",
+			"handsfree": "",
+			"headset": "",
 			"phone": "",
 			"portable": "",
 			"car": "",

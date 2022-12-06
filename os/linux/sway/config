@@ -167,9 +167,9 @@ for_window [title=".*"] floating enable
 for_window [app_id=$tilers] floating disable
 bindsym $mod+shift+alt+f for_window [class=$tilers] floating toggle
 
-client.focused          #66d9ef #66d9ef #66d9ef #66d9ef #66d9ef
-client.focused_inactive #111111 #111111 #ffffff #111111 #111111
-client.unfocused        #111111 #111111 #ffffff #111111 #111111
+client.focused          #6c88a6 #6c88a6 #6c88a6 #6c88a6 #6c88a6
+client.focused_inactive #100814 #100814 #9b9ebf #100814 #100814
+client.unfocused        #100814 #100814 #9b9ebf #100814 #100814
 
 bar {
 	swaybar_command waybar

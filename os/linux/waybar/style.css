@@ -1,14 +1,14 @@
 * {
 	border: none;
 	border-radius: 0;
-	font-family: "IosevkaLyteTerm Nerd Font", sans-serif;
+	font-family: "IosevkaLyteTerm", sans-serif;
 	font-size: 16px;
 	min-height: 0;
 }
 
 window#waybar {
-	background-color: #111111;
-	color: #ffffff;
+	background-color: #100814;
+	color: #9b9ebf;
 	transition: none;
 }
 
@@ -23,7 +23,6 @@ window#waybar.empty {
 #workspaces button {
 	padding: 0 0.75em;
 	background-color: transparent;
-	color: #ffffff;
 }
 
 #workspaces button:hover {
@@ -34,12 +33,11 @@ window#waybar.empty {
 }
 
 #workspaces button.visible {
-	background-color: #333333;
+	background-color: #666666;
 }
 
 #workspaces button.focused {
-	background-color: #66d9ef;
-	color: #111111;
+	background-color: #6c88a6;
 }
 
 #workspaces button.persistent {
@@ -47,11 +45,11 @@ window#waybar.empty {
 }
 
 #workspaces button.urgent {
-	background-color: #eb4d4b;
+	background-color: #bf7998;
 }
 
 #mode {
-	background-color: #64727D;
+	background-color: transparent;
 }
 
 #clock,
@@ -68,7 +66,6 @@ window#waybar.empty {
 #idle_inhibitor,
 #mpd {
 	padding: 0 0.75em;
-	color: #ffffff;
 }
 
 #clock {
@@ -93,8 +90,7 @@ window#waybar.empty {
 }
 
 #battery.critical:not(.charging) {
-	background-color: #f53c3c;
-	color: #ffffff;
+	background-color: #bf7998;
 	animation-name: blink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
@@ -103,7 +99,7 @@ window#waybar.empty {
 }
 
 label:focus {
-	background-color: #000000;
+	/* background-color: #000000; */
 }
 
 #cpu {

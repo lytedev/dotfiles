@@ -64,8 +64,8 @@
 "ui.cursor.primary" = { fg = "white", modifiers = ["reversed"] }
 "ui.cursor.match" = { fg = "gray", bg = "white", modifiers = ["reversed"] }
 
-"ui.selection" = { bg = "cyan", fg = "bg" }
-"ui.selection.primary" = { bg = "cyan", fg = "bg" }
+"ui.selection" = { bg = "black", fg = "white" }
+"ui.selection.primary" = { bg = "black", fg = "white" }
 
 "ui.linenr" = { fg = "gray" }
 "ui.linenr.selected" = { fg = "white" }

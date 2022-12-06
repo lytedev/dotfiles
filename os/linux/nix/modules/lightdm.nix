@@ -15,7 +15,7 @@
 				};
 				clock-format = "%H:%M:%S";
 				extraConfig = ''
-					font-name=IosevkaLyteTerm
+					font-name=IosevkaLyteTerm Nerd Font Complete
 				'';
 			};
 			# background = "";
