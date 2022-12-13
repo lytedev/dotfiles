@@ -83,3 +83,16 @@ bind -T off F12 \
   refresh-client -S
 
 source-file "$ENV_PATH/*/tmux.d.conf"
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+set -g @resurrect-capture-pane-contents 'on'
+set -g @resurrect-processes 'helix hx vi vim nvim emacs man less more tail top htop btm irssi weechat mutt "git log" iex mix deno watchexec mosh-client ssh'
+
+bind A run-shell "#{@resurrect-save-script-path}"
+bind L run-shell "#{@resurrect-restore-script-path}"
+
+set -g @continuum-restore 'on'
+set -g @continuum-save-interval '1'

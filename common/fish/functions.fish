@@ -56,6 +56,7 @@ alias ........ "d ../../../../../../.."
 alias ......... "d ../../../../../../../.."
 
 has_command tmux && alias t "tmux"
+has_command zellij && begin; alias z "zellij"; alias j "zellij"; end
 has_command rsync && alias rcp 'rsync -r -ah --progress'
 has_command bat && alias cat bat
 

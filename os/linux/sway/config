@@ -162,10 +162,13 @@ mode "resize" {
 	bindsym escape mode "default"
 }
 
-set $tilers "(kitty.*|firefox.*|Slack.*|thunar.*)"
+set $tilers "(kitty.*|firefox.*|slack.*|Slack.*|thunar.*|Alacritty.*|alacritty.*)"
 for_window [title=".*"] floating enable
 for_window [app_id=$tilers] floating disable
 bindsym $mod+shift+alt+f for_window [class=$tilers] floating toggle
+
+include /etc/sway/config.d/*
+include $XDG_CONFIG_HOME/lytedev-env/*/sway/config
 
 client.focused          #6c88a6 #6c88a6 #6c88a6 #6c88a6 #6c88a6
 client.focused_inactive #100814 #100814 #9b9ebf #100814 #100814
@@ -177,10 +180,10 @@ bar {
 
 exec mako
 # exec gammastep -t 6500:3500 -l 39.0:-94.5
-# exec_always 'killall kanshi; kanshi'
 # exec /usr/lib/kdeconnectd
 # exec sway-init-tmux
-# exec $term
+exec exec kitty --single-instance tmux
+exec tmux start-server
 
 # exec_always notify-send -a "sway" -i ~/.wallpaper "sway configuration loaded"
 
@@ -188,6 +191,3 @@ exec mako
 no_focus [class=".*"]
 
 output * background $HOME/.wallpaper fill
-
-include /etc/sway/config.d/*
-include $XDG_CONFIG_HOME/lytedev-env/*/sway/config

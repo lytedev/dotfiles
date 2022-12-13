@@ -48,3 +48,11 @@ end
 test $PWD = $HOME && begin
 	cd $NICE_HOME || cd
 end
+
+# if status is-interactive
+#     eval (zellij setup --generate-auto-start fish | string collect)
+# end
+
+if status is-interactive; and not set -q TMUX; and status --is-login; and not string match '/dev/tty*' (tty)
+    tmux attach -t default || tmux new -s default
+end

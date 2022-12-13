@@ -81,4 +81,5 @@
 "info" = { fg = "blue" }
 "hint" = { fg = "green" }
 
-diagnostic = { modifiers = ["underlined"] }
+diagnostic = { underline = { style = "curl" } }
+"diagnostic.error" = { underline = { style = "curl", color = "red" } }

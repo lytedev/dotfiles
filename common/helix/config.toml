@@ -2,6 +2,8 @@ theme = "donokai"
 
 [editor]
 auto-pairs = false
+auto-save = true
+bufferline = "multiple"
 scrolloff = 8
 rulers = [80, 120]
 cursorline = true

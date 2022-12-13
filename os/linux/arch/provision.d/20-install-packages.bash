@@ -8,45 +8,46 @@
 # fi
 
 paru -Sy --needed --noconfirm \
-	fswatch watchexec \
-	fwupd \
-	docker `# Containers` \
+	watchexec `# Filesystem Event Wacher` \
+	fwupd `# Firmware Update Manager` \
 	ncdu `# Disk Usage Analyzer` \
 	efibootmgr efivar `# UEFI Boot CLI Stuff` \
 	weechat `# IRC Client` \
 	aria2 `# Downloads Manager` \
-	dmenu `# Application Launcher` \
 	ripgrep `# Code Search Utilities` \
 	git-delta `# Better Diff Viewer` \
 	fd `# File Search` \
 	exa `# Better ls` \
-	sd `# Easy Find/Replace` \
+	sd `# Better sed` \
 	bat `# Better Cat` \
-	fzf `# Fuzzy File Finder` \
-	htop `# Process Management and System Resources Monitoring` \
+	skim `# Fuzzy Finder` \
+	htop bottom `# Process Management and System Resources Monitoring` \
 	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
-	asdf-vm `# Runtime Version Manager` \
+	asdf-vm `# Version Manager` \
+	oath-toolkit `# TOTP Utility` \
 	pass pass-otp `# Password Management` \
+	sc-im `# Spreadsheets` \
+	cloc `# For counting lines of code` \
+	pigz `# Multicore Compression Utility` \
 	hexyl `# CLI Hex Viewer` \
-	rsync `# File Transfer` \
-	neovim helix `# Text Editors` \
+	rsync rclone `# File Transfer` \
+	helix `# Text Editors` \
 	unzip `# Simple Unzipping` \
-	tmux `# Terminal Multiplexer` \
-	kitty-terminfo `# Almost Better Terminal Emulator` \
-	curl `# It's curl, c'mon` \
-	w3m `# Terminal Browser` \
-	jq `# CLI for Interacting with JSON` \
-	xh `# New HTTP Utility` \
+	zellij `# Terminal Multiplexer` \
+	nmap traceroute iputils `# Networking Utilities` \
+	kitty-terminfo `# Better Terminal Emulator` \
+	curl wget xh `# HTTP Utilities` \
+	w3m `# Web Browser` \
+	jq gron `# JSON Utilities` \
 	age sops `# Simple Secrets Managements` \
-	inotify-tools `# Watching` \
+	inotify-tools `# Filesystem Watching` \
 	fish `# Shell` \
-	time `# GNU time` \
+	time `# GNU Time` \
 	fortune-mod fortune-mod-archlinux `# Fortune` \
-	oath-toolkit `# One-Time Passwords` \
 	sysstat `# System Statistics` \
-	reflector `# Simplify Mirror Management` \
-	inetutils `# netutils` \
+	reflector `# Simple Pacman Mirror Management` \
+	gnu-netcat socat websocat `# Socket Utilities` \
 	nnn `# CLI File Manager` \
-	avahi	nss-mdns `# .local DNS` \
+	avahi	nss-mdns `# mDNS and Network Discovery Utilities` \
 	man-db man-pages `# Come On, Man!`
