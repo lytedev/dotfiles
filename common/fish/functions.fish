@@ -155,6 +155,8 @@ alias mount 'sudo -E mount'
 alias umount 'sudo -E umount'
 alias ip 'ip -color'
 
+alias pt 'pass tessen'
+
 has_command xdg-open && alias open xdg-open
 has_command docker && begin
 	alias dc "docker compose"

@@ -11,7 +11,7 @@ app="$(
 		sd -fm '^\s+' '' | \
 		cut -d' ' -f2- | \
 		grep "\S" | \
-		fzf
+		sk
 	)"
 # if no app is selected, just exit
 test -z "$app" && exit 1

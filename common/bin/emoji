@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-r="$(< "$HOME/.emoji.txt" fzf --height 40%)"
+r="$(< "$HOME/.emoji.txt" sk --height 40%)"
 echo "$r" | awk '$0=$1' | tr -d '\n' | clip
 echo "Copied $r emoji to your clipboard"

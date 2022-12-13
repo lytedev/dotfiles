@@ -8,5 +8,5 @@ kubectl get namespaces --show-labels | \
 	uniq | \
 	sort | \
 	cut -d ' ' -f1 | \
-	fzf | \
+	sk | \
 	xargs -I{} kubectl config set-context --current --namespace='{}'

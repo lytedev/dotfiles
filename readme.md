@@ -74,7 +74,7 @@ You will want to symlink relevant environment layers into the `$ENV_PATH` in
 order to have your OS-specific applications be configured and common
 applications configured for the host OS.
 
-There's a handy `fzf`-based script that makes this super easy (note that you
+There's a handy script that makes this super easy (note that you
 can select multiple environments with TAB):
 
 ```bash

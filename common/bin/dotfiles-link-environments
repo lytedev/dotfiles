@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-has_command fzf || begin
-	echo "fzf not installed"
+has_command sk || begin
+	echo "sk not installed (skim fuzzy finder)"
 	exit 1
 end
 
@@ -30,7 +30,7 @@ end
 
 cat $DOTFILES_PATH/common/envs |
 	filter_existing_directory |
-	fzf --multi \
+	sk --multi \
 		--prompt "Select applicable environments (multi-select w/ TAB): " \
 		--preview-window="up:50%:noborder" \
 		--preview="ls -la --color=always $DOTFILES_PATH/{}" |

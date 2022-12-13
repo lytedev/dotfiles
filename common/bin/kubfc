@@ -5,5 +5,5 @@ kubectl config get-contexts --no-headers | \
 	tr -s ' ' | \
 	sed -E 's/^\*?[[:space:]]*//g' | \
 	cut -d ' ' -f1 | \
-	fzf | \
+	sk | \
 	xargs -I{} kubectl config use-context '{}'
