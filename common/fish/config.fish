@@ -41,6 +41,12 @@ if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 	set --prepend --export --global fish_user_paths $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
 end
 
+if set -q KITTY_INSTALLATION_DIR
+	set --global KITTY_SHELL_INTEGRATION enabled
+	source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
+	set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
+end
+
 if has_command nnn
 	source $DOTFILES_PATH/common/nnn/config.fish
 end
@@ -54,5 +60,5 @@ end
 # end
 
 if status is-interactive; and not set -q TMUX; and status --is-login; and not string match '/dev/tty*' (tty)
-    tmux attach -t default || tmux new -s default
+	tmux attach -t default || tmux new -s default
 end

@@ -76,6 +76,18 @@ function _maybe_git_summary
 	end
 end
 
+function _prompt_marker
+	printf "%b133;A%b" "\x1b\x5d" "\x1b\x5c"
+end
+
+function _prompt_continuation_marker
+	printf "%b133;A;k=s%b" "\x1b\x5d" "\x1b\x5c"
+end
+
+function cmd_marker --on-variable _
+	printf "%b133;C%b" "\x1b\x5d" "\x1b\x5c"
+end
+
 function _prompt_prefix
 	set_color -b normal brblack
 	printf "# "
@@ -83,6 +95,7 @@ end
 
 function fish_prompt
 	set last_cmd_status $status
+	_prompt_marker
 	_prompt_prefix
 	_maybe_sudo_prefix
 	_user_and_host $last_cmd_status
