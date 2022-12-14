@@ -1,5 +1,5 @@
 default_border pixel 1
-exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 330 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+exec swayidle -w timeout 300 'swaylock -f' timeout 330 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f'
 
 # whichever dell monitor is plugged in
 output "Dell Inc. DELL U2720Q CWTM623" transform 270 scale 1.5
