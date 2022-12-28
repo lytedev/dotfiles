@@ -95,4 +95,4 @@ bind A run-shell "#{@resurrect-save-script-path}"
 bind L run-shell "#{@resurrect-restore-script-path}"
 
 set -g @continuum-restore 'on'
-set -g @continuum-save-interval '1'
+set -g @continuum-save-interval '120'

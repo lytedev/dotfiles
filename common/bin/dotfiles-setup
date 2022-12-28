@@ -67,6 +67,9 @@ for s in $c/lytedev-env/*/dotfiles-setup.d.fish
 	source $s $dfp $h $c
 end
 
+rm -f $ENV_PATH/empty
+ln -s $DOTFILES_PATH/common/empty-env $ENV_PATH/empty
+
 # execute the user's shell
 set ush (getent passwd (whoami) | cut -d: -f7)
 echo "Dotfiles Installed! Don't forget to setup environments!"
