@@ -1,5 +1,5 @@
 function fish_user_key_bindings
-	command -q sk && skim_key_bindings
+	command -q sk && functions | grep skim_key_bindings &>/dev/null && skim_key_bindings
 	fish_vi_key_bindings insert --no-erase
 
 	# bind "jk" from insert mode to return to normal mode
