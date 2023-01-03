@@ -10,3 +10,5 @@ input type:keyboard {
 input type:touchscreen {
 	events disabled
 }
+
+exec firefox

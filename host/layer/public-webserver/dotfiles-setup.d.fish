@@ -17,3 +17,4 @@ _p $layerdir/caddy /etc/caddy
 sudo mkdir -p /srv/http
 sudo chmod 755 /srv/http
 _p $layerdir/webserver-root/* /srv/http
+sudo chmod 777 /srv/http/public-files

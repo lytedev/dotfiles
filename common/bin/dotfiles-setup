@@ -52,6 +52,7 @@ l common/nnn $c/nnn
 l common/kak $c/kak
 l common/helix $c/helix
 l common/gpg/agent.conf $h/.gnupg/gpg-agent.conf
+chmod og-rwx ~/.gnupg
 l common/htop/rc $c/htop/htoprc
 l common/kitty $c/kitty
 l common/alacritty $c/alacritty
