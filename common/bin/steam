@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+if [ ! -f /bin/steam ] && [ ! -f /usr/bin/steam ] && [ ! -f /usr/local/bin/steam ]; then
+	echo "Steam not installed (/bin/steam, /usr/bin/steam, and /usr/local/bin/steam not found)"
+	exit 1
+fi
+
+mkdir -p ~/.steam/steam/package
+echo "steampal_stable_9a24a2bf68596b860cb6710d9ea307a76c29a04d" > ~/.steam/steam/package/beta
+
+if [ -f /bin/steam ]; then
+	exec /bin/steam -gamepadui
+elif [ -f /usr/bin/steam ]; then
+	exec /usr/bin/steam -gamepadui
+elif [ -f /usr/local/bin/steam ]; then
+	exec /usr/local/bin/steam -gamepadui
+fi

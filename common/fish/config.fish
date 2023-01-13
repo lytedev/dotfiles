@@ -60,5 +60,5 @@ end
 # end
 
 if status is-interactive; and not set -q TMUX; and not status --is-login; and not string match '/dev/tty*' (tty)
-	tmux attach -t default || tmux new -s default
+	tmux
 end
