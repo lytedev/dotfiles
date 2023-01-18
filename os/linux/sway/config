@@ -182,6 +182,8 @@ exec mako
 # exec gammastep -t 6500:3500 -l 39.0:-94.5
 # exec /usr/lib/kdeconnectd
 # exec sway-init-tmux
+# TODO: initial startup window attaches to a known, default tmux session (same for SSH?)
+# new kitty windows setup a fresh tmux
 exec exec kitty --single-instance fish -i
 exec tmux start-server
 

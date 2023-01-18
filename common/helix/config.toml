@@ -34,6 +34,5 @@ D = "kill_to_line_end"
 space = { q = ":reflow 80", Q = ":reflow 120" }
 
 [keys.select]
-"^" = "goto_line_start"
 space = { q = ":reflow 80", Q = ":reflow 120" }
 "L" = "repeat_last_motion"
