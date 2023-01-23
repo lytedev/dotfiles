@@ -59,6 +59,6 @@ end
 #     eval (zellij setup --generate-auto-start fish | string collect)
 # end
 
-if status is-interactive; and status --is-login; and not set -q TMUX; and not string match '/dev/tty*' (tty)
+if status is-interactive; and not set -q TMUX; and not string match '/dev/tty*' (tty)
 	tmux
 end
