@@ -25,6 +25,15 @@ function _maybe_sudo_prefix
 	end
 end
 
+function _maybe_aws_profile
+	if set -q AWS_PROFILE && test $AWS_PROFILE = prd
+		printf " "
+		set_color -b yellow black
+		printf " AWS_PROFILE=prd "
+		set_color -b normal normal
+	end
+end
+
 function _user_and_host
 	if test $argv[1] -eq 0
 		set_color -b normal blue
@@ -101,6 +110,7 @@ function fish_prompt
 	_user_and_host $last_cmd_status
 	_cur_work_dir
 	_maybe_git_summary
+	_maybe_aws_profile
 	_last_cmd_duration
 	_maybe_jobs_summary
 	_user_prompt
