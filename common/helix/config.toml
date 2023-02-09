@@ -8,6 +8,9 @@ scrolloff = 8
 rulers = [80, 120]
 cursorline = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
