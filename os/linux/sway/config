@@ -10,11 +10,12 @@ set $default_gap 0
 xwayland enable
 focus_wrapping no
 gaps inner $default_gap
-smart_borders on|no_gaps
-hide_edge_borders smart_no_gaps
-default_border pixel 1
+smart_borders no_gaps
+hide_edge_borders both
+default_border pixel 2
 focus_follows_mouse no
 mouse_warping none
+popup_during_fullscreen smart
 
 input type:touchscreen {
 	events disabled
@@ -167,6 +168,8 @@ for_window [title=".*"] floating enable
 for_window [app_id=$tilers] floating disable
 bindsym $mod+shift+alt+f for_window [class=$tilers] floating toggle
 
+# for_window [title=".*"] opacity $opacity
+
 include /etc/sway/config.d/*
 include $XDG_CONFIG_HOME/lytedev-env/*/sway/config
 
@@ -177,6 +180,8 @@ client.unfocused        #100814 #100814 #9b9ebf #100814 #100814
 bar {
 	swaybar_command waybar
 }
+
+exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.95
 
 exec mako
 # exec gammastep -t 6500:3500 -l 39.0:-94.5

@@ -81,3 +81,6 @@
 
 [url "git@git-p1ap1.divvy.co:"]
 	insteadOf = https://git-p1ap1.divvy.co
+
+[url "git@git.hq.bill.com"]
+	insteadOf = git@git-p1ap1.divvy.co
