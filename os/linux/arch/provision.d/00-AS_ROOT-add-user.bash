@@ -1,12 +1,20 @@
-#!/usr/bin/env bash
+#!/usr/bin/env -S bash -i
 
 u=daniel
 ud="/home/$u"
 
-# user exists - we will assume setup has already run
-if getent passwd "$u"; then exit 0; fi
+if [[ "$EUID" -ne 0 ]]; then
+	echo "Error: This script must be run as root."
+	exit 1
+fi
 
-pacman -S --needed --noconfirm sudo
+# user exists - we will assume setup has already run
+if grep -E "^$u" /etc/passwd; then 
+	echo "User '$u' already exists. Assuming user has been setup already."
+	exit 0
+fi
+
+pacman -Sy --needed --noconfirm sudo
 echo '%admin ALL=(ALL) ALL' >> /etc/sudoers.d/admin-group-sudoers
 groupadd admin 2>/dev/null
 mkdir --parents "$ud/.home" "$ud/dl"

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+url="$(gitforge-url.ts "$1")"
+case "$(uname)" in
+    Linux*)  echo "$url" | clip;;
+    Darwin*) echo "$url" | pbcopy;;
+    *)       echo "OS not supported"; exit 1;
+esac

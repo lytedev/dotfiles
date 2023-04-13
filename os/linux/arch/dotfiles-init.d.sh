@@ -1,4 +1,3 @@
-#!/usr/bin/env sh
+#!/usr/bin/env -S sh -i
 
-# this will be run as root
 "$CURDIR/provision.sh"

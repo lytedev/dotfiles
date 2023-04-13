@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+url="$(gitforge-url.ts "$1")"
+case "$(uname)" in
+    Linux*)  xdg-open "$url";;
+    Darwin*) open "$url";;
+    *)       echo "OS not supported"; exit 1;
+esac

@@ -1,63 +1,36 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 export dfp
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export ENV_PATH="$XDG_CONFIG_HOME/lytedev-env"
 export CURDIR
 
+mkdir -p "$ENV_PATH"
+mkdir -p "$XDG_CONFIG_HOME"
 dfp="$(realpath "$(dirname "$0")"/../..)"
 
-detect_os() {
-  # NixOS
-  if head /etc/os-release --lines 1 | grep 'NixOS$' > /dev/null 2>&1; then
-    ln -s "$dfp/os/linux/nix" "$ENV_PATH/os-linux-nix" > /dev/null 2>&1
-    return
-  fi
-
-  # Arch Linux
-  if head /etc/os-release --lines 1 | grep 'Arch Linux' > /dev/null 2>&1; then
-    ln -s "$dfp/os/linux/arch" "$ENV_PATH/os-linux-arch" > /dev/null 2>&1
-    return
-  fi
-
-  # Pacman-based
-  if command -v pacman; then
-    ln -s "$dfp/os/linux/arch" "$ENV_PATH/os-linux-arch" > /dev/null 2>&1
-    return
-  fi
-
-  # TODO: Debian
-
-  echo "Failed to auto-detect your OS! Please setup your environments and run this script again."
-  exit 3
-}
-
-if command -v git > /dev/null 2>&1; then
-  if [ -f "$dfp/common/envs" ]; then
-    # TODO: more shared init stuff?
-    mkdir -p "$ENV_PATH"
-    detect_os
-    ls -la -R "$ENV_PATH/*"
-    find "$ENV_PATH" | while read -r s; do
-      f="$s/dotfiles-init.d.sh"
-      if [ -f "$f" ]; then
-        CURDIR="$s"
-        . "$f"
-      fi
-    done
-    $dfp/common/bin/dotfiles-setup
-  else
-    git clone "https://git.lyte.dev/lytedev/dotfiles.git" "$XDG_CONFIG_HOME/lytedev-dotfiles"
-    cd "$XDG_CONFIG_HOME/lytedev-dotfiles" || {
-                                              echo "Could not cd to dotfiles dir"
-                                                                                   exit 2
-    }
-    . ./common/bin/dotfiles-init
-  fi
-else
-  echo "git not installed"
+# may not be running from inside the dotfiles repo, may have been curl'd down solo, so we need to check
+if [[ ! -d "$dfp/.git" ]]; then
+  echo "Not running from inside the dotfiles git repo, so we need to download it first!"
   exit 1
 fi
+
+if head /etc/os-release --lines 1 | grep 'NixOS$' > /dev/null 2>&1; then
+  ln -s "$dfp/os/linux/nix" "$ENV_PATH/os-linux-nix" > /dev/null 2>&1
+elif head /etc/os-release --lines 1 | grep 'Arch Linux' > /dev/null 2>&1; then
+  ln -s "$dfp/os/linux/arch" "$ENV_PATH/os-linux-arch" > /dev/null 2>&1
+fi
+
+for s in "$ENV_PATH"/*; do
+  f="$s/dotfiles-init.d.sh"
+  if [ -f "$f" ]; then
+    echo "dotfiles-init: Running $f..."
+    CURDIR="$s" "$f"
+  fi
+done
+
+echo "dotfiles-init: Running setup..."
+"$dfp/common/bin/dotfiles-setup"
 
 # TODO: run provision script
 
