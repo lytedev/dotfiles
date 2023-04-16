@@ -20,6 +20,15 @@ git clone https://git.lyte.dev/lytedev/dotfiles.git "$HOME/.config/lytedev-dotfi
 "$HOME/.config/lytedev-dotfiles/common/bin/dotfiles-setup"
 ```
 
+## Provisioned Setup
+
+This method is incomplete and unstable. It takes a fresh box with a network
+connection and fully sets it up the way I like.
+
+```bash
+curl -LO lyte.dev/dfi.sh && sh -i dfi.sh
+```
+
 # Repo Structure
 
 My dotfiles are composed together by layering "environments" since I want my dotfiles to be flexible across servers, laptops, desktops, and even my phone (via Termux).
@@ -135,15 +144,12 @@ git merge upstream/master
 
 # Todo
 
-- Setup `host/desktop/bin/reboot-to-windows` to use efibootmgr and simply grep for the boot entry
-	- Maybe also a script for cleaning up bad boot entries?
+They're littered throughout the repo in code comments. `rg -i todo`
 
 # Screenshots
 
-## Arch Linux Desktop
-
-![Battlestation][battlestation-photo]
-![Desktop Screenshot][desktop-screenshot]
+Any relevant screenshots should be findable here:
+[files.lyte.dev/images](https://files.lyte.dev/images/)
 
 [upstream]: https://git.lyte.dev/lytedev/dotfiles
 [github]: https://github.com/lytedev/dotfiles
