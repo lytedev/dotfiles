@@ -52,7 +52,5 @@ done
 echo "dotfiles-init: Running setup..."
 "$dfp/common/bin/dotfiles-setup"
 
-# TODO: setup ssh/gpg keys
-# TODO: setup password store
-# TODO: fetch notes database
+# TODO: setup personal files? (ssh keys, gpg keys, password stores, notes)
 # these are probably best handled in a dotfiles-init.d.sh script in a particular layer
