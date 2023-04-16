@@ -68,6 +68,8 @@ for s in $c/lytedev-env/*/dotfiles-setup.d.fish
 	source $s $dfp $h $c
 end
 
+set -q ENV_PATH || set ENV_PATH $XDG_CONFIG_HOME/lytedev-env
+set -q DOTFILES_PATH || set DOTFILES_PATH $XDG_CONFIG_HOME/lytedev-dotfiles
 rm -f $ENV_PATH/empty
 ln -s $DOTFILES_PATH/common/empty-env $ENV_PATH/empty
 
