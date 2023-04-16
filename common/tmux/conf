@@ -36,9 +36,12 @@ set -g update-environment "WAYLAND_DISPLAY DISPLAY"
 
 set -g mouse on
 set -g escape-time 0
+
 set -g monitor-activity on
-set -g visual-bell both
+set -g visual-bell off
 set -g bell-action other
+set -g activity-action none
+
 set -g mode-keys vi
 set -g history-limit 1000000
 set -g status on

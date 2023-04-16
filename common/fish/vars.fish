@@ -9,6 +9,7 @@ set --export --universal TERMINAL kitty
 set --export --universal TERMINAL_ARGS '--single-instance'
 set --export --universal BROWSER firefox
 
+# TODO: use the text editor?
 set --export --universal PAGER "less"
 set --export --universal MANPAGER "less"
 
