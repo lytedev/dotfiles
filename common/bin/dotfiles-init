@@ -27,6 +27,7 @@ if [[ ! -d "$dfp/.git" ]]; then
       fi
     fi
   fi
+  dfp="$XDG_CONFIG_HOME/lytedev-dotfiles"
   git clone https://git.lyte.dev/lytedev/dotfiles.git "$dfp"
 fi
 
