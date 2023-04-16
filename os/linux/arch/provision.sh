@@ -4,6 +4,8 @@ pacman -Sy --noconfirm --needed git fish sudo
 
 echo "## Arch Linux Provisioning ##"
 
+# TODO: use custom meta packages?
+
 is_root="$(test "$(whoami)" == 'root' && echo "1" || echo "0")"
 for file in "$(dirname "$0")/provision.d"/*; do
 	test -d "$file" && continue
