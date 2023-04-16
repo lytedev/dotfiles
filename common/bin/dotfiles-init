@@ -13,8 +13,19 @@ dfp="$(realpath "$(dirname "$0")"/../..)"
 if [[ ! -d "$dfp/.git" ]]; then
   echo "Not running from inside the dotfiles git repo, so we need to download it first!"
   # each os needs instructions to install git, then we can clone the repo and proceed
-  if head /etc/os-release --lines 1 | grep 'Arch Linux' > /dev/null 2>&1; then
-    sudo pacman -Sy --needed git
+  if ! command -v git; then
+    if head /etc/os-release --lines 1 | grep 'Arch Linux' > /dev/null 2>&1; then
+      if [[ "$EUID" -ne 0 ]]; then
+        if ! command -v sudo; then
+          echo "Error: No sudo command available to try and install 'git'"
+          exit 1
+        else
+          sudo pacman -Sy --needed git
+        fi
+      else
+        pacman -Sy --needed git
+      fi
+    fi
   fi
   git clone https://git.lyte.dev/lytedev/dotfiles.git "$dfp"
 fi
