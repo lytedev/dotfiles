@@ -1,14 +1,14 @@
 default_border pixel 1
-exec swayidle -w timeout 300 'swaylock -f' timeout 330 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f'
+exec swayidle -w timeout 300 'notify-send "Idling in 30 seconds..."' timeout 330 'swaylock -f' timeout 360 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f'
 
 output "Samsung Electric Company SyncMaster H1AK500000" position 0,0
 
-# whichever dell monitor is plugged in
-output "Dell Inc. DELL U2720Q CWTM623" transform 90 scale 1.5
-output "Dell Inc. DELL U2720Q CWTM623" position -1440,200
+output "GIGA-BYTE TECHNOLOGY CO., LTD. AORUS FO48U 23070B000307" mode 3840x2160@120Hz position 0,0
 
-# whichever dell monitor is plugged in
-output "Dell Inc. DELL U2720Q D3TM623" transform 90 scale 1.5
-output "Dell Inc. DELL U2720Q D3TM623" position 3840,200
+output "Dell Inc. DELL U2720Q CWTM623" transform 90 scale 2.0
+output "Dell Inc. DELL U2720Q CWTM623" position -1080,0
+
+output "Dell Inc. DELL U2720Q D3TM623" transform 90 scale 2.0
+output "Dell Inc. DELL U2720Q D3TM623" position 3840,0
 
 exec firefox

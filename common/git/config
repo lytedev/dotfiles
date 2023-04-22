@@ -80,10 +80,4 @@
 # 	pushOption = merge_request.assign="daniel.flanagan" 
 
 [url "git@git.hq.bill.com:"]
-	insteadOf = https://git-p1ap1.divvy.co/
-
-[url "git@git.hq.bill.com:"]
 	insteadOf = https://git.hq.bill.com/
-
-[url "git@git.hq.bill.com:"]
-	insteadOf = ssh://git@git-p1ap1.divvy.co/
