@@ -41,6 +41,7 @@ Q = ":reflow 120"
 v = ":run-shell-command fish -c 'env > /tmp/env'"
 J = ":bp"
 K = ":bn"
+C = ":bc"
 # O = ["select_textobject_inner WORD", ":pipe-to xargs xdg-open"]
 
 [keys.select]
