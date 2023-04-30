@@ -2,4 +2,6 @@
 
 SUBDIR="${2:-./}"
 mkdir -p "$NOTES_PATH/$SUBDIR"
+cd "$NOTES_PATH/$SUBDIR" || exit 1
 "$EDITOR" "$NOTES_PATH/$SUBDIR/$1"
+cd - || exit 1
