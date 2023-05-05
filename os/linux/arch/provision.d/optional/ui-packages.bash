@@ -15,7 +15,7 @@ paru -Sy --needed \
 	bluez bluez-libs bluez-utils bluez-tools `# Bluetooth` \
 	arc-gtk-theme elementary-icon-theme `# GUI Theme Stuff` \
 	thunar thunar-volman gvfs `# File Manager` \
-	ttf-iosevka-lyte-nerd-font ttf-iosevka-lyte ttf-opensans `# Fonts` \
+	ttf-iosevka-lyte ttf-nerd-fonts-symbols-mono ttf-opensans `# Fonts` \
 	avr-libc avr-gcc dfu-programmer dfu-util `# MCU Programming Utilities` \
 	gimp inkscape krita `# Image/Vector Editing Applications` \
 	audacity `# Audio Editing Application` \

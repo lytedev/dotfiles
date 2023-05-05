@@ -163,7 +163,7 @@ mode "resize" {
 	bindsym escape mode "default"
 }
 
-set $tilers "(kitty.*|firefox.*|slack.*|Slack.*|thunar.*|Alacritty.*|alacritty.*)"
+set $tilers "(kitty.*|firefox.*|slack.*|Slack.*|thunar.*|Alacritty.*|alacritty.*|Discord.*|discord.*)"
 for_window [title=".*"] floating enable
 for_window [app_id=$tilers] floating disable
 bindsym $mod+shift+alt+f for_window [class=$tilers] floating toggle
@@ -186,9 +186,7 @@ exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.95
 exec mako
 # exec gammastep -t 6500:3500 -l 39.0:-94.5
 # exec /usr/lib/kdeconnectd
-# exec sway-init-tmux
-# TODO: initial startup window attaches to a known, default tmux session (same for SSH?)
-# new kitty windows setup a fresh tmux
+
 exec exec kitty --single-instance fish -i
 exec tmux start-server
 
