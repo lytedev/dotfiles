@@ -15,8 +15,8 @@
 "special" = { fg = "blue" }
 "operator" = { fg = "magenta" }
 
-"punctuation" = { fg = "yellow" }
-"punctuation.delimiter" = { fg = "yellow" }
+"punctuation" = { fg = "white" }
+"punctuation.delimiter" = { fg = "white" }
 
 "variable" = { fg = "white" }
 "variable.parameter" = { fg = "white" }

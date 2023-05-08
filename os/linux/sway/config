@@ -181,7 +181,7 @@ bar {
 	swaybar_command waybar
 }
 
-exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.95
+# exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.95
 
 exec mako
 # exec gammastep -t 6500:3500 -l 39.0:-94.5
