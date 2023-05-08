@@ -7,8 +7,13 @@ input type:keyboard {
 	xkb_options ctrl:nocaps
 }
 
-input type:touchscreen {
-	events disabled
+# disabled since we don't have a broken touch screen anymore
+# input type:touchscreen {
+# 	events disabled
+# }
+
+input type:touchpad {
+
 }
 
 exec firefox
