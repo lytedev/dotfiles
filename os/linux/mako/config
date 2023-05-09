@@ -1,7 +1,8 @@
 max-visible=5
 default-timeout=30000
-font=IosevkaLyteTerm Regular 12, Symbols Nerd Font 12
+font=Symbols Nerd Font 12,IosevkaLyteTerm 12
 default-timeout=15000
+border-size=1
 
 # theme src: https://github.com/catppuccin/mako/blob/main/src/mocha
 # Colors

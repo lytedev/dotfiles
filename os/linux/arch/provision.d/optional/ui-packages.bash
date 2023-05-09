@@ -41,3 +41,4 @@ paru -Sy --needed \
 	pipewire pipewire-pulse wireplumber `# Audio System` \
 	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \
 	obs-studio `# Audio and Video Streaming` \
+	eww-wayland `# Wayland Widgets`

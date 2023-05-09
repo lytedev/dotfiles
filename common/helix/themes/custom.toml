@@ -1,0 +1,2 @@
+inherits = "catppuccin_mocha"
+"ui.bufferline.active" = { fg = "sapphire", bg = "base", underline = { color = "sapphire", style = "" } }

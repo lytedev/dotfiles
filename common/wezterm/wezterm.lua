@@ -49,8 +49,6 @@ config.keys = {
   },
 }
 
--- 😋
--- -> => ==>
--- -* ** :: >> |>
+config.default_gui_startup_args = { 'connect', 'unix' }
 
 return config
