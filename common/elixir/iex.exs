@@ -6,6 +6,7 @@ IEx.configure(
   colors: [enabled: true],
   inspect: [
     pretty: true,
+    printable_limit: :infinity,
     limit: :infinity
   ],
   default_prompt:

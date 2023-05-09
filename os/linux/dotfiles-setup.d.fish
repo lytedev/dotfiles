@@ -10,6 +10,7 @@ l sway/mimeapps.list $c/mimeapps.list
 l sway/mimeapps.list $c/sway-mimeapps.list
 l sway/mimeapps.list $h/.local/share/applications/mimeapps.list
 l sway/lock $c/swaylock/config
+l hypr $c/hypr
 l mako $c/mako
 l kanshi $c/kanshi
 l gtk/2rc $h/.gtkrc-2.0

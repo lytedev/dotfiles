@@ -42,9 +42,7 @@ test -d ~/.tmux/pluginx/tpm || \
 l common/zellij $c/zellij
 l common/fish $c/fish
 l common/bash/rc $h/.bashrc
-l common/neovim $c/nvim
 l common/wezterm $c/wezterm
-l common/colors/vim $c/nvim/colors/base16-donokai.vim
 l common/weechat $h/.weechat
 l common/scim/rc $h/.scimrc
 l common/scim/lua $h/.scim/lua
