@@ -14,6 +14,8 @@ paru -Sy --needed --noconfirm \
 	efibootmgr efivar `# UEFI Boot CLI Stuff` \
 	weechat `# IRC Client` \
 	aria2 `# Downloads Manager` \
+	wezterm `# Terminal` \
+	tailscale `# VPN` \
 	ripgrep `# Code Search Utilities` \
 	git-delta `# Better Diff Viewer` \
 	fd `# File Search` \
