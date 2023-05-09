@@ -172,26 +172,26 @@ function M.select(palette, flavor, accent)
 		compose_cursor = c.flamingo,
 
 		tab_bar = {
-			background = c.crust,
+			background = c.mantle,
 			active_tab = {
-				bg_color = c.crust,
+				bg_color = c.mantle,
 				fg_color = c[accent],
 			},
 			inactive_tab = {
-				bg_color = c.mantle,
-				fg_color = c.text,
+				bg_color = c.crust,
+				fg_color = c.surface1,
 			},
 			inactive_tab_hover = {
 				bg_color = c.base,
 				fg_color = c.text,
 			},
 			new_tab = {
-				bg_color = c.surface0,
+				bg_color = c.mantle,
 				fg_color = c.text,
 			},
 			new_tab_hover = {
 				bg_color = c.surface1,
-				fg_color = c.text,
+				fg_color = c[accent],
 			},
 			-- fancy tab bar
 			inactive_tab_edge = c.surface0,
@@ -232,7 +232,7 @@ function M.apply_to_config(c, opts)
 	-- default options
 	local defaults = {
 		flavor = "mocha",
-		accent = "mauve",
+		accent = "sapphire",
 		sync = false,
 		sync_flavors = { light = "latte", dark = "mocha" },
 		color_overrides = { mocha = {}, macchiato = {}, frappe = {}, latte = {} },
