@@ -1,15 +1,15 @@
 max-visible=5
 default-timeout=30000
-background-color=#111111
-border-color=#666666
-font=IosevkaLyteTerm Nerd Font Complete 11
-progress-color=source #33333388
-# format="<b>%s</b>
+font=IosevkaLyteTerm Regular 12, Symbols Nerd Font 12
 default-timeout=15000
-# history=1
-# max-history=100
 
-[urgency="high"]
-background-color=#f92672
-text-color=#111111
-border-color=#f92672
+# theme src: https://github.com/catppuccin/mako/blob/main/src/mocha
+# Colors
+
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+[urgency=high]
+border-color=#fab387

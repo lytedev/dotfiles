@@ -1,4 +1,4 @@
-theme = "donokai"
+theme = "catppuccin_mocha"
 
 [editor]
 auto-pairs = false

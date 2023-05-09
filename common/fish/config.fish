@@ -60,5 +60,6 @@ end
 # end
 
 if status is-interactive; and not set -q TMUX; and not string match '/dev/tty*' (tty)
-	tmux att -t default || tmux new -s default
+	true
+	# tmux att -t default || tmux new -s default
 end

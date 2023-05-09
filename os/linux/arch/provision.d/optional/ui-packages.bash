@@ -29,11 +29,13 @@ paru -Sy --needed \
 	hunspell-en_US `# Firefox Spell Checking` \
 	passff-host `# Pass integration in Firefox` \
 	kitty-git `# Terminal Emulator` \
+	wezterm `# Terminal Emulator` \
 	pavucontrol pulsemixer `# Pulseaudio Controls` \
 	playerctl `# Media Keys Controls` \
 	feh `# Image Viewer and Wallpaper Manager` \
-	wlroots sway swaybg `# Wayland Compositor` \
-	swaylock swayidle `# Auto-Locking for Sway` \
+	hyprland hyprpaper `# Wayland Compositor` \
+	polkit-kde-agent `# Privilege Escalation` \
+	swaylock swayidle `# Locking and Idling` \
 	waybar mako `# Bar and Notifications` \
 	slurp grim wl-clipboard `# Screenshots and Clipboard Utilities` \
 	pipewire pipewire-pulse wireplumber `# Audio System` \

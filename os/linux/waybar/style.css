@@ -1,3 +1,5 @@
+@import "mocha.css";
+
 * {
 	border: none;
 	border-radius: 0;
@@ -7,8 +9,8 @@
 }
 
 window#waybar {
-	background-color: #100814;
-	color: #9b9ebf;
+	background-color: @base;
+	color: @crust;
 	transition: none;
 }
 
@@ -33,7 +35,7 @@ window#waybar.empty {
 }
 
 #workspaces button.visible {
-	background-color: #666666;
+	background-color: @base;
 }
 
 #workspaces button.focused {

@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
-exec "$(dirname "$0")/../sway/init"
+# exec "$(dirname "$0")/../sway/init"
+exec Hyprland
