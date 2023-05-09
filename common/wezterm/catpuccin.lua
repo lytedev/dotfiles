@@ -174,8 +174,8 @@ function M.select(palette, flavor, accent)
 		tab_bar = {
 			background = c.crust,
 			active_tab = {
-				bg_color = c[accent],
-				fg_color = c.crust,
+				bg_color = c.crust,
+				fg_color = c[accent],
 			},
 			inactive_tab = {
 				bg_color = c.mantle,
@@ -278,7 +278,7 @@ function M.apply_to_config(c, opts)
 		active_titlebar_fg = colors[o.flavor].text,
 		inactive_titlebar_bg = colors[o.flavor].crust,
 		inactive_titlebar_fg = colors[o.flavor].text,
-		button_fg = colors[o.flavor].text,
+		button_fg = colors[o.flavor].base,
 		button_bg = colors[o.flavor].base,
 	}
 

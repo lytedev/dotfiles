@@ -13,8 +13,6 @@ set --export --universal BROWSER firefox
 set --export --universal PAGER "less"
 set --export --universal MANPAGER "less"
 
-set --universal fish_cursor_insert line
-
 if command --search --quiet hx
 	set --export --universal EDITOR hx
 	set --export --universal VISUAL hx

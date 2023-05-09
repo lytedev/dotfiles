@@ -1,2 +1,11 @@
 inherits = "catppuccin_mocha"
+
+"ui.background" = "default"
+
+# "ui.cursorline.primary" = { bg = "default" }
+# "ui.cursorline.secondary" = { bg = "default" }
+# "ui.cursorcolumn.primary" = { bg = "default" }
+# "ui.cursorcolumn.secondary" = { bg = "default" }
+# "ui.virtual.ruler" = { bg = "default" }
+
 "ui.bufferline.active" = { fg = "sapphire", bg = "base", underline = { color = "sapphire", style = "" } }
