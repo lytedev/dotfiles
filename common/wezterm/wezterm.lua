@@ -11,7 +11,11 @@ config.default_cursor_style = 'BlinkingBar'
 
 catpuccin.apply_to_config(config)
 
-config.font = wezterm.font('IosevkaLyteTerm', { weight = 'Regular', italic = false })
+config.font = wezterm.font_with_fallback{
+  { family = 'IosevkaLyteTerm', weight = 'Regular', italic = false },
+  { family = 'Symbols Nerd Font Mono', weight = 'Regular', italic = false },
+  'Noto Color Emoji',
+}
 config.font_size = 12.0
 
 config.hide_tab_bar_if_only_one_tab = true
@@ -21,7 +25,7 @@ config.window_background_opacity = 1.0
 
 config.color_scheme = "Catppuccin Mocha"
 
-config.window_frame.font = wezterm.font { family = 'IosevkaLyteTerm', weight = 'Regular' }
+config.window_frame.font = config.font
 config.window_frame.font_size = 12.0
 
 config.inactive_pane_hsb = {
@@ -67,6 +71,13 @@ config.keys = {
   },
 }
 
-config.default_gui_startup_args = { 'connect', 'unix' }
+-- config.default_gui_startup_args = { 'connect', 'unix' }
+
+config.window_padding = {
+  top = '0.5cell',
+  bottom = '0.5cell',
+  left = '1cell',
+  right = '1cell',
+}
 
 return config
