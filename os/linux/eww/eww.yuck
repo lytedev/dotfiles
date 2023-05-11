@@ -2,24 +2,33 @@
   (centerbox :orientation "h"
     (sidestuff)
     (box)
-    (music)
-  )
-)
+    (music)))
+
+(defwindow bar
+  :monitor 2
+  :stacking "fg"
+  :exclusive true
+  :geometry
+  (geometry
+    :x "0%"
+    :y "0%"
+    :width "100%"
+    :height "31px"
+    :anchor "bottom center")
+  (bar))
 
 (defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "start" :spacing 10
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "start" :spacing 20
     time
-    ; TODO: get these to align properly
-    (metric :label " "
-            :value volume
-            :onchange "pamixer --set-volume {}%")
-    (metric :label " "
-          :value {EWW_RAM.used_mem_perc}
-          :onchange "")
-    (metric :label "󰋊"
-           :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-           :onchange "")
-    ))
+    ; TODO: idle inhibitor?
+    ; TODO: get these to align properly?
+    (box :class "mic" (box :class {micMuted == "false" ? "muted" : "live"} {micMuted == "false" ? " " : " "}))
+    {"󰕾 " + volume}
+    {" " + cpu}
+    {" " + ram}
+    ; TODO: brightness
+    ; TODO: battery
+  ))
 
 (defwidget music []
   (box :class "music"
@@ -28,36 +37,24 @@
        :space-evenly false
     {music != "" ? "${music}" : ""}))
 
-
-(defwidget metric [label value onchange]
-  (box :orientation "h"
-       :class "metric"
-       :space-evenly false
-    (box :class "label" label)
-    (scale :min 0
-           :max 101
-           :active {onchange != ""}
-           :value value
-           :onchange onchange)))
-
-
-
 (deflisten music :initial ""
   "playerctl --follow metadata --format '{{ title }} by {{ artist }}' || true")
 
+; convert these to `deflisten`s as well because polling is very silly
 (defpoll volume :interval "1s"
   "pamixer --get-volume")
 
-(defpoll time :interval "10s"
-  "date '+%a %b %d %H:%M:%S'")
+(defpoll micVolume :interval "10s"
+  "pamixer --default-source --get-volume")
 
-(defwindow bar
-  :monitor 2
-  :stacking "fg"
-  :exclusive true
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "100%"
-                      :height "31px"
-                      :anchor "bottom center")
-  (bar))
+(defpoll micMuted :interval "1s"
+  "pamixer --default-source --get-mute")
+
+(defpoll cpu :interval "1s"
+  "mpstat -o JSON | jq -r '(100 - .sysstat.hosts[0].statistics[0][\"cpu-load\"][0].idle | round | tostring)+\"%\"'")
+
+(defpoll ram :interval "1s"
+  "free | grep Mem | awk '{printf \"%.0f%\", $3/$2 * 100.0}'")
+
+(defpoll time :interval "1s"
+  "date '+%a %b %d %H:%M:%S'")

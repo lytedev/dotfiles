@@ -1,4 +1,5 @@
 function fish_user_key_bindings
+	set --export SKIM_TMUX_HEIGHT ""
 	command -q sk && functions | grep skim_key_bindings &>/dev/null && skim_key_bindings
 	fish_vi_key_bindings insert --no-erase
 
