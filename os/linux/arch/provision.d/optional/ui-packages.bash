@@ -30,7 +30,7 @@ paru -Sy --needed \
 	passff-host `# Pass integration in Firefox` \
 	kitty-git `# Terminal Emulator` \
 	wezterm `# Terminal Emulator` \
-	pavucontrol pamixer `# Pulseaudio Controls` \
+	pavucontrol pamixer pactl `# Pulseaudio Controls` \
 	playerctl `# Media Keys Controls` \
 	feh `# Image Viewer and Wallpaper Manager` \
 	hyprland hyprpaper `# Wayland Compositor` \
