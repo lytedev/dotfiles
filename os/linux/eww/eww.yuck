@@ -23,11 +23,11 @@
     ; TODO: idle inhibitor?
     ; TODO: get these to align properly?
     (box :class "mic" (box :class {micMuted == "false" ? "live" : "muted"} {micMuted == "false" ? " " : " "}))
-    {"󰕾 " + volume}
+    {"󰕾 " + volume + "%"}
     {" " + round(EWW_CPU["avg"], 0) + "%"}
     {" " + round(EWW_RAM["used_mem_perc"], 0) + "%"}
-    {" " + brightness + "%"}
-    {"󱊣 " + EWW_BATTERY["BAT0"]["capacity"] + "%"}
+    {isDesktop == "true" ? "" : " " + brightness + "%"}
+    {isDesktop == "true" ? "" : "󱊣 " + EWW_BATTERY["BAT0"]["capacity"] + "%"}
   ))
 
 (defwidget music []
@@ -48,6 +48,9 @@
 
 (defpoll time :interval "1s"
   "date '+%a %b %d %H:%M:%S'")
+
+(defpoll isDesktop :interval "24h"
+  "if [ -d \"$HOME/.config/lytedev-env/host-desktop\" ]; then echo true; else echo false; fi")
 
 (defpoll brightness :interval "10s"
   "echo $(((100 * $(brightnessctl get)) / $(brightnessctl max)))")
