@@ -1,3 +1,14 @@
 #!/usr/bin/env sh
 # exec "$(dirname "$0")/../sway/init"
-exec Hyprland
+
+c="$HOME/.config"
+ev="$c/hypr/hyprland.conf"
+ee="$c/lytedev-env"
+for e in "host-desktop" "host-laptop"; do
+  f="$ee/$e/hyprland.d.conf"
+  [ -f "$f" ] && c="$f"
+done
+
+echo "Using config $c"
+
+exec Hyprland -c "$c"

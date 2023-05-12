@@ -5,7 +5,7 @@
     (music)))
 
 (defwindow bar
-  :monitor 2
+  :monitor 0
   :stacking "fg"
   :exclusive true
   :geometry
@@ -24,10 +24,10 @@
     ; TODO: get these to align properly?
     (box :class "mic" (box :class {micMuted == "false" ? "live" : "muted"} {micMuted == "false" ? " " : " "}))
     {"󰕾 " + volume}
-    {" " + cpu}
-    {" " + ram}
-    ; TODO: brightness
-    ; TODO: battery
+    {" " + round(EWW_CPU["avg"], 0) + "%"}
+    {" " + round(EWW_RAM["used_mem_perc"], 0) + "%"}
+    {" " + brightness + "%"}
+    {"󱊣 " + EWW_BATTERY["BAT0"]["capacity"] + "%"}
   ))
 
 (defwidget music []
@@ -46,11 +46,8 @@
 (deflisten micMuted :initial "false"
   "pamixer --default-source --get-mute; pactl subscribe | grep source --line-buffered | while read i; do pamixer --default-source --get-mute; done")
 
-(defpoll cpu :interval "5s"
-  "mpstat -o JSON | jq -r '(100 - .sysstat.hosts[0].statistics[0][\"cpu-load\"][0].idle | round | tostring)+\"%\"'")
-
-(defpoll ram :interval "5s"
-  "free | grep Mem | awk '{printf \"%.0f%\", $3/$2 * 100.0}'")
-
 (defpoll time :interval "1s"
   "date '+%a %b %d %H:%M:%S'")
+
+(defpoll brightness :interval "5s"
+  "echo $((100 * ($(brightnessctl get) / $(brightnessctl max))))")
