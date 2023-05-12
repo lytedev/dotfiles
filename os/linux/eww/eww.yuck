@@ -49,5 +49,5 @@
 (defpoll time :interval "1s"
   "date '+%a %b %d %H:%M:%S'")
 
-(defpoll brightness :interval "5s"
-  "echo $((100 * ($(brightnessctl get) / $(brightnessctl max))))")
+(defpoll brightness :interval "10s"
+  "echo $(((100 * $(brightnessctl get)) / $(brightnessctl max)))")
