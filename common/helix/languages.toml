@@ -84,3 +84,8 @@ auto-format = false
 [[grammar]]
 name = "nim"
 source = { git = "https://github.com/aMOPel/tree-sitter-nim", rev = "8ce3627827e45a5835004391ff5ffcfe029ae6cf" }
+
+[[language]]
+name = "fish"
+auto-format = true
+indent = { tab-width = 2, unit = "\t" }

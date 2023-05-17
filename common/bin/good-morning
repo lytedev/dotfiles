@@ -5,8 +5,8 @@
 set message_file (mktemp)
 
 for f in (fd good-morning.d.fish $HOME/.config/lytedev-env --max-depth 2)
-    # run scripts for any linked environments with a hooked script
-    source $f $message_file
+	# run scripts for any linked environments with a hooked script
+	source $f $message_file
 end
 
 
