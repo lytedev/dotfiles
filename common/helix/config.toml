@@ -44,4 +44,3 @@ C = ":bc"
 [keys.select]
 space = { q = ":reflow 80", Q = ":reflow 120" }
 "L" = "repeat_last_motion"
-
