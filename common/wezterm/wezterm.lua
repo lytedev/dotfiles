@@ -7,16 +7,35 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+local hostname = io.popen("/bin/hostname"):read("*a"):gsub("%s", "")
+local font_spec = { family = 'IosevkaLyteTerm', weight = 'Regular', italic = false }
+local font_size = 12.0
+
+if hostname == "laptop" then
+  font_size = 13
+end
+
+local font = wezterm.font_with_fallback{
+  font_spec,
+  { family = 'Symbols Nerd Font Mono', weight = 'Regular', italic = false },
+  'Noto Color Emoji',
+}
+
+if hostname == "laptop" then
+  config.font_rules = {
+    -- no italics
+    {
+      font = font
+    },
+  }
+end
+
 config.default_cursor_style = 'BlinkingBar'
 
 catpuccin.apply_to_config(config)
 
-config.font = wezterm.font_with_fallback{
-  { family = 'IosevkaLyteTerm', weight = 'Regular', italic = false },
-  { family = 'Symbols Nerd Font Mono', weight = 'Regular', italic = false },
-  'Noto Color Emoji',
-}
-config.font_size = 12.0
+config.font = font
+config.font_size = font_size
 
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
@@ -26,7 +45,7 @@ config.window_background_opacity = 1.0
 config.color_scheme = "Catppuccin Mocha"
 
 config.window_frame.font = config.font
-config.window_frame.font_size = 12.0
+config.window_frame.font_size = font_size
 
 config.inactive_pane_hsb = {
   saturation = 0.8,
