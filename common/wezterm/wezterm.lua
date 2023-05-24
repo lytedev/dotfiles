@@ -40,6 +40,16 @@ config.keys = {
     action = wezterm.action.ActivatePaneDirection'Down'
   },
   {
+    key = 'Insert',
+    mods = 'SHIFT',
+    action = wezterm.action.PasteFrom'Clipboard'
+  },
+  {
+    key = 'v',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.PasteFrom'PrimarySelection'
+  },
+  {
     key = 'h',
     mods = 'CTRL',
     action = wezterm.action.ActivatePaneDirection'Left'
