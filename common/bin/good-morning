@@ -1,0 +1,21 @@
+#!/usr/bin/env fish
+
+# create a messages file for subscripts to write to or manipulate for ending
+# output
+set message_file (mktemp)
+
+for f in (fd good-morning.d.fish $HOME/.config/lytedev-env --max-depth 2)
+	# run scripts for any linked environments with a hooked script
+	source $f $message_file
+end
+
+
+# output the messages file's contents
+echo
+cat $message_file
+echo
+
+# since this script almost always runs in its own window which dies after
+# finishing, give the user a chance to read the output
+echo "When you're ready, hit enter to finish!"
+read

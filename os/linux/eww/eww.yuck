@@ -22,7 +22,10 @@
     time
     ; TODO: idle inhibitor?
     ; TODO: get these to align properly?
-    (box :class "mic" (box :class {micMuted == "false" ? "live" : "muted"} {micMuted == "false" ? " " : " "}))
+    (box :class "mic" (
+      box :class {micMuted == "false" ? "live" : "muted"} {micMuted == "false" ? " " : " "}
+      ) {micVolume + "%"}
+    )
     {"󰕾 " + volume + "%"}
     {" " + round(EWW_CPU["avg"], 0) + "%"}
     {" " + round(EWW_RAM["used_mem_perc"], 0) + "%"}
@@ -42,6 +45,9 @@
 
 (deflisten volume :initial "0"
   "pamixer --get-volume; pactl subscribe | grep sink --line-buffered | while read i; do pamixer --get-volume; done")
+
+(deflisten micVolume :initial "0"
+  "pamixer --default-source --get-volume; pactl subscribe | grep source --line-buffered | while read i; do pamixer --default-source --get-volume; done")
 
 (deflisten micMuted :initial "false"
   "pamixer --default-source --get-mute; pactl subscribe | grep source --line-buffered | while read i; do pamixer --default-source --get-mute; done")

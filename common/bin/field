@@ -2,6 +2,5 @@
 
 has_command gawk || { echo "No gawk." >&2 ; exit 1; }
 index="${1:-1}"
-echo "$#" >&2
 [ "$#" -lt 1 ] || shift
 gawk "$@" '{print $'"${index}"'}'

@@ -1,4 +1,17 @@
 [[language]]
+name = "elixir"
+auto-format = true
+
+[[language]]
+name = "html"
+auto-format = false
+
+[[language]]
+name = "fish"
+auto-format = true
+indent = { tab-width = 2, unit = "\t" }
+
+[[language]]
 name = "javascript"
 scope = "source.js"
 injection-regex = "^(js|javascript)$"
@@ -6,81 +19,57 @@ file-types = ["js", "jsx", "mjs"]
 shebangs = ["deno", "node"]
 roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
 comment-token = "//"
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "javascript" }
-indent = { tab-width = 2, unit = "  " }
+# config = { enable = true, lint = true, unstable = true }
+# language-server = { command = "typescript-language-server", args = ["--stdio"], language-id = "javascript" }
+indent = { tab-width = 2, unit = "\t" }
 auto-format = true
 
-[[language]]
-name = "jsx"
-scope = "source.jsx"
-injection-regex = "jsx"
-file-types = ["jsx"]
-shebangs = ["deno", "node"]
-roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
-comment-token = "//"
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "javascriptreact" }
-indent = { tab-width = 2, unit = "  " }
-grammar = "javascript"
-auto-format = true
+# [[language]]
+# name = "jsx"
+# scope = "source.jsx"
+# injection-regex = "jsx"
+# file-types = ["jsx"]
+# shebangs = ["deno", "node"]
+# roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
+# comment-token = "//"
+# config = { enable = true, lint = true, unstable = true }
+# language-server = { command = "deno", args = ["lsp"], language-id = "javascriptreact" }
+# indent = { tab-width = 2, unit = "  " }
+# grammar = "javascript"
+# auto-format = true
 
-[[language]]
-name = "typescript"
-scope = "source.ts"
-injection-regex = "^(ts|typescript)$"
-file-types = ["ts"]
-shebangs = ["deno", "node"]
-roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "typescript" }
-indent = { tab-width = 2, unit = "  " }
-auto-format = true
+# [[language]]
+# name = "typescript"
+# scope = "source.ts"
+# injection-regex = "^(ts|typescript)$"
+# file-types = ["ts"]
+# shebangs = ["deno", "node"]
+# roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
+# config = { enable = true, lint = true, unstable = true }
+# language-server = { command = "deno", args = ["lsp"], language-id = "typescript" }
+# indent = { tab-width = 2, unit = "  " }
+# auto-format = true
 
-[[language]]
-name = "tsx"
-scope = "source.tsx"
-injection-regex = "^(tsx)$" # |typescript
-file-types = ["tsx"]
-shebangs = ["deno", "node"]
-roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "typescriptreact" }
-indent = { tab-width = 2, unit = "  " }
-auto-format = true
+# [[language]]
+# name = "tsx"
+# scope = "source.tsx"
+# injection-regex = "^(tsx)$" # |typescript
+# file-types = ["tsx"]
+# shebangs = ["deno", "node"]
+# roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
+# config = { enable = true, lint = true, unstable = true }
+# language-server = { command = "deno", args = ["lsp"], language-id = "typescriptreact" }
+# indent = { tab-width = 2, unit = "  " }
+# auto-format = true
 
-[[language]]
-name = "jsonc"
-scope = "source.jsonc"
-injection-regex = "^(jsonc)$"
-file-types = ["jsonc"]
-shebangs = ["deno", "node"]
-roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "jsonc" }
-indent = { tab-width = 2, unit = "  " }
-auto-format = true
-
-[[language]]
-name = "elixir"
-auto-format = true
-
-[[language]]
-name = "nim"
-scope = "source.nim"
-injection-regex = "nim"
-file-types = ["nim","nims"]
-shebangs = ["nim"]
-roots = []
-comment-token = "#"
-language-server = { command = "nimlangserver" }
-indent = { tab-width = 2, unit = " " }
-auto-format = true
-
-[[language]]
-name = "html"
-auto-format = false
-
-[[grammar]]
-name = "nim"
-source = { git = "https://github.com/aMOPel/tree-sitter-nim", rev = "8ce3627827e45a5835004391ff5ffcfe029ae6cf" }
+# [[language]]
+# name = "jsonc"
+# scope = "source.jsonc"
+# injection-regex = "^(jsonc)$"
+# file-types = ["jsonc"]
+# shebangs = ["deno", "node"]
+# roots = ["deno.jsonc", "deno.json", "package.json", "tsconfig.json"]
+# config = { enable = true, lint = true, unstable = true }
+# language-server = { command = "deno", args = ["lsp"], language-id = "jsonc" }
+# indent = { tab-width = 2, unit = "  " }
+# auto-format = true
