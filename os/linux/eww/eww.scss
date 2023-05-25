@@ -69,10 +69,12 @@ $rosewater: #f5e0dc;
   padding-right: 10px;
 }
 
+.vol .muted,
 .mic .live {
   color: #f38ba8;
 }
 
+.vol .live,
 .mic .muted {
   color: #74c7ec;
 }
