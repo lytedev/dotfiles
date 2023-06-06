@@ -5,14 +5,13 @@
 # + Super+Shift+b should balance the size of all selected nodes.
 
 set $mod Mod4
-set $default_gap 0
+set $default_gap 10
 
 xwayland enable
 focus_wrapping no
 gaps inner $default_gap
-smart_borders no_gaps
-hide_edge_borders both
-default_border pixel 2
+smart_borders on
+default_border pixel 3
 focus_follows_mouse no
 mouse_warping none
 popup_during_fullscreen smart
@@ -173,7 +172,7 @@ bindsym $mod+shift+alt+f for_window [class=$tilers] floating toggle
 include /etc/sway/config.d/*
 include $XDG_CONFIG_HOME/lytedev-env/*/sway/config
 
-client.focused          #6c88a6 #6c88a6 #6c88a6 #6c88a6 #6c88a6
+client.focused          #74c7ec #74c7ec #74c7ec #74c7ec #74c7ec
 client.focused_inactive #100814 #100814 #9b9ebf #100814 #100814
 client.unfocused        #100814 #100814 #9b9ebf #100814 #100814
 
@@ -187,8 +186,10 @@ exec mako
 # exec gammastep -t 6500:3500 -l 39.0:-94.5
 # exec /usr/lib/kdeconnectd
 
-exec exec kitty --single-instance fish -i
-exec tmux start-server
+exec kitty --single-instance
+exec /usr/lib/polkit-kde-authentication-agent-1
+exec eww daemon
+exec eww open-many bar
 
 # exec_always notify-send -a "sway" -i ~/.wallpaper "sway configuration loaded"
 
