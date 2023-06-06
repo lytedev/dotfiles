@@ -15,4 +15,9 @@ notify-send \
 	"Activate this notification (click it or Super+Shift+Space) to run the script. Dismiss (Super+Ctrl+Space) to ignore." \
 	--action=default=Activate \
 	| rg default \
-	&& hyprctl dispatch exec [float] wezterm start good-morning
+	&& \
+		if set -q HYPRLAND_INSTANCE_SIGNATURE
+			hyprctl dispatch exec [float] wezterm start good-morning
+		else
+			sway exec 'floating-term good-morning'
+		end

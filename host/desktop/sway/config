@@ -1,5 +1,5 @@
 default_border pixel 1
-exec swayidle -w timeout 600 'notify-send "Idling in 30 seconds..."' timeout 630 'swaylock -f' timeout 660 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f'
+exec swayidle -w timeout 600 'notify-send "Idling in 30 seconds..."' timeout 630 'swaylock -f' timeout 660 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on" & maybe-good-morning' before-sleep 'swaylock -f'
 
 output "Samsung Electric Company SyncMaster H1AK500000" position 0,0
 
