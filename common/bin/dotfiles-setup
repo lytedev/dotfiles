@@ -41,8 +41,10 @@ test -d ~/.tmux/pluginx/tpm || \
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 l common/zellij $c/zellij
 l common/fish $c/fish
+l common/bat $c/bat
 l common/bash/rc $h/.bashrc
 l common/wezterm $c/wezterm
+l common/kitty $c/kitty
 l common/weechat $h/.weechat
 l common/scim/rc $h/.scimrc
 l common/scim/lua $h/.scim/lua

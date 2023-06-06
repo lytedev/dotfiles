@@ -10,7 +10,9 @@ for f in vars colors prompt functions key-bindings
 	source $FISH_PATH/$f.fish
 end
 
-if has_command brew && test -f (brew --prefix asdf)/libexec/asdf.fish
+if has_command rtx
+	rtx activate fish | source
+else if has_command brew && test -f (brew --prefix asdf)/libexec/asdf.fish
 	set --universal --export ASDF_DIR (brew --prefix asdf)
 	source (brew --prefix asdf)/libexec/asdf.fish
 else if test -f $HOME/.asdf/asdf.fish

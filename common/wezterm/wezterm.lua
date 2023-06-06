@@ -79,6 +79,11 @@ config.keys = {
     mods = 'CTRL|SHIFT|ALT',
     action = wezterm.action.ShowDebugOverlay
   },
+  {
+    key = 'r',
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.RotatePanes'Clockwise'
+  },
 }
 
 -- config.default_gui_startup_args = { 'connect', 'unix' }
