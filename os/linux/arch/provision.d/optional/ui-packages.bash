@@ -13,32 +13,30 @@
 paru -Sy --needed \
 	xf86-input-libinput libinput libinput-gestures `# Trackpad Settings and Customizations` \
 	bluez bluez-libs bluez-utils bluez-tools `# Bluetooth` \
-	arc-gtk-theme elementary-icon-theme `# GUI Theme Stuff` \
-	thunar thunar-volman gvfs `# File Manager` \
+	catppuccin-gtk-theme-mocha elementary-icon-theme `# GUI Theme` \
+	thunar thunar-volman gvfs `# GUI File Manager` \
 	ttf-iosevka-lyte ttf-nerd-fonts-symbols-mono ttf-opensans `# Fonts` \
+	noto-fonts noto-fonts-emoji `# Emoji Fonts` \
 	avr-libc avr-gcc dfu-programmer dfu-util `# MCU Programming Utilities` \
-	gimp inkscape krita `# Image/Vector Editing Applications` \
-	audacity `# Audio Editing Application` \
-	cmake `# Cross-Platform Make` \
+	gimp inkscape krita `# Image and Vector Editing Applications` \
 	caddy `# Web Server` \
-	noto-fonts noto-fonts-emoji `# Emoji` \
 	vlc `# Video Viewer` \
 	zathura zathura-pdf-mupdf `# Document Viewer` \
 	gammastep `# Screen Color Temp Adjuster` \
-	firefox `# Default Web Browser` \
+	firefox `# Web Browser` \
 	hunspell-en_US `# Firefox Spell Checking` \
-	passff-host `# Pass integration in Firefox` \
-	kitty-git `# Terminal Emulator` \
+	passff-host `# `pass` integration in Firefox` \
+	kitty `# Terminal Emulator` \
 	wezterm `# Terminal Emulator` \
-	pavucontrol pamixer pactl `# Pulseaudio Controls` \
+	pavucontrol pamixer libpulse `# Pulseaudio Controls` \
 	playerctl `# Media Keys Controls` \
-	feh `# Image Viewer and Wallpaper Manager` \
-	hyprland hyprpaper `# Wayland Compositor` \
-	polkit-kde-agent `# Privilege Escalation` \
+	feh `# Image Viewer` \
+	hyprland hyprpaper `# Window Manager and Wallpaper` \
+	polkit-kde-agent `# Privilege Escalation Prompts` \
 	swaylock swayidle `# Locking and Idling` \
-	waybar mako `# Bar and Notifications` \
+	mako `# Notification Daemon` \
 	slurp grim wl-clipboard `# Screenshots and Clipboard Utilities` \
-	pipewire pipewire-pulse wireplumber `# Audio System` \
-	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \
-	obs-studio `# Audio and Video Streaming` \
-	eww-wayland `# Wayland Widgets`
+	pipewire pipewire-pulse wireplumber `# Audio` \
+	xdg-desktop-portal xdg-desktop-portal-hyprland-git `# Screensharing` \
+	obs-studio `# Live Streaming` \
+	eww-wayland `# Bar & Widgets`
