@@ -26,7 +26,7 @@ paru -Sy --needed --noconfirm \
 	htop bottom `# Process Management and System Resources Monitoring` \
 	openssh mosh `# Remote Access` \
 	openssl `# Crypto` \
-	asdf-vm `# Version Manager` \
+	rtx-bin `# Version Manager` \
 	oath-toolkit `# TOTP Utility` \
 	pass pass-otp `# Password Management` \
 	sc-im `# Spreadsheets` \

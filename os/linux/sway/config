@@ -8,9 +8,9 @@ set $mod Mod4
 
 xwayland enable
 focus_wrapping no
-gaps inner 0
+gaps inner 5
 smart_borders on
-default_border pixel 3
+default_border pixel 2
 focus_follows_mouse no
 mouse_warping none
 popup_during_fullscreen smart
