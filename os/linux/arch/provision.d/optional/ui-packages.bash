@@ -12,6 +12,7 @@
 
 paru -Sy --needed \
 	xf86-input-libinput libinput libinput-gestures `# Trackpad Settings and Customizations` \
+	brightnessctl `# Brightness CLI` \
 	bluez bluez-libs bluez-utils bluez-tools `# Bluetooth` \
 	catppuccin-gtk-theme-mocha elementary-icon-theme `# GUI Theme` \
 	thunar thunar-volman gvfs `# GUI File Manager` \
@@ -25,18 +26,19 @@ paru -Sy --needed \
 	gammastep `# Screen Color Temp Adjuster` \
 	firefox `# Web Browser` \
 	hunspell-en_US `# Firefox Spell Checking` \
-	passff-host `# `pass` integration in Firefox` \
+	passff-host `# pass integration in Firefox` \
 	kitty `# Terminal Emulator` \
 	wezterm `# Terminal Emulator` \
-	pavucontrol pamixer libpulse `# Pulseaudio Controls` \
+	pulsemixer pavucontrol pamixer libpulse `# Pulseaudio Controls` \
 	playerctl `# Media Keys Controls` \
 	feh `# Image Viewer` \
-	hyprland hyprpaper `# Window Manager and Wallpaper` \
-	polkit-kde-agent `# Privilege Escalation Prompts` \
+	sway swaybg `# Window Manager and Wallpaper` \
+	wofi `# Launcher` \
+	polkit polkit-kde-agent `# Privilege Escalation Prompts` \
 	swaylock swayidle `# Locking and Idling` \
 	mako `# Notification Daemon` \
 	slurp grim wl-clipboard `# Screenshots and Clipboard Utilities` \
 	pipewire pipewire-pulse wireplumber `# Audio` \
-	xdg-desktop-portal xdg-desktop-portal-hyprland-git `# Screensharing` \
+	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \
 	obs-studio `# Live Streaming` \
 	eww-wayland `# Bar & Widgets`
