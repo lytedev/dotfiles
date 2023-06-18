@@ -1,5 +1,12 @@
 default_border pixel 1
-exec swayidle -w timeout 600 'notify-send "Idling in 30 seconds..."' timeout 630 'swaylock -f' timeout 660 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on" & maybe-good-morning' before-sleep 'swaylock -f'
+exec swayidle -w \
+	timeout 540 'notify-send "Idling in 90 seconds"' \
+	timeout 570 'notify-send "Idling in 60 seconds"' \
+	timeout 600 'notify-send "Idling in 30 seconds..."' \
+	timeout 630 'swaylock -f' \
+	timeout 660 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on" & maybe-good-morning' \
+	before-sleep 'swaylock -f'
 
 gaps inner 10
 
@@ -8,10 +15,10 @@ output "Samsung Electric Company SyncMaster H1AK500000" position 0,0
 output "GIGA-BYTE TECHNOLOGY CO., LTD. AORUS FO48U 23070B000307" mode 3840x2160@120Hz position 1440,0
 
 output "Dell Inc. DELL U2720Q CWTM623" transform 90 scale 1.5
-output "Dell Inc. DELL U2720Q CWTM623" position 0,0
+output "Dell Inc. DELL U2720Q CWTM623" position 5280,0
 
 output "Dell Inc. DELL U2720Q D3TM623" transform 90 scale 1.5
-output "Dell Inc. DELL U2720Q D3TM623" position 5280,0
+output "Dell Inc. DELL U2720Q D3TM623" position 0,0
 
 bindsym $mod+control+equal gaps inner current set 0
 

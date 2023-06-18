@@ -142,7 +142,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+shift+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 bindsym $mod+control+shift+l exec swaylock
-# TODO: toggle-able swayidle? does the idle thing in waybar handle this?
+# TODO: toggle-able swayidle?
 # TODO: one-time swayidle/monitor-off
 # bindsym $mod+Control+Shift+s exec lock-and-disable-monitors
 

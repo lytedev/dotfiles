@@ -1,7 +1,7 @@
 set MAX_PATH_PIECE_CHARS 3
 
 function get_hostname
-	has_command hostname && hostname || cat /etc/hostname
+	has_command hostname && hostname --short || cat /etc/hostname
 end
 
 function fish_greeting
@@ -40,7 +40,7 @@ function _user_and_host
 	else
 		set_color -b normal red
 	end
-	printf "$USER@$hostname"
+	printf "%s@%s" $USER (get_hostname)
 end
 
 function _cur_work_dir
