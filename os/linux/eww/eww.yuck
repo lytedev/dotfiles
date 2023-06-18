@@ -33,7 +33,7 @@
     {" " + round(EWW_CPU["avg"], 0) + "%"}
     {" " + round(EWW_RAM["used_mem_perc"], 0) + "%"}
     {isDesktop == "true" ? "" : " " + brightness + "%"}
-    {isDesktop == "true" ? "" : "󱊣 " + EWW_BATTERY["BAT0"]["capacity"] + "%"}
+    {isDesktop == "true" ? "" : "󱊣 " + EWW_BATTERY["BAT0"]["capacity"] + "%/" + EWW_BATTERY["BAT1"]["capacity"] + "%"}
   ))
 
 (defwidget music []
