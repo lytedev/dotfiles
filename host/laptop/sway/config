@@ -17,4 +17,6 @@ input type:touchpad {
 
 }
 
+gaps inner 0
+
 exec firefox

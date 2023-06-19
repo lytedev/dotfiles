@@ -16,9 +16,11 @@ set --export --universal MANPAGER "less"
 if command --search --quiet hx
 	set --export --universal EDITOR hx
 	set --export --universal VISUAL hx
+	alias helix hx
 else if command --search --quiet helix
 	set --export --universal EDITOR helix
 	set --export --universal VISUAL helix
+	alias hx helix
 else if command --search --quiet nvim
 	set --export --universal EDITOR nvim
 	set --export --universal VISUAL nvim
