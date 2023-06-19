@@ -1,5 +1,6 @@
 exec libinput-gestures -c ~/.config/libinput-gestures.conf
 exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 330 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+gaps inner 0
 
 bindswitch lid:toggle exec swaylock
 
