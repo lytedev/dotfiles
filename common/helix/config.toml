@@ -1,6 +1,7 @@
 theme = "custom"
 
 [editor]
+soft-wrap.enable = true
 auto-pairs = false
 auto-save = false
 bufferline = "multiple"
