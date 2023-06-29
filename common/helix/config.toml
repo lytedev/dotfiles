@@ -4,6 +4,8 @@ theme = "custom"
 soft-wrap.enable = true
 auto-pairs = false
 auto-save = false
+completion-trigger-len = 1
+color-modes = false
 bufferline = "multiple"
 scrolloff = 8
 rulers = [80, 120]
@@ -20,6 +22,15 @@ hidden = false
 [editor.indent-guides]
 render = true
 character = "▏"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.statusline]
+left = ["mode", "spinner", "selections", "primary-selection-length", "position", "position-percentage", "diagnostics", "workspace-diagnostics"]
+center = ["file-name"]
+right = [ "version-control", "total-line-numbers", "file-encoding"]
 
 [keys.insert]
 j = { k = "normal_mode", j = "normal_mode", K = "normal_mode", J = "normal_mode" }
