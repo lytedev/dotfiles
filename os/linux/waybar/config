@@ -28,6 +28,11 @@
 		"tooltip-format-enumerate-connected": "{device_alias}@{device_address}",
 		"tooltip-format-enumerate-connected-battery": "{device_alias}@{device_address} ( {device_battery_percentage}%)"
 	},
+    // "wireplumber": {
+    //     "format": "{volume}% {icon}",
+    //     "format-muted": "",
+    //     "on-click": "helvum"
+    // },
 	"sway/workspaces": {
 		"disable-scroll": false,
 		"persistent_workspaces": {
@@ -46,10 +51,10 @@
 		"format": "{name}"
 	},
 	"idle_inhibitor": {
-		"format": "<span foreground=\"#666666\">{icon}</span>",
+		"format": "{icon}",
 		"format-icons": {
-			"activated": "﯎",
-			"deactivated": "﯏"
+			"activated": "󰈈",
+			"deactivated": "󰈉"
 		}
 	},
 	"tray": {
@@ -66,7 +71,7 @@
 		"interval": 3
 	},
 	"memory": {
-		"format": "{} <span foreground=\"#666666\"></span>"
+		"format": "{} 󰍛"
 	},
 	"temperature": {
 		// "thermal-zone": 2,
@@ -79,7 +84,7 @@
 	"backlight": {
 		// "device": "acpi_video1",
 		"format": "{percent}% {icon}",
-		"format-icons": ["", ""]
+		"format-icons": ["", ""]
 	},
 	"battery": {
 		"states": {
@@ -92,8 +97,8 @@
 		"format-plugged": "{capacity}% ﮣ",
 		"format-alt": "{time} {icon}",
 		"format-good": "", // An empty format will hide the module
-		"format-full": "",
-		"format-icons": ["", "", "", "", ""]
+		"format-full": "󰁹",
+		"format-icons": ["󰂎", "󰁻", "󰁽", "󰁿", "󰂂"]
 	},
 	"network": {
 		"format-wifi": "{essid} ({signalStrength}%) ",
@@ -109,7 +114,7 @@
 		//"format-bluetooth": "{volume}% {icon} {format_source}",
 		//"format-bluetooth-muted": " {icon} {format_source}",
 		//"format-muted": " {format_source}",
-		"format-muted": "<span foreground=\"#666666\">ﱝ</span> {format_source}",
+		"format-muted": "󰝟  {format_source}",
 		"format-source": "<span foreground=\"#bf7998\"></span>",
 		"format-source-muted": "<span foreground=\"#6c88a6\"></span>",
 		"format-icons": {

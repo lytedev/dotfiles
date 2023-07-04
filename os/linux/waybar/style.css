@@ -3,7 +3,7 @@
 * {
 	border: none;
 	border-radius: 0;
-	font-family: "IosevkaLyteTerm", sans-serif;
+	font-family: "IosevkaLyteTerm", "Symbols Nerd Font Mono", sans-serif;
 	font-size: 16px;
 	min-height: 0;
 }
@@ -68,10 +68,11 @@ window#waybar.empty {
 #idle_inhibitor,
 #mpd {
 	padding: 0 0.75em;
+	background-color: inherit;
+	color: @text;
 }
 
 #clock {
-	/* background-color: #64727D; */
 }
 
 #battery {

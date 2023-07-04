@@ -182,8 +182,6 @@ exec mako
 
 exec kitty --single-instance
 exec /usr/lib/polkit-kde-authentication-agent-1
-exec eww daemon
-exec eww open-many bar
 
 # exec_always notify-send -a "sway" -i ~/.wallpaper "sway configuration loaded"
 
