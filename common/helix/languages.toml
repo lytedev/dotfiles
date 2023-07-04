@@ -12,6 +12,10 @@ auto-format = true
 indent = { tab-width = 2, unit = "\t" }
 
 [[language]]
+name = "go"
+indent = { tab-width = 2, unit = "\t" }
+
+[[language]]
 name = "javascript"
 scope = "source.js"
 injection-regex = "^(js|javascript)$"
