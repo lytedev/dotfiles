@@ -160,6 +160,10 @@ mode "resize" {
 	bindsym escape mode "default"
 }
 
+bar {
+	swaybar_command waybar
+}
+
 set $tilers "(kitty.*|firefox.*|slack.*|Slack.*|thunar.*|Alacritty.*|alacritty.*|Discord.*|discord.*)"
 for_window [title=".*"] floating enable
 for_window [app_id=$tilers] floating disable
