@@ -57,11 +57,10 @@ test $PWD = $HOME && begin
 	cd $NICE_HOME || cd
 end
 
-# if status is-interactive
-#     eval (zellij setup --generate-auto-start fish | string collect)
-# end
-
-if status is-interactive; and not set -q TMUX; and not string match '/dev/tty*' (tty)
-	true
-	# tmux att -t default || tmux new -s default
+# If we're running the shell interactively from inside Kitty, assume that we will be using Kitty's multiplexing features
+# Otherwise, assume we're in a context that is not capable of "native" multiplexing features and run everything inside Zellij
+if set --query FISH_START_ZELLIJ
+  eval (zellij setup --generate-auto-start fish | string collect)
+else if set --query FISH_START_TMUX
+	tmux att -t default || tmux new -s default
 end
