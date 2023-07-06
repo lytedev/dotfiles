@@ -195,6 +195,10 @@ function __ssh_agent_start -d "start a new ssh agent"
    true  # suppress errors from setenv, i.e. set -gx
 end
 
+if set --query KITTY_PID
+	alias ssh "kitty +kitten ssh"
+end
+
 function fish_ssh_agent --description "Start ssh-agent if not started yet, or uses already started ssh-agent."
    if test -z "$SSH_ENV"
       set -xg SSH_ENV $HOME/.ssh/environment
