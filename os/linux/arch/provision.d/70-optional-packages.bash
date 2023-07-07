@@ -22,4 +22,5 @@ paru -Sy --needed --noconfirm \
 	sc-im `# Spreadsheets` \
 	cloc `# For counting lines of code` \
 	gitui `# Git TUI` \
+	tokei `# Counting Lines of Code (cloc alternative)` \
 	pigz `# Multicore Compression Utility` \
