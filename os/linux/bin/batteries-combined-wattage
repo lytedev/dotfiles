@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+
+cat /sys/class/power_supply/BAT*/power_now | rg . | awk '{print $1*10^-6}' | awk '{sum+=$1}END{print sum}'

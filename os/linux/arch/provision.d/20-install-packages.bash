@@ -52,4 +52,5 @@ paru -Sy --needed --noconfirm \
 	gnu-netcat socat websocat `# Socket Utilities` \
 	nnn `# CLI File Manager` \
 	avahi	nss-mdns `# mDNS and Network Discovery Utilities` \
+	git git-lfs `# Version Control` \
 	man-db man-pages `# Come On, Man!`
