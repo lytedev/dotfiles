@@ -59,11 +59,11 @@ end
 
 # If we're running the shell interactively from inside Kitty, assume that we will be using Kitty's multiplexing features
 # Otherwise, assume we're in a context that is not capable of "native" multiplexing features and run everything inside Zellij
-if set --query FISH_START_ZELLIJ && status is-interactive
+if not set --query ZELLIJ && set --query FISH_START_ZELLIJ && status is-interactive
 	# simulate auto attach
   zellij attach -c
 	# simulate auto kill
   kill $fish_pid
-else if set --query FISH_START_TMUX && status is-interactive
+else if not set --query TMUX && set --query FISH_START_TMUX && status is-interactive
 	tmux att -t default || tmux new -s default
 end
