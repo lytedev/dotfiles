@@ -18,6 +18,10 @@ if has_command exa
 	alias lD 'la --only-dirs'
 end
 
+if has_command rm-improved
+	alias rm rm-improved
+end
+
 function scount --wraps=count --description "Silent count exits with a non-zero status if no arguments given to count"
 	count $argv > /dev/null
 end
@@ -193,6 +197,10 @@ function __ssh_agent_start -d "start a new ssh agent"
    chmod 600 $SSH_ENV
    source $SSH_ENV > /dev/null
    true  # suppress errors from setenv, i.e. set -gx
+end
+
+if set --query KITTY_PID
+	alias ssh "kitty +kitten ssh"
 end
 
 function fish_ssh_agent --description "Start ssh-agent if not started yet, or uses already started ssh-agent."

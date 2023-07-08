@@ -1,0 +1,5 @@
+set git-colors = no
+
+color cursor default black
+color title-blur default black
+color title-focus default black

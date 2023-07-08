@@ -28,7 +28,6 @@ paru -Sy --needed \
 	hunspell-en_US `# Firefox Spell Checking` \
 	passff-host `# pass integration in Firefox` \
 	kitty `# Terminal Emulator` \
-	wezterm `# Terminal Emulator` \
 	pulsemixer pavucontrol pamixer libpulse `# Pulseaudio Controls` \
 	playerctl `# Media Keys Controls` \
 	feh `# Image Viewer` \
@@ -40,5 +39,17 @@ paru -Sy --needed \
 	slurp grim wl-clipboard `# Screenshots and Clipboard Utilities` \
 	pipewire pipewire-pulse wireplumber `# Audio` \
 	xdg-desktop-portal xdg-desktop-portal-wlr `# Screensharing` \
-	obs-studio `# Live Streaming` \
-	eww-wayland `# Bar & Widgets`
+	obs-studio `# Live Streaming`
+
+# eww-wayland `# Bar & Widgets`
+# stopped using eww since it didn't _easily_ support wayland workspaces
+# laziness!
+
+# stopped using hyprland due to some weird glitchy stuff that would occasionally
+# start happening where keypresses would get doubled
+# I don't think I filed an issue
+
+# wezterm `# Terminal Emulator` \
+# stopped using wezterm due to issues with splits plus daemon sessions
+# https://github.com/wez/wezterm/issues/3771
+# there may have been other issues? not sure
