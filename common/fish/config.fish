@@ -61,7 +61,7 @@ end
 # Otherwise, assume we're in a context that is not capable of "native" multiplexing features and run everything inside Zellij
 if set --query FISH_START_ZELLIJ && status is-interactive
 	# simulate auto attach
-  zellij attach -c || zellij attach -c (zellij list-sessions | grep -v '(current)' | head -n 1) || zellij
+  zellij attach -c
 	# simulate auto kill
   kill $fish_pid
 else if set --query FISH_START_TMUX && status is-interactive
