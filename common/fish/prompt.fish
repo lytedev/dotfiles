@@ -1,7 +1,12 @@
 set MAX_PATH_PIECE_CHARS 3
 
 function get_hostname
-	has_command hostname && hostname --short || cat /etc/hostname
+	if test (uname) = Linux || test (uname) = Darwin
+		has_command hostname && hostname --short || cat /etc/hostname
+	else
+		# assume bsd
+		hostname | head -n 1
+	end
 end
 
 function fish_greeting
