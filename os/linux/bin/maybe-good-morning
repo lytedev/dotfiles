@@ -10,6 +10,7 @@ if ! contains (date +%H) $hours
 end
 
 notify-send \
+	--expire-time=0 \
 	--urgency critical \
 	"Good morning!" \
 	"Activate this notification (click it or Super+Shift+Space) to run the script. Dismiss (Super+Ctrl+Space) to ignore." \

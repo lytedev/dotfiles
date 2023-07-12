@@ -187,6 +187,15 @@ exec mako
 exec kitty --single-instance
 exec /usr/lib/polkit-kde-authentication-agent-1
 
+exec swayidle -w \
+	timeout 540 'notify-send "Idling in 90 seconds"' \
+	timeout 570 'notify-send "Idling in 60 seconds"' \
+	timeout 600 'notify-send "Idling in 30 seconds..."' \
+	timeout 630 'swaylock -f' \
+	timeout 660 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on" & maybe-good-morning &' \
+	before-sleep 'swaylock -f'
+
 # exec_always notify-send -a "sway" -i ~/.wallpaper "sway configuration loaded"
 
 # prevent all windows from stealing focus
