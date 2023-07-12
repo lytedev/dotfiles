@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+# make sure our stuff gets loaded so aliases will work
+source ~/.config/fish/config.fish
+
+while true
+	clear
+	echo (tput setaf 0)(date) polled (tput setaf 4)"'"$argv"'"(tput setaf 7)
+	eval $argv
+	sleep 2
+end

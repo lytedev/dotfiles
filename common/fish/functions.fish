@@ -22,6 +22,11 @@ if has_command rm-improved
 	alias rm rm-improved
 end
 
+if has_command thefuck
+	thefuck --alias | source
+	alias f fuck
+end
+
 function scount --wraps=count --description "Silent count exits with a non-zero status if no arguments given to count"
 	count $argv > /dev/null
 end
