@@ -4,11 +4,15 @@ for s in $ENV_PATH/*/config.d.fish
 	source $s (dirname $s)
 end
 
-for f in vars colors prompt functions key-bindings
+for f in vars colors functions
 	source $FISH_PATH/$f.fish
 end
 
 status --is-interactive || exit
+
+for f in prompt key-bindings
+	source $FISH_PATH/$f.fish
+end
 
 if has_command rtx
 	rtx activate fish | source
