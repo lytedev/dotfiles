@@ -41,7 +41,8 @@ pacman -Sy --needed --noconfirm \
 	gnu-netcat socat websocat `# Socket Utilities` \
 	nnn `# CLI File Manager` \
 	avahi	nss-mdns `# mDNS and Network Discovery Utilities` \
-	dua-cli `# Disj Usage Abalyzer` \
+	git git-lfs `# Version Control` \
+	dua-cli `# Disk Usage Abalyzer` \
 	man-db man-pages `# Come On, Man!`
 
 # TODO: if paru? rtx-bin

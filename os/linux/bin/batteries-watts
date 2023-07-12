@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+for b in /sys/class/power_supply/BAT*/power_now
+	cat $b | rg . | awk '{print $1*10^-6 " W"}'
+end

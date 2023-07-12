@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+
+while true
+	echo (date +%s)' '(batteries-combined-wattage) >> ~/.battlog
+	sleep 5
+end
