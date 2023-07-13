@@ -97,12 +97,19 @@ window#waybar.empty {
 }
 
 #battery.critical:not(.charging) {
-	background-color: #bf7998;
+	background-color: @red;
 	animation-name: blink;
 	animation-duration: 0.5s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
+}
+
+#bluetooth,
+#bluetooth.connected-battery,
+#bluetooth.connected.battery,
+#bluetooth.connected {
+	color: @text;
 }
 
 label:focus {
