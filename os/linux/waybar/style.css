@@ -1,30 +1,31 @@
 @import "mocha.css";
 
 * {
-	border: none;
 	border-radius: 0;
 	font-family: "IosevkaLyteTerm", "Symbols Nerd Font Mono", sans-serif;
 	font-size: 16px;
-	min-height: 0;
 }
 
 window#waybar {
+	min-height: 32px;
 	background-color: @base;
 	color: @crust;
+	border-top: solid @sapphire 1px;
 	transition: none;
 }
 
 window#waybar.hidden {
-	opacity: 0.2;
+	/* opacity: 0.2; */
 }
 
 window#waybar.empty {
-	opacity: 0.2;
+	/* opacity: 0.2; */
 }
 
 #workspaces button {
 	padding: 0 0.75em;
 	background-color: transparent;
+	border-top: solid @sapphire 1px;
 }
 
 #workspaces button:hover {
@@ -39,15 +40,16 @@ window#waybar.empty {
 }
 
 #workspaces button.focused {
-	background-color: #6c88a6;
+	color: @base;
+	background-color: @sapphire;
 }
 
-#workspaces button.persistent {
-	color: #666666;
-}
+#workspaces button.persistent {}
 
 #workspaces button.urgent {
-	background-color: #bf7998;
+	color: @base;
+	background-color: @red;
+	border-top: solid @red 1px;
 }
 
 #mode {
@@ -69,6 +71,7 @@ window#waybar.empty {
 #mpris,
 #window,
 #mpd {
+	margin-top: 1px;
 	padding: 0 0.75em;
 	background-color: inherit;
 	color: @text;

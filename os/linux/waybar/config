@@ -6,6 +6,7 @@
 	"modules-left": ["clock", "sway/window"],
 	"modules-center": ["sway/workspaces"],
 	"modules-right": [
+		"mpris",
 		"idle_inhibitor",
 		"bluetooth",
 		// "wireplumber",
@@ -16,7 +17,6 @@
 		// "temperature",
 		"backlight",
 		"battery",
-		"mpris",
 		"tray"
 	],
 	"bluetooth": {
