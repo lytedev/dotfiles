@@ -8,7 +8,7 @@ for f in vars colors functions
 	source $FISH_PATH/$f.fish
 end
 
-if has_command rtx && not set --query RTX_SHELL
+if has_command rtx
 	rtx activate fish | source
 else if has_command brew && test -f (brew --prefix asdf)/libexec/asdf.fish
 	set --universal --export ASDF_DIR (brew --prefix asdf)

@@ -66,14 +66,15 @@ window#waybar.empty {
 #tray,
 #mode,
 #idle_inhibitor,
+#mpris,
+#window,
 #mpd {
 	padding: 0 0.75em;
 	background-color: inherit;
 	color: @text;
 }
 
-#clock {
-}
+#clock {}
 
 #battery {
 	/* background-color: #ffffff; */

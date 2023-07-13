@@ -3,7 +3,7 @@
 	"position": "bottom",
 	"output": ["eDP-1", "DP-3"],
 	"height": 32,
-	"modules-left": ["clock", "sway/title"],
+	"modules-left": ["clock", "sway/window"],
 	"modules-center": ["sway/workspaces"],
 	"modules-right": [
 		"idle_inhibitor",
@@ -16,6 +16,7 @@
 		// "temperature",
 		"backlight",
 		"battery",
+		"mpris",
 		"tray"
 	],
 	"bluetooth": {
@@ -106,6 +107,9 @@
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "Disconnected ⚠",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"mpris": {
+		"format": "{title} by {artist}"
 	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
