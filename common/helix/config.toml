@@ -49,7 +49,7 @@ D = "kill_to_line_end"
 q = ":reflow 80"
 Q = ":reflow 120"
 v = ":run-shell-command fish -c 'env > /tmp/env'"
-C = ":bc"
+C = ":bc!"
 h = ":toggle lsp.display-inlay-hints"
 # O = ["select_textobject_inner WORD", ":pipe-to xargs xdg-open"]
 

@@ -138,13 +138,14 @@ label:focus {
 }
 
 #pulseaudio {
+	color: @red;
 	/* background-color: #f1c40f; */
 	/* color: #000000; */
 }
 
-#pulseaudio.muted {
+#pulseaudio.source-muted {
 	/* background-color: #90b1b1; */
-	/* color: #2a5c45; */
+	color: @text;
 }
 
 #custom-media {
