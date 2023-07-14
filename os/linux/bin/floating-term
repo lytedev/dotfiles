@@ -4,6 +4,6 @@ kitty \
 	--single-instance \
 	--class floating_terminal \
 	-o remember_window_size=no \
-	-o initial_window_width=60c \
-	-o initial_window_height=12c \
+	-o initial_window_width=80c \
+	-o initial_window_height=20c \
 	"$@"

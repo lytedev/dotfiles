@@ -12,7 +12,7 @@ end
 
 # output the messages file's contents
 echo
-cat $message_file
+command cat $message_file
 echo
 
 # since this script almost always runs in its own window which dies after
