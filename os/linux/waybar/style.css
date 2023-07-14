@@ -44,7 +44,9 @@ window#waybar.empty {
 	background-color: @sapphire;
 }
 
-#workspaces button.persistent {}
+#workspaces button.persistent {
+	color: @surface2;
+}
 
 #workspaces button.urgent {
 	color: @base;
