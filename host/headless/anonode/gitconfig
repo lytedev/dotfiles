@@ -1,8 +1,0 @@
-[user]
-	name = Daniel Flanagan
-	email = daniel@anonode.net
-	signingkey = daniel@anonode.net
-
-[commit]
-	gpgsign = true
-
