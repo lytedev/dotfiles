@@ -1,8 +1,21 @@
 #!/usr/bin/env sh
 
+usage() {
+    echo "copy-git-forge-url <$FILE>[#L$LINE_NUMBERS]"
+    echo "  Copies a link to the git forge's web interface for the current branch to the clipboard"
+    echo
+    echo "  Examples:"
+    echo "    \$ copy-git-forge-url readme.md#L12"
+}
+
+if [ "$#" -lt 1 ]; then
+    usage
+    exit 1
+fi
+
 url="$(gitforge-url.ts "$1")"
 case "$(uname)" in
     Linux*)  echo "$url" | clip;;
-    Darwin*) echo "$url" | pbcopy;;
+    Darwin*) echo "$url" | clip;;
     *)       echo "OS not supported"; exit 1;
 esac

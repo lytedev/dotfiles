@@ -1,6 +1,13 @@
 function fish_user_key_bindings
 	set --export SKIM_TMUX_HEIGHT ""
-	command -q sk && functions | grep skim_key_bindings &>/dev/null && skim_key_bindings
+	set --export --universal SKIM_ALT_C_COMMAND "fd --hidden --type directory"
+	set --export --universal SKIM_CTRL_T_COMMAND "fd --hidden"
+	command -q sk && begin
+		functions | grep skim_key_bindings &>/dev/null && skim_key_bindings
+
+
+		bind -M insert \cg skim-cd-widget
+	end
 	fish_vi_key_bindings insert --no-erase
 
 	set --universal fish_cursor_default block

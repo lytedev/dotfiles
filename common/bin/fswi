@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-eval "${1}"
-exec fsw "$@"

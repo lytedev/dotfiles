@@ -1,5 +1,18 @@
 #!/usr/bin/env sh
 
+usage() {
+    echo "open-in-git-forge <$FILE>[#L$LINE_NUMBERS]"
+    echo "  Opens the URL in your browser to the git forge's web interface for the current branch for $FILE"
+    echo
+    echo "  Examples:"
+    echo "    \$ open-in-git-forge readme.md#L12"
+}
+
+if [ "$#" -lt 1 ]; then
+    usage
+    exit 1
+fi
+
 url="$(gitforge-url.ts "$1")"
 case "$(uname)" in
     Linux*)  xdg-open "$url";;

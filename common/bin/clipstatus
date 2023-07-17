@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-echo "Primary  : $(xclip -out -selection primary)"
-echo "Secondary: $(xclip -out -selection primary)"
-echo "Clipboard: $(xclip -out -selection clipboard)"

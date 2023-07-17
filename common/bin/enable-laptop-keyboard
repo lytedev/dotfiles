@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-KEYBOARD_PARENT_SEARCH_STRING="Virtual core keyboard.*master keyboard"
-PARENT_KEYBOARD_ID=$(xinput list | grep "$KEYBOARD_PARENT_SEARCH_STRING" | sed -ne 's/^.*id\=\([0-9]*\).*/\1/p')
-
-KEYBOARD_SEARCH_STRING="AT Translated.*keyboard"
-BUILTIN_KEYBOARD_ID=$(xinput list | grep "$KEYBOARD_SEARCH_STRING" | sed -ne 's/^.*id\=\([0-9]*\).*/\1/p')
-sudo xinput reattach "$BUILTIN_KEYBOARD_ID" "$PARENT_KEYBOARD_ID"

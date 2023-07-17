@@ -20,7 +20,7 @@ COLOR_RESET="\x1b[0m" COLOR_GREEN="\x1b[32m"
 COLOR_YELLOW="\x1b[33m"
 COLOR_RED="\x1b[31m"
 
-DOMAINS=( \
+TLDS=( \
 	'.com' '.net' '.org' '.eu' '.in' '.it' '.sk' '.ac' '.ae' '.af' '.ag' '.al' \
 	'.am' '.as' '.at' '.ax' '.be' '.bi' '.bo' '.by' '.bz' '.cc' '.cd' '.cf' '.cg' \
 	'.ch' '.ci' '.cl' '.cm' '.cn' '.co' '.cr' '.cx' '.cz' '.dk' '.dm' '.do' '.ec' \
@@ -80,10 +80,10 @@ check_domain() {
 
 # iterate all provided domain names combined with all TLDs and check them
 # concurrently
-elements=${#DOMAINS[@]}
+elements=${#TLDS[@]}
 while (( "$#" )); do
 	for (( i=0;i<elements;i++ )); do
-		check_domain "$1${DOMAINS[${i}]}" &
+		check_domain "$1${TLDS[${i}]}" &
 	done
 	shift
 done

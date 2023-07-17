@@ -1,0 +1,11 @@
+[Added Associations]
+image/jpeg=krita_jpeg.desktop
+image/png=krita_png.desktop
+
+[Default Applications]
+image/jpeg=krita_jpeg.desktop
+image/png=krita_png.desktop
+
+[MIME Cache]
+image/jpeg=krita_jpeg.desktop
+image/png=krita_png.desktop

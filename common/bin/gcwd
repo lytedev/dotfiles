@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-# TODO: must be sourced so as to not run in subshell?
-
-addon=""; [ -n "$1" ] && addon="-${1}"
-cd "$(cat "${DOTFILES_PATH}/.cwd${addon}.tmp")" || return

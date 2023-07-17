@@ -1,0 +1,8 @@
+#!/usr/bin/env fish
+
+echo "Keys you never remember:"
+echo
+echo "C-t fuzzy find a file or directory to insert into your command"
+echo "C-g fuzzy find a directory to cd to"
+
+# https://github.com/lotabout/skim/blob/master/shell/key-bindings.fish

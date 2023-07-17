@@ -23,4 +23,5 @@ paru -Sy --needed --noconfirm \
 	cloc `# For counting lines of code` \
 	gitui `# Git TUI` \
 	tokei `# Counting Lines of Code (cloc alternative)` \
+	swaks `# Email CLI` \
 	pigz `# Multicore Compression Utility` \

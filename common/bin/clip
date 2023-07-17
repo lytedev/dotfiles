@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
 # TODO: detect MIME type?
-# can a `clip-once` script exist building on this?
-# wl-copy `-o`, xclip `-l 1`?
+# TODO: figure out how/why these programs "wait" -- can a `clip-once` script exist building on this?
+	# wl-copy `-o`, xclip `-l 1`?
 
-if is_wayland; then
-	wl-copy -n "$@"
-else
-	xclip -i -sel c "$@"
+if [ "$(uname)" == "Linux" ]; then
+	if is_wayland; then
+		wl-copy -n "$@"
+	else
+		xclip -i -sel c "$@"
+	fi
+elif [ "$(uname)" == "Darwin" ]; then
+	pbcopy "$@"
 fi

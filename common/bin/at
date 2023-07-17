@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 usage() {
+	echo "at - waits until after the specified datetime"
 	echo "Usage:"
-	echo "  at <DATE> && command..."
+	echo "  at <DATETIME> && command..."
+	echo
+	echo "Examples:"
+	echo "  at 15:00:00 && echo \"it is 3 o'clock\""
 }
 
 [[ -z "$1" ]] && { echo "Error: No DATE argument provided." >&2; usage; exit 1; }
@@ -14,3 +18,4 @@ while [[ "$d" -ge "$(date +%s)" ]]; do
 	echo -ne "\rTime Remaining: ${days}d $(date -u --date @$((_dt)) +%H:%M:%S) ";
 	sleep 0.1
 done
+exit 0

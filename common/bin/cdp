@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# TODO: needs fixing...?
-cd "$(dirname "$(sk)")" || exit 1

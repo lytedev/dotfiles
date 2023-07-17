@@ -12,10 +12,11 @@ if [ "$?" -eq 0 ]; then
 	grim -g "$dim" - | wl-copy -t image/png
 	wl-paste -n > "$fn"
 	echo "$fn"
-	# grim -g "$dim" - | tee "$fn" | wl-copy -f
 else
 	exit 1
 fi
+
+# TODO: implement for X and other OSs?
 
 # pkill unclutter
 # sleep 0.1

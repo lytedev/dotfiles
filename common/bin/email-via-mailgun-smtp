@@ -70,4 +70,3 @@ swaks --auth \
 	--to "$recipient" \
 	--h-Subject: "$subject" \
 	--body "$body"
-
