@@ -26,7 +26,7 @@ pacman -Sy --needed --noconfirm \
 	rsync rclone `# File Transfer` \
 	helix `# Text Editors` \
 	unzip `# Simple Unzipping` \
-	zellij `# Terminal Multiplexer` \
+	tmux zellij `# Terminal Multiplexer` \
 	dog bind nmap traceroute iputils `# Networking Utilities` \
 	curl wget xh `# HTTP Utilities` \
 	w3m `# Web Browser` \
