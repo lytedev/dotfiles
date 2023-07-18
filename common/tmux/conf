@@ -57,7 +57,7 @@ set -g window-status-activity-style "fg=colour7 bg=default"
 set -g window-status-bell-style "fg=colour1 bg=default"
 set -g window-status-current-style "fg=colour4 bg=default"
 set -g window-status-current-format " #W "
-set -g status-left "#h:#S "
+set -g status-left "#{client_user}@#h:#S "
 set -g status-right "#(kubeline && printf ' ')"
 set -g status-left-length 1000
 
