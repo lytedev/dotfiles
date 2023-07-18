@@ -87,18 +87,17 @@ bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-no-clear 'wl-copy'
 bind K kill-pane
 bind C-S-k kill-window
 
-# TODO: handle tmux nesting by being able to toggle the prefix (and indicate in status bar?)
+# Activate OFF mode
+bind -n M-o \
+    set prefix None \;\
+    set key-table off \;\
+	set -ag status-right " OFF"
 
-# TODO: styles after `set -u key-table`
-#if -F '#{pane_in_mode}' 'send-keys -X cancel' \;\
-bind -T root F12 set -g prefix None \; set -g key-table off \; display-message "Keys OFF" \; refresh-client -S
-
-# TODO: styles after `set -u key-table`
-bind -T off F12 \
-  set -g -u prefix \;\
-  set -g -u key-table \;\
-	display-message "Keys ON" \;\
-  refresh-client -S
+# Disable OFF mode
+bind -T off M-O \
+    set -u prefix \;\
+    set -u key-table \;\
+	source-file "$HOME/.tmux.conf"
 
 source-file "$ENV_PATH/*/tmux.d.conf"
 
