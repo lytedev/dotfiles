@@ -26,7 +26,7 @@ end
 
 function l -a dot -a target -d "Symlink a dotfile configuration file or directory"
 	if test -L $target || test -f $target || test -d $target
-		rm -rf "$target"
+		command rm -rf "$target"
 	end
 	# check if the directory that will contain the link exists
 	set -l d (dirname $target)
@@ -72,7 +72,7 @@ end
 
 set -q ENV_PATH || set ENV_PATH $XDG_CONFIG_HOME/lytedev-env
 set -q DOTFILES_PATH || set DOTFILES_PATH $XDG_CONFIG_HOME/lytedev-dotfiles
-rm -f $ENV_PATH/empty
+command rm -f $ENV_PATH/empty
 ln -s $DOTFILES_PATH/common/empty-env $ENV_PATH/empty
 
 echo "Dotfiles Installed! Don't forget to setup environments and change the user's shell as needed!"
