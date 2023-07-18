@@ -15,6 +15,7 @@ yn "Do you want to install UI packages?" && "$dir/optional/ui-packages.bash"
 paru -Sy --needed --noconfirm \
 	weechat `# IRC Client` \
 	rtx-bin `# Version Manager` \
+	restic `# Backups` \
 	bluetuith-bin `# Disk Usage Analyzer` \
 	aria2 `# Downloads Manager` \
 	oath-toolkit `# TOTP Utility` \
