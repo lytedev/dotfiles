@@ -72,3 +72,7 @@ if not set --query ZELLIJ && set --query FISH_START_ZELLIJ
 else if not set --query TMUX && set --query FISH_START_TMUX
 	tmux att -t default || tmux new -s default
 end
+
+if set --query TMUX
+	bp
+end

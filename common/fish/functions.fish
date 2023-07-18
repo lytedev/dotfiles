@@ -205,7 +205,7 @@ function __ssh_agent_start -d "start a new ssh agent"
 end
 
 if set --query KITTY_PID
-	# alias ssh "kitty +kitten ssh"
+	alias kssh "kitty +kitten ssh"
 end
 
 function fish_ssh_agent --description "Start ssh-agent if not started yet, or uses already started ssh-agent."

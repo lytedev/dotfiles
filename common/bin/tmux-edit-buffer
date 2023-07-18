@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+f="$(tmux-save-buffer)"
+tmux new-window "$EDITOR $f"
