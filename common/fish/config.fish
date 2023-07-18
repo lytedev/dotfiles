@@ -19,22 +19,8 @@ else if test -f /opt/asdf-vm/asdf.fish
 	source /opt/asdf-vm/asdf.fish
 end
 
-if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-	set nix_profiles /nix/var/nix/profiles/default $HOME/.nix-profile
-	set --export --universal NIX_PROFILES "$nix_profiles"
-
-	if set -q NIX_SSL_CERT_FILE
-		:
-	elif test -e /etc/ssl/certs/ca-certificates.crt
-		set --export --universal NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-	else
-		for p in (string split $NIX_PROFILES)
-			test -e $p/etc/ssl/certs/ca-bundle.crt && \
-				set --export --universal NIX_SSL_CERT_FILE=$p/etc/ssl/certs/ca-bundle.crt
-		end
-	end
-
-	set --prepend --export --global fish_user_paths $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
+if test -f $HOME/.nix-profile/etc/profile.d/nix.fish
+	. $HOME/.nix-profile/etc/profile.d/nix.fish
 end
 
 if has_command nnn

@@ -53,11 +53,11 @@ config.inactive_pane_hsb = {
 }
 
 config.keys = {
-  {
-    key = 'j',
-    mods = 'CTRL',
-    action = wezterm.action.ActivatePaneDirection'Down'
-  },
+  -- {
+  --   key = 'j',
+  --   mods = 'CTRL',
+  --   action = wezterm.action.ActivatePaneDirection'Down'
+  -- },
   {
     key = 'Insert',
     mods = 'SHIFT',
@@ -83,16 +83,16 @@ config.keys = {
     mods = 'CTRL',
     action = wezterm.action.ActivatePaneDirection'Up'
   },
-  {
-    key = 'j',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SplitVertical{domain='CurrentPaneDomain'}
-  },
-  {
-    key = 'l',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SplitHorizontal{domain='CurrentPaneDomain'}
-  },
+  -- {
+  --   key = 'j',
+  --   mods = 'CTRL|SHIFT',
+  --   action = wezterm.action.SplitVertical{domain='CurrentPaneDomain'}
+  -- },
+  -- {
+  --   key = 'l',
+  --   mods = 'CTRL|SHIFT',
+  --   action = wezterm.action.SplitHorizontal{domain='CurrentPaneDomain'}
+  -- },
   {
     key = 'l',
     mods = 'CTRL|SHIFT|ALT',

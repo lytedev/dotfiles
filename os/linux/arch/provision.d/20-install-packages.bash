@@ -15,6 +15,7 @@ pacman -Sy --needed --noconfirm \
 	ripgrep `# Code Search Utilities` \
 	git-delta `# Better Diff Viewer` \
 	fd `# File Search` \
+	dtach `# Persistent Shell Sessions` \
 	exa `# Better ls` \
 	sd `# Better sed` \
 	bat `# Better Cat` \
@@ -26,7 +27,6 @@ pacman -Sy --needed --noconfirm \
 	rsync rclone `# File Transfer` \
 	helix `# Text Editors` \
 	unzip `# Simple Unzipping` \
-	tmux zellij `# Terminal Multiplexer` \
 	dog bind nmap traceroute iputils `# Networking Utilities` \
 	curl wget xh `# HTTP Utilities` \
 	w3m `# Web Browser` \
