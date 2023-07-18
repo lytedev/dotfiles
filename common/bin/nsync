@@ -4,5 +4,5 @@
 cd "${NOTES_PATH}" || exit
 git add -A
 git commit -m Updates
-git pull && git push
+git fetch && git merge origin/master && git push
 cd - || exit
