@@ -70,9 +70,3 @@ set --export --universal XDG_GAMES_DIR $NICE_HOME/games
 set --export --universal NOTES_PATH $XDG_DOCUMENTS_DIR/notes
 set --export --universal USER_LOGS_PATH $XDG_DOCUMENTS_DIR/logs
 set --export --universal SCROTS_PATH $XDG_PICTURES_DIR/scrots
-
-if test -n "$NIX_PATH"
-	set NIX_PATH :
-end
-test -d $HOME/.nix-defexpr/channels && \
-	set --export --universal NIX_PATH $HOME/.nix-defexpr/channels:$NIX_PATH
