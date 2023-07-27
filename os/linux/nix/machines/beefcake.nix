@@ -11,7 +11,7 @@ in
   imports =
     [
       <sops-nix/modules/sops>
-      ./hardware-configuration.nix
+      ./beefcake-hardware.nix
     ];
 
   sops = {
