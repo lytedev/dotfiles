@@ -270,6 +270,10 @@
         # TODO: raise the log level
         LEVEL = "Debug";
       };
+      ui = {
+        THEMES = "catppuccin-mocha-sapphire,gitea,arc-green,auto,pitchblack";
+        DEFAULT_THEME = "catppuccin-mocha-sapphire";
+      };
     };
     lfs = {
       enable = true;
