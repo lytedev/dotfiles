@@ -148,6 +148,7 @@
 
   # TODO: right now, I use a flake for helix that gets the latest since my config uses newer features
   # would be nice to get that declared here
+  # I think this was done with `nix profile install github:helix-editor/helix --priority 0`?
 
   # search for packages: `nix search $PACKAGE_NAME`
   environment.systemPackages = with pkgs; [
