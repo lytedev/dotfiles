@@ -2,17 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ pkgs, ... }:
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
-{
+{ pkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  imports =
-    [
-      # <sops-nix/modules/sops>
-      ./beefcake-hardware.nix
-    ];
+  imports = [
+    # <sops-nix/modules/sops>
+    ./beefcake-hardware.nix
+  ];
 
   sops = {
     defaultSopsFile = ../secrets/example.yaml;
@@ -40,7 +35,7 @@ in
         # for use as a user password
         # neededForUsers = true;
       };
-      "myservice/my_subdir/my_secret" = {};
+      "myservice/my_subdir/my_secret" = { };
     };
   };
 
@@ -136,8 +131,8 @@ in
 
   # search for packages: `nix search $PACKAGE_NAME`
   environment.systemPackages = with pkgs; [
-    unstable.helix
-    unstable.zellij
+    helix
+    zellij
     mosh
     btrfs-progs
     iperf3
@@ -312,7 +307,7 @@ in
     dataDir = "/storage/postgres";
     enableTCPIP = true;
 
-    package = unstable.postgresql_15;
+    package = pkgs.postgresql_15;
 
     authentication = pkgs.lib.mkOverride 10 ''
       #type database  DBuser    auth-method
@@ -347,7 +342,6 @@ in
 
   services.tailscale = {
     enable = true;
-    package = unstable.tailscale;
   };
 
   services.jellyfin = {
@@ -549,4 +543,3 @@ in
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 }
-
