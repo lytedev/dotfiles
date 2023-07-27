@@ -10,8 +10,48 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
     [
+      <sops-nix/modules/sops>
       ./hardware-configuration.nix
     ];
+
+  sops = {
+    defaultSopsFile = ../secrets/example.yaml;
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+    secrets = {
+      example-key = {
+        # see these and other options' documentation here:
+        # https://github.com/Mic92/sops-nix#set-secret-permissionowner-and-allow-services-to-access-it
+
+        # set permissions:
+        # mode = "0440";
+        # owner = config.users.users.nobody.name;
+        # group = config.users.users.nobody.group;
+
+        # restart service when a secret changes or is newly initialized
+        # restartUnits = [ "home-assistant.service" ];
+
+        # symlink to certain directories
+        path = "/var/lib/my-example-key/secrets.yaml";
+
+        # for use as a user password
+        # neededForUsers = true;
+      };
+      "myservice/my_subdir/my_secret" = {};
+    };
+  };
+
+  # TODO: non-root processes and services that access secrets need to be part of
+  # the 'keys' group
+
+  # systemd.services.some-service = {
+  #   serviceConfig.SupplementaryGroups = [ config.users.groups.keys.name ];
+  # };
+  # or
+  # users.users.example-user.extraGroups = [ config.users.groups.keys.name ];
 
   # TODO: directory attributes for /storage subdirectories?
   # example: user daniel should be able to write to /storage/files.lyte.dev and

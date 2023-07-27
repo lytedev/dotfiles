@@ -17,6 +17,11 @@
       # use the version of nixpkgs we specified above rather than the one HM would ordinarily use
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }
   };
 
   outputs = inputs: {
@@ -26,6 +31,7 @@
         modules = [
           ./machines/beefcake.nix
           inputs.home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
           {
             home-manager.useGlobalPkgs = true;
           }
