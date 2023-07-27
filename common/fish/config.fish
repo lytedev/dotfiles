@@ -23,6 +23,25 @@ if test -f $HOME/.nix-profile/etc/profile.d/nix.fish
 	. $HOME/.nix-profile/etc/profile.d/nix.fish
 end
 
+if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+	# for determinate systems install
+	set nix_profiles /nix/var/nix/profiles/default $HOME/.nix-profile
+	set --export --universal NIX_PROFILES "$nix_profiles"
+
+	if set -q NIX_SSL_CERT_FILE
+		:
+	else if test -e /etc/ssl/certs/ca-certificates.crt
+		set --export --universal NIX_SSL_CERT_FILE /etc/ssl/certs/ca-certificates.crt
+	else
+		for p in (string split $NIX_PROFILES)
+			test -e $p/etc/ssl/certs/ca-bundle.crt && \
+				set --export --universal NIX_SSL_CERT_FILE $p/etc/ssl/certs/ca-bundle.crt
+		end
+	end
+
+	set --prepend --export --global fish_user_paths $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
+end
+
 if has_command nnn
 	source $DOTFILES_PATH/common/nnn/config.fish
 end
