@@ -103,6 +103,26 @@
     extraGroups = [
     ];
   };
+  
+  users.users.ben = {
+    isNormalUser = true;
+    packages = with pkgs; [
+      vim
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUfLZ+IX85p9355Po2zP1H2tAxiE0rE6IYb8Sf+eF9T ben@benhany.com"
+    ];
+  };
+
+  users.users.alan = {
+    isNormalUser = true;
+    packages = with pkgs; [
+      vim
+    ];
+    openssh.authorizedKeys.keys = [
+      ""
+    ];
+  };
 
   users.users.restic = {
     # used for other machines to backup to
