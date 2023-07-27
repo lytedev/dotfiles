@@ -10,7 +10,7 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports =
     [
-      <sops-nix/modules/sops>
+      # <sops-nix/modules/sops>
       ./beefcake-hardware.nix
     ];
 
