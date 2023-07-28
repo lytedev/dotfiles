@@ -324,7 +324,7 @@
     releaseCookiePath = config.sops.secrets.plausible-erlang-cookie.path;
     database = {
       clickhouse.setup = true;
-      postgres.setup = true;
+      postgres.setup = false;
     };
     server = {
       baseUrl = "http://beefcake.hare-cod.ts.net:8899";
@@ -341,12 +341,18 @@
 
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "daniel" ];
+    ensureDatabases = [ "daniel" "plausible" ];
     ensureUsers = [
       {
         name = "daniel";
         ensurePermissions = {
           "DATABASE daniel" = "ALL PRIVILEGES";
+        };
+      }
+      {
+        name = "plausible";
+        ensurePermissions = {
+          "DATABASE plausible" = "ALL PRIVILEGES";
         };
       }
     ];
@@ -366,7 +372,7 @@
       host  all       all     10.0.0.0/24   trust
 
       # tailnet ipv4
-      host  all       all     100.64.0.0/10 trust
+      host       all       all     100.64.0.0/10 trust
     '';
 
     identMap = ''
