@@ -56,6 +56,10 @@
         owner = services.api-lyte-dev.user;
         group = services.api-lyte-dev.group;
       };
+
+      plausible-admin-password = {};
+      plausible-erlang-cookie = {};
+      plausible-secret-key-base = {};
     };
   };
 
@@ -316,9 +320,8 @@
   services.clickhouse.enable = true;
 
   services.plausible = {
-    enable = false; # TODO: enable this and fix access? probably need a proper secrets management system that integrates with nix (sops-nix?)
-    # otherwise we can probably chown these files to a group that plausible has access to for reading
-    releaseCookiePath = "/root/plausible-erlang-cookie";
+    enable = true;
+    releaseCookiePath = sops.secrets.plausible-erlang-cookie.path;
     database = {
       clickhouse.setup = true;
       postgres.setup = true;
@@ -327,12 +330,12 @@
       baseUrl = "http://beefcake.hare-cod.ts.net:8899";
       disableRegistration = true;
       port = 8899;
-      secretKeybaseFile = "/root/plusible-secret-key-base";
+      secretKeybaseFile = sops.secrets.plausible-secret-key-base.path;
     };
     adminUser = {
       activate = true;
       email = "daniel@lyte.dev";
-      passwordFile = "/root/plausible-admin-password";
+      passwordFile = sops.secrets.plausible-admin-password.path;
     };
   };
 
