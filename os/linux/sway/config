@@ -164,7 +164,7 @@ bar {
 	swaybar_command waybar
 }
 
-set $tilers "(kitty.*|firefox.*|slack.*|Slack.*|thunar.*|Alacritty.*|alacritty.*|Discord.*|discord.*)"
+set $tilers "(wezterm.*|kitty.*|firefox.*|slack.*|Slack.*|thunar.*|Alacritty.*|alacritty.*|Discord.*|discord.*)"
 for_window [title=".*"] floating enable
 for_window [app_id=$tilers] floating disable
 bindsym $mod+shift+alt+f for_window [class=$tilers] floating toggle

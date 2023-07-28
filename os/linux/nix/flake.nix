@@ -28,10 +28,12 @@
     nixosConfigurations = {
       beefcake = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./machines/beefcake.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
+          inputs."api.lyte.dev".nixosModules."api.lyte.dev
           {
             home-manager.useGlobalPkgs = true;
           }

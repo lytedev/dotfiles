@@ -8,7 +8,7 @@ if wezterm.config_builder then
 end
 
 local hostname = io.popen("/bin/hostname"):read("*a"):gsub("%s", "")
-local font_spec = { family = 'IosevkaLyteTerm', weight = 'Regular', italic = false }
+local font_spec = { family = 'IosevkaLyteTerm', weight = 'Medium', italic = false }
 local font_size = 12.0
 
 if hostname == "laptop" then
@@ -39,7 +39,7 @@ config.font_size = font_size
 
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 config.window_background_opacity = 1.0
 
 config.color_scheme = "Catppuccin Mocha"
@@ -53,11 +53,11 @@ config.inactive_pane_hsb = {
 }
 
 config.keys = {
-  -- {
-  --   key = 'j',
-  --   mods = 'CTRL',
-  --   action = wezterm.action.ActivatePaneDirection'Down'
-  -- },
+  {
+    key = 'j',
+    mods = 'CTRL',
+    action = wezterm.action.ActivatePaneDirection'Down'
+  },
   {
     key = 'Insert',
     mods = 'SHIFT',
@@ -83,16 +83,16 @@ config.keys = {
     mods = 'CTRL',
     action = wezterm.action.ActivatePaneDirection'Up'
   },
-  -- {
-  --   key = 'j',
-  --   mods = 'CTRL|SHIFT',
-  --   action = wezterm.action.SplitVertical{domain='CurrentPaneDomain'}
-  -- },
-  -- {
-  --   key = 'l',
-  --   mods = 'CTRL|SHIFT',
-  --   action = wezterm.action.SplitHorizontal{domain='CurrentPaneDomain'}
-  -- },
+  {
+    key = 'j',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SplitVertical{domain='CurrentPaneDomain'}
+  },
+  {
+    key = 'l',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SplitHorizontal{domain='CurrentPaneDomain'}
+  },
   {
     key = 'l',
     mods = 'CTRL|SHIFT|ALT',
@@ -105,7 +105,15 @@ config.keys = {
   },
 }
 
--- config.default_gui_startup_args = { 'connect', 'unix' }
+config.unix_domains = {
+  {
+    name = 'unix',
+    local_echo_threshold_ms = 10,
+  },
+}
+
+config.default_gui_startup_args = { 'connect', 'unix' }
+config.default_domain = 'unix'
 
 config.window_padding = {
   top = '0.5cell',

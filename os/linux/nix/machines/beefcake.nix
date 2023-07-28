@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
     # <sops-nix/modules/sops>
@@ -201,6 +201,11 @@
     };
   };
 
+  services."api.lyte.dev" = {
+    enable = true;
+    port = 5757;
+  };
+
   services.smartd.enable = true;
   services.caddy = {
     enable = true;
@@ -213,6 +218,10 @@
 
       bw.lyte.dev {
         reverse_proxy :8222
+      }
+
+      api.lyte.dev {
+        reverse_proxy :5757
       }
 
       a.lyte.dev {
