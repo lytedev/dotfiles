@@ -1,17 +1,14 @@
 # Welcome to my nix config! I'm just getting started with flakes, so please
 # forgive the mess.
 
-# TODO: would be nice to get hardware congigs in here as well
-
 # TODO: declarative disks with https://github.com/nix-community/disko
 # TODO: home-manager?
-
 
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 
-    # TODO: this could be a tarball? fully recompiling this on every change suuuucks
+    # TODO: this could be a release tarball? fully recompiling this on every change suuuucks
     api-lyte-dev.url = "git+ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git";
 
     home-manager = {

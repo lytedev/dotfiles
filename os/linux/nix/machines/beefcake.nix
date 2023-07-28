@@ -2,10 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, ... }: rec {
+{ pkgs, ... }: rec {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
-    # <sops-nix/modules/sops>
     ./beefcake-hardware.nix
   ];
 
@@ -50,6 +49,7 @@
 
       "api.lyte.dev" = {
         path = "${services.api-lyte-dev.stateDir}/secrets.json";
+        # TODO: would be cool to assert that it's correctly-formatted JSON?
         mode = "0440";
         owner = services.api-lyte-dev.user;
         group = services.api-lyte-dev.group;
