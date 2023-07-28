@@ -32,7 +32,7 @@
         specialArgs = { inherit inputs; };
         modules = let
           ald = inputs."api.lyte.dev";
-          nomod = builtins.trace ald.nixosModules;
+          nomod = builtins.trace "hey" ald.nixosModules;
         in [
           ./machines/beefcake.nix
           inputs.home-manager.nixosModules.home-manager
