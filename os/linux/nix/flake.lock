@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1690572547,
-        "narHash": "sha256-mNQFuUNFh496ZIzb/A27xgclg/qyyjy8iZgJjmg/KiQ=",
+        "lastModified": 1690573304,
+        "narHash": "sha256-Y1hml41TZM7w+oGiBGmswHiQWQMyUQhR04NNPx0RgPk=",
         "ref": "refs/heads/master",
-        "rev": "f99063b25a081b29e6925023c16a19b2ddcc4fad",
-        "revCount": 69,
+        "rev": "b140dc2980c41898aac4d3e7e99196b1798ba8f0",
+        "revCount": 70,
         "type": "git",
         "url": "ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git"
       },
