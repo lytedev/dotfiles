@@ -26,30 +26,29 @@
       generateKey = true;
     };
     secrets = {
-      example-key = {
-        # see these and other options' documentation here:
-        # https://github.com/Mic92/sops-nix#set-secret-permissionowner-and-allow-services-to-access-it
+      # example-key = {
+      #   # see these and other options' documentation here:
+      #   # https://github.com/Mic92/sops-nix#set-secret-permissionowner-and-allow-services-to-access-it
 
-        # set permissions:
-        # mode = "0440";
-        # owner = config.users.users.nobody.name;
-        # group = config.users.users.nobody.group;
+      #   # set permissions:
+      #   # mode = "0440";
+      #   # owner = config.users.users.nobody.name;
+      #   # group = config.users.users.nobody.group;
 
-        # restart service when a secret changes or is newly initialized
-        # restartUnits = [ "home-assistant.service" ];
+      #   # restart service when a secret changes or is newly initialized
+      #   # restartUnits = [ "home-assistant.service" ];
 
-        # symlink to certain directories
-        path = "/var/lib/my-example-key/secrets.yaml";
+      #   # symlink to certain directories
+      #   path = "/var/lib/my-example-key/secrets.yaml";
 
-        # for use as a user password
-        # neededForUsers = true;
-      };
+      #   # for use as a user password
+      #   # neededForUsers = true;
+      # };
 
       # subdirectory
-      "myservice/my_subdir/my_secret" = { };
+      # "myservice/my_subdir/my_secret" = { };
 
-      api-lyte-dev = {
-        format = "json";
+      "api.lyte.dev" = {
         path = "${services.api-lyte-dev.stateDir}/secrets.json";
         mode = "0440";
         owner = services.api-lyte-dev.user;
