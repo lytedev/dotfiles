@@ -12,29 +12,20 @@
   services.api-lyte-dev = rec {
     enable = true;
     port = 5757;
-    stateDir = "/var/lib/api-lyte-dev";
+    stateDir = /var/lib/api-lyte-dev;
     configFile = sops.secrets.api-lyte-dev.path;
     user = "api-lyte-dev";
     group = user;
   };
 
   sops = {
-    defaultSopsFile = ../secrets/beefcake/example.yaml;
+    defaultSopsFile = ../secrets/beefcake/secrets.yaml;
     age = {
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
     secrets = {
-      "beefcake/api-lyte-dev.json" = {
-        sopsFile = ../secrets/beefcake/api-lyte-dev.json;
-        format = "json";
-        path = "${services.api-lyte-dev.stateDir}/secrets.json";
-        mode = "0440";
-        owner = services.api-lyte-dev.user;
-        group = services.api-lyte-dev.group;
-      };
-
       example-key = {
         # see these and other options' documentation here:
         # https://github.com/Mic92/sops-nix#set-secret-permissionowner-and-allow-services-to-access-it
@@ -53,7 +44,17 @@
         # for use as a user password
         # neededForUsers = true;
       };
+
+      # subdirectory
       "myservice/my_subdir/my_secret" = { };
+
+      api-lyte-dev = {
+        format = "json";
+        path = "${services.api-lyte-dev.stateDir}/secrets.json";
+        mode = "0440";
+        owner = services.api-lyte-dev.user;
+        group = services.api-lyte-dev.group;
+      };
     };
   };
 
