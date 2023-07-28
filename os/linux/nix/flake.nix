@@ -33,7 +33,7 @@
           ./machines/beefcake.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
-          inputs."api.lyte.dev".nixosModules."api.lyte.dev
+          inputs."api.lyte.dev".nixosModules."api.lyte.dev"
           {
             home-manager.useGlobalPkgs = true;
           }
