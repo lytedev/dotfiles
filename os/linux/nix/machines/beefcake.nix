@@ -341,18 +341,12 @@
 
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "daniel" "plausible" ];
+    ensureDatabases = [ "daniel" ];
     ensureUsers = [
       {
         name = "daniel";
         ensurePermissions = {
           "DATABASE daniel" = "ALL PRIVILEGES";
-        };
-      }
-      {
-        name = "plausible";
-        ensurePermissions = {
-          "DATABASE plausible" = "ALL PRIVILEGES";
         };
       }
     ];
@@ -364,6 +358,7 @@
     authentication = pkgs.lib.mkOverride 10 ''
       #type database  DBuser    auth-method
       local all       postgres  peer map=superuser_map        
+      local all       daniel    peer map=superuser_map        
       local sameuser  all       peer map=superuser_map        
       local plausible plausible peer map=superuser_map
 
@@ -376,9 +371,9 @@
 
     identMap = ''
       # ArbitraryMapName systemUser DBUser
-        superuser_map   root       postgres
-        superuser_map   postgres   postgres
-        superuser_map   daniel     postgres
+        superuser_map    root       postgres
+        superuser_map    postgres   postgres
+        superuser_map    daniel     postgres
         # Let other names login as themselves
         superuser_map   /^(.*)$    \1
     '';
