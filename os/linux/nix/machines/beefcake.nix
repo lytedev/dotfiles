@@ -12,7 +12,7 @@
     enable = true;
     port = 5757;
     stateDir = "/var/lib/api-lyte-dev";
-    configFile = sops.secrets.api-lyte-dev.path;
+    configFile = sops.secrets."api.lyte.dev".path;
     user = "api-lyte-dev";
     group = user;
   };
