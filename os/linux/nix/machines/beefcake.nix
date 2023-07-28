@@ -201,7 +201,7 @@
     };
   };
 
-  services."api.lyte.dev" = {
+  services.api-lyte-dev = {
     enable = true;
     port = 5757;
   };
