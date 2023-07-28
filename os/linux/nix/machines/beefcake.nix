@@ -324,7 +324,10 @@
     releaseCookiePath = config.sops.secrets.plausible-erlang-cookie.path;
     database = {
       clickhouse.setup = true;
-      postgres.setup = false;
+      postgres = {
+        setup = false;
+        dbname = "plausible";
+      };
     };
     server = {
       baseUrl = "http://beefcake.hare-cod.ts.net:8899";
