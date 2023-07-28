@@ -9,11 +9,13 @@
     ./beefcake-hardware.nix
   ];
 
-  services.api-lyte-dev = {
+  services.api-lyte-dev = rec {
     enable = true;
     port = 5757;
     stateDir = "/var/lib/api-lyte-dev";
     configFile = sops.secrets.api-lyte-dev.path;
+    user = "api-lyte-dev";
+    group = user;
   };
 
   sops = {
