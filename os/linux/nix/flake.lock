@@ -1,5 +1,42 @@
 {
   "nodes": {
+    "api.lyte.dev": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1690523788,
+        "narHash": "sha256-ZHX4o/5Qn3aZ67npMqgbEufI3XBm33ffL7syFmBtn2A=",
+        "ref": "refs/heads/master",
+        "rev": "34ebb618338d197a5c6ac86a5f3cfa6249152067",
+        "revCount": 50,
+        "type": "git",
+        "url": "ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1689068808,
+        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -23,16 +60,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1690370995,
-        "narHash": "sha256-9z//23jGegLJrf3ITStLwVf715O39dq5u48Kr/XW14U=",
-        "owner": "NixOS",
+        "lastModified": 1690026219,
+        "narHash": "sha256-oOduRk/kzQxOBknZXTLSEYd7tk+GoKvr8wV6Ab+t4AU=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f3fbbc36b4e179a5985b9ab12624e9dfe7989341",
+        "rev": "f465da166263bc0d4b39dfd4ca28b777c92d4b73",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.05",
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -53,10 +90,27 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1690370995,
+        "narHash": "sha256-9z//23jGegLJrf3ITStLwVf715O39dq5u48Kr/XW14U=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f3fbbc36b4e179a5985b9ab12624e9dfe7989341",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "api.lyte.dev": "api.lyte.dev",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "sops-nix": "sops-nix"
       }
     },
@@ -78,6 +132,21 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
         "type": "github"
       }
     }
