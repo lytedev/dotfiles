@@ -32,11 +32,12 @@
         specialArgs = { inherit inputs; };
         modules = let
           ald = inputs."api.lyte.dev";
+          nomod = builtins.trace ald.nixosModules;
         in [
           ./machines/beefcake.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
-          ald.nixosModules."api.lyte.dev"
+          nomod."api.lyte.dev"
           {
             home-manager.useGlobalPkgs = true;
           }
