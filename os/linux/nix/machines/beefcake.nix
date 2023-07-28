@@ -17,6 +17,8 @@
     group = user;
   };
 
+  systemd.services.api-lyte-dev.environment.LOG_LEVEL = "debug";
+
   sops = {
     defaultSopsFile = ../secrets/beefcake/secrets.yml;
     age = {
