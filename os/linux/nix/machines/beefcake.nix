@@ -2,12 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ pkgs, inputs, ... }: {
+{ config, pkgs, ... }: rec {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
     # <sops-nix/modules/sops>
     ./beefcake-hardware.nix
   ];
+
+  services.api-lyte-dev = {
+    enable = true;
+    port = 5757;
+    configFile = sops.secrets.api-lyte-dev.path;
+  };
 
   sops = {
     defaultSopsFile = ../secrets/beefcake/example.yaml;
@@ -17,6 +23,15 @@
       generateKey = true;
     };
     secrets = {
+      api-lyte-dev = {
+        sopsFile = ../secrets/beefcake/api-lyte-dev.json;
+        format = "json";
+        path = "${services.api-lyte-dev.stateDir}/secrets.json";
+        mode = "0440";
+        owner = services.api-lyte-dev.user;
+        group = services.api-lyte-dev.group;
+      };
+
       example-key = {
         # see these and other options' documentation here:
         # https://github.com/Mic92/sops-nix#set-secret-permissionowner-and-allow-services-to-access-it
@@ -103,7 +118,7 @@
     extraGroups = [
     ];
   };
-  
+
   users.users.ben = {
     isNormalUser = true;
     packages = with pkgs; [
@@ -199,11 +214,6 @@
       OnUnitActiveSec = "5min";
       Unit = "deno-netlify-ddns-client.service";
     };
-  };
-
-  services.api-lyte-dev = {
-    enable = true;
-    port = 5757;
   };
 
   services.smartd.enable = true;
