@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ pkgs, ... }: rec {
+{ config, pkgs, ... }: rec {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
     ./beefcake-hardware.nix
@@ -321,7 +321,7 @@
 
   services.plausible = {
     enable = true;
-    releaseCookiePath = sops.secrets.plausible-erlang-cookie.path;
+    releaseCookiePath = config.sops.secrets.plausible-erlang-cookie.path;
     database = {
       clickhouse.setup = true;
       postgres.setup = true;
@@ -330,12 +330,12 @@
       baseUrl = "http://beefcake.hare-cod.ts.net:8899";
       disableRegistration = true;
       port = 8899;
-      secretKeybaseFile = sops.secrets.plausible-secret-key-base.path;
+      secretKeybaseFile = config.sops.secrets.plausible-secret-key-base.path;
     };
     adminUser = {
       activate = true;
       email = "daniel@lyte.dev";
-      passwordFile = sops.secrets.plausible-admin-password.path;
+      passwordFile = config.sops.secrets.plausible-admin-password.path;
     };
   };
 
