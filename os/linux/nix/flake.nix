@@ -10,6 +10,8 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+
+    # TODO: this could be a tarball? fully recompiling this on every change suuuucks
     api-lyte-dev.url = "git+ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git";
 
     home-manager = {
