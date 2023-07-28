@@ -10,7 +10,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-    "api.lyte.dev".url = "git+ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git";
+    api-lyte-dev.url = "git+ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -31,13 +31,13 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = let
-          ald = inputs."api.lyte.dev";
+          ald = inputs.api-lyte-dev;
           nomod = builtins.trace "hey" ald.nixosModules;
         in [
           ./machines/beefcake.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
-          nomod."api.lyte.dev"
+          nomod.x86_64-linux.api-lyte-dev
           {
             home-manager.useGlobalPkgs = true;
           }

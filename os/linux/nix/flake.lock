@@ -1,16 +1,16 @@
 {
   "nodes": {
-    "api.lyte.dev": {
+    "api-lyte-dev": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1690523788,
-        "narHash": "sha256-ZHX4o/5Qn3aZ67npMqgbEufI3XBm33ffL7syFmBtn2A=",
+        "lastModified": 1690525659,
+        "narHash": "sha256-u3M1pvAZjUWwjVoTi50iYhINRrqaaatgicfBGsfCHxE=",
         "ref": "refs/heads/master",
-        "rev": "34ebb618338d197a5c6ac86a5f3cfa6249152067",
-        "revCount": 50,
+        "rev": "1d9883162c0fdc034d241f7097e508d95ffcd99e",
+        "revCount": 56,
         "type": "git",
         "url": "ssh://gitea@git.lyte.dev/lytedev/api.lyte.dev.git"
       },
@@ -108,7 +108,7 @@
     },
     "root": {
       "inputs": {
-        "api.lyte.dev": "api.lyte.dev",
+        "api-lyte-dev": "api-lyte-dev",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "sops-nix": "sops-nix"
