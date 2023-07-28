@@ -26,7 +26,7 @@
       generateKey = true;
     };
     secrets = {
-      api-lyte-dev = {
+      "beefcake/api-lyte-dev.json" = {
         sopsFile = ../secrets/beefcake/api-lyte-dev.json;
         format = "json";
         path = "${services.api-lyte-dev.stateDir}/secrets.json";
