@@ -30,11 +30,13 @@
       beefcake = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
-        modules = [
+        modules = let
+          ald = inputs."api.lyte.dev";
+        in [
           ./machines/beefcake.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops
-          inputs."api.lyte.dev".nixosModules."api.lyte.dev"
+          ald.nixosModules."api.lyte.dev"
           {
             home-manager.useGlobalPkgs = true;
           }
