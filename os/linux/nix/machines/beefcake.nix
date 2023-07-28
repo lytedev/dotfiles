@@ -333,7 +333,7 @@
       secretKeybaseFile = config.sops.secrets.plausible-secret-key-base.path;
     };
     adminUser = {
-      activate = true;
+      activate = false;
       email = "daniel@lyte.dev";
       passwordFile = config.sops.secrets.plausible-admin-password.path;
     };
