@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   dbus-sway-environment = pkgs.writeTextFile {
@@ -16,6 +16,8 @@ let
       systemctl --user start wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
     '';
   };
+
+  # TODO: fonts? right now, I'm just installing to ~/.local/share/fonts
 
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
@@ -109,7 +111,10 @@ in {
   users.users.daniel = {
     isNormalUser = true;
     home = "/home/daniel/.home";
-    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAPLXOjupz3ScYjgrF+ehrbp9OvGAWQLI6fplX6w9Ijb daniel@lyte.dev"
+    ];
+    extraGroups = [ "wheel" "video" ];
     packages = [];
   };
 
@@ -141,6 +146,7 @@ in {
     gimp
     git
     git-lfs
+    gnupg
     grim
     helix
     hexyl
