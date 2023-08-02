@@ -18,6 +18,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko/master"; # NOTE: lock update!
+
+      # use the version of nixpkgs we specified above rather than the one HM would ordinarily use
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +54,9 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          inputs.disko.nixosModules.disko
+          ./machines/thinker-disks.nix
+          { _module.args.disks = [ "/dev/nvme0n1" ]; }
           ./machines/thinker.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.sops-nix.nixosModules.sops

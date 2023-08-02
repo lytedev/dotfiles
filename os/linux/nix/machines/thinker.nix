@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./thinker-hardware.nix
-      "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -20,6 +19,20 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
 
+  security.polkit.enable = true;
+  security.rtkit.enable = true;
+
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
@@ -28,19 +41,18 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    useXkbConfig = true;
+  };
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = "caps:escape";
+  services.xserver.xkbOptions = "ctrl:nocaps";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -67,10 +79,9 @@
     dtach
     exa
     fd
-    fish
     fwupd
     git
-    git-delta
+    delta
     helix
     ripgrep
     sd
@@ -97,9 +108,8 @@
     dua
     git-lfs
     libinput
-    libinput-gesture
+    libinput-gestures
     brightnessctl
-    thunar
     # TODO: my font?
     noto-fonts
     gimp
@@ -112,7 +122,6 @@
     pulsemixer
     pavucontrol
     pamixer
-    libpulse
     playerctl
     # TODO: wireplumber?
     swaybg
@@ -130,10 +139,15 @@
     wget
   ];
 
+  programs.thunar.enable = true;
+
   services.tailscale = {
     enable = true;
   };
 
+  environment.variables = {
+    EDITOR = "hx";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -153,11 +167,6 @@
   networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
