@@ -42,6 +42,21 @@
           }
         ];
       };
+
+      thinker = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./machines/thinker.nix
+          inputs.home-manager.nixosModules.home-manager
+          inputs.sops-nix.nixosModules.sops
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.daniel = import ./daniel.nix;
+          }
+        ];
+      };
     };
   };
 }
