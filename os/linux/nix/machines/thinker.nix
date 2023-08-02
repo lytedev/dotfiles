@@ -4,7 +4,33 @@
 
 { pkgs, ... }:
 
-{
+let
+  dbus-sway-environment = pkgs.writeTextFile {
+    name = "dbus-sway-environment";
+    destination = "/bin/dbus-sway-environment";
+    executable = true;
+
+    text = ''
+      dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+      systemctl --user stop wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+      systemctl --user start wireplumber xdg-desktop-portal xdg-desktop-portal-wlr
+    '';
+  };
+
+  configure-gtk = pkgs.writeTextFile {
+    name = "configure-gtk";
+    destination = "/bin/configure-gtk";
+    executable = true;
+    text = let 
+      schema = pkgs.gsettings-desktop-schemas;
+      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+    in ''
+      export XDG_DATA_DIRS="${datadir}:$XDG_DATA_DIRS
+      gnome_schema = org.gnome.desktop.interface
+      gsettings set $gnome_schema gtk-theme 'Catppuccin-Mocha'
+    '';
+  };
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./thinker-hardware.nix
@@ -13,6 +39,21 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   networking.hostName = "thinker"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -72,71 +113,75 @@
     packages = [];
   };
 
+  services.dbus.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  # TODO: my font?
+  # TODO: wayland screensharing
+  # TODO: wireplumber?
   environment.systemPackages = with pkgs; [
+    age
+    bat
+    bind
+    bottom
+    brightnessctl
+    broot
     curl
+    delta
+    dog
     dtach
+    dua
     exa
     fd
+    feh
+    firefox
     fwupd
+    gimp
     git
-    delta
-    helix
-    ripgrep
-    sd
-    skim
-    mosh
-    bat
-    htop
-    bottom
-    hexyl
-    rsync
-    rclone
-    restic
-    unzip
-    dog
-    bind
-    nmap
-    traceroute
-    iputils
-    xh
-    age
-    sops
-    nnn
-    broot
-    dua
     git-lfs
+    grim
+    helix
+    hexyl
+    htop
+    inkscape
+    iputils
+    kitty
+    krita
     libinput
     libinput-gestures
-    brightnessctl
-    # TODO: my font?
-    noto-fonts
-    gimp
-    inkscape
-    krita
-    vlc
-    zathura
-    feh
-    kitty
-    pulsemixer
-    pavucontrol
-    pamixer
-    playerctl
-    # TODO: wireplumber?
-    swaybg
-    swaylock
-    waybar
-    wofi
-    swayidle
     mako
+    mosh
+    nmap
+    nnn
+    noto-fonts
+    pamixer
+    pavucontrol
+    playerctl
+    pulsemixer
+    rclone
+    restic
+    ripgrep
+    rsync
+    sd
+    skim
     slurp
-    grim
-    wl-clipboard
-    wireplumber
-    # TODO: wayland screensharing
+    sops
+    swaybg
+    swayidle
+    swaylock
+    traceroute
+    unzip
+    vlc
     watchexec
+    waybar
     wget
+    wireplumber
+    wl-clipboard
+    wofi
+    xh
+    zathura
   ];
 
   programs.thunar.enable = true;
@@ -159,8 +204,15 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = false; # TODO: disable password auth
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+    };
+    listenAddresses = [
+      { addr = "0.0.0.0"; port = 22; }
+    ];
+  };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];

@@ -1,0 +1,2 @@
+exec dbus-sway-environment
+exec configure-gtk
