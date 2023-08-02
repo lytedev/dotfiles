@@ -5,6 +5,8 @@
 
   programs.home-manager.enable = true;
 
+  # TODO: firefox with userchrome
+
   # wayland.windowManager.sway = {
   #   enable = true;
   # };

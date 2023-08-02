@@ -38,6 +38,8 @@ in {
       ./thinker-hardware.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -141,18 +143,18 @@ in {
     exa
     fd
     feh
-    firefox
+    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     fwupd
     gimp
     git
     git-lfs
-    gnupg
     grim
     helix
     hexyl
     htop
     inkscape
     iputils
+    killall
     kitty
     krita
     libinput
@@ -163,6 +165,7 @@ in {
     nnn
     noto-fonts
     pamixer
+    (pass.withExtensions (exts: [ exts.pass-otp ]))
     pavucontrol
     playerctl
     pulsemixer
@@ -170,6 +173,7 @@ in {
     restic
     ripgrep
     rsync
+    rtx
     sd
     skim
     slurp
@@ -188,7 +192,16 @@ in {
     wofi
     xh
     zathura
+    zstd
   ];
+
+  services.pcscd.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  programs.gnupg.agent = {
+     enable = true;
+     pinentryFlavor = "gnome3";
+     enableSSHSupport = true;
+  };
 
   programs.thunar.enable = true;
 
