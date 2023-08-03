@@ -17,6 +17,8 @@ let
     '';
   };
 
+  # TODO: hibernation?
+
   # TODO: fonts? right now, I'm just installing to ~/.local/share/fonts
 
   configure-gtk = pkgs.writeTextFile {
@@ -163,6 +165,8 @@ in {
     mosh
     nmap
     nnn
+    nil
+    nixpkgs-fmt
     noto-fonts
     pamixer
     (pass.withExtensions (exts: [ exts.pass-otp ]))

@@ -7,6 +7,11 @@ name = "html"
 auto-format = false
 
 [[language]]
+name = "nix"
+auto-format = true
+formatter = { command = "nixpkgs-fmt", args = [] }
+
+[[language]]
 name = "fish"
 auto-format = true
 indent = { tab-width = 2, unit = "\t" }
