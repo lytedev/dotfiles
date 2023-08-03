@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ pkgs, lib, ... }:
+{ pkgs, nixpkgs, ... }:
 
 let
   dbus-sway-environment = pkgs.writeTextFile {
@@ -25,18 +25,22 @@ let
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
     executable = true;
-    text = let 
-      schema = pkgs.gsettings-desktop-schemas;
-      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-    in ''
-      export XDG_DATA_DIRS="${datadir}:$XDG_DATA_DIRS
-      gnome_schema = org.gnome.desktop.interface
-      gsettings set $gnome_schema gtk-theme 'Catppuccin-Mocha'
-    '';
+    text =
+      let
+        schema = pkgs.gsettings-desktop-schemas;
+        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+      in
+      ''
+        export XDG_DATA_DIRS="${datadir}:$XDG_DATA_DIRS
+        gnome_schema = org.gnome.desktop.interface
+        gsettings set $gnome_schema gtk-theme 'Catppuccin-Mocha'
+      '';
   };
-in {
+in
+{
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./thinker-hardware.nix
     ];
 
@@ -46,9 +50,23 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    };
+  };
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
+
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
 
   xdg.portal = {
@@ -119,7 +137,7 @@ in {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAPLXOjupz3ScYjgrF+ehrbp9OvGAWQLI6fplX6w9Ijb daniel@lyte.dev"
     ];
     extraGroups = [ "wheel" "video" ];
-    packages = [];
+    packages = [ ];
   };
 
   services.dbus.enable = true;
@@ -161,6 +179,7 @@ in {
     krita
     libinput
     libinput-gestures
+    lutris
     mako
     mosh
     nmap
@@ -172,6 +191,7 @@ in {
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     pavucontrol
     playerctl
+    pulseaudio
     pulsemixer
     rclone
     restic
@@ -182,6 +202,7 @@ in {
     skim
     slurp
     sops
+    steam
     swaybg
     swayidle
     swaylock
@@ -192,6 +213,7 @@ in {
     waybar
     wget
     wireplumber
+    wine
     wl-clipboard
     wofi
     xh
@@ -202,9 +224,9 @@ in {
   services.pcscd.enable = true;
   services.gnome.gnome-keyring.enable = true;
   programs.gnupg.agent = {
-     enable = true;
-     pinentryFlavor = "gnome3";
-     enableSSHSupport = true;
+    enable = true;
+    pinentryFlavor = "gnome3";
+    enableSSHSupport = true;
   };
 
   programs.thunar.enable = true;
