@@ -59,6 +59,7 @@ in
 
   hardware.opengl = {
     enable = true;
+    driSupport32Bit = true;
     driSupport = true;
 
     extraPackages = with pkgs; [
@@ -92,9 +93,11 @@ in
 
   services.pipewire = {
     enable = true;
+    wireplumber.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    # pulse.support32Bit = true;
     jack.enable = true;
   };
 
@@ -124,7 +127,8 @@ in
 
   # Enable sound.
   # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  # hardware.pulseaudio.support32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -179,6 +183,7 @@ in
     krita
     libinput
     libinput-gestures
+    libnotify
     lutris
     mako
     mosh
@@ -190,6 +195,7 @@ in
     pamixer
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     pavucontrol
+    pciutils
     playerctl
     pulseaudio
     pulsemixer
@@ -209,6 +215,7 @@ in
     traceroute
     unzip
     vlc
+    vulkan-tools
     watchexec
     waybar
     wget

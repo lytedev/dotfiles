@@ -3,6 +3,16 @@
   home.homeDirectory = "/home/daniel/.home";
   home.stateVersion = "23.05";
 
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
+  home.pointerCursor = {
+    name = "Catppuccin-Mocha-Sapphire-Cursors";
+    package = pkgs.catppuccin-cursors.mochaSapphire;
+  };
+
   programs.home-manager.enable = true;
 
   programs.firefox = {
