@@ -159,6 +159,7 @@ in
     bottom
     brightnessctl
     broot
+    clang
     curl
     delta
     dog
@@ -167,8 +168,10 @@ in
     exa
     fd
     feh
+    file
     (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     fwupd
+    gcc
     gimp
     git
     git-lfs
@@ -185,6 +188,7 @@ in
     libinput-gestures
     libnotify
     lutris
+    gnumake
     mako
     mosh
     nmap
@@ -264,6 +268,44 @@ in
     listenAddresses = [
       { addr = "0.0.0.0"; port = 22; }
     ];
+  };
+
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "daniel" ];
+    ensureUsers = [
+      {
+        name = "daniel";
+        ensurePermissions = {
+          "DATABASE daniel" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+    enableTCPIP = true;
+
+    package = pkgs.postgresql_15;
+
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser    auth-method
+      local all       postgres  peer map=superuser_map        
+      local all       daniel    peer map=superuser_map        
+      local sameuser  all       peer map=superuser_map        
+
+      # lan ipv4
+      host  all       all     10.0.0.0/24   trust
+
+      # tailnet ipv4
+      host       all       all     100.64.0.0/10 trust
+    '';
+
+    identMap = ''
+      # ArbitraryMapName systemUser DBUser
+        superuser_map    root       postgres
+        superuser_map    postgres   postgres
+        superuser_map    daniel     postgres
+        # Let other names login as themselves
+        superuser_map   /^(.*)$    \1
+    '';
   };
 
   # Open ports in the firewall.

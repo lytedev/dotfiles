@@ -11,6 +11,7 @@
   home.pointerCursor = {
     name = "Catppuccin-Mocha-Sapphire-Cursors";
     package = pkgs.catppuccin-cursors.mochaSapphire;
+    size = 64;
   };
 
   programs.home-manager.enable = true;
