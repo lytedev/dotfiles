@@ -19,6 +19,11 @@ line-color=111111cc
 line-uses-ring
 
 ring-color=111111cc
-ring-clear-color=f4bf75
+ring-clear-color=f9e2af
 ring-ver-color=66d9ef
-ring-wrong-color=f92672
+ring-wrong-color=f38ba8
+
+text-color=ffffff
+text-clear-color=ffffff
+text-ver-color=ffffff
+text-wrong-color=f38ba8

@@ -3,6 +3,13 @@
   home.homeDirectory = "/home/daniel/.home";
   home.stateVersion = "23.05";
 
+  programs.home-manager.enable = true;
+
+  programs.direnv.enable = true;
+  programs.nix-direnv.enable = true;
+
+  programs.fish.enable = true;
+
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;
@@ -11,10 +18,8 @@
   home.pointerCursor = {
     name = "Catppuccin-Mocha-Sapphire-Cursors";
     package = pkgs.catppuccin-cursors.mochaSapphire;
-    size = 64;
+    size = 64; # TODO: this doesn't seem to work -- at least in Sway
   };
-
-  programs.home-manager.enable = true;
 
   programs.firefox = {
     enable = true;
@@ -23,7 +28,7 @@
 
     # extensions = with pkgs.nur.repos.rycee.firefox-addons; [
     #   ublock-origin
-    # ];
+    # ]; # TODO: would be nice to have _all_ my firefox stuff managed here instead of Firefox Sync maybe?
 
     profiles = {
       daniel = {
@@ -65,5 +70,6 @@
 
   # wayland.windowManager.sway = {
   #   enable = true;
-  # };
+  # }; # TODO: would be nice to have my sway config declared here instead of symlinked in by dotfiles scripts?
+  # maybe we can share somehow so things for nix-y systems and non-nix-y systems alike
 }

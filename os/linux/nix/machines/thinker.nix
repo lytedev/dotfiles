@@ -169,7 +169,6 @@ in
     fd
     feh
     file
-    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     fwupd
     gcc
     gimp
@@ -180,6 +179,7 @@ in
     hexyl
     htop
     inkscape
+    inotify-tools
     iputils
     killall
     kitty
@@ -200,6 +200,7 @@ in
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     pavucontrol
     pciutils
+    pgcli
     playerctl
     pulseaudio
     pulsemixer
@@ -287,12 +288,13 @@ in
 
     authentication = pkgs.lib.mkOverride 10 ''
       #type database  DBuser    auth-method
-      local all       postgres  peer map=superuser_map        
-      local all       daniel    peer map=superuser_map        
-      local sameuser  all       peer map=superuser_map        
+      local all       postgres  peer map=superuser_map
+      local all       daniel    peer map=superuser_map
+      local sameuser  all       peer map=superuser_map
 
       # lan ipv4
       host  all       all     10.0.0.0/24   trust
+      host  all       all     127.0.0.1/32  trust
 
       # tailnet ipv4
       host       all       all     100.64.0.0/10 trust
