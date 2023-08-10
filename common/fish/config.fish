@@ -42,12 +42,16 @@ if test -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 	set --prepend --export --global fish_user_paths $HOME/.nix-profile/bin /nix/var/nix/profiles/default/bin
 end
 
-if has_command nnn
-	source $DOTFILES_PATH/common/nnn/config.fish
+if has_command direnv
+	direnv hook fish | source
 end
 
 # everything after this is ONLY relevant to interactive shells
 status --is-interactive || exit
+
+if has_command nnn
+	source $DOTFILES_PATH/common/nnn/config.fish
+end
 
 for f in prompt key-bindings
 	source $FISH_PATH/$f.fish

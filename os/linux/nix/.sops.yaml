@@ -2,11 +2,11 @@ keys:
   - &daniel age1stdue5q5teskee057ced6rh9pzzr93xsy66w4sc3zu49rgxl7cjshztt45 # pass age-key | rg '# pub'
   - &sshd-at-beefcake age1k8s590x34ghz7yrjyrgzkd24j252srf0mhfy34halp4frwr065csrlt2ev # ssh beefcake "nix-shell -p ssh-to-age --run 'cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age'"
 creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/[^/]+\.(ya?ml|json|env|ini)$
     key_groups:
     - age:
       - *daniel
-  - path_regex: secrets/beefcake/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/beefcake/[^/]+\.(ya?ml|json|env|ini)$
     key_groups:
     - age:
       - *daniel

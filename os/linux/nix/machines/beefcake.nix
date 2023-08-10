@@ -5,53 +5,61 @@
 { config, pkgs, ... }: rec {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
-    # <sops-nix/modules/sops>
     ./beefcake-hardware.nix
   ];
 
-  services.api-lyte-dev = {
+  services.api-lyte-dev = rec {
     enable = true;
     port = 5757;
     stateDir = "/var/lib/api-lyte-dev";
-    configFile = sops.secrets.api-lyte-dev.path;
+    configFile = sops.secrets."api.lyte.dev".path;
+    user = "api-lyte-dev";
+    group = user;
   };
 
+  systemd.services.api-lyte-dev.environment.LOG_LEVEL = "debug";
+
   sops = {
-    defaultSopsFile = ../secrets/beefcake/example.yaml;
+    defaultSopsFile = ../secrets/beefcake/secrets.yml;
     age = {
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
     secrets = {
-      api-lyte-dev = {
-        sopsFile = ../secrets/beefcake/api-lyte-dev.json;
-        format = "json";
+      # example-key = {
+      #   # see these and other options' documentation here:
+      #   # https://github.com/Mic92/sops-nix#set-secret-permissionowner-and-allow-services-to-access-it
+
+      #   # set permissions:
+      #   # mode = "0440";
+      #   # owner = config.users.users.nobody.name;
+      #   # group = config.users.users.nobody.group;
+
+      #   # restart service when a secret changes or is newly initialized
+      #   # restartUnits = [ "home-assistant.service" ];
+
+      #   # symlink to certain directories
+      #   path = "/var/lib/my-example-key/secrets.yaml";
+
+      #   # for use as a user password
+      #   # neededForUsers = true;
+      # };
+
+      # subdirectory
+      # "myservice/my_subdir/my_secret" = { };
+
+      "api.lyte.dev" = {
         path = "${services.api-lyte-dev.stateDir}/secrets.json";
+        # TODO: would be cool to assert that it's correctly-formatted JSON?
         mode = "0440";
         owner = services.api-lyte-dev.user;
         group = services.api-lyte-dev.group;
       };
 
-      example-key = {
-        # see these and other options' documentation here:
-        # https://github.com/Mic92/sops-nix#set-secret-permissionowner-and-allow-services-to-access-it
-
-        # set permissions:
-        # mode = "0440";
-        # owner = config.users.users.nobody.name;
-        # group = config.users.users.nobody.group;
-
-        # restart service when a secret changes or is newly initialized
-        # restartUnits = [ "home-assistant.service" ];
-
-        # symlink to certain directories
-        path = "/var/lib/my-example-key/secrets.yaml";
-
-        # for use as a user password
-        # neededForUsers = true;
-      };
-      "myservice/my_subdir/my_secret" = { };
+      plausible-admin-password = {};
+      plausible-erlang-cookie = {};
+      plausible-secret-key-base = {};
     };
   };
 
@@ -312,23 +320,25 @@
   services.clickhouse.enable = true;
 
   services.plausible = {
-    enable = false; # TODO: enable this and fix access? probably need a proper secrets management system that integrates with nix (sops-nix?)
-    # otherwise we can probably chown these files to a group that plausible has access to for reading
-    releaseCookiePath = "/root/plausible-erlang-cookie";
+    enable = true;
+    releaseCookiePath = config.sops.secrets.plausible-erlang-cookie.path;
     database = {
       clickhouse.setup = true;
-      postgres.setup = true;
+      postgres = {
+        setup = false;
+        dbname = "plausible";
+      };
     };
     server = {
       baseUrl = "http://beefcake.hare-cod.ts.net:8899";
       disableRegistration = true;
       port = 8899;
-      secretKeybaseFile = "/root/plusible-secret-key-base";
+      secretKeybaseFile = config.sops.secrets.plausible-secret-key-base.path;
     };
     adminUser = {
-      activate = true;
+      activate = false;
       email = "daniel@lyte.dev";
-      passwordFile = "/root/plausible-admin-password";
+      passwordFile = config.sops.secrets.plausible-admin-password.path;
     };
   };
 
@@ -357,21 +367,22 @@
     authentication = pkgs.lib.mkOverride 10 ''
       #type database  DBuser    auth-method
       local all       postgres  peer map=superuser_map        
+      local all       daniel    peer map=superuser_map        
       local sameuser  all       peer map=superuser_map        
-      local plausible plausible peer map=superuser_map        
+      local plausible plausible peer map=superuser_map
 
       # lan ipv4
       host  all       all     10.0.0.0/24   trust
 
       # tailnet ipv4
-      host  all       all     100.64.0.0/10 trust
+      host       all       all     100.64.0.0/10 trust
     '';
 
     identMap = ''
       # ArbitraryMapName systemUser DBUser
-        superuser_map   root       postgres
-        superuser_map   postgres   postgres
-        superuser_map   daniel     postgres
+        superuser_map    root       postgres
+        superuser_map    postgres   postgres
+        superuser_map    daniel     postgres
         # Let other names login as themselves
         superuser_map   /^(.*)$    \1
     '';
