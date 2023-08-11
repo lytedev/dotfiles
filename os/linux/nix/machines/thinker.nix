@@ -5,6 +5,7 @@
 { pkgs, nixpkgs, ... }:
 
 let
+  # this is unused because it's referenced by my sway config
   dbus-sway-environment = pkgs.writeTextFile {
     name = "dbus-sway-environment";
     destination = "/bin/dbus-sway-environment";
@@ -17,10 +18,7 @@ let
     '';
   };
 
-  # TODO: hibernation?
-
-  # TODO: fonts? right now, I'm just installing to ~/.local/share/fonts
-
+  # this is unused because it's referenced by my sway config
   configure-gtk = pkgs.writeTextFile {
     name = "configure-gtk";
     destination = "/bin/configure-gtk";
@@ -43,6 +41,12 @@ in
       # Include the results of the hardware scan.
       ./thinker-hardware.nix
     ];
+
+  # TODO: hibernation? I've been using [deep] in /sys/power/mem_sleep alright
+  # with this machine so it may not be necessary?
+  # need to measure percentage lost per day, but I think it's around 10%/day
+
+  # TODO: fonts? right now, I'm just installing to ~/.local/share/fonts
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -149,9 +153,6 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
-  # TODO: my font?
-  # TODO: wayland screensharing
-  # TODO: wireplumber?
   environment.systemPackages = with pkgs; [
     age
     bat
