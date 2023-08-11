@@ -208,7 +208,6 @@ in
     restic
     ripgrep
     rsync
-    rtx
     sd
     skim
     slurp
@@ -234,6 +233,7 @@ in
   ];
 
   services.pcscd.enable = true;
+  services.flatpak.enable = true;
   services.gnome.gnome-keyring.enable = true;
   programs.gnupg.agent = {
     enable = true;
