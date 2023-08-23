@@ -1,5 +1,6 @@
 [[language]]
 name = "elixir"
+language-server = { command = "lexical", args = ["start"] }
 auto-format = true
 
 [[language]]
