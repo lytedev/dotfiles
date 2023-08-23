@@ -1,6 +1,9 @@
+[language-server]
+lexical = { command = "lexical", args = ["start"] }
+
 [[language]]
 name = "elixir"
-language-server = { command = "lexical", args = ["start"] }
+language-servers = ["elixir-ls", "lexical"]
 auto-format = true
 
 [[language]]
