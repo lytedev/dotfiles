@@ -1,15 +1,10 @@
 default_border pixel 1
 
-gaps inner 10
+gaps inner 0
 
 output "Samsung Electric Company SyncMaster H1AK500000" position 0,0
-
 output "GIGA-BYTE TECHNOLOGY CO., LTD. AORUS FO48U 23070B000307" mode 3840x2160@120Hz position 0,0
-
-output "Dell Inc. DELL U2720Q CWTM623" transform 90 scale 1.5
-output "Dell Inc. DELL U2720Q CWTM623" position 3840,0
-
-output "Dell Inc. DELL U2720Q D3TM623" transform 90 scale 1.5
-output "Dell Inc. DELL U2720Q D3TM623" position -1440,0
+output "Dell Inc. DELL U2720Q CWTM623" transform 90 scale 1.5 position 3840,0
+output "Dell Inc. DELL U2720Q D3TM623" transform 90 scale 1.5 position -1440,0
 
 exec firefox
