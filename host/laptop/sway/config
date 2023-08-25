@@ -12,6 +12,9 @@ input type:keyboard {
 # 	events disabled
 # }
 
+output "Dell Inc. DELL U2720Q CWTM623" transform 0 scale 1.0
+output "Dell Inc. DELL U2720Q CWTM623" mode 3840x2160
+
 input type:touchpad {
 
 }

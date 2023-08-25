@@ -61,6 +61,7 @@ in
     };
   };
 
+  hardware.bluetooth.enable = true;
   hardware.opengl = {
     enable = true;
     driSupport32Bit = true;
@@ -197,12 +198,14 @@ in
     nil
     nixpkgs-fmt
     noto-fonts
+    openssl
     pamixer
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     pavucontrol
     pciutils
     pgcli
     playerctl
+    podman-compose
     pulseaudio
     pulsemixer
     rclone
@@ -309,6 +312,23 @@ in
         # Let other names login as themselves
         superuser_map   /^(.*)$    \1
     '';
+  };
+
+
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
+    oci-containers = {
+      backend = "podman";
+    };
   };
 
   # Open ports in the firewall.
