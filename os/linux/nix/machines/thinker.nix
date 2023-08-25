@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ pkgs, nixpkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   # this is unused because it's referenced by my sway config
@@ -177,7 +177,7 @@ in
     git
     git-lfs
     grim
-    helix
+    inputs.helix.packages."x86_64-linux".helix
     hexyl
     htop
     inkscape
