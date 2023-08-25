@@ -18,4 +18,10 @@ $ git push beefcake:~/.config/lytedev-dotfiles
 $ ssh -t beefcake 'cd ~/.config/lytedev-dotfiles/os/linux/nix && sudo nixos-rebuild switch --flake .# && echo DONE'
 ```
 
+# Ops stuff
+
+- **TODO**: Look into https://github.com/zhaofengli/colmena
+
+# Other To Dos
+
 - **TODO**: check stuff during receive with a hook?
