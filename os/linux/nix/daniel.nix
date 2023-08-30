@@ -380,28 +380,27 @@
         };
 
         extraConfig = ''
-            user_pref
-            ("toolkit.legacyUserProfileCustomizations.stylesheets",
-            true);
+          user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
           // user_pref("full-screen-api.ignore-widgets", true);
           user_pref("media.ffmpeg.vaapi.enabled", true);
           user_pref("media.rdd-vpx.enabled", true);
         '';
 
         userChrome = ''
-          /* Remove close button*/ .titlebar-buttonbox-container{ display:none }
+          /* Remove close button */
+          .titlebar-buttonbox-container{ display:none }
 
           #webrtcIndicator {
-          display: none;
+            display: none;
           }
 
           #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar>.toolbar-items {
-          opacity: 0;
-          pointer-events: none;
+            opacity: 0;
+            pointer-events: none;
           }
 
           #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-          visibility: collapse !important;
+            visibility: collapse !important;
           }
         '';
 
