@@ -110,15 +110,12 @@
         command --quiet --search $argv[1]
       end
     '';
-    # TODO: load vars, colors, functions
     # TODO: rtx?
     # TODO: homebrew?
     # TODO: asdf?
     # TODO: direnv?
-    # TODO: prompt and key bindings
     # TODO: pass and pass-otp
     # TODO: kitty integration
-    # TODO: NICE_HOME?
     # TODO: zellij and/or tmux?
     functions = {
       d = ''
@@ -286,6 +283,7 @@
       function fish_mode_prompt; end
       function fish_right_prompt; end
 
+      # key bindings
       set normal_mode "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 
       bind -M insert \cg skim-cd-widget
