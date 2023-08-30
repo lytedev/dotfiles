@@ -155,6 +155,8 @@
         end
         echo $l
       '';
+
+      has_command = "command --quiet --search $argv[1]";
     };
     interactiveShellInit = ''
       # prompt
@@ -346,7 +348,6 @@
 
   programs.exa.enable = true;
 
-  # TODO: move all fish config into here so that this will work?
   programs.skim = {
     enable = true;
     enableFishIntegration = true;
