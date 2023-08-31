@@ -335,17 +335,13 @@ in
     };
   };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ];
-  # Or disable the firewall altogether.
   networking.firewall = {
-    enable = false;
+    enable = true;
     allowPing = true;
-    checkReversePath = "loose"; # needed for tailscale?
+    checkReversePath = "loose";
+    allowedTCPPorts = [ 22 ];
+    allowedUDPPorts = [ ];
   };
-
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
