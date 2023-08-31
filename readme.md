@@ -24,10 +24,7 @@ Or if using the Nix flake (note that this is hostname-dependent):
 <!-- TODO: verify this - or update the above method to simply call the following is nixos or home-manager? -->
 
 ```bash
-sudo nixos-rebuild --flake 'git+https://git.lyte.dev/lytedev/dotfiles?/os/linux/nix#?ref=nix' switch
-# or clone
-git clone https://git.lyte.dev/lytedev/dotfiles
-sudo nixos-rebuild --flake './dotfiles/os/linux/nix#' switch
+sudo nixos-rebuild --flake 'git+https://git.lyte.dev/lytedev/dotfiles?dir=/os/linux/nix#' switch
 ```
 
 # Screenshots

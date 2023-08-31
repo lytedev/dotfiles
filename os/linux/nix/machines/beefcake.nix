@@ -57,9 +57,9 @@
         group = services.api-lyte-dev.group;
       };
 
-      plausible-admin-password = {};
-      plausible-erlang-cookie = {};
-      plausible-secret-key-base = {};
+      plausible-admin-password = { };
+      plausible-erlang-cookie = { };
+      plausible-secret-key-base = { };
     };
   };
 
@@ -176,7 +176,7 @@
 
   # search for packages: `nix search $PACKAGE_NAME`
   environment.systemPackages = with pkgs; [
-    helix
+    inputs.helix.packages."x86_64-linux".helix
     zellij
     mosh
     btrfs-progs
