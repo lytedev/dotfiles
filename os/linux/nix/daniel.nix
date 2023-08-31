@@ -14,6 +14,20 @@
 
   ];
 
+  programs.password-store = {
+    enable = true;
+    package = (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]));
+  };
+
+  programs.zellij = {
+    # TODO: enable after port config
+    enable = false;
+    enableFishIntegration = true;
+    settings = {
+      # TODO: port config
+    };
+  };
+
   programs.broot = {
     enable = true;
     enableFishIntegration = true;
@@ -211,10 +225,6 @@
     # TODO: rtx?
     # TODO: homebrew?
     # TODO: asdf?
-    # TODO: direnv?
-    # TODO: pass and pass-otp
-    # TODO: kitty integration
-    # TODO: zellij and/or tmux?
     functions = {
       d = ''
         # --wraps=cd --description "Quickly jump to NICE_HOME (or given relative or absolute path) and list files."

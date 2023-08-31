@@ -204,7 +204,6 @@ in
     noto-fonts
     openssl
     pamixer
-    (pass.withExtensions (exts: [ exts.pass-otp ]))
     pavucontrol
     pciutils
     pgcli
@@ -223,6 +222,7 @@ in
     swaybg
     swayidle
     swaylock
+    tmux
     traceroute
     unzip
     vlc
@@ -236,6 +236,7 @@ in
     wofi
     xh
     zathura
+    zellij
     zstd
   ];
 
@@ -338,7 +339,7 @@ in
     enable = true;
     allowPing = true;
     checkReversePath = "loose";
-    allowedTCPPorts = [ 22 ];
+    allowedTCPPorts = [ ];
     allowedUDPPorts = [ ];
   };
 
