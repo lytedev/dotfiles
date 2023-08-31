@@ -398,6 +398,7 @@
 
   services.tailscale = {
     enable = true;
+    useRoutingFeatures = "server";
   };
 
   services.jellyfin = {
@@ -586,7 +587,6 @@
   networking.firewall = {
     enable = true;
     allowPing = true;
-    checkReversePath = "loose"; # needed for tailscale?
   };
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
