@@ -589,6 +589,9 @@
     checkReversePath = "loose"; # needed for tailscale?
   };
 
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+  boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
+
   # TODO: should I upgrade this?
 
   # This value determines the NixOS release from which the default

@@ -37,22 +37,40 @@
   };
 
   outputs = inputs: {
+    homeConfigurations =
+      let
+        system = "x86_64-linux";
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
+      in
+      {
+        daniel = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            (import
+              ./daniel.nix
+
+              pkgs)
+          ];
+        };
+      };
     nixosConfigurations = {
       beefcake = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
-        modules = let
-          ald = inputs.api-lyte-dev;
-          nomod = builtins.trace "hey" ald.nixosModules;
-        in [
-          ./machines/beefcake.nix
-          inputs.home-manager.nixosModules.home-manager
-          inputs.sops-nix.nixosModules.sops
-          nomod.x86_64-linux.api-lyte-dev
-          {
-            home-manager.useGlobalPkgs = true;
-          }
-        ];
+        modules =
+          let
+            ald = inputs.api-lyte-dev;
+            nomod = builtins.trace "hey" ald.nixosModules;
+          in
+          [
+            ./machines/beefcake.nix
+            inputs.home-manager.nixosModules.home-manager
+            inputs.sops-nix.nixosModules.sops
+            nomod.x86_64-linux.api-lyte-dev
+            {
+              home-manager.useGlobalPkgs = true;
+            }
+          ];
       };
 
       thinker = inputs.nixpkgs.lib.nixosSystem {
