@@ -253,6 +253,7 @@ in
 
   services.tailscale = {
     enable = true;
+    useRoutingFeatures = "client";
   };
 
   environment.variables = {
@@ -338,7 +339,6 @@ in
   networking.firewall = {
     enable = true;
     allowPing = true;
-    checkReversePath = "loose";
     allowedTCPPorts = [ ];
     allowedUDPPorts = [ ];
   };
