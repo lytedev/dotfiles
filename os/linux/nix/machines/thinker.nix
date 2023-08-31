@@ -165,7 +165,6 @@ in
     bind
     bottom
     brightnessctl
-    broot
     clang
     curl
     delta

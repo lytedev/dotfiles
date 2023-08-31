@@ -40,8 +40,6 @@ test -d ~/.tmux/pluginx/tpm || \
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 l common/zellij $c/zellij
 l common/tmux/conf $h/.tmux.conf
-l common/fish $c/fish
-l common/broot $c/broot
 l common/bat $c/bat
 l common/bash/rc $h/.bashrc
 l common/wezterm $c/wezterm
