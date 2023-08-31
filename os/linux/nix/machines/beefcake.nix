@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, ... }: rec {
+{ config, pkgs, inputs, ... }: rec {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
     ./beefcake-hardware.nix
