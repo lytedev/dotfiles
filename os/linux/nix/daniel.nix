@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   # TODO: email access?
   # accounts.email.accounts = {
   #   google = {
@@ -7,7 +7,7 @@
   # };
 
   home.username = "daniel";
-  home.homeDirectory = "/home/daniel/.home";
+  home.homeDirectory = lib.mkDefault "/home/daniel/.home";
   home.stateVersion = "23.05";
 
   home.packages = [
