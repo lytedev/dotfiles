@@ -1,7 +1,8 @@
 { disks ? [ "/dev/vda" ], ... }: {
   disko.devices = {
     disk = {
-      vdb = {
+      # TODO: would be nice to give this a good name?
+      primary = {
         type = "disk";
         device = builtins.elemAt disks 0;
         content = {
