@@ -58,15 +58,25 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules =
-          let
-            ald = inputs.api-lyte-dev;
-            nomod = builtins.trace "hey" ald.nixosModules;
-          in
           [
             ./machines/beefcake.nix
             inputs.home-manager.nixosModules.home-manager
             inputs.sops-nix.nixosModules.sops
-            nomod.x86_64-linux.api-lyte-dev
+            inputs.api-lyte-dev.nixosModules.x86_64-linux.api-lyte-dev
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.daniel = import ./daniel.nix;
+            }
+          ];
+      };
+
+      musicbox = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules =
+          [
+            inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
