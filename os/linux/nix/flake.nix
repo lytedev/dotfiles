@@ -69,6 +69,8 @@
             nomod.x86_64-linux.api-lyte-dev
             {
               home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.daniel = import ./daniel.nix;
             }
           ];
       };
