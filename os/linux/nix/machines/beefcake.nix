@@ -564,6 +564,8 @@
     };
   };
 
+  # TODO: https://nixos.wiki/wiki/Binary_Cache
+
   networking.firewall.allowedTCPPorts = [
     80 # http (caddy)
     443 # https (caddy)
