@@ -40,6 +40,7 @@ in
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  boot.loader.grub.devices = [ "/dev/sda" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
