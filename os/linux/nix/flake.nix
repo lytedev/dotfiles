@@ -76,6 +76,10 @@
         specialArgs = { inherit inputs; };
         modules =
           [
+            inputs.disko.nixosModules.disko
+            ./machines/musicbox-disks.nix
+            { _module.args.disks = [ "/dev/sda" ]; }
+            ./machines/musicbox.nix
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
